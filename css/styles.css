@@ -1,0 +1,232 @@
+:root { 
+  --purple-neon: #a855f7;
+  --purple-dark: #7e22ce;
+}
+
+/* --- Body centrado vertical y horizontal --- */
+body {
+  font-family: 'Bebas Neue', cursive, sans-serif;
+  background: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* ajusta si quieres centrar verticalmente toda la página */
+  min-height: 100vh;
+  margin: 0;
+  text-align: center;
+  transition: background 0.5s, color 0.5s;
+  padding: 2rem;
+}
+
+/* --- Modo oscuro --- */
+body.dark {
+  background: linear-gradient(135deg, #0a0a0a, #3b0764);
+  color: #f1f1f1;
+}
+
+/* --- Botón modo claro/oscuro --- */
+#modeToggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--purple-dark);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 50;
+  transition: 0.3s;
+}
+
+/* --- Carrusel --- */
+#carousel-text {
+  margin-top: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(0,0,0,0.5);
+  transition: opacity 0.3s;
+}
+
+/* --- Tab container --- */
+.tab-container {
+  border: 3px solid var(--purple-neon);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background-color: rgba(30, 27, 75, 0.95);
+  color: white;
+  margin-top: 2rem;
+  text-align: center;
+  transition: 0.5s;
+}
+
+body:not(.dark) .tab-container {
+  background: white;
+  color: black;
+  border-color: var(--purple-dark);
+}
+
+.tab-btn[aria-selected="true"] {
+  background: var(--purple-dark);
+  color: white;
+  box-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+.tab-content.hidden { display: none; }
+
+/* --- Videos centrados y responsivos --- */
+.responsive-video {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  margin: 1rem auto;
+}
+
+.responsive-video iframe {
+  position: absolute;
+  top:0; left:0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* --- Imagen redonda centrada --- */
+img.rounded-full {
+  border: 4px solid white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  display: block;
+  margin: 0 auto;
+}
+
+/* --- Redes sociales centradas --- */
+.redes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+/* Modo oscuro en toda la página */
+html.dark {
+  background: linear-gradient(135deg, #0a0a0a, #3b0764);
+  color: #f1f1f1;
+}
+
+/* Tab container modo oscuro */
+html.dark .tab-container {
+  background-color: rgba(30, 27, 75, 0.95);
+  color: white;
+  border-color: var(--purple-neon);
+}
+html.dark {
+  background: linear-gradient(135deg, #0a0a0a, #3b0764);
+  color: #f1f1f1;
+}
+
+html.dark .tab-container {
+  background-color: rgba(30, 27, 75, 0.95);
+  color: white;
+  border-color: var(--purple-neon);
+}
+/* --- Nombre principal RAFA 930 --- */
+#carousel-text {
+  margin-top: 2rem;
+  font-size: 3rem; /* antes 2rem, ahora más grande */
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(0,0,0,0.5);
+  transition: opacity 0.3s;
+}
+
+/* Para pantallas grandes */
+@media(min-width:768px){
+  #carousel-text {
+    font-size: 5rem; /* más grande en desktop */
+  }
+}
+
+#carousel-text {
+  color: var(--white-neon);
+  text-shadow:
+    0 0 5px var(--white-neon),
+    0 0 10px var(--white-neon),
+    0 0 20px var(--white-neon);
+}
+
+/* Contenedor del perfil: foto y nombre horizontal y centrado */
+.perfil-container {
+  display: flex;
+  align-items: center; /* centra verticalmente la foto con el texto */
+  justify-content: center; /* centra horizontalmente en la página */
+  gap: 2rem; /* espacio entre foto y nombre */
+  margin-top: 2rem;
+}
+
+/* Foto redonda */
+.perfil-foto {
+  width: 150px; /* tamaño de la foto */
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid white;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+/* Nombre RAFA 930 */
+h1.text-neon {
+  font-size: 4rem; /* antes 3rem */
+  color: white; /* por defecto modo oscuro */
+  text-shadow: 0 0 12px rgba(0,0,0,0.5);
+  margin: 0;
+  transition: color 0.5s;
+}
+
+body:not(.dark) h1.text-neon {
+  color: black; /* en modo claro */
+}
+
+/* Foto redonda */
+.perfil-foto {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid currentColor; /* el borde sigue el color del texto */
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: border-color 0.5s;
+}
+
+body:not(.dark) .perfil-foto {
+  border-color: black; /* borde negro en modo claro */
+}
+
+/* Contenedor de perfil */
+.perfil-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+/* Contenedor responsive */
+.responsive-video {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  margin: 1rem auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+}
+
+/* Iframe dentro del contenedor */
+.responsive-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}

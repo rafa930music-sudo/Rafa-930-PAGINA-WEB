@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RAFA 930</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <button id="modeToggle" class="px-4 py-2 rounded font-bold z-50">Modo Claro</button>
+
+  <header class="w-full relative text-center py-16">
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover -z-10">
+      <source src="videos/276047_medium.mp4" type="video/mp4">
+    </video>
+    <div id="carousel-text" class="text-4xl md:text-6xl font-bold drop-shadow-lg opacity-100">Rafa 930</div>
+  </header>
+
+<div class="perfil-container">
+  <img src="images/521593741_17984688833844485_1863791024957518906_n.jpg"
+       alt="Foto Rafa 930"
+       class="perfil-foto rounded-full"/>
+  <h1 class="text-neon">RAFA 930</h1>
+</div>
+
+  <section class="tab-container max-w-5xl w-full mt-8">
+    <h2 class="text-2xl text-center mb-4 font-semibold">Más Información</h2>
+    <div class="flex justify-center gap-4 mb-4" role="tablist">
+      <button class="tab-btn px-4 py-2 rounded bg-purple-600 text-white" data-tab="bio" aria-selected="true">Biografía</button>
+      <button class="tab-btn px-4 py-2 rounded bg-purple-600 text-white" data-tab="contact" aria-selected="false">Contacto</button>
+    </div>
+    <div id="bio" class="tab-content">
+      <p class="text-center">Rafa 930, la nueva voz de la música urbana española, combina estilo auténtico y letras que llegan al corazón.</p>
+    </div>
+    <div id="contact" class="tab-content hidden">
+      <p class="text-center">Consultas profesionales: 
+        <a href="mailto:rafa930.music@gmail.com" class="underline text-purple-700 font-bold">rafa930.music@gmail.com</a>
+      </p>
+    </div>
+  </section>
+
+
+
+  <!-- Redes Sociales -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 w-full max-w-4xl">
+    <a href="https://youtube.com/@rafa_930?sub_confirmation=1" target="_blank" 
+       class="flex flex-col items-center justify-center gap-3 p-6 rounded-xl bg-red-600 text-white shadow-lg hover:scale-105 transition">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" class="w-12 h-12 invert">
+      <span class="text-xl font-bold">YouTube</span>
+    </a>
+    <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" target="_blank" 
+       class="flex flex-col items-center justify-center gap-3 p-6 rounded-xl bg-green-600 text-white shadow-lg hover:scale-105 transition">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/spotify.svg" alt="Spotify" class="w-12 h-12 invert">
+      <span class="text-xl font-bold">Spotify</span>
+    </a>
+    <a href="https://www.instagram.com/rafa930_oficial/" target="_blank" 
+       class="flex flex-col items-center justify-center gap-3 p-6 rounded-xl bg-pink-500 text-white shadow-lg hover:scale-105 transition">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" class="w-12 h-12 invert">
+      <span class="text-xl font-bold">Instagram</span>
+    </a>
+  </div>
+  
+  <!-- Sección de videos -->
+<section class="w-full max-w-6xl mt-12 text-center">
+  <h2 class="text-3xl mb-6 font-semibold">Recientes</h2>
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div class="responsive-video"><iframe src="https://www.youtube.com/embed/9FYW3Fm87bE" allowfullscreen></iframe></div>
+    <div class="responsive-video"><iframe src="https://www.youtube.com/embed/lCwhG67eijs" allowfullscreen></iframe></div>
+    <div class="responsive-video"><iframe src="https://www.youtube.com/embed/xmsik3kHRSA" allowfullscreen></iframe></div>
+  </div>
+</section>
+
+<section class="w-full max-w-6xl mt-12 text-center">
+    <h2 class="text-3xl mt-12 mb-6 text-center font-semibold">Populares</h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="responsive-video"><iframe src="https://www.youtube.com/embed/NrNrBNANZH4" allowfullscreen></iframe></div>
+      <div class="responsive-video"><iframe src="https://www.youtube.com/embed/5iHV8mwszZI" allowfullscreen></iframe></div>
+      <div class="responsive-video"><iframe src="https://www.youtube.com/embed/pDtcFZTg9wE" allowfullscreen></iframe></div>
+    </div>
+</section>
+
+<section class="w-full max-w-6xl mt-12 text-center">
+    <h2 class="text-3xl mt-12 mb-6 text-center font-semibold">Más Antiguos</h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="responsive-video"><iframe src="https://www.youtube.com/embed/UMeQQlDoHUI" allowfullscreen></iframe></div>
+      <div class="responsive-video"><iframe src="https://www.youtube.com/embed/ZPQAlHHFtik" allowfullscreen></iframe></div>
+      <div class="responsive-video"><iframe src="https://www.youtube.com/embed/eqGaPh3jI8Q" allowfullscreen></iframe></div>
+    </div>
+  </section>
+
+  <!-- Script -->
+
+<script src="js/main.js"></script>
+</body>
+</html>
