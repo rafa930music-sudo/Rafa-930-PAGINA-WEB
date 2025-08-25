@@ -230,3 +230,23 @@ body:not(.dark) .perfil-foto {
   height: 100%;
   border: 0;
 }
+.neon-red {
+  color: #ffff33; /* amarillo brillante para el texto interior */
+  text-decoration: underline;
+  font-weight: bold;
+  text-shadow:
+    0 0 6px #ff1a1a,   /* resplandor cercano rojo */
+    0 0 12px #ff1a1a,  /* halo medio */
+    0 0 24px #ff3333,  /* halo ancho */
+    0 0 48px #ff4d4d;  /* resplandor exterior */
+  transition: all 0.3s ease-in-out;
+}
+
+.neon-red:hover {
+  color: #ffff99; /* amarillo más claro al pasar el mouse */
+  text-shadow:
+    0 0 8px #ff1a1a,
+    0 0 16px #ff3333,
+    0 0 32px #ff4d4d,
+    0 0 64px #ff6666;
+}
