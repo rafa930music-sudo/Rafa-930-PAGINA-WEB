@@ -249,4 +249,26 @@ body:not(.dark) .perfil-foto {
     0 0 16px #ff3333,
     0 0 32px #ff4d4d,
     0 0 64px #ff6666;
+  } 
+/* --- Texto carrusel RAFA 930 versión lila-blanco neón brillante --- */
+#carousel-text {
+  font-family: 'Bebas Neue', cursive;
+  font-weight: bold;
+  font-size: 5rem;
+  color: #fdfdff; /* casi blanco */
+  text-shadow:
+    0 0 8px #ffffff,    /* brillo blanco fuerte */
+    0 0 16px #ffffff,   /* halo blanco más grande */
+    0 0 24px #c084fc,   /* lila brillante */
+    0 0 48px #a855f7,   /* violeta intenso */
+    0 0 96px #9333ea,   /* halo exterior */
+    0 0 128px #e879f9;  /* aura extra amplia */
+  transition: opacity 0.3s;
+}
+
+/* Pantallas grandes */
+@media(min-width:768px){
+  #carousel-text {
+    font-size: 7rem;
+  }
 }

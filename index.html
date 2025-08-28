@@ -4,26 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pagina Web - RAFA 930</title>
+  <link rel="icon" type="image/png" href= "images/Diseño_sin_título-removebg-preview.png">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+<header class="w-full relative text-center py-16 overflow-hidden">
+  
+  <!-- Video modo claro -->
+  <video id="videoLight" autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100 -z-10">
+    <source src="videos/276047_medium.mp4" type="video/mp4">
+  </video>
 
-  <button id="modeToggle" class="px-4 py-2 rounded font-bold z-50">Modo Claro</button>
+  <!-- Video modo oscuro -->
+  <video id="videoDark" autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0 -z-10">
+    <source src="videos/71122-537102350_medium.mp4" type="video/mp4">
+  </video>
 
-  <header class="w-full relative text-center py-16">
-    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover -z-10">
-      <source src="videos/276047_medium.mp4" type="video/mp4">
-    </video>
-    <div id="carousel-text" class="text-4xl md:text-6xl font-bold drop-shadow-lg opacity-100">Rafa 930</div>
-  </header>
+  <!-- Overlay para mejorar contraste -->
+  <div id="overlay" class="absolute inset-0 bg-black/30 transition-colors duration-1000 -z-10"></div>
+
+  <div id="carousel-text" class="relative z-10 px-4 py-2 text-4xl md:text-6xl font-bold drop-shadow-lg transition-opacity duration-500"
+     style="font-family: 'Bebas Neue', cursive;">
+  Rafa 930
+</div>
+
+</header>
+
+<button id="modeToggle" class="px-4 py-2 rounded font-bold z-50 fixed top-4 right-4 bg-white text-black">Modo Claro</button>
 
 <div class="perfil-container">
   <img src="images/521593741_17984688833844485_1863791024957518906_n.jpg"
        alt="Foto Rafa 930"
        class="perfil-foto rounded-full"/>
-  <h1 class="text-lg sm:text-xl md:text-2xl text-neon">RAFA 930</h1>
+<h1 id="perfilTitle" class="text-lg sm:text-xl md:text-2xl text-neon">RAFA 930</h1>
 </div>
 
   <section class="tab-container max-w-5xl w-full mt-8">
@@ -35,14 +50,25 @@
     <div id="bio" class="tab-content">
       <p class="text-center">Rafa 930, la nueva voz de la música urbana española, combina estilo auténtico y letras que llegan al corazón.</p>
     </div>
-    <div id="contact" class="tab-content hidden">
-      <p class="text-center">Consultas profesionales: 
-       <a href="https://mail.google.com/mail/?view=cm&to=rafa930.music@gmail.com&su=Consulta%20Musical&body=Hola%20Rafa,%0A%0AMe%20gustaría%20contactarte%20sobre..." 
-   target="_blank" 
-   class= "neon-red">
-   rafa930.music@gmail.com
-</a>
-    </div>
+    
+    <div id="contact" class="tab-content hidden flex justify-center gap-6">
+  <!-- Tarjeta Gmail -->
+  <a href="https://mail.google.com/mail/?view=cm&to=rafa930.music@gmail.com&su=Consulta%20Musical&body=Hola%20Rafa,%0A%0AMe%20gustaría%20contactarte%20sobre..." 
+     target="_blank" 
+     class="flex flex-col items-center justify-center gap-2 p-6 rounded-xl bg-red-600 text-white shadow-lg hover:scale-105 transition w-64">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Gmail" class="w-12 h-12 invert">
+    <span class="text-xl font-bold">Rafa930.music@gmail.com</span>
+  </a>
+
+  <!-- Tarjeta WhatsApp -->
+  <a href="https://api.whatsapp.com/send?phone=34671591814&text=%E2%80%9CHola%20Rafa%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20m%C3%BAsica.%E2%80%9D" 
+     target="_blank" 
+     class="flex flex-col items-center justify-center gap-2 p-6 rounded-xl bg-green-500 text-white shadow-lg hover:scale-105 transition w-64">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" class="w-12 h-12 invert">
+    <span class="text-xl font-bold">+34 671 591 814</span>
+  </a>
+</div>
+
   </section>
 
 

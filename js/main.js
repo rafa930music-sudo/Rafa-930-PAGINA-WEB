@@ -1,29 +1,65 @@
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
-  const btn = document.getElementById('modeToggle');
+  const modeToggle = document.getElementById("modeToggle");
+  const videoLight = document.getElementById("videoLight");
+  const videoDark = document.getElementById("videoDark");
+  const overlay = document.getElementById("overlay");
+  const carouselText = document.getElementById("carousel-text");
+  const perfilTitle = document.getElementById("perfilTitle");
 
   // Restaurar preferencia guardada
-  if (localStorage.getItem('darkMode') === "true") {
-    body.classList.add('dark');
-    btn.textContent = "Modo Oscuro";
-  } else {
-    body.classList.remove('dark');
-    btn.textContent = "Modo Claro";
-  }
+  let darkMode = localStorage.getItem("darkMode") === "true";
+  aplicarModo(darkMode);
 
-  // Cambiar modo al hacer clic
-  btn.addEventListener("click", () => {
-    body.classList.toggle('dark');
-    const isDark = body.classList.contains('dark');
-    btn.textContent = isDark ? "Modo Oscuro" : "Modo Claro";
-    localStorage.setItem('darkMode', isDark);
+  modeToggle.addEventListener("click", () => {
+    darkMode = !darkMode;
+    localStorage.setItem("darkMode", darkMode);
+    aplicarModo(darkMode);
   });
+function aplicarModo(isDark) {
+  const perfilTitle = document.getElementById("perfilTitle");
 
-  // --- Carrusel de frases ---
+  if (isDark) {
+    // Header
+    videoLight.style.opacity = "0";
+    videoDark.style.opacity = "1";
+    overlay.style.backgroundColor = "rgba(131,12,196,0.5)"; // overlay semi-transparente
+
+    // Fondo y texto general con gradiente violeta difuminado
+    body.style.background = "linear-gradient(135deg, #830cc4 0%, #5a0ca3 100%)";
+    body.style.color = "white";
+
+    // Título perfil
+    perfilTitle.style.color = "white";
+
+    // Botón
+    modeToggle.textContent = "Modo Oscuro";
+    modeToggle.style.backgroundColor = "#5a0ca3"; // botón violeta más oscuro
+    modeToggle.style.color = "white";
+  } else {
+    // Header
+    videoLight.style.opacity = "1";
+    videoDark.style.opacity = "0";
+    overlay.style.backgroundColor = "rgba(0,0,0,0.3)";
+
+    // Fondo y texto general
+    body.style.background = "white";
+    body.style.color = "black";
+
+    // Título perfil
+    perfilTitle.style.color = "black";
+
+    // Botón
+    modeToggle.textContent = "Modo Claro";
+    modeToggle.style.backgroundColor = "white";
+    modeToggle.style.color = "black";
+  }
+}
+
+
+  // Carrusel de frases
   const frases = ["Rafa 930", "LA MINA", "930"];
-  const carouselText = document.getElementById("carousel-text");
   let i = 0;
-
   setInterval(() => {
     carouselText.style.opacity = 0;
     setTimeout(() => {
@@ -33,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 300);
   }, 2000);
 
-  // --- Pestañas ---
+  // Pestañas
   const tabs = document.querySelectorAll(".tab-btn");
   const panels = document.querySelectorAll(".tab-content");
 
@@ -46,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // --- Enlaces de email ---
+  // Enlaces de email
   function setupEmailLink(elementId, email) {
     const el = document.getElementById(elementId);
     if(el){
