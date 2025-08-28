@@ -12,15 +12,15 @@
 <body>
 <header class="w-full relative text-center py-16 overflow-hidden">
   
-  <!-- Video modo claro -->
-  <video id="videoLight" autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100 -z-10">
-    <source src="videos/276047_medium.mp4" type="video/mp4">
-  </video>
+  <!-- Imagen modo claro -->
+  <img id="imgLight" src="images/edificios-centricos-de-los-angeles-en-la-noche.jpg"
+       alt="Fondo Claro" 
+       class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100 -z-10">
 
-  <!-- Video modo oscuro -->
-  <video id="videoDark" autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0 -z-10">
-    <source src="videos/71122-537102350_medium.mp4" type="video/mp4">
-  </video>
+  <!-- Imagen modo oscuro -->
+  <img id="imgDark" src="images/Diseño sin título (1).png"
+       alt="Fondo Oscuro" 
+       class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0 -z-10">
 
   <!-- Overlay para mejorar contraste -->
   <div id="overlay" class="absolute inset-0 bg-black/30 transition-colors duration-1000 -z-10"></div>

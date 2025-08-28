@@ -255,15 +255,15 @@ body:not(.dark) .perfil-foto {
   font-family: 'Bebas Neue', cursive;
   font-weight: bold;
   font-size: 5rem;
-  color: #fdfdff; /* casi blanco */
+  color: #ffffff; /* casi blanco */
   text-shadow:
     0 0 8px #ffffff,    /* brillo blanco fuerte */
     0 0 16px #ffffff,   /* halo blanco más grande */
     0 0 24px #c084fc,   /* lila brillante */
-    0 0 48px #a855f7,   /* violeta intenso */
-    0 0 96px #9333ea,   /* halo exterior */
-    0 0 128px #e879f9;  /* aura extra amplia */
-  transition: opacity 0.3s;
+    0 0 48px #6c17bc,   /* violeta intenso */
+    0 0 96px #9340e0,   /* halo exterior */
+    0 0 128px #fafafa;  /* aura extra amplia */
+  transition: opacity 0.4s;
 }
 
 /* Pantallas grandes */

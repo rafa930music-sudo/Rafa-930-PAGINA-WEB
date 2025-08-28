@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
   const modeToggle = document.getElementById("modeToggle");
-  const videoLight = document.getElementById("videoLight");
-  const videoDark = document.getElementById("videoDark");
+  const imgLight = document.getElementById("imgLight");
+  const imgDark = document.getElementById("imgDark");
   const overlay = document.getElementById("overlay");
   const carouselText = document.getElementById("carousel-text");
   const perfilTitle = document.getElementById("perfilTitle");
@@ -16,46 +16,43 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("darkMode", darkMode);
     aplicarModo(darkMode);
   });
-function aplicarModo(isDark) {
-  const perfilTitle = document.getElementById("perfilTitle");
 
-  if (isDark) {
-    // Header
-    videoLight.style.opacity = "0";
-    videoDark.style.opacity = "1";
-    overlay.style.backgroundColor = "rgba(131,12,196,0.5)"; // overlay semi-transparente
+  function aplicarModo(isDark) {
+    if (isDark) {
+      // Header (mostrar fondo oscuro)
+      imgLight.style.opacity = "0";
+      imgDark.style.opacity = "1";
+    
+      // Fondo y texto general con gradiente
+      body.style.background = "linear-gradient(135deg, #830cc4 0%, #5a0ca3 100%)";
+      body.style.color = "white";
 
-    // Fondo y texto general con gradiente violeta difuminado
-    body.style.background = "linear-gradient(135deg, #830cc4 0%, #5a0ca3 100%)";
-    body.style.color = "white";
+      // Título perfil
+      perfilTitle.style.color = "white";
 
-    // Título perfil
-    perfilTitle.style.color = "white";
+      // Botón
+      modeToggle.textContent = "Modo Oscuro";
+      modeToggle.style.backgroundColor = "#5a0ca3";
+      modeToggle.style.color = "white";
+    } else {
+      // Header (mostrar fondo claro)
+      imgLight.style.opacity = "1";
+      imgDark.style.opacity = "0";
+      overlay.style.backgroundColor = "rgba(0,0,0,0.3)";
 
-    // Botón
-    modeToggle.textContent = "Modo Oscuro";
-    modeToggle.style.backgroundColor = "#5a0ca3"; // botón violeta más oscuro
-    modeToggle.style.color = "white";
-  } else {
-    // Header
-    videoLight.style.opacity = "1";
-    videoDark.style.opacity = "0";
-    overlay.style.backgroundColor = "rgba(0,0,0,0.3)";
+      // Fondo y texto general
+      body.style.background = "white";
+      body.style.color = "black";
 
-    // Fondo y texto general
-    body.style.background = "white";
-    body.style.color = "black";
+      // Título perfil
+      perfilTitle.style.color = "black";
 
-    // Título perfil
-    perfilTitle.style.color = "black";
-
-    // Botón
-    modeToggle.textContent = "Modo Claro";
-    modeToggle.style.backgroundColor = "white";
-    modeToggle.style.color = "black";
+      // Botón
+      modeToggle.textContent = "Modo Claro";
+      modeToggle.style.backgroundColor = "white";
+      modeToggle.style.color = "black";
+    }
   }
-}
-
 
   // Carrusel de frases
   const frases = ["Rafa 930", "LA MINA", "930"];
@@ -102,8 +99,7 @@ function aplicarModo(isDark) {
   setupEmailLink("headerEmail", "rafa930.music@gmail.com");
   setupEmailLink("nameEmail", "rafa930.music@gmail.com");
   setupEmailLink("contactEmail", "rafa930.music@gmail.com");
-});
-const perfilTitle = document.getElementById("perfilTitle");
 
-// Cambiar tamaño de texto
-perfilTitle.style.fontSize = "3rem"; // ejemplo: 3rem = 48px
+  // Ajuste de tamaño del título del perfil
+  perfilTitle.style.fontSize = "3rem"; 
+});
