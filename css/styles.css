@@ -272,3 +272,34 @@ body:not(.dark) .perfil-foto {
     font-size: 7rem;
   }
 }
+  .contact-card {
+    flex: 1 1 250px; /* Crece y se encoge de manera proporcional, mínimo 250px */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+    min-height: 200px; /* Altura mínima igual para ambas */
+  }
+
+  .contact-card img {
+    width: 48px;
+    height: 48px;
+    filter: invert(1);
+  }
+
+  .contact-card span {
+    font-size: 1.25rem;
+    font-weight: bold;
+    word-break: break-word;
+  }
+
+  .contact-card:hover {
+    transform: scale(1.05);
+  }
