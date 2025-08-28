@@ -103,3 +103,7 @@ function aplicarModo(isDark) {
   setupEmailLink("nameEmail", "rafa930.music@gmail.com");
   setupEmailLink("contactEmail", "rafa930.music@gmail.com");
 });
+const perfilTitle = document.getElementById("perfilTitle");
+
+// Cambiar tamaño de texto
+perfilTitle.style.fontSize = "3rem"; // ejemplo: 3rem = 48px
