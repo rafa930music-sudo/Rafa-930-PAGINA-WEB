@@ -265,41 +265,43 @@ body:not(.dark) .perfil-foto {
     0 0 128px #fafafa;  /* aura extra amplia */
   transition: opacity 0.4s;
 }
-
 /* Pantallas grandes */
-@media(min-width:768px){
+@media (min-width:768px) {
   #carousel-text {
     font-size: 7rem;
   }
-}
-  .contact-card {
-    flex: 1 1 250px; /* Crece y se encoge de manera proporcional, mínimo 250px */
+
+  .lane {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    color: #666;
+    text-shadow: 0 0 8px var(--purple-neon), 0 0 20px var(--purple-dark);
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    gap: 1rem;
-    padding: 1.5rem;
-    border-radius: 1rem;
+    align-items: flex-end;
+    position: relative;  /* importante para que .note sea absoluta respecto a la lane */
+    overflow: hidden;
+    border-top: 2px solid #333;
+  }
+
+  .lane.active {
+    background: linear-gradient(180deg, #111, var(--purple-neon));
+    box-shadow: inset 0 0 20px var(--purple-neon);
     color: white;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
-    min-height: 200px; /* Altura mínima igual para ambas */
   }
-
-  .contact-card img {
-    width: 48px;
-    height: 48px;
-    filter: invert(1);
-  }
-
-  .contact-card span {
-    font-size: 1.25rem;
-    font-weight: bold;
-    word-break: break-word;
-  }
-
-  .contact-card:hover {
-    transform: scale(1.05);
-  }
+}
+.note {
+  position: absolute;
+  top: -40px;
+  width: 80%;
+  height: 35px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--purple-neon), var(--purple-dark), #22d3ee);
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+@keyframes fall {
+  from { top: -40px; opacity: 1; }
+  to { top: calc(100% - 35px); opacity: 0.8; }
+}

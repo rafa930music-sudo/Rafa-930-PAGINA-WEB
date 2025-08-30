@@ -102,4 +102,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Ajuste de tamaño del título del perfil
   perfilTitle.style.fontSize = "3rem"; 
-});
+}) ; 
