@@ -1,9 +1,16 @@
-:root { 
+/* ==============================
+   Variables globales
+============================== */
+:root {
   --purple-neon: #a855f7;
   --purple-dark: #7e22ce;
+  --yellow-neon: #ffff33;
+  --white-neon: #ffffff;
 }
 
-/* --- Body centrado vertical y horizontal --- */
+/* ==============================
+   Body y modos de color
+============================== */
 body {
   font-family: 'Bebas Neue', cursive, sans-serif;
   background: white;
@@ -11,21 +18,22 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* ajusta si quieres centrar verticalmente toda la página */
+  justify-content: flex-start;
   min-height: 100vh;
   margin: 0;
+  padding: 2rem;
   text-align: center;
   transition: background 0.5s, color 0.5s;
-  padding: 2rem;
 }
 
-/* --- Modo oscuro --- */
 body.dark {
   background: linear-gradient(135deg, #0a0a0a, #3b0764);
   color: #f1f1f1;
 }
 
-/* --- Botón modo claro/oscuro --- */
+/* ==============================
+   Botón modo oscuro/claro
+============================== */
 #modeToggle {
   position: fixed;
   top: 1rem;
@@ -37,19 +45,78 @@ body.dark {
   cursor: pointer;
   font-weight: bold;
   z-index: 50;
-  transition: 0.3s;
+  transition: background 0.3s, transform 0.3s;
 }
 
-/* --- Carrusel --- */
+#modeToggle:hover {
+  transform: scale(1.05);
+}
+
+/* ==============================
+   Texto principal (RAFA 930 carrusel)
+============================== */
 #carousel-text {
   margin-top: 2rem;
-  font-size: 2rem;
+  font-family: 'Bebas Neue', cursive;
   font-weight: bold;
-  text-shadow: 0 0 8px rgba(0,0,0,0.5);
-  transition: opacity 0.3s;
+  font-size: 5rem;
+  color: var(--white-neon);
+  text-shadow:
+    0 0 8px #ffffff,
+    0 0 16px #ffffff,
+    0 0 24px #c084fc,
+    0 0 48px #6c17bc,
+    0 0 96px #9340e0,
+    0 0 128px #fafafa;
+  transition: opacity 0.4s;
 }
 
-/* --- Tab container --- */
+@media(min-width:768px) {
+  #carousel-text {
+    font-size: 7rem;
+  }
+}
+
+/* ==============================
+   Perfil (foto + nombre)
+============================== */
+.perfil-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.perfil-foto {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid currentColor;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: border-color 0.5s;
+}
+
+body:not(.dark) .perfil-foto {
+  border-color: black;
+}
+
+h1.text-neon {
+  font-size: 4rem;
+  color: white;
+  text-shadow: 0 0 12px rgba(0,0,0,0.5);
+  margin: 0;
+  transition: color 0.5s;
+}
+
+body:not(.dark) h1.text-neon {
+  color: black;
+}
+
+/* ==============================
+   Tab container
+============================== */
 .tab-container {
   border: 3px solid var(--purple-neon);
   border-radius: 1rem;
@@ -73,36 +140,35 @@ body:not(.dark) .tab-container {
   box-shadow: 0 0 10px rgba(255,255,255,0.5);
 }
 
-.tab-content.hidden { display: none; }
+.tab-content.hidden {
+  display: none;
+}
 
-/* --- Videos centrados y responsivos --- */
+/* ==============================
+   Videos responsivos
+============================== */
 .responsive-video {
   position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  margin: 1rem auto;
   border-radius: 12px;
   overflow: hidden;
   background: #000;
-  margin: 1rem auto;
 }
 
 .responsive-video iframe {
   position: absolute;
-  top:0; left:0;
+  top:0;
+  left:0;
   width: 100%;
   height: 100%;
   border: 0;
 }
 
-/* --- Imagen redonda centrada --- */
-img.rounded-full {
-  border: 4px solid white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  display: block;
-  margin: 0 auto;
-}
-
-/* --- Redes sociales centradas --- */
+/* ==============================
+   Redes sociales
+============================== */
 .redes {
   display: flex;
   justify-content: center;
@@ -110,186 +176,53 @@ img.rounded-full {
   gap: 1rem;
   margin-top: 2rem;
 }
-/* Modo oscuro en toda la página */
-html.dark {
-  background: linear-gradient(135deg, #0a0a0a, #3b0764);
-  color: #f1f1f1;
-}
 
-/* Tab container modo oscuro */
-html.dark .tab-container {
-  background-color: rgba(30, 27, 75, 0.95);
-  color: white;
-  border-color: var(--purple-neon);
-}
-html.dark {
-  background: linear-gradient(135deg, #0a0a0a, #3b0764);
-  color: #f1f1f1;
-}
-
-html.dark .tab-container {
-  background-color: rgba(30, 27, 75, 0.95);
-  color: white;
-  border-color: var(--purple-neon);
-}
-/* --- Nombre principal RAFA 930 --- */
-#carousel-text {
-  margin-top: 2rem;
-  font-size: 3rem; /* antes 2rem, ahora más grande */
-  font-weight: bold;
-  text-shadow: 0 0 8px rgba(0,0,0,0.5);
-  transition: opacity 0.3s;
-}
-
-/* Para pantallas grandes */
-@media(min-width:768px){
-  #carousel-text {
-    font-size: 5rem; /* más grande en desktop */
-  }
-}
-
-#carousel-text {
-  color: var(--white-neon);
-  text-shadow:
-    0 0 5px var(--white-neon),
-    0 0 10px var(--white-neon),
-    0 0 20px var(--white-neon);
-}
-
-/* Contenedor del perfil: foto y nombre horizontal y centrado */
-.perfil-container {
-  display: flex;
-  align-items: center; /* centra verticalmente la foto con el texto */
-  justify-content: center; /* centra horizontalmente en la página */
-  gap: 2rem; /* espacio entre foto y nombre */
-  margin-top: 2rem;
-}
-
-/* Foto redonda */
-.perfil-foto {
-  width: 150px; /* tamaño de la foto */
-  height: 150px;
-  border-radius: 50%;
-  border: 4px solid white;
-  object-fit: cover;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
-/* Nombre RAFA 930 */
-h1.text-neon {
-  font-size: 4rem; /* antes 3rem */
-  color: white; /* por defecto modo oscuro */
-  text-shadow: 0 0 12px rgba(0,0,0,0.5);
-  margin: 0;
-  transition: color 0.5s;
-}
-
-body:not(.dark) h1.text-neon {
-  color: black; /* en modo claro */
-}
-
-/* Foto redonda */
-.perfil-foto {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 4px solid currentColor; /* el borde sigue el color del texto */
-  object-fit: cover;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  transition: border-color 0.5s;
-}
-
-body:not(.dark) .perfil-foto {
-  border-color: black; /* borde negro en modo claro */
-}
-
-/* Contenedor de perfil */
-.perfil-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-/* Contenedor responsive */
-.responsive-video {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* 16:9 ratio */
-  margin: 1rem auto;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #000;
-}
-
-/* Iframe dentro del contenedor */
-.responsive-video iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
+/* ==============================
+   Texto neón alternativo (amarillo/rojo)
+============================== */
 .neon-red {
-  color: #ffff33; /* amarillo brillante para el texto interior */
+  color: var(--yellow-neon);
   text-decoration: underline;
   font-weight: bold;
   text-shadow:
-    0 0 6px #ff1a1a,   /* resplandor cercano rojo */
-    0 0 12px #ff1a1a,  /* halo medio */
-    0 0 24px #ff3333,  /* halo ancho */
-    0 0 48px #ff4d4d;  /* resplandor exterior */
+    0 0 6px #ff1a1a,
+    0 0 12px #ff1a1a,
+    0 0 24px #ff3333,
+    0 0 48px #ff4d4d;
   transition: all 0.3s ease-in-out;
 }
 
 .neon-red:hover {
-  color: #ffff99; /* amarillo más claro al pasar el mouse */
+  color: #ffff99;
   text-shadow:
     0 0 8px #ff1a1a,
     0 0 16px #ff3333,
     0 0 32px #ff4d4d,
     0 0 64px #ff6666;
-  } 
-/* --- Texto carrusel RAFA 930 versión lila-blanco neón brillante --- */
-#carousel-text {
-  font-family: 'Bebas Neue', cursive;
-  font-weight: bold;
-  font-size: 5rem;
-  color: #ffffff; /* casi blanco */
-  text-shadow:
-    0 0 8px #ffffff,    /* brillo blanco fuerte */
-    0 0 16px #ffffff,   /* halo blanco más grande */
-    0 0 24px #c084fc,   /* lila brillante */
-    0 0 48px #6c17bc,   /* violeta intenso */
-    0 0 96px #9340e0,   /* halo exterior */
-    0 0 128px #fafafa;  /* aura extra amplia */
-  transition: opacity 0.4s;
 }
-/* Pantallas grandes */
-@media (min-width:768px) {
-  #carousel-text {
-    font-size: 7rem;
-  }
 
-  .lane {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.5rem;
-    color: #666;
-    text-shadow: 0 0 8px var(--purple-neon), 0 0 20px var(--purple-dark);
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    position: relative;  /* importante para que .note sea absoluta respecto a la lane */
-    overflow: hidden;
-    border-top: 2px solid #333;
-  }
-
-  .lane.active {
-    background: linear-gradient(180deg, #111, var(--purple-neon));
-    box-shadow: inset 0 0 20px var(--purple-neon);
-    color: white;
-  }
+/* ==============================
+   Pistas musicales (lanes + notas)
+============================== */
+.lane {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  color: #666;
+  text-shadow: 0 0 8px var(--purple-neon), 0 0 20px var(--purple-dark);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+  border-top: 2px solid #333;
 }
+
+.lane.active {
+  background: linear-gradient(180deg, #111, var(--purple-neon));
+  box-shadow: inset 0 0 20px var(--purple-neon);
+  color: white;
+}
+
 .note {
   position: absolute;
   top: -40px;
@@ -297,10 +230,9 @@ body:not(.dark) .perfil-foto {
   height: 35px;
   border-radius: 6px;
   background: linear-gradient(90deg, var(--purple-neon), var(--purple-dark), #22d3ee);
-  animation-name: fall;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
+  animation: fall linear forwards;
 }
+
 @keyframes fall {
   from { top: -40px; opacity: 1; }
   to { top: calc(100% - 35px); opacity: 0.8; }
