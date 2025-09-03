@@ -8,19 +8,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="preload" as="image" href="images/edificios-centricos-de-los-angeles-en-la-noche.jpg">
+<link rel="preload" as="image" href="images/Diseño sin título (1).png">
 </head>
 <body>
+  
 <header class="w-full relative text-center py-16 overflow-hidden">
   
-  <!-- Imagen modo claro -->
-  <img id="imgLight" src="images/edificios-centricos-de-los-angeles-en-la-noche.jpg" loading="lazy"
-       alt="Fondo Claro" 
-       class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100 -z-10">
 
-  <!-- Imagen modo oscuro -->
-  <img id="imgDark" src="images/Diseño sin título (1).png" loading="lazy"
-       alt="Fondo Oscuro" 
-       class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0 -z-10 " >
+<!-- Imagen modo claro -->
+<img id="imgLight" src="images/edificios-centricos-de-los-angeles-en-la-noche.jpg" 
+     alt="Fondo Claro" 
+     class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100 -z-10">
+
+<!-- Imagen modo oscuro -->
+<img id="imgDark" src="images/Diseño sin título (1).png"
+     alt="Fondo Oscuro" 
+     class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0 -z-10">
        
 
   <!-- Overlay para mejorar contraste -->
@@ -53,11 +57,12 @@
       <button class="tab-btn px-4 py-2 rounded bg-purple-600 text-white" data-tab="bio" aria-selected="true">Biografía</button>
       <button class="tab-btn px-4 py-2 rounded bg-purple-600 text-white" data-tab="contact" aria-selected="false">Contacto</button>
     </div>
+
     <div id="bio" class="tab-content">
       <p class="text-center">Rafa 930, la nueva voz de la música urbana española, combina estilo auténtico y letras que llegan al corazón.</p>
     </div>
     <div id="contact" class="tab-content hidden flex justify-center gap-6 flex-wrap">
-      
+
   <!-- Botón que abre Gmail web con mensaje de consulta profesional -->
 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rafa930.music@gmail.com&su=Consulta%20Profesional&body=Hola%20Rafa,%0A%0AEstoy%20interesado%20en%20realizar%20una%20consulta%20profesional%20contigo.%20Por%20favor,%20ind%C3%ADcame%20tu%20disponibilidad.%0A%0AGracias%20de%20antemano."
    target="_blank"
