@@ -101,29 +101,51 @@
 </div>
 </div>
 
-  <section class="tab-container max-w-5xl w-full mt-8">
-    <h2 class="text-2xl text-center mb-4 font-semibold">Más Información</h2>
-    <div class="flex justify-center gap-4 mb-4" role="tablist">
-      <button class="tab-btn px-4 py-2 rounded bg-purple-600 text-white" data-tab="bio" aria-selected="true">Biografía</button>
-      <button class="tab-btn px-4 py-2 rounded bg-purple-600 text-white" data-tab="contact" aria-selected="false">Contacto</button>
+<section class="tab-container max-w-5xl w-full mt-8">
+  <h2 class="text-2xl text-center mb-4 font-semibold">Más Información</h2>
+  <div class="flex justify-center gap-4 mb-4" role="tablist">
+    <button class="tab-btn px-4 py-2 rounded bg-purple-600 text-white" data-tab="about" aria-selected="true">Sobre mí</button>
+    <button class="tab-btn px-4 py-2 rounded bg-purple-600 text-white" data-tab="contact" aria-selected="false">Contacto</button>
+  </div>
+
+<!-- Sobre mí -->
+<div id="about" class="tab-content">
+  <div class="flex flex-col md:flex-row items-center md:items-start justify-center gap-8 bg-gray-800 text-white rounded-2xl shadow-lg p-8">
+
+    <!-- Foto a la izquierda -->
+    <img src="images/521593741_17984688833844485_1863791024957518906_n.jpg" 
+         alt="Rafa 930" 
+         class="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover border-4 border-purple-500 shadow-[0_0_20px_#a855f7]">
+
+    <!-- Texto a la derecha -->
+    <div class="max-w-3xl text-left">
+      <p class="text-lg md:text-xl leading-relaxed mb-4">
+        Soy un artista de música urbana en España 🎶.
+      </p>
+      <p class="text-lg md:text-xl leading-relaxed mb-4">
+        Mi estilo mezcla <span class="italic font-semibold">trap, reggaetón y rap</span>, con letras que reflejan mi vida, mis sueños y las calles que me inspiran.
+      </p>
+      <p class="text-lg md:text-xl leading-relaxed">
+        Mi objetivo es llevar mi música a todo el mundo 🌍 y conectar con la gente a través de sonidos auténticos y reales.  
+        Este camino apenas empieza, y quiero que formes parte de él 💜.
+      </p>
     </div>
 
-    <div id="bio" class="tab-content">
-      <p class="text-center">Rafa 930, la nueva voz de la música urbana española, combina estilo auténtico y letras que llegan al corazón.</p>
-    </div>
-    <div id="contact" class="tab-content hidden flex justify-center gap-6 flex-wrap">
-
-  <!-- Botón que abre Gmail web con mensaje de consulta profesional -->
-<a href="https://mail.google.com/mail/?view=cm&fs=1&to=rafa930.music@gmail.com&su=Consulta%20Profesional&body=Hola%20Rafa,%0A%0AEstoy%20interesado%20en%20realizar%20una%20consulta%20profesional%20contigo.%20Por%20favor,%20ind%C3%ADcame%20tu%20disponibilidad.%0A%0AGracias%20de%20antemano."
-   target="_blank"
-   class="flex flex-col items-center justify-center gap-3 p-5 rounded-2xl bg-white text-gray-800 shadow-md hover:shadow-xl hover:scale-105 transition transform">
-  <img src="https://cdn-icons-png.flaticon.com/512/5968/5968534.png" 
-       alt="Gmail" class="w-12 h-12">
-  <span class="font-semibold text-sm">Enviar consulta profesional</span>
-</a>
+  </div>
 </div>
 
-  </section>
+  <!-- Contacto -->
+  <div id="contact" class="tab-content hidden flex justify-center gap-6 flex-wrap">
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rafa930.music@gmail.com&su=Consulta%20Profesional&body=Hola%20Rafa,%0A%0AEstoy%20interesado%20en%20realizar%20una%20consulta%20profesional%20contigo.%20Por%20favor,%20ind%C3%ADcame%20tu%20disponibilidad.%0A%0AGracias%20de%20antemano."
+       target="_blank"
+       class="flex flex-col items-center justify-center gap-3 p-5 rounded-2xl bg-white text-gray-800 shadow-md hover:shadow-xl hover:scale-105 transition transform">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968534.png" 
+           alt="Gmail" class="w-12 h-12">
+      <span class="font-semibold text-sm">Enviar consulta profesional</span>
+    </a>
+  </div>
+  
+</section>
 
 
 
@@ -166,46 +188,48 @@
   </div>
 </section>
 
-<footer class="relative w-full bg-cover bg-center py-8"
+<footer class="relative w-full bg-cover bg-center py-16 mt-20 rounded-2xl border-4 border-purple-500 shadow-[0_0_20px_5px_rgba(168,85,247,0.8)]"
         style="background-image: url('images/armageddon-2721568_1280.jpg');">
 
   <!-- Overlay oscuro -->
-  <div class="absolute inset-0 bg-black/60"></div>
+  <div class="absolute inset-0 bg-black/60 rounded-2xl"></div>
 
   <!-- Contenido -->
-  <div class="relative max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-white">
+  <div class="relative max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-8 text-white">
 
     <!-- Izquierda: Nombre y frase -->
     <div class="flex flex-col items-center sm:items-start text-center sm:text-left flex-1">
-      <h3 class="text-3xl sm:text-4xl font-extrabold" style="font-family: 'Bebas Neue', cursive;">
+      <h3 class="text-4xl sm:text-5xl font-extrabold" style="font-family: 'Bebas Neue', cursive;">
         RAFA 930
       </h3>
-      <p class="text-sm sm:text-base text-gray-300 mt-1">
+      <p class="text-base sm:text-lg text-gray-300 mt-2">
         La nueva voz de la música urbana española 🎶
       </p>
     </div>
 
-    <!-- Centro: Logos redes sociales -->
-    <div class="flex gap-10 justify-center flex-1 my-4 sm:my-0">
+    <!-- Centro: Logos redes sociales con glow -->
+    <div class="flex gap-12 justify-center flex-1 my-6 sm:my-0">
       <a href="https://youtube.com/@rafa_930?sub_confirmation=1" target="_blank" rel="noopener noreferrer">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" class="w-12 h-12 invert hover:scale-110 transition">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" 
+             alt="YouTube" class="w-14 h-14 invert hover:scale-125 transition drop-shadow-[0_0_15px_#ff0000]">
       </a>
       <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" target="_blank" rel="noopener noreferrer">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/spotify.svg" alt="Spotify" class="w-12 h-12 invert hover:scale-110 transition">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/spotify.svg" 
+             alt="Spotify" class="w-14 h-14 invert hover:scale-125 transition drop-shadow-[0_0_15px_#1db954]">
       </a>
       <a href="https://www.instagram.com/rafa930_oficial/" target="_blank" rel="noopener noreferrer">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" class="w-12 h-12 invert hover:scale-110 transition">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" 
+             alt="Instagram" class="w-14 h-14 invert hover:scale-125 transition drop-shadow-[0_0_15px_#e1306c]">
       </a>
     </div>
 
     <!-- Derecha: Copyright -->
-    <div class="flex-1 text-center sm:text-right text-xs sm:text-sm text-gray-300">
+    <div class="flex-1 text-center sm:text-right text-sm sm:text-base text-gray-300">
       &copy; 2025 RAFA 930 - Todos los derechos reservados
     </div>
 
   </div>
 </footer>
-
 
 
   <!-- Script -->
