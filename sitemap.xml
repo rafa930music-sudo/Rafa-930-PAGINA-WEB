@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Página principal -->
+  <url>
+    <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/</loc>
+    <lastmod>2025-10-30</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Sección: Sobre mí -->
+  <url>
+    <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#about</loc>
+    <lastmod>2025-10-30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Sección: Contacto -->
+  <url>
+    <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#contact</loc>
+    <lastmod>2025-10-30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Sección: YouTube videos populares -->
+  <url>
+    <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#populares</loc>
+    <lastmod>2025-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Sección: Videos recientes -->
+  <url>
+    <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#recientes</loc>
+    <lastmod>2025-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+</urlset>
