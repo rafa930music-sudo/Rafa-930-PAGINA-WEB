@@ -57,9 +57,7 @@ function aplicarModo(isDark) {
   const frases = [
     "Rafa 930", 
     "LA MINA", 
-    "930",
-    "Música Urbana Española",
-    "Trap · Reggaetón · Rap"
+    "930" 
   ];
   
   let fraseIndex = 0;
