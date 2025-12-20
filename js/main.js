@@ -57,7 +57,7 @@ function aplicarModo(isDark) {
   const frases = [
     "Rafa 930", 
     "LA MINA", 
-    "930" 
+    "930" ,
   ];
   
   let fraseIndex = 0;
