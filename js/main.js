@@ -20,45 +20,41 @@ document.addEventListener("DOMContentLoaded", () => {
     aplicarModo(darkMode);
   });
 
-function aplicarModo(isDark) {
-  if (isDark) {
-    // ✅ MODO OSCURO REAL (gradiente lila/morado)
-    imgLight.style.opacity = "0";
-    imgDark.style.opacity = "1";
-    overlay.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
-    
-    // Fondo gradiente oscuro (lila/morado)
-    body.style.background = "linear-gradient(135deg, #830cc4 0%, #5a0ca3 100%)";
-    body.style.color = "white";
-    
-    // Botón - indica que puedes cambiar a CLARO
-    modeToggle.textContent = "Modo Claro";
-    modeToggle.style.backgroundColor = "#5a0ca3";
-    modeToggle.style.color = "white";
-    
-  } else {
-    // ✅ MODO CLARO REAL (fondo blanco)
-    imgLight.style.opacity = "1";
-    imgDark.style.opacity = "0";
-    overlay.style.backgroundColor = "rgba(0, 0, 0, 0.3)";
-    
-    // Fondo blanco
-    body.style.background = "white";
-    body.style.color = "black";
-    
-    // Botón - indica que puedes cambiar a OSCURO
-    modeToggle.textContent = "Modo Oscuro";
-    modeToggle.style.backgroundColor = "white";
-    modeToggle.style.color = "black";
+  function aplicarModo(isDark) {
+    if (isDark) {
+      // ✅ MODO OSCURO REAL (gradiente lila/morado)
+      imgLight.style.opacity = "0";
+      imgDark.style.opacity = "1";
+      overlay.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+      
+      // Fondo gradiente oscuro (lila/morado)
+      body.style.background = "linear-gradient(135deg, #830cc4 0%, #5a0ca3 100%)";
+      body.style.color = "white";
+      
+      // Botón - indica que puedes cambiar a CLARO
+      modeToggle.textContent = "Modo Claro";
+      modeToggle.style.backgroundColor = "#5a0ca3";
+      modeToggle.style.color = "white";
+      
+    } else {
+      // ✅ MODO CLARO REAL (fondo blanco)
+      imgLight.style.opacity = "1";
+      imgDark.style.opacity = "0";
+      overlay.style.backgroundColor = "rgba(0, 0, 0, 0.3)";
+      
+      // Fondo blanco
+      body.style.background = "white";
+      body.style.color = "black";
+      
+      // Botón - indica que puedes cambiar a OSCURO
+      modeToggle.textContent = "Modo Oscuro";
+      modeToggle.style.backgroundColor = "white";
+      modeToggle.style.color = "black";
+    }
   }
-}
 
-  // Carrusel de frases mejorado
-  const frases = [
-    "Rafa 930", 
-    "LA MINA", 
-    "930" ,
-  ];
+  // Carrusel de frases - SOLO 3 FRASES
+  const frases = ["Rafa 930", "LA MINA", "930"];
   
   let fraseIndex = 0;
   
@@ -138,7 +134,7 @@ function aplicarModo(isDark) {
     }
   }
 
-  // Configurar enlaces de email (solo uno necesario)
+  // Configurar enlaces de email
   setupEmailLink(
     "contactEmail", 
     "rafa930.music@gmail.com",
@@ -146,7 +142,7 @@ function aplicarModo(isDark) {
     "Hola Rafa 930,\n\nVi tu página web y me gustaría contactarte para:\n\n- Colaboración musical\n- Contratación para evento\n- Consulta sobre tu música\n- Otro motivo\n\nEspero tu respuesta.\n\nSaludos,"
   );
 
-  // Título responsivo (mejor usar clases CSS)
+  // Título responsivo
   function ajustarTitulo() {
     const width = window.innerWidth;
     if (width < 640) {
