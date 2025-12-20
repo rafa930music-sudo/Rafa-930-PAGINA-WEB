@@ -22,44 +22,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function aplicarModo(isDark) {
     if (isDark) {
-      // Modo oscuro
+      // ✅ MODO OSCURO REAL (gradiente lila/morado)
       imgLight.style.opacity = "0";
       imgDark.style.opacity = "1";
       overlay.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
       
-      // Fondo gradiente oscuro
-      body.style.background = "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)";
-      body.style.color = "#e2e8f0";
+      // Fondo gradiente oscuro (lila/morado)
+      body.style.background = "linear-gradient(135deg, #830cc4 0%, #5a0ca3 100%)";
+      body.style.color = "white";
       
-      // Añadir clase para modo oscuro
-      body.classList.add('dark-mode');
-      body.classList.remove('light-mode');
-      
-      // Botón - texto más claro
+      // Botón
       modeToggle.textContent = "Modo Claro";
-      modeToggle.style.backgroundColor = "#4f46e5";
+      modeToggle.style.backgroundColor = "#5a0ca3";
       modeToggle.style.color = "white";
-      modeToggle.style.border = "2px solid #6366f1";
       
     } else {
-      // Modo claro
+      // ✅ MODO CLARO REAL (fondo blanco)
       imgLight.style.opacity = "1";
       imgDark.style.opacity = "0";
       overlay.style.backgroundColor = "rgba(0, 0, 0, 0.3)";
       
-      // Fondo claro
+      // Fondo blanco
       body.style.background = "white";
       body.style.color = "black";
-      
-      // Añadir clase para modo claro
-      body.classList.add('light-mode');
-      body.classList.remove('dark-mode');
       
       // Botón
       modeToggle.textContent = "Modo Oscuro";
       modeToggle.style.backgroundColor = "white";
       modeToggle.style.color = "black";
-      modeToggle.style.border = "2px solid #e5e7eb";
     }
   }
 
@@ -184,31 +174,3 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("loaded");
   }, 300);
 });
-
-// CSS adicional que puedes añadir a tu archivo styles.css
-/*
-.light-mode {
-  --bg-color: white;
-  --text-color: black;
-}
-
-.dark-mode {
-  --bg-color: #1a1a2e;
-  --text-color: #e2e8f0;
-}
-
-body.loaded * {
-  transition: background-color 0.5s ease, 
-              color 0.5s ease, 
-              opacity 0.5s ease,
-              transform 0.5s ease;
-}
-
-#carousel-text {
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.tab-content {
-  transition: opacity 0.3s ease;
-}
-*/
