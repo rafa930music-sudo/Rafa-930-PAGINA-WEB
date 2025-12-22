@@ -220,6 +220,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Ajustar al cargar y al redimensionar
+  ajustarTitulo();
+  window.addEventListener("resize", ajustarTitulo);
 
   // Añadir animaciones suaves para transiciones
   document.documentElement.style.scrollBehavior = "smooth";
