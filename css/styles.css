@@ -253,31 +253,6 @@ body:not(.dark) .tab-container {
   transition: all 0.5s ease !important;
 }
 
-/* Responsive para móviles */
-@media (max-width: 768px) {
-  #perfilTitle {
-    padding: 0.4rem 1rem !important;
-    text-shadow: 
-      2px 2px 0 #ffffff,
-      -2px -2px 0 #ffffff,
-      2px -2px 0 #ffffff,
-      -2px 2px 0 #ffffff,
-      0 0 15px currentColor,
-      0 0 30px currentColor !important;
-  }
-
-  /* ==============================
-   Forzar estilos del título desde JavaScript
-============================== */
-#perfilTitle {
-  font-family: 'Bebas Neue', cursive !important;
-  padding: 0.5rem 1.5rem !important;
-  border-radius: 12px !important;
-  display: inline-block !important;
-  margin: 1rem 0 !important;
-  transition: all 0.5s ease !important;
-}
-
 /* Modo oscuro - Título BLANCO */
 body.dark #perfilTitle {
   color: #ffffff !important;
@@ -312,6 +287,20 @@ body:not(.dark) #perfilTitle {
     inset 0 0 10px rgba(139, 0, 255, 0.3) !important;
 }
 
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  #perfilTitle {
+    padding: 0.4rem 1rem !important;
+    text-shadow: 
+      2px 2px 0 #ffffff,
+      -2px -2px 0 #ffffff,
+      2px -2px 0 #ffffff,
+      -2px 2px 0 #ffffff,
+      0 0 15px currentColor,
+      0 0 30px currentColor !important;
+  }
+}
+
 /* ==============================
    Forzar estilos del Tab Container
 ============================== */
@@ -327,32 +316,4 @@ body:not(.dark) .tab-container *,
 body:not(.dark) .tab-content,
 body:not(.dark) .tab-content * {
   color: black !important;
-}
-
-/* Responsive para móviles - Título */
-@media (max-width: 768px) {
-  #perfilTitle {
-    padding: 0.4rem 1rem !important;
-  }
-  
-  body.dark #perfilTitle {
-    text-shadow: 
-      2px 2px 0 #ffffff,
-      -2px -2px 0 #ffffff,
-      2px -2px 0 #ffffff,
-      -2px 2px 0 #ffffff,
-      0 0 15px #ffffff,
-      0 0 30px #ffffff !important;
-  }
-  
-  body:not(.dark) #perfilTitle {
-    text-shadow: 
-      2px 2px 0 #ffffff,
-      -2px -2px 0 #ffffff,
-      2px -2px 0 #ffffff,
-      -2px 2px 0 #ffffff,
-      0 0 15px #8b00ff,
-      0 0 30px #8b00ff !important;
-  }
-}
 }
