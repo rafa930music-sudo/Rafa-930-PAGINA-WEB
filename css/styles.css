@@ -265,4 +265,94 @@ body:not(.dark) .tab-container {
       0 0 15px currentColor,
       0 0 30px currentColor !important;
   }
+
+  /* ==============================
+   Forzar estilos del título desde JavaScript
+============================== */
+#perfilTitle {
+  font-family: 'Bebas Neue', cursive !important;
+  padding: 0.5rem 1.5rem !important;
+  border-radius: 12px !important;
+  display: inline-block !important;
+  margin: 1rem 0 !important;
+  transition: all 0.5s ease !important;
+}
+
+/* Modo oscuro - Título BLANCO */
+body.dark #perfilTitle {
+  color: #ffffff !important;
+  background-color: #1a1a1a !important;
+  text-shadow: 
+    3px 3px 0 #ffffff,
+    -3px -3px 0 #ffffff,
+    3px -3px 0 #ffffff,
+    -3px 3px 0 #ffffff,
+    0 0 20px #ffffff,
+    0 0 40px #ffffff !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 
+    0 0 15px rgba(255, 255, 255, 0.7),
+    inset 0 0 10px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Modo claro - Título MORADO */
+body:not(.dark) #perfilTitle {
+  color: #8b00ff !important;
+  background-color: #f5f5f5 !important;
+  text-shadow: 
+    3px 3px 0 #ffffff,
+    -3px -3px 0 #ffffff,
+    3px -3px 0 #ffffff,
+    -3px 3px 0 #ffffff,
+    0 0 20px #8b00ff,
+    0 0 40px #8b00ff !important;
+  border: 2px solid #8b00ff !important;
+  box-shadow: 
+    0 0 15px rgba(139, 0, 255, 0.7),
+    inset 0 0 10px rgba(139, 0, 255, 0.3) !important;
+}
+
+/* ==============================
+   Forzar estilos del Tab Container
+============================== */
+body.dark .tab-container,
+body.dark .tab-container *,
+body.dark .tab-content,
+body.dark .tab-content * {
+  color: white !important;
+}
+
+body:not(.dark) .tab-container,
+body:not(.dark) .tab-container *,
+body:not(.dark) .tab-content,
+body:not(.dark) .tab-content * {
+  color: black !important;
+}
+
+/* Responsive para móviles - Título */
+@media (max-width: 768px) {
+  #perfilTitle {
+    padding: 0.4rem 1rem !important;
+  }
+  
+  body.dark #perfilTitle {
+    text-shadow: 
+      2px 2px 0 #ffffff,
+      -2px -2px 0 #ffffff,
+      2px -2px 0 #ffffff,
+      -2px 2px 0 #ffffff,
+      0 0 15px #ffffff,
+      0 0 30px #ffffff !important;
+  }
+  
+  body:not(.dark) #perfilTitle {
+    text-shadow: 
+      2px 2px 0 #ffffff,
+      -2px -2px 0 #ffffff,
+      2px -2px 0 #ffffff,
+      -2px 2px 0 #ffffff,
+      0 0 15px #8b00ff,
+      0 0 30px #8b00ff !important;
+  }
+}
 }

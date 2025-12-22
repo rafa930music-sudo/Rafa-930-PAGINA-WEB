@@ -5,17 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const imgDark = document.getElementById("imgDark");
   const overlay = document.getElementById("overlay");
   const carouselText = document.getElementById("carousel-text");
-  const perfilTitle = document.getElementById("perfilTitle");
 
   // Estado inicial
   let darkMode = localStorage.getItem("darkMode") === "true";
-  
-  // Asegurar que el body tenga la clase correcta al inicio
-  if (darkMode) {
-    body.classList.add("dark");
-  } else {
-    body.classList.remove("dark");
-  }
   
   // Aplicar modo inicial
   aplicarModo(darkMode);
@@ -31,127 +23,34 @@ document.addEventListener("DOMContentLoaded", () => {
     if (isDark) {
       // ✅ MODO OSCURO
       body.classList.add("dark");
+      body.classList.remove("light");
       
-      // Fondo e imágenes
+      // Imágenes
       imgLight.style.opacity = "0";
       imgDark.style.opacity = "1";
       overlay.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
-      body.style.background = "linear-gradient(135deg, #0a0a0a, #3b0764)";
-      body.style.color = "#f1f1f1";
       
       // Botón
       modeToggle.textContent = "Modo Claro";
       modeToggle.style.backgroundColor = "#5a0ca3";
       modeToggle.style.color = "white";
       
-      // ✅ TÍTULO EN MODO OSCURO (BLANCO) - CORREGIDO
-      if (perfilTitle) {
-        perfilTitle.style.color = "#ffffff"; // CORREGIDO: #ffffff en lugar de #000000ff
-        perfilTitle.style.backgroundColor = "#1a1a1a";
-        perfilTitle.style.textShadow = 
-          "3px 3px 0 #ffffff, -3px -3px 0 #ffffff, 3px -3px 0 #ffffff, -3px 3px 0 #ffffff, 0 0 20px #ffffff, 0 0 40px #ffffff";
-        perfilTitle.style.border = "2px solid #ffffff";
-        perfilTitle.style.boxShadow = "0 0 15px rgba(255, 255, 255, 0.7), inset 0 0 10px rgba(255, 255, 255, 0.3)";
-      }
-      
-      // ✅ "MÁS INFORMACIÓN" TODO BLANCO EN MODO OSCURO (AÑADIDO)
-      const masInfoContainer = document.querySelector('.tab-container');
-      if (masInfoContainer) {
-        const todosElementos = masInfoContainer.querySelectorAll('*');
-        todosElementos.forEach(element => {
-          element.style.color = 'white';
-        });
-        masInfoContainer.style.color = 'white';
-      }
-      
     } else {
       // ✅ MODO CLARO
       body.classList.remove("dark");
+      body.classList.add("light");
       
-      // Fondo e imágenes
+      // Imágenes
       imgLight.style.opacity = "1";
       imgDark.style.opacity = "0";
       overlay.style.backgroundColor = "rgba(0, 0, 0, 0.3)";
-      body.style.background = "white";
-      body.style.color = "black";
       
       // Botón
       modeToggle.textContent = "Modo Oscuro";
       modeToggle.style.backgroundColor = "white";
       modeToggle.style.color = "black";
-      
-      // ✅ TÍTULO EN MODO CLARO (MORADO)
-      if (perfilTitle) {
-        perfilTitle.style.color = "#8b00ff";
-        perfilTitle.style.backgroundColor = "#f5f5f5";
-        perfilTitle.style.textShadow = 
-          "3px 3px 0 #ffffff, -3px -3px 0 #ffffff, 3px -3px 0 #ffffff, -3px 3px 0 #ffffff, 0 0 20px #8b00ff, 0 0 40px #8b00ff";
-        perfilTitle.style.border = "2px solid #8b00ff";
-        perfilTitle.style.boxShadow = "0 0 15px rgba(139, 0, 255, 0.7), inset 0 0 10px rgba(139, 0, 255, 0.3)";
-      }
-      
-      // ✅ "MÁS INFORMACIÓN" TODO NEGRO EN MODO CLARO (AÑADIDO)
-      const masInfoContainer = document.querySelector('.tab-container');
-      if (masInfoContainer) {
-        const todosElementos = masInfoContainer.querySelectorAll('*');
-        todosElementos.forEach(element => {
-          element.style.color = 'black';
-        });
-        masInfoContainer.style.color = 'black';
-      }
     }
   }
-
-  // ✅ APLICAR ESTILOS BASE AL TÍTULO
-  if (perfilTitle) {
-    perfilTitle.style.fontFamily = "'Bebas Neue', cursive";
-    perfilTitle.style.padding = "0.5rem 1.5rem";
-    perfilTitle.style.borderRadius = "12px";
-    perfilTitle.style.display = "inline-block";
-    perfilTitle.style.margin = "1rem 0";
-    perfilTitle.style.transition = "all 0.5s ease";
-    
-    // Aplicar estilos iniciales basados en el modo actual
-    if (darkMode) {
-      // MODO OSCURO: BLANCO - CORREGIDO
-      perfilTitle.style.color = "#ffffff"; // CORREGIDO: #ffffff
-      perfilTitle.style.backgroundColor = "#1a1a1a";
-      perfilTitle.style.textShadow = 
-        "3px 3px 0 #ffffff, -3px -3px 0 #ffffff, 3px -3px 0 #ffffff, -3px 3px 0 #ffffff, 0 0 20px #ffffff, 0 0 40px #ffffff";
-      perfilTitle.style.border = "2px solid #ffffff";
-      perfilTitle.style.boxShadow = "0 0 15px rgba(255, 255, 255, 0.7), inset 0 0 10px rgba(255, 255, 255, 0.3)";
-    } else {
-      // MODO CLARO: MORADO
-      perfilTitle.style.color = "#8b00ff";
-      perfilTitle.style.backgroundColor = "#f5f5f5";
-      perfilTitle.style.textShadow = 
-        "3px 3px 0 #ffffff, -3px -3px 0 #ffffff, 3px -3px 0 #ffffff, -3px 3px 0 #ffffff, 0 0 20px #8b00ff, 0 0 40px #8b00ff";
-      perfilTitle.style.border = "2px solid #8b00ff";
-      perfilTitle.style.boxShadow = "0 0 15px rgba(139, 0, 255, 0.7), inset 0 0 10px rgba(139, 0, 255, 0.3)";
-    }
-  }
-
-  // ✅ INICIALIZAR "MÁS INFORMACIÓN" AL CARGAR (AÑADIDO)
-  function inicializarMasInfo() {
-    const masInfoContainer = document.querySelector('.tab-container');
-    if (!masInfoContainer) return;
-    
-    if (darkMode) {
-      const todosElementos = masInfoContainer.querySelectorAll('*');
-      todosElementos.forEach(element => {
-        element.style.color = 'white';
-      });
-      masInfoContainer.style.color = 'white';
-    } else {
-      const todosElementos = masInfoContainer.querySelectorAll('*');
-      todosElementos.forEach(element => {
-        element.style.color = 'black';
-      });
-      masInfoContainer.style.color = 'black';
-    }
-  }
-  
-  setTimeout(inicializarMasInfo, 100);
 
   // Carrusel de frases
   const frases = ["Rafa 930", "LA MINA", "930"];
@@ -232,28 +131,5 @@ document.addEventListener("DOMContentLoaded", () => {
     "Hola Rafa 930,\n\nVi tu página web y me gustaría contactarte para:\n\n- Colaboración musical\n- Contratación para evento\n- Consulta sobre tu música\n- Otro motivo\n\nEspero tu respuesta.\n\nSaludos,"
   );
 
-  // Título responsivo
-  function ajustarTitulo() {
-    if (!perfilTitle) return;
-    
-    const width = window.innerWidth;
-    if (width < 640) {
-      perfilTitle.style.fontSize = "2.5rem";
-    } else if (width < 768) {
-      perfilTitle.style.fontSize = "3rem";
-    } else if (width < 1024) {
-      perfilTitle.style.fontSize = "4rem";
-    } else {
-      perfilTitle.style.fontSize = "5rem";
-    }
-  }
-
-  ajustarTitulo();
-  window.addEventListener("resize", ajustarTitulo);
-
   document.documentElement.style.scrollBehavior = "smooth";
-  
-  setTimeout(() => {
-    document.body.classList.add("loaded");
-  }, 300);
 });
