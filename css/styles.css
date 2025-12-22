@@ -122,7 +122,7 @@ body:not(.dark) h1.text-neon {
   border-radius: 1rem;
   padding: 1.5rem;
   background-color: rgba(255, 255, 255, 0.95);
-  color: white;
+  color: rgb(0, 0, 0);
   margin-top: 2rem;
   text-align: center;
   transition: 0.5s;
@@ -130,14 +130,14 @@ body:not(.dark) h1.text-neon {
 
 body:not(.dark) .tab-container {
   background: white;
-  color: black;
+  color: rgb(0, 0, 0);
   border-color: var(--purple-dark);
 }
 
 .tab-btn[aria-selected="true"] {
   background: var(--purple-dark);
   color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgb(255, 255, 255);
 }
 
 .tab-content.hidden {
@@ -236,4 +236,33 @@ body:not(.dark) .tab-container {
 @keyframes fall {
   from { top: -40px; opacity: 1; }
   to { top: calc(100% - 35px); opacity: 0.8; }
+}
+
+/* ==============================
+   Título principal RAFA 930
+============================== */
+#perfilTitle {
+  font-family: 'Bebas Neue', cursive !important;
+  padding: 0.5rem 1.5rem !important;
+  border-radius: 12px !important;
+  display: inline-block !important;
+  margin: 1rem 0 !important;
+  box-shadow: 
+    0 0 15px rgba(139, 0, 255, 0.7),
+    inset 0 0 10px rgba(139, 0, 255, 0.3) !important;
+  transition: all 0.5s ease !important;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  #perfilTitle {
+    padding: 0.4rem 1rem !important;
+    text-shadow: 
+      2px 2px 0 #ffffff,
+      -2px -2px 0 #ffffff,
+      2px -2px 0 #ffffff,
+      -2px 2px 0 #ffffff,
+      0 0 15px currentColor,
+      0 0 30px currentColor !important;
+  }
 }
