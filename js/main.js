@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
       perfilTitle.style.backgroundColor = "#1a1a1a";
       perfilTitle.style.textShadow = 
         "3px 3px 0 #ffffff, -3px -3px 0 #ffffff, 3px -3px 0 #ffffff, -3px 3px 0 #ffffff, 0 0 20px #ffffff, 0 0 40px #ffffff";
-      perfilTitle.style.border = "2px solid #ffffff";
+      perfilTitle.style.border = "2px solid #000000ff";
       perfilTitle.style.boxShadow = "0 0 15px rgba(255, 255, 255, 0.7), inset 0 0 10px rgba(0, 0, 0, 0.3)";
     
       
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
       perfilTitle.style.backgroundColor = "#1a1a1a";
       perfilTitle.style.textShadow = 
         "3px 3px 0 #ffffff, -3px -3px 0 #ffffff, 3px -3px 0 #ffffff, -3px 3px 0 #ffffff, 0 0 20px #ffffff, 0 0 40px #ffffff";
-      perfilTitle.style.border = "2px solid #ffffff85";
+      perfilTitle.style.border = "2px solid #ffffff";
       perfilTitle.style.boxShadow = "0 0 15px rgba(0, 0, 0, 1), inset 0 0 10px rgba(0, 0, 0, 0.3)";
     } else {
       // MODO CLARO: MORADO
