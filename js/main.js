@@ -46,6 +46,16 @@ document.addEventListener("DOMContentLoaded", () => {
       modeToggle.style.backgroundColor = "#5a0ca3";
       modeToggle.style.color = "white";
       
+      // ✅ APLICAR ESTILOS AL TÍTULO EN MODO OSCURO (BLANCO)
+       // MODO OSCURO: BLANCO
+      perfilTitle.style.color = "#000000ff";
+      perfilTitle.style.backgroundColor = "#1a1a1a";
+      perfilTitle.style.textShadow = 
+        "3px 3px 0 #ffffff, -3px -3px 0 #ffffff, 3px -3px 0 #ffffff, -3px 3px 0 #ffffff, 0 0 20px #ffffff, 0 0 40px #ffffff";
+      perfilTitle.style.border = "2px solid #ffffff";
+      perfilTitle.style.boxShadow = "0 0 15px rgba(255, 255, 255, 0.7), inset 0 0 10px rgba(0, 0, 0, 0.3)";
+    
+      
     } else {
       // ✅ QUITAR CLASE "dark" DEL BODY
       body.classList.remove("dark");
@@ -63,6 +73,45 @@ document.addEventListener("DOMContentLoaded", () => {
       modeToggle.textContent = "Modo Oscuro";
       modeToggle.style.backgroundColor = "white";
       modeToggle.style.color = "black";
+      
+      // ✅ APLICAR ESTILOS AL TÍTULO EN MODO CLARO (MORADO)
+      if (perfilTitle) {
+        perfilTitle.style.color = "#8b00ff";
+        perfilTitle.style.backgroundColor = "#f5f5f5"; // Gris claro
+        perfilTitle.style.textShadow = 
+          "3px 3px 0 #ffffff, -3px -3px 0 #ffffff, 3px -3px 0 #ffffff, -3px 3px 0 #ffffff, 0 0 20px #8b00ff, 0 0 40px #8b00ff";
+        perfilTitle.style.border = "2px solid #8b00ff";
+        perfilTitle.style.boxShadow = "0 0 15px rgba(139, 0, 255, 0.7), inset 0 0 10px rgba(139, 0, 255, 0.3)";
+      }
+    }
+  }
+
+  // ✅ APLICAR ESTILOS BASE AL TÍTULO
+  if (perfilTitle) {
+    perfilTitle.style.fontFamily = "'Bebas Neue', cursive";
+    perfilTitle.style.padding = "0.5rem 1.5rem";
+    perfilTitle.style.borderRadius = "12px";
+    perfilTitle.style.display = "inline-block";
+    perfilTitle.style.margin = "1rem 0";
+    perfilTitle.style.transition = "all 0.5s ease";
+    
+    // Aplicar estilos iniciales basados en el modo actual
+    if (darkMode) {
+      // MODO OSCURO: BLANCO
+      perfilTitle.style.color = "#000000ff";
+      perfilTitle.style.backgroundColor = "#1a1a1a";
+      perfilTitle.style.textShadow = 
+        "3px 3px 0 #ffffff, -3px -3px 0 #ffffff, 3px -3px 0 #ffffff, -3px 3px 0 #ffffff, 0 0 20px #ffffff, 0 0 40px #ffffff";
+      perfilTitle.style.border = "2px solid #ffffff85";
+      perfilTitle.style.boxShadow = "0 0 15px rgba(0, 0, 0, 1), inset 0 0 10px rgba(0, 0, 0, 0.3)";
+    } else {
+      // MODO CLARO: MORADO
+      perfilTitle.style.color = "#8b00ff";
+      perfilTitle.style.backgroundColor = "#f5f5f5";
+      perfilTitle.style.textShadow = 
+        "3px 3px 0 #ffffff, -3px -3px 0 #ffffff, 3px -3px 0 #ffffff, -3px 3px 0 #ffffff, 0 0 20px #8b00ff, 0 0 40px #8b00ff";
+      perfilTitle.style.border = "2px solid #8b00ff";
+      perfilTitle.style.boxShadow = "0 0 15px rgba(139, 0, 255, 0.7), inset 0 0 10px rgba(139, 0, 255, 0.3)";
     }
   }
 
@@ -171,9 +220,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Ajustar al cargar y al redimensionar
-  ajustarTitulo();
-  window.addEventListener("resize", ajustarTitulo);
 
   // Añadir animaciones suaves para transiciones
   document.documentElement.style.scrollBehavior = "smooth";

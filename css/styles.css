@@ -253,6 +253,106 @@ body:not(.dark) .tab-container {
   transition: all 0.5s ease !important;
 }
 
+/* Responsive para móviles - Solo ajustar el título principal RAFA 930 */
+@media (max-width: 768px) {
+  #perfilTitle {
+    /* Tamaño y espaciado */
+    font-size: 2.8rem !important;
+    padding: 0.4rem 1.2rem !important;
+    margin: 0.8rem auto !important;
+    
+    /* Posicionamiento y alineación */
+    display: block !important;
+    text-align: center !important;
+    width: 95% !important;
+    max-width: 400px !important;
+    
+    /* Efectos visuales optimizados para móvil */
+    text-shadow: 
+      1.5px 1.5px 0 #ffffff,
+      -1.5px -1.5px 0 #ffffff,
+      1.5px -1.5px 0 #ffffff,
+      -1.5px 1.5px 0 #ffffff,
+      0 0 12px currentColor,
+      0 0 25px currentColor !important;
+    
+    /* Borde y sombra optimizados */
+    border-width: 1.5px !important;
+    border-style: solid !important;
+    box-shadow: 
+      0 0 12px rgba(139, 0, 255, 0.5),
+      inset 0 0 8px rgba(139, 0, 255, 0.3) !important;
+    
+    /* Ajuste del espacio entre letras */
+    letter-spacing: 1px !important;
+    line-height: 1.2 !important;
+  }
+  
+  /* Ajustes específicos para modo oscuro en móvil */
+  body.dark #perfilTitle {
+    text-shadow: 
+      1.5px 1.5px 0 #ffffff,
+      -1.5px -1.5px 0 #ffffff,
+      1.5px -1.5px 0 #ffffff,
+      -1.5px 1.5px 0 #ffffff,
+      0 0 12px #ffffff,
+      0 0 25px #ffffff !important;
+    box-shadow: 
+      0 0 12px rgba(255, 255, 255, 0.5),
+      inset 0 0 8px rgba(255, 255, 255, 0.3) !important;
+  }
+  
+  /* Ajustes específicos para modo claro en móvil */
+  body:not(.dark) #perfilTitle {
+    text-shadow: 
+      1.5px 1.5px 0 #ffffff,
+      -1.5px -1.5px 0 #ffffff,
+      1.5px -1.5px 0 #ffffff,
+      -1.5px 1.5px 0 #ffffff,
+      0 0 12px #8b00ff,
+      0 0 25px #8b00ff !important;
+    box-shadow: 
+      0 0 12px rgba(139, 0, 255, 0.5),
+      inset 0 0 8px rgba(139, 0, 255, 0.3) !important;
+  }
+  
+  /* Ajuste adicional para pantallas muy pequeñas */
+  @media (max-width: 480px) {
+    #perfilTitle {
+      font-size: 2.2rem !important;
+      padding: 0.3rem 0.9rem !important;
+      margin: 0.6rem auto !important;
+      text-shadow: 
+        1px 1px 0 #ffffff,
+        -1px -1px 0 #ffffff,
+        1px -1px 0 #ffffff,
+        -1px 1px 0 #ffffff,
+        0 0 10px currentColor,
+        0 0 20px currentColor !important;
+    }
+  }
+  
+  /* Ajuste adicional para pantallas medianas (tablets) */
+  @media (min-width: 640px) and (max-width: 768px) {
+    #perfilTitle {
+      font-size: 3.2rem !important;
+      padding: 0.5rem 1.5rem !important;
+      margin: 1rem auto !important;
+    }
+  }
+
+  /* ==============================
+   Forzar estilos del título desde JavaScript
+============================== */
+#perfilTitle {
+  font-family: 'Bebas Neue', cursive !important;
+  padding: 0.5rem 1.5rem !important;
+  border-radius: 12px !important;
+  display: inline-block !important;
+  margin: 1rem 0 !important;
+  transition: all 0.5s ease !important;
+}
+
 /* Modo oscuro - Título BLANCO */
 body.dark #perfilTitle {
   color: #ffffff !important;
@@ -287,20 +387,6 @@ body:not(.dark) #perfilTitle {
     inset 0 0 10px rgba(139, 0, 255, 0.3) !important;
 }
 
-/* Responsive para móviles */
-@media (max-width: 768px) {
-  #perfilTitle {
-    padding: 0.4rem 1rem !important;
-    text-shadow: 
-      2px 2px 0 #ffffff,
-      -2px -2px 0 #ffffff,
-      2px -2px 0 #ffffff,
-      -2px 2px 0 #ffffff,
-      0 0 15px currentColor,
-      0 0 30px currentColor !important;
-  }
-}
-
 /* ==============================
    Forzar estilos del Tab Container
 ============================== */
@@ -317,3 +403,59 @@ body:not(.dark) .tab-content,
 body:not(.dark) .tab-content * {
   color: black !important;
 }
+
+
+/* ==============================
+   Pistas musicales (lanes + notas)
+============================== */
+.lane {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  color: #666;
+  text-shadow: 0 0 8px var(--purple-neon), 0 0 20px var(--purple-dark);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+  border-top: 2px solid #333;
+}
+
+.lane.active {
+  background: linear-gradient(180deg, #111, var(--purple-neon));
+  box-shadow: inset 0 0 20px var(--purple-neon);
+  color: white;
+}
+
+.note {
+  position: absolute;
+  top: -40px;
+  width: 80%;
+  height: 35px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--purple-neon), var(--purple-dark), #22d3ee);
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  from { top: -40px; opacity: 1; }
+  to { top: calc(100% - 35px); opacity: 0.8; }
+}
+
+/* ==============================
+   Título principal RAFA 930
+============================== */
+#perfilTitle {
+  font-family: 'Bebas Neue', cursive !important;
+  padding: 0.5rem 1.5rem !important;
+  border-radius: 12px !important;
+  display: inline-block !important;
+  margin: 1rem 0 !important;
+  box-shadow: 
+    0 0 15px rgba(139, 0, 255, 0.7),
+    inset 0 0 10px rgba(139, 0, 255, 0.3) !important;
+  transition: all 0.5s ease !important;
+}
+
+
+} /* ← Esta es la llave de cierre final del archivo */
