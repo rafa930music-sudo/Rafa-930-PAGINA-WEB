@@ -29,59 +29,75 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function aplicarModo(isDark) {
     if (isDark) {
-      // ✅ AÑADIR CLASE "dark" AL BODY
+      // ✅ MODO OSCURO
       body.classList.add("dark");
       
-      // ✅ MODO OSCURO REAL (gradiente lila/morado)
+      // Fondo e imágenes
       imgLight.style.opacity = "0";
       imgDark.style.opacity = "1";
       overlay.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
-      
-      // Fondo gradiente oscuro (lila/morado)
       body.style.background = "linear-gradient(135deg, #0a0a0a, #3b0764)";
       body.style.color = "#f1f1f1";
       
-      // Botón - indica que puedes cambiar a CLARO
+      // Botón
       modeToggle.textContent = "Modo Claro";
       modeToggle.style.backgroundColor = "#5a0ca3";
       modeToggle.style.color = "white";
       
-      // ✅ APLICAR ESTILOS AL TÍTULO EN MODO OSCURO (BLANCO)
-       // MODO OSCURO: BLANCO
-      perfilTitle.style.color = "#000000ff";
-      perfilTitle.style.backgroundColor = "#1a1a1a";
-      perfilTitle.style.textShadow = 
-        "3px 3px 0 #ffffff, -3px -3px 0 #ffffff, 3px -3px 0 #ffffff, -3px 3px 0 #ffffff, 0 0 20px #ffffff, 0 0 40px #ffffff";
-      perfilTitle.style.border = "2px solid #ffffff";
-      perfilTitle.style.boxShadow = "0 0 15px rgba(255, 255, 255, 0.7), inset 0 0 10px rgba(0, 0, 0, 0.3)";
-    
+      // ✅ TÍTULO EN MODO OSCURO (BLANCO) - CORREGIDO
+      if (perfilTitle) {
+        perfilTitle.style.color = "#ffffff"; // CORREGIDO: #ffffff en lugar de #000000ff
+        perfilTitle.style.backgroundColor = "#1a1a1a";
+        perfilTitle.style.textShadow = 
+          "3px 3px 0 #ffffff, -3px -3px 0 #ffffff, 3px -3px 0 #ffffff, -3px 3px 0 #ffffff, 0 0 20px #ffffff, 0 0 40px #ffffff";
+        perfilTitle.style.border = "2px solid #ffffff";
+        perfilTitle.style.boxShadow = "0 0 15px rgba(255, 255, 255, 0.7), inset 0 0 10px rgba(255, 255, 255, 0.3)";
+      }
+      
+      // ✅ "MÁS INFORMACIÓN" TODO BLANCO EN MODO OSCURO (AÑADIDO)
+      const masInfoContainer = document.querySelector('.tab-container');
+      if (masInfoContainer) {
+        const todosElementos = masInfoContainer.querySelectorAll('*');
+        todosElementos.forEach(element => {
+          element.style.color = 'white';
+        });
+        masInfoContainer.style.color = 'white';
+      }
       
     } else {
-      // ✅ QUITAR CLASE "dark" DEL BODY
+      // ✅ MODO CLARO
       body.classList.remove("dark");
       
-      // ✅ MODO CLARO REAL (fondo blanco)
+      // Fondo e imágenes
       imgLight.style.opacity = "1";
       imgDark.style.opacity = "0";
       overlay.style.backgroundColor = "rgba(0, 0, 0, 0.3)";
-      
-      // Fondo blanco
       body.style.background = "white";
       body.style.color = "black";
       
-      // Botón - indica que puedes cambiar a OSCURO
+      // Botón
       modeToggle.textContent = "Modo Oscuro";
       modeToggle.style.backgroundColor = "white";
       modeToggle.style.color = "black";
       
-      // ✅ APLICAR ESTILOS AL TÍTULO EN MODO CLARO (MORADO)
+      // ✅ TÍTULO EN MODO CLARO (MORADO)
       if (perfilTitle) {
         perfilTitle.style.color = "#8b00ff";
-        perfilTitle.style.backgroundColor = "#f5f5f5"; // Gris claro
+        perfilTitle.style.backgroundColor = "#f5f5f5";
         perfilTitle.style.textShadow = 
           "3px 3px 0 #ffffff, -3px -3px 0 #ffffff, 3px -3px 0 #ffffff, -3px 3px 0 #ffffff, 0 0 20px #8b00ff, 0 0 40px #8b00ff";
         perfilTitle.style.border = "2px solid #8b00ff";
         perfilTitle.style.boxShadow = "0 0 15px rgba(139, 0, 255, 0.7), inset 0 0 10px rgba(139, 0, 255, 0.3)";
+      }
+      
+      // ✅ "MÁS INFORMACIÓN" TODO NEGRO EN MODO CLARO (AÑADIDO)
+      const masInfoContainer = document.querySelector('.tab-container');
+      if (masInfoContainer) {
+        const todosElementos = masInfoContainer.querySelectorAll('*');
+        todosElementos.forEach(element => {
+          element.style.color = 'black';
+        });
+        masInfoContainer.style.color = 'black';
       }
     }
   }
@@ -97,13 +113,13 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Aplicar estilos iniciales basados en el modo actual
     if (darkMode) {
-      // MODO OSCURO: BLANCO
-      perfilTitle.style.color = "#000000ff";
+      // MODO OSCURO: BLANCO - CORREGIDO
+      perfilTitle.style.color = "#ffffff"; // CORREGIDO: #ffffff
       perfilTitle.style.backgroundColor = "#1a1a1a";
       perfilTitle.style.textShadow = 
         "3px 3px 0 #ffffff, -3px -3px 0 #ffffff, 3px -3px 0 #ffffff, -3px 3px 0 #ffffff, 0 0 20px #ffffff, 0 0 40px #ffffff";
       perfilTitle.style.border = "2px solid #ffffff";
-      perfilTitle.style.boxShadow = "0 0 15px rgba(255, 255, 255, 0.7), inset 0 0 10px rgba(0, 0, 0, 0.3)";
+      perfilTitle.style.boxShadow = "0 0 15px rgba(255, 255, 255, 0.7), inset 0 0 10px rgba(255, 255, 255, 0.3)";
     } else {
       // MODO CLARO: MORADO
       perfilTitle.style.color = "#8b00ff";
@@ -115,13 +131,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Carrusel de frases - SOLO 3 FRASES
-  const frases = ["Rafa 930", "LA MINA", "930"];
+  // ✅ INICIALIZAR "MÁS INFORMACIÓN" AL CARGAR (AÑADIDO)
+  function inicializarMasInfo() {
+    const masInfoContainer = document.querySelector('.tab-container');
+    if (!masInfoContainer) return;
+    
+    if (darkMode) {
+      const todosElementos = masInfoContainer.querySelectorAll('*');
+      todosElementos.forEach(element => {
+        element.style.color = 'white';
+      });
+      masInfoContainer.style.color = 'white';
+    } else {
+      const todosElementos = masInfoContainer.querySelectorAll('*');
+      todosElementos.forEach(element => {
+        element.style.color = 'black';
+      });
+      masInfoContainer.style.color = 'black';
+    }
+  }
   
+  setTimeout(inicializarMasInfo, 100);
+
+  // Carrusel de frases
+  const frases = ["Rafa 930", "LA MINA", "930"];
   let fraseIndex = 0;
   
   if (carouselText) {
-    // Cambio suave de frases
     function cambiarFrase() {
       carouselText.style.opacity = "0";
       carouselText.style.transform = "translateY(-10px)";
@@ -134,32 +170,27 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 300);
     }
     
-    // Cambiar cada 3 segundos
     setInterval(cambiarFrase, 3000);
   }
 
-  // Sistema de pestañas mejorado
+  // Sistema de pestañas
   const tabs = document.querySelectorAll(".tab-btn");
   const panels = document.querySelectorAll(".tab-content");
 
   tabs.forEach(tab => {
     tab.addEventListener("click", () => {
-      // Obtener ID del tab a mostrar
       const tabId = tab.getAttribute("data-tab");
       
-      // Actualizar estado de pestañas
       tabs.forEach(t => {
         t.setAttribute("aria-selected", "false");
         t.classList.remove("bg-purple-700", "ring-2", "ring-purple-300");
         t.classList.add("bg-purple-600");
       });
       
-      // Activar pestaña clickeada
       tab.setAttribute("aria-selected", "true");
       tab.classList.remove("bg-purple-600");
       tab.classList.add("bg-purple-700", "ring-2", "ring-purple-300");
       
-      // Mostrar panel correspondiente
       panels.forEach(panel => {
         panel.classList.add("hidden");
         panel.classList.remove("flex");
@@ -173,7 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Función mejorada para enlaces de email
+  // Función para enlaces de email
   function setupEmailLink(elementId, email, subject = "Consulta Musical", bodyText = "Hola Rafa,\n\nMe gustaría contactarte sobre...") {
     const element = document.getElementById(elementId);
     if (element) {
@@ -183,11 +214,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const subjectEncoded = encodeURIComponent(subject);
         const bodyEncoded = encodeURIComponent(bodyText);
         
-        // Intentar abrir cliente de correo nativo
         const mailtoLink = `mailto:${email}?subject=${subjectEncoded}&body=${bodyEncoded}`;
         window.location.href = mailtoLink;
         
-        // Fallback: abrir Gmail después de un breve retraso
         setTimeout(() => {
           const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${email}&su=${subjectEncoded}&body=${bodyEncoded}`;
           window.open(gmailUrl, "_blank", "noopener,noreferrer");
@@ -196,7 +225,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Configurar enlaces de email
   setupEmailLink(
     "contactEmail", 
     "rafa930.music@gmail.com",
@@ -220,14 +248,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Ajustar al cargar y al redimensionar
   ajustarTitulo();
   window.addEventListener("resize", ajustarTitulo);
 
-  // Añadir animaciones suaves para transiciones
   document.documentElement.style.scrollBehavior = "smooth";
   
-  // Añadir efecto de carga
   setTimeout(() => {
     document.body.classList.add("loaded");
   }, 300);
