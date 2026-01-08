@@ -384,4 +384,33 @@ body:not(.dark) .tab-content * {
 
 
 
-} /* ← Esta es la llave de cierre final del archivo */
+} /* Reset para evitar márgenes y paddings no deseados */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Asegurar que los iframes no causen desbordamiento */
+.responsive-video {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.responsive-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Forzar que todo el contenido se mantenga dentro de los límites */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
