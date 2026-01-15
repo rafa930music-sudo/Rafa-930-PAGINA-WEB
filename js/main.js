@@ -232,3 +232,104 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("loaded");
   }, 300);
 });
+
+// Esperar a que el DOM esté cargado
+document.addEventListener('DOMContentLoaded', function() {
+    const gmailMessage = document.getElementById('gmailMessage');
+    const gmailButton = document.getElementById('gmailButton');
+    
+    // Mostrar mensaje después de 3 segundos
+    setTimeout(() => {
+        showMessage();
+    }, 3000);
+    
+    // Ciclo de aparición cada 45 segundos
+    setInterval(() => {
+        if (!isMessageVisible()) {
+            setTimeout(() => {
+                showMessage();
+                setTimeout(() => {
+                    hideMessage();
+                }, 8000);
+            }, 5000);
+        }
+    }, 45000);
+    
+    // Mostrar mensaje al hacer hover en el botón
+    gmailButton.addEventListener('mouseenter', () => {
+        showMessage();
+    });
+    
+    // Ocultar mensaje al salir del área
+    gmailButton.addEventListener('mouseleave', (e) => {
+        // Solo ocultar si no estamos sobre el mensaje
+        setTimeout(() => {
+            if (!gmailMessage.matches(':hover')) {
+                hideMessage();
+            }
+        }, 100);
+    });
+    
+    // Mantener visible si el mouse está sobre el mensaje
+    gmailMessage.addEventListener('mouseenter', () => {
+        clearTimeout(hideTimeout);
+    });
+    
+    gmailMessage.addEventListener('mouseleave', () => {
+        hideMessage();
+    });
+    
+    // Funciones auxiliares
+    let hideTimeout;
+    
+    function showMessage() {
+        gmailMessage.classList.remove('opacity-0', 'translate-x-10');
+        gmailMessage.classList.add('opacity-100', 'translate-x-0');
+        
+        // Ocultar automáticamente después de 8 segundos
+        clearTimeout(hideTimeout);
+        hideTimeout = setTimeout(() => {
+            hideMessage();
+        }, 8000);
+    }
+    
+    function hideMessage() {
+        gmailMessage.classList.remove('opacity-100', 'translate-x-0');
+        gmailMessage.classList.add('opacity-0', 'translate-x-10');
+    }
+    
+    function isMessageVisible() {
+        return gmailMessage.classList.contains('opacity-100');
+    }
+    
+    // Efecto de clic en el botón
+    gmailButton.addEventListener('click', function(e) {
+        // Animación de clic
+        this.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            this.style.transform = '';
+        }, 300);
+        
+        // Estadística opcional (puedes eliminar esto)
+        console.log('Botón de Gmail clickeado - Redireccionando...');
+    });
+    
+    // Detectar scroll y esconder mensaje si es necesario
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            if (isMessageVisible()) {
+                hideMessage();
+            }
+        }, 500);
+    });
+});
+
+// Agregar Font Awesome si no está presente
+if (!document.querySelector('link[href*="font-awesome"]')) {
+    const faLink = document.createElement('link');
+    faLink.rel = 'stylesheet';
+    faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+    document.head.appendChild(faLink);
+}
