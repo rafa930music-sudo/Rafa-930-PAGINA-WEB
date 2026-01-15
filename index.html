@@ -203,7 +203,6 @@
     <div class="responsive-video"><iframe src="https://www.youtube.com/embed/yeBfa_HRVBo" allowfullscreen></iframe></div>
   </div>
 </section>
-
 <!-- Botón Flotante de Gmail con Mensaje Emergente -->
 <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
     
@@ -230,7 +229,12 @@
         
         <!-- Botón principal -->
         <div class="relative bg-gradient-to-br from-red-600 via-red-500 to-red-700 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:shadow-red-500/40 transition-all transform hover:scale-110 hover:rotate-12 duration-300">
-            <i class="fas fa-envelope text-2xl"></i>
+            
+            <!-- Solo el SVG (sin el <i> de FontAwesome) -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+    <rect x="2" y="4" width="20" height="16" rx="2"/>
+    <path d="M22 6L12 13L2 6"/>
+</svg>
             
             <!-- Indicador de notificación -->
             <div class="absolute -top-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center">
