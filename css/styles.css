@@ -13,8 +13,6 @@
 ============================== */
 body {
   font-family: 'Bebas Neue', cursive, sans-serif;
-  background: white;
-  color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -145,25 +143,36 @@ body:not(.dark) .tab-container {
 }
 
 /* ==============================
-   Videos responsivos
+   VIDEOS RESPONSIVOS - CRÍTICO PARA EL BOTÓN GMAIL
 ============================== */
 .responsive-video {
   position: relative;
-  width: 100%;
   padding-bottom: 56.25%; /* 16:9 */
-  margin: 1rem auto;
-  border-radius: 12px;
+  height: 0;
   overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
   background: #000;
+}
+
+.responsive-video:hover {
+  transform: scale(1.03);
 }
 
 .responsive-video iframe {
   position: absolute;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  border: 0;
+  border: none;
+  border-radius: 12px;
+}
+
+/* Modo oscuro para videos */
+body.dark .responsive-video {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 /* ==============================
@@ -247,34 +256,6 @@ body:not(.dark) .tab-container {
   border-radius: 12px !important;
   display: inline-block !important;
   margin: 1rem 0 !important;
-  box-shadow: 
-    0 0 15px rgba(139, 0, 255, 0.7),
-    inset 0 0 10px rgba(139, 0, 255, 0.3) !important;
-  transition: all 0.5s ease !important;
-}
-
-/* Responsive para móviles */
-@media (max-width: 768px) {
-  #perfilTitle {
-    padding: 0.4rem 1rem !important;
-    text-shadow: 
-      2px 2px 0 #ffffff,
-      -2px -2px 0 #ffffff,
-      2px -2px 0 #ffffff,
-      -2px 2px 0 #ffffff,
-      0 0 15px currentColor,
-      0 0 30px currentColor !important;
-  }
-
-  /* ==============================
-   Forzar estilos del título desde JavaScript
-============================== */
-#perfilTitle {
-  font-family: 'Bebas Neue', cursive !important;
-  padding: 0.5rem 1.5rem !important;
-  border-radius: 12px !important;
-  display: inline-block !important;
-  margin: 1rem 0 !important;
   transition: all 0.5s ease !important;
 }
 
@@ -283,16 +264,16 @@ body.dark #perfilTitle {
   color: #ffffff !important;
   background-color: #1a1a1a !important;
   text-shadow: 
-    3px 3px 0 #ffffff,
-    -3px -3px 0 #ffffff,
-    3px -3px 0 #ffffff,
-    -3px 3px 0 #ffffff,
+    3px 3px 0 #000000,
+    -3px -3px 0 #000000,
+    3px -3px 0 #000000,
+    -3px 3px 0 #000000,
     0 0 20px #ffffff,
     0 0 40px #ffffff !important;
   border: 2px solid #ffffff !important;
   box-shadow: 
     0 0 15px rgba(255, 255, 255, 0.7),
-    inset 0 0 10px rgba(255, 255, 255, 0.3) !important;
+    inset 0 0 10px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* Modo claro - Título MORADO */
@@ -313,106 +294,10 @@ body:not(.dark) #perfilTitle {
 }
 
 /* ==============================
-   Forzar estilos del Tab Container
+   BOTÓN GMAIL - ESTILOS ESPECIALES
 ============================== */
-body.dark .tab-container,
-body.dark .tab-container *,
-body.dark .tab-content,
-body.dark .tab-content * {
-  color: white !important;
-}
-
-body:not(.dark) .tab-container,
-body:not(.dark) .tab-container *,
-body:not(.dark) .tab-content,
-body:not(.dark) .tab-content * {
-  color: black !important;
-}
-
-
-/* ==============================
-   Pistas musicales (lanes + notas)
-============================== */
-.lane {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.5rem;
-  color: #666;
-  text-shadow: 0 0 8px var(--purple-neon), 0 0 20px var(--purple-dark);
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  position: relative;
-  overflow: hidden;
-  border-top: 2px solid #333;
-}
-
-.lane.active {
-  background: linear-gradient(180deg, #111, var(--purple-neon));
-  box-shadow: inset 0 0 20px var(--purple-neon);
-  color: white;
-}
-
-.note {
-  position: absolute;
-  top: -40px;
-  width: 80%;
-  height: 35px;
-  border-radius: 6px;
-  background: linear-gradient(90deg, var(--purple-neon), var(--purple-dark), #22d3ee);
-  animation: fall linear forwards;
-}
-
-@keyframes fall {
-  from { top: -40px; opacity: 1; }
-  to { top: calc(100% - 35px); opacity: 0.8; }
-}
-
-/* ==============================
-   Título principal RAFA 930
-============================== */
-#perfilTitle {
-  font-family: 'Bebas Neue', cursive !important;
-  padding: 0.5rem 1.5rem !important;
-  border-radius: 12px !important;
-  display: inline-block !important;
-  margin: 1rem 0 !important;
-  box-shadow: 
-    0 0 15px rgba(139, 0, 255, 0.7),
-    inset 0 0 10px rgba(139, 0, 255, 0.3) !important;
-  transition: all 0.5s ease !important;
-}
-
-
-
-} /* Reset para evitar márgenes y paddings no deseados */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Asegurar que los iframes no causen desbordamiento */
-.responsive-video {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  overflow: hidden;
-  width: 100%;
-}
-
-.responsive-video iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-/* Forzar que todo el contenido se mantenga dentro de los límites */
-img, video, iframe {
-  max-width: 100%;
-  height: auto;
+.fixed.z-50 {
+  z-index: 9999 !important;
 }
 
 /* Animación personalizada para el mensaje */
@@ -453,4 +338,106 @@ img, video, iframe {
     100% {
         box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
     }
+}
+
+/* ==============================
+   RESPONSIVE - MÓVILES
+============================== */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+  
+  #carousel-text {
+    font-size: 3rem;
+  }
+  
+  #perfilTitle {
+    font-size: 2.5rem !important;
+    padding: 0.3rem 1rem !important;
+  }
+  
+  .responsive-video {
+    margin-bottom: 1rem;
+  }
+  
+  /* Asegurar que el botón Gmail sea visible en móviles */
+  .fixed.bottom-6.right-6 {
+    bottom: 4rem !important;
+    right: 1rem !important;
+  }
+  
+  #gmailMessage {
+    max-width: 250px;
+    font-size: 0.8rem;
+    padding: 0.75rem;
+  }
+}
+
+/* ==============================
+   CORRECCIÓN FINAL - TÍTULO "MÁS INFORMACIÓN"
+============================== */
+
+/* El título "Más Información" mantiene su color original */
+.tab-container h2.text-2xl {
+  color: inherit !important;
+}
+
+/* En modo oscuro: gris claro */
+body.dark .tab-container h2.text-2xl {
+  color: #000000 !important;
+}
+
+/* En modo claro: negro */
+body:not(.dark) .tab-container h2.text-2xl {
+  color: #000000 !important;
+}
+
+/* ==============================
+   CORRECCIÓN FINAL - TEXTO "SOBRE MÍ"
+============================== */
+
+/* Solo el contenido de "Sobre mí" en blanco (modo oscuro) */
+body.dark #about p.text-lg,
+body.dark #about p.text-xl,
+body.dark #about .text-lg,
+body.dark #about .text-xl,
+body.dark #about .leading-relaxed {
+  color: white !important;
+}
+
+/* Spans específicos en modo oscuro */
+body.dark #about span.text-purple-300 {
+  color: #d8b4fe !important;
+}
+
+body.dark #about span.text-pink-300 {
+  color: #f9a8d4 !important;
+}
+
+/* Contenedor de contacto también en blanco (modo oscuro) */
+body.dark #contact,
+body.dark #contact * {
+  color: white !important;
+}
+
+/* ==============================
+   CORRECCIÓN FINAL - MODO CLARO
+============================== */
+
+/* En modo claro: texto negro para "Sobre mí" */
+body:not(.dark) #about p.text-lg,
+body:not(.dark) #about p.text-xl,
+body:not(.dark) #about .text-lg,
+body:not(.dark) #about .text-xl {
+  color: black !important;
+}
+
+/* Spans en modo claro mantienen colores originales */
+body:not(.dark) #about span.text-purple-300 {
+  color: #a855f7 !important;
+}
+
+body:not(.dark) #about span.text-pink-300 {
+  color: #f472b6 !important;
 }
