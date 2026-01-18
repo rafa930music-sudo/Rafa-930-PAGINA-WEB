@@ -514,3 +514,80 @@ body:not(.dark) #about span.text-pink-300 {
     transparent 100%
   );
 }
+/* ESTILOS FIJOS PARA EL FOOTER - NO CAMBIAN CON MODO OSCURO/CLARO */
+.fixed-footer {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.fixed-footer .text-white {
+  color: #ffffff !important;
+}
+
+.fixed-footer .text-gray-400 {
+  color: #9ca3af !important;
+}
+
+.fixed-footer .text-gray-500 {
+  color: #6b7280 !important;
+}
+
+.fixed-footer .text-gray-600 {
+  color: #4b5563 !important;
+}
+
+.fixed-footer .bg-black {
+  background-color: #000000 !important;
+}
+
+.fixed-footer .bg-purple-900 {
+  background-color: #4c1d95 !important;
+}
+
+.fixed-footer .border-purple-900 {
+  border-color: #4c1d95 !important;
+}
+
+.fixed-footer .hover\:bg-purple-700:hover {
+  background-color: #7c3aed !important;
+}
+
+.fixed-footer .hover\:text-purple-400:hover {
+  color: #c084fc !important;
+}
+
+.fixed-footer .text-purple-400 {
+  color: #c084fc !important;
+}
+
+.fixed-footer .bg-purple-700 {
+  background-color: #7c3aed !important;
+}
+
+.fixed-footer .hover\:bg-purple-600:hover {
+  background-color: #8b5cf6 !important;
+}
+
+.fixed-footer img.filter.invert {
+  filter: invert(1) !important;
+}
+
+.fixed-footer .border-purple-900\/40 {
+  border-color: rgba(76, 29, 149, 0.4) !important;
+}
+
+.fixed-footer .border-purple-900\/50 {
+  border-color: rgba(76, 29, 149, 0.5) !important;
+}
+
+.fixed-footer .border-purple-900\/30 {
+  border-color: rgba(76, 29, 149, 0.3) !important;
+}
+
+.fixed-footer .bg-purple-900\/30 {
+  background-color: rgba(76, 29, 149, 0.3) !important;
+}
+
+.fixed-footer .bg-purple-900\/50 {
+  background-color: rgba(76, 29, 149, 0.5) !important;
+}
