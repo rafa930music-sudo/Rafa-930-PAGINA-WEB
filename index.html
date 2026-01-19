@@ -63,29 +63,33 @@
 </head>
 
 <body>
-<!-- VERSIÓN MINIMALISTA EXACTA -->
-<nav class="fixed top-0 left-0 right-0 z-50 bg-black py-5">
-  <div class="flex items-center justify-center space-x-16 text-2xl">
+<!-- Reemplaza el navbar actual (alrededor de la línea 101-117): -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-black py-4 px-4">
+  <div class="flex items-center justify-between sm:justify-center sm:space-x-8 md:space-x-16 text-lg sm:text-xl">
     
     <!-- RAFA 930 -->
-    <div class="text-4xl font-bold text-white tracking-wider mr-8"
+    <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-wider"
          style="font-family: 'Bebas Neue', cursive;">
       RAFA 930
     </div>
     
-    <!-- Separador -->
-    <div class="text-gray-500">|</div>
+    <!-- Separador (solo visible en escritorio) -->
+    <div class="hidden sm:block text-gray-500">|</div>
     
     <!-- Enlaces -->
-  <!-- PROPUESTA (para que coincida con discografia.html) -->
-<a href="index.html" class="text-white font-semibold border-b-2 border-purple-500 pb-1 uppercase tracking-wide" style="font-family: 'Bebas Neue', cursive;">
-  INICIO
-</a>
-    <a href="discografia.html" class="text-gray-400 hover:text-white">Discografía</a>
-    
+    <div class="flex items-center gap-4 sm:gap-6">
+      <a href="index.html" 
+         class="text-white font-semibold border-b-2 border-purple-500 pb-1 uppercase tracking-wide text-sm sm:text-base"
+         style="font-family: 'Bebas Neue', cursive;">
+        INICIO
+      </a>
+      <a href="discografia.html" class="text-gray-400 hover:text-white text-sm sm:text-base">
+        Discografía
+      </a>
+    </div>
   </div>
-</nav>
-
+</nav> 
+  
 <div class="h-20"></div>
 
 <header class="w-full relative text-center py-16 overflow-hidden">
