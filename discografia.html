@@ -117,6 +117,30 @@
       opacity: 0.3;
       z-index: -1;
     }
+    /* Modo claro para discografía */
+body:not(.dark) .bg-gradient-index {
+  background: white !important;
+}
+
+body:not(.dark) .text-neon {
+  color: #000000 !important;
+  text-shadow: 
+    0 0 10px rgba(168, 85, 247, 0.3),
+    0 0 20px rgba(168, 85, 247, 0.2) !important;
+}
+
+body:not(.dark) .card-glow {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border: 1px solid rgba(168, 85, 247, 0.1) !important;
+}
+
+body:not(.dark) .badge {
+  background: linear-gradient(135deg, #6d28d9, #db2777) !important;
+}
+
+body:not(.dark) .header-parallax::before {
+  opacity: 0.1 !important;
+}
   </style>
 </head>
 <body class="bg-gradient-index">
@@ -149,6 +173,12 @@
   </div>
 </nav>
 
+
+  <!-- Justo después del </nav> en discografia.html -->
+<button id="modeToggle" class="px-4 py-2 rounded font-bold z-50 fixed top-4 right-4 bg-purple-700 text-white">
+  Modo Claro
+</button>
+  
 <div class="h-24"></div>
 
 <!-- Header con efecto igual al index -->
@@ -591,6 +621,54 @@
       header.style.backgroundPositionY = scrolled * 0.5 + 'px';
     }
   });
+
+  <!-- AGREGAR ESTO ANTES DE </body> -->
+<script>
+// ==================== SISTEMA DE MODO OSCURO/CLARO ====================
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const modeToggle = document.getElementById("modeToggle");
+  
+  // Estado inicial - cargar desde localStorage
+  let darkMode = localStorage.getItem("darkMode") !== "false"; // true por defecto
+  
+  // Aplicar modo inicial
+  aplicarModo(darkMode);
+  
+  // Evento para cambiar modo
+  if (modeToggle) {
+    modeToggle.addEventListener("click", () => {
+      darkMode = !darkMode;
+      localStorage.setItem("darkMode", darkMode);
+      aplicarModo(darkMode);
+    });
+  }
+  
+  function aplicarModo(isDark) {
+    if (isDark) {
+      // MODO OSCURO
+      body.classList.add("dark");
+      modeToggle.textContent = "Modo Claro";
+      modeToggle.style.backgroundColor = "#5a0ca3";
+      modeToggle.style.color = "white";
+      
+      // Cambiar fondo de la página
+      body.style.background = "linear-gradient(135deg, #0a0a0a, #3b0764)";
+      body.style.color = "#f1f1f1";
+      
+    } else {
+      // MODO CLARO
+      body.classList.remove("dark");
+      modeToggle.textContent = "Modo Oscuro";
+      modeToggle.style.backgroundColor = "white";
+      modeToggle.style.color = "black";
+      
+      // Cambiar fondo de la página
+      body.style.background = "white";
+      body.style.color = "black";
+    }
+  }
+});
 </script>
 
 </body>
