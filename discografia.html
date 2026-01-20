@@ -35,225 +35,142 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/styles.css">
 
-  <!-- Preload imágenes principales (NUEVO) -->
+  <!-- Preload imágenes principales -->
   <link rel="preload" as="image" href="images/edificios-centricos-de-los-angeles-en-la-noche.jpg">
 
-  <!-- Etiqueta canónica (NUEVO) -->
+  <!-- Etiqueta canónica -->
   <link rel="canonical" href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/discografia.html">
 
   <style>
-    /* ESTILOS IGUALES AL INDEX */
-    .bg-gradient-index {
-      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #3b0764 100%);
+    /* ESTILOS PARA MODO OSCURO PERMANENTE */
+    body {
+      background-color: #0f172a !important;
+      color: white !important;
     }
     
-    /* Texto con efecto neon igual - NO CAMBIADO */
+    .bg-gradient-index {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #3b0764 100%) !important;
+    }
+    
+    /* Texto con efecto neon */
     .text-neon {
-      color: #ffffff;
+      color: #ffffff !important;
       text-shadow: 
         0 0 10px rgba(168, 85, 247, 0.5),
         0 0 20px rgba(168, 85, 247, 0.3),
-        0 0 30px rgba(168, 85, 247, 0.2);
+        0 0 30px rgba(168, 85, 247, 0.2) !important;
     }
     
-    /* Tarjetas con efecto brillo igual */
+    /* Tarjetas con efecto brillo */
     .card-glow {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(168, 85, 247, 0.2);
-      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.05) !important;
+      backdrop-filter: blur(10px) !important;
+      border: 1px solid rgba(168, 85, 247, 0.2) !important;
+      transition: all 0.3s ease !important;
+      color: white !important;
     }
     
     .card-glow:hover {
-      border-color: rgba(168, 85, 247, 0.5);
-      box-shadow: 0 0 30px rgba(168, 85, 247, 0.2);
-      transform: translateY(-5px);
+      border-color: rgba(168, 85, 247, 0.5) !important;
+      box-shadow: 0 0 30px rgba(168, 85, 247, 0.2) !important;
+      transform: translateY(-5px) !important;
     }
     
-    /* Botones iguales al index */
+    /* Texto en tarjetas */
+    .card-glow h3,
+    .card-glow p,
+    .card-glow .text-gray-300,
+    .card-glow .text-gray-400 {
+      color: white !important;
+    }
+    
+    /* Botones */
     .btn-purple {
-      background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
-      color: white;
-      font-weight: bold;
-      transition: all 0.3s ease;
+      background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%) !important;
+      color: white !important;
+      font-weight: bold !important;
+      transition: all 0.3s ease !important;
     }
     
     .btn-purple:hover {
-      background: linear-gradient(135deg, #7c3aed 0%, #9333ea 100%);
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+      background: linear-gradient(135deg, #7c3aed 0%, #9333ea 100%) !important;
+      transform: scale(1.05) !important;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.5) !important;
     }
     
-    /* Efecto hover en imágenes igual */
+    /* Efecto hover en imágenes */
     .img-hover {
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      transition: transform 0.5s ease, box-shadow 0.5s ease !important;
     }
     
     .img-hover:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
+      transform: scale(1.03) !important;
+      box-shadow: 0 0 30px rgba(168, 85, 247, 0.4) !important;
     }
     
-    /* Badge estilo index */
+    /* Badge */
     .badge {
-      background: linear-gradient(135deg, #8b5cf6, #ec4899);
-      color: white;
-      font-weight: bold;
-      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #8b5cf6, #ec4899) !important;
+      color: white !important;
+      font-weight: bold !important;
+      letter-spacing: 0.5px !important;
     }
     
-    /* Header con efecto parallax igual */
+    /* Header con efecto parallax */
     .header-parallax {
-      position: relative;
-      overflow: hidden;
+      position: relative !important;
+      overflow: hidden !important;
     }
     
     .header-parallax::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('images/edificios-centricos-de-los-angeles-en-la-noche.jpg') center/cover;
-      opacity: 0.3;
-      z-index: -1;
-    }
-
-    /* ==============================
-       ESTILOS PARA MODO OSCURO/CLARO
-    =============================== */
-    
-    /* Cuando el body tiene clase dark (modo oscuro) - TEXTO BLANCO */
-    body.dark {
-      background-color: #0f172a;
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      background: url('images/edificios-centricos-de-los-angeles-en-la-noche.jpg') center/cover !important;
+      opacity: 0.3 !important;
+      z-index: -1 !important;
     }
     
-    body.dark,
-    body.dark p,
-    body.dark span,
-    body.dark div:not(.fixed-footer *):not(.invert),
-    body.dark section:not(.fixed-footer *) {
+    /* Texto general */
+    h1, h2, h3, h4, h5, h6,
+    p, span, div, section,
+    .text-gray-300, .text-gray-400, .text-gray-500 {
       color: white !important;
     }
     
-    body.dark .text-gray-300,
-    body.dark .text-gray-400,
-    body.dark .text-gray-500 {
-      color: white !important;
-    }
-    
-    /* Cuando NO tiene clase dark (modo claro) - TEXTO NEGRO */
-    body:not(.dark) {
-      background-color: white;
-    }
-    
-    body:not(.dark),
-    body:not(.dark) p,
-    body:not(.dark) span,
-    body:not(.dark) div:not(.fixed-footer *):not(.invert),
-    body:not(.dark) section:not(.fixed-footer *) {
-      color: black !important;
-    }
-    
-    body:not(.dark) .text-gray-300,
-    body:not(.dark) .text-gray-400,
-    body:not(.dark) .text-gray-500 {
-      color: black !important;
-    }
-    
-    /* Texto neon en modo claro - CORREGIDO: MORADO CON EFECTO (como index.html) */
-    body:not(.dark) .text-neon {
-      color: #8b00ff !important;
-      text-shadow: 
-        3px 3px 0 #ffffff,
-        -3px -3px 0 #ffffff,
-        3px -3px 0 #ffffff,
-        -3px 3px 0 #ffffff,
-        0 0 20px #8b00ff,
-        0 0 40px #8b00ff !important;
-    }
-    
-    /* Títulos - NEGRO en modo claro, BLANCO en modo oscuro */
-    body:not(.dark) h1,
-    body:not(.dark) h2,
-    body:not(.dark) h3 {
-      color: black !important;
-    }
-    
-    body.dark h1,
-    body.dark h2,
-    body.dark h3 {
-      color: white !important;
-    }
-    
-    /* Tarjetas - texto NEGRO en modo claro */
-    body:not(.dark) .card-glow {
-      background: rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(139, 0, 255, 0.2);
-    }
-    
-    body:not(.dark) .card-glow h3,
-    body:not(.dark) .card-glow p,
-    body:not(.dark) .card-glow .text-gray-300 {
-      color: black !important;
-    }
-    
-    /* Tarjetas - texto BLANCO en modo oscuro */
-    body.dark .card-glow h3,
-    body.dark .card-glow p,
-    body.dark .card-glow .text-gray-300 {
-      color: white !important;
-    }
-    
-    /* Logos de redes sociales según modo */
-    body.dark .invert {
+    /* Logos de redes sociales - siempre invertidos (blancos) */
+    .invert {
       filter: invert(1) !important;
     }
     
-    body:not(.dark) .invert {
-      filter: invert(0) !important;
-    }
-    
-    /* Sección de plataformas */
-    body:not(.dark) .card-glow h3 {
-      color: black !important;
-    }
-    
-    body:not(.dark) .card-glow p {
-      color: black !important;
-    }
-    
-    /* Texto en el header */
-    body:not(.dark) .header-parallax .text-gray-300 {
-      color: black !important;
-    }
-    
-    /* NAVEGACIÓN - SIEMPRE BLANCA (CAMBIOS SOLICITADOS) */
-    /* Los enlaces de navegación siempre en blanco */
+    /* NAVEGACIÓN - SIEMPRE BLANCA */
     nav a,
     nav .text-gray-400 {
       color: white !important;
     }
     
-    /* El enlace activo con borde morado */
     nav a.border-b-2 {
       border-bottom-color: #a855f7 !important;
     }
     
-    /* El separador también blanco */
     nav .text-purple-500 {
       color: white !important;
     }
     
-    /* Hover en navegación */
     nav a:hover {
       color: #d8b4fe !important;
     }
     
-    /* FOOTER - SIEMPRE NEGRO CON TEXTO BLANCO (NO CAMBIA CON MODO) */
+    /* FOOTER - SIEMPRE NEGRO CON TEXTO BLANCO */
     .fixed-footer {
       background-color: #000000 !important;
+      color: #ffffff !important;
+    }
+    
+    .fixed-footer * {
       color: #ffffff !important;
     }
     
@@ -271,10 +188,6 @@
     
     .fixed-footer .text-gray-500 {
       color: #6b7280 !important;
-    }
-    
-    .fixed-footer .text-gray-600 {
-      color: #4b5563 !important;
     }
     
     .fixed-footer .bg-black {
@@ -317,28 +230,13 @@
       filter: invert(1) !important;
     }
     
-    .fixed-footer .border-purple-900\/40 {
-      border-color: rgba(76, 29, 149, 0.4) !important;
-    }
-    
-    .fixed-footer .border-purple-900\/50 {
-      border-color: rgba(76, 29, 149, 0.5) !important;
-    }
-    
-    .fixed-footer .border-purple-900\/30 {
-      border-color: rgba(76, 29, 149, 0.3) !important;
-    }
-    
-    .fixed-footer .bg-purple-900\/30 {
-      background-color: rgba(76, 29, 149, 0.3) !important;
-    }
-    
-    .fixed-footer .bg-purple-900\/50 {
-      background-color: rgba(76, 29, 149, 0.5) !important;
+    /* Quitar el botón de modo claro/oscuro */
+    #modeToggle {
+      display: none !important;
     }
   </style>
 
-  <!-- Datos estructurados JSON-LD (NUEVO - FUERA DE STYLE) -->
+  <!-- Datos estructurados JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -369,20 +267,20 @@
 </head>
 <body class="bg-gradient-index">
 
-<!-- Navigation EXACTO AL INDEX - CON ENLACES SIEMPRE BLANCOS -->
+<!-- Navigation - ENLACES SIEMPRE BLANCOS -->
 <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md py-5 border-b border-purple-900/30">
   <div class="flex items-center justify-center space-x-16 text-2xl">
     
-    <!-- RAFA 930 - Mismo estilo que index - SIEMPRE BLANCO -->
+    <!-- RAFA 930 -->
     <a href="index.html" class="text-4xl font-bold text-white tracking-wider mr-8 hover:text-purple-300 transition-colors"
        style="font-family: 'Bebas Neue', cursive;">
       RAFA 930
     </a>
     
-    <!-- Separador - SIEMPRE BLANCO -->
+    <!-- Separador -->
     <div class="text-white">|</div>
     
-    <!-- Enlaces - SIEMPRE BLANCOS -->
+    <!-- Enlaces -->
     <a href="index.html" class="text-white hover:text-purple-300 transition-colors uppercase tracking-wide"
        style="font-family: 'Bebas Neue', cursive;">
       INICIO
@@ -397,12 +295,11 @@
   </div>
 </nav>
 
-<!-- Botón de modo oscuro/claro (NUEVO) -->
-<button id="modeToggle" class="px-4 py-2 rounded font-bold z-50 fixed top-4 right-4 bg-white text-black">Modo Claro</button>
+<!-- Botón de modo oscuro/claro ELIMINADO -->
 
 <div class="h-24"></div>
 
-<!-- Header con efecto igual al index - IMAGEN IGUAL QUE ANTES -->
+<!-- Header con efecto -->
 <header class="w-full relative py-20 overflow-hidden header-parallax">
   <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-purple-900/40 to-black/70"></div>
   
@@ -416,7 +313,7 @@
       Una colección de mis trabajos musicales. Cada lanzamiento cuenta una parte de mi historia.
     </p>
     
-    <!-- Botón estilo index -->
+    <!-- Botón -->
     <a href="#lanzamientos" 
        class="inline-block btn-purple px-8 py-3 rounded-full text-lg font-bold hover:shadow-lg transition-all duration-300">
       VER LANZAMIENTOS ↓
@@ -424,7 +321,7 @@
   </div>
 </header>
 
-<!-- Sección principal - Estilo index -->
+<!-- Sección principal -->
 <main class="max-w-7xl mx-auto px-6 py-16">
   
   <!-- Lanzamientos -->
@@ -436,11 +333,11 @@
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       
-      <!-- LA MINA - Estilo igual al index -->
+      <!-- DIFERENTES CAMINOS -->
       <div class="card-glow rounded-2xl p-6">
         <div class="mb-6 overflow-hidden rounded-xl">
           <img src="images/Diferentes Caminos.jpg" alt="DIFERENTES CAMINOS" 
-               class="img-hover w-full  object-cover rounded-xl">
+               class="img-hover w-full object-cover rounded-xl">
         </div>
         
         <div class="mb-4">
@@ -454,7 +351,7 @@
           <!-- Texto descriptivo opcional -->
         </p>
         
-        <!-- Botones streaming - Estilo index -->
+        <!-- Botones streaming -->
         <div class="flex gap-3">
           <a href="https://open.spotify.com/track/4qKu5UomnrOX3YQAbYe7as?si=3f4c60ad0f034c91" target="_blank" 
              class="btn-purple flex-1 text-center py-3 rounded-lg text-sm font-medium">
@@ -475,11 +372,11 @@
         </div>
       </div>
       
-      <!-- MY WORLD - Estilo igual al index -->
+      <!-- MY WORLD -->
       <div class="card-glow rounded-2xl p-6">
         <div class="mb-6 overflow-hidden rounded-xl">
           <img src="images/My World - Album.jpg" alt="MY WORLD" 
-               class="img-hover w-full  object-cover rounded-xl">
+               class="img-hover w-full object-cover rounded-xl">
         </div>
         
         <div class="mb-4">
@@ -502,7 +399,7 @@
               Spotify
             </span>
           </a>
-           <a href="https://www.youtube.com/watch?v=lCwhG67eijs&list=PLs6c6tp_0W8Q_4mPsWLRQ8Zwt569Rpe5x" target="_blank" 
+          <a href="https://www.youtube.com/watch?v=lCwhG67eijs&list=PLs6c6tp_0W8Q_4mPsWLRQ8Zwt569Rpe5x" target="_blank" 
              class="bg-red-600 hover:bg-red-700 flex-1 text-center py-3 rounded-lg text-sm font-medium text-white">
             <span class="flex items-center justify-center gap-2">
               <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" 
@@ -513,10 +410,11 @@
         </div>
       </div>
       
-   <div class="card-glow rounded-2xl p-6">
+      <!-- LA VIDA ES BELLA -->
+      <div class="card-glow rounded-2xl p-6">
         <div class="mb-6 overflow-hidden rounded-xl">
           <img src="images/La Vida Es Bella - Portada de Álbum  (3).jpg" alt="LA VIDA ES BELLA" 
-               class="img-hover w-full  object-cover rounded-xl">
+               class="img-hover w-full object-cover rounded-xl">
         </div>
         
         <div class="mb-4">
@@ -529,14 +427,13 @@
         <p class="text-gray-300 mb-6 text-sm leading-relaxed">
           ⏳ Disponible Pronto
         </p>
-      
+      </div>
     </div>
   </section>
   
-  
-  <!-- Plataformas - Estilo index -->
+  <!-- Plataformas -->
   <section class="mb-16">
-    <h2 class="text-4xl md:text-5xl mb-12 text-center text-neon "
+    <h2 class="text-4xl md:text-5xl mb-12 text-center text-neon"
         style="font-family: 'Bebas Neue', cursive;">
       DISPONIBLE EN
     </h2>
@@ -558,7 +455,7 @@
         <p class="text-gray-400 text-sm mt-2">Mira los videos</p>
       </a>
 
-       <a href="https://instagram.com/rafa930_oficial" target="_blank" 
+      <a href="https://instagram.com/rafa930_oficial" target="_blank" 
          class="card-glow rounded-xl p-8 text-center transition-all hover:scale-105">
         <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" 
              class="w-12 h-12 mx-auto mb-4 invert" alt="Instagram">
@@ -575,12 +472,9 @@
       </a>
     </div>
   </section>
-  
 </main>
 
-
-
-<!-- Botón Flotante de Gmail EXACTO AL INDEX -->
+<!-- Botón Flotante de Gmail -->
 <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
     
     <!-- Mensaje Emergente -->
@@ -595,7 +489,7 @@
         <div class="absolute -bottom-1 right-4 w-3 h-3 bg-gray-900 transform rotate-45 border-r border-b border-red-500/30"></div>
     </div>
     
-     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rafa930.music@gmail.com&su=Consulta%20Profesional&body=Hola%20Rafa,%0A%0AEstoy%20interesado%20en%20contactarte%20para%20una%20consulta%20profesional.%0A%0ASaludos."
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rafa930.music@gmail.com&su=Consulta%20Profesional&body=Hola%20Rafa,%0A%0AEstoy%20interesado%20en%20contactarte%20para%20una%20consulta%20profesional.%0A%0ASaludos."
        id="gmailButton"
        target="_blank"
        class="relative group">
@@ -625,6 +519,7 @@
         </div>
     </a>
 </div>
+
 <!-- FOOTER COMPLETO - SIEMPRE NEGRO CON TODO EL TEXTO EN BLANCO -->
 <footer class="bg-black border-t border-purple-900 py-12 mt-20 fixed-footer">
   <div class="max-w-7xl mx-auto px-6">
@@ -784,7 +679,7 @@
   </div>
 </footer>
 
-<!-- Scripts iguales al index -->
+<!-- Scripts -->
 <script src="js/main.js"></script>
 <script>
   // Smooth scroll para anclas internas
@@ -838,38 +733,6 @@
     
     if (header) {
       header.style.backgroundPositionY = scrolled * 0.5 + 'px';
-    }
-  });
-
-  // ==================== SISTEMA DE MODO OSCURO/CLARO ====================
-  document.addEventListener("DOMContentLoaded", () => {
-    const body = document.body;
-    const modeToggle = document.getElementById("modeToggle");
-    
-    // Estado inicial - cargar desde localStorage
-    let darkMode = localStorage.getItem("darkMode") !== "false"; // true por defecto
-    
-    // Función para aplicar el modo
-    function aplicarModo(esOscuro) {
-      if (esOscuro) {
-        body.classList.add("dark");
-        if (modeToggle) modeToggle.textContent = "Modo Claro";
-      } else {
-        body.classList.remove("dark");
-        if (modeToggle) modeToggle.textContent = "Modo Oscuro";
-      }
-    }
-    
-    // Aplicar modo inicial
-    aplicarModo(darkMode);
-    
-    // Evento para cambiar modo
-    if (modeToggle) {
-      modeToggle.addEventListener("click", () => {
-        darkMode = !darkMode;
-        localStorage.setItem("darkMode", darkMode);
-        aplicarModo(darkMode);
-      });
     }
   });
 </script>
