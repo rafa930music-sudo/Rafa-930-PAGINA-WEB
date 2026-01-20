@@ -11,16 +11,18 @@
   <meta http-equiv="Content-Language" content="es">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Discografía | Rafa 930 - Música Urbana Española">
-  <meta property="og:description" content="Descubre toda la discografía de Rafa 930. La nueva voz de la música urbana en España.">
-  <meta property="og:image" content="images/Black_And_White_Globe_Y2k_Streetwear_Logo__1_-removebg-preview.png">
+  <meta property="og:title" content="Discografía Completa | Rafa 930 - Música Urbana Española">
+  <meta property="og:description" content="Descubre toda la discografía de Rafa 930. Singles, EPs y próximos lanzamientos de la nueva voz de la música urbana en España.">
+  <meta property="og:image" content="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/images/Black_And_White_Globe_Y2k_Streetwear_Logo__1_-removebg-preview.png">
   <meta property="og:url" content="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/discografia.html">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rafa 930">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Discografía | Rafa 930">
+  <meta name="twitter:title" content="Discografía | Rafa 930 - Música Urbana Española">
   <meta name="twitter:description" content="Toda la música de Rafa 930 en un solo lugar. Singles, EPs y próximos lanzamientos.">
+  <meta name="twitter:image" content="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/images/Black_And_White_Globe_Y2k_Streetwear_Logo__1_-removebg-preview.png">
 
   <!-- Icono -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/Black_And_White_Globe_Y2k_Streetwear_Logo__1_-removebg-preview.png">
@@ -33,19 +35,19 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/styles.css">
 
+  <!-- Preload imágenes principales (NUEVO) -->
+  <link rel="preload" as="image" href="images/edificios-centricos-de-los-angeles-en-la-noche.jpg">
+
+  <!-- Etiqueta canónica (NUEVO) -->
+  <link rel="canonical" href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/discografia.html">
+
   <style>
     /* ESTILOS IGUALES AL INDEX */
-    body {
-      background-color: #0f172a;
-      color: white;
-    }
-    
-    /* Fondo gradiente igual al index */
     .bg-gradient-index {
       background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #3b0764 100%);
     }
     
-    /* Texto con efecto neon igual */
+    /* Texto con efecto neon igual - NO CAMBIADO */
     .text-neon {
       color: #ffffff;
       text-shadow: 
@@ -117,31 +119,277 @@
       opacity: 0.3;
       z-index: -1;
     }
+
+    /* ==============================
+       ESTILOS PARA MODO OSCURO/CLARO
+    =============================== */
+    
+    /* Cuando el body tiene clase dark (modo oscuro) - TEXTO BLANCO */
+    body.dark {
+      background-color: #0f172a;
+    }
+    
+    body.dark,
+    body.dark p,
+    body.dark span,
+    body.dark div:not(.fixed-footer *):not(.invert),
+    body.dark section:not(.fixed-footer *) {
+      color: white !important;
+    }
+    
+    body.dark .text-gray-300,
+    body.dark .text-gray-400,
+    body.dark .text-gray-500 {
+      color: white !important;
+    }
+    
+    /* Cuando NO tiene clase dark (modo claro) - TEXTO NEGRO */
+    body:not(.dark) {
+      background-color: white;
+    }
+    
+    body:not(.dark),
+    body:not(.dark) p,
+    body:not(.dark) span,
+    body:not(.dark) div:not(.fixed-footer *):not(.invert),
+    body:not(.dark) section:not(.fixed-footer *) {
+      color: black !important;
+    }
+    
+    body:not(.dark) .text-gray-300,
+    body:not(.dark) .text-gray-400,
+    body:not(.dark) .text-gray-500 {
+      color: black !important;
+    }
+    
+    /* Texto neon en modo claro - CORREGIDO: MORADO CON EFECTO (como index.html) */
+    body:not(.dark) .text-neon {
+      color: #8b00ff !important;
+      text-shadow: 
+        3px 3px 0 #ffffff,
+        -3px -3px 0 #ffffff,
+        3px -3px 0 #ffffff,
+        -3px 3px 0 #ffffff,
+        0 0 20px #8b00ff,
+        0 0 40px #8b00ff !important;
+    }
+    
+    /* Títulos - NEGRO en modo claro, BLANCO en modo oscuro */
+    body:not(.dark) h1,
+    body:not(.dark) h2,
+    body:not(.dark) h3 {
+      color: black !important;
+    }
+    
+    body.dark h1,
+    body.dark h2,
+    body.dark h3 {
+      color: white !important;
+    }
+    
+    /* Tarjetas - texto NEGRO en modo claro */
+    body:not(.dark) .card-glow {
+      background: rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(139, 0, 255, 0.2);
+    }
+    
+    body:not(.dark) .card-glow h3,
+    body:not(.dark) .card-glow p,
+    body:not(.dark) .card-glow .text-gray-300 {
+      color: black !important;
+    }
+    
+    /* Tarjetas - texto BLANCO en modo oscuro */
+    body.dark .card-glow h3,
+    body.dark .card-glow p,
+    body.dark .card-glow .text-gray-300 {
+      color: white !important;
+    }
+    
+    /* Logos de redes sociales según modo */
+    body.dark .invert {
+      filter: invert(1) !important;
+    }
+    
+    body:not(.dark) .invert {
+      filter: invert(0) !important;
+    }
+    
+    /* Sección de plataformas */
+    body:not(.dark) .card-glow h3 {
+      color: black !important;
+    }
+    
+    body:not(.dark) .card-glow p {
+      color: black !important;
+    }
+    
+    /* Texto en el header */
+    body:not(.dark) .header-parallax .text-gray-300 {
+      color: black !important;
+    }
+    
+    /* NAVEGACIÓN - SIEMPRE BLANCA (CAMBIOS SOLICITADOS) */
+    /* Los enlaces de navegación siempre en blanco */
+    nav a,
+    nav .text-gray-400 {
+      color: white !important;
+    }
+    
+    /* El enlace activo con borde morado */
+    nav a.border-b-2 {
+      border-bottom-color: #a855f7 !important;
+    }
+    
+    /* El separador también blanco */
+    nav .text-purple-500 {
+      color: white !important;
+    }
+    
+    /* Hover en navegación */
+    nav a:hover {
+      color: #d8b4fe !important;
+    }
+    
+    /* FOOTER - SIEMPRE NEGRO CON TEXTO BLANCO (NO CAMBIA CON MODO) */
+    .fixed-footer {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+    }
+    
+    .fixed-footer .text-white {
+      color: #ffffff !important;
+    }
+    
+    .fixed-footer .text-gray-300 {
+      color: #d1d5db !important;
+    }
+    
+    .fixed-footer .text-gray-400 {
+      color: #9ca3af !important;
+    }
+    
+    .fixed-footer .text-gray-500 {
+      color: #6b7280 !important;
+    }
+    
+    .fixed-footer .text-gray-600 {
+      color: #4b5563 !important;
+    }
+    
+    .fixed-footer .bg-black {
+      background-color: #000000 !important;
+    }
+    
+    .fixed-footer .bg-purple-900 {
+      background-color: #4c1d95 !important;
+    }
+    
+    .fixed-footer .border-purple-900 {
+      border-color: #4c1d95 !important;
+    }
+    
+    .fixed-footer .hover\:bg-purple-700:hover {
+      background-color: #7c3aed !important;
+    }
+    
+    .fixed-footer .hover\:text-purple-400:hover {
+      color: #c084fc !important;
+    }
+    
+    .fixed-footer .text-purple-300 {
+      color: #d8b4fe !important;
+    }
+    
+    .fixed-footer .text-purple-400 {
+      color: #c084fc !important;
+    }
+    
+    .fixed-footer .bg-purple-700 {
+      background-color: #7c3aed !important;
+    }
+    
+    .fixed-footer .hover\:bg-purple-600:hover {
+      background-color: #8b5cf6 !important;
+    }
+    
+    .fixed-footer img.filter.invert {
+      filter: invert(1) !important;
+    }
+    
+    .fixed-footer .border-purple-900\/40 {
+      border-color: rgba(76, 29, 149, 0.4) !important;
+    }
+    
+    .fixed-footer .border-purple-900\/50 {
+      border-color: rgba(76, 29, 149, 0.5) !important;
+    }
+    
+    .fixed-footer .border-purple-900\/30 {
+      border-color: rgba(76, 29, 149, 0.3) !important;
+    }
+    
+    .fixed-footer .bg-purple-900\/30 {
+      background-color: rgba(76, 29, 149, 0.3) !important;
+    }
+    
+    .fixed-footer .bg-purple-900\/50 {
+      background-color: rgba(76, 29, 149, 0.5) !important;
+    }
   </style>
+
+  <!-- Datos estructurados JSON-LD (NUEVO - FUERA DE STYLE) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Discografía | Rafa 930 - Música Urbana Española",
+    "description": "Discografía completa de Rafa 930, artista de música urbana española.",
+    "url": "https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/discografia.html",
+    "mainEntity": {
+      "@type": "MusicGroup",
+      "name": "Rafa 930",
+      "alternateName": "RAFA930",
+      "url": "https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/",
+      "image": "https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/images/521593741_17984688833844485_1863791024957518906_n.jpg",
+      "description": "Rafa 930, la nueva voz de la música urbana en España. Trap, reggaetón y rap con estilo único.",
+      "genre": ["Música urbana", "Reggaeton", "Trap", "Rap"],
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "España"
+      },
+      "sameAs": [
+        "https://www.instagram.com/rafa930_oficial/",
+        "https://youtube.com/@rafa_930",
+        "https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng"
+      ]
+    }
+  }
+  </script>
 </head>
 <body class="bg-gradient-index">
 
-<!-- Navigation EXACTO AL INDEX -->
+<!-- Navigation EXACTO AL INDEX - CON ENLACES SIEMPRE BLANCOS -->
 <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md py-5 border-b border-purple-900/30">
   <div class="flex items-center justify-center space-x-16 text-2xl">
     
-    <!-- RAFA 930 - Mismo estilo que index -->
+    <!-- RAFA 930 - Mismo estilo que index - SIEMPRE BLANCO -->
     <a href="index.html" class="text-4xl font-bold text-white tracking-wider mr-8 hover:text-purple-300 transition-colors"
        style="font-family: 'Bebas Neue', cursive;">
       RAFA 930
     </a>
     
-    <!-- Separador -->
-    <div class="text-purple-500">|</div>
+    <!-- Separador - SIEMPRE BLANCO -->
+    <div class="text-white">|</div>
     
-    <!-- Enlaces - Mismo estilo que index -->
-    <a href="index.html" class="text-gray-400 hover:text-white transition-colors uppercase tracking-wide"
+    <!-- Enlaces - SIEMPRE BLANCOS -->
+    <a href="index.html" class="text-white hover:text-purple-300 transition-colors uppercase tracking-wide"
        style="font-family: 'Bebas Neue', cursive;">
       INICIO
     </a>
     
     <a href="discografia.html" 
-       class="text-white font-semibold border-b-2 border-purple-500 pb-1 uppercase tracking-wide"
+       class="text-white font-semibold border-b-2 border-purple-500 pb-1 uppercase tracking-wide hover:text-purple-300"
        style="font-family: 'Bebas Neue', cursive;">
       DISCÓGRAFÍA
     </a>
@@ -149,9 +397,12 @@
   </div>
 </nav>
 
+<!-- Botón de modo oscuro/claro (NUEVO) -->
+<button id="modeToggle" class="px-4 py-2 rounded font-bold z-50 fixed top-4 right-4 bg-white text-black">Modo Claro</button>
+
 <div class="h-24"></div>
 
-<!-- Header con efecto igual al index -->
+<!-- Header con efecto igual al index - IMAGEN IGUAL QUE ANTES -->
 <header class="w-full relative py-20 overflow-hidden header-parallax">
   <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-purple-900/40 to-black/70"></div>
   
@@ -197,11 +448,10 @@
           <h3 class="text-3xl font-bold text-white mb-2" style="font-family: 'Bebas Neue', cursive;">
             DIFERENTES CAMINOS
           </h3>
-
         </div>
         
         <p class="text-gray-300 mb-6 text-sm leading-relaxed">
-
+          <!-- Texto descriptivo opcional -->
         </p>
         
         <!-- Botones streaming - Estilo index -->
@@ -240,6 +490,7 @@
         </div>
         
         <p class="text-gray-300 mb-6 text-sm leading-relaxed">
+          <!-- Texto descriptivo opcional -->
         </p>
         
         <div class="flex gap-3">
@@ -322,9 +573,6 @@
         <h3 class="font-bold text-lg">Linktree</h3>
         <p class="text-gray-400 text-sm mt-2">Enlaces únicos</p>
       </a>
-      
-     
-      </a>
     </div>
   </section>
   
@@ -377,7 +625,7 @@
         </div>
     </a>
 </div>
-<!-- Footer Profesional - Estilo fijo -->
+<!-- FOOTER COMPLETO - SIEMPRE NEGRO CON TODO EL TEXTO EN BLANCO -->
 <footer class="bg-black border-t border-purple-900 py-12 mt-20 fixed-footer">
   <div class="max-w-7xl mx-auto px-6">
     
@@ -395,7 +643,7 @@
           </h2>
         </div>
         
-        <p class="text-gray-400 text-sm leading-relaxed">
+        <p class="text-white text-sm leading-relaxed">
           Artista urbano español fusionando trap, reggaetón y música electrónica. 
           Creando sonidos únicos que definen la nueva era de la música urbana en España.
         </p>
@@ -433,20 +681,20 @@
         </h3>
         <ul class="space-y-4">
           <li>
-            <a href="index.html" class="text-gray-400 hover:text-purple-400 transition-colors flex items-center gap-2">
+            <a href="index.html" class="text-white hover:text-purple-300 transition-colors flex items-center gap-2">
               <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
               Inicio
             </a>
           </li>
           <li>
-            <a href="discografia.html" class="text-gray-400 hover:text-purple-400 transition-colors flex items-center gap-2">
+            <a href="discografia.html" class="text-white hover:text-purple-300 transition-colors flex items-center gap-2">
               <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
               Discografía
             </a>
           </li>
           
           <li>
-            <a href="https://linktr.ee/rafa.930" target="_blank" class="text-gray-400 hover:text-purple-400 transition-colors flex items-center gap-2">
+            <a href="https://linktr.ee/rafa.930" target="_blank" class="text-white hover:text-purple-300 transition-colors flex items-center gap-2">
               <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
               Todos los enlaces
             </a>
@@ -463,14 +711,14 @@
         <div class="space-y-4">
           <div class="flex items-start gap-3">
             <div class="w-8 h-8 bg-purple-900 rounded-full flex items-center justify-center flex-shrink-0">
-              <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
               </svg>
             </div>
             <div>
-              <p class="text-sm text-gray-400">Email profesional</p>
+              <p class="text-sm text-white">Email profesional</p>
               <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rafa930.music@gmail.com&su=Consulta%20Profesional&body=Hola%20Rafa,%0A%0AEstoy%20interesado%20en%20realizar%20una%20consulta%20profesional%20contigo.%20Por%20favor,%20ind%C3%ADcame%20tu%20disponibilidad.%0A%0AGracias%20de%20antemano." 
-                 class="text-white hover:text-purple-400 transition-colors text-sm">
+                 class="text-white hover:text-purple-300 transition-colors text-sm font-semibold">
                 rafa930.music@gmail.com
               </a>
             </div>
@@ -478,12 +726,12 @@
           
           <div class="flex items-start gap-3">
             <div class="w-8 h-8 bg-purple-900 rounded-full flex items-center justify-center flex-shrink-0">
-              <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
               </svg>
             </div>
             <div>
-              <p class="text-sm text-gray-400">Para negocios</p>
+              <p class="text-sm text-white">Para negocios</p>
               <p class="text-white text-sm">Contrataciones y colaboraciones</p>
             </div>
           </div>
@@ -508,26 +756,26 @@
       <!-- Copyright y legales -->
       <div class="flex flex-col md:flex-row justify-between items-center gap-6">
         <div class="text-center md:text-left">
-          <p class="text-gray-500 text-sm">
-            © 2026 <span class="text-purple-400 font-semibold">Rafa 930</span>. Todos los derechos reservados.
+          <p class="text-white text-sm">
+            © 2026 <span class="text-purple-300 font-semibold">Rafa 930</span>. Todos los derechos reservados.
           </p>
-          <p class="text-gray-600 text-xs mt-2">
+          <p class="text-white text-xs mt-2">
             La música, imágenes y contenido de este sitio son propiedad exclusiva de Rafa 930.
           </p>
         </div>
         
         <!-- ENLACES LEGALES -->
         <div class="flex flex-wrap justify-center gap-6">
-          <a href="privacidad.html" class="text-gray-500 hover:text-purple-400 text-xs transition-colors">
+          <a href="privacidad.html" class="text-white hover:text-purple-300 text-xs transition-colors">
             Política de privacidad
           </a>
-          <a href="terminos.html" class="text-gray-500 hover:text-purple-400 text-xs transition-colors">
+          <a href="terminos.html" class="text-white hover:text-purple-300 text-xs transition-colors">
             Términos de uso
           </a>
-          <a href="aviso-legal.html" class="text-gray-500 hover:text-purple-400 text-xs transition-colors">
+          <a href="aviso-legal.html" class="text-white hover:text-purple-300 text-xs transition-colors">
             Aviso legal
           </a>
-          <a href="cookies.html" class="text-gray-500 hover:text-purple-400 text-xs transition-colors">
+          <a href="cookies.html" class="text-white hover:text-purple-300 text-xs transition-colors">
             Cookies
           </a>
         </div>
@@ -537,6 +785,7 @@
 </footer>
 
 <!-- Scripts iguales al index -->
+<script src="js/main.js"></script>
 <script>
   // Smooth scroll para anclas internas
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
