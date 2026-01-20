@@ -840,6 +840,38 @@
       header.style.backgroundPositionY = scrolled * 0.5 + 'px';
     }
   });
+
+  // ==================== SISTEMA DE MODO OSCURO/CLARO ====================
+  document.addEventListener("DOMContentLoaded", () => {
+    const body = document.body;
+    const modeToggle = document.getElementById("modeToggle");
+    
+    // Estado inicial - cargar desde localStorage
+    let darkMode = localStorage.getItem("darkMode") !== "false"; // true por defecto
+    
+    // Función para aplicar el modo
+    function aplicarModo(esOscuro) {
+      if (esOscuro) {
+        body.classList.add("dark");
+        if (modeToggle) modeToggle.textContent = "Modo Claro";
+      } else {
+        body.classList.remove("dark");
+        if (modeToggle) modeToggle.textContent = "Modo Oscuro";
+      }
+    }
+    
+    // Aplicar modo inicial
+    aplicarModo(darkMode);
+    
+    // Evento para cambiar modo
+    if (modeToggle) {
+      modeToggle.addEventListener("click", () => {
+        darkMode = !darkMode;
+        localStorage.setItem("darkMode", darkMode);
+        aplicarModo(darkMode);
+      });
+    }
+  });
 </script>
 
 </body>
