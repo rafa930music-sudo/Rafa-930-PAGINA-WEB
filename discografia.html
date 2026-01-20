@@ -105,10 +105,19 @@
 <div class="h-24"></div>
 
 <!-- Header con efecto -->
-<header class="w-full relative py-20 overflow-hidden header-parallax">
+<header class="w-full relative py-20 overflow-hidden header-parallax min-h-[500px]">
+  <!-- PRIMERO: Imagen de fondo -->
+   <img 
+    src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+    alt="Fondo discografía"
+    class="absolute inset-0 w-full h-full object-cover opacity-60"
+  >
+  
+  <!-- SEGUNDO: Overlay de gradiente (esto va sobre la imagen) -->
   <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-purple-900/40 to-black/70"></div>
   
-  <div class="relative z-10 max-w-6xl mx-auto px-6 text-center">
+  <!-- TERCERO: Contenido (esto va sobre todo) -->
+  <div class="relative z-10 max-w-6xl mx-auto px-6 text-center pt-16">
     <h1 class="text-5xl md:text-7xl font-bold mb-6 text-neon" 
         style="font-family: 'Bebas Neue', cursive; letter-spacing: 0.1em;">
       DISCÓGRAFÍA
