@@ -1,154 +1,125 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Cookies | Rafa 930</title>
-    <style>
-        body {
-            background-color: #0f172a;
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(30, 41, 59, 0.8);
-            padding: 40px;
-            border-radius: 15px;
-            border: 1px solid rgba(168, 85, 247, 0.3);
-        }
-        h1 {
-            color: #a855f7;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .cookie-type {
-            background: rgba(168, 85, 247, 0.1);
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 10px;
-            border-left: 4px solid;
-        }
-        .essential { border-left-color: #10b981; }
-        .analytics { border-left-color: #f59e0b; }
-        .third-party { border-left-color: #ef4444; }
-        .back-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 30px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Cookies | Rafa 930</title>
+  <meta name="description" content="Política de cookies de Rafa 930 - Artista musical y fotógrafo profesional">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; background: #0a0a0a; color: #ffffff; line-height: 1.6; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+    .header { background: linear-gradient(135deg, #0a0a0a, #1a0a2e); padding: 2rem 0; text-align: center; border-bottom: 1px solid rgba(168,85,247,0.2); }
+    .header h1 { font-family: 'Bebas Neue', cursive; font-size: 2.5rem; color: white; }
+    .header h1 span { background: linear-gradient(135deg, #a855f7, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .content { background: #1a1a1a; padding: 3rem; border-radius: 20px; margin-top: 2rem; }
+    .content h2 { font-family: 'Bebas Neue', cursive; font-size: 1.8rem; color: #a855f7; margin: 1.5rem 0 1rem; }
+    .content h2:first-of-type { margin-top: 0; }
+    .content h3 { font-size: 1.2rem; color: #fbbf24; margin: 1rem 0 0.5rem; }
+    .content p { color: rgba(255,255,255,0.7); margin-bottom: 1rem; }
+    .content ul { color: rgba(255,255,255,0.7); margin-left: 2rem; margin-bottom: 1rem; }
+    .content li { margin-bottom: 0.5rem; }
+    .btn-cookie { background: linear-gradient(135deg, #a855f7, #7e22ce); border: none; padding: 0.6rem 1.2rem; border-radius: 50px; color: white; cursor: pointer; transition: all 0.3s; margin-top: 1rem; }
+    .btn-cookie:hover { transform: translateY(-2px); box-shadow: 0 0 15px rgba(168,85,247,0.5); }
+    .back-link { display: inline-block; margin-top: 2rem; color: #a855f7; text-decoration: none; transition: all 0.3s; }
+    .back-link:hover { color: #fbbf24; transform: translateX(-5px); }
+    .footer { text-align: center; padding: 2rem; border-top: 1px solid rgba(168,85,247,0.2); margin-top: 2rem; color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+    .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; background: #1a1a1a; border-top: 1px solid rgba(168,85,247,0.3); padding: 1rem; text-align: center; z-index: 1000; display: none; }
+    .cookie-banner p { margin-bottom: 0.5rem; font-size: 0.8rem; }
+    .cookie-banner button { margin: 0 0.5rem; }
+    @media (max-width: 768px) { .container { padding: 1rem; } .content { padding: 1.5rem; } .content h2 { font-size: 1.4rem; } }
+  </style>
 </head>
 <body>
+  <div class="header">
     <div class="container">
-        <h1>🍪 POLÍTICA DE COOKIES</h1>
-
-        
-        <h2>¿QUÉ SON LAS COOKIES?</h2>
-        <p>Pequeños archivos que se guardan en tu navegador cuando visitas mi web. Como artista, las uso principalmente para saber cuánta gente visita mi página y de dónde vienen.</p>
-        
-        <h2>COOKIES QUE USO COMO ARTISTA</h2>
-        
-        <div class="cookie-type essential">
-            <h3>✅ COOKIES TÉCNICAS (ESENCIALES)</h3>
-            <p><strong>Para qué:</strong> Que la web funcione bien</p>
-            <p><strong>Ejemplo:</strong> Recordar que aceptaste las cookies</p>
-            <p><strong>¿Se pueden desactivar?</strong> No, la web no funcionaría</p>
-        </div>
-        
-        <div class="cookie-type analytics">
-            <h3>📊 COOKIES DE ANÁLISIS</h3>
-            <p><strong>Para qué:</strong> Saber cuánta gente visita mi web</p>
-            <p><strong>Datos que veo:</strong></p>
-            <ul>
-                <li>Cuántas visitas tengo</li>
-                <li>De qué país vienen</li>
-                <li>Cuánto tiempo están en la web</li>
-                <li>Qué páginas ven más</li>
-            </ul>
-            <p><strong>Importante:</strong> NO veo datos personales, solo números generales.</p>
-        </div>
-        
-        <div class="cookie-type third-party">
-            <h3>🔗 COOKIES DE TERCEROS</h3>
-            <p><strong>Servicios externos que uso:</strong></p>
-            <ul>
-                <li><strong>YouTube:</strong> Para incrustar mis vídeos</li>
-                <li><strong>Google Fonts:</strong> Para las fuentes bonitas</li>
-                <li><strong>Iconos:</strong> Para los logos de redes sociales</li>
-            </ul>
-        </div>
-        
-        <h2>🎯 COMO ARTISTA, ¿QUÉ HAGO CON ESTOS DATOS?</h2>
-        <ul>
-            <li>📈 Ver si mi música interesa en diferentes países</li>
-            <li>🎨 Saber qué diseño de web gusta más</li>
-            <li>🔍 Entender qué contenido buscan mis fans</li>
-            <li>📅 Planificar lanzamientos según la audiencia</li>
-        </ul>
-        
-        <h2>⚙️ CÓMO GESTIONAR COOKIES</h2>
-        
-        <h3>1. Configurar tu navegador</h3>
-        <p>Cada navegador tiene opciones para bloquear cookies:</p>
-        <ul>
-            <li><strong>Chrome:</strong> Configuración → Privacidad y seguridad → Cookies</li>
-            <li><strong>Firefox:</strong> Opciones → Privacidad y seguridad → Cookies</li>
-            <li><strong>Safari:</strong> Preferencias → Privacidad → Cookies</li>
-        </ul>
-        
-        <h3>2. Herramientas específicas</h3>
-        <p>Puedes usar:</p>
-        <ul>
-            <li>Modo incógnito/privado</li>
-            <li>Extensiones de bloqueo de cookies</li>
-            <li>Configuraciones de "No rastrear"</li>
-        </ul>
-        
-        <h2>📱 ¿QUÉ PASA EN MÓVIL?</h2>
-        <p>En teléfonos, las cookies funcionan igual. Puedes gestionarlas en:</p>
-        <ul>
-            <li>Ajustes del navegador móvil</li>
-            <li>Configuración de privacidad del teléfono</li>
-            <li>Aplicaciones específicas de privacidad</li>
-        </ul>
-        
-        <div style="background: rgba(168, 85, 247, 0.1); padding: 20px; border-radius: 10px; margin: 30px 0;">
-            <h3>💡 CONSEJO PARA FANS</h3>
-            <p>Si solo quieres escuchar mi música sin cookies:</p>
-            <ol>
-                <li>Ve directamente a Spotify/Apple Music</li>
-                <li>Usa el modo incógnito para visitar mi web</li>
-                <li>Bloquea cookies de terceros en tu navegador</li>
-            </ol>
-        </div>
-        
-        <h2>🔔 BANNER DE COOKIES QUE VERÁS</h2>
-        <p>Cuando entres a mi web, verás un mensaje como este:</p>
-        <div style="background: rgba(30, 41, 59, 0.9); padding: 20px; border-radius: 10px; border: 1px solid #475569;">
-            <p>"🎵 Hola, soy Rafa 930. Uso cookies para saber cuánta gente visita mi web y mejorar tu experiencia. ¿Las aceptas?"</p>
-            <div style="display: flex; gap: 10px; margin-top: 15px;">
-                <button style="padding: 8px 20px; background: #475569; border: none; border-radius: 5px; color: white;">Solo necesarias</button>
-                <button style="padding: 8px 20px; background: #8b5cf6; border: none; border-radius: 5px; color: white;">Aceptar todas</button>
-            </div>
-        </div>
-        
-        <div style="text-align: center; margin-top: 40px;">
-            <p><strong>Última actualización:</strong> [FECHA ACTUAL]</p>
-            <p><em>Esta política es específica para la web de Rafa 930 como artista independiente.</em></p>
-        </div>
-        
-        <div style="text-align: center; margin-top: 30px;">
-            <a href="index.html" class="back-btn">← Volver a escuchar música</a>
-        </div>
+      <a href="index.html" style="text-decoration: none;">
+        <h1>RAFA <span>930</span></h1>
+        <p style="color: rgba(255,255,255,0.6); font-size: 0.8rem;">Volver al inicio</p>
+      </a>
     </div>
+  </div>
+  
+  <div class="container">
+    <div class="content">
+      <h2>Política de Cookies</h2>
+      <p><strong>Última actualización:</strong> Abril 2026</p>
+      
+      <h2>1. ¿Qué son las cookies?</h2>
+      <p>Las cookies son pequeños archivos de texto que los sitios web colocan en tu dispositivo (ordenador, teléfono móvil, tablet) mientras navegas. Son ampliamente utilizadas para hacer que los sitios web funcionen de manera más eficiente y para proporcionar información a los propietarios del sitio.</p>
+      
+      <h2>2. ¿Qué tipo de cookies utilizamos?</h2>
+      <p>En <strong>Rafa 930</strong> utilizamos los siguientes tipos de cookies:</p>
+      
+      <h3>Cookies técnicas (necesarias)</h3>
+      <p>Son esenciales para el funcionamiento básico de la web. Permiten la navegación y el uso de las diferentes opciones o servicios.</p>
+      
+      <h3>Cookies de análisis (Google Analytics)</h3>
+      <p>Nos ayudan a entender cómo los visitantes interactúan con nuestra web, recopilando información de forma anónima. Utilizamos Google Analytics para este fin.</p>
+      
+      <h3>Cookies de redes sociales</h3>
+      <p>Cuando compartes contenido a través de los botones de redes sociales (Instagram, Spotify, YouTube, Linktree), estas plataformas pueden instalar sus propias cookies.</p>
+      
+      <h2>3. ¿Cómo gestionar o desactivar las cookies?</h2>
+      <p>Puedes permitir, bloquear o eliminar las cookies instaladas en tu dispositivo mediante la configuración de tu navegador:</p>
+      <ul>
+        <li><strong>Chrome:</strong> Configuración → Privacidad y seguridad → Cookies y otros datos de sitios</li>
+        <li><strong>Firefox:</strong> Opciones → Privacidad y seguridad → Cookies y datos del sitio</li>
+        <li><strong>Safari:</strong> Preferencias → Privacidad → Bloquear cookies</li>
+        <li><strong>Edge:</strong> Configuración → Privacidad y servicios → Cookies</li>
+      </ul>
+      
+      <h2>4. Cookies de terceros</h2>
+      <p>Utilizamos Google Analytics, que puede instalar cookies para recopilar información anónima sobre tu navegación. Puedes obtener más información en la <a href="https://policies.google.com/privacy" target="_blank" style="color: #a855f7;">Política de Privacidad de Google</a>.</p>
+      
+      <h2>5. Consentimiento</h2>
+      <p>Al navegar por nuestra web, consientes el uso de cookies según esta política. Puedes revocar tu consentimiento en cualquier momento a través de la configuración de tu navegador.</p>
+      
+      <h2>6. Cambios en la política de cookies</h2>
+      <p>Podemos actualizar esta Política de Cookies ocasionalmente. Te recomendamos revisarla periódicamente.</p>
+      
+      <h2>7. Contacto</h2>
+      <p>Si tienes preguntas sobre esta Política de Cookies, contáctanos en: <strong>rafa930.music@gmail.com</strong></p>
+      
+      <div style="background: rgba(168,85,247,0.1); padding: 1rem; border-radius: 12px; margin: 1.5rem 0; text-align: center;">
+        <p style="margin-bottom: 0.5rem;">🍪 Puedes gestionar tus preferencias de cookies:</p>
+        <button class="btn-cookie" onclick="aceptarCookies()">Aceptar cookies</button>
+        <button class="btn-cookie" onclick="rechazarCookies()" style="background: #333;">Rechazar cookies</button>
+      </div>
+      
+      <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Volver a la página principal</a>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p>&copy; 2026 Rafa 930 · Todos los derechos reservados</p>
+  </div>
+  
+  <div id="cookieBanner" class="cookie-banner">
+    <p>🍪 Usamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra <a href="cookies.html" style="color: #a855f7;">Política de Cookies</a>.</p>
+    <button class="btn-cookie" onclick="aceptarCookies()">Aceptar</button>
+    <button class="btn-cookie" onclick="rechazarCookies()" style="background: #333;">Rechazar</button>
+  </div>
+  
+  <script>
+    function aceptarCookies() {
+      localStorage.setItem('cookies_aceptadas', 'true');
+      document.getElementById('cookieBanner').style.display = 'none';
+      alert('¡Gracias! Has aceptado las cookies.');
+    }
+    
+    function rechazarCookies() {
+      localStorage.setItem('cookies_aceptadas', 'false');
+      document.getElementById('cookieBanner').style.display = 'none';
+      alert('Has rechazado las cookies. Algunas funciones pueden verse afectadas.');
+    }
+    
+    if (!localStorage.getItem('cookies_aceptadas')) {
+      document.getElementById('cookieBanner').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
