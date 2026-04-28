@@ -1,7 +1,8 @@
 /* ========================================
    PROYECTO: WEB ARTISTA MUSICAL - ULTRA COMPLETO
-   VERSION: 5.0.0 PROFESSIONAL
-   TOTAL LINEAS: 3200+
+   VERSION: 6.0.0 OPTIMIZED
+   TOTAL LINEAS: 3800+
+   MEJORAS: Performance, nuevas secciones, fixes
    ======================================== */
 
 /* ========================================
@@ -72,6 +73,13 @@
   --z-overlay: 10003;
   --z-toast: 10004;
   --z-splash: 100000;
+  
+  /* Colores RGB para backdrop-filter */
+  --bg-primary-rgb: 10, 10, 10;
+  --bg-secondary-rgb: 26, 26, 26;
+  --bg-tertiary-rgb: 34, 34, 34;
+  --purple-rgb: 168, 85, 247;
+  --gold-rgb: 251, 191, 36;
 }
 
 /* Reset de elementos */
@@ -203,6 +211,8 @@ body.light {
   --bg-card-active: rgba(168, 85, 247, 0.08);
   --bg-overlay: rgba(255, 255, 255, 0.9);
   --bg-overlay-light: rgba(255, 255, 255, 0.6);
+  --bg-primary-rgb: 245, 245, 245;
+  --bg-secondary-rgb: 255, 255, 255;
   
   --border-color: rgba(168, 85, 247, 0.3);
   --border-color-light: rgba(168, 85, 247, 0.15);
@@ -616,13 +626,13 @@ section {
   left: 0;
   width: 100%;
   z-index: var(--z-fixed);
-  background: rgba(var(--bg-primary-rgb, 10, 10, 10), 0.8);
+  background: rgba(var(--bg-primary-rgb), 0.8);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
   transition: var(--transition-default);
 }
 .header.scrolled {
-  background: rgba(var(--bg-primary-rgb, 10, 10, 10), 0.95);
+  background: rgba(var(--bg-primary-rgb), 0.95);
   box-shadow: var(--shadow-md);
 }
 
@@ -805,7 +815,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 .mobile-menu {
   position: fixed;
   inset: 0;
-  background: rgba(var(--bg-primary-rgb, 10, 10, 10), 0.98);
+  background: rgba(var(--bg-primary-rgb), 0.98);
   backdrop-filter: blur(20px);
   z-index: var(--z-modal);
   display: flex;
@@ -877,7 +887,441 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   7. - SPLASH SCREEN AVANZADO
+   7. - NUEVA SECCIÓN: TESTIMONIOS
+======================================== */
+.testimonials-section {
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.testimonial-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: var(--transition-default);
+  position: relative;
+}
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--purple);
+  box-shadow: var(--shadow-glow);
+}
+.testimonial-quote {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 4rem;
+  color: var(--purple);
+  opacity: 0.2;
+  font-family: serif;
+}
+.testimonial-text {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.testimonial-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold);
+}
+.testimonial-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+.testimonial-role {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+}
+.testimonial-stars {
+  color: var(--gold);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+@media (max-width: 768px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
+
+/* ========================================
+   8. - NUEVA SECCIÓN: PRÓXIMOS EVENTOS
+======================================== */
+.events-section {
+  background: var(--bg-secondary);
+}
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.event-card {
+  display: flex;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition-default);
+}
+.event-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--purple);
+  box-shadow: var(--shadow-md);
+}
+.event-date {
+  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+  padding: 1rem;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.event-day {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1;
+}
+.event-month {
+  font-size: 0.7rem;
+  color: white;
+  text-transform: uppercase;
+}
+.event-info {
+  padding: 1rem;
+  flex: 1;
+}
+.event-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+.event-location {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.event-location i {
+  font-size: 0.7rem;
+}
+.event-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.event-buttons .btn {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.6rem;
+}
+@media (max-width: 640px) {
+  .events-grid { grid-template-columns: 1fr; }
+  .event-card { flex-direction: column; }
+  .event-date { flex-direction: row; gap: 0.5rem; padding: 0.8rem; }
+}
+
+/* ========================================
+   9. - NUEVA SECCIÓN: NEWSLETTER
+======================================== */
+.newsletter-section {
+  background: linear-gradient(135deg, rgba(var(--purple-rgb), 0.1), rgba(var(--gold-rgb), 0.05));
+  position: relative;
+  overflow: hidden;
+}
+.newsletter-container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.newsletter-form {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.newsletter-input {
+  flex: 1;
+  min-width: 250px;
+  padding: 0.8rem 1.2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--purple);
+}
+.newsletter-btn {
+  padding: 0.8rem 1.8rem;
+}
+@media (max-width: 480px) {
+  .newsletter-form { flex-direction: column; }
+  .newsletter-input { width: 100%; }
+}
+
+/* ========================================
+   10. - NUEVA SECCIÓN: ESTADÍSTICAS
+======================================== */
+.stats-section {
+  background: var(--bg-primary);
+  position: relative;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  text-align: center;
+}
+.stat-card {
+  padding: 1.5rem;
+}
+.stat-number {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  font-family: 'Bebas Neue', cursive;
+  background: linear-gradient(135deg, var(--purple), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+@media (max-width: 640px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+}
+
+/* ========================================
+   11. - NUEVA SECCIÓN: GALERÍA DE VIDEOS
+======================================== */
+.video-gallery-section {
+  background: var(--bg-secondary);
+}
+.video-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.video-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 16/9;
+}
+.video-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.video-card:hover img {
+  transform: scale(1.05);
+}
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.video-card:hover .video-overlay {
+  opacity: 1;
+}
+.video-play {
+  width: 60px;
+  height: 60px;
+  background: var(--purple);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  transform: scale(0);
+  transition: transform 0.3s;
+}
+.video-card:hover .video-play {
+  transform: scale(1);
+}
+@media (max-width: 768px) {
+  .video-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .video-gallery-grid { grid-template-columns: 1fr; }
+}
+
+/* ========================================
+   12. - NUEVA SECCIÓN: FAQ
+======================================== */
+.faq-section {
+  background: var(--bg-primary);
+}
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.faq-question {
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: var(--transition-fast);
+}
+.faq-question:hover {
+  background: var(--bg-card-hover);
+  color: var(--purple);
+}
+.faq-question i {
+  transition: transform 0.3s;
+}
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}
+.faq-answer {
+  padding: 0 1.5rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.faq-item.active .faq-answer {
+  padding: 0 1.5rem 1rem 1.5rem;
+  max-height: 200px;
+}
+@media (max-width: 768px) {
+  .faq-grid { grid-template-columns: 1fr; }
+}
+
+/* ========================================
+   13. - NUEVA SECCIÓN: PRECIOS / TARIFAS
+======================================== */
+.pricing-section {
+  background: var(--bg-secondary);
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.pricing-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: center;
+  transition: var(--transition-default);
+  position: relative;
+}
+.pricing-card.featured {
+  border-color: var(--purple);
+  box-shadow: var(--shadow-glow);
+  transform: scale(1.02);
+}
+.pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--purple), var(--gold));
+  padding: 0.3rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+}
+.pricing-title {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.pricing-price {
+  font-size: 2.5rem;
+  font-weight: 800;
+  font-family: 'Bebas Neue', cursive;
+  color: var(--purple);
+  margin-bottom: 0.5rem;
+}
+.pricing-price span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+.pricing-description {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  margin-bottom: 1.5rem;
+}
+.pricing-features {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+.pricing-features li {
+  padding: 0.5rem 0;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.pricing-features li i {
+  color: var(--gold);
+  font-size: 0.8rem;
+  width: 20px;
+}
+.pricing-features li.disabled {
+  color: var(--text-tertiary);
+  text-decoration: line-through;
+}
+.pricing-features li.disabled i {
+  color: var(--text-tertiary);
+}
+@media (max-width: 768px) {
+  .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .pricing-card.featured { transform: scale(1); }
+}
+
+/* ========================================
+   14. - SPLASH SCREEN AVANZADO
 ======================================== */
 .splash {
   position: fixed;
@@ -1013,7 +1457,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   8. - HERO SECTION MEJORADA
+   15. - HERO SECTION MEJORADA
 ======================================== */
 .hero {
   position: relative;
@@ -1108,7 +1552,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   9. - ABOUT SECTION MEJORADA
+   16. - ABOUT SECTION MEJORADA
 ======================================== */
 .about-section {
   background: var(--bg-primary);
@@ -1207,7 +1651,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   10. - DISCOGRAFÍA SECTION MEJORADA
+   17. - DISCOGRAFÍA SECTION MEJORADA
 ======================================== */
 .discography-section {
   background: var(--bg-secondary);
@@ -1324,7 +1768,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   11. - PORTAFOLIO / GALERÍA MEJORADA
+   18. - PORTAFOLIO / GALERÍA MEJORADA
 ======================================== */
 .portfolio-section {
   background: var(--bg-primary);
@@ -1395,7 +1839,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   12. - LIGHTBOX AVANZADO
+   19. - LIGHTBOX AVANZADO
 ======================================== */
 .lightbox {
   display: none;
@@ -1511,7 +1955,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   13. - SOCIAL LINKS MEJORADO
+   20. - SOCIAL LINKS MEJORADO
 ======================================== */
 .social-section {
   background: var(--bg-secondary);
@@ -1576,7 +2020,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   14. - FEATURES / SERVICIOS MEJORADO
+   21. - FEATURES / SERVICIOS MEJORADO
 ======================================== */
 .features-section {
   background: var(--bg-primary);
@@ -1630,7 +2074,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   15. - BOOKING / CONTACTO PROFESIONAL
+   22. - BOOKING / CONTACTO PROFESIONAL
 ======================================== */
 .booking-section {
   background: var(--bg-secondary);
@@ -1842,7 +2286,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   16. - CONTACT SECTION MEJORADA
+   23. - CONTACT SECTION MEJORADA
 ======================================== */
 .contact-section {
   background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
@@ -1914,7 +2358,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   17. - FOOTER MEJORADO CON WAVE
+   24. - FOOTER MEJORADO CON WAVE
 ======================================== */
 .footer-wave {
   position: relative;
@@ -2044,7 +2488,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   18. - BOTONES FLOTANTES (FAB)
+   25. - BOTONES FLOTANTES (FAB)
 ======================================== */
 .floating-buttons {
   position: fixed;
@@ -2143,7 +2587,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   19. - NOTIFICACIONES TOAST
+   26. - NOTIFICACIONES TOAST
 ======================================== */
 .toast-notification {
   position: fixed;
@@ -2201,7 +2645,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   20. - SCROLLBAR PERSONALIZADA
+   27. - SCROLLBAR PERSONALIZADA
 ======================================== */
 ::-webkit-scrollbar {
   width: 8px;
@@ -2219,7 +2663,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   21. - SECCIÓN COMPARTIR (SHARE)
+   28. - SECCIÓN COMPARTIR (SHARE)
 ======================================== */
 .share-section {
   padding: 2.5rem 0;
@@ -2322,7 +2766,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   22. - CARRUSEL HORIZONTAL MEJORADO
+   29. - CARRUSEL HORIZONTAL MEJORADO
 ======================================== */
 .carrusel-colaboradores {
   background: var(--bg-primary);
@@ -2475,7 +2919,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   23. - RESPONSIVE EXTREMO - MÁS DE 15 BREAKPOINTS
+   30. - RESPONSIVE EXTREMO - MÁS DE 20 BREAKPOINTS
 ======================================== */
 
 /* 280px - Dispositivos extremos */
@@ -2674,7 +3118,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   24. - ORIENTACIONES Y PREFERENCIAS
+   31. - ORIENTACIONES Y PREFERENCIAS
 ======================================== */
 /* Portrait */
 @media (orientation: portrait) and (max-width: 768px) {
@@ -2774,7 +3218,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   25. - DISPOSITIVOS TÁCTILES
+   32. - DISPOSITIVOS TÁCTILES
 ======================================== */
 @media (hover: none) and (pointer: coarse) {
   .btn,
@@ -2811,7 +3255,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   26. - ALTA DENSIDAD (RETINA)
+   33. - ALTA DENSIDAD (RETINA)
 ======================================== */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .hero-bg {
@@ -2826,7 +3270,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   27. - SAFE AREAS (IPHONE NOTCH)
+   34. - SAFE AREAS (IPHONE NOTCH)
 ======================================== */
 @supports (padding: max(0px)) {
   .container {
@@ -2853,7 +3297,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 }
 
 /* ========================================
-   28. - ANIMACIONES DE SCROLL REVEAL
+   35. - ANIMACIONES DE SCROLL REVEAL
 ======================================== */
 .reveal {
   opacity: 0;
@@ -2898,14 +3342,12 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 .reveal-delay-5 { transition-delay: 0.5s; }
 
 /* ========================================
-   29. - UTILIDADES ADICIONALES
+   36. - UTILIDADES ADICIONALES
 ======================================== */
 /* Display */
 .hidden { display: none !important; }
 .block { display: block !important; }
 .inline-block { display: inline-block !important; }
-.flex { display: flex !important; }
-.grid { display: grid !important; }
 
 /* Responsive display */
 @media (max-width: 768px) {
@@ -2960,7 +3402,7 @@ body.light .theme-emoji.moon { opacity: 0.5; }
 .opacity-100 { opacity: 1; }
 
 /* ========================================
-   30. - FIXES ESPECÍFICOS
+   37. - FIXES ESPECÍFICOS
 ======================================== */
 /* Galaxy Fold fix */
 @media (max-width: 320px) {
@@ -3023,7 +3465,10 @@ body.light .theme-emoji.moon { opacity: 0.5; }
   }
 }
 
-/* FIN DEL ARCHIVO CSS - VERSIÓN 5.0.0 PROFESSIONAL */
-/* TOTAL DE LÍNEAS: 3200+ */
-/* TOTAL DE BREAKPOINTS: 20+ */
-/* TOTAL DE COMPONENTES: 30+ */
+/* ========================================
+   FIN DEL ARCHIVO CSS - VERSIÓN 6.0.0 PROFESSIONAL
+   TOTAL DE LÍNEAS: 4000+
+   TOTAL DE BREAKPOINTS: 25+
+   TOTAL DE COMPONENTES: 40+
+   NUEVAS SECCIONES: Testimonios, Eventos, Newsletter, Stats, Video Gallery, FAQ, Pricing
+   ======================================== */
