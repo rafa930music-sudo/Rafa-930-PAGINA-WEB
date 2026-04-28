@@ -1,6 +1,16 @@
 # Robots.txt para Rafa 930
 User-agent: *
 Allow: /
+Disallow: /privacidad.html
+Disallow: /aviso-legal.html
+Disallow: /cookies.html
+Disallow: /terminos.html
 
 # Sitemap
 Sitemap: https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/sitemap.xml
+
+# Host
+Host: https://rafa930music-sudo.github.io
+
+# Crawl delay
+Crawl-delay: 10
