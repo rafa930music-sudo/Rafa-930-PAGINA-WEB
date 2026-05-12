@@ -1,17 +1,11 @@
 # Robots.txt para Rafa 930
-# Versión corregida - Sintaxis válida para Google
+# SEO Optimizado - Máximo rastreo e indexación
 
 User-agent: *
 Allow: /
 
-# Páginas legales (baja prioridad de rastreo)
-Disallow: /aviso-legal.html
-Disallow: /privacidad.html
-Disallow: /cookies.html
-Disallow: /terminos.html
-
 # Sitemap
 Sitemap: https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/sitemap.xml
 
-# Crawl delay (respetuoso con el servidor)
-Crawl-delay: 10
+# Sin delay para mejor rastreo de Google
+Crawl-delay: 0

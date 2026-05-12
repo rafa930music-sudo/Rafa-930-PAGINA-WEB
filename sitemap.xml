@@ -1,41 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   
-  <!-- Página principal -->
+  <!-- Página principal - MÁXIMA PRIORIDAD -->
   <url>
-    <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/index.html</loc>
-    <lastmod>2026-04-23</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/images/logo.webp</image:loc>
+      <image:title>Rafa 930 - Artista Musical &amp; Fotógrafo Profesional</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/images/Banner%20para%20web.webp</image:loc>
+      <image:title>Rafa 930 - Música Urbana Española</image:title>
+    </image:image>
   </url>
   
-  <!-- Páginas legales -->
-  <url>
-    <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/privacidad.html</loc>
-    <lastmod>2026-04-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  
+  <!-- Páginas legales - BAJA PRIORIDAD -->
   <url>
     <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/aviso-legal.html</loc>
-    <lastmod>2026-04-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.1</priority>
+  </url>
+  
+  <url>
+    <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/privacidad.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.1</priority>
   </url>
   
   <url>
     <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/cookies.html</loc>
-    <lastmod>2026-04-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.1</priority>
   </url>
   
   <url>
     <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/terminos.html</loc>
-    <lastmod>2026-04-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.1</priority>
   </url>
   
 </urlset>

@@ -689,12 +689,14 @@ const ShareModule = (() => {
 })();
 
 // ========================================
-// MÓDULO: CARRUSEL HORIZONTAL
+// MÓDULO: CARRUSEL HORIZONTAL CON AUTOPLAY
 // ========================================
 const CarruselModule = (() => {
   let currentIndex = 0;
   let cardWidth = 0;
   let totalCards = 0;
+  let autoplayInterval = null;
+  let isHovering = false;
   
   function init() {
     const track = document.getElementById('carruselTrack');
@@ -702,47 +704,89 @@ const CarruselModule = (() => {
     const prevBtn = document.getElementById('carruselPrev');
     const nextBtn = document.getElementById('carruselNext');
     const dotsContainer = document.getElementById('carruselDots');
-    const container = document.querySelector('.carrusel-horizontal__track');
     
-    if (!track || !cards.length) return;
+    if (!track || !cards.length) {
+      console.warn('Carrusel: No se encontraron elementos');
+      return;
+    }
     
-    updateDimensions();
-    
-    // Crear dots
-    dotsContainer.innerHTML = '';
-    cards.forEach((_, i) => {
-      const dot = document.createElement('span');
-      dot.className = 'dot';
-      if (i === 0) dot.classList.add('active');
-      dot.setAttribute('role', 'tab');
-      dot.setAttribute('aria-label', `Colaboración ${i + 1}`);
-      dot.addEventListener('click', () => scrollToCard(i));
-      dotsContainer.appendChild(dot);
-    });
-    
-    prevBtn?.addEventListener('click', prevSlide);
-    nextBtn?.addEventListener('click', nextSlide);
-    
-    container?.addEventListener('scroll', Utils.debounce(() => {
+    // Pequeño delay para asegurar que todo está renderizado
+    setTimeout(() => {
       updateDimensions();
-      const newIndex = Math.round(container.scrollLeft / cardWidth);
-      if (newIndex !== currentIndex && newIndex >= 0 && newIndex < totalCards) {
-        currentIndex = newIndex;
-        updateDots();
+      
+      if (cardWidth === 0) {
+        console.warn('Carrusel: cardWidth es 0, reintentando...');
+        updateDimensions();
       }
-    }, 50));
-    
-    window.addEventListener('resize', Utils.debounce(updateDimensions, 150));
-    
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') prevSlide();
-      if (e.key === 'ArrowRight') nextSlide();
-    });
+      
+      // Crear dots
+      dotsContainer.innerHTML = '';
+      cards.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        if (i === 0) dot.classList.add('active');
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', `Colaboración ${i + 1}`);
+        dot.addEventListener('click', () => {
+          scrollToCard(i);
+          resetAutoplay();
+        });
+        dotsContainer.appendChild(dot);
+      });
+      
+      prevBtn?.addEventListener('click', () => {
+        prevSlide();
+        resetAutoplay();
+      });
+      
+      nextBtn?.addEventListener('click', () => {
+        nextSlide();
+        resetAutoplay();
+      });
+      
+      // Pausar autoplay al hover
+      track.addEventListener('mouseenter', () => {
+        isHovering = true;
+        stopAutoplay();
+      });
+      
+      track.addEventListener('mouseleave', () => {
+        isHovering = false;
+        startAutoplay();
+      });
+      
+      // Touch events para móvil
+      track.addEventListener('touchstart', () => {
+        stopAutoplay();
+      });
+      
+      track.addEventListener('touchend', () => {
+        setTimeout(() => {
+          if (!isHovering) startAutoplay();
+        }, 2000);
+      });
+      
+      window.addEventListener('resize', Utils.debounce(() => {
+        updateDimensions();
+        scrollToCard(currentIndex);
+      }, 150));
+      
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') { prevSlide(); resetAutoplay(); }
+        if (e.key === 'ArrowRight') { nextSlide(); resetAutoplay(); }
+      });
+      
+      // Iniciar autoplay
+      startAutoplay();
+      
+      console.log('🎠 Carrusel iniciado - ' + totalCards + ' cards - Autoplay: 3s');
+      
+    }, 500);
   }
   
   function updateDimensions() {
     const cards = document.querySelectorAll('.carrusel-horizontal__card');
-    if (cards.length) {
+    if (cards.length && cards[0].offsetWidth > 0) {
       const style = window.getComputedStyle(cards[0]);
       cardWidth = cards[0].offsetWidth + parseInt(style.marginRight || 0) + parseInt(style.marginLeft || 0);
       totalCards = cards.length;
@@ -750,18 +794,35 @@ const CarruselModule = (() => {
   }
   
   function scrollToCard(index) {
+    if (cardWidth === 0) {
+      updateDimensions();
+    }
     const container = document.querySelector('.carrusel-horizontal__track');
-    container?.scrollTo({ left: index * cardWidth, behavior: Utils.prefersReducedMotion() ? 'auto' : 'smooth' });
-    currentIndex = index;
-    updateDots();
+    if (container && cardWidth > 0) {
+      container.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+      currentIndex = index;
+      updateDots();
+    }
   }
   
   function nextSlide() {
-    if (currentIndex < totalCards - 1) scrollToCard(currentIndex + 1);
+    updateDimensions();
+    if (totalCards === 0) return;
+    if (currentIndex < totalCards - 1) {
+      scrollToCard(currentIndex + 1);
+    } else {
+      scrollToCard(0);
+    }
   }
   
   function prevSlide() {
-    if (currentIndex > 0) scrollToCard(currentIndex - 1);
+    updateDimensions();
+    if (totalCards === 0) return;
+    if (currentIndex > 0) {
+      scrollToCard(currentIndex - 1);
+    } else {
+      scrollToCard(totalCards - 1);
+    }
   }
   
   function updateDots() {
@@ -770,10 +831,32 @@ const CarruselModule = (() => {
     });
   }
   
+  function startAutoplay() {
+    stopAutoplay();
+    if (totalCards <= 1) return;
+    autoplayInterval = setInterval(() => {
+      if (!isHovering && document.visibilityState === 'visible') {
+        nextSlide();
+      }
+    }, 3000);
+  }
+  
+  function stopAutoplay() {
+    if (autoplayInterval) {
+      clearInterval(autoplayInterval);
+      autoplayInterval = null;
+    }
+  }
+  
+  function resetAutoplay() {
+    stopAutoplay();
+    startAutoplay();
+  }
+  
   return { init };
 })();
 
-// ========================================
+/// ========================================
 // MÓDULO: FORMULARIO
 // ========================================
 const FormModule = (() => {
@@ -781,11 +864,75 @@ const FormModule = (() => {
     const form = document.getElementById('bookingForm');
     const successDiv = document.getElementById('formSuccess');
     const errorDiv = document.getElementById('formError');
+    const inputs = document.querySelectorAll('.form-control[required], .form-select[required]');
     
     if (!form) return;
     
+    // Validación en tiempo real
+    inputs.forEach(input => {
+      input.addEventListener('blur', () => validarCampo(input));
+      input.addEventListener('input', () => {
+        if (input.classList.contains('invalid')) {
+          validarCampo(input);
+        }
+      });
+    });
+    
+    function validarCampo(input) {
+      if (!input.value.trim()) {
+        input.classList.add('invalid');
+        input.classList.remove('valid');
+        return false;
+      }
+      
+      if (input.type === 'email') {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(input.value.trim())) {
+          input.classList.add('invalid');
+          input.classList.remove('valid');
+          return false;
+        }
+      }
+      
+      if (input.id === 'phone') {
+        const phoneRegex = /^[+]?[\d\s]{7,15}$/;
+        if (!phoneRegex.test(input.value.trim())) {
+          input.classList.add('invalid');
+          input.classList.remove('valid');
+          return false;
+        }
+      }
+      
+      input.classList.remove('invalid');
+      input.classList.add('valid');
+      return true;
+    }
+    
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      
+      // Validar todos los campos antes de enviar
+      let todoValido = true;
+      inputs.forEach(input => {
+        if (!validarCampo(input)) {
+          todoValido = false;
+        }
+      });
+      
+      // Validar checkbox de privacidad
+      const privacy = document.getElementById('privacy');
+      if (privacy && !privacy.checked) {
+        privacy.parentElement.style.animation = 'shake 0.5s ease';
+        setTimeout(() => {
+          privacy.parentElement.style.animation = '';
+        }, 500);
+        todoValido = false;
+      }
+      
+      if (!todoValido) {
+        Utils.showToast('❌ Revisa los campos marcados en rojo', 'error');
+        return;
+      }
       
       const btn = form.querySelector('button[type="submit"]');
       const originalText = btn?.innerHTML || 'Enviar';
@@ -808,6 +955,10 @@ const FormModule = (() => {
           if (successDiv) successDiv.style.display = 'block';
           if (errorDiv) errorDiv.style.display = 'none';
           form.reset();
+          // Limpiar validaciones visuales
+          inputs.forEach(input => {
+            input.classList.remove('valid', 'invalid');
+          });
           Utils.showToast('✅ Consulta enviada con éxito');
           setTimeout(() => { if (successDiv) successDiv.style.display = 'none'; }, 5000);
         } else {
