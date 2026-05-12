@@ -1401,12 +1401,12 @@ body.light .mobile-menu {
 
 /* Ocultar flechas */
 .carrusel-horizontal__btn {
-  display: none;
+  display: none !important;
 }
 
 /* Ocultar dots */
 .carrusel-horizontal__dots {
-  display: none;
+  display: none !important;
 }
 
 /* ========================================
