@@ -1973,6 +1973,12 @@ body.light .footer__brand h3 img {
   background: var(--gradient-primary);
 }
 
+
+/* Forzar burger siempre */
+.burger {
+  display: flex !important;
+}
+
 /* ========================================
    25. RESPONSIVE - 6 BREAKPOINTS ESTRATÉGICOS
    ======================================== */
