@@ -1994,9 +1994,37 @@ body.light .footer__brand h3 img {
   .nav__social { display: none; }
   .nav__divider { display: none; }
   
-  .logo__img { height: 30px; }
-  .nav__actions { gap: 0.3rem; }
-  
+  /* Nav más compacto */
+.nav {
+  height: 55px;
+  padding: 0;
+}
+
+.logo__img { 
+  height: 30px; 
+}
+
+.language-selector {
+  transform: scale(0.85);
+}
+
+.theme-toggle {
+  width: 48px;
+  height: 26px;
+}
+
+.burger {
+  padding: 6px;
+}
+
+.burger span {
+  width: 20px;
+}
+
+.nav__actions { 
+  gap: 0.3rem; 
+}
+
   .hero { min-height: 450px; max-height: 600px; }
   .hero h1 { font-size: 2rem; }
   .hero p { font-size: 0.8rem; }
