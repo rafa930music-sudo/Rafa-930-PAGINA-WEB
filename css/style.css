@@ -1451,12 +1451,12 @@ body.light .mobile-menu {
 
 /* Ocultar flechas */
 .carrusel-horizontal__btn {
-  display: none;
+  display: none !important;
 }
 
 /* Ocultar dots */
 .carrusel-horizontal__dots {
-  display: none;
+  display: none !important;
 }
 
 
@@ -2142,6 +2142,12 @@ body.light .footer__brand h3 img {
   background: var(--gradient-primary);
 }
 
+
+/* Forzar burger siempre */
+.burger {
+  display: flex !important;
+}
+
 /* ========================================
    25. RESPONSIVE - 6 BREAKPOINTS ESTRATÉGICOS
    ======================================== */
@@ -2158,8 +2164,6 @@ body.light .footer__brand h3 img {
   
   .nav__menu { display: none; }
   .btn--contact { display: none; }
-  .burger { display: flex; }
-  
   .nav__social { display: none; }
   .nav__divider { display: none; }
   
