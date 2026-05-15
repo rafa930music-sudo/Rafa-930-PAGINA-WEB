@@ -2196,7 +2196,7 @@ body.light .footer__brand h3 img {
   gap: 0.3rem; 
 }
 
-  .hero { min-height: 450px; max-height: 600px; }
+  .hero { min-height: 450px; }
   .hero h1 { font-size: 2rem; }
   .hero p { font-size: 0.8rem; }
   .hero__actions { flex-direction: column; align-items: center; gap: 0.8rem; }
@@ -2512,7 +2512,6 @@ body.light .footer__brand h3 img {
   outline-offset: 4px;
   border-radius: 4px;
 }
-
 
 /* ========================================
    FIN DEL CSS PREMIUM - VERSIÓN 8.0.0
