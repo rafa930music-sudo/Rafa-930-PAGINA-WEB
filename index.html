@@ -218,28 +218,14 @@
     Saltar al contenido principal
   </a>
 
-  <!-- ============================================ -->
-  <!-- SPLASH GALAXIA - LLUVIA DE ESTRELLAS          -->
-  <!-- ============================================ -->
-  <div class="splash" id="splash" role="dialog" aria-modal="true" aria-label="Pantalla de bienvenida">
-    <canvas id="galaxyCanvas" aria-hidden="true"></canvas>
-    <div class="splash__overlay"></div>
-    <div class="splash__content">
-      <div class="splash__text">
-        <span class="splash__eyebrow" data-i18n="splash_eyebrow">Bienvenido al universo de</span>
-        <h1>RAFA <span class="text-gradient">930</span></h1>
-        <div class="splash__divider"></div>
-        <p data-i18n="splash_sub">Música · Fotografía</p>
-      </div>
-      <div class="splash__pulse" aria-hidden="true">
-        <div class="pulse-ring"></div>
-        <div class="pulse-ring"></div>
-        <div class="pulse-ring"></div>
-        <div class="pulse-ring"></div>
-        <span data-i18n="splash_click">HAZ CLIC PARA ENTRAR</span>
-      </div>
-    </div>
-  </div>
+<!-- ============================================ -->
+<!-- SPLASH - BORDADO DE LUZ (SIN TEXTOS)         -->
+<!-- ============================================ -->
+<div class="splash" id="splash" role="dialog" aria-modal="true" aria-label="Pantalla de bienvenida">
+  <canvas id="galaxyCanvas" aria-hidden="true"></canvas>
+  <div class="splash__overlay"></div>
+  <!-- El contenido está vacío porque el canvas dibujará todo -->
+</div>
 
   <!-- ============================================ -->
   <!-- HEADER                                       -->
@@ -508,25 +494,25 @@
     <p>Productor</p>
   </div>
 </div>
-
-
+<!-- NUEVO: therassam (Rassam) -->
+            <div class="carrusel-horizontal__card" role="listitem"><div class="carrusel-horizontal__image"><img src="images/colab-therassam.webp" alt="therassam - Artista colaborador" loading="lazy" width="300" height="300" decoding="async" onerror="this.src='images/logo.webp'"><div class="carrusel-horizontal__overlay"><a href="https://www.instagram.com/therassam/" target="_blank" rel="noopener noreferrer" class="carrusel-horizontal__instagram" aria-label="Ver colaboración con therassam en Instagram"><i class="fab fa-instagram" aria-hidden="true"></i> Ver</a></div></div><div class="carrusel-horizontal__info"><h3>therassam</h3><p>Artista</p></div></div>
+            
+<!-- NUEVO: ssalmaem -->
+            <div class="carrusel-horizontal__card" role="listitem"><div class="carrusel-horizontal__image"><img src="images/colab-ssalmaem.webp" alt="ssalmaem - Artista colaborador" loading="lazy" width="300" height="300" decoding="async" onerror="this.src='images/logo.webp'"><div class="carrusel-horizontal__overlay"><a href="https://www.instagram.com/ssalmaem/" target="_blank" rel="noopener noreferrer" class="carrusel-horizontal__instagram" aria-label="Ver colaboración con ssalmaem en Instagram"><i class="fab fa-instagram" aria-hidden="true"></i> Ver</a></div></div><div class="carrusel-horizontal__info"><h3>Salma</h3><p>Modelo</p></div></div>
+          </div>
+          <button class="carrusel-horizontal__btn carrusel-horizontal__btn--next" id="carruselNext" aria-label="Siguiente colaboración"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+        </div>
+        <div class="carrusel-horizontal__dots" id="carruselDots" role="tablist" aria-label="Navegación de colaboraciones"></div>
       </div>
-      
-      <button class="carrusel-horizontal__btn carrusel-horizontal__btn--next" id="carruselNext" aria-label="Siguiente colaboración">
-        <i class="fas fa-chevron-right" aria-hidden="true"></i>
-      </button>
-    </div>
-    
-    <div class="carrusel-horizontal__dots" id="carruselDots" role="tablist" aria-label="Navegación de colaboraciones"></div>
-  </div>
-</section>
+    </section>
+
 
     <!-- ============================================ -->
     <!-- SOCIAL SECTION                               -->
     <!-- ============================================ -->
     <section class="social-section" aria-label="Redes sociales">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header">s
           <span class="eyebrow" data-i18n="social_eyebrow">Sígueme</span>
           <h2><span class="text-gradient" data-i18n="social_title">Redes sociales</span></h2>
         </div>

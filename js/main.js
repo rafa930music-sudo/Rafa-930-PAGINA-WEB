@@ -70,65 +70,92 @@ const Utils = {
 };
 
 // ========================================
-// MÓDULO: SPLASH GALAXIA ÉLITE
-// Partículas 3D + Estrellas fugaces + Parallax
+// MÓDULO: SPLASH - FADE OUT + FADE IN SIMULTÁNEO (TRANSICIÓN INVISIBLE)
+// El splash se desvanece mientras la web aparece, sin que se note el cambio
 // ========================================
+
 const SplashModule = (() => {
   let animationId = null;
-  let particulas = [];
-  let estrellasFugaces = [];
-  let mouseX = 0, mouseY = 0;
-  let targetMouseX = 0, targetMouseY = 0;
+  let particles = [];
   let canvas, ctx;
-  
-  const CANTIDAD_PARTICULAS = 250;
-  const ESTRELLAS_FUGACES_MAX = 3;
+  let isExiting = false;
+  let logoImage = null;
+  let logoLoaded = false;
+  let startTime = null;
+  let exitProgress = 0;
+  const DURATION = 2800;
+  const EXIT_DURATION = 1000; // 1 segundo para fade out/in
   
   function init() {
     const splash = document.getElementById('splash');
     if (!splash) return;
-    
-    // Si ya visitó, saltar splash
-    if (sessionStorage.getItem('splash_seen')) {
-      splash.style.display = 'none';
-      document.body.style.overflow = 'auto';
-      return;
-    }
     
     canvas = document.getElementById('galaxyCanvas');
     if (!canvas) return;
     
     ctx = canvas.getContext('2d');
     
+    // Ocultar contenido principal inicialmente
+    const mainContent = document.getElementById('main-content');
+    const header = document.getElementById('header');
+    const footer = document.querySelector('.footer');
+    
+    if (mainContent) {
+      mainContent.style.opacity = '0';
+      mainContent.style.transition = 'opacity 0.01s'; // transición instantánea al inicio
+    }
+    if (header) {
+      header.style.opacity = '0';
+      header.style.transition = 'opacity 0.01s';
+    }
+    if (footer) {
+      footer.style.opacity = '0';
+      footer.style.transition = 'opacity 0.01s';
+    }
+    
+    // Cargar logo
+    logoImage = new Image();
+    logoImage.onload = () => {
+      logoLoaded = true;
+      console.log('✅ Logo cargado');
+    };
+    logoImage.src = 'images/logo-white.webp';
+    
     resizeCanvas();
-    crearParticulas();
-    animar();
+    createParticles();
+    startTime = performance.now();
+    animate();
     
-    // Event listeners
     window.addEventListener('resize', () => {
-      if (animationId) cancelAnimationFrame(animationId);
       resizeCanvas();
-      animar();
+      createParticles();
     });
-    
-    canvas.addEventListener('mousemove', onMouseMove, { passive: true });
     
     document.body.style.overflow = 'hidden';
+    splash.addEventListener('click', () => exitSplash());
     
-    splash.addEventListener('click', cerrarSplash);
-    document.addEventListener('keydown', (e) => {
-      if (splash.style.display !== 'none' && (e.key === 'Enter' || e.key === 'Escape' || e.key === ' ')) {
-        e.preventDefault();
-        cerrarSplash();
-      }
-    });
+    setTimeout(() => exitSplash(), DURATION + 500);
+  }
+  
+  function createParticles() {
+    particles = [];
+    const colors = ['#a855f7', '#c084fc', '#fbbf24', '#fcd34d', '#ffffff', '#e9d5ff'];
     
-    // Crear estrellas fugaces periódicamente
-    setInterval(() => {
-      if (splash.style.display !== 'none' && Math.random() < 0.3) {
-        crearEstrellaFugaz();
-      }
-    }, 2000);
+    for (let i = 0; i < 100; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 3.5 + 1.5,
+        speedX: (Math.random() - 0.5) * 0.2,
+        speedY: (Math.random() - 0.5) * 0.2,
+        alpha: Math.random() * 0.5 + 0.3,
+        pulse: Math.random() * Math.PI * 2,
+        pulseSpeed: 0.008 + Math.random() * 0.02,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        angle: Math.random() * Math.PI * 2,
+        spin: 0.005 + Math.random() * 0.015
+      });
+    }
   }
   
   function resizeCanvas() {
@@ -137,247 +164,154 @@ const SplashModule = (() => {
     canvas.height = window.innerHeight;
   }
   
-  function crearParticulas() {
-    particulas = [];
-    const colores = [
-      '#a855f7', '#c084fc', '#e9d5ff',
-      '#fbbf24', '#fcd34d', '#fef3c7',
-      '#ffffff', '#e0e7ff', '#ddd6fe'
-    ];
+  function drawBackground() {
+    const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    grad.addColorStop(0, '#050510');
+    grad.addColorStop(0.5, '#080818');
+    grad.addColorStop(1, '#000000');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    for (let i = 0; i < CANTIDAD_PARTICULAS; i++) {
-      const color = colores[Math.floor(Math.random() * colores.length)];
-      const sizeType = Math.random();
-      let radio, brillo, speedMultiplier;
-      
-      if (sizeType < 0.7) {
-        radio = Math.random() * 2 + 0.5;
-        brillo = 0.3 + Math.random() * 0.4;
-        speedMultiplier = 0.5;
-      } else if (sizeType < 0.9) {
-        radio = Math.random() * 4 + 2;
-        brillo = 0.5 + Math.random() * 0.4;
-        speedMultiplier = 0.3;
-      } else {
-        radio = Math.random() * 6 + 4;
-        brillo = 0.7 + Math.random() * 0.3;
-        speedMultiplier = 0.1;
-      }
-      
-      particulas.push({
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-        radio: radio,
-        brillo: brillo,
-        velocidadX: (Math.random() - 0.5) * 0.4 * speedMultiplier,
-        velocidadY: (Math.random() - 0.5) * 0.2 * speedMultiplier + 0.1,
-        color: color,
-        alpha: 0.4 + Math.random() * 0.6,
-        parpadeo: Math.random() * Math.PI * 2,
-        velocidadParpadeo: 0.005 + Math.random() * 0.02,
-        profundidad: Math.random()
-      });
-    }
-    
-    particulas.sort((a, b) => a.profundidad - b.profundidad);
+    ctx.globalAlpha = 0.12;
+    const centerGrad = ctx.createRadialGradient(canvas.width/2, canvas.height/2, 0, canvas.width/2, canvas.height/2, canvas.width/2);
+    centerGrad.addColorStop(0, '#a855f7');
+    centerGrad.addColorStop(1, 'transparent');
+    ctx.fillStyle = centerGrad;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.globalAlpha = 1;
   }
   
-  function crearEstrellaFugaz() {
-    if (estrellasFugaces.length >= ESTRELLAS_FUGACES_MAX) return;
-    
-    const angulo = Math.PI / 4 + (Math.random() - 0.5) * Math.PI / 2;
-    const velocidad = 8 + Math.random() * 15;
-    const longitud = 80 + Math.random() * 150;
-    
-    estrellasFugaces.push({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight * 0.5,
-      vx: Math.cos(angulo) * velocidad,
-      vy: Math.sin(angulo) * velocidad,
-      longitud: longitud,
-      alpha: 0.8 + Math.random() * 0.2,
-      vida: 40 + Math.random() * 40,
-      edad: 0
-    });
-  }
-  
-  function dibujarFondo() {
-    const gradiente = ctx.createRadialGradient(
-      window.innerWidth / 2, window.innerHeight / 2, 0,
-      window.innerWidth / 2, window.innerHeight / 2, Math.max(window.innerWidth, window.innerHeight)
-    );
-    gradiente.addColorStop(0, '#0a0a2e');
-    gradiente.addColorStop(0.4, '#0d0d35');
-    gradiente.addColorStop(0.8, '#050515');
-    gradiente.addColorStop(1, '#000000');
-    ctx.fillStyle = gradiente;
-    ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
-  }
-  
-  function dibujarParticulas() {
-    for (let i = 0; i < particulas.length; i++) {
-      const p = particulas[i];
+  function drawParticles() {
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
       
-      const parpadeo = 0.4 + Math.sin(p.parpadeo) * 0.4 + Math.cos(p.parpadeo * 1.7) * 0.2;
-      const alphaFinal = Math.max(0, Math.min(1, p.alpha * parpadeo * p.brillo));
+      p.x += p.speedX;
+      p.y += p.speedY;
+      p.pulse += p.pulseSpeed;
+      p.angle += p.spin;
       
-      // Glow radial
-      const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radio * 3);
-      gradient.addColorStop(0, p.color);
-      gradient.addColorStop(0.3, p.color);
-      gradient.addColorStop(1, 'transparent');
+      if (p.x < -100) p.x = canvas.width + 100;
+      if (p.x > canvas.width + 100) p.x = -100;
+      if (p.y < -100) p.y = canvas.height + 100;
+      if (p.y > canvas.height + 100) p.y = -100;
+      
+      const pulseScale = 0.6 + Math.sin(p.pulse) * 0.4;
+      const size = p.size * pulseScale;
+      const opacity = p.alpha + Math.sin(p.pulse) * 0.15;
+      
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.angle);
+      ctx.shadowBlur = size * 2;
+      ctx.shadowColor = p.color;
       
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radio * 3, 0, Math.PI * 2);
-      ctx.fillStyle = gradient;
-      ctx.globalAlpha = alphaFinal * 0.4;
-      ctx.fill();
-      
-      // Núcleo brillante
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
-      ctx.fillStyle = '#ffffff';
-      ctx.globalAlpha = alphaFinal;
-      ctx.fill();
-      
-      // Parallax hacia el ratón
-      const dx = p.x - targetMouseX;
-      const dy = p.y - targetMouseY;
-      const distancia = Math.sqrt(dx * dx + dy * dy);
-      const maxDistancia = 300;
-      
-      if (distancia < maxDistancia) {
-        const fuerza = (1 - distancia / maxDistancia) * p.profundidad;
-        p.x += dx * fuerza * 0.02;
-        p.y += dy * fuerza * 0.02;
+      for (let s = 0; s < 4; s++) {
+        const angle = (s * Math.PI * 2) / 4;
+        const x1 = Math.cos(angle) * size;
+        const y1 = Math.sin(angle) * size;
+        const x2 = Math.cos(angle + Math.PI / 4) * size * 0.4;
+        const y2 = Math.sin(angle + Math.PI / 4) * size * 0.4;
+        if (s === 0) ctx.moveTo(x1, y1);
+        else ctx.lineTo(x1, y1);
+        ctx.lineTo(x2, y2);
       }
+      ctx.closePath();
       
-      // Movimiento normal
-      p.x += p.velocidadX;
-      p.y += p.velocidadY;
-      p.parpadeo += p.velocidadParpadeo;
-      
-      // Wrap around
-      if (p.x < -50) p.x = window.innerWidth + 50;
-      if (p.x > window.innerWidth + 50) p.x = -50;
-      if (p.y < -50) p.y = window.innerHeight + 50;
-      if (p.y > window.innerHeight + 50) p.y = -50;
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = Math.min(opacity, 0.7) * (1 - exitProgress);
+      ctx.fill();
+      ctx.restore();
     }
     ctx.globalAlpha = 1;
   }
   
-  function dibujarEstrellasFugaces() {
-    for (let i = estrellasFugaces.length - 1; i >= 0; i--) {
-      const e = estrellasFugaces[i];
-      e.edad++;
-      
-      if (e.edad >= e.vida) {
-        estrellasFugaces.splice(i, 1);
-        continue;
-      }
-      
-      const progreso = e.edad / e.vida;
-      const alphaFade = progreso < 0.2 ? progreso / 0.2 : (1 - progreso) / 0.8;
-      
-      const x2 = e.x - e.vx * e.longitud * 0.05;
-      const y2 = e.y - e.vy * e.longitud * 0.05;
-      
-      const starGradient = ctx.createLinearGradient(e.x, e.y, x2, y2);
-      starGradient.addColorStop(0, 'rgba(255,255,255,' + (alphaFade * 0.8) + ')');
-      starGradient.addColorStop(1, 'rgba(168,85,247,0)');
-      
-      ctx.beginPath();
-      ctx.moveTo(e.x, e.y);
-      ctx.lineTo(x2, y2);
-      ctx.strokeStyle = starGradient;
-      ctx.lineWidth = 2;
-      ctx.globalAlpha = alphaFade;
-      ctx.stroke();
-      
-      e.x += e.vx;
-      e.y += e.vy;
-    }
-    ctx.globalAlpha = 1;
+  function drawLogo() {
+    if (!logoLoaded || !logoImage) return;
+    
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const logoSize = 250;
+    
+    const elapsed = performance.now() - startTime;
+    let progress = Math.min(elapsed / DURATION, 1);
+    
+    const blurAmount = Math.max(0, 20 * (1 - progress));
+    const opacity = Math.min(progress * 1.2, 1);
+    const scale = 0.9 + (progress * 0.1);
+    const scaledSize = logoSize * scale;
+    
+    let finalOpacity = opacity * (1 - exitProgress);
+    
+    ctx.save();
+    ctx.shadowBlur = blurAmount;
+    ctx.shadowColor = '#ffffff';
+    ctx.globalAlpha = finalOpacity;
+    ctx.drawImage(logoImage, centerX - scaledSize/2, centerY - scaledSize/2, scaledSize, scaledSize);
+    ctx.restore();
   }
   
-  function onMouseMove(e) {
-    const rect = canvas.getBoundingClientRect();
-    targetMouseX = e.clientX - rect.left;
-    targetMouseY = e.clientY - rect.top;
-  }
+  let exitStartTime = 0;
+  let exitAnimationRunning = false;
   
-  function animar() {
-    if (!ctx) return;
+  function startExit() {
+    if (exitAnimationRunning) return;
+    exitAnimationRunning = true;
+    exitStartTime = performance.now();
+    exitProgress = 0;
     
-    // Suavizar movimiento del ratón
-    mouseX += (targetMouseX - mouseX) * 0.05;
-    mouseY += (targetMouseY - mouseY) * 0.05;
-    
-    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    dibujarFondo();
-    dibujarParticulas();
-    dibujarEstrellasFugaces();
-    
-    animationId = requestAnimationFrame(animar);
-  }
-  
-  function cerrarSplash() {
-    const splash = document.getElementById('splash');
-    if (!splash) return;
-    
-    splash.classList.add('exit');
-    
-    setTimeout(() => {
-      splash.style.display = 'none';
-      document.body.style.overflow = 'auto';
-      if (animationId) cancelAnimationFrame(animationId);
-      sessionStorage.setItem('splash_seen', 'true');
-    }, 1200);
-  }
-  
-  return { init };
-})();
-
-// ========================================
-// MÓDULO: HEADER SCROLL
-// ========================================
-const HeaderModule = (() => {
-  let lastScroll = 0;
-  
-  function init() {
+    // Configurar transiciones suaves para el contenido principal
+    const mainContent = document.getElementById('main-content');
     const header = document.getElementById('header');
-    const backToTop = document.getElementById('backToTop');
+    const footer = document.querySelector('.footer');
     
-    window.addEventListener('scroll', Utils.debounce(() => {
-      const currentScroll = window.scrollY;
-      
-      // Header
-      if (currentScroll > 50) {
-        header?.classList.add('scrolled');
-      } else {
-        header?.classList.remove('scrolled');
-      }
-      
-      // Back to top
-      if (currentScroll > 500) {
-        backToTop?.classList.add('visible');
-      } else {
-        backToTop?.classList.remove('visible');
-      }
-      
-      // Parallax hero
-      const heroBg = document.getElementById('heroBg');
-      if (heroBg && !Utils.prefersReducedMotion()) {
-        heroBg.style.transform = `translateY(${currentScroll * 0.5}px)`;
-      }
-      
-      lastScroll = currentScroll;
-    }, 16)); // ~60fps
+    if (mainContent) {
+      mainContent.style.transition = `opacity ${EXIT_DURATION}ms ease`;
+    }
+    if (header) {
+      header.style.transition = `opacity ${EXIT_DURATION}ms ease`;
+    }
+    if (footer) {
+      footer.style.transition = `opacity ${EXIT_DURATION}ms ease`;
+    }
     
-    backToTop?.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: Utils.prefersReducedMotion() ? 'auto' : 'smooth' });
-      Utils.showToast('Volviendo al inicio 🚀');
-    });
+    // Iniciar fade out del splash y fade in de la web SIMULTÁNEAMENTE
+    const exitInterval = setInterval(() => {
+      const elapsed = performance.now() - exitStartTime;
+      exitProgress = Math.min(elapsed / EXIT_DURATION, 1);
+      
+      // El contenido de la web aparece al mismo ritmo que el splash desaparece
+      const webOpacity = exitProgress;
+      
+      if (mainContent) mainContent.style.opacity = webOpacity;
+      if (header) header.style.opacity = webOpacity;
+      if (footer) footer.style.opacity = webOpacity;
+      
+      if (exitProgress >= 1) {
+        clearInterval(exitInterval);
+        
+        // Ocultar splash completamente
+        const splash = document.getElementById('splash');
+        if (splash) splash.style.display = 'none';
+        
+        document.body.style.overflow = 'auto';
+        if (animationId) cancelAnimationFrame(animationId);
+      }
+    }, 16);
+  }
+  
+  function exitSplash() {
+    if (isExiting) return;
+    isExiting = true;
+    startExit();
+  }
+  
+  function animate() {
+    if (!ctx) return;
+    drawBackground();
+    drawParticles();
+    drawLogo();
+    animationId = requestAnimationFrame(animate);
   }
   
   return { init };

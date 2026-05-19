@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>Test Logo</title></head>
+<body>
+  <img src="images/logo.webp" alt="logo" style="max-width: 200px;">
+  <p>¿Ves el logo? Si no, la ruta es incorrecta.</p>
+  <script>
+    const img = new Image();
+    img.onload = () => console.log('✅ Logo existe');
+    img.onerror = () => console.log('❌ Logo NO existe en esa ruta');
+    img.src = 'images/logo.webp';
+  </script>
+</body>
+</html>
