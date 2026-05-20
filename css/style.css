@@ -2794,6 +2794,112 @@ body.light .splash__reconstruct-status {
   }
 }
 
+
+/* ========================================
+   DISCOGRAPHY CARRUSEL - RESPONSIVE
+   ======================================== */
+
+/* Overlay con 2 botones - base */
+.carrusel-horizontal__overlay {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 8px;
+  padding-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.carrusel-horizontal__overlay .carrusel-horizontal__instagram {
+  margin: 0 !important;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+/* ========================================
+   MÓVILES (hasta 480px)
+   ======================================== */
+@media (max-width: 480px) {
+  .discography-carousel .carrusel-horizontal__card {
+    flex: 0 0 260px;
+  }
+  
+  .discography-carousel .carrusel-horizontal__image {
+    height: 280px;
+  }
+  
+  .discography-carousel .carrusel-horizontal__info h3 {
+    font-size: 1.1rem;
+  }
+  
+  .discography-carousel .carrusel-horizontal__info p {
+    font-size: 0.7rem;
+  }
+  
+  /* Botones más pequeños en móvil */
+  .carrusel-horizontal__overlay {
+    padding-bottom: 1rem;
+    gap: 5px;
+  }
+  
+  .carrusel-horizontal__overlay .carrusel-horizontal__instagram {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.65rem;
+  }
+}
+
+/* ========================================
+   MÓVILES MUY PEQUEÑOS (hasta 380px)
+   ======================================== */
+@media (max-width: 380px) {
+  .discography-carousel .carrusel-horizontal__card {
+    flex: 0 0 220px;
+  }
+  
+  .discography-carousel .carrusel-horizontal__image {
+    height: 240px;
+  }
+  
+  /* Botones apilados en vertical */
+  .carrusel-horizontal__overlay {
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .carrusel-horizontal__overlay .carrusel-horizontal__instagram {
+    width: 80%;
+    justify-content: center;
+  }
+}
+
+/* ========================================
+   TABLETS (481px - 768px)
+   ======================================== */
+@media (min-width: 481px) and (max-width: 768px) {
+  .discography-carousel .carrusel-horizontal__card {
+    flex: 0 0 320px;
+  }
+  
+  .discography-carousel .carrusel-horizontal__image {
+    height: 350px;
+  }
+}
+
+/* ========================================
+   ESCRITORIO (769px+)
+   ======================================== */
+@media (min-width: 769px) {
+  .discography-carousel .carrusel-horizontal__card {
+    flex: 0 0 350px;
+  }
+  
+  .discography-carousel .carrusel-horizontal__image {
+    height: 380px;
+  }
+}
+
+
 /* ========================================
    FIN DEL CSS PREMIUM - VERSIÓN 8.0.0
    TOTAL: ~900 líneas optimizadas
