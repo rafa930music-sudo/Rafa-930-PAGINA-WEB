@@ -1,21 +1,14 @@
 /* ========================================
-   RAFA 930 - PREMIUM JAVASCRIPT
-   Versión: 7.0.0 | Awwwards/FWA Ready
-   Módulos: Splash, Header, Theme, i18n, 
-            Lightbox, Carrusel, Share, Form
-   Rendimiento: Intersection Observer, 
-                Passive Events, Debounce
-   Accesibilidad: ARIA, Focus Management,
-                  Reduced Motion Respect
+   RAFA 930 - VERSIÓN COMPLETA CORREGIDA
+   Hero visible | Idiomas funcionando | Tema oscuro/claro
    ======================================== */
 
 'use strict';
 
 // ========================================
-// MÓDULO: UTILIDADES GLOBALES
+// UTILIDADES
 // ========================================
 const Utils = {
-  // Debounce para eventos de scroll/resize
   debounce(fn, delay = 100) {
     let timeout;
     return (...args) => {
@@ -24,18 +17,21 @@ const Utils = {
     };
   },
   
-  // Verificar prefers-reduced-motion
   prefersReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   },
   
-  // Mostrar toast
   showToast(message, type = 'success') {
+    const existing = document.querySelector('.toast-notification');
+    if (existing) existing.remove();
+    
     const toast = document.createElement('div');
-    toast.className = 'toast-notification';
+    toast.className = `toast-notification ${type}`;
     toast.setAttribute('role', 'status');
     toast.setAttribute('aria-live', 'polite');
-    toast.innerHTML = `<i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-info-circle'}" aria-hidden="true"></i><span>${message}</span>`;
+    
+    const icon = type === 'success' ? 'fa-check-circle' : 'fa-info-circle';
+    toast.innerHTML = `<i class="fas ${icon}" aria-hidden="true"></i><span>${message}</span>`;
     document.body.appendChild(toast);
     
     requestAnimationFrame(() => {
@@ -47,7 +43,6 @@ const Utils = {
     });
   },
   
-  // Mostrar toast de compartir
   showShareToast(message) {
     const oldToast = document.querySelector('.share-toast');
     if (oldToast) oldToast.remove();
@@ -70,10 +65,27 @@ const Utils = {
 };
 
 // ========================================
-// MÓDULO: SPLASH - FADE OUT + FADE IN SIMULTÁNEO (TRANSICIÓN INVISIBLE)
-// El splash se desvanece mientras la web aparece, sin que se note el cambio
+// HEADER MODULE (scroll)
 // ========================================
+const HeaderModule = (() => {
+  function init() {
+    const header = document.getElementById('header');
+    if (!header) return;
+    
+    window.addEventListener('scroll', Utils.debounce(() => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }, 50));
+  }
+  return { init };
+})();
 
+// ========================================
+// SPLASH MODULE - CORREGIDO
+// ========================================
 const SplashModule = (() => {
   let animationId = null;
   let particles = [];
@@ -84,7 +96,7 @@ const SplashModule = (() => {
   let startTime = null;
   let exitProgress = 0;
   const DURATION = 2800;
-  const EXIT_DURATION = 1000; // 1 segundo para fade out/in
+  const EXIT_DURATION = 1000;
   
   function init() {
     const splash = document.getElementById('splash');
@@ -102,7 +114,7 @@ const SplashModule = (() => {
     
     if (mainContent) {
       mainContent.style.opacity = '0';
-      mainContent.style.transition = 'opacity 0.01s'; // transición instantánea al inicio
+      mainContent.style.transition = 'opacity 0.01s';
     }
     if (header) {
       header.style.opacity = '0';
@@ -117,7 +129,6 @@ const SplashModule = (() => {
     logoImage = new Image();
     logoImage.onload = () => {
       logoLoaded = true;
-      console.log('✅ Logo cargado');
     };
     logoImage.src = 'images/logo-white.webp';
     
@@ -132,8 +143,20 @@ const SplashModule = (() => {
     });
     
     document.body.style.overflow = 'hidden';
+    
+    // Click en el splash para salir
     splash.addEventListener('click', () => exitSplash());
     
+    // Click en el texto del pulse también
+    const splashPulse = document.getElementById('splashPulse');
+    if (splashPulse) {
+      splashPulse.addEventListener('click', (e) => {
+        e.stopPropagation();
+        exitSplash();
+      });
+    }
+    
+    // Salida automática
     setTimeout(() => exitSplash(), DURATION + 500);
   }
   
@@ -260,27 +283,18 @@ const SplashModule = (() => {
     exitStartTime = performance.now();
     exitProgress = 0;
     
-    // Configurar transiciones suaves para el contenido principal
     const mainContent = document.getElementById('main-content');
     const header = document.getElementById('header');
     const footer = document.querySelector('.footer');
     
-    if (mainContent) {
-      mainContent.style.transition = `opacity ${EXIT_DURATION}ms ease`;
-    }
-    if (header) {
-      header.style.transition = `opacity ${EXIT_DURATION}ms ease`;
-    }
-    if (footer) {
-      footer.style.transition = `opacity ${EXIT_DURATION}ms ease`;
-    }
+    if (mainContent) mainContent.style.transition = `opacity ${EXIT_DURATION}ms ease`;
+    if (header) header.style.transition = `opacity ${EXIT_DURATION}ms ease`;
+    if (footer) footer.style.transition = `opacity ${EXIT_DURATION}ms ease`;
     
-    // Iniciar fade out del splash y fade in de la web SIMULTÁNEAMENTE
     const exitInterval = setInterval(() => {
       const elapsed = performance.now() - exitStartTime;
       exitProgress = Math.min(elapsed / EXIT_DURATION, 1);
       
-      // El contenido de la web aparece al mismo ritmo que el splash desaparece
       const webOpacity = exitProgress;
       
       if (mainContent) mainContent.style.opacity = webOpacity;
@@ -289,11 +303,8 @@ const SplashModule = (() => {
       
       if (exitProgress >= 1) {
         clearInterval(exitInterval);
-        
-        // Ocultar splash completamente
         const splash = document.getElementById('splash');
         if (splash) splash.style.display = 'none';
-        
         document.body.style.overflow = 'auto';
         if (animationId) cancelAnimationFrame(animationId);
       }
@@ -318,7 +329,7 @@ const SplashModule = (() => {
 })();
 
 // ========================================
-// MÓDULO: MOBILE MENU
+// MOBILE MENU
 // ========================================
 const MobileMenuModule = (() => {
   function init() {
@@ -328,14 +339,22 @@ const MobileMenuModule = (() => {
     
     if (!burgerBtn || !mobileMenu) return;
     
+    function cerrarMenu() {
+      mobileMenu.classList.remove('active');
+      burgerBtn.classList.remove('active');
+      burgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    
     burgerBtn.addEventListener('click', () => {
       const isExpanded = burgerBtn.getAttribute('aria-expanded') === 'true';
       mobileMenu.classList.toggle('active');
+      burgerBtn.classList.toggle('active');
       burgerBtn.setAttribute('aria-expanded', !isExpanded);
       document.body.style.overflow = isExpanded ? '' : 'hidden';
     });
     
-    closeBtn?.addEventListener('click', cerrarMenu);
+    if (closeBtn) closeBtn.addEventListener('click', cerrarMenu);
     
     document.querySelectorAll('.mobile-menu__link').forEach(link => {
       link.addEventListener('click', cerrarMenu);
@@ -346,79 +365,68 @@ const MobileMenuModule = (() => {
     });
     
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-        cerrarMenu();
-      }
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) cerrarMenu();
     });
   }
-  
-  function cerrarMenu() {
-    const mobileMenu = document.getElementById('mobileMenu');
-    const burgerBtn = document.getElementById('burgerBtn');
-    if (mobileMenu) mobileMenu.classList.remove('active');
-    if (burgerBtn) burgerBtn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
-  
   return { init };
 })();
 
 // ========================================
-// MÓDULO: THEME TOGGLE
+// THEME TOGGLE - CORREGIDO
 // ========================================
 const ThemeModule = (() => {
   function init() {
     const themeToggle = document.getElementById('themeToggle');
     if (!themeToggle) return;
     
+    // Inicializar tema desde localStorage
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light') {
       document.body.classList.remove('dark');
       document.body.classList.add('light');
+      themeToggle.classList.add('light');
+    } else if (savedTheme === 'dark') {
+      document.body.classList.remove('light');
+      document.body.classList.add('dark');
+      themeToggle.classList.remove('light');
+    } else {
+      // Por defecto: oscuro
+      document.body.classList.add('dark');
       themeToggle.classList.remove('light');
     }
     
     themeToggle.addEventListener('click', () => {
-      const isDark = document.body.classList.contains('dark');
-      
-      if (isDark) {
+      if (document.body.classList.contains('dark')) {
         document.body.classList.remove('dark');
         document.body.classList.add('light');
-        themeToggle.classList.remove('light');
+        themeToggle.classList.add('light');
         localStorage.setItem('theme', 'light');
-        Utils.showToast('Modo claro activado ☀️');
+        Utils.showToast('☀️ Modo claro activado');
       } else {
         document.body.classList.remove('light');
         document.body.classList.add('dark');
-        themeToggle.classList.add('light');
+        themeToggle.classList.remove('light');
         localStorage.setItem('theme', 'dark');
-        Utils.showToast('Modo oscuro activado 🌙');
+        Utils.showToast('🌙 Modo oscuro activado');
       }
     });
   }
-  
   return { init };
 })();
 
 // ========================================
-// MÓDULO: INTERNACIONALIZACIÓN (i18n)
+// INTERNACIONALIZACIÓN (i18n) - COMPLETO
 // ========================================
 const I18nModule = (() => {
   const traducciones = {
     es: {
-      splash_eyebrow: "Bienvenido al universo de",
-      splash_sub: "Música · Fotografía",
-      splash_click: "HAZ CLIC PARA ENTRAR",
-      logo_sub: "Música & Fotografía",
       nav_about: "Biografía",
       nav_music: "Música",
       nav_booking: "Booking",
       nav_contact: "Contacto",
-      nav_btn: "Contacto",
       hero_desc: "Artista de música urbana y fotógrafo profesional. Trap, reggaetón, rap y sesiones fotográficas de alta calidad.",
       hero_btn1: "Escuchar música",
       hero_btn_colab: "Ver colaboraciones",
-      hero_scroll: "DESCUBRE",
       about_eyebrow: "Mi historia",
       about_title: "Música y fotografía",
       about_p1: "Soy RAFA 930, artista de música urbana en España y fotógrafo profesional. Mi estilo musical combina trap, reggaetón y rap, creando un sonido único que refleja mi vida y mis sueños.",
@@ -469,19 +477,13 @@ const I18nModule = (() => {
       select_option: "Selecciona una opción"
     },
     en: {
-      splash_eyebrow: "Welcome to the universe of",
-      splash_sub: "Music · Photography",
-      splash_click: "CLICK TO ENTER",
-      logo_sub: "Music & Photography",
       nav_about: "Biography",
       nav_music: "Music",
       nav_booking: "Booking",
       nav_contact: "Contact",
-      nav_btn: "Contact",
       hero_desc: "Urban music artist and professional photographer. Trap, reggaeton, rap and high quality photo sessions.",
       hero_btn1: "Listen to music",
       hero_btn_colab: "View collaborations",
-      hero_scroll: "DISCOVER",
       about_eyebrow: "My story",
       about_title: "Music & Photography",
       about_p1: "I'm RAFA 930, urban music artist in Spain and professional photographer. My musical style combines trap, reggaeton and rap, creating a unique sound that reflects my life and dreams.",
@@ -543,6 +545,11 @@ const I18nModule = (() => {
       if (traducciones[idioma]?.[key]) {
         if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
           el.placeholder = traducciones[idioma][key];
+        } else if (el.tagName === 'SELECT' && el.options) {
+          // Para selects, cambiar el texto de la opción seleccionada
+          if (key === 'select_option') {
+            el.options[0].text = traducciones[idioma][key];
+          }
         } else {
           el.textContent = traducciones[idioma][key];
         }
@@ -550,6 +557,7 @@ const I18nModule = (() => {
     });
     
     localStorage.setItem('idioma', idioma);
+    Utils.showToast(`Idioma cambiado a ${idioma === 'es' ? 'Español' : 'English'}`);
   }
   
   function init() {
@@ -581,7 +589,7 @@ const I18nModule = (() => {
 })();
 
 // ========================================
-// MÓDULO: SHARE BUTTONS
+// SHARE BUTTONS
 // ========================================
 const ShareModule = (() => {
   function init() {
@@ -618,12 +626,11 @@ const ShareModule = (() => {
       });
     });
   }
-  
   return { init };
 })();
 
 // ========================================
-// MÓDULO: CARRUSEL HORIZONTAL CON AUTOPLAY
+// CARRUSEL HORIZONTAL
 // ========================================
 const CarruselModule = (() => {
   let currentIndex = 0;
@@ -639,66 +646,32 @@ const CarruselModule = (() => {
     const nextBtn = document.getElementById('carruselNext');
     const dotsContainer = document.getElementById('carruselDots');
     
-    if (!track || !cards.length) {
-      console.warn('Carrusel: No se encontraron elementos');
-      return;
-    }
+    if (!track || !cards.length) return;
     
-    // Pequeño delay para asegurar que todo está renderizado
     setTimeout(() => {
       updateDimensions();
       
-      if (cardWidth === 0) {
-        console.warn('Carrusel: cardWidth es 0, reintentando...');
-        updateDimensions();
+      if (dotsContainer) {
+        dotsContainer.innerHTML = '';
+        cards.forEach((_, i) => {
+          const dot = document.createElement('span');
+          dot.className = 'dot';
+          if (i === 0) dot.classList.add('active');
+          dot.addEventListener('click', () => {
+            scrollToCard(i);
+            resetAutoplay();
+          });
+          dotsContainer.appendChild(dot);
+        });
       }
       
-      // Crear dots
-      dotsContainer.innerHTML = '';
-      cards.forEach((_, i) => {
-        const dot = document.createElement('span');
-        dot.className = 'dot';
-        if (i === 0) dot.classList.add('active');
-        dot.setAttribute('role', 'tab');
-        dot.setAttribute('aria-label', `Colaboración ${i + 1}`);
-        dot.addEventListener('click', () => {
-          scrollToCard(i);
-          resetAutoplay();
-        });
-        dotsContainer.appendChild(dot);
-      });
+      if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetAutoplay(); });
+      if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetAutoplay(); });
       
-      prevBtn?.addEventListener('click', () => {
-        prevSlide();
-        resetAutoplay();
-      });
-      
-      nextBtn?.addEventListener('click', () => {
-        nextSlide();
-        resetAutoplay();
-      });
-      
-      // Pausar autoplay al hover
-      track.addEventListener('mouseenter', () => {
-        isHovering = true;
-        stopAutoplay();
-      });
-      
-      track.addEventListener('mouseleave', () => {
-        isHovering = false;
-        startAutoplay();
-      });
-      
-      // Touch events para móvil
-      track.addEventListener('touchstart', () => {
-        stopAutoplay();
-      });
-      
-      track.addEventListener('touchend', () => {
-        setTimeout(() => {
-          if (!isHovering) startAutoplay();
-        }, 2000);
-      });
+      track.addEventListener('mouseenter', () => { isHovering = true; stopAutoplay(); });
+      track.addEventListener('mouseleave', () => { isHovering = false; startAutoplay(); });
+      track.addEventListener('touchstart', () => stopAutoplay());
+      track.addEventListener('touchend', () => { setTimeout(() => { if (!isHovering) startAutoplay(); }, 2000); });
       
       window.addEventListener('resize', Utils.debounce(() => {
         updateDimensions();
@@ -710,11 +683,7 @@ const CarruselModule = (() => {
         if (e.key === 'ArrowRight') { nextSlide(); resetAutoplay(); }
       });
       
-      // Iniciar autoplay
       startAutoplay();
-      
-      console.log('🎠 Carrusel iniciado - ' + totalCards + ' cards - Autoplay: 3s');
-      
     }, 500);
   }
   
@@ -728,9 +697,7 @@ const CarruselModule = (() => {
   }
   
   function scrollToCard(index) {
-    if (cardWidth === 0) {
-      updateDimensions();
-    }
+    if (cardWidth === 0) updateDimensions();
     const container = document.querySelector('.carrusel-horizontal__track');
     if (container && cardWidth > 0) {
       container.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
@@ -742,21 +709,15 @@ const CarruselModule = (() => {
   function nextSlide() {
     updateDimensions();
     if (totalCards === 0) return;
-    if (currentIndex < totalCards - 1) {
-      scrollToCard(currentIndex + 1);
-    } else {
-      scrollToCard(0);
-    }
+    if (currentIndex < totalCards - 1) scrollToCard(currentIndex + 1);
+    else scrollToCard(0);
   }
   
   function prevSlide() {
     updateDimensions();
     if (totalCards === 0) return;
-    if (currentIndex > 0) {
-      scrollToCard(currentIndex - 1);
-    } else {
-      scrollToCard(totalCards - 1);
-    }
+    if (currentIndex > 0) scrollToCard(currentIndex - 1);
+    else scrollToCard(totalCards - 1);
   }
   
   function updateDots() {
@@ -769,48 +730,30 @@ const CarruselModule = (() => {
     stopAutoplay();
     if (totalCards <= 1) return;
     autoplayInterval = setInterval(() => {
-      if (!isHovering && document.visibilityState === 'visible') {
-        nextSlide();
-      }
-    }, 3000);
+      if (!isHovering && document.visibilityState === 'visible') nextSlide();
+    }, 5000);
   }
   
   function stopAutoplay() {
-    if (autoplayInterval) {
-      clearInterval(autoplayInterval);
-      autoplayInterval = null;
-    }
+    if (autoplayInterval) { clearInterval(autoplayInterval); autoplayInterval = null; }
   }
   
-  function resetAutoplay() {
-    stopAutoplay();
-    startAutoplay();
-  }
+  function resetAutoplay() { stopAutoplay(); startAutoplay(); }
   
   return { init };
 })();
 
-/// ========================================
-// MÓDULO: FORMULARIO
+// ========================================
+// FORMULARIO
 // ========================================
 const FormModule = (() => {
   function init() {
     const form = document.getElementById('bookingForm');
+    if (!form) return;
+    
     const successDiv = document.getElementById('formSuccess');
     const errorDiv = document.getElementById('formError');
     const inputs = document.querySelectorAll('.form-control[required], .form-select[required]');
-    
-    if (!form) return;
-    
-    // Validación en tiempo real
-    inputs.forEach(input => {
-      input.addEventListener('blur', () => validarCampo(input));
-      input.addEventListener('input', () => {
-        if (input.classList.contains('invalid')) {
-          validarCampo(input);
-        }
-      });
-    });
     
     function validarCampo(input) {
       if (!input.value.trim()) {
@@ -842,24 +785,23 @@ const FormModule = (() => {
       return true;
     }
     
+    inputs.forEach(input => {
+      input.addEventListener('blur', () => validarCampo(input));
+      input.addEventListener('input', () => {
+        if (input.classList.contains('invalid')) validarCampo(input);
+      });
+    });
+    
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       
-      // Validar todos los campos antes de enviar
       let todoValido = true;
-      inputs.forEach(input => {
-        if (!validarCampo(input)) {
-          todoValido = false;
-        }
-      });
+      inputs.forEach(input => { if (!validarCampo(input)) todoValido = false; });
       
-      // Validar checkbox de privacidad
       const privacy = document.getElementById('privacy');
       if (privacy && !privacy.checked) {
         privacy.parentElement.style.animation = 'shake 0.5s ease';
-        setTimeout(() => {
-          privacy.parentElement.style.animation = '';
-        }, 500);
+        setTimeout(() => { if (privacy.parentElement) privacy.parentElement.style.animation = ''; }, 500);
         todoValido = false;
       }
       
@@ -872,9 +814,8 @@ const FormModule = (() => {
       const originalText = btn?.innerHTML || 'Enviar';
       
       if (btn) {
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Enviando...';
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
         btn.disabled = true;
-        btn.setAttribute('aria-busy', 'true');
       }
       
       try {
@@ -889,14 +830,11 @@ const FormModule = (() => {
           if (successDiv) successDiv.style.display = 'block';
           if (errorDiv) errorDiv.style.display = 'none';
           form.reset();
-          // Limpiar validaciones visuales
-          inputs.forEach(input => {
-            input.classList.remove('valid', 'invalid');
-          });
+          inputs.forEach(input => input.classList.remove('valid', 'invalid'));
           Utils.showToast('✅ Consulta enviada con éxito');
           setTimeout(() => { if (successDiv) successDiv.style.display = 'none'; }, 5000);
         } else {
-          throw new Error('Error en la respuesta');
+          throw new Error('Error');
         }
       } catch (error) {
         if (errorDiv) errorDiv.style.display = 'block';
@@ -906,23 +844,21 @@ const FormModule = (() => {
         if (btn) {
           btn.innerHTML = originalText;
           btn.disabled = false;
-          btn.removeAttribute('aria-busy');
         }
       }
     });
   }
-  
   return { init };
 })();
 
 // ========================================
-// MÓDULO: COOKIES
+// COOKIES
 // ========================================
 const CookiesModule = (() => {
   function init() {
     if (!localStorage.getItem('cookies_aceptadas')) {
       const banner = document.getElementById('cookieBanner');
-      if (banner) banner.style.display = 'block';
+      if (banner) banner.style.display = 'flex';
     }
     
     window.aceptarCookies = () => {
@@ -939,7 +875,26 @@ const CookiesModule = (() => {
       Utils.showToast('🍪 Cookies rechazadas');
     };
   }
-  
+  return { init };
+})();
+
+// ========================================
+// BACK TO TOP
+// ========================================
+const BackToTopModule = (() => {
+  function init() {
+    const backToTop = document.getElementById('backToTop');
+    if (!backToTop) return;
+    
+    window.addEventListener('scroll', Utils.debounce(() => {
+      if (window.scrollY > 500) backToTop.classList.add('visible');
+      else backToTop.classList.remove('visible');
+    }, 100));
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
   return { init };
 })();
 
@@ -947,12 +902,14 @@ const CookiesModule = (() => {
 // INICIALIZACIÓN PRINCIPAL
 // ========================================
 document.addEventListener('DOMContentLoaded', () => {
-  // Inicializar AOS (animaciones scroll)
-  AOS.init({ 
-    duration: 1000, 
-    once: true,
-    disable: Utils.prefersReducedMotion() ? true : false
-  });
+  // Inicializar AOS
+  if (typeof AOS !== 'undefined') {
+    AOS.init({ 
+      duration: 1000, 
+      once: true,
+      disable: Utils.prefersReducedMotion()
+    });
+  }
   
   // Inicializar todos los módulos
   SplashModule.init();
@@ -964,6 +921,7 @@ document.addEventListener('DOMContentLoaded', () => {
   CarruselModule.init();
   FormModule.init();
   CookiesModule.init();
+  BackToTopModule.init();
   
-  console.log('🚀 Rafa 930 Premium inicializado - Versión 7.0.0');
+  console.log('🚀 Rafa 930 - Todos los sistemas funcionando correctamente');
 });
