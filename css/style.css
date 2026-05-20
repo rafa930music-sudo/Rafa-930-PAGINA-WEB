@@ -338,6 +338,26 @@ section {
 }
 
 /* ========================================
+   FONDO DE PARTÍCULAS - POLVO DORADO
+   ======================================== */
+#particlesBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Modo claro: partículas más sutiles */
+body.light #particlesBg {
+  opacity: 0.3;
+}
+
+
+/* ========================================
    7. SKIP LINK (Accesibilidad)
    ======================================== */
 .skip-link {
@@ -490,7 +510,9 @@ body.light .logo__img {
   color: var(--purple);
 }
 
-/* Theme Toggle Mejorado */
+/* ========================================
+   THEME TOGGLE - CORREGIDO ✅
+   ======================================== */
 .theme-toggle {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -503,8 +525,14 @@ body.light .logo__img {
   padding: 0 8px;
   cursor: pointer;
   position: relative;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
-.theme-emoji { font-size: 0.85rem; z-index: 1; }
+
+.theme-toggle:hover {
+  border-color: var(--purple);
+}
+
+/* La bolita deslizante */
 .theme-toggle .ball {
   position: absolute;
   width: 24px;
@@ -513,14 +541,55 @@ body.light .logo__img {
   border-radius: 50%;
   left: 3px;
   transition: left 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
-              background 0.4s ease;
+              background 0.4s ease,
+              box-shadow 0.4s ease;
   z-index: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
-.theme-toggle.light .ball { left: calc(100% - 27px); }
-body.dark .theme-emoji.sun { opacity: 0.4; }
-body.dark .theme-emoji.moon { opacity: 1; }
-body.light .theme-emoji.sun { opacity: 1; }
-body.light .theme-emoji.moon { opacity: 0.4; }
+
+/* Modo claro: bolita a la derecha */
+.theme-toggle.light .ball { 
+  left: calc(100% - 27px); 
+  box-shadow: 0 2px 12px rgba(251, 191, 36, 0.3);
+}
+
+/* Iconos del tema */
+.theme-icon-sun,
+.theme-icon-moon {
+  font-size: 0.85rem;
+  z-index: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* POR DEFECTO: MODO OSCURO 🌙 */
+/* Luna visible, Sol apagado */
+.theme-icon-sun {
+  opacity: 0.4;
+  transform: scale(0.9);
+}
+
+.theme-icon-moon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* MODO CLARO: cuando toggle tiene clase 'light' ☀️ */
+/* Sol visible, Luna apagada */
+.theme-toggle.light .theme-icon-sun {
+  opacity: 1;
+  transform: scale(1.1);
+  color: #fbbf24;
+}
+
+.theme-toggle.light .theme-icon-moon {
+  opacity: 0.4;
+  transform: scale(0.9);
+}
+
+/* Efecto click */
+.theme-toggle:active {
+  transform: scale(0.95);
+}
 
 /* Iconos sociales en nav */
 .nav__social {

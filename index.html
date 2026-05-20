@@ -221,6 +221,10 @@
 </head>
 
 <body>
+
+   <canvas id="particlesBg" aria-hidden="true"></canvas>
+
+
   <!-- ============================================ -->
   <!-- SKIP LINK - ACCESIBILIDAD WCAG 2.1 AA         -->
   <!-- ============================================ -->
@@ -267,11 +271,11 @@
           <button class="lang-btn" data-lang="en" role="radio" aria-checked="false" aria-label="English">EN</button>
         </div>
         
-        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo oscuro/claro">
-          <span class="theme-emoji sun" aria-hidden="true">☀️</span>
-          <span class="theme-emoji moon" aria-hidden="true">🌙</span>
-          <span class="ball"></span>
-        </button>
+<button class="theme-toggle" id="themeToggle" aria-label="Cambiar a modo claro">
+  <i class="fas fa-moon theme-icon-moon" aria-hidden="true"></i>
+  <span class="ball"></span>
+  <i class="fas fa-sun theme-icon-sun" aria-hidden="true"></i>
+</button>
         
         <button class="burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -298,6 +302,7 @@
   <!-- MAIN CONTENT                                 -->
   <!-- ============================================ -->
   <main id="main-content">
+    
     
     <!-- ============================================ -->
     <!-- HERO SECTION                                -->
@@ -853,34 +858,40 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="js/main.js" defer></script>
 
-  <script>
+<script>
 (function(){
-  var s = localStorage.getItem('theme');
-  if(s === 'light'){
-    document.body.classList.add('light');
-  } else if(s === 'dark'){
-    document.body.classList.add('dark');
-  } else {
-    // Sin preferencia guardada → usar sistema operativo
-    if(window.matchMedia('(prefers-color-scheme: light)').matches){
-      document.body.classList.add('light');
+  // ==========================================
+  // SISTEMA DE TEMA - VERSIÓN FINAL ✅
+  // ==========================================
+  
+  // 1. Obtener preferencia guardada
+  var temaGuardado = localStorage.getItem('theme');
+  
+  // 2. Si no hay preferencia, usar sistema operativo
+  if (!temaGuardado) {
+    temaGuardado = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
+  
+  // 3. Aplicar tema inmediatamente (antes de que se muestre la página)
+  document.body.classList.add(temaGuardado);
+  
+  // 4. Cuando el DOM esté listo, sincronizar el toggle
+  function sincronizarToggle() {
+    var toggle = document.getElementById('themeToggle');
+    if (!toggle) return;
+    
+    if (document.body.classList.contains('light')) {
+      toggle.classList.add('light');
     } else {
-      document.body.classList.add('dark');
+      toggle.classList.remove('light');
     }
   }
-
-  // Detectar cambios en tiempo real (si no hay preferencia manual)
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-    if(!localStorage.getItem('theme')){
-      if(e.matches){
-        document.body.classList.remove('light');
-        document.body.classList.add('dark');
-      } else {
-        document.body.classList.remove('dark');
-        document.body.classList.add('light');
-      }
-    }
-  });
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', sincronizarToggle);
+  } else {
+    sincronizarToggle();
+  }
 })();
 </script>
 

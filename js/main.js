@@ -371,41 +371,31 @@ const MobileMenuModule = (() => {
   return { init };
 })();
 
-// ========================================
-// THEME TOGGLE - CORREGIDO
-// ========================================
 const ThemeModule = (() => {
   function init() {
     const themeToggle = document.getElementById('themeToggle');
     if (!themeToggle) return;
     
-    // Inicializar tema desde localStorage
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-      document.body.classList.remove('dark');
-      document.body.classList.add('light');
-      themeToggle.classList.add('light');
-    } else if (savedTheme === 'dark') {
-      document.body.classList.remove('light');
-      document.body.classList.add('dark');
-      themeToggle.classList.remove('light');
-    } else {
-      // Por defecto: oscuro
-      document.body.classList.add('dark');
-      themeToggle.classList.remove('light');
-    }
+    // NO aplicar tema aquí - el script inline ya lo hizo
     
+    // SOLO manejar el click
     themeToggle.addEventListener('click', () => {
-      if (document.body.classList.contains('dark')) {
+      const esOscuro = document.body.classList.contains('dark');
+      
+      if (esOscuro) {
+        // Cambiar a CLARO
         document.body.classList.remove('dark');
         document.body.classList.add('light');
         themeToggle.classList.add('light');
+        themeToggle.setAttribute('aria-label', 'Cambiar a modo oscuro');
         localStorage.setItem('theme', 'light');
         Utils.showToast('☀️ Modo claro activado');
       } else {
+        // Cambiar a OSCURO
         document.body.classList.remove('light');
         document.body.classList.add('dark');
         themeToggle.classList.remove('light');
+        themeToggle.setAttribute('aria-label', 'Cambiar a modo claro');
         localStorage.setItem('theme', 'dark');
         Utils.showToast('🌙 Modo oscuro activado');
       }
@@ -899,6 +889,82 @@ const BackToTopModule = (() => {
 })();
 
 // ========================================
+// EFECTO POLVO DORADO - FONDO
+// ========================================
+const ParticlesBackground = (() => {
+  let canvas, ctx;
+  let particles = [];
+  let animationId;
+  
+  function init() {
+    canvas = document.getElementById('particlesBg');
+    if (!canvas) return;
+    ctx = canvas.getContext('2d');
+    resize();
+    createParticles();
+    animate();
+    window.addEventListener('resize', () => { resize(); createParticles(); });
+  }
+  
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  
+  function createParticles() {
+    particles = [];
+    const count = window.innerWidth < 768 ? 40 : 70;
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 2.5 + 0.5,
+        speedY: -(Math.random() * 0.4 + 0.1),
+        speedX: (Math.random() - 0.5) * 0.3,
+        opacity: Math.random() * 0.6 + 0.1,
+        sparkle: Math.random() * Math.PI * 2,
+        sparkleSpeed: 0.02 + Math.random() * 0.05,
+        color: Math.random() > 0.7 
+          ? `rgba(168, 85, 247, 0.3)`
+          : `rgba(251, 191, 36, 0.4)`
+      });
+    }
+  }
+  
+  function drawParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let p of particles) {
+      p.x += p.speedX + Math.sin(p.sparkle) * 0.2;
+      p.y += p.speedY;
+      p.sparkle += p.sparkleSpeed;
+      if (p.y < -10) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; }
+      if (p.x < 0) p.x = canvas.width;
+      if (p.x > canvas.width) p.x = 0;
+      
+      const alpha = Math.min(p.opacity + Math.sin(p.sparkle) * 0.2, 0.7);
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = p.color.replace(/[\d.]+\)$/, `${alpha})`);
+      ctx.fill();
+      
+      if (Math.sin(p.sparkle) > 0.7) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI * 2);
+        ctx.fillStyle = p.color.replace(/[\d.]+\)$/, '0.15)');
+        ctx.fill();
+      }
+    }
+  }
+  
+  function animate() {
+    drawParticles();
+    animationId = requestAnimationFrame(animate);
+  }
+  
+  return { init };
+})();
+
+// ========================================
 // INICIALIZACIÓN PRINCIPAL
 // ========================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -922,6 +988,7 @@ document.addEventListener('DOMContentLoaded', () => {
   FormModule.init();
   CookiesModule.init();
   BackToTopModule.init();
+  ParticlesBackground.init();  // ← AÑADIDO
   
   console.log('🚀 Rafa 930 - Todos los sistemas funcionando correctamente');
 });
