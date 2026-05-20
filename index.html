@@ -375,73 +375,77 @@
       </div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- DISCOGRAPHY SECTION - RUTAS EXACTAS          -->
-    <!-- ============================================ -->
-    <section id="discography" class="discography" aria-label="Discografía">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow" data-i18n="disc_eyebrow">Mi música</span>
-          <h2><span class="text-gradient" data-i18n="disc_title">Discografía</span></h2>
-        </div>
-        <div class="discography__grid">
-          
-          <!-- Diferentes Caminos -->
-          <article class="card card--disc" data-aos="fade-up">
-            <div class="card__image">
-              <img src="images/Diferentes-Caminos.webp" alt="Diferentes Caminos - Single de Rafa 930" loading="lazy" width="400" height="400" decoding="async">
-              <span class="card__play-overlay">🎵 Escuchar</span>
+<!-- ============================================ -->
+<!-- DISCOGRAPHY - CARRUSEL IGUAL QUE COLABORADORES -->
+<!-- ============================================ -->
+<section id="discography" class="discography-carousel" aria-label="Discografía">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow" data-i18n="disc_eyebrow">Mi música</span>
+      <h2><span class="text-gradient" data-i18n="disc_title">Discografía</span></h2>
+    </div>
+    
+    <div class="carrusel-horizontal">
+      <div class="carrusel-horizontal__track" id="discTrack">
+        
+        <!-- Diferentes Caminos -->
+        <article class="carrusel-horizontal__card">
+          <div class="carrusel-horizontal__image">
+            <img src="images/Diferentes-Caminos.webp" alt="Diferentes Caminos" loading="lazy">
+            <div class="carrusel-horizontal__overlay">
+              <a href="https://open.spotify.com/track/4qKu5UomnrOX3YQAbYe7as" target="_blank" rel="noopener noreferrer" class="carrusel-horizontal__instagram" style="background: linear-gradient(135deg, #1DB954, #1ed760);">
+                <i class="fab fa-spotify"></i> Spotify
+              </a>
+              <a href="https://youtu.be/yeBfa_HRVBo" target="_blank" rel="noopener noreferrer" class="carrusel-horizontal__instagram" style="background: linear-gradient(135deg, #FF0000, #cc0000); margin-left: 8px;">
+                <i class="fab fa-youtube"></i> YouTube
+              </a>
             </div>
-            <div class="card__content">
-              <span class="card__badge">SINGLE</span>
-              <h3 class="card__title">Diferentes Caminos</h3>
-              <p class="card__year">2025</p>
-              <p class="card__desc" data-i18n="disc_desc1">Un viaje musical que refleja la dualidad de la vida y las decisiones que tomamos.</p>
-              <div class="card__buttons">
-                <a href="https://open.spotify.com/track/4qKu5UomnrOX3YQAbYe7as" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Spotify</a>
-                <a href="https://youtu.be/yeBfa_HRVBo" target="_blank" rel="noopener noreferrer" class="btn btn--outline">YouTube</a>
-              </div>
+          </div>
+          <div class="carrusel-horizontal__info">
+            <h3>Diferentes Caminos</h3>
+            <p>SINGLE · 2025</p>
+          </div>
+        </article>
+        
+        <!-- My World -->
+        <article class="carrusel-horizontal__card">
+          <div class="carrusel-horizontal__image">
+            <img src="images/My-World-Album.webp" alt="My World" loading="lazy">
+            <div class="carrusel-horizontal__overlay">
+              <a href="https://open.spotify.com/album/2e2mmgRvrEuIvqEoWxdij1" target="_blank" rel="noopener noreferrer" class="carrusel-horizontal__instagram" style="background: linear-gradient(135deg, #1DB954, #1ed760);">
+                <i class="fab fa-spotify"></i> Spotify
+              </a>
+              <a href="https://www.youtube.com/watch?v=lCwhG67eijs&list=PLs6c6tp_0W8Q_4mPsWLRQ8Zwt569Rpe5x" target="_blank" rel="noopener noreferrer" class="carrusel-horizontal__instagram" style="background: linear-gradient(135deg, #FF0000, #cc0000); margin-left: 8px;">
+                <i class="fab fa-youtube"></i> YouTube
+              </a>
             </div>
-          </article>
-          
-          <!-- My World -->
-          <article class="card card--disc" data-aos="fade-up" data-aos-delay="100">
-            <div class="card__image">
-              <img src="images/My-World-Album.webp" alt="My World - EP de Rafa 930" loading="lazy" width="400" height="400" decoding="async">
-              <span class="card__play-overlay">🎵 Escuchar</span>
+          </div>
+          <div class="carrusel-horizontal__info">
+            <h3>My World</h3>
+            <p>EP · 2025</p>
+          </div>
+        </article>
+        
+        <!-- La Vida Es Bella -->
+        <article class="carrusel-horizontal__card">
+          <div class="carrusel-horizontal__image">
+            <img src="images/La-Vida-Es-Bella-Portada-de-Album.webp" alt="La Vida Es Bella" loading="lazy">
+            <div class="carrusel-horizontal__overlay">
+              <span class="carrusel-horizontal__instagram" style="background: rgba(0,0,0,0.5); cursor: default; display: flex; align-items: center; gap: 0.5rem;">
+                🔜 Próximamente
+              </span>
             </div>
-            <div class="card__content">
-              <span class="card__badge">EP</span>
-              <h3 class="card__title">My World</h3>
-              <p class="card__year">2025</p>
-              <p class="card__desc" data-i18n="disc_desc2">Un EP que muestra mi universo musical, con sonidos frescos y letras sinceras.</p>
-              <div class="card__buttons">
-                <a href="https://open.spotify.com/album/2e2mmgRvrEuIvqEoWxdij1?si=LyccmBxcRxyxWnLyvO2j-Q" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Spotify</a>
-                <a href="https://www.youtube.com/watch?v=lCwhG67eijs&list=PLs6c6tp_0W8Q_4mPsWLRQ8Zwt569Rpe5x" target="_blank" rel="noopener noreferrer" class="btn btn--outline">YouTube</a>
-              </div>
-            </div>
-          </article>
-          
-          <!-- La Vida Es Bella -->
-          <article class="card card--disc" data-aos="fade-up" data-aos-delay="200">
-            <div class="card__image">
-              <img src="images/La-Vida-Es-Bella-Portada-de-Album.webp" alt="La Vida Es Bella - Álbum de Rafa 930" loading="lazy" width="400" height="400" decoding="async">
-              <span class="card__play-overlay">🔜 Próximamente</span>
-            </div>
-            <div class="card__content">
-              <span class="card__badge">ÁLBUM</span>
-              <h3 class="card__title">La Vida Es Bella</h3>
-              <p class="card__year" data-i18n="soon">Próximamente</p>
-              <p class="card__desc" data-i18n="disc_desc3">Mi próximo álbum. Una celebración de la vida a través de la música urbana.</p>
-              <div class="card__buttons">
-                <span class="btn btn--primary btn--disabled" aria-disabled="true" data-i18n="soon">Próximamente</span>
-              </div>
-            </div>
-          </article>
-          
-        </div>
+          </div>
+          <div class="carrusel-horizontal__info">
+            <h3>La Vida Es Bella</h3>
+            <p>ÁLBUM · 2026</p>
+          </div>
+        </article>
+        
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
   <!-- ============================================ -->
 <!-- COLABORADORES CARRUSEL - RUTAS CORREGIDAS     -->

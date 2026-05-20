@@ -620,6 +620,71 @@ const ShareModule = (() => {
 })();
 
 // ========================================
+// DISCografía CARRUSEL - UNA POR UNA
+// ========================================
+const DiscCarouselModule = (() => {
+  function init() {
+    const track = document.getElementById('discTrack');
+    const cards = document.querySelectorAll('.disc-card');
+    const prevBtn = document.getElementById('discPrev');
+    const nextBtn = document.getElementById('discNext');
+    const dots = document.querySelectorAll('#discDots .dot');
+    
+    if (!track || !cards.length) return;
+    
+    let currentIndex = 0;
+    
+    function updateCarousel() {
+      const cardWidth = cards[0].offsetWidth;
+      track.scrollTo({ left: currentIndex * cardWidth, behavior: 'smooth' });
+      
+      // Actualizar dots
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+    }
+    
+    prevBtn.addEventListener('click', () => {
+      currentIndex = currentIndex > 0 ? currentIndex - 1 : cards.length - 1;
+      updateCarousel();
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      currentIndex = currentIndex < cards.length - 1 ? currentIndex + 1 : 0;
+      updateCarousel();
+    });
+    
+    // Click en dots
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        currentIndex = i;
+        updateCarousel();
+      });
+    });
+    
+    // Swipe en móvil
+    let touchStartX = 0;
+    track.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    });
+    
+    track.addEventListener('touchend', (e) => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          currentIndex = currentIndex < cards.length - 1 ? currentIndex + 1 : 0;
+        } else {
+          currentIndex = currentIndex > 0 ? currentIndex - 1 : cards.length - 1;
+        }
+        updateCarousel();
+      }
+    });
+  }
+  
+  return { init };
+})();
+
+// ========================================
 // CARRUSEL HORIZONTAL
 // ========================================
 const CarruselModule = (() => {
@@ -984,6 +1049,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ThemeModule.init();
   I18nModule.init();
   ShareModule.init();
+  DiscCarouselModule.init();  // ← AÑADE ESTA LÍNEA
   CarruselModule.init();
   FormModule.init();
   CookiesModule.init();
