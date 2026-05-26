@@ -5,16 +5,18 @@
   <!-- Página principal - MÁXIMA PRIORIDAD -->
   <url>
     <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/images/logo.webp</image:loc>
-      <image:title>Rafa 930 - Artista Musical &amp; Fotógrafo Profesional</image:title>
+      <image:title>RAFA 930 - Artista de Trap, Reggaetón y Fotógrafo Profesional</image:title>
+      <image:caption>Logo oficial de RAFA 930. Música urbana, conciertos y sesiones fotográficas profesionales.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/images/Banner%20para%20web.webp</image:loc>
-      <image:title>Rafa 930 - Música Urbana Española</image:title>
+      <image:title>RAFA 930 - Artista de Música Urbana Española</image:title>
+      <image:caption>RAFA 930 en sesión fotográfica profesional. Artista de trap y reggaetón disponible para booking y conciertos.</image:caption>
     </image:image>
   </url>
   
@@ -22,28 +24,28 @@
   <url>
     <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/aviso-legal.html</loc>
     <lastmod>2026-05-12</lastmod>
-    <changefreq>never</changefreq>
+    <changefreq>yearly</changefreq>
     <priority>0.1</priority>
   </url>
   
   <url>
     <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/privacidad.html</loc>
     <lastmod>2026-05-12</lastmod>
-    <changefreq>never</changefreq>
+    <changefreq>yearly</changefreq>
     <priority>0.1</priority>
   </url>
   
   <url>
     <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/cookies.html</loc>
     <lastmod>2026-05-12</lastmod>
-    <changefreq>never</changefreq>
+    <changefreq>yearly</changefreq>
     <priority>0.1</priority>
   </url>
   
   <url>
     <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/terminos.html</loc>
     <lastmod>2026-05-12</lastmod>
-    <changefreq>never</changefreq>
+    <changefreq>yearly</changefreq>
     <priority>0.1</priority>
   </url>
   
