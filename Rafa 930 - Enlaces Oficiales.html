@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Rafa 930 · Enlaces oficiales</title>
+  <meta name="description" content="Todos los enlaces oficiales de Rafa 930: música, videoclips, colaboraciones y contacto.">
+  <meta name="author" content="Rafa 930">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Rafa 930 · Enlaces oficiales">
+  <meta property="og:description" content="Música urbana y colaboraciones profesionales. Accede a mi discografía, videoclips y redes.">
+  <meta property="og:image" content="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/images/Foto%20perfil.webp">
+  <meta property="og:type" content="website">
+  
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000000;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: clamp(16px, 5vw, 32px) clamp(16px, 5vw, 24px) clamp(30px, 8vh, 50px);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ========== SPLASH SCREEN PREMIUM ========== */
+    .splash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000000;
+      z-index: 10000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), visibility 0.8s ease;
+      pointer-events: none;
+    }
+    
+    .splash.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .splash-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    
+    .splash-logo {
+      position: relative;
+      z-index: 10;
+      width: min(240px, 50vw);
+      height: min(240px, 50vw);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: splashPulse 1.2s ease-in-out infinite;
+    }
+    
+    .splash-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+    
+    @keyframes splashPulse {
+      0% { transform: scale(0.92); opacity: 0.9; filter: drop-shadow(0 0 15px rgba(255,255,255,0.3)); }
+      50% { transform: scale(1.08); opacity: 1; filter: drop-shadow(0 0 60px rgba(255,255,255,0.8)); }
+      100% { transform: scale(0.92); opacity: 0.9; filter: drop-shadow(0 0 15px rgba(255,255,255,0.3)); }
+    }
+
+    /* ========== FONDO NEÓN ULTRA PREMIUM ========== */
+    .neon-aura {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+    
+    .neon-aura::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: -20%;
+      width: 140%;
+      height: 140%;
+      background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0) 70%);
+      animation: pulseNeonBg 7s infinite alternate;
+    }
+    
+    .neon-aura::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      right: -20%;
+      width: 140%;
+      height: 140%;
+      background: radial-gradient(circle at 70% 60%, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0) 70%);
+      animation: pulseNeonBg2 9s infinite alternate-reverse;
+    }
+    
+    @keyframes pulseNeonBg {
+      0% { opacity: 0.2; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.08); }
+    }
+    
+    @keyframes pulseNeonBg2 {
+      0% { opacity: 0.15; transform: scale(1); }
+      100% { opacity: 0.8; transform: scale(1.1); }
+    }
+    
+    /* Líneas de neón mejoradas */
+    .neon-lines {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .neon-lines span {
+      position: absolute;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      height: 2px;
+      width: 100%;
+      animation: slideNeon 10s linear infinite;
+    }
+    
+    .neon-lines span:nth-child(1) { top: 15%; animation-delay: 0s; }
+    .neon-lines span:nth-child(2) { top: 35%; animation-delay: -2.5s; opacity: 0.6; }
+    .neon-lines span:nth-child(3) { top: 55%; animation-delay: -5s; opacity: 0.4; }
+    .neon-lines span:nth-child(4) { top: 75%; animation-delay: -7.5s; opacity: 0.5; }
+    .neon-lines span:nth-child(5) { top: 90%; animation-delay: -3s; opacity: 0.3; }
+    
+    @keyframes slideNeon {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    /* Textura de grano premium */
+    .noise {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 35px 35px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Contenedor principal - RESPONSIVE con clamp */
+    .hub {
+      width: 100%;
+      max-width: min(560px, 95%);
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Cabecera premium */
+    .header {
+      text-align: center;
+      margin-bottom: clamp(24px, 6vh, 38px);
+    }
+
+    .avatar {
+      width: clamp(75px, 20vw, 105px);
+      height: clamp(75px, 20vw, 105px);
+      margin: 0 auto clamp(12px, 3vh, 18px);
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,0.4);
+      box-shadow: 0 0 30px rgba(255,255,255,0.3), 0 0 8px rgba(255,255,255,0.6);
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      cursor: pointer;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: filter 0.4s ease, transform 0.3s ease;
+    }
+
+    .avatar:hover {
+      box-shadow: 0 0 50px rgba(255,255,255,0.6);
+      border-color: rgba(255,255,255,0.7);
+      transform: scale(1.02);
+    }
+
+    .avatar:hover img {
+      filter: grayscale(0%);
+      transform: scale(1.02);
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 8vw, 2.2rem);
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin-bottom: 6px;
+      text-shadow: 0 0 30px rgba(255,255,255,0.6);
+      background: linear-gradient(135deg, #ffffff, #e8e8e8, #cccccc);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .tagline {
+      color: #bbbbbb;
+      font-size: clamp(0.6rem, 3vw, 0.7rem);
+      font-weight: 600;
+      letter-spacing: clamp(2px, 1vw, 3px);
+      text-transform: uppercase;
+    }
+
+    /* Lista de enlaces premium */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(10px, 2vh, 14px);
+      margin-bottom: clamp(24px, 6vh, 32px);
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(8,8,12,0.8);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 60px;
+      padding: clamp(10px, 2.5vw, 14px) clamp(18px, 4vw, 26px);
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: clamp(0.8rem, 3.5vw, 0.95rem);
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .link-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .link-btn:hover::before {
+      left: 100%;
+    }
+
+    .link-left {
+      display: flex;
+      align-items: center;
+      gap: clamp(10px, 3vw, 16px);
+    }
+
+    .link-left i {
+      font-size: clamp(1rem, 4vw, 1.3rem);
+      width: clamp(24px, 6vw, 30px);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .arrow {
+      font-size: clamp(0.65rem, 2.5vw, 0.75rem);
+      color: #888888;
+      transition: transform 0.3s ease, color 0.2s;
+    }
+
+    .link-btn:hover {
+      background: rgba(25,25,32,0.95);
+      border-color: rgba(255,255,255,0.35);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.1);
+    }
+
+    .link-btn:hover .arrow {
+      transform: translateX(6px);
+      color: #ffffff;
+    }
+
+    .link-btn:active {
+      transform: translateY(-1px);
+    }
+
+    /* Colores específicos para cada plataforma */
+    .spotify-link i {
+      color: #1DB954;
+    }
+    .spotify-link:hover i {
+      text-shadow: 0 0 12px #1DB954;
+      transform: scale(1.05);
+    }
+    
+    .youtube-link i {
+      color: #FF0000;
+    }
+    .youtube-link:hover i {
+      text-shadow: 0 0 12px #FF0000;
+      transform: scale(1.05);
+    }
+
+    /* Botón destacado */
+    .link-btn--featured {
+      background: #ffffff;
+      border: none;
+      color: #000000;
+      box-shadow: 0 0 35px rgba(255,255,255,0.4);
+    }
+
+    .link-btn--featured .link-left i,
+    .link-btn--featured span,
+    .link-btn--featured .arrow {
+      color: #000000;
+    }
+
+    .link-btn--featured:hover {
+      background: #f8f8f8;
+      transform: translateY(-3px);
+      box-shadow: 0 0 55px rgba(255,255,255,0.7);
+    }
+    
+    .link-btn--featured .link-left i {
+      color: #000000 !important;
+    }
+
+    /* Botón neutro */
+    .link-btn--neutral i {
+      color: #dddddd;
+    }
+    .link-btn--neutral:hover i {
+      color: #ffffff;
+      text-shadow: 0 0 8px rgba(255,255,255,0.6);
+    }
+
+    /* Social dock premium - RESPONSIVE */
+    .social-dock {
+      display: flex;
+      justify-content: center;
+      gap: clamp(20px, 6vw, 32px);
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 80px;
+      padding: clamp(8px, 2vh, 12px) clamp(20px, 5vw, 32px);
+      width: fit-content;
+      margin: 0 auto clamp(16px, 4vh, 24px);
+      box-shadow: 0 0 30px rgba(255,255,255,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .social-dock:hover {
+      border-color: rgba(255,255,255,0.3);
+      box-shadow: 0 0 40px rgba(255,255,255,0.15);
+    }
+
+    .social-icon {
+      color: #ffffff !important;
+      font-size: clamp(1rem, 4.5vw, 1.3rem);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      opacity: 0.85;
+      position: relative;
+    }
+
+    .social-icon:hover {
+      opacity: 1;
+      transform: translateY(-4px) scale(1.1);
+      text-shadow: 0 0 15px rgba(255,255,255,0.8);
+    }
+
+    /* Tooltip en redes sociales */
+    .social-icon::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      font-size: 0.6rem;
+      padding: 4px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s ease;
+      pointer-events: none;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .social-icon:hover::after {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Footer premium - RESPONSIVE */
+    .footer {
+      text-align: center;
+      font-size: clamp(0.55rem, 3vw, 0.7rem);
+      color: #5a5a6a;
+      letter-spacing: 0.4px;
+      padding-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .footer a {
+      color: #7a7a8a;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .footer a:hover {
+      color: #ffffff;
+      text-shadow: 0 0 6px rgba(255,255,255,0.5);
+    }
+
+    .footer-line {
+      display: inline-block;
+    }
+
+    .divider-dot {
+      display: inline-block;
+      margin: 0 clamp(4px, 2vw, 10px);
+      color: #3a3a4a;
+    }
+
+    /* Animación de entrada mejorada */
+    @keyframes fadeUpNeon {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+        filter: blur(5px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    .animate {
+      animation: fadeUpNeon 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.15) forwards;
+      opacity: 0;
+    }
+
+    .d1 { animation-delay: 0.05s; }
+    .d2 { animation-delay: 0.12s; }
+    .d3 { animation-delay: 0.19s; }
+    .d4 { animation-delay: 0.26s; }
+    .d5 { animation-delay: 0.33s; }
+    .d6 { animation-delay: 0.40s; }
+
+    /* Ajustes para pantallas muy pequeñas */
+    @media (max-width: 380px) {
+      .link-left {
+        gap: 8px;
+      }
+      .link-left i {
+        width: 22px;
+      }
+      .footer {
+        flex-direction: column;
+        gap: 6px;
+      }
+      .divider-dot {
+        display: none;
+      }
+    }
+
+    /* Ajustes para landscape en móviles */
+    @media (max-height: 600px) and (orientation: landscape) {
+      body {
+        padding: 12px 20px;
+      }
+      .header {
+        margin-bottom: 12px;
+      }
+      .avatar {
+        width: 55px;
+        height: 55px;
+        margin-bottom: 6px;
+      }
+      h1 {
+        font-size: 1.3rem;
+      }
+      .links {
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      .link-btn {
+        padding: 6px 14px;
+      }
+      .social-dock {
+        padding: 5px 18px;
+        margin-bottom: 10px;
+      }
+      .tagline {
+        font-size: 0.55rem;
+      }
+    }
+
+    /* Prevenir selección no deseada */
+    .link-btn, .social-icon, .footer a {
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+</head>
+<body>
+
+<!-- SPLASH SCREEN PREMIUM -->
+<div class="splash" id="splash">
+  <canvas id="splashCanvas" class="splash-canvas"></canvas>
+  <div class="splash-logo">
+    <img src="images/logo-white.webp" alt="Rafa 930 Logo" onerror="this.src='https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/images/logo.webp'">
+  </div>
+</div>
+
+<div class="neon-aura"></div>
+<div class="neon-lines">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+<div class="noise"></div>
+
+<div class="hub">
+  
+  <!-- Cabecera -->
+  <div class="header animate d1">
+    <div class="avatar" onclick="window.open('https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/', '_blank')">
+      <img src="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/images/Foto%20perfil.webp" alt="Rafa 930" onerror="this.src='https://placehold.co/400x400/1a1a1a/white?text=R9'">
+    </div>
+    <h1>RAFA 930</h1>
+    <div class="tagline">MÚSICA URBANA · FOTOGRAFÍA PROFESIONAL</div>
+  </div>
+
+  <!-- Enlaces principales -->
+  <div class="links">
+    
+    <!-- Plataforma Oficial -->
+    <a href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/" class="link-btn link-btn--featured animate d2" target="_blank" rel="noopener noreferrer">
+      <div class="link-left">
+        <i class="fa-solid fa-crown"></i>
+        <span>Plataforma Oficial</span>
+      </div>
+      <i class="fa-solid fa-arrow-right arrow"></i>
+    </a>
+
+    <!-- Spotify -->
+    <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" class="link-btn spotify-link animate d3" target="_blank" rel="noopener noreferrer">
+      <div class="link-left">
+        <i class="fa-brands fa-spotify"></i>
+        <span>Spotify · Mi discografía</span>
+      </div>
+      <i class="fa-solid fa-chevron-right arrow"></i>
+    </a>
+
+    <!-- YouTube -->
+    <a href="https://youtube.com/@rafa_930" class="link-btn youtube-link animate d4" target="_blank" rel="noopener noreferrer">
+      <div class="link-left">
+        <i class="fa-brands fa-youtube"></i>
+        <span>YouTube · Videoclips</span>
+      </div>
+      <i class="fa-solid fa-chevron-right arrow"></i>
+    </a>
+
+    <!-- Colaboraciones -->
+    <a href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#colaboradores" class="link-btn link-btn--neutral animate d5" target="_blank" rel="noopener noreferrer">
+      <div class="link-left">
+        <i class="fa-solid fa-users"></i>
+        <span>Colaboraciones</span>
+      </div>
+      <i class="fa-solid fa-chevron-right arrow"></i>
+    </a>
+
+    <!-- Booking / Contacto -->
+    <a href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#booking" class="link-btn link-btn--neutral animate d6" target="_blank" rel="noopener noreferrer">
+      <div class="link-left">
+        <i class="fa-regular fa-calendar-check"></i>
+        <span>Booking · Conciertos</span>
+      </div>
+      <i class="fa-solid fa-chevron-right arrow"></i>
+    </a>
+  </div>
+
+  <!-- Social Dock con tooltips -->
+  <div class="social-dock animate d5">
+    <a href="https://instagram.com/rafa930_oficial" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-tooltip="Instagram">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a href="https://www.tiktok.com/@rafa930" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="TikTok" data-tooltip="TikTok">
+      <i class="fa-brands fa-tiktok"></i>
+    </a>
+    <a href="#" id="gmailBtn" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Gmail" data-tooltip="Enviar email">
+      <i class="fa-regular fa-envelope"></i>
+    </a>
+    <a href="#" id="whatsappBtn" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" data-tooltip="WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- Footer con copyright 2026 -->
+  <div class="footer animate d6">
+    <span class="footer-line">rafa930.music@gmail.com</span>
+    <span class="divider-dot">·</span>
+    <a href="#" id="copyEmail">📧 Copiar email</a>
+    <span class="divider-dot">·</span>
+    <span>© 2026 RAFA 930</span>
+  </div>
+</div>
+
+<script>
+  // ========== SPLASH SCREEN CON MÁS PARTÍCULAS ==========
+  (function() {
+    const splash = document.getElementById('splash');
+    const canvas = document.getElementById('splashCanvas');
+    if (!canvas || !splash) return;
+    
+    let ctx = canvas.getContext('2d');
+    let particles = [];
+    let animationId;
+    let splashActive = true;
+    
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    
+    function createParticles() {
+      const particleCount = Math.min(280, Math.floor(window.innerWidth / 5) + 60);
+      particles = [];
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 2.5 + 0.5,
+          alpha: Math.random() * 0.5 + 0.1,
+          vx: (Math.random() - 0.5) * 0.6,
+          vy: (Math.random() - 0.5) * 0.6
+        });
+      }
+    }
+    
+    function drawParticles() {
+      if (!ctx || !splashActive) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      for (let p of particles) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha})`;
+        ctx.fill();
+        
+        p.x += p.vx;
+        p.y += p.vy;
+        
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+      }
+      
+      animationId = requestAnimationFrame(drawParticles);
+    }
+    
+    function initSplash() {
+      resizeCanvas();
+      createParticles();
+      drawParticles();
+      
+      setTimeout(() => {
+        if (splash) {
+          splash.classList.add('hidden');
+          splashActive = false;
+          setTimeout(() => {
+            if (animationId) cancelAnimationFrame(animationId);
+            if (canvas) canvas.style.display = 'none';
+          }, 800);
+        }
+      }, 2500);
+    }
+    
+    window.addEventListener('resize', () => {
+      if (splash && !splash.classList.contains('hidden') && splashActive) {
+        resizeCanvas();
+        createParticles();
+      }
+    });
+    
+    initSplash();
+  })();
+
+  // ========== GMAIL CON ASUNTO Y CUERPO ==========
+  const gmailBtn = document.getElementById('gmailBtn');
+  if (gmailBtn) {
+    const email = 'rafa930.music@gmail.com';
+    const subject = encodeURIComponent('Consulta profesional · Rafa 930');
+    const body = encodeURIComponent('Hola Rafa 930,%0D%0A%0D%0AMe pongo en contacto contigo porque me interesa tu trabajo. Me gustaría saber más sobre tus proyectos, colaboraciones o disponibilidad para booking.%0D%0A%0D%0A¡Quedo a la espera de tu respuesta!%0D%0A%0D%0AUn saludo.');
+    gmailBtn.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`;
+  }
+
+  // ========== WHATSAPP MEJORADO ==========
+  const whatsappBtn = document.getElementById('whatsappBtn');
+  if (whatsappBtn) {
+    const phoneNumber = '34671591814';
+    const message = encodeURIComponent('Hola Rafa 930! 👋%0D%0A%0D%0AMe encanta tu música y tu estilo. Me gustaría contactar contigo para hablar sobre colaboraciones, booking o simplemente conocer más sobre tu proyecto.%0D%0A%0D%0A¡Quedo atento a tu respuesta! 🎵🔥');
+    whatsappBtn.href = `https://wa.me/${phoneNumber}?text=${message}`;
+  }
+
+  // ========== COPIAR EMAIL CON EFECTO ==========
+  const copyEmailEl = document.getElementById('copyEmail');
+  if (copyEmailEl) {
+    copyEmailEl.addEventListener('click', (e) => {
+      e.preventDefault();
+      const email = 'rafa930.music@gmail.com';
+      navigator.clipboard.writeText(email).then(() => {
+        const originalText = copyEmailEl.innerText;
+        copyEmailEl.innerText = '✓ ¡Copiado!';
+        copyEmailEl.style.color = '#ffffff';
+        setTimeout(() => {
+          copyEmailEl.innerText = originalText;
+          copyEmailEl.style.color = '';
+        }, 2000);
+      }).catch(() => {
+        alert('No se pudo copiar manualmente: ' + email);
+      });
+    });
+  }
+
+  // ========== EFECTO DE BRILLO DINÁMICO EN BOTONES ==========
+  document.querySelectorAll('.link-btn').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      btn.style.setProperty('--x', `${x}%`);
+      btn.style.setProperty('--y', `${y}%`);
+    });
+  });
+
+  // Pequeña animación de entrada para los tooltips en móvil (feedback táctil)
+  const socialIcons = document.querySelectorAll('.social-icon');
+  socialIcons.forEach(icon => {
+    icon.addEventListener('touchstart', () => {
+      // Feedback háptico visual
+      icon.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        icon.style.transform = '';
+      }, 150);
+    });
+  });
+</script>
+
+</body>
+</html>
