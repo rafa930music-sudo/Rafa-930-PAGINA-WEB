@@ -1,0 +1,45 @@
+@keyframes nebulosaMove {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+  25% { transform: scale(1.2) rotate(1deg); opacity: 1; }
+  50% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+  75% { transform: scale(0.9) rotate(-1deg); opacity: 0.6; }
+}
+@keyframes splashFadeInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes splashSlideDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes splashScaleIn {
+  from { opacity: 0; transform: scale(0.7); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes splashExpandWidth {
+  from { width: 0; }
+  to { width: 150px; }
+}
+@keyframes splashFadeIn {
+  to { opacity: 1; }
+}
+@keyframes pulseRingElite {
+  0% { width: 70px; height: 70px; opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
+  100% { width: 300px; height: 300px; opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+}
+@keyframes splashExitCinematic {
+  0% { opacity: 1; transform: scale(1); filter: blur(0) brightness(1); }
+  50% { opacity: 0.8; filter: blur(5px) brightness(1.5); }
+  100% { opacity: 0; transform: scale(1.5); filter: blur(20px) brightness(2); visibility: hidden; }
+}
+@keyframes floatPulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes floatGlow {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.15); }
+}
+@media (max-width: 640px) {
+  @keyframes pulseRingElite { 100% { width: 200px; height: 200px; } }
+}

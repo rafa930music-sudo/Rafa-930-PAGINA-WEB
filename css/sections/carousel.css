@@ -1,0 +1,308 @@
+/* ========================================
+   CARRUSEL PREMIUM - Rafa 930
+   Con navegación por flechas, dots, scroll suave y efecto glassmorphism
+   ======================================== */
+
+/* Contenedor principal de la sección */
+.carrusel-colaboradores {
+  background: var(--bg-primary);
+  padding: 5rem 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Contenedor del carrusel (track + botones) */
+.carrusel-horizontal {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding: 0 1rem;
+  position: relative;
+}
+
+/* Pista deslizante (scroll horizontal nativo) */
+.carrusel-horizontal__track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 1rem 0.5rem 2rem;
+  /* Ocultar scrollbar por defecto pero mantener funcionalidad */
+  scrollbar-width: thin;
+  scrollbar-color: var(--purple) var(--bg-card);
+}
+
+.carrusel-horizontal__track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.carrusel-horizontal__track::-webkit-scrollbar-track {
+  background: var(--bg-card);
+  border-radius: 10px;
+}
+
+.carrusel-horizontal__track::-webkit-scrollbar-thumb {
+  background: var(--purple);
+  border-radius: 10px;
+}
+
+/* Tarjetas */
+.carrusel-horizontal__card {
+  flex: 0 0 340px;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  scroll-snap-align: start;
+  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  box-shadow: var(--shadow-sm);
+}
+
+.carrusel-horizontal__card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--purple);
+  box-shadow: var(--shadow-glow), var(--shadow-3d);
+}
+
+/* Imagen */
+.carrusel-horizontal__image {
+  height: 380px;
+  overflow: hidden;
+  position: relative;
+  background: var(--bg-tertiary);
+}
+
+.carrusel-horizontal__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.carrusel-horizontal__card:hover .carrusel-horizontal__image img {
+  transform: scale(1.05);
+}
+
+/* Overlay con botón */
+.carrusel-horizontal__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.carrusel-horizontal__card:hover .carrusel-horizontal__overlay {
+  opacity: 1;
+}
+
+.carrusel-horizontal__instagram {
+  background: linear-gradient(135deg, #833AB4, #E4405F);
+  padding: 0.7rem 1.8rem;
+  border-radius: var(--radius-full);
+  color: white;
+  font-weight: 600;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transform: translateY(20px);
+  transition: transform 0.3s ease, box-shadow 0.2s;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.carrusel-horizontal__card:hover .carrusel-horizontal__instagram {
+  transform: translateY(0);
+}
+
+.carrusel-horizontal__instagram:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(228, 64, 95, 0.5);
+}
+
+/* Info de la tarjeta */
+.carrusel-horizontal__info {
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.carrusel-horizontal__info::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: var(--gradient-accent);
+  border-radius: 3px;
+}
+
+.carrusel-horizontal__info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+.carrusel-horizontal__info p {
+  font-size: 0.75rem;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Botones de navegación (flechas) */
+.carrusel-horizontal__btn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 15;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+}
+
+.carrusel-horizontal__btn:hover {
+  background: var(--purple);
+  border-color: var(--purple);
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: var(--shadow-glow);
+}
+
+.carrusel-horizontal__btn--prev {
+  left: -20px;
+}
+
+.carrusel-horizontal__btn--next {
+  right: -20px;
+}
+
+/* Dots (indicadores) */
+.carrusel-horizontal__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.carrusel-horizontal__dots .dot {
+  width: 10px;
+  height: 10px;
+  background: var(--text-tertiary);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  opacity: 0.5;
+}
+
+.carrusel-horizontal__dots .dot:hover {
+  opacity: 0.8;
+  background: var(--purple-light);
+}
+
+.carrusel-horizontal__dots .dot.active {
+  width: 28px;
+  background: var(--purple);
+  border-radius: 6px;
+  opacity: 1;
+}
+
+/* Responsive */
+@media (min-width: 1400px) {
+  .carrusel-horizontal__card {
+    flex: 0 0 400px;
+  }
+  .carrusel-horizontal__image {
+    height: 450px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .carrusel-horizontal__card {
+    flex: 0 0 320px;
+  }
+  .carrusel-horizontal__image {
+    height: 360px;
+  }
+  .carrusel-horizontal__btn--prev {
+    left: -10px;
+  }
+  .carrusel-horizontal__btn--next {
+    right: -10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carrusel-horizontal__card {
+    flex: 0 0 280px;
+  }
+  .carrusel-horizontal__image {
+    height: 320px;
+  }
+  .carrusel-horizontal__btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .carrusel-horizontal {
+    padding: 0 0.5rem;
+  }
+  .carrusel-horizontal__btn--prev {
+    left: 5px;
+  }
+  .carrusel-horizontal__btn--next {
+    right: 5px;
+  }
+  .carrusel-horizontal__card {
+    flex: 0 0 260px;
+  }
+  .carrusel-horizontal__image {
+    height: 280px;
+  }
+  .carrusel-horizontal__info h3 {
+    font-size: 1.1rem;
+  }
+  .carrusel-horizontal__info p {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carrusel-horizontal__card {
+    flex: 0 0 220px;
+  }
+  .carrusel-horizontal__image {
+    height: 240px;
+  }
+  .carrusel-horizontal__info {
+    padding: 1rem;
+  }
+  .carrusel-horizontal__btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+}

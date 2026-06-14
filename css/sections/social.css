@@ -1,0 +1,29 @@
+.social-section { background: var(--bg-secondary); }
+.social__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.social__card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  text-align: center;
+  text-decoration: none;
+  transition: var(--transition-bounce);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+.social__card:hover {
+  transform: translateY(-6px);
+  border-color: var(--purple);
+  box-shadow: var(--shadow-lg);
+}
+.social__card i { font-size: 2.2rem; transition: var(--transition-bounce); }
+.social__card:hover i { transform: scale(1.15); }
+.social__card span { font-weight: 600; font-size: 0.85rem; color: var(--text-primary); }

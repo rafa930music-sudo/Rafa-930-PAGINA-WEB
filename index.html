@@ -214,6 +214,16 @@
   <!-- CSS PRINCIPAL                                -->
   <!-- ============================================ -->
   <link rel="stylesheet" href="css/style.css">
+
+  <script>
+  (function() {
+    var temaGuardado = localStorage.getItem('theme');
+    if (!temaGuardado) {
+      temaGuardado = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+    document.body.classList.add(temaGuardado);
+  })();
+</script>
   
   <!-- ============================================ -->
   <!-- PRECARGA DE IMÁGENES CRÍTICAS (LCP)           -->
@@ -378,7 +388,7 @@
     </section>
 
 <!-- ============================================ -->
-<!-- DISCOGRAPHY - CARRUSEL IGUAL QUE COLABORADORES -->
+<!-- DISCOGRAPHY - CARRUSEL CON FLECHAS Y DOTS    -->
 <!-- ============================================ -->
 <section id="discography" class="discography-carousel" aria-label="Discografía">
   <div class="container">
@@ -388,6 +398,12 @@
     </div>
     
     <div class="carrusel-horizontal">
+      <!-- BOTÓN ANTERIOR -->
+      <button class="carrusel-horizontal__btn carrusel-horizontal__btn--prev" id="discPrev" aria-label="Anterior">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      
+      <!-- TRACK (tarjetas) -->
       <div class="carrusel-horizontal__track" id="discTrack">
         
         <!-- Diferentes Caminos -->
@@ -445,7 +461,15 @@
         </article>
         
       </div>
+      
+      <!-- BOTÓN SIGUIENTE -->
+      <button class="carrusel-horizontal__btn carrusel-horizontal__btn--next" id="discNext" aria-label="Siguiente">
+        <i class="fas fa-chevron-right"></i>
+      </button>
     </div>
+    
+    <!-- CONTENEDOR DE DOTS (INDICADORES) -->
+    <div class="carrusel-horizontal__dots" id="discDots"></div>
   </div>
 </section>
 
@@ -862,47 +886,9 @@
   </div>
 
   <!-- ============================================ -->
-  <!-- SCRIPTS                                       -->
+  <!-- SCRIPTS (SOLO AOS Y MAIN.JS, SIN INLINE)      -->
   <!-- ============================================ -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="js/main.js" defer></script>
-
-<script>
-(function(){
-  // ==========================================
-  // SISTEMA DE TEMA - VERSIÓN FINAL ✅
-  // ==========================================
-  
-  // 1. Obtener preferencia guardada
-  var temaGuardado = localStorage.getItem('theme');
-  
-  // 2. Si no hay preferencia, usar sistema operativo
-  if (!temaGuardado) {
-    temaGuardado = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-  }
-  
-  // 3. Aplicar tema inmediatamente (antes de que se muestre la página)
-  document.body.classList.add(temaGuardado);
-  
-  // 4. Cuando el DOM esté listo, sincronizar el toggle
-  function sincronizarToggle() {
-    var toggle = document.getElementById('themeToggle');
-    if (!toggle) return;
-    
-    if (document.body.classList.contains('light')) {
-      toggle.classList.add('light');
-    } else {
-      toggle.classList.remove('light');
-    }
-  }
-  
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', sincronizarToggle);
-  } else {
-    sincronizarToggle();
-  }
-})();
-</script>
-
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
