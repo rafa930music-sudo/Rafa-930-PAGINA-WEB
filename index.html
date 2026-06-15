@@ -7,7 +7,7 @@
   <!-- ============================================ -->
   <!-- META TAGS PREMIUM - SEO + SOCIAL + SCHEMA     -->
   <!-- ============================================ -->
-  <title>Rafa 930 | Artista Musical & Fotógrafo Profesional | Música Urbana</title>
+  <title>Rafa 930 | Artista Musical & Fotógrafo Profesional</title>
   <meta name="description" content="Rafa 930: Artista de música urbana y fotógrafo profesional en España. Trap, reggaetón y rap. Escucha 'Diferentes Caminos' y 'My World' en Spotify. Booking para conciertos y sesiones fotográficas.">
   <meta name="author" content="Rafa 930">
   <meta name="keywords" content="Rafa 930, música urbana, fotógrafo profesional, trap español, reggaetón, booking musical, sesiones fotográficas, conciertos">
@@ -195,14 +195,19 @@
   <meta name="application-name" content="Rafa 930">
   <meta name="msapplication-TileColor" content="#0a0a0a">
   
-  <!-- PWA Manifest -->
-  <link rel="manifest" href="site.webmanifest">
-  
+   <!-- ============================================ -->
+  <!-- FUENTES (carga no bloqueante)                 -->
   <!-- ============================================ -->
-  <!-- FUENTES                                       -->
-  <!-- ============================================ -->
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
+  <!-- Preload de la hoja de estilos de fuentes -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+  <!-- Carga asíncrona (no bloquea el renderizado) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <!-- Fallback para navegadores sin soporte -->
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+  </noscript>
+
+
   <!-- Font Awesome (carga asíncrona) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all';this.onload=null;">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
@@ -210,20 +215,39 @@
   <!-- AOS Library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   
+<style>
+  /* Clase que oculta todo el contenido principal mientras el splash está activo */
+  .splash-active #main-content,
+  .splash-active .header,
+  .splash-active .footer,
+  .splash-active .floating-buttons,
+  .splash-active .back-to-top,
+  .splash-active .cookie-banner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+
+  /* El splash debe cubrir toda la pantalla y estar por encima */
+  .splash {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    background: radial-gradient(ellipse at center, #0a0a2e 0%, #000000 100%);
+  }
+
+  .splash canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
+
   <!-- ============================================ -->
   <!-- CSS PRINCIPAL                                -->
   <!-- ============================================ -->
-  <link rel="stylesheet" href="css/style.css">
-
-  <script>
-  (function() {
-    var temaGuardado = localStorage.getItem('theme');
-    if (!temaGuardado) {
-      temaGuardado = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-    }
-    document.body.classList.add(temaGuardado);
-  })();
-</script>
+<link rel="preload" href="css/style.css" as="style">
+<link rel="stylesheet" href="css/style.css">
   
   <!-- ============================================ -->
   <!-- PRECARGA DE IMÁGENES CRÍTICAS (LCP)           -->

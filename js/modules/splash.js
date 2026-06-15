@@ -8,6 +8,7 @@ let startTime = null;
 let exitProgress = 0;
 const DURATION = 2800;
 const EXIT_DURATION = 1000;
+
 function createParticles() {
   particles = [];
   const colors = ['#a855f7', '#c084fc', '#fbbf24', '#fcd34d', '#ffffff', '#e9d5ff'];
@@ -27,11 +28,13 @@ function createParticles() {
     });
   }
 }
+
 function resizeCanvas() {
   if (!canvas) return;
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 }
+
 function drawBackground() {
   const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
   grad.addColorStop(0, '#050510');
@@ -47,6 +50,7 @@ function drawBackground() {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.globalAlpha = 1;
 }
+
 function drawParticles() {
   for (let i = 0; i < particles.length; i++) {
     const p = particles[i];
@@ -85,6 +89,7 @@ function drawParticles() {
   }
   ctx.globalAlpha = 1;
 }
+
 function drawLogo() {
   if (!logoLoaded || !logoImage) return;
   const centerX = canvas.width / 2;
@@ -104,40 +109,52 @@ function drawLogo() {
   ctx.drawImage(logoImage, centerX - scaledSize/2, centerY - scaledSize/2, scaledSize, scaledSize);
   ctx.restore();
 }
+
 let exitStartTime = 0;
 let exitAnimationRunning = false;
+
 function startExit() {
   if (exitAnimationRunning) return;
   exitAnimationRunning = true;
   exitStartTime = performance.now();
   exitProgress = 0;
+
   const mainContent = document.getElementById('main-content');
   const header = document.getElementById('header');
   const footer = document.querySelector('.footer');
+
   if (mainContent) mainContent.style.transition = `opacity ${EXIT_DURATION}ms ease`;
   if (header) header.style.transition = `opacity ${EXIT_DURATION}ms ease`;
   if (footer) footer.style.transition = `opacity ${EXIT_DURATION}ms ease`;
+
   const exitInterval = setInterval(() => {
     const elapsed = performance.now() - exitStartTime;
     exitProgress = Math.min(elapsed / EXIT_DURATION, 1);
     const webOpacity = exitProgress;
+
     if (mainContent) mainContent.style.opacity = webOpacity;
     if (header) header.style.opacity = webOpacity;
     if (footer) footer.style.opacity = webOpacity;
+
     if (exitProgress >= 1) {
       clearInterval(exitInterval);
       const splash = document.getElementById('splash');
       if (splash) splash.style.display = 'none';
       document.body.style.overflow = 'auto';
       if (animationId) cancelAnimationFrame(animationId);
+
+      // ✅ ELIMINAR LA CLASE splash-active DEL BODY para mostrar el contenido
+      document.body.classList.remove('splash-active');
     }
   }, 16);
 }
+
 function exitSplash() {
   if (isExiting) return;
   isExiting = true;
   startExit();
 }
+
 function animate() {
   if (!ctx) return;
   drawBackground();
@@ -145,29 +162,39 @@ function animate() {
   drawLogo();
   animationId = requestAnimationFrame(animate);
 }
+
 export function initSplash() {
   const splash = document.getElementById('splash');
   if (!splash) return;
   canvas = document.getElementById('galaxyCanvas');
   if (!canvas) return;
   ctx = canvas.getContext('2d');
+
+  // Añadir clase para ocultar el contenido principal
+  document.body.classList.add('splash-active');
+
+  // Forzar opacidad 0 al contenido principal por si acaso (no necesario con la clase)
   const mainContent = document.getElementById('main-content');
   const header = document.getElementById('header');
   const footer = document.querySelector('.footer');
   if (mainContent) mainContent.style.opacity = '0';
   if (header) header.style.opacity = '0';
   if (footer) footer.style.opacity = '0';
+
   logoImage = new Image();
   logoImage.onload = () => { logoLoaded = true; };
   logoImage.src = 'images/logo-white.webp';
+
   resizeCanvas();
   createParticles();
   startTime = performance.now();
   animate();
+
   window.addEventListener('resize', () => {
     resizeCanvas();
     createParticles();
   });
+
   document.body.style.overflow = 'hidden';
   splash.addEventListener('click', () => exitSplash());
   setTimeout(() => exitSplash(), DURATION + 500);

@@ -1,50 +1,64 @@
-/* Breakpoint 1: Móviles pequeños (hasta 480px) */
-@media (max-width: 480px) {
-  section { padding: 2.5rem 0; }
-  h1 { font-size: 1.6rem; }
-  h2 { font-size: 1.3rem; }
-  h3 { font-size: 1rem; }
-  .container { padding: 0 1rem; }
-  .section-header { margin-bottom: 2rem; }
-  .nav__menu { display: none; }
-  .btn--contact { display: none; }
-  .nav__social { display: none; }
-  .nav__divider { display: none; }
-  .nav { height: 55px; padding: 0; }
-  .logo__img { height: 30px; }
-  .language-selector { transform: scale(0.85); }
-  .theme-toggle { width: 48px; height: 26px; }
-  .burger { padding: 6px; }
-  .burger span { width: 20px; }
-  .nav__actions { gap: 0.3rem; }
-  .about__grid { grid-template-columns: 1fr; gap: 1.5rem; }
-  .about__image { max-width: 250px; margin: 0 auto; }
-  .social__grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
-  .social__card { padding: 1.2rem; }
-  .social__card i { font-size: 1.8rem; }
-  .features__grid { grid-template-columns: 1fr; gap: 1rem; }
-  .feature-card { padding: 1.5rem; }
-  .feature-card__icon { font-size: 2rem; }
-  .booking__grid { grid-template-columns: 1fr; gap: 2rem; }
-  .contact__grid { grid-template-columns: 1fr; gap: 0.8rem; }
-  .footer__grid { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
-  .footer__brand h3 { font-size: 1.3rem; }
-  .footer__brand h3 img { height: 28px; }
-  .social-links { justify-content: center; }
-  .floating-btn { width: 44px; height: 44px; }
-  .floating-btn i { font-size: 1.3rem; }
-  .floating-buttons { bottom: 15px; right: 15px; gap: 10px; }
-  .back-to-top { bottom: 15px; left: 15px; width: 38px; height: 38px; }
-  .cookie-banner { flex-direction: column; gap: 0.8rem; padding: 1rem; }
-  .cookie-banner p { font-size: 0.7rem; }
-}
-/* Breakpoint 2: Tablets pequeñas (481px - 640px) */
-@media (min-width: 481px) and (max-width: 640px) {
+/* ========================================
+   RESPONSIVE - Rafa 930
+   Versión: limpia, sin duplicados, mobile-first
+   ======================================== */
+
+/* ========== BASE (móvil hasta 480px) ========== */
+section { padding: 2.5rem 0; }
+h1 { font-size: 1.6rem; }
+h2 { font-size: 1.3rem; }
+h3 { font-size: 1rem; }
+.container { padding: 0 1rem; }
+.section-header { margin-bottom: 2rem; }
+
+/* Header móvil */
+.nav__menu, .btn--contact, .nav__social, .nav__divider { display: none; }
+.nav { height: 55px; padding: 0; }
+.logo__img { height: 30px; }
+.language-selector { transform: scale(0.85); }
+.theme-toggle { width: 48px; height: 26px; }
+.burger { padding: 6px; }
+.burger span { width: 20px; }
+.nav__actions { gap: 0.3rem; }
+.lang-btn { padding: 0.2rem 0.4rem; font-size: 0.6rem; }
+.theme-emoji { font-size: 0.65rem; }
+.theme-toggle .ball { width: 18px; height: 18px; left: 3px; }
+.theme-toggle.light .ball { left: calc(100% - 21px); }
+.mobile-menu__link { font-size: 1.6rem; }
+.mobile-menu__close { top: 1rem; right: 1rem; font-size: 2rem; }
+
+/* Grids móvil */
+.about__grid { grid-template-columns: 1fr; gap: 1.5rem; }
+.about__image { max-width: 250px; margin: 0 auto; }
+.social__grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+.social__card { padding: 1.2rem; }
+.social__card i { font-size: 1.8rem; }
+.features__grid { grid-template-columns: 1fr; gap: 1rem; }
+.feature-card { padding: 1.5rem; }
+.feature-card__icon { font-size: 2rem; }
+.booking__grid { grid-template-columns: 1fr; gap: 2rem; }
+.contact__grid { grid-template-columns: 1fr; gap: 0.8rem; }
+.footer__grid { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
+.footer__brand h3 { font-size: 1.3rem; }
+.footer__brand h3 img { height: 28px; }
+.social-links { justify-content: center; }
+
+/* Elementos flotantes móvil */
+.floating-btn { width: 44px; height: 44px; }
+.floating-btn i { font-size: 1.3rem; }
+.floating-buttons { bottom: 15px; right: 15px; gap: 10px; }
+.back-to-top { bottom: 15px; left: 15px; width: 38px; height: 38px; }
+
+.cookie-banner { flex-direction: column; gap: 0.8rem; padding: 1rem; }
+.cookie-banner p { font-size: 0.7rem; }
+
+/* ========== TABLET pequeña (481px - 640px) ========== */
+@media (min-width: 481px) {
   section { padding: 3rem 0; }
   h1 { font-size: 2rem; }
   h2 { font-size: 1.6rem; }
   .nav__social:nth-child(2),
-  .nav__social:nth-child(3) { display: none; }
+  .nav__social:nth-child(3) { display: none; } /* ocultar algunos iconos sociales si hay muchos */
   .hero h1 { font-size: 2.5rem; }
   .about__grid { grid-template-columns: 1fr; gap: 2rem; }
   .about__image { max-width: 350px; margin: 0 auto; }
@@ -54,8 +68,9 @@
   .contact__grid { grid-template-columns: repeat(2, 1fr); }
   .footer__grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
 }
-/* Breakpoint 3: Tablets (641px - 768px) */
-@media (min-width: 641px) and (max-width: 768px) {
+
+/* ========== TABLET mediana (641px - 768px) ========== */
+@media (min-width: 641px) {
   section { padding: 3.5rem 0; }
   h1 { font-size: 2.5rem; }
   h2 { font-size: 2rem; }
@@ -67,27 +82,33 @@
   .booking__grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .footer__grid { grid-template-columns: repeat(2, 1fr); }
 }
-/* Breakpoint 4: Tablets grandes / Laptops (769px - 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
+
+/* ========== ESCRITORIO pequeño (769px - 1024px) ========== */
+@media (min-width: 769px) {
   section { padding: 4rem 0; }
   h1 { font-size: 3rem; }
   h2 { font-size: 2.2rem; }
   .hero h1 { font-size: 3.5rem; }
-  .about__grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+  .container { max-width: 960px; margin: 0 auto; }
+  .about__grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; text-align: left; }
+  .about__image { max-width: 100%; }
   .social__grid { grid-template-columns: repeat(4, 1fr); }
   .features__grid { grid-template-columns: repeat(3, 1fr); }
   .booking__grid { grid-template-columns: 1fr 1fr; }
   .footer__grid { grid-template-columns: repeat(3, 1fr); }
 }
-/* Breakpoint 5: Desktop (1025px - 1440px) */
-@media (min-width: 1025px) and (max-width: 1440px) {
+
+/* ========== ESCRITORIO mediano (1025px - 1440px) ========== */
+@media (min-width: 1025px) {
   .container { max-width: 1200px; }
   section { padding: 5rem 0; }
   h1 { font-size: 3.5rem; }
   h2 { font-size: 2.5rem; }
   .hero h1 { font-size: 4rem; }
+  .footer__grid { grid-template-columns: 2fr 1fr 1fr 1.5fr; }
 }
-/* Breakpoint 6: Desktop grande (1441px+) */
+
+/* ========== PANTALLA GRANDE (1441px+) ========== */
 @media (min-width: 1441px) {
   .container { max-width: 1400px; }
   h1 { font-size: 4rem; }
@@ -96,12 +117,12 @@
   .hero { max-height: 1000px; }
   .hero h1 { font-size: 5rem; }
 }
-/* Responsive header en móvil */
+
+/* ========== HEADER AJUSTES ADICIONALES (móvil y tablet) ========== */
 @media (max-width: 768px) {
   .nav { height: 60px; }
   .logo__img { height: 35px; }
-  .nav__social { display: none; }
-  .nav__divider { display: none; }
+  .nav__social, .nav__divider { display: none; }
   .language-selector { transform: scale(0.9); }
   .theme-toggle { width: 46px; height: 26px; }
   .theme-toggle .ball { width: 20px; height: 20px; left: 3px; }
@@ -109,6 +130,7 @@
   .burger span { width: 20px; }
   .nav__actions { gap: 0.3rem; }
 }
+
 @media (max-width: 480px) {
   .nav { height: 55px; }
   .logo__img { height: 30px; }
@@ -123,6 +145,7 @@
   .mobile-menu__link { font-size: 1.6rem; }
   .mobile-menu__close { top: 1rem; right: 1rem; font-size: 2rem; }
 }
+
 @media (max-width: 380px) {
   .nav__actions { gap: 0.2rem; }
   .language-selector { transform: scale(0.7); margin-right: -0.2rem; }
@@ -133,7 +156,46 @@
   .burger { padding: 4px; }
   .burger span { width: 16px; height: 1.5px; }
 }
-/* Discografía móvil */
+
+/* ========== NAV en escritorio (tamaño intermedio, hamburguesa visible) ========== */
+@media (min-width: 1025px) {
+  .nav {
+    height: 75px;
+  }
+  .logo__img {
+    height: 42px;
+  }
+  .nav__social {
+    display: flex !important;
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+  .nav__divider {
+    display: block !important;
+  }
+  .lang-btn {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
+  }
+  .theme-toggle {
+    width: 52px;
+    height: 28px;
+  }
+  .theme-toggle .ball {
+    width: 22px;
+    height: 22px;
+    left: 3px;
+  }
+  .theme-toggle.light .ball {
+    left: calc(100% - 25px);
+  }
+  .burger {
+    display: flex !important;
+  }
+}
+
+/* ========== DISCOGRAFÍA (carrusel) ========== */
 @media (max-width: 640px) {
   .discography__grid {
     display: flex;
@@ -151,7 +213,8 @@
   .card--disc { flex: 0 0 240px; }
   .card__image { height: 240px; }
 }
-/* Overlay con 2 botones en discografía */
+
+/* Overlay botones discografía */
 .carrusel-horizontal__overlay {
   display: flex;
   align-items: flex-end;
@@ -187,7 +250,8 @@
   .discography-carousel .carrusel-horizontal__card { flex: 0 0 350px; }
   .discography-carousel .carrusel-horizontal__image { height: 380px; }
 }
-/* Accesibilidad */
+
+/* ========== ACCESIBILIDAD ========== */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -202,7 +266,8 @@
   border-radius: 4px;
   box-shadow: 0 0 0 6px rgba(168, 85, 247, 0.2);
 }
-/* Splash texto siempre visible */
+
+/* ========== SPLASH ========== */
 .splash__content { position: relative; z-index: 20 !important; pointer-events: auto; }
 .splash__text, .splash__pulse { position: relative; z-index: 21; }
 .splash__reconstruct-status {

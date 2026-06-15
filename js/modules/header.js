@@ -1,4 +1,5 @@
 import { debounce } from '../core/utils.js';
+
 export function initHeader() {
   const header = document.getElementById('header');
   if (!header) return;
@@ -7,24 +8,38 @@ export function initHeader() {
     else header.classList.remove('scrolled');
   }, 50));
 }
+
 export function initMobileMenu() {
   const burgerBtn = document.getElementById('burgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   const closeBtn = document.getElementById('closeBtn');
   if (!burgerBtn || !mobileMenu) return;
+  
   function cerrarMenu() {
     mobileMenu.classList.remove('active');
     burgerBtn.classList.remove('active');
     burgerBtn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    document.body.style.touchAction = '';
   }
+  
+  function abrirMenu() {
+    mobileMenu.classList.add('active');
+    burgerBtn.classList.add('active');
+    burgerBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    document.body.style.touchAction = 'pan-y pinch-zoom';
+  }
+  
   burgerBtn.addEventListener('click', () => {
     const isExpanded = burgerBtn.getAttribute('aria-expanded') === 'true';
-    mobileMenu.classList.toggle('active');
-    burgerBtn.classList.toggle('active');
-    burgerBtn.setAttribute('aria-expanded', !isExpanded);
-    document.body.style.overflow = isExpanded ? '' : 'hidden';
+    if (isExpanded) {
+      cerrarMenu();
+    } else {
+      abrirMenu();
+    }
   });
+  
   if (closeBtn) closeBtn.addEventListener('click', cerrarMenu);
   document.querySelectorAll('.mobile-menu__link').forEach(link => {
     link.addEventListener('click', cerrarMenu);

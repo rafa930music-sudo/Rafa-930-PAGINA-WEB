@@ -269,3 +269,37 @@ body.light .mobile-menu {
   transform: rotate(90deg);
   color: var(--purple);
 }
+
+/* ========== HEADER MÁS GRANDE EN ESCRITORIO ========== */
+@media (min-width: 1025px) {
+  .nav {
+    height: 90px; /* en lugar de clamp(60px,10vh,80px) */
+  }
+  .logo__img {
+    height: 55px; /* más grande que 45px */
+  }
+  .nav__social {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+  .lang-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  .theme-toggle {
+    width: 65px;
+    height: 34px;
+  }
+  .theme-toggle .ball {
+    width: 28px;
+    height: 28px;
+    left: 3px;
+  }
+  .theme-toggle.light .ball {
+    left: calc(100% - 31px);
+  }
+  .burger {
+    transform: scale(1.2);
+  }
+}

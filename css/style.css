@@ -1,9 +1,8 @@
 /* ========================================
    RAFA 930 - CSS MODULAR
    ======================================== */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Bebas+Neue&display=swap');
-
-/* Core */
+   
+   /* Core */
 @import 'core/variables.css';
 @import 'core/reset.css';
 @import 'core/layout.css';
