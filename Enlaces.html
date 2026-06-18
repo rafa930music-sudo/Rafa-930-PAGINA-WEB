@@ -4,35 +4,89 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
   <title>Rafa 930 · Enlaces oficiales</title>
-  <meta name="description" content="Todos los enlaces oficiales de Rafa 930: música, videoclips, colaboraciones y contacto.">
+  <meta name="description" content="Enlaces oficiales de Rafa 930: música, videoclips, desarrollo web con IA, booking y contacto.">
   <meta name="author" content="Rafa 930">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#0a0a0f">
   <meta property="og:title" content="Rafa 930 · Enlaces oficiales">
-  <meta property="og:description" content="Música urbana y colaboraciones profesionales. Accede a mi discografía, videoclips y redes.">
+  <meta property="og:description" content="Música urbana, fotografía profesional y desarrollo web con IA. Accede a mi discografía, videoclips y redes.">
   <meta property="og:image" content="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/images/Foto%20perfil.webp">
   <meta property="og:type" content="website">
   
-  <!-- ============================================ -->
-  <!-- FAVICON (igual que en index.html)             -->
-  <!-- ============================================ -->
+  <!-- ===== FAVICON ===== -->
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link rel="icon" type="image/webp" sizes="32x32" href="images/logo.webp">
   <link rel="icon" type="image/webp" sizes="16x16" href="images/logo.webp">
   <link rel="apple-touch-icon" sizes="180x180" href="images/logo.webp">
   <meta name="apple-mobile-web-app-title" content="Rafa 930">
-  <meta name="application-name" content="Rafa 930">
-  <meta name="msapplication-TileColor" content="#0a0a0a">
-  <meta name="msapplication-TileImage" content="images/logo.webp">
+  <meta name="msapplication-TileColor" content="#0a0a0f">
   
-  <!-- Fuentes -->
+  <!-- ===== FUENTES PREMIUM ===== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Font Awesome -->
+  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
+    /* ============================================================
+       CSS VARIABLES (Temas claro / oscuro)
+    ============================================================ */
+    :root {
+      /* Colores base (oscuro por defecto) */
+      --bg-body: #08080e;
+      --bg-card: rgba(12, 12, 24, 0.75);
+      --bg-card-hover: rgba(20, 20, 38, 0.95);
+      --bg-glass: rgba(0, 0, 0, 0.5);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.25);
+      --text-primary: #ffffff;
+      --text-secondary: #a0a0b0;
+      --text-muted: #5a5a6e;
+      --text-muted-light: #7a7a8e;
+      --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.3);
+      --shadow-glow: rgba(168, 85, 247, 0.15);
+      --neon-purple: rgba(168, 85, 247, 0.4);
+      --toggle-bg: #333;
+      --toggle-dot: #fff;
+      --badge-bg: rgba(96, 165, 250, 0.2);
+      --badge-border: rgba(96, 165, 250, 0.3);
+      --badge-text: #93c5fd;
+      --link-icon-color: #ccc;
+      --gradient-text: linear-gradient(135deg, #ffffff 0%, #c4b5fd 50%, #a78bfa 100%);
+      --toggle-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      --toggle-border: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Clase que se aplica al body para el modo claro */
+    body.light-mode {
+      --bg-body: #f0f0f5;
+      --bg-card: rgba(255, 255, 255, 0.8);
+      --bg-card-hover: rgba(255, 255, 255, 0.95);
+      --bg-glass: rgba(255, 255, 255, 0.6);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --border-hover: rgba(0, 0, 0, 0.2);
+      --text-primary: #111111;
+      --text-secondary: #555566;
+      --text-muted: #888899;
+      --text-muted-light: #666677;
+      --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.08);
+      --shadow-glow: rgba(168, 85, 247, 0.1);
+      --neon-purple: rgba(168, 85, 247, 0.2);
+      --toggle-bg: #ccc;
+      --toggle-dot: #fff;
+      --badge-bg: rgba(96, 165, 250, 0.1);
+      --badge-border: rgba(96, 165, 250, 0.3);
+      --badge-text: #3b82f6;
+      --link-icon-color: #555;
+      --gradient-text: linear-gradient(135deg, #1a1a2e 0%, #4c1d95 50%, #7c3aed 100%);
+      --toggle-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      --toggle-border: rgba(0, 0, 0, 0.1);
+    }
+
+    /* ============================================================
+       RESET Y BASE
+    ============================================================ */
     * {
       margin: 0;
       padding: 0;
@@ -40,83 +94,181 @@
     }
 
     body {
-      background: #000000;
-      color: #ffffff;
-      font-family: 'Inter', sans-serif;
+      background: var(--bg-body);
+      color: var(--text-primary);
+      font-family: 'Space Grotesk', sans-serif;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: clamp(16px, 5vw, 32px) clamp(16px, 5vw, 24px) clamp(30px, 8vh, 50px);
+      padding: 1.5rem 1rem 2.5rem;
       position: relative;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.5s ease, color 0.5s ease;
     }
 
-    /* ========== SPLASH SCREEN PREMIUM ========== */
+    /* ============================================================
+       TOGGLE EN ESQUINA SUPERIOR DERECHA (SIN DUPLICADOS)
+    ============================================================ */
+    .theme-toggle-wrapper {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      padding: 6px 12px 6px 16px;
+      border-radius: 40px;
+      border: 1px solid var(--toggle-border);
+      box-shadow: var(--toggle-shadow);
+      transition: all 0.3s ease;
+    }
+    .theme-toggle-wrapper:hover {
+      border-color: rgba(168, 85, 247, 0.3);
+      box-shadow: 0 4px 30px rgba(168, 85, 247, 0.15);
+    }
+    .theme-toggle-wrapper .label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease;
+    }
+
+    .theme-toggle {
+      position: relative;
+      width: 48px;
+      height: 26px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .theme-toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .theme-toggle .slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background: var(--toggle-bg);
+      border-radius: 40px;
+      transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .theme-toggle .slider::before {
+      content: '';
+      position: absolute;
+      height: 20px;
+      width: 20px;
+      left: 3px;
+      bottom: 3px;
+      background: var(--toggle-dot);
+      border-radius: 50%;
+      transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .theme-toggle input:checked + .slider {
+      background: #a855f7;
+    }
+    .theme-toggle input:checked + .slider::before {
+      transform: translateX(22px);
+    }
+    /* Iconos dentro del toggle (UN SOLO PAR) */
+    .theme-toggle .icons {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 6px;
+      pointer-events: none;
+      font-size: 0.6rem;
+      z-index: 2;
+    }
+    .theme-toggle .icons .fa-sun {
+      color: #fbbf24;
+      opacity: 0.9;
+    }
+    .theme-toggle .icons .fa-moon {
+      color: #e2e8f0;
+      opacity: 0.9;
+    }
+    body.light-mode .theme-toggle .icons .fa-sun {
+      color: #f59e0b;
+      opacity: 1;
+    }
+    body.light-mode .theme-toggle .icons .fa-moon {
+      color: #94a3b8;
+      opacity: 0.5;
+    }
+
+    /* ============================================================
+       SPLASH SCREEN (siempre oscuro para impacto)
+    ============================================================ */
     .splash {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #000000;
+      inset: 0;
       z-index: 10000;
+      background: #08080e;
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), visibility 0.8s ease;
+      transition: opacity 0.9s cubic-bezier(0.2, 0.9, 0.4, 1), visibility 0.9s ease;
       pointer-events: none;
     }
-    
     .splash.hidden {
       opacity: 0;
       visibility: hidden;
     }
-    
     .splash-canvas {
       position: absolute;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100%;
       height: 100%;
       pointer-events: none;
     }
-    
     .splash-logo {
       position: relative;
       z-index: 10;
-      width: min(240px, 50vw);
-      height: min(240px, 50vw);
+      width: min(220px, 45vw);
+      height: min(220px, 45vw);
       display: flex;
       justify-content: center;
       align-items: center;
-      animation: splashPulse 1.2s ease-in-out infinite;
+      animation: splashPulse 1.3s ease-in-out infinite alternate;
     }
-    
     .splash-logo img {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      filter: brightness(0) invert(1);
+      filter: brightness(0) invert(1) drop-shadow(0 0 40px rgba(168,85,247,0.4));
     }
-    
     @keyframes splashPulse {
-      0% { transform: scale(0.92); opacity: 0.9; filter: drop-shadow(0 0 15px rgba(255,255,255,0.3)); }
-      50% { transform: scale(1.08); opacity: 1; filter: drop-shadow(0 0 60px rgba(255,255,255,0.8)); }
-      100% { transform: scale(0.92); opacity: 0.9; filter: drop-shadow(0 0 15px rgba(255,255,255,0.3)); }
+      0% { transform: scale(0.92); opacity: 0.8; filter: drop-shadow(0 0 10px rgba(168,85,247,0.2)); }
+      100% { transform: scale(1.08); opacity: 1; filter: drop-shadow(0 0 70px rgba(168,85,247,0.6)); }
     }
 
-    /* ========== FONDO NEÓN ULTRA PREMIUM ========== */
+    /* ============================================================
+       FONDOS DINÁMICOS (se adaptan al modo)
+    ============================================================ */
     .neon-aura {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       z-index: 0;
       overflow: hidden;
+      transition: opacity 0.5s ease;
     }
-    
+    body.light-mode .neon-aura::before {
+      opacity: 0.15 !important;
+    }
+    body.light-mode .neon-aura::after {
+      opacity: 0.1 !important;
+    }
     .neon-aura::before {
       content: '';
       position: absolute;
@@ -124,10 +276,9 @@
       left: -20%;
       width: 140%;
       height: 140%;
-      background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0) 70%);
-      animation: pulseNeonBg 7s infinite alternate;
+      background: radial-gradient(circle at 30% 40%, rgba(168,85,247,0.30) 0%, rgba(0,0,0,0) 70%);
+      animation: pulseAura1 8s infinite alternate ease-in-out;
     }
-    
     .neon-aura::after {
       content: '';
       position: absolute;
@@ -135,376 +286,440 @@
       right: -20%;
       width: 140%;
       height: 140%;
-      background: radial-gradient(circle at 70% 60%, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0) 70%);
-      animation: pulseNeonBg2 9s infinite alternate-reverse;
+      background: radial-gradient(circle at 70% 60%, rgba(59,130,246,0.25) 0%, rgba(0,0,0,0) 70%);
+      animation: pulseAura2 10s infinite alternate-reverse ease-in-out;
     }
-    
-    @keyframes pulseNeonBg {
+    @keyframes pulseAura1 {
+      0% { opacity: 0.3; transform: scale(1); }
+      100% { opacity: 0.9; transform: scale(1.12); }
+    }
+    @keyframes pulseAura2 {
       0% { opacity: 0.2; transform: scale(1); }
-      100% { opacity: 1; transform: scale(1.08); }
+      100% { opacity: 0.8; transform: scale(1.15); }
     }
-    
-    @keyframes pulseNeonBg2 {
-      0% { opacity: 0.15; transform: scale(1); }
-      100% { opacity: 0.8; transform: scale(1.1); }
-    }
-    
-    /* Líneas de neón mejoradas */
+
+    /* Líneas de neón (se atenúan en claro) */
     .neon-lines {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       pointer-events: none;
       z-index: 0;
     }
-    
+    body.light-mode .neon-lines span {
+      background: linear-gradient(90deg, transparent, rgba(0,0,0,0.05), transparent);
+    }
     .neon-lines span {
       position: absolute;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+      height: 1.5px;
       width: 100%;
-      animation: slideNeon 10s linear infinite;
+      animation: slideNeon 12s linear infinite;
     }
-    
-    .neon-lines span:nth-child(1) { top: 15%; animation-delay: 0s; }
-    .neon-lines span:nth-child(2) { top: 35%; animation-delay: -2.5s; opacity: 0.6; }
-    .neon-lines span:nth-child(3) { top: 55%; animation-delay: -5s; opacity: 0.4; }
-    .neon-lines span:nth-child(4) { top: 75%; animation-delay: -7.5s; opacity: 0.5; }
-    .neon-lines span:nth-child(5) { top: 90%; animation-delay: -3s; opacity: 0.3; }
-    
+    .neon-lines span:nth-child(1) { top: 12%; animation-delay: 0s; }
+    .neon-lines span:nth-child(2) { top: 30%; animation-delay: -3s; opacity: 0.5; }
+    .neon-lines span:nth-child(3) { top: 50%; animation-delay: -6s; opacity: 0.3; }
+    .neon-lines span:nth-child(4) { top: 70%; animation-delay: -9s; opacity: 0.4; }
+    .neon-lines span:nth-child(5) { top: 88%; animation-delay: -2s; opacity: 0.25; }
     @keyframes slideNeon {
       0% { transform: translateX(-100%); }
       100% { transform: translateX(100%); }
     }
 
-    /* Textura de grano premium */
+    /* Grano */
     .noise {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 35px 35px;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 30px 30px;
       pointer-events: none;
       z-index: 0;
     }
-
-    /* Contenedor principal - RESPONSIVE con clamp */
-    .hub {
-      width: 100%;
-      max-width: min(560px, 95%);
-      position: relative;
-      z-index: 10;
+    body.light-mode .noise {
+      background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
     }
 
-    /* Cabecera premium */
+    /* Partículas de fondo */
+    #particles-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    body.light-mode #particles-canvas {
+      opacity: 0.4;
+    }
+
+    /* ============================================================
+       CONTENEDOR PRINCIPAL
+    ============================================================ */
+    .hub {
+      width: 100%;
+      max-width: 580px;
+      position: relative;
+      z-index: 10;
+      padding: 0 0.5rem;
+    }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
     .header {
       text-align: center;
-      margin-bottom: clamp(24px, 6vh, 38px);
+      margin-bottom: 2rem;
     }
 
     .avatar {
-      width: clamp(75px, 20vw, 105px);
-      height: clamp(75px, 20vw, 105px);
-      margin: 0 auto clamp(12px, 3vh, 18px);
+      width: clamp(85px, 22vw, 115px);
+      height: clamp(85px, 22vw, 115px);
+      margin: 0 auto 1rem;
       border-radius: 50%;
       overflow: hidden;
-      border: 2px solid rgba(255,255,255,0.4);
-      box-shadow: 0 0 30px rgba(255,255,255,0.3), 0 0 8px rgba(255,255,255,0.6);
-      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      border: 2px solid rgba(255,255,255,0.3);
+      box-shadow: 0 0 40px var(--neon-purple), 0 0 80px var(--shadow-glow);
+      transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.2);
       cursor: pointer;
+      position: relative;
     }
-
+    body.light-mode .avatar {
+      border-color: rgba(0,0,0,0.2);
+      box-shadow: 0 0 30px rgba(168,85,247,0.15);
+    }
+    .avatar::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #a855f7, #3b82f6, #ec4899, #a855f7);
+      background-size: 300% 300%;
+      animation: borderGlow 5s ease-in-out infinite;
+      z-index: -1;
+      padding: 3px;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+    }
+    @keyframes borderGlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
     .avatar img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: grayscale(100%);
-      transition: filter 0.4s ease, transform 0.3s ease;
+      filter: grayscale(40%) brightness(0.9);
+      transition: all 0.5s ease;
     }
-
     .avatar:hover {
-      box-shadow: 0 0 50px rgba(255,255,255,0.6);
-      border-color: rgba(255,255,255,0.7);
-      transform: scale(1.02);
+      transform: scale(1.02) translateY(-3px);
+      box-shadow: 0 0 60px var(--neon-purple), 0 0 120px var(--shadow-glow);
     }
-
     .avatar:hover img {
-      filter: grayscale(0%);
+      filter: grayscale(0%) brightness(1.1);
       transform: scale(1.02);
     }
 
     h1 {
-      font-size: clamp(1.6rem, 8vw, 2.2rem);
-      font-weight: 900;
+      font-size: clamp(1.8rem, 9vw, 2.4rem);
+      font-weight: 700;
       letter-spacing: -1px;
-      margin-bottom: 6px;
-      text-shadow: 0 0 30px rgba(255,255,255,0.6);
-      background: linear-gradient(135deg, #ffffff, #e8e8e8, #cccccc);
+      margin-bottom: 4px;
+      background: var(--gradient-text);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
+      text-shadow: 0 0 50px var(--shadow-glow);
+      transition: background 0.5s ease;
     }
 
     .tagline {
-      color: #bbbbbb;
-      font-size: clamp(0.6rem, 3vw, 0.7rem);
-      font-weight: 600;
-      letter-spacing: clamp(2px, 1vw, 3px);
+      color: var(--text-secondary);
+      font-size: clamp(0.6rem, 3vw, 0.75rem);
+      font-weight: 500;
+      letter-spacing: 3px;
       text-transform: uppercase;
+      background: var(--bg-glass);
+      display: inline-block;
+      padding: 0.2rem 1.2rem;
+      border-radius: 40px;
+      backdrop-filter: blur(4px);
+      border: 1px solid var(--border-color);
+      transition: background 0.4s ease, color 0.4s ease, border 0.4s ease;
     }
 
-    /* Lista de enlaces premium */
+    /* ============================================================
+       LISTA DE ENLACES
+    ============================================================ */
     .links {
       display: flex;
       flex-direction: column;
-      gap: clamp(10px, 2vh, 14px);
-      margin-bottom: clamp(24px, 6vh, 32px);
+      gap: 12px;
+      margin-bottom: 2rem;
     }
 
     .link-btn {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(8,8,12,0.8);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: var(--bg-card);
+      backdrop-filter: blur(18px);
+      border: 1px solid var(--border-color);
       border-radius: 60px;
-      padding: clamp(10px, 2.5vw, 14px) clamp(18px, 4vw, 26px);
+      padding: 0.9rem 1.6rem;
       text-decoration: none;
-      color: #ffffff;
+      color: var(--text-primary);
       font-weight: 600;
       font-size: clamp(0.8rem, 3.5vw, 0.95rem);
-      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.2);
       position: relative;
       overflow: hidden;
       cursor: pointer;
+      box-shadow: var(--shadow-card);
+      min-height: 60px;
     }
-
     .link-btn::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-      transition: left 0.6s ease;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
     }
-
     .link-btn:hover::before {
-      left: 100%;
+      transform: translateX(100%);
+    }
+    .link-btn:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3), 0 0 30px var(--shadow-glow);
     }
 
     .link-left {
       display: flex;
       align-items: center;
-      gap: clamp(10px, 3vw, 16px);
+      gap: 14px;
+      flex: 1;
     }
-
     .link-left i {
       font-size: clamp(1rem, 4vw, 1.3rem);
-      width: clamp(24px, 6vw, 30px);
+      width: 30px;
       text-align: center;
       transition: all 0.3s ease;
+      flex-shrink: 0;
     }
-
-    .arrow {
-      font-size: clamp(0.65rem, 2.5vw, 0.75rem);
-      color: #888888;
-      transition: transform 0.3s ease, color 0.2s;
+    .link-left span {
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-
-    .link-btn:hover {
-      background: rgba(25,25,32,0.95);
-      border-color: rgba(255,255,255,0.35);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.1);
+    .link-btn .arrow {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      transition: all 0.3s ease;
+      margin-left: 10px;
+      flex-shrink: 0;
     }
-
     .link-btn:hover .arrow {
       transform: translateX(6px);
-      color: #ffffff;
+      color: var(--text-primary);
     }
-
     .link-btn:active {
-      transform: translateY(-1px);
+      transform: translateY(-1px) scale(0.99);
     }
 
-    /* Colores específicos para cada plataforma */
-    .spotify-link i {
-      color: #1DB954;
-    }
-    .spotify-link:hover i {
-      text-shadow: 0 0 12px #1DB954;
-      transform: scale(1.05);
-    }
+    /* Colores específicos */
+    .spotify-link i { color: #1DB954; }
+    .spotify-link:hover i { text-shadow: 0 0 20px #1DB954; transform: scale(1.05); }
     
-    .youtube-link i {
-      color: #FF0000;
-    }
-    .youtube-link:hover i {
-      text-shadow: 0 0 12px #FF0000;
-      transform: scale(1.05);
-    }
+    .youtube-link i { color: #FF0000; }
+    .youtube-link:hover i { text-shadow: 0 0 20px #FF0000; transform: scale(1.05); }
+
+    .digital-link i { color: #60a5fa; }
+    .digital-link:hover i { text-shadow: 0 0 25px #60a5fa; transform: scale(1.05); }
+
+    .neutral-link i { color: var(--link-icon-color); }
+    .neutral-link:hover i { color: var(--text-primary); text-shadow: 0 0 12px rgba(255,255,255,0.2); }
+    body.light-mode .neutral-link:hover i { text-shadow: 0 0 12px rgba(0,0,0,0.2); }
 
     /* Botón destacado */
     .link-btn--featured {
-      background: #ffffff;
+      background: linear-gradient(135deg, #a855f7, #7c3aed);
       border: none;
-      color: #000000;
-      box-shadow: 0 0 35px rgba(255,255,255,0.4);
+      color: #fff;
+      box-shadow: 0 0 35px rgba(168,85,247,0.4);
+      font-weight: 700;
     }
-
     .link-btn--featured .link-left i,
-    .link-btn--featured span,
     .link-btn--featured .arrow {
-      color: #000000;
+      color: #fff;
     }
-
     .link-btn--featured:hover {
-      background: #f8f8f8;
-      transform: translateY(-3px);
-      box-shadow: 0 0 55px rgba(255,255,255,0.7);
-    }
-    
-    .link-btn--featured .link-left i {
-      color: #000000 !important;
+      background: linear-gradient(135deg, #b26bfa, #8b4ef0);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 0 60px rgba(168,85,247,0.7);
     }
 
-    /* Botón neutro */
-    .link-btn--neutral i {
-      color: #dddddd;
+    /* Botón 930 Digital */
+    .link-btn--digital {
+      background: rgba(16, 24, 48, 0.8);
+      border: 1px solid rgba(96, 165, 250, 0.25);
+      backdrop-filter: blur(18px);
     }
-    .link-btn--neutral:hover i {
-      color: #ffffff;
-      text-shadow: 0 0 8px rgba(255,255,255,0.6);
+    body.light-mode .link-btn--digital {
+      background: rgba(240, 244, 255, 0.8);
+      border: 1px solid rgba(96, 165, 250, 0.3);
+    }
+    .link-btn--digital:hover {
+      background: rgba(20, 32, 60, 0.95);
+      border-color: rgba(96, 165, 250, 0.6);
+      box-shadow: 0 0 40px rgba(96, 165, 250, 0.2);
+    }
+    body.light-mode .link-btn--digital:hover {
+      background: rgba(230, 240, 255, 0.95);
     }
 
-    /* Social dock premium - RESPONSIVE */
+    .badge-ia {
+      display: inline-block;
+      background: var(--badge-bg);
+      border: 1px solid var(--badge-border);
+      border-radius: 40px;
+      padding: 0.1rem 0.7rem;
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--badge-text);
+      margin-left: 6px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    /* ============================================================
+       SOCIAL DOCK
+    ============================================================ */
     .social-dock {
       display: flex;
       justify-content: center;
-      gap: clamp(20px, 6vw, 32px);
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.15);
+      gap: clamp(22px, 6vw, 36px);
+      background: var(--bg-glass);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--border-color);
       border-radius: 80px;
-      padding: clamp(8px, 2vh, 12px) clamp(20px, 5vw, 32px);
+      padding: 0.7rem 1.8rem;
       width: fit-content;
-      margin: 0 auto clamp(16px, 4vh, 24px);
-      box-shadow: 0 0 30px rgba(255,255,255,0.08);
+      margin: 0 auto 1.4rem;
+      box-shadow: 0 0 40px rgba(255,255,255,0.04);
       transition: all 0.3s ease;
     }
-
     .social-dock:hover {
-      border-color: rgba(255,255,255,0.3);
-      box-shadow: 0 0 40px rgba(255,255,255,0.15);
+      border-color: var(--border-hover);
+      box-shadow: 0 0 50px var(--shadow-glow);
     }
 
     .social-icon {
-      color: #ffffff !important;
-      font-size: clamp(1rem, 4.5vw, 1.3rem);
+      color: var(--text-secondary);
+      font-size: clamp(1.1rem, 4.5vw, 1.4rem);
       text-decoration: none;
-      transition: all 0.3s ease;
-      opacity: 0.85;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.2);
       position: relative;
+      opacity: 0.8;
     }
-
     .social-icon:hover {
       opacity: 1;
-      transform: translateY(-4px) scale(1.1);
-      text-shadow: 0 0 15px rgba(255,255,255,0.8);
+      transform: translateY(-4px) scale(1.15);
+      color: var(--text-primary);
+      text-shadow: 0 0 25px rgba(255,255,255,0.3);
     }
-
-    /* Tooltip en redes sociales */
+    body.light-mode .social-icon:hover {
+      text-shadow: 0 0 25px rgba(0,0,0,0.2);
+    }
     .social-icon::after {
       content: attr(data-tooltip);
       position: absolute;
-      bottom: -30px;
+      bottom: -32px;
       left: 50%;
-      transform: translateX(-50%) translateY(10px);
+      transform: translateX(-50%) translateY(6px);
       background: rgba(0,0,0,0.9);
       backdrop-filter: blur(8px);
       color: #fff;
       font-size: 0.6rem;
-      padding: 4px 10px;
+      padding: 3px 12px;
       border-radius: 20px;
       white-space: nowrap;
       opacity: 0;
       visibility: hidden;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
       pointer-events: none;
       font-weight: 500;
-      letter-spacing: 0.5px;
-      border: 1px solid rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.15);
     }
-
+    body.light-mode .social-icon::after {
+      background: rgba(255,255,255,0.95);
+      color: #111;
+      border-color: rgba(0,0,0,0.1);
+    }
     .social-icon:hover::after {
       opacity: 1;
       visibility: visible;
       transform: translateX(-50%) translateY(0);
     }
 
-    /* Footer premium - RESPONSIVE */
+    /* ============================================================
+       FOOTER
+    ============================================================ */
     .footer {
       text-align: center;
       font-size: clamp(0.55rem, 3vw, 0.7rem);
-      color: #5a5a6a;
-      letter-spacing: 0.4px;
-      padding-top: 6px;
+      color: var(--text-muted);
+      letter-spacing: 0.3px;
+      padding-top: 0.4rem;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      gap: 4px;
+      gap: 0.2rem 0.6rem;
+      transition: color 0.3s ease;
     }
-
     .footer a {
-      color: #7a7a8a;
+      color: var(--text-muted-light);
       text-decoration: none;
-      transition: all 0.25s ease;
+      transition: all 0.3s ease;
       font-weight: 500;
-      position: relative;
     }
-
     .footer a:hover {
-      color: #ffffff;
-      text-shadow: 0 0 6px rgba(255,255,255,0.5);
+      color: var(--text-primary);
+      text-shadow: 0 0 10px rgba(255,255,255,0.1);
     }
-
-    .footer-line {
-      display: inline-block;
+    body.light-mode .footer a:hover {
+      text-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-
     .divider-dot {
-      display: inline-block;
-      margin: 0 clamp(4px, 2vw, 10px);
-      color: #3a3a4a;
+      color: var(--text-muted);
+      opacity: 0.4;
     }
 
-    /* Animación de entrada mejorada */
-    @keyframes fadeUpNeon {
+    /* ============================================================
+       ANIMACIONES DE ENTRADA
+    ============================================================ */
+    @keyframes fadeUpGlow {
       0% {
         opacity: 0;
-        transform: translateY(30px);
-        filter: blur(5px);
+        transform: translateY(40px) scale(0.96);
+        filter: blur(10px);
       }
       100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
         filter: blur(0);
       }
     }
-
     .animate {
-      animation: fadeUpNeon 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.15) forwards;
+      animation: fadeUpGlow 0.7s cubic-bezier(0.2, 0.9, 0.3, 1.1) forwards;
       opacity: 0;
     }
-
     .d1 { animation-delay: 0.05s; }
     .d2 { animation-delay: 0.12s; }
     .d3 { animation-delay: 0.19s; }
@@ -512,56 +727,82 @@
     .d5 { animation-delay: 0.33s; }
     .d6 { animation-delay: 0.40s; }
 
-    /* Ajustes para pantallas muy pequeñas */
-    @media (max-width: 380px) {
-      .link-left {
-        gap: 8px;
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 480px) {
+      .link-left span {
+        white-space: normal;
+        line-height: 1.2;
       }
-      .link-left i {
-        width: 22px;
-      }
-      .footer {
-        flex-direction: column;
-        gap: 6px;
-      }
-      .divider-dot {
-        display: none;
-      }
-    }
-
-    /* Ajustes para landscape en móviles */
-    @media (max-height: 600px) and (orientation: landscape) {
-      body {
-        padding: 12px 20px;
-      }
-      .header {
-        margin-bottom: 12px;
-      }
-      .avatar {
-        width: 55px;
-        height: 55px;
-        margin-bottom: 6px;
-      }
-      h1 {
-        font-size: 1.3rem;
-      }
-      .links {
-        gap: 8px;
-        margin-bottom: 12px;
+      .badge-ia {
+        font-size: 0.5rem;
+        padding: 0.05rem 0.5rem;
       }
       .link-btn {
-        padding: 6px 14px;
+        min-height: 52px;
+        padding: 0.7rem 1.2rem;
       }
-      .social-dock {
-        padding: 5px 18px;
-        margin-bottom: 10px;
+      .theme-toggle-wrapper {
+        top: 12px;
+        right: 12px;
+        padding: 4px 10px 4px 14px;
+        gap: 6px;
       }
-      .tagline {
+      .theme-toggle-wrapper .label {
         font-size: 0.55rem;
       }
+      .theme-toggle {
+        width: 40px;
+        height: 22px;
+      }
+      .theme-toggle .slider::before {
+        height: 16px;
+        width: 16px;
+        left: 3px;
+        bottom: 3px;
+      }
+      .theme-toggle input:checked + .slider::before {
+        transform: translateX(18px);
+      }
     }
-
-    /* Prevenir selección no deseada */
+    @media (max-width: 400px) {
+      .link-left { gap: 10px; }
+      .link-left i { width: 24px; }
+      .social-dock { padding: 0.5rem 1.2rem; gap: 18px; }
+    }
+    @media (max-height: 600px) and (orientation: landscape) {
+      body { padding: 0.8rem 1rem; }
+      .header { margin-bottom: 1rem; }
+      .avatar { width: 60px; height: 60px; margin-bottom: 0.4rem; }
+      h1 { font-size: 1.3rem; }
+      .links { gap: 8px; margin-bottom: 1rem; }
+      .link-btn { padding: 0.5rem 1rem; font-size: 0.75rem; min-height: 44px; }
+      .social-dock { padding: 0.3rem 1rem; gap: 14px; }
+      .tagline { font-size: 0.5rem; }
+      .theme-toggle-wrapper {
+        top: 8px;
+        right: 8px;
+        padding: 3px 8px 3px 12px;
+        gap: 4px;
+      }
+      .theme-toggle-wrapper .label {
+        font-size: 0.5rem;
+      }
+      .theme-toggle {
+        width: 36px;
+        height: 20px;
+      }
+      .theme-toggle .slider::before {
+        height: 14px;
+        width: 14px;
+        left: 3px;
+        bottom: 3px;
+      }
+      .theme-toggle input:checked + .slider::before {
+        transform: translateX(16px);
+      }
+    }
     .link-btn, .social-icon, .footer a {
       -webkit-tap-highlight-color: transparent;
     }
@@ -569,7 +810,9 @@
 </head>
 <body>
 
-<!-- SPLASH SCREEN PREMIUM -->
+<!-- ============================================================
+     SPLASH SCREEN
+============================================================ -->
 <div class="splash" id="splash">
   <canvas id="splashCanvas" class="splash-canvas"></canvas>
   <div class="splash-logo">
@@ -577,26 +820,48 @@
   </div>
 </div>
 
+<!-- ============================================================
+     FONDOS PREMIUM
+============================================================ -->
 <div class="neon-aura"></div>
 <div class="neon-lines">
   <span></span><span></span><span></span><span></span><span></span>
 </div>
 <div class="noise"></div>
+<canvas id="particles-canvas"></canvas>
 
+<!-- ============================================================
+     TOGGLE EN ESQUINA SUPERIOR DERECHA (SIN DUPLICADOS)
+============================================================ -->
+<div class="theme-toggle-wrapper" aria-label="Selector de tema">
+  <span class="label">Tema</span>
+  <label class="theme-toggle">
+    <input type="checkbox" id="themeSwitch">
+    <span class="slider"></span>
+    <span class="icons">
+      <i class="fas fa-sun"></i>
+      <i class="fas fa-moon"></i>
+    </span>
+  </label>
+</div>
+
+<!-- ============================================================
+     CONTENIDO PRINCIPAL
+============================================================ -->
 <div class="hub">
-  
-  <!-- Cabecera -->
+
+  <!-- HEADER -->
   <div class="header animate d1">
     <div class="avatar" onclick="window.open('https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/', '_blank')">
       <img src="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/images/Foto%20perfil.webp" alt="Rafa 930" onerror="this.src='https://placehold.co/400x400/1a1a1a/white?text=R9'">
     </div>
     <h1>RAFA 930</h1>
-    <div class="tagline">MÚSICA URBANA · FOTOGRAFÍA PROFESIONAL</div>
+    <div class="tagline">MÚSICA · FOTOGRAFÍA · IA</div>
   </div>
 
-  <!-- Enlaces principales -->
+  <!-- LISTA DE ENLACES -->
   <div class="links">
-    
+
     <!-- Plataforma Oficial -->
     <a href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/" class="link-btn link-btn--featured animate d2" target="_blank" rel="noopener noreferrer">
       <div class="link-left">
@@ -610,7 +875,7 @@
     <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" class="link-btn spotify-link animate d3" target="_blank" rel="noopener noreferrer">
       <div class="link-left">
         <i class="fa-brands fa-spotify"></i>
-        <span>Spotify · Mi discografía</span>
+        <span>Spotify · Discografía</span>
       </div>
       <i class="fa-solid fa-chevron-right arrow"></i>
     </a>
@@ -624,130 +889,217 @@
       <i class="fa-solid fa-chevron-right arrow"></i>
     </a>
 
-    <!-- Colaboraciones -->
-    <a href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#colaboradores" class="link-btn link-btn--neutral animate d5" target="_blank" rel="noopener noreferrer">
+    <!-- 930 Digital -->
+    <a href="https://rafa930music-sudo.github.io/930-Digital/" class="link-btn link-btn--digital animate d5" target="_blank" rel="noopener noreferrer">
       <div class="link-left">
-        <i class="fa-solid fa-users"></i>
-        <span>Colaboraciones</span>
+        <i class="fa-solid fa-laptop-code"></i>
+        <span>930 Digital <span class="badge-ia">IA</span></span>
       </div>
       <i class="fa-solid fa-chevron-right arrow"></i>
     </a>
 
     <!-- Booking / Contacto -->
-    <a href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#booking" class="link-btn link-btn--neutral animate d6" target="_blank" rel="noopener noreferrer">
+    <a href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#booking" class="link-btn neutral-link animate d6" target="_blank" rel="noopener noreferrer">
       <div class="link-left">
         <i class="fa-regular fa-calendar-check"></i>
         <span>Booking · Conciertos</span>
       </div>
       <i class="fa-solid fa-chevron-right arrow"></i>
     </a>
+
   </div>
 
-  <!-- Social Dock con tooltips -->
+  <!-- SOCIAL DOCK -->
   <div class="social-dock animate d5">
-    <a href="https://instagram.com/rafa930_oficial" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-tooltip="Instagram">
+    <a href="https://instagram.com/rafa930_oficial" class="social-icon" target="_blank" rel="noopener noreferrer" data-tooltip="Instagram">
       <i class="fa-brands fa-instagram"></i>
     </a>
-    <a href="#" id="gmailBtn" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Gmail" data-tooltip="Enviar email">
+    <a href="#" id="gmailBtn" class="social-icon" target="_blank" rel="noopener noreferrer" data-tooltip="Email">
       <i class="fa-regular fa-envelope"></i>
     </a>
-    <a href="#" id="whatsappBtn" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" data-tooltip="WhatsApp">
+    <a href="#" id="whatsappBtn" class="social-icon" target="_blank" rel="noopener noreferrer" data-tooltip="WhatsApp">
       <i class="fa-brands fa-whatsapp"></i>
     </a>
   </div>
 
-  <!-- Footer con copyright 2026 -->
+  <!-- FOOTER -->
   <div class="footer animate d6">
-    <span class="footer-line">rafa930.music@gmail.com</span>
+    <span>rafa930.music@gmail.com</span>
     <span class="divider-dot">·</span>
     <a href="#" id="copyEmail">📧 Copiar email</a>
     <span class="divider-dot">·</span>
     <span>© 2026 RAFA 930</span>
   </div>
+
 </div>
 
+<!-- ============================================================
+     SCRIPTS
+============================================================ -->
 <script>
-  // ========== SPLASH SCREEN CON MÁS PARTÍCULAS ==========
+  // ============================================================
+  // 1. SPLASH CON PARTÍCULAS
+  // ============================================================
   (function() {
     const splash = document.getElementById('splash');
     const canvas = document.getElementById('splashCanvas');
     if (!canvas || !splash) return;
-    
     let ctx = canvas.getContext('2d');
     let particles = [];
     let animationId;
     let splashActive = true;
-    
+
     function resizeCanvas() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
-    
+
     function createParticles() {
-      const particleCount = Math.min(280, Math.floor(window.innerWidth / 5) + 60);
+      const count = Math.min(320, Math.floor(window.innerWidth / 4) + 80);
       particles = [];
-      for (let i = 0; i < particleCount; i++) {
+      for (let i = 0; i < count; i++) {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           radius: Math.random() * 2.5 + 0.5,
           alpha: Math.random() * 0.5 + 0.1,
-          vx: (Math.random() - 0.5) * 0.6,
-          vy: (Math.random() - 0.5) * 0.6
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5
         });
       }
     }
-    
+
     function drawParticles() {
       if (!ctx || !splashActive) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
       for (let p of particles) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha})`;
         ctx.fill();
-        
         p.x += p.vx;
         p.y += p.vy;
-        
         if (p.x < 0) p.x = canvas.width;
         if (p.x > canvas.width) p.x = 0;
         if (p.y < 0) p.y = canvas.height;
         if (p.y > canvas.height) p.y = 0;
       }
-      
       animationId = requestAnimationFrame(drawParticles);
     }
-    
+
     function initSplash() {
       resizeCanvas();
       createParticles();
       drawParticles();
-      
       setTimeout(() => {
-        if (splash) {
-          splash.classList.add('hidden');
-          splashActive = false;
-          setTimeout(() => {
-            if (animationId) cancelAnimationFrame(animationId);
-            if (canvas) canvas.style.display = 'none';
-          }, 800);
-        }
-      }, 2500);
+        splash.classList.add('hidden');
+        splashActive = false;
+        setTimeout(() => {
+          if (animationId) cancelAnimationFrame(animationId);
+          canvas.style.display = 'none';
+        }, 900);
+      }, 2600);
     }
-    
+
     window.addEventListener('resize', () => {
       if (splash && !splash.classList.contains('hidden') && splashActive) {
         resizeCanvas();
         createParticles();
       }
     });
-    
     initSplash();
   })();
 
-  // ========== GMAIL CON ASUNTO Y CUERPO ==========
+  // ============================================================
+  // 2. PARTÍCULAS DE FONDO
+  // ============================================================
+  (function() {
+    const canvas = document.getElementById('particles-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    let particles = [];
+    const COUNT = 90;
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    for (let i = 0; i < COUNT; i++) {
+      particles.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 2.5 + 1,
+        dx: (Math.random() - 0.5) * 0.3,
+        dy: (Math.random() - 0.5) * 0.3,
+        a: Math.random() * 0.4 + 0.1,
+        hue: Math.random() * 60 + 220
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      for (let p of particles) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${p.hue}, 80%, 70%, ${p.a})`;
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0) p.x = w;
+        if (p.x > w) p.x = 0;
+        if (p.y < 0) p.y = h;
+        if (p.y > h) p.y = 0;
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
+  // ============================================================
+  // 3. TOGGLE MODO OSCURO/CLARO (con localStorage)
+  // ============================================================
+  (function() {
+    const toggle = document.getElementById('themeSwitch');
+    if (!toggle) return;
+
+    // Comprobar preferencia guardada
+    const savedTheme = localStorage.getItem('rafa930-theme');
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-mode');
+      toggle.checked = true;
+    } else if (savedTheme === 'dark') {
+      document.body.classList.remove('light-mode');
+      toggle.checked = false;
+    } else {
+      // Si no hay preferencia, detectar sistema
+      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      if (prefersLight) {
+        document.body.classList.add('light-mode');
+        toggle.checked = true;
+        localStorage.setItem('rafa930-theme', 'light');
+      } else {
+        localStorage.setItem('rafa930-theme', 'dark');
+      }
+    }
+
+    toggle.addEventListener('change', function() {
+      if (this.checked) {
+        document.body.classList.add('light-mode');
+        localStorage.setItem('rafa930-theme', 'light');
+      } else {
+        document.body.classList.remove('light-mode');
+        localStorage.setItem('rafa930-theme', 'dark');
+      }
+    });
+  })();
+
+  // ============================================================
+  // 4. GMAIL
+  // ============================================================
   const gmailBtn = document.getElementById('gmailBtn');
   if (gmailBtn) {
     const email = 'rafa930.music@gmail.com';
@@ -756,56 +1108,37 @@
     gmailBtn.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`;
   }
 
-  // ========== WHATSAPP MEJORADO ==========
+  // ============================================================
+  // 5. WHATSAPP
+  // ============================================================
   const whatsappBtn = document.getElementById('whatsappBtn');
   if (whatsappBtn) {
-    const phoneNumber = '34671591814';
-    const message = encodeURIComponent('Hola Rafa 930! 👋%0D%0A%0D%0AMe encanta tu música y tu estilo. Me gustaría contactar contigo para hablar sobre colaboraciones, booking o simplemente conocer más sobre tu proyecto.%0D%0A%0D%0A¡Quedo atento a tu respuesta! 🎵🔥');
-    whatsappBtn.href = `https://wa.me/${phoneNumber}?text=${message}`;
+    const phone = '34671591814';
+    const msg = encodeURIComponent('Hola Rafa 930! 👋%0D%0A%0D%0AMe encanta tu música y tu estilo. Me gustaría contactar contigo para hablar sobre colaboraciones, booking o simplemente conocer más sobre tu proyecto.%0D%0A%0D%0A¡Quedo atento a tu respuesta! 🎵🔥');
+    whatsappBtn.href = `https://wa.me/${phone}?text=${msg}`;
   }
 
-  // ========== COPIAR EMAIL CON EFECTO ==========
+  // ============================================================
+  // 6. COPIAR EMAIL
+  // ============================================================
   const copyEmailEl = document.getElementById('copyEmail');
   if (copyEmailEl) {
     copyEmailEl.addEventListener('click', (e) => {
       e.preventDefault();
       const email = 'rafa930.music@gmail.com';
       navigator.clipboard.writeText(email).then(() => {
-        const originalText = copyEmailEl.innerText;
+        const original = copyEmailEl.innerText;
         copyEmailEl.innerText = '✓ ¡Copiado!';
-        copyEmailEl.style.color = '#ffffff';
+        copyEmailEl.style.color = '#a78bfa';
         setTimeout(() => {
-          copyEmailEl.innerText = originalText;
+          copyEmailEl.innerText = original;
           copyEmailEl.style.color = '';
         }, 2000);
       }).catch(() => {
-        alert('No se pudo copiar manualmente: ' + email);
+        alert('No se pudo copiar: ' + email);
       });
     });
   }
-
-  // ========== EFECTO DE BRILLO DINÁMICO EN BOTONES ==========
-  document.querySelectorAll('.link-btn').forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-      const rect = btn.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-      btn.style.setProperty('--x', `${x}%`);
-      btn.style.setProperty('--y', `${y}%`);
-    });
-  });
-
-  // Pequeña animación de entrada para los tooltips en móvil (feedback táctil)
-  const socialIcons = document.querySelectorAll('.social-icon');
-  socialIcons.forEach(icon => {
-    icon.addEventListener('touchstart', () => {
-      // Feedback háptico visual
-      icon.style.transform = 'scale(0.95)';
-      setTimeout(() => {
-        icon.style.transform = '';
-      }, 150);
-    });
-  });
 </script>
 
 </body>
