@@ -15,13 +15,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/">
     <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "Rafa 930",
-            "url": "https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/",
-            "description": "Enlaces oficiales del artista musical y fotógrafo Rafa 930."
-        }
+        {"@context":"https://schema.org","@type":"WebSite","name":"Rafa 930","url":"https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/","description":"Enlaces oficiales del artista musical y fotógrafo Rafa 930."}
     </script>
     <link rel="icon" type="image/x-icon" href="images/Foto-perfil.ico">
     <link rel="icon" type="image/webp" sizes="32x32" href="images/logo.webp">
@@ -134,23 +128,21 @@
         .splash-logo {
             width: clamp(70px, 22vw, 200px);
             height: clamp(70px, 22vw, 200px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             animation: splashFadeIn 0.9s ease-out forwards;
         }
         .splash-logo img {
-            width: 150%;
-            height: 150%;
+            width: 100%;
+            height: 100%;
             object-fit: contain;
+            display: block;
             filter: brightness(0) invert(1) drop-shadow(0 0 120px rgba(139, 92, 246, 0.6));
         }
         @keyframes splashFadeIn {
-            0% {
-                transform: scale(0.7);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
+            0% { transform: scale(0.7); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
         }
 
         .toast-container {
@@ -177,33 +169,24 @@
             border: 1px solid rgba(139, 92, 246, 0.2);
             animation: toastIn 0.4s ease, toastOut 0.4s 2s ease forwards;
             white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
         @keyframes toastIn {
-            0% {
-                opacity: 0;
-                transform: translateY(22px) scale(0.9);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            0% { opacity: 0; transform: translateY(22px) scale(0.9); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
         }
         @keyframes toastOut {
-            0% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-8px) scale(0.95);
-            }
+            0% { opacity: 1; transform: translateY(0) scale(1); }
+            100% { opacity: 0; transform: translateY(-8px) scale(0.95); }
         }
 
         .qr-modal-overlay {
             position: fixed;
             inset: 0;
             z-index: 9000;
-            background: rgba(0, 0, 0, 0.88);
+            background: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             display: flex;
@@ -219,7 +202,7 @@
             visibility: visible;
         }
         .qr-modal-card {
-            background: rgba(10, 8, 26, 0.92);
+            background: rgba(10, 8, 26, 0.95);
             backdrop-filter: blur(45px);
             -webkit-backdrop-filter: blur(45px);
             border: 1px solid rgba(139, 92, 246, 0.22);
@@ -287,773 +270,252 @@
             align-items: center;
         }
         @media (min-width: 600px) {
-            .hub {
-                max-width: 480px;
-                padding: 12px 0 6px;
-            }
+            .hub { max-width: 480px; padding: 12px 0 6px; }
         }
         @media (min-width: 900px) {
-            .hub {
-                max-width: 500px;
-                padding: 16px 0 8px;
-            }
+            .hub { max-width: 500px; padding: 16px 0 8px; }
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 4px;
-            width: 100%;
-        }
-        @media (min-width: 480px) {
-            .header {
-                margin-bottom: 6px;
-            }
-        }
-        @media (min-width: 768px) {
-            .header {
-                margin-bottom: 8px;
-            }
-        }
+        .header { text-align: center; margin-bottom: 4px; width: 100%; }
+        @media (min-width: 480px) { .header { margin-bottom: 6px; } }
+        @media (min-width: 768px) { .header { margin-bottom: 8px; } }
 
-        .avatar-wrap {
-            position: relative;
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 4px;
-        }
-        @media (min-width: 480px) {
-            .avatar-wrap {
-                width: 72px;
-                height: 72px;
-                margin-bottom: 5px;
-            }
-        }
-        @media (min-width: 768px) {
-            .avatar-wrap {
-                width: 80px;
-                height: 80px;
-                margin-bottom: 6px;
-            }
-        }
+        .avatar-wrap { position: relative; width: 60px; height: 60px; margin: 0 auto 4px; }
+        @media (min-width: 480px) { .avatar-wrap { width: 72px; height: 72px; margin-bottom: 5px; } }
+        @media (min-width: 768px) { .avatar-wrap { width: 80px; height: 80px; margin-bottom: 6px; } }
 
         .avatar {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid rgba(139, 92, 246, 0.4);
-            box-shadow: 0 0 60px rgba(139, 92, 246, 0.25);
-            transition: 0.5s;
-            cursor: pointer;
-            position: relative;
-            outline: none;
+            width: 100%; height: 100%; border-radius: 50%; overflow: hidden;
+            border: 2px solid rgba(139, 92, 246, 0.4); box-shadow: 0 0 60px rgba(139, 92, 246, 0.25);
+            transition: 0.5s; cursor: pointer; position: relative; outline: none;
         }
         .avatar::after {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #8b5cf6, #4f46e5, #fbbf24);
-            background-size: 300% 300%;
-            animation: borderGlow 4s ease-in-out infinite;
-            z-index: -1;
-            padding: 2px;
+            content: ''; position: absolute; inset: -2px; border-radius: 50%;
+            background: linear-gradient(135deg, #8b5cf6, #4f46e5, #fbbf24); background-size: 300% 300%;
+            animation: borderGlow 4s ease-in-out infinite; z-index: -1; padding: 2px;
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
+            -webkit-mask-composite: xor; mask-composite: exclude;
         }
         @keyframes borderGlow {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        .avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .avatar:hover {
-            transform: scale(1.05) translateY(-2px);
-            box-shadow: 0 0 80px rgba(139, 92, 246, 0.35);
-        }
+        .avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .avatar:hover { transform: scale(1.05) translateY(-2px); box-shadow: 0 0 80px rgba(139, 92, 246, 0.35); }
         .orbit-ring {
-            position: absolute;
-            inset: -4px;
-            border-radius: 50%;
-            border: 1px solid rgba(139, 92, 246, 0.08);
-            animation: orbitSpin 30s linear infinite;
-            pointer-events: none;
+            position: absolute; inset: -4px; border-radius: 50%;
+            border: 1px solid rgba(139, 92, 246, 0.08); animation: orbitSpin 30s linear infinite; pointer-events: none;
         }
-        @keyframes orbitSpin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
+        @keyframes orbitSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         h1 {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 8vw, 3rem);
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            color: #fff;
-            text-transform: uppercase;
-            line-height: 1;
+            font-family: var(--font-display); font-size: clamp(2rem, 8vw, 3rem);
+            font-weight: 700; letter-spacing: 1.5px; color: #fff; text-transform: uppercase; line-height: 1;
         }
         .subtitle {
-            color: var(--text-secondary);
-            font-size: clamp(0.4rem, 1.4vw, 0.65rem);
-            font-weight: 400;
-            letter-spacing: 1.2px;
-            opacity: 0.85;
-            font-family: var(--font-display);
+            color: var(--text-secondary); font-size: clamp(0.4rem, 1.4vw, 0.65rem);
+            font-weight: 400; letter-spacing: 1.2px; opacity: 0.85; font-family: var(--font-display);
         }
         .divider-line {
-            width: clamp(24px, 5vw, 36px);
-            height: 3px;
-            margin: 4px auto 0;
-            background: var(--featured-glow);
-            background-size: 300% 300%;
-            animation: dividerPulse 3s ease-in-out infinite alternate;
-            border-radius: 2px;
-            opacity: 0.8;
+            width: clamp(24px, 5vw, 36px); height: 3px; margin: 4px auto 0;
+            background: var(--featured-glow); background-size: 300% 300%;
+            animation: dividerPulse 3s ease-in-out infinite alternate; border-radius: 2px; opacity: 0.8;
         }
         @keyframes dividerPulse {
-            0% {
-                opacity: 0.5;
-                transform: scaleX(0.8);
-            }
-            100% {
-                opacity: 1;
-                transform: scaleX(1.2);
-            }
+            0% { opacity: 0.5; transform: scaleX(0.8); }
+            100% { opacity: 1; transform: scaleX(1.2); }
         }
 
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            margin-bottom: 6px;
-            width: 100%;
-        }
-        @media (min-width: 480px) {
-            .links {
-                gap: 6px;
-                margin-bottom: 8px;
-            }
-        }
+        .links { display: flex; flex-direction: column; gap: 5px; margin-bottom: 6px; width: 100%; }
+        @media (min-width: 480px) { .links { gap: 6px; margin-bottom: 8px; } }
 
         .link-btn {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: var(--bg-card);
-            backdrop-filter: blur(45px);
-            -webkit-backdrop-filter: blur(45px);
-            border: 1px solid var(--border-card);
-            border-radius: 10px;
-            padding: 10px 12px;
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 600;
-            font-size: clamp(0.7rem, 2.2vw, 0.85rem);
-            transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            box-shadow: var(--shadow-card);
-            min-height: 44px;
-            -webkit-tap-highlight-color: transparent;
+            display: flex; align-items: center; justify-content: space-between;
+            background: var(--bg-card); backdrop-filter: blur(45px); -webkit-backdrop-filter: blur(45px);
+            border: 1px solid var(--border-card); border-radius: 10px; padding: 10px 12px;
+            text-decoration: none; color: var(--text-primary); font-weight: 600;
+            font-size: clamp(0.7rem, 2.2vw, 0.85rem); transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+            position: relative; overflow: hidden; cursor: pointer; box-shadow: var(--shadow-card);
+            min-height: 44px; -webkit-tap-highlight-color: transparent;
         }
-        @media (min-width: 480px) {
-            .link-btn {
-                border-radius: 11px;
-                padding: 11px 14px;
-                min-height: 46px;
-            }
-        }
-        @media (min-width: 768px) {
-            .link-btn {
-                border-radius: 12px;
-                padding: 12px 16px;
-                min-height: 48px;
-            }
-        }
+        @media (min-width: 480px) { .link-btn { border-radius: 11px; padding: 11px 14px; min-height: 46px; } }
+        @media (min-width: 768px) { .link-btn { border-radius: 12px; padding: 12px 16px; min-height: 48px; } }
 
         .link-btn::after {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            border-radius: inherit;
-            padding: 2px;
-            background: linear-gradient(135deg, #8b5cf6, #4f46e5, #fbbf24);
-            background-size: 300% 300%;
+            content: ''; position: absolute; inset: -1px; border-radius: inherit; padding: 2px;
+            background: linear-gradient(135deg, #8b5cf6, #4f46e5, #fbbf24); background-size: 300% 300%;
             animation: borderAnim 4s linear infinite;
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: 0.5s;
+            -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: 0.5s;
         }
         @keyframes borderAnim {
-            0% {
-                background-position: 0% 50%;
-            }
-            33% {
-                background-position: 100% 0%;
-            }
-            66% {
-                background-position: 100% 100%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            33% { background-position: 100% 0%; }
+            66% { background-position: 100% 100%; }
+            100% { background-position: 0% 50%; }
         }
-        .link-btn:hover::after {
-            opacity: 1;
-        }
+        .link-btn:hover::after { opacity: 1; }
         .link-btn:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--border-card-hover);
-            transform: translateY(-2px) scale(1.01);
-            box-shadow: var(--shadow-card-hover);
+            background: var(--bg-card-hover); border-color: var(--border-card-hover);
+            transform: translateY(-2px) scale(1.01); box-shadow: var(--shadow-card-hover);
         }
 
         .ripple-effect {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out;
-            pointer-events: none;
+            position: absolute; border-radius: 50%; background: rgba(255, 255, 255, 0.15);
+            transform: scale(0); animation: rippleAnim 0.6s ease-out; pointer-events: none;
         }
-        @keyframes rippleAnim {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
+        @keyframes rippleAnim { to { transform: scale(4); opacity: 0; } }
 
-        .link-left {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex: 1;
-            min-width: 0;
-        }
-        @media (min-width: 480px) {
-            .link-left {
-                gap: 9px;
-            }
-        }
-        @media (min-width: 768px) {
-            .link-left {
-                gap: 10px;
-            }
-        }
+        .link-left { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; }
+        @media (min-width: 480px) { .link-left { gap: 9px; } }
+        @media (min-width: 768px) { .link-left { gap: 10px; } }
 
         .link-left .icon-wrap {
-            flex: 0 0 28px;
-            width: 28px;
-            height: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: var(--icon-wrap-bg);
-            transition: 0.4s;
-            box-shadow: 0 0 14px rgba(139, 92, 246, 0.04);
-            flex-shrink: 0;
+            flex: 0 0 28px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; background: var(--icon-wrap-bg); transition: 0.4s;
+            box-shadow: 0 0 14px rgba(139, 92, 246, 0.04); flex-shrink: 0;
         }
-        @media (min-width: 480px) {
-            .link-left .icon-wrap {
-                flex: 0 0 30px;
-                width: 30px;
-                height: 30px;
-            }
-        }
-        @media (min-width: 768px) {
-            .link-left .icon-wrap {
-                flex: 0 0 32px;
-                width: 32px;
-                height: 32px;
-            }
-        }
-        .link-btn:hover .link-left .icon-wrap {
-            background: var(--icon-wrap-hover);
-            transform: scale(1.08);
-        }
-        .link-left .icon-wrap i {
-            font-size: 0.9rem;
-            color: var(--gold);
-            transition: 0.3s;
-        }
-        @media (min-width: 480px) {
-            .link-left .icon-wrap i {
-                font-size: 0.95rem;
-            }
-        }
-        @media (min-width: 768px) {
-            .link-left .icon-wrap i {
-                font-size: 1rem;
-            }
-        }
-        .link-btn:hover .link-left .icon-wrap i {
-            filter: drop-shadow(0 0 16px rgba(251, 191, 36, 0.5));
-        }
-        .link-left .icon-wrap i.fa-spotify {
-            color: #1DB954;
-        }
-        .link-left .icon-wrap i.fa-youtube {
-            color: #FF0000;
-        }
-        .link-left .icon-wrap i.fa-crown {
-            color: var(--gold);
-        }
-        .link-left .icon-wrap i.fa-laptop-code {
-            color: var(--cyan);
-        }
-        .link-left .icon-wrap i.fa-podcast {
-            color: #5ab0a0;
-        }
-        .link-left .icon-wrap i.fa-calendar-check {
-            color: #d46a8a;
-        }
+        @media (min-width: 480px) { .link-left .icon-wrap { flex: 0 0 30px; width: 30px; height: 30px; } }
+        @media (min-width: 768px) { .link-left .icon-wrap { flex: 0 0 32px; width: 32px; height: 32px; } }
+        .link-btn:hover .link-left .icon-wrap { background: var(--icon-wrap-hover); transform: scale(1.08); }
+        .link-left .icon-wrap i { font-size: 0.9rem; color: var(--gold); transition: 0.3s; }
+        @media (min-width: 480px) { .link-left .icon-wrap i { font-size: 0.95rem; } }
+        @media (min-width: 768px) { .link-left .icon-wrap i { font-size: 1rem; } }
+        .link-btn:hover .link-left .icon-wrap i { filter: drop-shadow(0 0 16px rgba(251, 191, 36, 0.5)); }
+        .link-left .icon-wrap i.fa-spotify { color: #1DB954; }
+        .link-left .icon-wrap i.fa-youtube { color: #FF0000; }
+        .link-left .icon-wrap i.fa-crown { color: var(--gold); }
+        .link-left .icon-wrap i.fa-laptop-code { color: var(--cyan); }
+        .link-left .icon-wrap i.fa-podcast { color: #5ab0a0; }
+        .link-left .icon-wrap i.fa-calendar-check { color: #d46a8a; }
 
-        .link-left .link-text {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            min-width: 0;
-            overflow: hidden;
-        }
+        .link-left .link-text { display: flex; flex-direction: column; flex: 1; min-width: 0; overflow: hidden; }
         .link-left .link-text .title {
-            font-weight: 600;
-            font-size: 0.78rem;
-            font-family: var(--font-display);
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            font-weight: 600; font-size: 0.78rem; font-family: var(--font-display); text-transform: uppercase;
+            letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
         }
-        @media (min-width: 480px) {
-            .link-left .link-text .title {
-                font-size: 0.82rem;
-            }
-        }
-        @media (min-width: 768px) {
-            .link-left .link-text .title {
-                font-size: 0.85rem;
-            }
-        }
+        @media (min-width: 480px) { .link-left .link-text .title { font-size: 0.82rem; } }
+        @media (min-width: 768px) { .link-left .link-text .title { font-size: 0.85rem; } }
         .link-left .link-text .desc {
-            font-size: 0.45rem;
-            color: #cbd5e1;
-            font-weight: 500;
-            opacity: 0.9;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            font-size: 0.45rem; color: #cbd5e1; font-weight: 500; opacity: 0.9;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
         }
-        @media (min-width: 480px) {
-            .link-left .link-text .desc {
-                font-size: 0.48rem;
-            }
-        }
-        @media (min-width: 768px) {
-            .link-left .link-text .desc {
-                font-size: 0.5rem;
-            }
-        }
+        @media (min-width: 480px) { .link-left .link-text .desc { font-size: 0.48rem; } }
+        @media (min-width: 768px) { .link-left .link-text .desc { font-size: 0.5rem; } }
 
-        .link-btn .arrow {
-            font-size: 0.55rem;
-            color: var(--text-tertiary);
-            transition: 0.3s;
-            margin-left: 3px;
-            flex-shrink: 0;
-        }
-        @media (min-width: 480px) {
-            .link-btn .arrow {
-                font-size: 0.6rem;
-                margin-left: 4px;
-            }
-        }
-        @media (min-width: 768px) {
-            .link-btn .arrow {
-                font-size: 0.65rem;
-            }
-        }
-        .link-btn:hover .arrow {
-            transform: translateX(5px);
-            color: var(--gold);
-        }
+        .link-btn .arrow { font-size: 0.55rem; color: var(--text-tertiary); transition: 0.3s; margin-left: 3px; flex-shrink: 0; }
+        @media (min-width: 480px) { .link-btn .arrow { font-size: 0.6rem; margin-left: 4px; } }
+        @media (min-width: 768px) { .link-btn .arrow { font-size: 0.65rem; } }
+        .link-btn:hover .arrow { transform: translateX(5px); color: var(--gold); }
 
-        .badge-ia,
-        .badge-new {
-            display: inline-block;
-            border-radius: 3px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-left: 4px;
-            font-size: 0.28rem;
-            padding: 0 3px;
-            letter-spacing: 0.3px;
-            vertical-align: middle;
+        .badge-ia, .badge-new {
+            display: inline-block; border-radius: 3px; font-weight: 700; text-transform: uppercase;
+            margin-left: 4px; font-size: 0.28rem; padding: 0 3px; letter-spacing: 0.3px; vertical-align: middle;
         }
-        .badge-ia {
-            background: rgba(139, 92, 246, 0.15);
-            border: 1px solid rgba(139, 92, 246, 0.25);
-            color: #a78bfa;
-        }
-        .badge-new {
-            background: rgba(251, 191, 36, 0.12);
-            border: 1px solid rgba(251, 191, 36, 0.22);
-            color: #fbbf24;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% {
-                opacity: 0.5;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0.5;
-            }
-        }
+        .badge-ia { background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.25); color: #a78bfa; }
+        .badge-new { background: rgba(251, 191, 36, 0.12); border: 1px solid rgba(251, 191, 36, 0.22); color: #fbbf24; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
 
         .link-btn--featured {
-            background: rgba(236, 72, 153, 0.16);
-            backdrop-filter: blur(25px);
-            border: 2px solid #ec4899;
+            background: rgba(236, 72, 153, 0.16); backdrop-filter: blur(25px); border: 2px solid #ec4899;
             box-shadow: 0 0 45px rgba(236, 72, 153, 0.45), 0 0 90px rgba(249, 115, 22, 0.18);
             padding: 12px 14px;
         }
-        @media (min-width: 480px) {
-            .link-btn--featured {
-                padding: 13px 15px;
-            }
-        }
-        @media (min-width: 768px) {
-            .link-btn--featured {
-                padding: 14px 16px;
-            }
-        }
+        @media (min-width: 480px) { .link-btn--featured { padding: 13px 15px; } }
+        @media (min-width: 768px) { .link-btn--featured { padding: 14px 16px; } }
         .link-btn--featured::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: inherit;
-            padding: 2px;
-            background: var(--featured-glow);
-            background-size: 300% 300%;
-            animation: borderGlowFeatured 2.5s infinite;
-            z-index: -1;
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0.9;
+            content: ''; position: absolute; inset: -2px; border-radius: inherit; padding: 2px;
+            background: var(--featured-glow); background-size: 300% 300%; animation: borderGlowFeatured 2.5s infinite;
+            z-index: -1; -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0.9;
         }
         @keyframes borderGlowFeatured {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        .link-btn--featured:hover {
-            background: rgba(236, 72, 153, 0.25);
-            border-color: #f97316;
-        }
+        .link-btn--featured:hover { background: rgba(236, 72, 153, 0.25); border-color: #f97316; }
         .link-btn--featured .link-left .link-text .title,
         .link-btn--featured .link-left .link-text .desc,
-        .link-btn--featured .arrow {
-            color: #fff;
-        }
-        .link-btn--featured .link-left .icon-wrap {
-            background: rgba(255, 255, 255, 0.15);
-        }
-        .link-btn--featured .link-left .icon-wrap i {
-            color: #fff;
-        }
+        .link-btn--featured .arrow { color: #fff; }
+        .link-btn--featured .link-left .icon-wrap { background: rgba(255, 255, 255, 0.15); }
+        .link-btn--featured .link-left .icon-wrap i { color: #fff; }
 
-        /* QR Block integrado */
         .qr-block {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: var(--bg-card);
-            backdrop-filter: blur(45px);
-            -webkit-backdrop-filter: blur(45px);
-            border: 1px solid var(--border-card);
-            border-radius: 10px;
-            padding: 8px 14px;
-            margin-bottom: 6px;
-            cursor: pointer;
-            transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
-            box-shadow: var(--shadow-card);
-            width: 100%;
-            max-width: 280px;
-            -webkit-tap-highlight-color: transparent;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            background: var(--bg-card); backdrop-filter: blur(45px); -webkit-backdrop-filter: blur(45px);
+            border: 1px solid var(--border-card); border-radius: 10px; padding: 8px 14px;
+            margin-bottom: 6px; cursor: pointer; transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+            box-shadow: var(--shadow-card); width: 100%; max-width: 280px; -webkit-tap-highlight-color: transparent;
         }
-        @media (min-width: 480px) {
-            .qr-block {
-                border-radius: 11px;
-                padding: 9px 16px;
-                margin-bottom: 8px;
-                max-width: 300px;
-            }
-        }
-        @media (min-width: 768px) {
-            .qr-block {
-                border-radius: 12px;
-                padding: 10px 18px;
-                max-width: 320px;
-            }
-        }
+        @media (min-width: 480px) { .qr-block { border-radius: 11px; padding: 9px 16px; margin-bottom: 8px; max-width: 300px; } }
+        @media (min-width: 768px) { .qr-block { border-radius: 12px; padding: 10px 18px; max-width: 320px; } }
         .qr-block:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--border-card-hover);
-            transform: translateY(-2px) scale(1.01);
-            box-shadow: var(--shadow-card-hover);
+            background: var(--bg-card-hover); border-color: var(--border-card-hover);
+            transform: translateY(-2px) scale(1.01); box-shadow: var(--shadow-card-hover);
         }
-        .qr-block img {
-            width: 36px;
-            height: 36px;
-            border-radius: 6px;
-            background: #fff;
-            padding: 3px;
-            flex-shrink: 0;
-        }
-        @media (min-width: 480px) {
-            .qr-block img {
-                width: 40px;
-                height: 40px;
-            }
-        }
-        @media (min-width: 768px) {
-            .qr-block img {
-                width: 44px;
-                height: 44px;
-            }
-        }
-        .qr-block .qr-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1px;
-            text-align: left;
-        }
+        .qr-block img { width: 36px; height: 36px; border-radius: 6px; background: #fff; padding: 3px; flex-shrink: 0; }
+        @media (min-width: 480px) { .qr-block img { width: 40px; height: 40px; } }
+        @media (min-width: 768px) { .qr-block img { width: 44px; height: 44px; } }
+        .qr-block .qr-info { display: flex; flex-direction: column; gap: 1px; text-align: left; }
         .qr-block .qr-info .qr-title {
-            font-family: var(--font-display);
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 600; color: #fff;
+            text-transform: uppercase; letter-spacing: 0.3px;
         }
-        .qr-block .qr-info .qr-sub {
-            font-size: 0.4rem;
-            color: var(--text-tertiary);
-            font-weight: 500;
-        }
-        .qr-block .qr-arrow {
-            font-size: 0.5rem;
-            color: var(--text-tertiary);
-            transition: 0.3s;
-            flex-shrink: 0;
-            margin-left: auto;
-        }
-        .qr-block:hover .qr-arrow {
-            color: var(--gold);
-            transform: translateX(4px);
-        }
+        .qr-block .qr-info .qr-sub { font-size: 0.4rem; color: var(--text-tertiary); font-weight: 500; }
+        .qr-block .qr-arrow { font-size: 0.5rem; color: var(--text-tertiary); transition: 0.3s; flex-shrink: 0; margin-left: auto; }
+        .qr-block:hover .qr-arrow { color: var(--gold); transform: translateX(4px); }
 
         .social-dock {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            background: rgba(6, 6, 15, 0.8);
-            backdrop-filter: blur(45px);
-            -webkit-backdrop-filter: blur(45px);
-            border: 1px solid rgba(139, 92, 246, 0.15);
-            border-radius: 28px;
-            padding: 6px 14px;
-            width: fit-content;
-            margin: 0 auto 6px;
+            display: flex; justify-content: center; gap: 12px;
+            background: rgba(6, 6, 15, 0.8); backdrop-filter: blur(45px); -webkit-backdrop-filter: blur(45px);
+            border: 1px solid rgba(139, 92, 246, 0.15); border-radius: 28px; padding: 6px 14px;
+            width: fit-content; margin: 0 auto 6px;
         }
-        @media (min-width: 480px) {
-            .social-dock {
-                gap: 14px;
-                padding: 7px 16px;
-                border-radius: 30px;
-                margin-bottom: 7px;
-            }
-        }
-        @media (min-width: 768px) {
-            .social-dock {
-                gap: 16px;
-                padding: 8px 18px;
-                margin-bottom: 8px;
-            }
-        }
+        @media (min-width: 480px) { .social-dock { gap: 14px; padding: 7px 16px; border-radius: 30px; margin-bottom: 7px; } }
+        @media (min-width: 768px) { .social-dock { gap: 16px; padding: 8px 18px; margin-bottom: 8px; } }
         .social-icon {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            text-decoration: none;
-            transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.2);
-            opacity: 0.5;
-            outline: none;
-            position: relative;
+            color: var(--text-secondary); font-size: 1rem; text-decoration: none;
+            transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.2); opacity: 0.5; outline: none; position: relative;
         }
-        @media (min-width: 480px) {
-            .social-icon {
-                font-size: 1.05rem;
-            }
-        }
-        @media (min-width: 768px) {
-            .social-icon {
-                font-size: 1.1rem;
-            }
-        }
-        .social-icon:hover {
-            opacity: 1;
-            transform: translateY(-3px) scale(1.15);
-            color: var(--gold);
-            filter: drop-shadow(0 0 14px rgba(251, 191, 36, 0.4));
-        }
-        .social-icon .fa-instagram {
-            color: #E4405F;
-        }
-        .social-icon .fa-envelope {
-            color: #EA4335;
-        }
-        .social-icon .fa-whatsapp {
-            color: #25D366;
-        }
+        @media (min-width: 480px) { .social-icon { font-size: 1.05rem; } }
+        @media (min-width: 768px) { .social-icon { font-size: 1.1rem; } }
+        .social-icon:hover { opacity: 1; transform: translateY(-3px) scale(1.15); color: var(--gold); filter: drop-shadow(0 0 14px rgba(251, 191, 36, 0.4)); }
+        .social-icon .fa-instagram { color: #E4405F; }
+        .social-icon .fa-envelope { color: #EA4335; }
+        .social-icon .fa-whatsapp { color: #25D366; }
 
         .footer {
-            text-align: center;
-            font-size: 0.4rem;
-            color: var(--text-tertiary);
-            padding: 4px 2px 2px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 3px;
-            border-top: 1px solid rgba(139, 92, 246, 0.08);
-            margin-top: 2px;
-            width: 100%;
+            text-align: center; font-size: 0.4rem; color: var(--text-tertiary);
+            padding: 4px 2px 2px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+            gap: 3px; border-top: 1px solid rgba(139, 92, 246, 0.08); margin-top: 2px; width: 100%;
         }
-        @media (min-width: 480px) {
-            .footer {
-                font-size: 0.42rem;
-                gap: 4px;
-                padding: 5px 2px 3px;
-            }
+        @media (min-width: 480px) { .footer { font-size: 0.42rem; gap: 4px; padding: 5px 2px 3px; } }
+        @media (min-width: 768px) { .footer { font-size: 0.45rem; gap: 5px; } }
+        .footer a, .footer button {
+            color: var(--text-tertiary); text-decoration: none; transition: 0.3s; padding: 1px 3px;
+            border-radius: 4px; cursor: pointer; background: none; border: none;
+            font-family: var(--font-sans); font-size: inherit; letter-spacing: inherit;
         }
-        @media (min-width: 768px) {
-            .footer {
-                font-size: 0.45rem;
-                gap: 5px;
-            }
-        }
-        .footer a {
-            color: var(--text-tertiary);
-            text-decoration: none;
-            transition: 0.3s;
-            padding: 1px 3px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .footer a:hover {
-            color: #fff;
-        }
-        .footer .divider-dot {
-            opacity: 0.08;
-            font-size: 0.25rem;
-        }
-        .footer .footer-item {
-            display: inline-flex;
-            align-items: center;
-            gap: 2px;
-        }
-        .footer .footer-item i {
-            font-size: 0.35rem;
-            opacity: 0.4;
-        }
+        .footer a:hover, .footer button:hover { color: #fff; background: rgba(139, 92, 246, 0.08); }
+        .footer .divider-dot { opacity: 0.08; font-size: 0.25rem; }
+        .footer .footer-item { display: inline-flex; align-items: center; gap: 2px; }
+        .footer .footer-item i { font-size: 0.35rem; opacity: 0.4; }
 
         @keyframes fadeUp {
-            0% {
-                opacity: 0;
-                transform: translateY(10px) scale(0.95);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            0% { opacity: 0; transform: translateY(10px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
         }
-        .animate {
-            animation: fadeUp 0.35s ease forwards;
-            opacity: 0;
-        }
-        .d1 {
-            animation-delay: 0.02s;
-        }
-        .d2 {
-            animation-delay: 0.04s;
-        }
-        .d3 {
-            animation-delay: 0.06s;
-        }
-        .d4 {
-            animation-delay: 0.08s;
-        }
-        .d5 {
-            animation-delay: 0.10s;
-        }
-        .d6 {
-            animation-delay: 0.12s;
-        }
-        .d7 {
-            animation-delay: 0.14s;
-        }
-        .d8 {
-            animation-delay: 0.16s;
-        }
-        .d9 {
-            animation-delay: 0.18s;
-        }
-        .d10 {
-            animation-delay: 0.20s;
-        }
+        .animate { animation: fadeUp 0.35s ease forwards; opacity: 0; }
+        .d1 { animation-delay: 0.02s; } .d2 { animation-delay: 0.04s; } .d3 { animation-delay: 0.06s; }
+        .d4 { animation-delay: 0.08s; } .d5 { animation-delay: 0.10s; } .d6 { animation-delay: 0.12s; }
+        .d7 { animation-delay: 0.14s; } .d8 { animation-delay: 0.16s; } .d9 { animation-delay: 0.18s; }
+        .d10 { animation-delay: 0.20s; }
 
-        ::-webkit-scrollbar {
-            width: 3px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-deep);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 10px;
-        }
+        ::-webkit-scrollbar { width: 3px; }
+        ::-webkit-scrollbar-track { background: var(--bg-deep); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
     </style>
 </head>
 <body>
@@ -1064,12 +526,12 @@
         <div class="splash-logo"><img src="images/logo.webp" alt="Rafa 930 Logo" onerror="this.src='https://placehold.co/200x200/06060f/8b5cf6?text=R9'"></div>
     </div>
 
-    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+    <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
 
-    <div class="qr-modal-overlay" id="qrModal" role="dialog" aria-modal="true" aria-label="Código QR ampliado">
+    <div class="qr-modal-overlay" id="qrModal" role="dialog" aria-modal="true" aria-labelledby="qrModalTitle">
         <div class="qr-modal-card">
             <img id="qrModalImg" src="" alt="Código QR de Rafa 930">
-            <div class="qr-modal-title">Escanea para acceder</div>
+            <div class="qr-modal-title" id="qrModalTitle">Escanea para acceder</div>
             <div class="qr-modal-sub">Rafa 930 · Web oficial</div>
             <div class="qr-modal-actions">
                 <button class="btn-sm" id="qrModalDownload"><i class="fa-solid fa-download"></i> Descargar</button>
@@ -1078,280 +540,202 @@
         </div>
     </div>
 
-    <div class="hub">
-        <div class="header animate d1">
+    <main class="hub" role="main">
+        <header class="header animate d1">
             <div class="avatar-wrap">
                 <div class="avatar" role="button" tabindex="0" aria-label="Ir a la página oficial de Rafa 930" onclick="window.open('https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/', '_blank')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
-                    <img src="images/Foto-perfil.webp" alt="Rafa 930" onerror="this.src='https://placehold.co/400x400/06060f/8b5cf6?text=R9'">
+                    <img src="images/Foto-perfil.webp" alt="Rafa 930" loading="eager" onerror="this.src='https://placehold.co/400x400/06060f/8b5cf6?text=R9'">
                 </div>
                 <div class="orbit-ring" aria-hidden="true"></div>
             </div>
             <h1>RAFA 930</h1>
-            <div class="subtitle">Músico · Fotógrafo · Desarrollador IA</div>
+            <p class="subtitle">Músico · Fotógrafo · Desarrollador IA</p>
             <div class="divider-line" aria-hidden="true"></div>
-        </div>
+        </header>
 
-        <div class="links">
-            <a href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/" class="link-btn link-btn--featured animate d2" target="_blank" rel="noopener">
-                <div class="link-left">
-                    <div class="icon-wrap"><i class="fa-solid fa-crown"></i></div>
-                    <div class="link-text"><span class="title">Plataforma Oficial</span><span class="desc">Portfolio · Biografía · Proyectos</span></div>
-                </div>
-                <i class="fa-solid fa-arrow-right arrow"></i>
+        <nav class="links" aria-label="Enlaces principales">
+            <a href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/" class="link-btn link-btn--featured animate d2" target="_blank" rel="noopener noreferrer">
+                <div class="link-left"><div class="icon-wrap"><i class="fa-solid fa-crown" aria-hidden="true"></i></div><div class="link-text"><span class="title">Plataforma Oficial</span><span class="desc">Portfolio · Biografía · Proyectos</span></div></div>
+                <i class="fa-solid fa-arrow-right arrow" aria-hidden="true"></i>
             </a>
-            <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" class="link-btn animate d3" target="_blank" rel="noopener">
-                <div class="link-left">
-                    <div class="icon-wrap"><i class="fa-brands fa-spotify"></i></div>
-                    <div class="link-text"><span class="title">Spotify · Discografía</span><span class="desc">Escucha toda mi música</span></div>
-                </div>
-                <i class="fa-solid fa-chevron-right arrow"></i>
+            <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" class="link-btn animate d3" target="_blank" rel="noopener noreferrer">
+                <div class="link-left"><div class="icon-wrap"><i class="fa-brands fa-spotify" aria-hidden="true"></i></div><div class="link-text"><span class="title">Spotify · Discografía</span><span class="desc">Escucha toda mi música</span></div></div>
+                <i class="fa-solid fa-chevron-right arrow" aria-hidden="true"></i>
             </a>
-            <a href="https://youtube.com/@rafa_930" class="link-btn animate d4" target="_blank" rel="noopener">
-                <div class="link-left">
-                    <div class="icon-wrap"><i class="fa-brands fa-youtube"></i></div>
-                    <div class="link-text"><span class="title">YouTube · Videoclips</span><span class="desc">Videoclips oficiales y contenido</span></div>
-                </div>
-                <i class="fa-solid fa-chevron-right arrow"></i>
+            <a href="https://youtube.com/@rafa_930" class="link-btn animate d4" target="_blank" rel="noopener noreferrer">
+                <div class="link-left"><div class="icon-wrap"><i class="fa-brands fa-youtube" aria-hidden="true"></i></div><div class="link-text"><span class="title">YouTube · Videoclips</span><span class="desc">Videoclips oficiales y contenido</span></div></div>
+                <i class="fa-solid fa-chevron-right arrow" aria-hidden="true"></i>
             </a>
-            <a href="https://www.ivoox.com/street-vibes-radio_pr_posts_3110928_1.html" class="link-btn animate d5" target="_blank" rel="noopener" style="border-color:rgba(90,176,160,0.08);">
-                <div class="link-left">
-                    <div class="icon-wrap"><i class="fa-solid fa-podcast" style="color:#5ab0a0;"></i></div>
-                    <div class="link-text"><span class="title">Street Vibes Radio <span class="badge-new">NUEVO</span></span><span class="desc">Podcast · Entrevistas · Cultura urbana</span></div>
-                </div>
-                <i class="fa-solid fa-chevron-right arrow"></i>
+            <a href="https://www.ivoox.com/street-vibes-radio_pr_posts_3110928_1.html" class="link-btn animate d5" target="_blank" rel="noopener noreferrer" style="border-color:rgba(90,176,160,0.08);">
+                <div class="link-left"><div class="icon-wrap"><i class="fa-solid fa-podcast" style="color:#5ab0a0;" aria-hidden="true"></i></div><div class="link-text"><span class="title">Street Vibes Radio <span class="badge-new">NUEVO</span></span><span class="desc">Podcast · Entrevistas · Cultura urbana</span></div></div>
+                <i class="fa-solid fa-chevron-right arrow" aria-hidden="true"></i>
             </a>
-            <a href="https://rafa930music-sudo.github.io/930-Digital/" class="link-btn animate d6" target="_blank" rel="noopener">
-                <div class="link-left">
-                    <div class="icon-wrap"><i class="fa-solid fa-laptop-code"></i></div>
-                    <div class="link-text"><span class="title">930 Digital <span class="badge-ia">IA</span></span><span class="desc">Desarrollo web con inteligencia artificial</span></div>
-                </div>
-                <i class="fa-solid fa-chevron-right arrow"></i>
+            <a href="https://rafa930music-sudo.github.io/930-Digital/" class="link-btn animate d6" target="_blank" rel="noopener noreferrer">
+                <div class="link-left"><div class="icon-wrap"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></div><div class="link-text"><span class="title">930 Digital <span class="badge-ia">IA</span></span><span class="desc">Desarrollo web con inteligencia artificial</span></div></div>
+                <i class="fa-solid fa-chevron-right arrow" aria-hidden="true"></i>
             </a>
-            <a href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#booking" class="link-btn animate d7" target="_blank" rel="noopener">
-                <div class="link-left">
-                    <div class="icon-wrap"><i class="fa-regular fa-calendar-check"></i></div>
-                    <div class="link-text"><span class="title">Booking · Conciertos</span><span class="desc">Contrataciones y fechas en vivo</span></div>
-                </div>
-                <i class="fa-solid fa-chevron-right arrow"></i>
+            <a href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#booking" class="link-btn animate d7" target="_blank" rel="noopener noreferrer">
+                <div class="link-left"><div class="icon-wrap"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i></div><div class="link-text"><span class="title">Booking · Conciertos</span><span class="desc">Contrataciones y fechas en vivo</span></div></div>
+                <i class="fa-solid fa-chevron-right arrow" aria-hidden="true"></i>
             </a>
-        </div>
+        </nav>
 
-        <!-- QR integrado como un bloque más -->
         <div class="qr-block animate d8" id="qrBlock" role="button" tabindex="0" aria-label="Ver código QR ampliado">
-            <img id="qrBlockImg" src="" alt="QR Rafa 930">
-            <div class="qr-info">
-                <span class="qr-title">Código QR</span>
-                <span class="qr-sub">Escanea para acceder a la web</span>
-            </div>
-            <i class="fa-solid fa-chevron-right qr-arrow"></i>
+            <img id="qrBlockImg" src="" alt="QR Rafa 930" loading="lazy">
+            <div class="qr-info"><span class="qr-title">Código QR</span><span class="qr-sub">Escanea para acceder a la web</span></div>
+            <i class="fa-solid fa-chevron-right qr-arrow" aria-hidden="true"></i>
         </div>
 
         <div class="social-dock animate d9" role="navigation" aria-label="Redes sociales">
-            <a href="https://instagram.com/rafa930_oficial" class="social-icon" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" id="gmailBtn" class="social-icon" target="_blank" rel="noopener" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
-            <a href="#" id="whatsappBtn" class="social-icon" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" class="social-icon" target="_blank" rel="noopener" aria-label="Spotify"><i class="fa-brands fa-spotify"></i></a>
-            <a href="#" id="youtubeSocialBtn" class="social-icon" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://instagram.com/rafa930_oficial" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" id="gmailBtn" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Enviar correo"><i class="fa-regular fa-envelope" aria-hidden="true"></i></a>
+            <a href="#" id="whatsappBtn" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+            <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><i class="fa-brands fa-spotify" aria-hidden="true"></i></a>
+            <a href="#" id="youtubeSocialBtn" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
         </div>
 
-        <div class="footer animate d10" role="contentinfo">
-            <span class="footer-item"><i class="fa-regular fa-envelope"></i> rafa930.music@gmail.com</span>
-            <span class="divider-dot">·</span>
-            <a id="copyEmail" class="footer-item"><i class="fa-regular fa-copy"></i> Copiar email</a>
-            <span class="divider-dot">·</span>
-            <a id="shareProfile" class="footer-item"><i class="fa-regular fa-share-from-square"></i> Compartir</a>
-            <span class="divider-dot">·</span>
-            <span class="footer-item"><i class="fa-regular fa-copyright"></i> 2026 RAFA 930</span>
-        </div>
-    </div>
+        <footer class="footer animate d10" role="contentinfo">
+            <span class="footer-item"><i class="fa-regular fa-envelope" aria-hidden="true"></i> rafa930.music@gmail.com</span>
+            <span class="divider-dot" aria-hidden="true">·</span>
+            <button id="copyEmail" class="footer-item"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar email</button>
+            <span class="divider-dot" aria-hidden="true">·</span>
+            <button id="shareProfile" class="footer-item"><i class="fa-regular fa-share-from-square" aria-hidden="true"></i> Compartir</button>
+            <span class="divider-dot" aria-hidden="true">·</span>
+            <span class="footer-item"><i class="fa-regular fa-copyright" aria-hidden="true"></i> 2026 RAFA 930</span>
+        </footer>
+    </main>
 
     <script>
         (() => {
             const splash = document.getElementById('splash');
             if (splash) {
-                setTimeout(() => { splash.classList.add('hidden');
-                    setTimeout(() => { splash.style.display = 'none'; }, 700); }, 1400);
+                setTimeout(() => { splash.classList.add('hidden'); setTimeout(() => { splash.style.display = 'none'; }, 700); }, 1500);
             }
 
             const toastContainer = document.getElementById('toastContainer');
-
-            function showToast(msg, icon = '') {
+            const showToast = (msg, icon = 'fa-solid fa-circle-check') => {
                 if (!toastContainer) return;
-                const t = document.createElement('div');
-                t.className = 'toast';
-                t.innerHTML = icon ? `<i class="${icon}"></i> ${msg}` : msg;
+                const t = document.createElement('div'); t.className = 'toast';
+                t.innerHTML = `<i class="${icon}" aria-hidden="true"></i> ${msg}`;
                 toastContainer.appendChild(t);
-                setTimeout(() => { if (t.parentNode) t.remove(); }, 2400);
-            }
+                setTimeout(() => { if (t.parentNode) t.remove(); }, 2600);
+            };
 
             const qrUrl = 'https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/';
-            const qrApi =
-                `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(qrUrl)}&bgcolor=ffffff&color=000000&margin=10`;
+            const qrApi = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(qrUrl)}&bgcolor=ffffff&color=000000&margin=10`;
             const qrBlockImg = document.getElementById('qrBlockImg');
             const qrModalImg = document.getElementById('qrModalImg');
             if (qrBlockImg) qrBlockImg.src = qrApi;
             if (qrModalImg) qrModalImg.src = qrApi;
 
             const qrModal = document.getElementById('qrModal');
-
-            function openModal() { if (qrModal) qrModal.classList.add('active'); }
-
-            function closeModal() { if (qrModal) qrModal.classList.remove('active'); }
+            const openModal = () => { if (qrModal) qrModal.classList.add('active'); };
+            const closeModal = () => { if (qrModal) qrModal.classList.remove('active'); };
             document.getElementById('qrBlock')?.addEventListener('click', openModal);
-            document.getElementById('qrBlock')?.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key ===
-                    ' ') { e.preventDefault();
-                    openModal(); } });
+            document.getElementById('qrBlock')?.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); } });
             document.getElementById('qrModalClose')?.addEventListener('click', closeModal);
             qrModal?.addEventListener('click', e => { if (e.target === qrModal) closeModal(); });
             document.getElementById('qrModalDownload')?.addEventListener('click', () => {
                 if (qrModalImg?.src) {
-                    const a = document.createElement('a');
-                    a.download = 'rafa930-qr.png';
-                    a.href = qrModalImg.src;
-                    document.body.appendChild(a);
-                    a.click();
-                    a.remove();
-                    showToast('QR descargado', 'fa-solid fa-check');
+                    const a = document.createElement('a'); a.download = 'rafa930-qr.png'; a.href = qrModalImg.src;
+                    document.body.appendChild(a); a.click(); a.remove(); showToast('QR descargado exitosamente', 'fa-solid fa-check');
                 }
             });
 
-            document.getElementById('shareProfile')?.addEventListener('click', e => {
+            document.getElementById('shareProfile')?.addEventListener('click', async (e) => {
                 e.preventDefault();
-                if (navigator.share) navigator.share({ title: 'Rafa 930', text: '🎵 Descubre mi música',
-                    url: qrUrl }).catch(() => {});
-                else navigator.clipboard.writeText(qrUrl).then(() => showToast('¡Enlace copiado!',
-                    'fa-solid fa-check'));
+                const shareData = { title: 'Rafa 930 · Enlaces oficiales', text: '🎵 Descubre la música de Rafa 930', url: qrUrl };
+                try {
+                    if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+                        await navigator.share(shareData);
+                    } else {
+                        await navigator.clipboard.writeText(qrUrl);
+                        showToast('¡Enlace copiado al portapapeles!', 'fa-solid fa-share-nodes');
+                    }
+                } catch (err) {
+                    try { await navigator.clipboard.writeText(qrUrl); showToast('Enlace copiado', 'fa-solid fa-copy'); } catch (clipErr) { showToast('No se pudo compartir', 'fa-solid fa-triangle-exclamation'); }
+                }
             });
 
             const email = 'rafa930.music@gmail.com';
-            document.getElementById('gmailBtn').href =
-                `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=Consulta profesional · Rafa 930&body=Hola Rafa 930,%0D%0A%0D%0AQuiero contactar contigo.%0D%0A%0D%0A¡Saludos!`;
-            document.getElementById('whatsappBtn').href =
-                `https://wa.me/34671591814?text=Hola Rafa 930! 👋 Me encanta tu trabajo.`;
-            document.getElementById('youtubeSocialBtn')?.addEventListener('click', e => { e.preventDefault();
-                window.open('https://youtube.com/@rafa_930', '_blank'); });
-            document.getElementById('copyEmail')?.addEventListener('click', e => {
+            document.getElementById('gmailBtn').href = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent('Consulta profesional · Rafa 930')}&body=${encodeURIComponent('Hola Rafa 930,\n\nQuiero contactar contigo.\n\n¡Saludos!')}`;
+            document.getElementById('whatsappBtn').href = `https://wa.me/34671591814?text=${encodeURIComponent('Hola Rafa 930! 👋 Me encanta tu trabajo.')}`;
+            document.getElementById('youtubeSocialBtn')?.addEventListener('click', e => { e.preventDefault(); window.open('https://youtube.com/@rafa_930', '_blank', 'noopener'); });
+            document.getElementById('copyEmail')?.addEventListener('click', async (e) => {
                 e.preventDefault();
-                navigator.clipboard.writeText(email).then(() => showToast('Email copiado',
-                'fa-solid fa-check'));
+                try { await navigator.clipboard.writeText(email); showToast('Email copiado al portapapeles', 'fa-solid fa-envelope-circle-check'); } catch { showToast('Email: ' + email, 'fa-regular fa-envelope'); }
             });
 
-            document.querySelectorAll('.link-btn, .qr-block').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    const ripple = document.createElement('span');
-                    ripple.className = 'ripple-effect';
-                    const rect = this.getBoundingClientRect();
-                    const size = Math.max(rect.width, rect.height);
+            document.querySelectorAll('.link-btn, .qr-block').forEach(el => {
+                el.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span'); ripple.className = 'ripple-effect';
+                    const rect = this.getBoundingClientRect(); const size = Math.max(rect.width, rect.height) * 1.2;
                     ripple.style.width = ripple.style.height = `${size}px`;
-                    ripple.style.left = `${e.clientX - rect.left - size/2}px`;
-                    ripple.style.top = `${e.clientY - rect.top - size/2}px`;
-                    this.appendChild(ripple);
-                    ripple.addEventListener('animationend', () => ripple.remove());
+                    ripple.style.left = `${e.clientX - rect.left - size/2}px`; ripple.style.top = `${e.clientY - rect.top - size/2}px`;
+                    this.appendChild(ripple); ripple.addEventListener('animationend', () => ripple.remove());
                 });
             });
 
             const bgDynamic = document.getElementById('bgDynamic');
             if (bgDynamic && window.innerWidth > 768) {
-                const style = document.createElement('style');
-                style.textContent =
-                    `.bg-dynamic::before { transform: translate(var(--px,0px), var(--py,0px)) scale(1.06); transition: transform 0.2s ease-out; }`;
-                document.head.appendChild(style);
+                const styleEl = document.createElement('style');
+                styleEl.textContent = `.bg-dynamic::before { transform: translate(var(--px, 0px), var(--py, 0px)) scale(1.06); transition: transform 0.2s ease-out; }`;
+                document.head.appendChild(styleEl);
                 document.addEventListener('mousemove', e => {
                     const x = (e.clientX / window.innerWidth - 0.5) * 8;
                     const y = (e.clientY / window.innerHeight - 0.5) * 8;
-                    bgDynamic.style.setProperty('--px', `${x}px`);
-                    bgDynamic.style.setProperty('--py', `${y}px`);
+                    bgDynamic.style.setProperty('--px', `${x}px`); bgDynamic.style.setProperty('--py', `${y}px`);
                 }, { passive: true });
             }
 
             const canvas = document.getElementById('particlesBg');
             if (canvas) {
-                const ctx = canvas.getContext('2d');
-                let w, h, particles = [],
-                    anim;
-                const maxP = window.innerWidth < 768 ? 20 : 32;
-                let mx = -1000,
-                    my = -1000;
+                const ctx = canvas.getContext('2d'); let w, h, particles = [], anim;
+                const isMobile = window.matchMedia('(max-width: 768px)').matches;
+                const maxP = isMobile ? 18 : 32;
+                let mx = -1000, my = -1000;
+                const resize = () => { w = window.innerWidth; h = window.innerHeight; canvas.width = w; canvas.height = h; };
+                window.addEventListener('resize', () => { resize(); initParticles(); }); resize();
+                document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+                document.addEventListener('mouseleave', () => { mx = -1000; my = -1000; });
 
-                function resize() { w = window.innerWidth;
-                    h = window.innerHeight;
-                    canvas.width = w;
-                    canvas.height = h; }
-                window.addEventListener('resize', () => { resize();
-                    initParticles(); });
-                resize();
-                document.addEventListener('mousemove', e => { mx = e.clientX;
-                    my = e.clientY; }, { passive: true });
-                document.addEventListener('mouseleave', () => { mx = -1000;
-                    my = -1000; });
                 class Particle {
                     constructor() { this.reset(); }
                     reset() {
-                        this.x = Math.random() * w;
-                        this.y = Math.random() * h;
-                        this.size = Math.random() * 1.8 + 0.4;
-                        this.sx = (Math.random() - 0.5) * 0.15;
-                        this.sy = (Math.random() - 0.5) * 0.15;
-                        this.opacity = Math.random() * 0.35 + 0.15;
-                        this.pulse = Math.random() * Math.PI * 2;
+                        this.x = Math.random() * w; this.y = Math.random() * h; this.size = Math.random() * 1.8 + 0.4;
+                        this.sx = (Math.random() - 0.5) * 0.15; this.sy = (Math.random() - 0.5) * 0.15;
+                        this.opacity = Math.random() * 0.35 + 0.15; this.pulse = Math.random() * Math.PI * 2;
                         this.ps = 0.004 + Math.random() * 0.01;
-                        this.color = Math.random() < 0.5 ? 'rgba(139,92,246,0.22)' :
-                            'rgba(251,191,36,0.14)';
+                        this.color = Math.random() < 0.5 ? 'rgba(139,92,246,0.22)' : 'rgba(251,191,36,0.14)';
                     }
                     update() {
-                        this.x += this.sx;
-                        this.y += this.sy;
-                        this.pulse += this.ps;
-                        const dx = this.x - mx,
-                            dy = this.y - my,
-                            dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 80) { const f = (80 - dist) / 80;
-                            this.x += (dx / dist) * f * 0.4;
-                            this.y += (dy / dist) * f * 0.4; }
-                        if (this.x > w) this.x = 0;
-                        if (this.x < 0) this.x = w;
-                        if (this.y > h) this.y = 0;
-                        if (this.y < 0) this.y = h;
+                        this.x += this.sx; this.y += this.sy; this.pulse += this.ps;
+                        const dx = this.x - mx, dy = this.y - my, dist = Math.sqrt(dx*dx+dy*dy);
+                        if (dist < 80) { const f = (80 - dist) / 80; this.x += (dx/dist) * f * 0.4; this.y += (dy/dist) * f * 0.4; }
+                        if (this.x > w) this.x = 0; if (this.x < 0) this.x = w; if (this.y > h) this.y = 0; if (this.y < 0) this.y = h;
                     }
                     draw() {
                         const alpha = this.opacity + Math.sin(this.pulse) * 0.1;
-                        ctx.beginPath();
-                        ctx.arc(this.x, this.y, this.size * (0.9 + Math.sin(this.pulse) * 0.12), 0, Math.PI * 2);
-                        ctx.fillStyle = this.color;
-                        ctx.globalAlpha = Math.min(alpha, 0.55);
-                        ctx.fill();
-                        ctx.globalAlpha = 1;
+                        ctx.beginPath(); ctx.arc(this.x, this.y, this.size * (0.9 + Math.sin(this.pulse) * 0.12), 0, Math.PI*2);
+                        ctx.fillStyle = this.color; ctx.globalAlpha = Math.min(alpha, 0.55); ctx.fill(); ctx.globalAlpha = 1;
                     }
                 }
-
-                function initParticles() { particles = Array.from({ length: maxP }, () => new Particle()); }
-
-                function connect() {
+                const initParticles = () => { particles = Array.from({ length: maxP }, () => new Particle()); };
+                const connect = () => {
                     ctx.strokeStyle = 'rgba(139,92,246,0.04)';
-                    for (let i = 0; i < particles.length; i++)
-                        for (let j = i + 1; j < particles.length; j++) {
-                            const dx = particles[i].x - particles[j].x,
-                                dy = particles[i].y - particles[j].y,
-                                dist = Math.sqrt(dx * dx + dy * dy);
-                            if (dist < 90) { ctx.beginPath();
-                                ctx.moveTo(particles[i].x, particles[i].y);
-                                ctx.lineTo(particles[j].x, particles[j].y);
-                                ctx.globalAlpha = 0.04 * (1 - dist / 90);
-                                ctx.lineWidth = 0.4;
-                                ctx.stroke();
-                                ctx.globalAlpha = 1; }
-                        }
-                }
-
-                function animate() { ctx.clearRect(0, 0, w, h);
-                    particles.forEach(p => { p.update();
-                        p.draw(); });
-                    connect();
-                    anim = requestAnimationFrame(animate); }
-                initParticles();
-                animate();
+                    for (let i = 0; i < particles.length; i++) for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y, dist = Math.sqrt(dx*dx+dy*dy);
+                        if (dist < 90) { ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y); ctx.globalAlpha = 0.04 * (1 - dist/90); ctx.lineWidth = 0.4; ctx.stroke(); ctx.globalAlpha = 1; }
+                    }
+                };
+                const animate = () => { ctx.clearRect(0,0,w,h); particles.forEach(p => { p.update(); p.draw(); }); connect(); anim = requestAnimationFrame(animate); };
+                initParticles(); animate();
                 window.addEventListener('beforeunload', () => { if (anim) cancelAnimationFrame(anim); });
             }
+
+            document.querySelectorAll('.footer button').forEach(btn => {
+                btn.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); } });
+            });
         })();
     </script>
 </body>
