@@ -6,8 +6,8 @@ let logoImage = null;
 let logoLoaded = false;
 let startTime = null;
 let exitProgress = 0;
-const DURATION = 2800;
-const EXIT_DURATION = 1000;
+const DURATION = 800;     
+const EXIT_DURATION = 600;
 
 function createParticles() {
   particles = [];

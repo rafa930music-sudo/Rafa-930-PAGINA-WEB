@@ -340,13 +340,22 @@
   <!-- ============================================ -->
   <header class="header" id="header" role="banner">
   <div class="container">
-    <nav class="nav" role="navigation" aria-label="Navegación principal">
-    <a href="#hero" class="logo" aria-label="Rafa 930 - Ir al inicio">
-  <img src="images/logo.webp" alt="Rafa 930" class="logo__img">
-</a>
-      
-      
-          <div class="nav__actions">
+   <nav class="nav" role="navigation" aria-label="Navegación principal">
+  <a href="#hero" class="logo" aria-label="Rafa 930 - Ir al inicio">
+    <img src="images/logo.webp" alt="Rafa 930" class="logo__img">
+  </a>
+  
+  <!-- ✅ MENÚ DE ESCRITORIO (visible a partir de 1025px) -->
+  <ul class="nav__menu" role="menubar">
+  <li role="none"><a href="#about" class="nav__link" role="menuitem" data-i18n="nav_about">Biografía</a></li>
+  <li role="none"><a href="#discography" class="nav__link" role="menuitem" data-i18n="nav_music">Música</a></li>
+  <li role="none"><a href="#colaboradores" class="nav__link" role="menuitem">Colaboraciones</a></li>
+  <li role="none"><a href="#booking" class="nav__link" role="menuitem" data-i18n="nav_booking">Booking</a></li>
+  <li role="none"><a href="https://youtube.com/@rafa_930" target="_blank" rel="noopener" class="nav__link nav__link--youtube" role="menuitem"><i class="fab fa-youtube"></i> YouTube</a></li>
+  <li role="none"><a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" target="_blank" rel="noopener" class="nav__link nav__link--spotify" role="menuitem"><i class="fab fa-spotify"></i> Escuchar</a></li>
+</ul>
+
+  <div class="nav__actions">
         <!-- Redes sociales -->
         <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" target="_blank" rel="noopener noreferrer" class="nav__social" aria-label="Spotify">
           <i class="fab fa-spotify"></i>
@@ -390,6 +399,15 @@
     <a href="#colaboradores" class="mobile-menu__link">Colaboraciones</a>
     <a href="#booking" class="mobile-menu__link" data-i18n="nav_booking">Booking</a>
     <a href="#contact" class="mobile-menu__link" data-i18n="nav_contact">Contacto</a>
+<!-- Enlace a Spotify -->
+  <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" target="_blank" rel="noopener" class="mobile-menu__link" style="color: #1DB954;">
+    <i class="fab fa-spotify"></i> Escuchar en Spotify
+  </a>
+  <!-- ✅ NUEVO: Enlace a YouTube -->
+  <a href="https://youtube.com/@rafa_930" target="_blank" rel="noopener" class="mobile-menu__link" style="color: #FF0000;">
+    <i class="fab fa-youtube"></i> YouTube
+  </a>
+
   </div>
 
   <!-- ============================================ -->
@@ -740,145 +758,136 @@
     </section>
 
     <!-- ============================================ -->
-    <!-- BOOKING SECTION                              -->
-    <!-- ============================================ -->
-    <section id="booking" class="booking" aria-label="Formulario de booking">
-      <div class="container">
-        <div class="booking__grid">
-          <div class="booking__info">
-            <span class="eyebrow" data-i18n="booking_eyebrow">Booking</span>
-            <h2 data-i18n="booking_title">¿Trabajamos <span class="text-gradient">juntos?</span></h2>
-            <p data-i18n="booking_desc">Para conciertos, colaboraciones musicales, sesiones fotográficas o cualquier consulta profesional, contáctame.</p>
-            
-            <div class="info-category">
-              <div class="info-category__title">
-                <i class="fas fa-microphone-alt" aria-hidden="true"></i>
-                <span data-i18n="booking_music">Música / Conciertos</span>
-              </div>
-              <div class="info-list">
-                <div class="info-item">
-                  <div class="info-item__icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
-                  <div>
-                    <strong data-i18n="booking_email">Email profesional</strong>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rafa930.music@gmail.com&su=Consulta%20Profesional%20-%20Rafa%20930" target="_blank" rel="noopener noreferrer">rafa930.music@gmail.com</a>
-                  </div>
-                </div>
-                <div class="info-item">
-                  <div class="info-item__icon"><i class="fab fa-instagram" aria-hidden="true"></i></div>
-                  <div>
-                    <strong data-i18n="booking_instagram">Instagram</strong>
-                    <a href="https://instagram.com/rafa930_oficial" target="_blank" rel="noopener noreferrer">@rafa930_oficial</a>
-                  </div>
-                </div>
+<!-- BOOKING SECTION                              -->
+<!-- ============================================ -->
+<section id="booking" class="booking" aria-label="Formulario de booking">
+  <div class="container">
+    <div class="booking__grid">
+      <div class="booking__info">
+        <span class="eyebrow" data-i18n="booking_eyebrow">Booking</span>
+        <h2 data-i18n="booking_title">¿Trabajamos <span class="text-gradient">juntos?</span></h2>
+        <p data-i18n="booking_desc">Para conciertos, colaboraciones musicales, sesiones fotográficas o cualquier consulta profesional, contáctame.</p>
+        
+        <div class="info-category">
+          <div class="info-category__title">
+            <i class="fas fa-microphone-alt" aria-hidden="true"></i>
+            <span data-i18n="booking_music">Música / Conciertos</span>
+          </div>
+          <div class="info-list">
+            <div class="info-item">
+              <div class="info-item__icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+              <div>
+                <strong data-i18n="booking_email">Email profesional</strong>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rafa930.music@gmail.com&su=Consulta%20Profesional%20-%20Rafa%20930" target="_blank" rel="noopener noreferrer">rafa930.music@gmail.com</a>
               </div>
             </div>
-            
-            <div class="separator" aria-hidden="true">
-              <span></span>
-              <i class="fas fa-camera"></i>
-              <span></span>
-            </div>
-            
-            <div class="info-category">
-              <div class="info-category__title">
-                <i class="fas fa-camera" aria-hidden="true"></i>
-                <span data-i18n="booking_photo">Sesiones Fotográficas</span>
-              </div>
-              <div class="info-list">
-                <div class="info-item">
-                  <div class="info-item__icon"><i class="fas fa-camera-retro" aria-hidden="true"></i></div>
-                  <div>
-                    <strong data-i18n="booking_retratos">Retratos</strong>
-                    <span>Fotografía de estudio, exteriores y conceptual</span>
-                  </div>
-                </div>
-                <div class="info-item">
-                  <div class="info-item__icon"><i class="fas fa-city" aria-hidden="true"></i></div>
-                  <div>
-                    <strong data-i18n="booking_urbano">Urbano</strong>
-                    <span>Sesiones en entornos urbanos</span>
-                  </div>
-                </div>
+            <div class="info-item">
+              <div class="info-item__icon"><i class="fab fa-instagram" aria-hidden="true"></i></div>
+              <div>
+                <strong data-i18n="booking_instagram">Instagram</strong>
+                <a href="https://instagram.com/rafa930_oficial" target="_blank" rel="noopener noreferrer">@rafa930_oficial</a>
               </div>
             </div>
           </div>
-          
-          <div class="booking__form">
-            <h3 class="booking__form-title" data-i18n="form_title">Solicitar información</h3>
-            <p class="booking__form-subtitle" data-i18n="form_subtitle">Completa todos los campos y te responderé en menos de 24h</p>
-            
-            <form id="bookingForm" method="POST" action="https://formspree.io/f/xjgjonqv" novalidate>
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label" for="firstName" data-i18n="form_name">Nombre</label>
-                  <input type="text" name="first_name" id="firstName" class="form-control" placeholder="Tu nombre" required autocomplete="given-name">
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="lastName" data-i18n="form_lastname">Apellidos</label>
-                  <input type="text" name="last_name" id="lastName" class="form-control" placeholder="Tus apellidos" required autocomplete="family-name">
-                </div>
+        </div>
+        
+        <div class="separator" aria-hidden="true">
+          <span></span>
+          <i class="fas fa-camera"></i>
+          <span></span>
+        </div>
+        
+        <div class="info-category">
+          <div class="info-category__title">
+            <i class="fas fa-camera" aria-hidden="true"></i>
+            <span data-i18n="booking_photo">Sesiones Fotográficas</span>
+          </div>
+          <div class="info-list">
+            <div class="info-item">
+              <div class="info-item__icon"><i class="fas fa-camera-retro" aria-hidden="true"></i></div>
+              <div>
+                <strong data-i18n="booking_retratos">Retratos</strong>
+                <span>Fotografía de estudio, exteriores y conceptual</span>
               </div>
-              
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label" for="email" data-i18n="form_email">Email</label>
-                  <input type="email" name="email" id="email" class="form-control" placeholder="tu@email.com" required autocomplete="email">
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="phone" data-i18n="form_phone">Teléfono / WhatsApp</label>
-                  <input type="tel" name="phone" id="phone" class="form-control" placeholder="+34 123 456 789" required autocomplete="tel">
-                </div>
+            </div>
+            <div class="info-item">
+              <div class="info-item__icon"><i class="fas fa-city" aria-hidden="true"></i></div>
+              <div>
+                <strong data-i18n="booking_urbano">Urbano</strong>
+                <span>Sesiones en entornos urbanos</span>
               </div>
-              
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label" for="subject" data-i18n="form_subject">Tipo de consulta</label>
-                  <select name="subject" id="subject" class="form-select" required>
-                    <option value="" data-i18n="select_option">Selecciona una opción</option>
-                    <option value="concierto">🎤 Concierto / Show</option>
-                    <option value="colaboracion">🎵 Colaboración musical</option>
-                    <option value="sesion">📸 Sesión fotográfica</option>
-                    <option value="otros">💼 Otros</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="budget" data-i18n="form_budget">Presupuesto estimado</label>
-                  <select name="budget" id="budget" class="form-select">
-                    <option value="">Selecciona un rango</option>
-                    <option value="100-300">100€ - 300€</option>
-                    <option value="300-600">300€ - 600€</option>
-                    <option value="600-1000">600€ - 1000€</option>
-                    <option value="1000+">Más de 1000€</option>
-                  </select>
-                </div>
-              </div>
-              
-              <div class="form-group">
-                <label class="form-label" for="message" data-i18n="form_message">Mensaje</label>
-                <textarea name="message" id="message" class="form-control" rows="5" placeholder="Cuéntame tu propuesta..." required></textarea>
-              </div>
-              
-              <div class="form-group form-group--checkbox">
-                <input type="checkbox" name="privacy" id="privacy" required>
-                <label for="privacy" data-i18n="form_privacy">Acepto la política de privacidad</label>
-              </div>
-              
-              <button type="submit" class="btn btn--primary btn--block" data-i18n="form_submit">Enviar consulta</button>
-              
-              <div class="form-success" id="formSuccess" role="status" aria-live="polite">
-                <i class="fas fa-check-circle" aria-hidden="true"></i>
-                <p data-i18n="form_success">¡Consulta enviada con éxito! Te responderé en menos de 24 horas.</p>
-              </div>
-              
-              <div class="form-error" id="formError" role="alert" aria-live="assertive">
-                <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
-                <p data-i18n="form_error">Error al enviar. Intenta de nuevo.</p>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+      
+      <div class="booking__form">
+        <h3 class="booking__form-title" data-i18n="form_title">Solicitar información</h3>
+        <p class="booking__form-subtitle" data-i18n="form_subtitle">Rellena los campos y te responderé en menos de 24h</p>
+        
+        <form id="bookingForm" method="POST" action="https://formspree.io/f/xjgjonqv" novalidate>
+          <!-- 🔥 CAMBIO 1: Solo Nombre, sin Apellidos -->
+          <div class="form-group">
+            <label class="form-label" for="firstName" data-i18n="form_name">Nombre</label>
+            <input type="text" name="first_name" id="firstName" class="form-control" placeholder="ej: Rafa" required autocomplete="given-name">
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="email" data-i18n="form_email">Email</label>
+              <input type="email" name="email" id="email" class="form-control" placeholder="tu@email.com" required autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone" data-i18n="form_phone">Teléfono / WhatsApp <span style="font-weight:400;opacity:0.6;">(opcional)</span></label>
+              <input type="tel" name="phone" id="phone" class="form-control" placeholder="+34 123 456 789" autocomplete="tel">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="subject" data-i18n="form_subject">Tipo de consulta</label>
+              <select name="subject" id="subject" class="form-select" required>
+                <option value="" data-i18n="select_option">Selecciona una opción</option>
+                <option value="concierto">🎤 Concierto / Show</option>
+                <option value="colaboracion">🎵 Colaboración musical</option>
+                <option value="sesion">📸 Sesión fotográfica</option>
+                <option value="otros">💼 Otros</option>
+              </select>
+            </div>
+            <!-- 🔥 CAMBIO 2: Presupuesto eliminado (hidden) -->
+            <input type="hidden" name="budget" value="No especificado">
+          </div>
+          
+          <!-- 🔥 CAMBIO 3: Mensaje opcional y con menos filas -->
+          <div class="form-group">
+            <label class="form-label" for="message" data-i18n="form_message">Mensaje <span style="font-weight:400;opacity:0.6;">(opcional)</span></label>
+            <textarea name="message" id="message" class="form-control" rows="3" placeholder="Cuéntame tu idea..."></textarea>
+          </div>
+          
+          <div class="form-group form-group--checkbox">
+            <input type="checkbox" name="privacy" id="privacy" required>
+            <label for="privacy" data-i18n="form_privacy">Acepto la política de privacidad</label>
+          </div>
+          
+          <!-- 🔥 CAMBIO 4: CTA mejorado -->
+          <button type="submit" class="btn btn--primary btn--block" data-i18n="form_submit">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i> Solicitar presupuesto sin compromiso
+          </button>
+          
+          <div class="form-success" id="formSuccess" role="status" aria-live="polite">
+            <i class="fas fa-check-circle" aria-hidden="true"></i>
+            <p data-i18n="form_success">¡Consulta enviada con éxito! Te responderé en menos de 24 horas.</p>
+          </div>
+          
+          <div class="form-error" id="formError" role="alert" aria-live="assertive">
+            <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+            <p data-i18n="form_error">Error al enviar. Intenta de nuevo.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- ============================================ -->
     <!-- CONTACT SECTION                              -->

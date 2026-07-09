@@ -270,36 +270,89 @@ body.light .mobile-menu {
   color: var(--purple);
 }
 
-/* ========== HEADER MÁS GRANDE EN ESCRITORIO ========== */
+/* ============================================
+   MENÚ DE ESCRITORIO - FORZAR VISIBILIDAD
+   ============================================ */
+
+/* A partir de 1025px, el menú debe ser visible */
 @media (min-width: 1025px) {
-  .nav {
-    height: 90px; /* en lugar de clamp(60px,10vh,80px) */
+  .nav__menu {
+    display: flex !important; /* Forzar visibilidad */
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
-  .logo__img {
-    height: 55px; /* más grande que 45px */
-  }
-  .nav__social {
-    width: 40px;
-    height: 40px;
-    font-size: 1.1rem;
-  }
-  .lang-btn {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.85rem;
-  }
-  .theme-toggle {
-    width: 65px;
-    height: 34px;
-  }
-  .theme-toggle .ball {
-    width: 28px;
-    height: 28px;
-    left: 3px;
-  }
-  .theme-toggle.light .ball {
-    left: calc(100% - 31px);
-  }
+
   .burger {
-    transform: scale(1.2);
+    display: none !important; /* Ocultar hamburguesa */
   }
+
+  .nav__link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative;
+    padding: 0.3rem 0;
+  }
+
+  .nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-accent);
+    transition: width 0.3s;
+  }
+
+  .nav__link:hover::after {
+    width: 100%;
+  }
+
+  .nav__link--spotify {
+    background: #1DB954;
+    color: white !important;
+    padding: 0.4rem 1.2rem;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .nav__link--spotify::after {
+    display: none; /* Sin subrayado en el botón */
+  }
+
+  .nav__link--spotify:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(29, 185, 84, 0.4);
+  }
+}
+
+.nav__link--youtube {
+  background: #FF0000;
+  color: white !important;
+  padding: 0.4rem 1.2rem;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.nav__link--youtube::after {
+  display: none;
+}
+
+.nav__link--youtube:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(255, 0, 0, 0.4);
 }
