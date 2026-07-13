@@ -130,40 +130,147 @@
   .hero p { font-size: 0.75rem; }
   .hero__scroll { bottom: 1rem; font-size: 0.6rem; }
 }
-/* Botones del Hero con efecto premium */
+/* ========================================
+   BOTONES DEL HERO - ESTILO MORADO + ORO
+   ======================================== */
 .hero__actions .btn--primary {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #a855f7, #7e22ce);
-  border: none;
-  padding: 0.9rem 2.2rem;
+  background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 4px 25px rgba(168, 85, 247, 0.4);
+  color: #fff;
+  padding: 0.8rem 2rem;
   font-size: 1rem;
   letter-spacing: 2px;
-  box-shadow: 0 4px 25px rgba(168, 85, 247, 0.3);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  min-width: 200px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
 }
 
+/* Borde dorado animado (efecto glow) */
 .hero__actions .btn--primary::before {
   content: '';
   position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, #fbbf24, #a855f7, #ec4899, #a855f7);
-  background-size: 300% 300%;
+  inset: -2px;
   border-radius: 50px;
+  padding: 2px;
+  background: linear-gradient(45deg, #fbbf24, #fcd34d, #fbbf24, #d97706);
+  background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
   z-index: -1;
-  animation: borderGlow 4s ease-in-out infinite;
+  opacity: 0.8;
+  transition: opacity 0.4s ease;
+  animation: borderGlow 3s ease-in-out infinite;
 }
 
+.hero__actions .btn--primary:hover::before {
+  opacity: 1;
+  animation-duration: 1.5s;
+}
+
+/* Efecto hover: elevación, escala y sombra mejorada */
 .hero__actions .btn--primary:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 8px 40px rgba(168, 85, 247, 0.5);
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 12px 40px rgba(168, 85, 247, 0.5), 0 0 60px rgba(251, 191, 36, 0.25);
+  border-color: rgba(251, 191, 36, 0.3);
 }
 
+/* Icono con movimiento al hover */
+.hero__actions .btn--primary i {
+  font-size: 1.2rem;
+  margin-right: 0.3rem;
+  transition: transform 0.3s ease;
+}
+.hero__actions .btn--primary:hover i {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+/* Badge en dorado */
+.hero__actions .btn--primary .btn__badge {
+  display: block;
+  font-size: 0.5rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  opacity: 0.8;
+  text-transform: uppercase;
+  margin-top: 0.1rem;
+  color: #fcd34d;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+.hero__actions .btn--primary:hover .btn__badge {
+  opacity: 1;
+  color: #fbbf24;
+}
+
+/* Brillo interno sutil al hacer hover */
+.hero__actions .btn--primary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.hero__actions .btn--primary:hover::after {
+  opacity: 1;
+}
+
+/* Animación del borde dorado */
 @keyframes borderGlow {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+/* ========================================
+   RESPONSIVE - BOTONES
+   ======================================== */
+@media (max-width: 640px) {
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+  .hero__actions .btn--primary {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__actions .btn--primary {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  .hero__actions .btn--primary .btn__badge {
+    font-size: 0.4rem;
+  }
+}
+
+/* Animación de pulse al cargar (3 veces) */
+.hero__actions .btn--primary {
+  animation: heroPulse 1s ease 3;
+}
+
+@keyframes heroPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(168, 85, 247, 0.5); }
+  100% { transform: scale(1); }
 }
