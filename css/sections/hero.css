@@ -130,3 +130,40 @@
   .hero p { font-size: 0.75rem; }
   .hero__scroll { bottom: 1rem; font-size: 0.6rem; }
 }
+/* Botones del Hero con efecto premium */
+.hero__actions .btn--primary {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #a855f7, #7e22ce);
+  border: none;
+  padding: 0.9rem 2.2rem;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  box-shadow: 0 4px 25px rgba(168, 85, 247, 0.3);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero__actions .btn--primary::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #fbbf24, #a855f7, #ec4899, #a855f7);
+  background-size: 300% 300%;
+  border-radius: 50px;
+  z-index: -1;
+  animation: borderGlow 4s ease-in-out infinite;
+}
+
+.hero__actions .btn--primary:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 40px rgba(168, 85, 247, 0.5);
+}
+
+@keyframes borderGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

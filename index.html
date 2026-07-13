@@ -37,7 +37,6 @@
   <meta property="og:url" content="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/">
   <meta property="og:title" content="Rafa 930 - Música Urbana & Fotografía Profesional">
   <meta property="og:description" content="Descubre la música de Rafa 930 y su trabajo como fotógrafo profesional. Booking disponible para conciertos y sesiones.">
-  <!-- CAMBIO REALIZADO AQUÍ: Foto perfil para compartir en redes -->
   <meta property="og:image" content="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/images/Foto-perfil.webp">
   <meta property="og:image:width" content="512">
   <meta property="og:image:height" content="512">
@@ -49,7 +48,6 @@
   <meta name="twitter:url" content="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/">
   <meta name="twitter:title" content="Rafa 930 | Música & Fotografía">
   <meta name="twitter:description" content="Música urbana y fotografía profesional. Booking disponible.">
-  <!-- CAMBIO REALIZADO AQUÍ: Foto perfil para Twitter -->
   <meta name="twitter:image" content="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/images/Foto-perfil.webp">
   
   <!-- Logo específico para Google (Organization) ACTUALIZADO -->
@@ -349,7 +347,7 @@
   <ul class="nav__menu" role="menubar">
   <li role="none"><a href="#about" class="nav__link" role="menuitem" data-i18n="nav_about">Biografía</a></li>
   <li role="none"><a href="#discography" class="nav__link" role="menuitem" data-i18n="nav_music">Música</a></li>
-  <li role="none"><a href="#colaboradores" class="nav__link" role="menuitem">Colaboraciones</a></li>
+  <li role="none"><a href="#colaboradores" class="nav__link" role="menuitem" data-i18n="colab_eyebrow">Colaboraciones</a></li>
   <li role="none"><a href="#booking" class="nav__link" role="menuitem" data-i18n="nav_booking">Booking</a></li>
   <li role="none"><a href="https://youtube.com/@rafa_930" target="_blank" rel="noopener" class="nav__link nav__link--youtube" role="menuitem"><i class="fab fa-youtube"></i> YouTube</a></li>
   <li role="none"><a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" target="_blank" rel="noopener" class="nav__link nav__link--spotify" role="menuitem"><i class="fab fa-spotify"></i> Escuchar</a></li>
@@ -396,7 +394,7 @@
     <button class="mobile-menu__close" id="closeBtn" aria-label="Cerrar menú">&times;</button>
     <a href="#about" class="mobile-menu__link" data-i18n="nav_about">Biografía</a>
     <a href="#discography" class="mobile-menu__link" data-i18n="nav_music">Música</a>
-    <a href="#colaboradores" class="mobile-menu__link">Colaboraciones</a>
+    <a href="#colaboradores" class="mobile-menu__link" data-i18n="colab_eyebrow">Colaboraciones</a>
     <a href="#booking" class="mobile-menu__link" data-i18n="nav_booking">Booking</a>
     <a href="#contact" class="mobile-menu__link" data-i18n="nav_contact">Contacto</a>
 <!-- Enlace a Spotify -->
@@ -426,8 +424,13 @@
           <h1>RAFA <span class="text-gradient">930</span></h1>
           <p data-i18n="hero_desc">Artista de música urbana y fotógrafo profesional. Trap, reggaetón, rap y sesiones fotográficas de alta calidad.</p>
           <div class="hero__actions">
-            <a href="#discography" class="btn btn--primary btn--large" data-i18n="hero_btn1">Escuchar música</a>
-            <a href="#colaboradores" class="btn btn--primary btn--large" data-i18n="hero_btn_colab">Ver colaboraciones</a>
+            <!-- ✅ AÑADIDOS ICONOS A LOS BOTONES -->
+            <a href="#discography" class="btn btn--primary btn--large" data-i18n="hero_btn1">
+              <i class="fas fa-music" aria-hidden="true"></i> Escuchar música
+            </a>
+            <a href="#colaboradores" class="btn btn--primary btn--large" data-i18n="hero_btn_colab">
+              <i class="fas fa-handshake" aria-hidden="true"></i> Ver colaboraciones
+            </a>
           </div>
         </div>
       </div>
@@ -436,34 +439,34 @@
     <!-- ============================================ -->
     <!-- SHARE SECTION                                -->
     <!-- ============================================ -->
-    <section class="share-section" aria-label="Compartir">
-      <div class="container">
-        <div class="share">
-          <span class="share__text">
-            <i class="fas fa-share-alt" aria-hidden="true"></i> 
-            Comparte mi música
-          </span>
-          <div class="share__buttons">
-            <button class="share__btn" data-platform="twitter" aria-label="Compartir en Twitter">
-              <i class="fab fa-twitter" aria-hidden="true"></i>
-              <span>Twitter</span>
-            </button>
-            <button class="share__btn" data-platform="facebook" aria-label="Compartir en Facebook">
-              <i class="fab fa-facebook-f" aria-hidden="true"></i>
-              <span>Facebook</span>
-            </button>
-            <button class="share__btn" data-platform="whatsapp" aria-label="Compartir en WhatsApp">
-              <i class="fab fa-whatsapp" aria-hidden="true"></i>
-              <span>WhatsApp</span>
-            </button>
-            <button class="share__btn" data-platform="copy" aria-label="Copiar enlace">
-              <i class="fas fa-link" aria-hidden="true"></i>
-              <span>Copiar link</span>
-            </button>
-          </div>
-        </div>
+   <section class="share-section" aria-label="Compartir">
+  <div class="container">
+    <div class="share">
+      <span class="share__text" data-i18n="share_text">
+        <i class="fas fa-share-alt" aria-hidden="true"></i> 
+        Comparte mi música
+      </span>
+      <div class="share__buttons">
+        <button class="share__btn" data-platform="twitter" aria-label="Compartir en Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+          <span data-i18n="share_twitter">Twitter</span>
+        </button>
+        <button class="share__btn" data-platform="facebook" aria-label="Compartir en Facebook">
+          <i class="fab fa-facebook-f" aria-hidden="true"></i>
+          <span data-i18n="share_facebook">Facebook</span>
+        </button>
+        <button class="share__btn" data-platform="whatsapp" aria-label="Compartir en WhatsApp">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          <span data-i18n="share_whatsapp">WhatsApp</span>
+        </button>
+        <button class="share__btn" data-platform="copy" aria-label="Copiar enlace">
+          <i class="fas fa-link" aria-hidden="true"></i>
+          <span data-i18n="share_copy">Copiar link</span>
+        </button>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- ============================================ -->
     <!-- ABOUT SECTION                               -->
@@ -565,7 +568,6 @@
     
     <!-- CONTENEDOR DE DOTS (INDICADORES) -->
     <div class="carrusel-horizontal__dots" id="discDots"></div>
-  </div>
 </section>
 
 <!-- ============================================ -->
@@ -574,8 +576,9 @@
 <section id="colaboradores" class="carrusel-colaboradores" aria-label="Colaboraciones profesionales">
   <div class="container">
     <div class="section-header">
-      <span class="eyebrow">Colaboraciones</span>
-      <h2>He trabajado con <span class="text-gradient">ellos</span></h2>
+      <!-- ✅ AÑADIDOS data-i18n -->
+      <span class="eyebrow" data-i18n="colab_eyebrow">Colaboraciones</span>
+      <h2 data-i18n="colab_title">He trabajado con <span class="text-gradient">ellos</span></h2>
     </div>
 
     <div class="carrusel-horizontal">
@@ -586,8 +589,6 @@
 
       <!-- Track (contenedor de tarjetas) -->
       <div class="carrusel-horizontal__track" id="carruselTrack" role="list">
-
-
 
         <!-- 2. Incrife -->
         <div class="carrusel-horizontal__card" role="listitem">
@@ -601,7 +602,7 @@
           </div>
           <div class="carrusel-horizontal__info">
             <h3>Incrife</h3>
-            <p>Fotógrafo</p>
+            <p data-i18n="colab_role_photographer">Fotógrafo</p>
           </div>
         </div>
 
@@ -617,7 +618,7 @@
           </div>
           <div class="carrusel-horizontal__info">
             <h3>Ouxxox</h3>
-            <p>Productor</p>
+            <p data-i18n="colab_role_producer">Productor</p>
           </div>
         </div>
 
@@ -633,11 +634,11 @@
           </div>
           <div class="carrusel-horizontal__info">
             <h3>therassam</h3>
-            <p>Artista</p>
+            <p data-i18n="colab_role_artist">Artista</p>
           </div>
         </div>
 
-              <!-- 5. Kingsla -->
+        <!-- 5. Kingsla -->
         <div class="carrusel-horizontal__card" role="listitem">
           <div class="carrusel-horizontal__image">
             <img src="images/Kingsla-Foto.webp" alt="Kingsla - Artista colaborador" loading="lazy" width="300" height="300" decoding="async" onerror="this.src='images/logo.webp'">
@@ -649,7 +650,7 @@
           </div>
           <div class="carrusel-horizontal__info">
             <h3>Kingsla</h3>
-            <p>Artista</p>
+            <p data-i18n="colab_role_artist">Artista</p>
           </div>
         </div>
 
@@ -665,11 +666,11 @@
           </div>
           <div class="carrusel-horizontal__info">
             <h3>Salma</h3>
-            <p>Modelo</p>
+            <p data-i18n="colab_role_model">Modelo</p>
           </div>
         </div>
         
-   <!-- 1. Toliyug -->
+        <!-- 1. Toliyug -->
         <div class="carrusel-horizontal__card" role="listitem">
           <div class="carrusel-horizontal__image">
             <img src="images/toliyug/Portada%20Toliyug.webp" alt="Toliyug - Modelo colaborador" loading="lazy" width="300" height="300" decoding="async">
@@ -681,10 +682,9 @@
           </div>
           <div class="carrusel-horizontal__info">
             <h3>Toliyug</h3>
-            <p>Modelo</p>
+            <p data-i18n="colab_role_model">Modelo</p>
           </div>
         </div>
-
 
       </div> <!-- /carrusel-horizontal__track -->
 
@@ -826,7 +826,6 @@
         <p class="booking__form-subtitle" data-i18n="form_subtitle">Rellena los campos y te responderé en menos de 24h</p>
         
         <form id="bookingForm" method="POST" action="https://formspree.io/f/xjgjonqv" novalidate>
-          <!-- 🔥 CAMBIO 1: Solo Nombre, sin Apellidos -->
           <div class="form-group">
             <label class="form-label" for="firstName" data-i18n="form_name">Nombre</label>
             <input type="text" name="first_name" id="firstName" class="form-control" placeholder="ej: Rafa" required autocomplete="given-name">
@@ -854,11 +853,9 @@
                 <option value="otros">💼 Otros</option>
               </select>
             </div>
-            <!-- 🔥 CAMBIO 2: Presupuesto eliminado (hidden) -->
             <input type="hidden" name="budget" value="No especificado">
           </div>
           
-          <!-- 🔥 CAMBIO 3: Mensaje opcional y con menos filas -->
           <div class="form-group">
             <label class="form-label" for="message" data-i18n="form_message">Mensaje <span style="font-weight:400;opacity:0.6;">(opcional)</span></label>
             <textarea name="message" id="message" class="form-control" rows="3" placeholder="Cuéntame tu idea..."></textarea>
@@ -869,7 +866,6 @@
             <label for="privacy" data-i18n="form_privacy">Acepto la política de privacidad</label>
           </div>
           
-          <!-- 🔥 CAMBIO 4: CTA mejorado -->
           <button type="submit" class="btn btn--primary btn--block" data-i18n="form_submit">
             <i class="fas fa-paper-plane" aria-hidden="true"></i> Solicitar presupuesto sin compromiso
           </button>
@@ -963,7 +959,7 @@
           <ul>
     <li><a href="#about" data-i18n="nav_about">Biografía</a></li>
     <li><a href="#discography" data-i18n="nav_music">Música</a></li>
-    <li><a href="#colaboradores">Colaboraciones</a></li>
+    <li><a href="#colaboradores" data-i18n="colab_eyebrow">Colaboraciones</a></li>
     <li><a href="#booking" data-i18n="nav_booking">Booking</a></li>
     <li><a href="Enlaces.html" target="_blank">Enlaces</a></li>
 </ul>
