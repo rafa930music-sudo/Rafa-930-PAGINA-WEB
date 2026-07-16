@@ -1022,10 +1022,132 @@
     </div>
   </div>
 
+ <!-- ============================================ -->
+<!-- REPRODUCTOR DE MÚSICA (CON FETCH)            -->
+<!-- ============================================ -->
+<script>
+  (function() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+
+    function init() {
+      const splash = document.getElementById('splash');
+      if (!splash) return;
+
+      let isPlaying = false;
+      let audioContext = null;
+      let bufferSource = null;
+      let gainNode = null;
+
+      // Función para cargar y reproducir el audio desde un archivo
+      function loadAndPlayAudio(url) {
+        return fetch(url)
+          .then(response => {
+            if (!response.ok) throw new Error(`HTTP ${response.status} - ${response.statusText}`);
+            return response.arrayBuffer();
+          })
+          .then(arrayBuffer => {
+            if (!audioContext) {
+              audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            return audioContext.decodeAudioData(arrayBuffer);
+          })
+          .then(audioBuffer => {
+            if (bufferSource) {
+              bufferSource.stop();
+              bufferSource.disconnect();
+            }
+            bufferSource = audioContext.createBufferSource();
+            bufferSource.buffer = audioBuffer;
+            bufferSource.loop = true;
+            gainNode = audioContext.createGain();
+            gainNode.gain.value = 0.8; // Volumen al 80% (subido)
+            bufferSource.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            bufferSource.start(0);
+            isPlaying = true;
+            console.log('🎵 Música cargada y reproduciendo desde:', url);
+          })
+          .catch(err => {
+            console.warn('Error cargando archivo, NO se reproducirá nada:', err);
+            // No hay fallback, silencio
+          });
+      }
+
+      // Función para iniciar la música
+      function startMusic() {
+        if (isPlaying) return;
+        // Intenta cargar MP3 primero, si falla, prueba OGG
+        loadAndPlayAudio('audio/instrumental.mp3')
+          .catch(() => loadAndPlayAudio('audio/instrumental.ogg'))
+          .catch(() => {
+            // Si ambos fallan, silencio (no hacemos nada)
+            console.warn('No se pudo cargar ningún archivo de audio.');
+          });
+      }
+
+      // Cerrar splash con animación
+      function closeSplash() {
+        splash.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        splash.style.opacity = '0';
+        splash.style.transform = 'scale(1.05)';
+        setTimeout(() => {
+          splash.style.display = 'none';
+          document.body.classList.remove('splash-active');
+        }, 800);
+      }
+
+      // Evento clic en el splash
+      splash.addEventListener('click', function handler(e) {
+        if (isPlaying) return;
+        startMusic();
+        closeSplash();
+        splash.removeEventListener('click', handler);
+        splash.removeEventListener('touchstart', handler);
+      }, { once: true });
+
+      splash.addEventListener('touchstart', function handlerTouch(e) {
+        if (isPlaying) return;
+        startMusic();
+        closeSplash();
+        splash.removeEventListener('touchstart', handlerTouch);
+        splash.removeEventListener('click', handlerTouch);
+      }, { once: true });
+
+      splash.style.cursor = 'pointer';
+
+      // Fallback si el splash se cierra automáticamente
+      const observer = new MutationObserver(() => {
+        if (splash.style.display === 'none' || splash.classList.contains('hidden')) {
+          if (!isPlaying) {
+            document.addEventListener('click', function onPageClick() {
+              startMusic();
+              document.removeEventListener('click', onPageClick);
+            }, { once: true });
+            document.addEventListener('scroll', function onPageScroll() {
+              startMusic();
+              document.removeEventListener('scroll', onPageScroll);
+            }, { once: true });
+          }
+          observer.disconnect();
+        }
+      });
+      observer.observe(splash, { attributes: true, attributeFilter: ['style', 'class'] });
+
+      console.log('✅ Audio listo - Haz clic en el splash');
+    }
+  })();
+</script>
+  
   <!-- ============================================ -->
   <!-- SCRIPTS (SOLO AOS Y MAIN.JS, SIN INLINE)      -->
   <!-- ============================================ -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script type="module" src="js/main.js"></script>
 </body>
+
+
 </html>
