@@ -1,9 +1,14 @@
+/* ======================================== */
+/* ABOUT – ESTRUCTURA BASE                   */
+/* ======================================== */
+
 .about__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 4rem;
+  gap: 5rem;
   align-items: center;
 }
+
 .about__image {
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -12,14 +17,170 @@
   transform-style: preserve-3d;
   perspective: 1000px;
 }
+
 .about__image img {
   width: 100%;
   height: auto;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .about__image:hover img {
   transform: scale(1.03);
 }
+
+/* ======================================== */
+/* ABOUT – TEXTO Y LEGIBILIDAD              */
+/* ======================================== */
+
+.about__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.about__text .eyebrow {
+  margin-bottom: 0.5rem;
+}
+
+.about__text h2 {
+  margin-bottom: 1.8rem;
+}
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about__content p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ======================================== */
+/* ABOUT – BOTONES ESTRUCTURA PERFECTA      */
+/* ======================================== */
+
+.about__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  align-items: center;
+}
+
+/* Escritorio: botones con tamaño equilibrado */
+.about__cta .btn {
+  flex: 1 1 auto;
+  min-width: 160px;
+  max-width: 220px;
+  justify-content: center;
+  text-align: center;
+  padding: 0.8rem 1.5rem;
+}
+
+/* ======================================== */
+/* ALINEACIÓN PERFECTA DE ICONOS EN BOTONES */
+/* ======================================== */
+
+.about__cta .btn {
+  display: inline-flex;          /* para alinear icono y texto */
+  align-items: center;           /* centra verticalmente */
+  gap: 0.6rem;                   /* separación entre icono y texto */
+}
+
+.about__cta .btn i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.2rem;                /* ancho fijo para todos los iconos */
+  height: 1.2rem;               /* alto fijo para todos los iconos */
+  font-size: 1.1rem;            /* tamaño del icono */
+  line-height: 1;               /* elimina altura de línea extra */
+  flex-shrink: 0;               /* evita que se encoja */
+  vertical-align: middle;
+}
+
+/* Ajuste específico para el icono de usuarios si sigue desalineado */
+/* .about__cta .btn .fa-users {
+  transform: translateY(1px);
+} */
+
+/* ======================================== */
+/* RESPONSIVE – MÓVIL (≤768px)              */
+/* ======================================== */
+
 @media (max-width: 768px) {
-  .about__grid { grid-template-columns: 1fr; gap: 2rem; }
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about__text {
+    text-align: center;
+    gap: 0.3rem;
+  }
+
+  .about__text .eyebrow {
+    margin-bottom: 0.3rem;
+  }
+
+  .about__text h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .about__content {
+    gap: 1.2rem;
+  }
+
+  .about__content p {
+    text-align: left;
+    line-height: 1.8;
+  }
+
+  /* Botones apilados verticalmente */
+  .about__cta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+
+  .about__cta .btn {
+    flex: 1 1 100%;
+    min-width: unset;
+    max-width: 100%;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+/* ======================================== */
+/* PANTALLAS MUY PEQUEÑAS (≤480px)          */
+/* ======================================== */
+
+@media (max-width: 480px) {
+  .about__grid {
+    gap: 2rem;
+  }
+
+  .about__text h2 {
+    font-size: 1.5rem;
+  }
+
+  .about__content {
+    gap: 1rem;
+  }
+
+  .about__cta {
+    gap: 0.6rem;
+    margin-top: 1.8rem;
+  }
+
+  .about__cta .btn {
+    padding: 0.8rem 0.8rem;
+    font-size: 0.9rem;
+  }
 }
