@@ -426,7 +426,9 @@
       <div class="container">
         <div class="hero__content">
           <h1>RAFA <span class="text-gradient">930</span></h1>
-          <p data-i18n="hero_desc">Artista musical · Fotógrafo profesional · Desarrollador web</p>
+         <p class="hero__subtitle" data-i18n="hero_desc">
+  Artista <span class="highlight">musical</span> · Fotógrafo <span class="highlight">profesional</span> · Desarrollador <span class="highlight">web</span>
+</p>
          <div class="hero__actions">
   <a href="#discography" class="btn btn--primary btn--large">
     <i class="fas fa-music" aria-hidden="true"></i> <span data-i18n="hero_btn1">Escuchar música</span>
@@ -1067,22 +1069,28 @@
     </div>
   </footer>
 
-  <!-- ============================================ -->
-  <!-- BOTONES FLOTANTES                             -->
-  <!-- ============================================ -->
-  <div class="floating-buttons" aria-label="Botones de contacto rápido">
-    <a href="https://wa.me/34671591814?text=Hola%20Rafa,%20me%20interesa%20trabajar%20contigo" target="_blank" rel="noopener noreferrer" class="floating-btn floating-btn--whatsapp" aria-label="Contactar por WhatsApp">
-      <i class="fab fa-whatsapp" aria-hidden="true"></i>
-    </a>
-    
-    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rafa930.music@gmail.com&su=Consulta%20Profesional%20-%20Rafa%20930" 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    class="floating-btn floating-btn--gmail" 
-    aria-label="Enviar email por Gmail">
-      <i class="fas fa-envelope" aria-hidden="true"></i>
-    </a>
-  </div>
+<!-- ============================================ -->
+<!-- BOTONES FLOTANTES (REDISEÑADOS)              -->
+<!-- ============================================ -->
+<div class="floating-buttons" aria-label="Botones de contacto rápido">
+  <!-- WhatsApp -->
+  <a href="https://wa.me/34671591814?text=Hola%20Rafa,%20me%20interesa%20trabajar%20contigo" 
+     target="_blank" rel="noopener noreferrer" 
+     class="floating-btn" 
+     aria-label="Contactar por WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    <span class="floating-btn__tooltip">WhatsApp</span>
+  </a>
+  
+  <!-- Gmail -->
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rafa930.music@gmail.com&su=Consulta%20Profesional%20-%20Rafa%20930" 
+     target="_blank" rel="noopener noreferrer" 
+     class="floating-btn" 
+     aria-label="Enviar email por Gmail">
+    <i class="fas fa-envelope" aria-hidden="true"></i>
+    <span class="floating-btn__tooltip">Email</span>
+  </a>
+</div>
 
   <!-- ============================================ -->
   <!-- BACK TO TOP                                   -->
@@ -1102,6 +1110,8 @@
     </div>
   </div>
 
+
+  
   <!-- ============================================ -->
   <!-- REPRODUCTOR DE MÚSICA (CON FETCH)            -->
   <!-- ============================================ -->
@@ -1219,7 +1229,58 @@
         console.log('✅ Audio listo - Haz clic en el splash');
       }
     })();
+
   </script>
+
+<script>
+  (function() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTypewriter);
+    } else {
+      initTypewriter();
+    }
+
+    function initTypewriter() {
+      const el = document.querySelector('.hero__subtitle');
+      if (!el) return;
+
+      // Inicio casi inmediato (100ms)
+      setTimeout(() => {
+        startTypewriter(el);
+      }, 100);
+    }
+
+    function startTypewriter(element) {
+      const originalHTML = element.innerHTML;
+      const plainText = element.textContent.trim();
+      if (!plainText) return;
+
+      // Limpiamos el contenido
+      element.textContent = '';
+      element.style.whiteSpace = 'nowrap';
+
+      let charIndex = 0;
+      const totalChars = plainText.length;
+      const speed = 35; // milisegundos por letra
+
+      function type() {
+        if (charIndex < totalChars) {
+          element.textContent += plainText.charAt(charIndex);
+          charIndex++;
+          setTimeout(type, speed);
+        } else {
+          // Restauramos el HTML con los spans
+          element.innerHTML = originalHTML;
+          // Ocultamos el cursor
+          element.classList.add('finished');
+        }
+      }
+
+      // Pequeña pausa inicial para que se vea el cursor
+      setTimeout(type, 300);
+    }
+  })();
+</script>
 
   <!-- ============================================ -->
   <!-- SCRIPTS (SOLO AOS Y MAIN.JS, SIN INLINE)      -->

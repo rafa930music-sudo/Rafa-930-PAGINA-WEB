@@ -1,39 +1,24 @@
+/* ======================================== */
+/* HERO SECTION – FRASE NEÓN MORADO         */
+/* ======================================== */
+
 .hero {
   position: relative;
-  height: 100vh;                     /* ← altura exacta de la ventana */
+  height: 100vh;
   width: 100%;
   max-width: 100%;
-  overflow: hidden;                  /* ← elimina cualquier scroll interno */
+  overflow: hidden;
   display: flex;
   align-items: center;
   text-align: center;
   background-color: #0a0a0a;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: 
-    radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 50%, rgba(251, 191, 36, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 50% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
-  animation: auroraRotate 25s linear infinite;
-  z-index: 1;
-  pointer-events: none;
+  contain: layout style;
 }
 
 .hero__bg {
   position: absolute;
   inset: 0;
   z-index: 0;
-}
-
-.hero__bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
 }
 
 .hero__bg[style*="background-image"] {
@@ -46,7 +31,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
   z-index: 1;
 }
 
@@ -55,84 +40,112 @@
   z-index: 2;
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   width: 100%;
 }
 
+/* ======================================== */
+/* TÍTULO – SIMPLE Y ELEGANTE               */
+/* ======================================== */
 .hero h1 {
-  color: white;
+  color: #fff;
   margin-bottom: 1.5rem;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  line-height: 1.1;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
 }
 
-.hero p {
-  font-size: clamp(0.95rem, 2.5vw, 1.15rem);
-  color: rgba(255, 255, 255, 0.85);
+.hero h1 .text-gradient {
+  background: linear-gradient(135deg, #a855f7, #fbbf24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ======================================== */
+/* SUBTÍTULO – NEÓN CON CURSOR FINO         */
+/* ======================================== */
+.hero__subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.06em;
+  line-height: 1.7;
   margin-bottom: 2.5rem;
+  min-height: 3.5rem;
+  display: inline-block;
+  padding-right: 8px;          /* espacio para el cursor */
+  border-right: 1px solid #a855f7;  /* ← CURSOR FINO */
+  animation: blinkCursor 0.8s step-end infinite;
+  text-shadow:
+    0 0 10px #a855f7,
+    0 0 20px #a855f7,
+    0 0 40px #7e22ce,
+    0 0 80px #7e22ce;
+  transition: text-shadow 0.3s;
 }
 
+/* Ocultar cursor al terminar la escritura */
+.hero__subtitle.finished {
+  border-right: none;
+  animation: none;
+}
+
+@keyframes blinkCursor {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #a855f7; }
+}
+
+/* Eliminamos cualquier subrayado o borde en palabras destacadas */
+.hero__subtitle .highlight {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  display: inline-block;
+  color: #c084fc;
+  text-decoration: none !important;
+  border: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  text-shadow:
+    0 0 10px #a855f7,
+    0 0 20px #a855f7,
+    0 0 40px #7e22ce,
+    0 0 80px #7e22ce;
+  animation: neonPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+  0% {
+    text-shadow:
+      0 0 10px #a855f7,
+      0 0 20px #a855f7,
+      0 0 40px #7e22ce,
+      0 0 80px #7e22ce;
+  }
+  100% {
+    text-shadow:
+      0 0 20px #a855f7,
+      0 0 40px #a855f7,
+      0 0 60px #7e22ce,
+      0 0 120px #7e22ce;
+  }
+}
+
+/* ======================================== */
+/* BOTONES – ESTILO BASE                    */
+/* ======================================== */
 .hero__actions {
   display: flex;
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 0.5rem;
 }
 
-.hero__scroll {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.75rem;
-  letter-spacing: 4px;
-  cursor: pointer;
-  z-index: 2;
-  animation: bounce 2.5s infinite;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.hero__scroll i { font-size: 1rem; }
-
-@keyframes auroraRotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(12px); }
-}
-
-/* ========== RESPONSIVE: siempre 100vh, sin padding extra ========== */
-@media (max-width: 768px) {
-  .hero {
-    height: 100vh;           /* fijo, no auto */
-    padding: 0;              /* elimina padding que causaba desborde */
-  }
-  .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-  .hero p { font-size: 0.9rem; margin-bottom: 1.5rem; }
-}
-
-@media (max-width: 640px) {
-  .hero__actions { flex-direction: column; align-items: center; gap: 0.8rem; }
-  .hero__actions .btn { width: 200px; justify-content: center; }
-  .hero h1 { font-size: 2rem; }
-  .hero p { font-size: 0.8rem; }
-}
-
-@media (max-width: 480px) {
-  .hero { height: 100vh; }
-  .hero h1 { font-size: 1.8rem; }
-  .hero p { font-size: 0.75rem; }
-  .hero__scroll { bottom: 1rem; font-size: 0.6rem; }
-}
-/* ========================================
-   BOTONES DEL HERO - ESTILO MORADO + ORO
-   ======================================== */
 .hero__actions .btn--primary {
   position: relative;
   overflow: hidden;
@@ -142,21 +155,22 @@
   box-shadow: 0 4px 25px rgba(168, 85, 247, 0.4);
   color: #fff;
   padding: 0.8rem 2rem;
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 1.8vw, 1rem);
   letter-spacing: 2px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   gap: 0.1rem;
   min-width: 200px;
-  border-radius: var(--radius-full);
+  border-radius: 9999px;
   text-transform: uppercase;
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: none !important;
+  will-change: transform, box-shadow;
+  cursor: pointer;
 }
 
-/* Borde dorado animado (efecto glow) */
 .hero__actions .btn--primary::before {
   content: '';
   position: absolute;
@@ -169,24 +183,21 @@
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   z-index: -1;
-  opacity: 0.8;
+  opacity: 0.6;
   transition: opacity 0.4s ease;
   animation: borderGlow 3s ease-in-out infinite;
 }
 
 .hero__actions .btn--primary:hover::before {
   opacity: 1;
-  animation-duration: 1.5s;
 }
 
-/* Efecto hover: elevación, escala y sombra mejorada */
 .hero__actions .btn--primary:hover {
   transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 12px 40px rgba(168, 85, 247, 0.5), 0 0 60px rgba(251, 191, 36, 0.25);
+  box-shadow: 0 12px 40px rgba(168, 85, 247, 0.6), 0 0 60px rgba(251, 191, 36, 0.2);
   border-color: rgba(251, 191, 36, 0.3);
 }
 
-/* Icono con movimiento al hover */
 .hero__actions .btn--primary i {
   font-size: 1.2rem;
   margin-right: 0.3rem;
@@ -196,13 +207,12 @@
   transform: scale(1.15) rotate(-5deg);
 }
 
-/* Badge en dorado */
 .hero__actions .btn--primary .btn__badge {
   display: block;
   font-size: 0.5rem;
   font-weight: 400;
   letter-spacing: 2px;
-  opacity: 0.8;
+  opacity: 0.7;
   text-transform: uppercase;
   margin-top: 0.1rem;
   color: #fcd34d;
@@ -213,7 +223,6 @@
   color: #fbbf24;
 }
 
-/* Brillo interno sutil al hacer hover */
 .hero__actions .btn--primary::after {
   content: '';
   position: absolute;
@@ -230,16 +239,93 @@
   opacity: 1;
 }
 
-/* Animación del borde dorado */
 @keyframes borderGlow {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* ========================================
-   RESPONSIVE - BOTONES
-   ======================================== */
+/* Pulse inicial (opcional) */
+.hero__actions .btn--primary {
+  animation: heroPulse 1s ease 3;
+}
+@keyframes heroPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(168, 85, 247, 0.5); }
+  100% { transform: scale(1); }
+}
+
+/* Efecto ripple */
+.hero__actions .btn--primary .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  animation: rippleEffect 0.6s ease-out;
+  pointer-events: none;
+}
+@keyframes rippleEffect {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* ======================================== */
+/* SCROLL INDICATOR – SUTIL                 */
+/* ======================================== */
+.hero__scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.hero__scroll:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.hero__scroll .scroll-line {
+  width: 1px;
+  height: 25px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4), transparent);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+  0% { transform: scaleY(0.2); opacity: 0.2; }
+  50% { transform: scaleY(1); opacity: 0.6; }
+  100% { transform: scaleY(0.2); opacity: 0.2; }
+}
+
+.hero__scroll i {
+  font-size: 1rem;
+  animation: bounceArrow 2.5s infinite;
+}
+
+@keyframes bounceArrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* ======================================== */
+/* RESPONSIVE                               */
+/* ======================================== */
+@media (max-width: 768px) {
+  .hero { height: 100vh; padding: 0; }
+  .hero h1 { font-size: 2.5rem; }
+  .hero__subtitle { font-size: 1.2rem; min-height: 2.8rem; }
+  .hero__actions .btn--primary { min-width: 160px; padding: 0.7rem 1.5rem; }
+}
+
 @media (max-width: 640px) {
   .hero__actions {
     flex-direction: column;
@@ -249,55 +335,42 @@
   .hero__actions .btn--primary {
     width: 100%;
     padding: 0.8rem 1rem;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     min-width: unset;
   }
+  .hero h1 { font-size: 2rem; }
+  .hero__subtitle {
+    white-space: normal;
+    border-right: none !important;
+    animation: none !important;
+    padding-right: 0;
+    font-size: 1rem;
+    min-height: auto;
+  }
+  .hero__scroll { bottom: 1rem; font-size: 0.6rem; }
+  .hero__scroll .scroll-line { height: 18px; }
 }
 
 @media (max-width: 480px) {
+  .hero h1 { font-size: 1.8rem; }
+  .hero__actions .btn--primary { padding: 0.6rem 0.8rem; font-size: 0.75rem; }
+  .hero__actions .btn--primary .btn__badge { font-size: 0.35rem; }
+  .hero__subtitle { font-size: 0.9rem; }
+}
+
+/* ======================================== */
+/* ACCESIBILIDAD                            */
+/* ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .hero__subtitle .highlight {
+    animation: none;
+    text-shadow: 0 0 10px #a855f7;
+  }
   .hero__actions .btn--primary {
-    padding: 0.7rem 0.8rem;
-    font-size: 0.8rem;
+    animation: none;
   }
-  .hero__actions .btn--primary .btn__badge {
-    font-size: 0.4rem;
+  .hero__scroll .scroll-line,
+  .hero__scroll i {
+    animation: none;
   }
-}
-
-/* Animación de pulse al cargar (3 veces) */
-.hero__actions .btn--primary {
-  animation: heroPulse 1s ease 3;
-}
-
-@keyframes heroPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(168, 85, 247, 0.5); }
-  100% { transform: scale(1); }
-}
-
-/* ========================================
-   EFECTO DE RESALTADO AL HACER SCROLL
-   ======================================== */
-.section-highlight {
-  animation: sectionGlow 2s ease forwards;
-}
-
-@keyframes sectionGlow {
-  0% {
-    box-shadow: 0 0 0 rgba(168, 85, 247, 0);
-  }
-  30% {
-    box-shadow: 0 0 60px rgba(168, 85, 247, 0.6), 0 0 120px rgba(251, 191, 36, 0.3);
-    border-color: #fbbf24;
-  }
-  100% {
-    box-shadow: 0 0 0 rgba(168, 85, 247, 0);
-  }
-}
-
-/* Asegurar que las secciones tengan posición relativa para el efecto */
-#discography, #colaboradores {
-  position: relative;
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
-  border: 2px solid transparent;
 }
