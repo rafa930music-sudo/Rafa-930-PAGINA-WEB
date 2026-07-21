@@ -1244,7 +1244,6 @@
       const el = document.querySelector('.hero__subtitle');
       if (!el) return;
 
-      // Inicio casi inmediato (100ms)
       setTimeout(() => {
         startTypewriter(el);
       }, 100);
@@ -1255,13 +1254,13 @@
       const plainText = element.textContent.trim();
       if (!plainText) return;
 
-      // Limpiamos el contenido
+      // Vaciamos el contenido y marcamos que está escribiendo
       element.textContent = '';
-      element.style.whiteSpace = 'nowrap';
+      element.classList.add('typewriting'); // Para mantener nowrap
 
       let charIndex = 0;
       const totalChars = plainText.length;
-      const speed = 35; // milisegundos por letra
+      const speed = 35;
 
       function type() {
         if (charIndex < totalChars) {
@@ -1269,14 +1268,14 @@
           charIndex++;
           setTimeout(type, speed);
         } else {
-          // Restauramos el HTML con los spans
-          element.innerHTML = originalHTML;
-          // Ocultamos el cursor
+          // Terminamos: quitamos typewriting, añadimos finished
+          element.classList.remove('typewriting');
           element.classList.add('finished');
+          element.innerHTML = originalHTML; // Restaura los spans
+          // Asegurar que el cursor desaparece (ya lo hace .finished)
         }
       }
 
-      // Pequeña pausa inicial para que se vea el cursor
       setTimeout(type, 300);
     }
   })();

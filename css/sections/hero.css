@@ -77,7 +77,7 @@
   min-height: 3.5rem;
   display: inline-block;
   padding-right: 8px;          /* espacio para el cursor */
-  border-right: 1px solid #a855f7;  /* ← CURSOR FINO */
+  border-right: 1px solid #a855f7;  /* CURSOR FINO */
   animation: blinkCursor 0.8s step-end infinite;
   text-shadow:
     0 0 10px #a855f7,
@@ -317,15 +317,59 @@
 }
 
 /* ======================================== */
-/* RESPONSIVE                               */
+/* RESPONSIVE – OPTIMIZADO PARA PORTÁTILES  */
 /* ======================================== */
-@media (max-width: 768px) {
-  .hero { height: 100vh; padding: 0; }
-  .hero h1 { font-size: 2.5rem; }
-  .hero__subtitle { font-size: 1.2rem; min-height: 2.8rem; }
-  .hero__actions .btn--primary { min-width: 160px; padding: 0.7rem 1.5rem; }
+
+/* Portátiles y pantallas medianas (1024px - 1366px) */
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .hero {
+    height: 100vh;
+  }
+  .hero h1 {
+    font-size: clamp(3rem, 6vw, 4.2rem);
+    margin-bottom: 1.2rem;
+  }
+  .hero__subtitle {
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+    min-height: 2.8rem;
+    padding-right: 8px;
+    border-right-width: 1px;
+    margin-bottom: 2rem;
+    letter-spacing: 0.04em;
+  }
+  .hero__actions .btn--primary {
+    padding: 0.7rem 1.8rem;
+    font-size: clamp(0.8rem, 1.4vw, 0.95rem);
+    min-width: 170px;
+  }
+  .hero__scroll {
+    bottom: 1.5rem;
+  }
 }
 
+/* Tablets y móviles grandes (hasta 768px) */
+@media (max-width: 768px) {
+  .hero {
+    height: 100vh;
+    padding: 0;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 7vw, 2.8rem);
+  }
+  .hero__subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    min-height: 2.8rem;
+    padding-right: 6px;
+    border-right-width: 1px;
+  }
+  .hero__actions .btn--primary {
+    min-width: 160px;
+    padding: 0.7rem 1.5rem;
+    font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+  }
+}
+
+/* Móviles (640px y menos) */
 @media (max-width: 640px) {
   .hero__actions {
     flex-direction: column;
@@ -334,32 +378,54 @@
   }
   .hero__actions .btn--primary {
     width: 100%;
+    min-width: unset;
     padding: 0.8rem 1rem;
     font-size: 0.85rem;
-    min-width: unset;
   }
-  .hero h1 { font-size: 2rem; }
+  .hero h1 {
+    font-size: clamp(1.8rem, 6vw, 2.2rem);
+    margin-bottom: 1rem;
+  }
   .hero__subtitle {
-    white-space: normal;
-    border-right: none !important;
-    animation: none !important;
-    padding-right: 0;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2.2vw, 1.1rem);
     min-height: auto;
+    padding-right: 5px;
+    border-right-width: 1px;
+    margin-bottom: 1.8rem;
+    white-space: normal;
+    line-height: 1.5;
   }
-  .hero__scroll { bottom: 1rem; font-size: 0.6rem; }
-  .hero__scroll .scroll-line { height: 18px; }
+  .hero__scroll {
+    bottom: 1rem;
+    font-size: 0.6rem;
+  }
+  .hero__scroll .scroll-line {
+    height: 18px;
+  }
 }
 
+/* Móviles muy pequeños (480px) */
 @media (max-width: 480px) {
-  .hero h1 { font-size: 1.8rem; }
-  .hero__actions .btn--primary { padding: 0.6rem 0.8rem; font-size: 0.75rem; }
-  .hero__actions .btn--primary .btn__badge { font-size: 0.35rem; }
-  .hero__subtitle { font-size: 0.9rem; }
+  .hero h1 {
+    font-size: clamp(1.5rem, 5vw, 1.9rem);
+  }
+  .hero__subtitle {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    padding-right: 4px;
+    border-right-width: 1px;
+    letter-spacing: 0.04em;
+  }
+  .hero__actions .btn--primary {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.75rem;
+  }
+  .hero__actions .btn--primary .btn__badge {
+    font-size: 0.35rem;
+  }
 }
 
 /* ======================================== */
-/* ACCESIBILIDAD                            */
+/* ACCESIBILIDAD – REDUCE MOTION            */
 /* ======================================== */
 @media (prefers-reduced-motion: reduce) {
   .hero__subtitle .highlight {
