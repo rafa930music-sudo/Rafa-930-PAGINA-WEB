@@ -11,6 +11,7 @@ const translations = {
 
     // Hero y CTAs
     hero_desc: "Artista musical · Fotógrafo profesional · Desarrollador web",
+    hero_subtitle: 'Creo con <span class="highlight-sound">sonido</span><br>Capturo con <span class="highlight-light">luz</span><br>Transformo con <span class="highlight-lines">líneas</span>',
     hero_btn1: "Escuchar música",
     hero_btn_colab: "Ver colaboraciones",
     hero_btn_dev: "Desarrollo web",
@@ -151,6 +152,7 @@ const translations = {
 
     // Hero and CTAs
     hero_desc: "Music artist · Professional photographer · Web developer",
+    hero_subtitle: 'I create with <span class="highlight-sound">sound</span><br>I capture with <span class="highlight-light">light</span><br>I transform with <span class="highlight-lines">lines</span>',
     hero_btn1: "Listen to music",
     hero_btn_colab: "View collaborations",
     hero_btn_dev: "Web development",
@@ -300,6 +302,7 @@ export function setLanguage(lang) {
       } else if (el.tagName === 'SELECT' && el.options && key === 'select_option') {
         el.options[0].text = translations[lang][key];
       } else {
+        // Para el hero_subtitle, inyectamos el HTML completo con los spans y <br>
         el.innerHTML = translations[lang][key];
       }
     }

@@ -1,5 +1,5 @@
 /* ======================================== */
-/* HERO SECTION – FRASE NEÓN MORADO         */
+/* HERO SECTION – ESTILOS COMPLETOS         */
 /* ======================================== */
 
 .hero {
@@ -45,7 +45,7 @@
 }
 
 /* ======================================== */
-/* TÍTULO – SIMPLE Y ELEGANTE               */
+/* TÍTULO                                   */
 /* ======================================== */
 .hero h1 {
   color: #fff;
@@ -63,7 +63,7 @@
 }
 
 /* ======================================== */
-/* SUBTÍTULO – NEÓN CON CURSOR FINO         */
+/* SUBTÍTULO – NEÓN CON CURSOR              */
 /* ======================================== */
 .hero__subtitle {
   font-family: 'Playfair Display', serif;
@@ -76,8 +76,8 @@
   margin-bottom: 2.5rem;
   min-height: 3.5rem;
   display: inline-block;
-  padding-right: 8px;          /* espacio para el cursor */
-  border-right: 1px solid #a855f7;  /* CURSOR FINO */
+  padding-right: 8px;
+  border-right: 1px solid #a855f7;
   animation: blinkCursor 0.8s step-end infinite;
   text-shadow:
     0 0 10px #a855f7,
@@ -87,7 +87,6 @@
   transition: text-shadow 0.3s;
 }
 
-/* Ocultar cursor al terminar la escritura */
 .hero__subtitle.finished {
   border-right: none;
   animation: none;
@@ -98,45 +97,76 @@
   50% { border-color: #a855f7; }
 }
 
-/* Eliminamos cualquier subrayado o borde en palabras destacadas */
-.hero__subtitle .highlight {
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-style: normal;
+/* ======================================== */
+/* PALABRAS DESTACADAS – CADA UNA CON SU    */
+/* COLOR NEÓN ESPECÍFICO (HEREDAN CURSIVA)  */
+/* ======================================== */
+
+/* SONIDO – Neón morado/rosa */
+.hero__subtitle .highlight-sound {
   display: inline-block;
   color: #c084fc;
-  text-decoration: none !important;
-  border: none !important;
-  border-bottom: none !important;
-  box-shadow: none !important;
-  outline: none !important;
   text-shadow:
     0 0 10px #a855f7,
     0 0 20px #a855f7,
     0 0 40px #7e22ce,
     0 0 80px #7e22ce;
-  animation: neonPulse 2s ease-in-out infinite alternate;
+  animation: neonPulseSound 2s ease-in-out infinite alternate;
 }
 
-@keyframes neonPulse {
+@keyframes neonPulseSound {
   0% {
-    text-shadow:
-      0 0 10px #a855f7,
-      0 0 20px #a855f7,
-      0 0 40px #7e22ce,
-      0 0 80px #7e22ce;
+    text-shadow: 0 0 10px #a855f7, 0 0 20px #a855f7, 0 0 40px #7e22ce, 0 0 80px #7e22ce;
   }
   100% {
-    text-shadow:
-      0 0 20px #a855f7,
-      0 0 40px #a855f7,
-      0 0 60px #7e22ce,
-      0 0 120px #7e22ce;
+    text-shadow: 0 0 20px #a855f7, 0 0 40px #a855f7, 0 0 60px #7e22ce, 0 0 120px #7e22ce;
+  }
+}
+
+/* LUZ – Neón dorado/amarillo */
+.hero__subtitle .highlight-light {
+  display: inline-block;
+  color: #fbbf24;
+  text-shadow:
+    0 0 10px #facc15,
+    0 0 20px #facc15,
+    0 0 40px #f59e0b,
+    0 0 80px #d97706;
+  animation: neonPulseLight 2s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulseLight {
+  0% {
+    text-shadow: 0 0 10px #facc15, 0 0 20px #facc15, 0 0 40px #f59e0b, 0 0 80px #d97706;
+  }
+  100% {
+    text-shadow: 0 0 20px #facc15, 0 0 40px #facc15, 0 0 60px #f59e0b, 0 0 120px #d97706;
+  }
+}
+
+/* LÍNEAS – Neón cian/azul */
+.hero__subtitle .highlight-lines {
+  display: inline-block;
+  color: #38bdf8;
+  text-shadow:
+    0 0 10px #06b6d4,
+    0 0 20px #06b6d4,
+    0 0 40px #0e7490,
+    0 0 80px #0e7490;
+  animation: neonPulseLines 2s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulseLines {
+  0% {
+    text-shadow: 0 0 10px #06b6d4, 0 0 20px #06b6d4, 0 0 40px #0e7490, 0 0 80px #0e7490;
+  }
+  100% {
+    text-shadow: 0 0 20px #06b6d4, 0 0 40px #06b6d4, 0 0 60px #0e7490, 0 0 120px #0e7490;
   }
 }
 
 /* ======================================== */
-/* BOTONES – ESTILO BASE                    */
+/* BOTONES                                  */
 /* ======================================== */
 .hero__actions {
   display: flex;
@@ -245,7 +275,6 @@
   100% { background-position: 0% 50%; }
 }
 
-/* Pulse inicial (opcional) */
 .hero__actions .btn--primary {
   animation: heroPulse 1s ease 3;
 }
@@ -255,7 +284,6 @@
   100% { transform: scale(1); }
 }
 
-/* Efecto ripple */
 .hero__actions .btn--primary .ripple {
   position: absolute;
   border-radius: 50%;
@@ -269,7 +297,7 @@
 }
 
 /* ======================================== */
-/* SCROLL INDICATOR – SUTIL                 */
+/* SCROLL INDICATOR                         */
 /* ======================================== */
 .hero__scroll {
   position: absolute;
@@ -317,10 +345,9 @@
 }
 
 /* ======================================== */
-/* RESPONSIVE – OPTIMIZADO PARA PORTÁTILES  */
+/* RESPONSIVE                               */
 /* ======================================== */
 
-/* Portátiles y pantallas medianas (1024px - 1366px) */
 @media (min-width: 1024px) and (max-width: 1366px) {
   .hero {
     height: 100vh;
@@ -347,7 +374,6 @@
   }
 }
 
-/* Tablets y móviles grandes (hasta 768px) */
 @media (max-width: 768px) {
   .hero {
     height: 100vh;
@@ -369,7 +395,6 @@
   }
 }
 
-/* Móviles (640px y menos) */
 @media (max-width: 640px) {
   .hero__actions {
     flex-direction: column;
@@ -404,7 +429,6 @@
   }
 }
 
-/* Móviles muy pequeños (480px) */
 @media (max-width: 480px) {
   .hero h1 {
     font-size: clamp(1.5rem, 5vw, 1.9rem);
@@ -428,9 +452,11 @@
 /* ACCESIBILIDAD – REDUCE MOTION            */
 /* ======================================== */
 @media (prefers-reduced-motion: reduce) {
-  .hero__subtitle .highlight {
-    animation: none;
-    text-shadow: 0 0 10px #a855f7;
+  .hero__subtitle .highlight-sound,
+  .hero__subtitle .highlight-light,
+  .hero__subtitle .highlight-lines {
+    animation: none !important;
+    text-shadow: 0 0 10px #a855f7 !important;
   }
   .hero__actions .btn--primary {
     animation: none;

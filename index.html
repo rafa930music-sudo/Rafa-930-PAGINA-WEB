@@ -418,31 +418,35 @@
   <!-- ============================================ -->
   <main id="main-content">
     
-    <!-- ============================================ -->
-    <!-- HERO SECTION                                -->
-    <!-- ============================================ -->
-    <section class="hero" id="hero" aria-label="Presentación principal">
-      <div class="hero__bg" id="heroBg" style="background-image: url('images/rafa930-hero.webp');" role="img" aria-label="Rafa 930 - Banner principal"></div>
-      <div class="container">
-        <div class="hero__content">
-          <h1>RAFA <span class="text-gradient">930</span></h1>
-         <p class="hero__subtitle" data-i18n="hero_desc">
-  Artista <span class="highlight">musical</span> · Fotógrafo <span class="highlight">profesional</span> · Desarrollador <span class="highlight">web</span>
+<!-- ============================================ -->
+<!-- HERO SECTION                                -->
+<!-- ============================================ -->
+<section class="hero" id="hero" aria-label="Presentación principal">
+  <div class="hero__bg" id="heroBg" style="background-image: url('images/rafa930-hero.webp');" role="img" aria-label="Rafa 930 - Banner principal"></div>
+  <div class="container">
+    <div class="hero__content">
+      <h1>RAFA <span class="text-gradient">930</span></h1>
+      
+     <p class="hero__subtitle" data-i18n="hero_subtitle">
+  Creo con <span class="highlight-sound">sonido</span><br>
+  Capturo con <span class="highlight-light">luz</span><br>
+  Transformo con <span class="highlight-lines">líneas</span>
 </p>
-         <div class="hero__actions">
-  <a href="#discography" class="btn btn--primary btn--large">
-    <i class="fas fa-music" aria-hidden="true"></i> <span data-i18n="hero_btn1">Escuchar música</span>
-  </a>
-  <a href="#colaboradores" class="btn btn--primary btn--large">
-    <i class="fas fa-users" aria-hidden="true"></i> <span data-i18n="hero_btn_colab">Ver colaboraciones</span>
-  </a>
-  <a href="https://rafa930music-sudo.github.io/930-Digital/" target="_blank" rel="noopener" class="btn btn--primary btn--large">
-    <i class="fas fa-code" aria-hidden="true"></i> <span data-i18n="hero_btn_dev">Desarrollo web</span>
-  </a>
-</div>
-        </div>
+      
+      <div class="hero__actions">
+        <a href="#discography" class="btn btn--primary btn--large">
+          <i class="fas fa-music" aria-hidden="true"></i> <span data-i18n="hero_btn1">Escuchar música</span>
+        </a>
+        <a href="#colaboradores" class="btn btn--primary btn--large">
+          <i class="fas fa-users" aria-hidden="true"></i> <span data-i18n="hero_btn_colab">Ver colaboraciones</span>
+        </a>
+        <a href="https://rafa930music-sudo.github.io/930-Digital/" target="_blank" rel="noopener" class="btn btn--primary btn--large">
+          <i class="fas fa-code" aria-hidden="true"></i> <span data-i18n="hero_btn_dev">Desarrollo web</span>
+        </a>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- ============================================ -->
     <!-- SHARE SECTION                                -->
@@ -1231,56 +1235,41 @@
     })();
 
   </script>
-
 <script>
   (function() {
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initTypewriter);
+      document.addEventListener('DOMContentLoaded', initFade);
     } else {
-      initTypewriter();
+      initFade();
     }
 
-    function initTypewriter() {
+    function initFade() {
       const el = document.querySelector('.hero__subtitle');
       if (!el) return;
 
+      // Guardamos el HTML original
+      const originalHTML = el.innerHTML;
+
+      // Ocultamos y luego mostramos con fade
+      el.style.opacity = '0';
+      el.style.transition = 'opacity 1s ease';
+
+      // Restauramos el HTML original (con todos los spans y <br>)
+      el.innerHTML = originalHTML;
+
+      // Forzamos un reflow para que la transición se active
+      void el.offsetHeight;
+
+      // Aplicamos opacidad 1
+      el.style.opacity = '1';
+
+      // Ocultamos el cursor al terminar
       setTimeout(() => {
-        startTypewriter(el);
-      }, 100);
-    }
-
-    function startTypewriter(element) {
-      const originalHTML = element.innerHTML;
-      const plainText = element.textContent.trim();
-      if (!plainText) return;
-
-      // Vaciamos el contenido y marcamos que está escribiendo
-      element.textContent = '';
-      element.classList.add('typewriting'); // Para mantener nowrap
-
-      let charIndex = 0;
-      const totalChars = plainText.length;
-      const speed = 35;
-
-      function type() {
-        if (charIndex < totalChars) {
-          element.textContent += plainText.charAt(charIndex);
-          charIndex++;
-          setTimeout(type, speed);
-        } else {
-          // Terminamos: quitamos typewriting, añadimos finished
-          element.classList.remove('typewriting');
-          element.classList.add('finished');
-          element.innerHTML = originalHTML; // Restaura los spans
-          // Asegurar que el cursor desaparece (ya lo hace .finished)
-        }
-      }
-
-      setTimeout(type, 300);
+        el.classList.add('finished');
+      }, 1200);
     }
   })();
 </script>
-
   <!-- ============================================ -->
   <!-- SCRIPTS (SOLO AOS Y MAIN.JS, SIN INLINE)      -->
   <!-- ============================================ -->
