@@ -1,36 +1,105 @@
-/* ======================================== */
-/* ABOUT – ESTRUCTURA BASE                   */
-/* ======================================== */
+/* ============================================ */
+/* ABOUT – ESTILO MODERNO Y AUDACIOUS            */
+/* ============================================ */
+
+.about {
+  position: relative;
+  padding: 6rem 0;
+  background: var(--bg-primary);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Fondo con dos grandes círculos difuminados que se mueven */
+.about::before,
+.about::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.25;
+  z-index: 0;
+  pointer-events: none;
+  animation: floatBlobs 20s ease-in-out infinite alternate;
+}
+
+.about::before {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  right: -100px;
+  background: #a855f7;
+}
+
+.about::after {
+  width: 350px;
+  height: 350px;
+  bottom: -50px;
+  left: -50px;
+  background: #fbbf24;
+  animation-delay: -5s;
+}
+
+@keyframes floatBlobs {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(10px, -10px) scale(1.05); }
+}
+
+.about .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================ */
+/* GRID – DISPOSICIÓN LATERAL CON ESPACIADO     */
+/* ============================================ */
 
 .about__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 5rem;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
   align-items: center;
 }
 
+/* ============================================ */
+/* IMAGEN – CON MARCO Y SOMBRA DRAMÁTICA       */
+/* ============================================ */
+
 .about__image {
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  box-shadow: var(--shadow-xl);
   position: relative;
-  transform-style: preserve-3d;
-  perspective: 1000px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(168, 85, 247, 0.15) inset;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), 
+              box-shadow 0.6s ease;
+}
+
+.about__image:hover {
+  transform: scale(1.02) rotate(1deg);
+  box-shadow: 
+    0 40px 80px rgba(168, 85, 247, 0.3),
+    0 0 0 2px rgba(168, 85, 247, 0.3) inset;
 }
 
 .about__image img {
+  display: block;
   width: 100%;
   height: auto;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.8s ease, filter 0.8s ease;
 }
 
 .about__image:hover img {
-  transform: scale(1.03);
+  transform: scale(1.05);
+  filter: brightness(1.05) saturate(1.1);
 }
 
-/* ======================================== */
-/* ABOUT – TEXTO Y LEGIBILIDAD              */
-/* ======================================== */
+/* ============================================ */
+/* TEXTO – TIPOGRAFÍA Y ESPACIADO               */
+/* ============================================ */
 
 .about__text {
   display: flex;
@@ -38,18 +107,48 @@
   gap: 0.5rem;
 }
 
+/* Eyebrow – más discreto pero con estilo */
 .about__text .eyebrow {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  color: var(--purple);
+  opacity: 0.7;
+  position: relative;
+  padding-left: 0;
   margin-bottom: 0.5rem;
 }
 
-.about__text h2 {
-  margin-bottom: 1.8rem;
+.about__text .eyebrow::before {
+  display: none;
 }
+
+/* Título principal – grande y con contraste */
+.about__text h2 {
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 1.8rem;
+  letter-spacing: -0.02em;
+}
+
+.about__text h2 .text-gradient {
+  background: linear-gradient(135deg, #fbbf24 0%, #a855f7 60%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================ */
+/* CONTENIDO – PÁRRAFOS CON ESTILO              */
+/* ============================================ */
 
 .about__content {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .about__content p {
@@ -57,130 +156,224 @@
   line-height: 1.8;
   color: var(--text-secondary);
   margin: 0;
+  transition: color 0.3s ease;
 }
 
-/* ======================================== */
-/* ABOUT – BOTONES ESTRUCTURA PERFECTA      */
-/* ======================================== */
+.about__content p:first-of-type {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.about__content p:first-of-type strong {
+  font-weight: 700;
+  background: linear-gradient(90deg, #a855f7, #fbbf24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================ */
+/* BOTONES – ESTILO DIFERENTE, MÁS MODERNO     */
+/* ============================================ */
 
 .about__cta {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.2rem;
   margin-top: 2.5rem;
-  align-items: center;
 }
-
-/* Escritorio: botones con tamaño equilibrado */
-.about__cta .btn {
-  flex: 1 1 auto;
-  min-width: 160px;
-  max-width: 220px;
-  justify-content: center;
-  text-align: center;
-  padding: 0.8rem 1.5rem;
-}
-
-/* ======================================== */
-/* ALINEACIÓN PERFECTA DE ICONOS EN BOTONES */
-/* ======================================== */
 
 .about__cta .btn {
-  display: inline-flex;          /* para alinear icono y texto */
-  align-items: center;           /* centra verticalmente */
-  gap: 0.6rem;                   /* separación entre icono y texto */
-}
-
-.about__cta .btn i {
+  all: unset; /* Reseteamos estilos para construir desde cero */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.2rem;                /* ancho fijo para todos los iconos */
-  height: 1.2rem;               /* alto fijo para todos los iconos */
-  font-size: 1.1rem;            /* tamaño del icono */
-  line-height: 1;               /* elimina altura de línea extra */
-  flex-shrink: 0;               /* evita que se encoja */
-  vertical-align: middle;
+  gap: 0.7rem;
+  padding: 0.9rem 2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  border: 2px solid transparent;
+  background: transparent;
+  color: var(--text-primary);
+  text-decoration: none;
 }
 
-/* Ajuste específico para el icono de usuarios si sigue desalineado */
-/* .about__cta .btn .fa-users {
-  transform: translateY(1px);
-} */
+/* Cada botón con identidad propia */
 
-/* ======================================== */
-/* RESPONSIVE – MÓVIL (≤768px)              */
-/* ======================================== */
+.about__cta .btn--primary {
+  background: linear-gradient(135deg, #a855f7, #7e22ce);
+  color: #fff;
+  border-color: rgba(251, 191, 36, 0.2);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.3);
+  font-weight: 700;
+}
 
-@media (max-width: 768px) {
+.about__cta .btn--primary:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(168, 85, 247, 0.5);
+  border-color: #fbbf24;
+}
+
+.about__cta .btn--primary:active {
+  transform: scale(0.97);
+}
+
+/* El segundo botón (colaboraciones) – con borde y fondo transparente */
+.about__cta .btn--primary:nth-of-type(2) {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid rgba(168, 85, 247, 0.3);
+  box-shadow: none;
+}
+
+.about__cta .btn--primary:nth-of-type(2):hover {
+  background: rgba(168, 85, 247, 0.1);
+  border-color: #a855f7;
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.15);
+}
+
+/* El tercer botón (desarrollo) – estilo minimalista */
+.about__cta .btn--primary:nth-of-type(3) {
+  background: transparent;
+  color: var(--text-tertiary);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+
+.about__cta .btn--primary:nth-of-type(3):hover {
+  color: #38bdf8;
+  border-color: #38bdf8;
+  background: rgba(56, 189, 248, 0.05);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(56, 189, 248, 0.1);
+}
+
+/* ============================================ */
+/* RESPONSIVE                                   */
+/* ============================================ */
+
+@media (max-width: 992px) {
   .about__grid {
     grid-template-columns: 1fr;
     gap: 3rem;
+    text-align: center;
   }
 
   .about__text {
-    text-align: center;
-    gap: 0.3rem;
-  }
-
-  .about__text .eyebrow {
-    margin-bottom: 0.3rem;
+    align-items: center;
   }
 
   .about__text h2 {
-    margin-bottom: 1.5rem;
-  }
-
-  .about__content {
-    gap: 1.2rem;
+    font-size: clamp(2rem, 5vw, 3rem);
   }
 
   .about__content p {
     text-align: left;
-    line-height: 1.8;
   }
 
-  /* Botones apilados verticalmente */
   .about__cta {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.8rem;
-    margin-top: 2rem;
-  }
-
-  .about__cta .btn {
-    flex: 1 1 100%;
-    min-width: unset;
-    max-width: 100%;
-    padding: 0.9rem 1rem;
-    font-size: 1rem;
+    justify-content: center;
   }
 }
 
-/* ======================================== */
-/* PANTALLAS MUY PEQUEÑAS (≤480px)          */
-/* ======================================== */
-
-@media (max-width: 480px) {
-  .about__grid {
-    gap: 2rem;
+@media (max-width: 768px) {
+  .about {
+    padding: 4rem 0;
   }
 
-  .about__text h2 {
-    font-size: 1.5rem;
+  .about__image {
+    max-width: 320px;
+    margin: 0 auto;
   }
 
-  .about__content {
-    gap: 1rem;
+  .about__image:hover {
+    transform: scale(1.02) rotate(0deg);
+  }
+
+  .about__content p:first-of-type {
+    font-size: 1rem;
   }
 
   .about__cta {
-    gap: 0.6rem;
-    margin-top: 1.8rem;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
   }
 
   .about__cta .btn {
-    padding: 0.8rem 0.8rem;
+    justify-content: center;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  /* Para móvil, hacemos los tres botones diferentes pero con el mismo selector general */
+  .about__cta .btn--primary:nth-of-type(2),
+  .about__cta .btn--primary:nth-of-type(3) {
+    border-color: rgba(168, 85, 247, 0.15);
+  }
+}
+
+@media (max-width: 480px) {
+  .about__text h2 {
+    font-size: 1.8rem;
+  }
+
+  .about__content p {
     font-size: 0.9rem;
+  }
+
+  .about__image {
+    max-width: 260px;
+  }
+}
+
+/* ============================================ */
+/* ANIMACIÓN DE ENTRADA CON RETRASO (opcional) */
+/* ============================================ */
+
+/* Si usas AOS, ya tienes animación, pero añadimos un extra */
+.about__image {
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), 
+              box-shadow 0.6s ease;
+}
+
+.about__text h2 {
+  transition: color 0.4s ease;
+}
+
+.about__content p {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.about__content p:hover {
+  transform: translateX(4px);
+  opacity: 0.9;
+}
+
+/* ============================================ */
+/* ACCESIBILIDAD – REDUCE MOTION                */
+/* ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .about::before,
+  .about::after {
+    animation: none;
+  }
+  .about__image:hover,
+  .about__image img,
+  .about__cta .btn {
+    transform: none !important;
+    transition: none !important;
+  }
+  .about__content p:hover {
+    transform: none;
   }
 }
