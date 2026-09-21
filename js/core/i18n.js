@@ -1,4 +1,4 @@
-import { showToast } from './utils.js'; // ⚠️ OJO: tenías un typo ('./utils.js' no '.utils.js')
+import { showToast } from './utils.js';
 
 const translations = {
   es: {
@@ -25,6 +25,7 @@ const translations = {
     // About
     about_eyebrow: "Mi historia",
     about_title: "Música · Fotografía · Código",
+    about_930_eyebrow: "El tributo inmutable · ¿Por qué 930?",
     about_p1: "Nacido como Rafael Moreno Román, mi historia comenzó en los callejones de Mataró entre saltos de parkour, partidos interminables de fútbol callejero y la disciplina silenciosa del movimiento.",
     about_p2: "A los 10 años, el destino trasladó mis pasos al barrio de La Mina, un enclave de crudeza y autenticidad sin filtros en Sant Adrià de Besòs.",
     about_p3: "Fue en la humilde Biblioteca de la Font de La Mina donde todo cobró sentido: entre mesas de estudio y grabadoras portátiles improvisadas, junto a mis hermanos de camino Ouxxox e Incrife, descubrí que la música no era un pasatiempo, sino una tabla de salvación visceral para canalizar lo inconfesable.",
@@ -164,6 +165,7 @@ const translations = {
     // About
     about_eyebrow: "My story",
     about_title: "Music · Photography · Code",
+    about_930_eyebrow: "The immutable tribute · Why 930?",
     about_p1: "Born Rafael Moreno Román, my story began in the alleyways of Mataró between parkour jumps, endless street football matches and the silent discipline of movement.",
     about_p2: "At the age of 10, destiny moved my steps to the neighbourhood of La Mina, an enclave of raw, unfiltered authenticity in Sant Adrià de Besòs.",
     about_p3: "It was in the humble Font de La Mina Library that everything fell into place: among study tables and improvised portable recorders, alongside my brothers-in-arms Ouxxox and Incrife, I discovered that music was not a hobby, but a visceral lifeline to channel the unspoken.",
@@ -298,7 +300,8 @@ export function setLanguage(lang) {
       } else if (el.tagName === 'SELECT' && el.options && key === 'select_option') {
         el.options[0].text = translations[lang][key];
       } else {
-        // Para el hero_subtitle y otros con HTML, inyectamos el contenido completo
+        // Para el hero_subtitle, about_p3, colab_title y otros con HTML,
+        // inyectamos el contenido completo (spans, <br>, <mark>, etc.)
         el.innerHTML = translations[lang][key];
       }
     }
