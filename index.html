@@ -550,77 +550,157 @@
 </section>
 
     <!-- ============================================ -->
-    <!-- DISCOGRAPHY                                  -->
-    <!-- ============================================ -->
-    <section id="discography" class="discography-carousel" aria-label="Discografía">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow" data-i18n="disc_eyebrow">Mi música</span>
-          <h2><span class="text-gradient" data-i18n="disc_title">Discografía</span></h2>
-        </div>
-        
-        <div class="carrusel-horizontal">
-          <button class="carrusel-horizontal__btn carrusel-horizontal__btn--prev" id="discPrev" aria-label="Anterior">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          
-          <div class="carrusel-horizontal__track" id="discTrack">
-            
-            <article class="carrusel-horizontal__card">
-              <div class="carrusel-horizontal__image">
-                <img src="images/Portada-Nose-si-estare-mañana.webp" alt="Nose si estaré mañana" loading="lazy">
-                <div class="carrusel-horizontal__overlay">
-                  <a href="https://www.youtube.com/watch?v=WaV1KeSN5_4" target="_blank" rel="noopener noreferrer" class="carrusel-horizontal__instagram" style="background: linear-gradient(135deg, #FF0000, #cc0000); margin-left: 8px;">
-                    <i class="fab fa-youtube"></i> YouTube
-                  </a>
-                </div>
-              </div>
-              <div class="carrusel-horizontal__info">
-                <h3>Nose si estaré mañana</h3>
-                <p>SINGLE · 2026</p>
-              </div>
-            </article>
-            
-            <article class="carrusel-horizontal__card">
-              <div class="carrusel-horizontal__image">
-                <img src="images/My-World-Album.webp" alt="My World" loading="lazy">
-                <div class="carrusel-horizontal__overlay">
-                  <a href="https://www.youtube.com/watch?v=lCwhG67eijs&list=PLs6c6tp_0W8Q_4mPsWLRQ8Zwt569Rpe5x" target="_blank" rel="noopener noreferrer" class="carrusel-horizontal__instagram" style="background: linear-gradient(135deg, #FF0000, #cc0000); margin-left: 8px;">
-                    <i class="fab fa-youtube"></i> YouTube
-                  </a>
-                </div>
-              </div>
-              <div class="carrusel-horizontal__info">
-                <h3>My World</h3>
-                <p>EP · 2025</p>
-              </div>
-            </article>
-            
-            <article class="carrusel-horizontal__card">
-              <div class="carrusel-horizontal__image">
-                <img src="images/La-Vida-Es-Bella-Portada-de-Album.webp" alt="La Vida Es Bella" loading="lazy">
-                <div class="carrusel-horizontal__overlay">
-                  <span class="carrusel-horizontal__instagram" style="background: rgba(0,0,0,0.5); cursor: default; display: flex; align-items: center; gap: 0.5rem;">
-                    🔜 Próximamente
-                  </span>
-                </div>
-              </div>
-              <div class="carrusel-horizontal__info">
-                <h3>La Vida Es Bella</h3>
-                <p>ÁLBUM · 2026</p>
-              </div>
-            </article>
-            
-          </div>
-          
-          <button class="carrusel-horizontal__btn carrusel-horizontal__btn--next" id="discNext" aria-label="Siguiente">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-        </div>
-        
-        <div class="carrusel-horizontal__dots" id="discDots"></div>
+<!-- DISCOGRAPHY — CATÁLOGO DE ARCHIVO            -->
+<!-- ============================================ -->
+<section id="discography" class="discography-carousel" aria-label="Discografía">
+  <div class="container">
+
+    <!-- Cabecera con contador -->
+    <div class="section-header section-header--editorial">
+      <div class="section-header__left">
+        <span class="eyebrow" data-i18n="disc_eyebrow">Mi música</span>
+        <h2><span class="text-gradient" data-i18n="disc_title">Discografía</span></h2>
       </div>
-    </section>
+      <div class="section-header__right" aria-hidden="true">
+        <span class="catalog-counter">
+          <span class="catalog-counter__current">01</span>
+          <span class="catalog-counter__sep">/</span>
+          <span class="catalog-counter__total">03</span>
+        </span>
+        <span class="catalog-label" data-i18n="disc_catalog">CATÁLOGO</span>
+      </div>
+    </div>
+
+    <div class="carrusel-horizontal">
+
+      <!-- BOTÓN ANTERIOR -->
+      <button class="carrusel-horizontal__btn carrusel-horizontal__btn--prev" id="discPrev" aria-label="Anterior">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <!-- TRACK -->
+      <div class="carrusel-horizontal__track" id="discTrack">
+
+        <!-- ============================================ -->
+        <!-- CARD 01 — Nose si estaré mañana              -->
+        <!-- ============================================ -->
+        <article class="catalog-card">
+          <span class="catalog-card__ref">REF. #01</span>
+
+          <div class="catalog-card__image">
+            <img src="images/Portada-Nose-si-estare-mañana.webp"
+                 alt="Nose si estaré mañana — Portada"
+                 loading="lazy"
+                 width="600"
+                 height="600"
+                 decoding="async">
+            <div class="catalog-card__overlay">
+              <a href="https://www.youtube.com/watch?v=WaV1KeSN5_4"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="catalog-card__play"
+                 aria-label="Escuchar Nose si estaré mañana en YouTube">
+                <i class="fab fa-youtube" aria-hidden="true"></i>
+                <span data-i18n="disc_btn_youtube">YouTube</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="catalog-card__info">
+            <h3 class="catalog-card__title">Nose si estaré mañana</h3>
+            <span class="catalog-card__divider" aria-hidden="true"></span>
+            <p class="catalog-card__meta">
+              <span data-i18n="disc_single">SINGLE</span>
+              <span class="catalog-card__dot">·</span>
+              <span>2026</span>
+            </p>
+            <p class="catalog-card__sub">Prod. Ouxxox · 3:42</p>
+          </div>
+        </article>
+
+        <!-- ============================================ -->
+        <!-- CARD 02 — My World                           -->
+        <!-- ============================================ -->
+        <article class="catalog-card">
+          <span class="catalog-card__ref">REF. #02</span>
+
+          <div class="catalog-card__image">
+            <img src="images/My-World-Album.webp"
+                 alt="My World — Portada"
+                 loading="lazy"
+                 width="600"
+                 height="600"
+                 decoding="async">
+            <div class="catalog-card__overlay">
+              <a href="https://www.youtube.com/watch?v=lCwhG67eijs&list=PLs6c6tp_0W8Q_4mPsWLRQ8Zwt569Rpe5x"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="catalog-card__play"
+                 aria-label="Escuchar My World en YouTube">
+                <i class="fab fa-youtube" aria-hidden="true"></i>
+                <span data-i18n="disc_btn_youtube">YouTube</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="catalog-card__info">
+            <h3 class="catalog-card__title">My World</h3>
+            <span class="catalog-card__divider" aria-hidden="true"></span>
+            <p class="catalog-card__meta">
+              <span data-i18n="disc_ep">EP</span>
+              <span class="catalog-card__dot">·</span>
+              <span>2025</span>
+            </p>
+            <p class="catalog-card__sub">5 tracks · 18 min</p>
+          </div>
+        </article>
+
+        <!-- ============================================ -->
+        <!-- CARD 03 — La Vida Es Bella (Próximamente)    -->
+        <!-- ============================================ -->
+        <article class="catalog-card catalog-card--soon">
+          <span class="catalog-card__ref">REF. #03</span>
+          <span class="catalog-card__soon-badge" data-i18n="disc_soon">Próximamente</span>
+
+          <div class="catalog-card__image">
+            <img src="images/La-Vida-Es-Bella-Portada-de-Album.webp"
+                 alt="La Vida Es Bella — Portada"
+                 loading="lazy"
+                 width="600"
+                 height="600"
+                 decoding="async">
+            <div class="catalog-card__overlay catalog-card__overlay--soon">
+              <span class="catalog-card__play catalog-card__play--soon">
+                <i class="fas fa-clock" aria-hidden="true"></i>
+                <span data-i18n="disc_soon_short">En camino</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="catalog-card__info">
+            <h3 class="catalog-card__title">La Vida Es Bella</h3>
+            <span class="catalog-card__divider" aria-hidden="true"></span>
+            <p class="catalog-card__meta">
+              <span data-i18n="disc_album">ÁLBUM</span>
+              <span class="catalog-card__dot">·</span>
+              <span>2026</span>
+            </p>
+            <p class="catalog-card__sub" data-i18n="disc_soon_sub">Invierno 2026 · Pre-save disponible</p>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- BOTÓN SIGUIENTE -->
+      <button class="carrusel-horizontal__btn carrusel-horizontal__btn--next" id="discNext" aria-label="Siguiente">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <!-- DOTS -->
+    <div class="carrusel-horizontal__dots" id="discDots"></div>
+  </div>
+</section>
 
     <!-- ============================================ -->
     <!-- COLABORADORES                                -->
