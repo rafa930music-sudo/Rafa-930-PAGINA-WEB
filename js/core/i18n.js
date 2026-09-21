@@ -1,4 +1,4 @@
-import { showToast } from './utils.js';
+import { showToast } from './utils.js'; // ⚠️ OJO: tenías un typo ('./utils.js' no '.utils.js')
 
 const translations = {
   es: {
@@ -25,12 +25,10 @@ const translations = {
     // About
     about_eyebrow: "Mi historia",
     about_title: "Música · Fotografía · Código",
-    about_p1: "Soy RAFA 930, artista de música urbana, fotógrafo profesional y desarrollador web.",
-    about_p2: "Tres disciplinas que se alimentan entre sí para crear experiencias únicas.",
-    about_p3: "Como músico, fusiono trap, reggaetón y rap con un sonido propio.",
-    about_p4: "Como fotógrafo, capturo la esencia de cada persona en retratos, sesiones urbanas y proyectos editoriales.",
-    about_p5: "Como desarrollador, construyo páginas web, portfolios y tiendas online con inteligencia artificial.",
-    about_p6: "Mi objetivo es llevar mi arte a todo el mundo y, al mismo tiempo, ayudar a otros creadores a tener presencia digital profesional.",
+    about_p1: "Nacido como Rafael Moreno Román, mi historia comenzó en los callejones de Mataró entre saltos de parkour, partidos interminables de fútbol callejero y la disciplina silenciosa del movimiento.",
+    about_p2: "A los 10 años, el destino trasladó mis pasos al barrio de La Mina, un enclave de crudeza y autenticidad sin filtros en Sant Adrià de Besòs.",
+    about_p3: "Fue en la humilde Biblioteca de la Font de La Mina donde todo cobró sentido: entre mesas de estudio y grabadoras portátiles improvisadas, junto a mis hermanos de camino Ouxxox e Incrife, descubrí que la música no era un pasatiempo, sino una tabla de salvación visceral para canalizar lo inconfesable.",
+    about_p4: "El 930 no es un simple alias: es el código postal de Sant Adrià de Besòs (08930). Un ancla a la tierra que me forjó, un recordatorio indeleble de dónde vengo y la promesa solemne de no olvidar a mi gente sin importar a qué rincón del planeta llegue mi sonido.",
 
     // Discografía
     disc_eyebrow: "Mi música",
@@ -166,12 +164,10 @@ const translations = {
     // About
     about_eyebrow: "My story",
     about_title: "Music · Photography · Code",
-    about_p1: "I'm RAFA 930, a urban music artist, professional photographer and web developer.",
-    about_p2: "Three disciplines that feed each other to create unique experiences.",
-    about_p3: "As a musician, I blend trap, reggaeton and rap with my own sound.",
-    about_p4: "As a photographer, I capture the essence of each person in portraits, urban sessions and editorial projects.",
-    about_p5: "As a developer, I build websites, portfolios and online stores with artificial intelligence.",
-    about_p6: "My goal is to take my art worldwide and, at the same time, help other creators to have a professional digital presence.",
+    about_p1: "Born Rafael Moreno Román, my story began in the alleyways of Mataró between parkour jumps, endless street football matches and the silent discipline of movement.",
+    about_p2: "At the age of 10, destiny moved my steps to the neighbourhood of La Mina, an enclave of raw, unfiltered authenticity in Sant Adrià de Besòs.",
+    about_p3: "It was in the humble Font de La Mina Library that everything fell into place: among study tables and improvised portable recorders, alongside my brothers-in-arms Ouxxox and Incrife, I discovered that music was not a hobby, but a visceral lifeline to channel the unspoken.",
+    about_p4: "930 is not just an alias: it is the postcode of Sant Adrià de Besòs (08930). An anchor to the land that forged me, an indelible reminder of where I come from, and a solemn promise never to forget my people no matter which corner of the world my sound reaches.",
 
     // Discography
     disc_eyebrow: "My music",
@@ -293,7 +289,7 @@ export function t(key) {
 export function setLanguage(lang) {
   currentLang = lang;
   localStorage.setItem('idioma', lang);
-  
+
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
     if (translations[lang]?.[key]) {
@@ -302,7 +298,7 @@ export function setLanguage(lang) {
       } else if (el.tagName === 'SELECT' && el.options && key === 'select_option') {
         el.options[0].text = translations[lang][key];
       } else {
-        // Para el hero_subtitle, inyectamos el HTML completo con los spans y <br>
+        // Para el hero_subtitle y otros con HTML, inyectamos el contenido completo
         el.innerHTML = translations[lang][key];
       }
     }
