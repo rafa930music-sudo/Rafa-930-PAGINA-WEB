@@ -473,54 +473,81 @@
       </div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- ABOUT SECTION                               -->
-    <!-- ============================================ -->
-    <section id="about" class="about" aria-label="Biografía">
-      <div class="container">
-        <div class="about__grid">
-          <div class="about__image" data-aos="fade-right">
-            <img src="images/Foto-perfil.webp" 
-                 alt="Rafa 930 - Artista, fotógrafo y desarrollador" 
-                 loading="lazy" 
-                 width="600" 
-                 height="600" 
-                 decoding="async">
+   <!-- ============================================ -->
+<!-- ABOUT SECTION — ESTILO CRÓNICA REVISTA       -->
+<!-- ============================================ -->
+<section id="about" class="about" aria-label="Biografía">
+  <div class="container">
+    <div class="about__grid">
+
+      <!-- ============ IMAGEN EDITORIAL CON PIE ============ -->
+      <figure class="about__figure" data-aos="fade-right">
+        <div class="about__image">
+          <img src="images/Foto-perfil.webp"
+               alt="Rafa 930 — Retrato editorial"
+               loading="lazy"
+               width="600"
+               height="600"
+               decoding="async">
+        </div>
+        <figcaption class="about__caption">
+          <span class="about__caption-num">VOL. 01</span>
+          <span class="about__caption-text">Mataró → La Mina · 08930</span>
+        </figcaption>
+      </figure>
+
+      <!-- ============ TEXTO BIOGRÁFICO ============ -->
+      <div class="about__text" data-aos="fade-left">
+        <span class="eyebrow" data-i18n="about_eyebrow">Mi historia</span>
+        <h2 data-i18n="about_title">Música · Fotografía · <span class="text-gradient">Código</span></h2>
+
+        <!-- Capítulos numerados (estilo crónica) -->
+        <article class="about__content">
+
+          <div class="about__chapter">
+            <span class="about__chapter-num" aria-hidden="true">01</span>
+            <p data-i18n="about_p1">Nacido como Rafael Moreno Román, mi historia comenzó en los callejones de Mataró entre saltos de parkour, partidos interminables de fútbol callejero y la disciplina silenciosa del movimiento.</p>
           </div>
-          <div class="about__text" data-aos="fade-left">
-            <span class="eyebrow" data-i18n="about_eyebrow">Mi historia</span>
-            <h2 data-i18n="about_title">Música · Fotografía · <span class="text-gradient">Código</span></h2>
-            
-            <div class="about__content">
-              <!-- Biografía narrativa: Mataró → La Mina → Biblioteca -->
-              <p data-i18n="about_p1">Nacido como Rafael Moreno Román, mi historia comenzó en los callejones de Mataró entre saltos de parkour, partidos interminables de fútbol callejero y la disciplina silenciosa del movimiento.</p>
-              <p data-i18n="about_p2">A los 10 años, el destino trasladó mis pasos al barrio de La Mina, un enclave de crudeza y autenticidad sin filtros en Sant Adrià de Besòs.</p>
-              <p data-i18n="about_p3">Fue en la humilde Biblioteca de la Font de La Mina donde todo cobró sentido: entre mesas de estudio y grabadoras portátiles improvisadas, junto a mis hermanos de camino Ouxxox e Incrife, descubrí que la música no era un pasatiempo, sino una tabla de salvación visceral para canalizar lo inconfesable.</p>
 
-              <!-- Rótulo interno estilo revista: separa biografía de manifiesto -->
-              <span class="about__subeyebrow" data-i18n="about_930_eyebrow">
-                El tributo inmutable · ¿Por qué 930?
-              </span>
-
-              <!-- Manifiesto del 930 (el CSS lo estiliza como cita destacada) -->
-              <p data-i18n="about_p4">El 930 no es un simple alias: es el código postal de Sant Adrià de Besòs (08930). Un ancla a la tierra que me forjó, un recordatorio indeleble de dónde vengo y la promesa solemne de no olvidar a mi gente sin importar a qué rincón del planeta llegue mi sonido.</p>
-            </div>
-
-            <div class="about__cta">
-              <a href="#discography" class="btn btn--primary">
-                <i class="fas fa-music" aria-hidden="true"></i> <span data-i18n="nav_music">Música</span>
-              </a>
-              <a href="#colaboradores" class="btn btn--primary">
-                <i class="fas fa-users" aria-hidden="true"></i> <span data-i18n="hero_btn_colab">Ver colaboraciones</span>
-              </a>
-              <a href="https://rafa930music-sudo.github.io/930-Digital/" target="_blank" rel="noopener" class="btn btn--primary">
-                <i class="fas fa-code" aria-hidden="true"></i> <span data-i18n="about_cta_dev">Desarrollo</span>
-              </a>
-            </div>
+          <div class="about__chapter">
+            <span class="about__chapter-num" aria-hidden="true">02</span>
+            <p data-i18n="about_p2">A los 10 años, el destino trasladó mis pasos al barrio de La Mina, un enclave de crudeza y autenticidad sin filtros en Sant Adrià de Besòs.</p>
           </div>
+
+          <div class="about__chapter">
+            <span class="about__chapter-num" aria-hidden="true">03</span>
+            <p data-i18n="about_p3">Fue en la humilde Biblioteca de la Font de La Mina donde todo cobró sentido: entre mesas de estudio y grabadoras portátiles improvisadas, junto a mis hermanos de camino Ouxxox e Incrife, descubrí que la música no era un pasatiempo, sino una tabla de salvación visceral para canalizar lo inconfesable.</p>
+          </div>
+
+        </article>
+
+        <!-- Manifiesto del 930 -->
+        <div class="about__manifesto">
+          <span class="about__subeyebrow" data-i18n="about_930_eyebrow">
+            El tributo inmutable · ¿Por qué 930?
+          </span>
+          <blockquote class="about__quote" data-i18n="about_p4">
+            El 930 no es un simple alias: es el código postal de Sant Adrià de Besòs (08930). Un ancla a la tierra que me forjó, un recordatorio indeleble de dónde vengo y la promesa solemne de no olvidar a mi gente sin importar a qué rincón del planeta llegue mi sonido.
+          </blockquote>
+        </div>
+
+        <!-- CTAs -->
+        <div class="about__cta">
+          <a href="#discography" class="btn btn--primary">
+            <i class="fas fa-music" aria-hidden="true"></i> <span data-i18n="nav_music">Música</span>
+          </a>
+          <a href="#colaboradores" class="btn btn--primary">
+            <i class="fas fa-users" aria-hidden="true"></i> <span data-i18n="hero_btn_colab">Ver colaboraciones</span>
+          </a>
+          <a href="https://rafa930music-sudo.github.io/930-Digital/" target="_blank" rel="noopener" class="btn btn--primary">
+            <i class="fas fa-code" aria-hidden="true"></i> <span data-i18n="about_cta_dev">Desarrollo</span>
+          </a>
         </div>
       </div>
-    </section>
+
+    </div>
+  </div>
+</section>
 
     <!-- ============================================ -->
     <!-- DISCOGRAPHY                                  -->
