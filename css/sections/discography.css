@@ -1,288 +1,536 @@
-/* ========================================
-   SECCIÓN DISCOGRAFÍA - CARRUSEL CON FLECHAS
-   ======================================== */
+/* ============================================ */
+/* DISCOGRAPHY — CATÁLOGO DE ARCHIVO            */
+/* ============================================ */
 
 .discography-carousel {
-  background: var(--bg-secondary);
-  padding: 5rem 0;
+  position: relative;
+  padding: 6rem 0;
+  background: var(--bg-primary, #0a0a0a);
   overflow: hidden;
+  isolation: isolate;
+}
+
+/* Blob decorativo violeta detrás */
+.discography-carousel::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: 20%;
+  right: -180px;
+  border-radius: 50%;
+  background: #a855f7;
+  filter: blur(120px);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+  animation: floatBlobs 22s ease-in-out infinite alternate;
+}
+
+.discography-carousel .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================ */
+/* CABECERA EDITORIAL CON CONTADOR               */
+/* ============================================ */
+
+.section-header--editorial {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.15);
   position: relative;
 }
 
-/* Contenedor del carrusel (necesario para posicionar las flechas) */
-.discography-carousel .carrusel-horizontal {
-  max-width: 1200px;
-  margin: 2rem auto 0;
-  padding: 0 3rem;
-  position: relative;
+.section-header--editorial::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, #a855f7, #fbbf24);
 }
 
-/* Pista de desplazamiento */
-.discography-carousel .carrusel-horizontal__track {
+.section-header__left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.section-header__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+}
+
+.catalog-counter {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  font-family: 'Bebas Neue', sans-serif;
+  line-height: 1;
+}
+
+.catalog-counter__current {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fbbf24;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+.catalog-counter__sep {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.25);
+  margin: 0 0.15rem;
+}
+
+.catalog-counter__total {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.05em;
+}
+
+.catalog-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--purple, #a855f7);
+  opacity: 0.7;
+}
+
+/* ============================================ */
+/* CARRUSEL HORIZONTAL (base)                    */
+/* ============================================ */
+
+.carrusel-horizontal {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.carrusel-horizontal__track {
   display: flex;
   gap: 2rem;
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  padding: 1rem 0.5rem 2rem;
-  scrollbar-width: thin;
-  scrollbar-color: var(--purple) var(--bg-card);
+  padding: 1.5rem 0.5rem 2.5rem;
+  margin: 0 auto;
+  flex: 1;
+
+  /* Ocultar scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.discography-carousel .carrusel-horizontal__track::-webkit-scrollbar {
-  height: 6px;
-}
-.discography-carousel .carrusel-horizontal__track::-webkit-scrollbar-track {
-  background: var(--bg-card);
-  border-radius: 10px;
-}
-.discography-carousel .carrusel-horizontal__track::-webkit-scrollbar-thumb {
-  background: var(--purple);
-  border-radius: 10px;
+.carrusel-horizontal__track::-webkit-scrollbar {
+  display: none;
 }
 
-/* Tarjetas de discografía (mismo estilo base) */
-.discography-carousel .carrusel-horizontal__card {
-  flex: 0 0 320px;
-  background: var(--bg-card);
-  backdrop-filter: blur(12px);
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--border-color);
-  overflow: hidden;
-  scroll-snap-align: start;
-  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-  box-shadow: var(--shadow-sm);
+/* Botones prev/next */
+.carrusel-horizontal__btn {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(10px);
+  color: var(--text-primary, #f5f5f5);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 2;
 }
 
-.discography-carousel .carrusel-horizontal__card:hover {
-  transform: translateY(-8px) scale(1.02);
-  border-color: var(--purple);
-  box-shadow: var(--shadow-glow);
+.carrusel-horizontal__btn:hover {
+  border-color: #fbbf24;
+  color: #fbbf24;
+  transform: scale(1.08);
+  background: rgba(251, 191, 36, 0.08);
 }
 
-/* Imagen */
-.discography-carousel .carrusel-horizontal__image {
-  height: 320px;
-  overflow: hidden;
+.carrusel-horizontal__btn:active {
+  transform: scale(0.95);
+}
+
+/* Dots */
+.carrusel-horizontal__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.carrusel-horizontal__dots button {
+  width: 28px;
+  height: 3px;
+  border: none;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  padding: 0;
+}
+
+.carrusel-horizontal__dots button.is-active {
+  background: linear-gradient(90deg, #a855f7, #fbbf24);
+  width: 44px;
+}
+
+/* ============================================ */
+/* CATALOG CARD — ESTILO "ARCHIVO"               */
+/* ============================================ */
+
+.catalog-card {
   position: relative;
-  background: var(--bg-tertiary);
+  flex: 0 0 auto;
+  width: 320px;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.discography-carousel .carrusel-horizontal__image img {
+.catalog-card:hover {
+  transform: translateY(-6px);
+}
+
+/* REF. #01 — esquina superior */
+.catalog-card__ref {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 3;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  padding: 0.3rem 0.65rem;
+  color: #0a0a0a;
+  background: #fbbf24;
+  border-radius: 0;
+  font-weight: 700;
+}
+
+/* Imagen con marco offset */
+.catalog-card__image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Marco offset dorado detrás */
+.catalog-card__image::before {
+  content: '';
+  position: absolute;
+  inset: -12px -12px 12px 12px;
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  pointer-events: none;
+  z-index: -1;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.catalog-card:hover .catalog-card__image::before {
+  inset: -16px -16px 16px 16px;
+  border-color: rgba(251, 191, 36, 0.7);
+}
+
+.catalog-card__image img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.9s cubic-bezier(0.23, 1, 0.32, 1),
+              filter 0.6s ease;
+  filter: saturate(0.9);
 }
 
-.discography-carousel .carrusel-horizontal__card:hover .carrusel-horizontal__image img {
-  transform: scale(1.05);
+.catalog-card:hover .catalog-card__image img {
+  transform: scale(1.06);
+  filter: saturate(1.1) brightness(1.05);
 }
 
-/* Overlay (botones Spotify/YouTube) */
-.discography-carousel .carrusel-horizontal__overlay {
+/* Overlay al hover */
+.catalog-card__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  gap: 0.8rem;
-  padding-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(180deg,
+              transparent 40%,
+              rgba(0, 0, 0, 0.85) 100%);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
 }
 
-.discography-carousel .carrusel-horizontal__card:hover .carrusel-horizontal__overlay {
+.catalog-card:hover .catalog-card__overlay {
   opacity: 1;
 }
 
-.discography-carousel .carrusel-horizontal__instagram {
-  background: linear-gradient(135deg, #1DB954, #1ed760);
-  padding: 0.5rem 1.2rem;
-  border-radius: var(--radius-full);
-  color: white;
-  font-size: 0.8rem;
-  font-weight: 600;
-  display: flex;
+/* Botón de reproducción */
+.catalog-card__play {
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  transform: translateY(20px);
-  transition: transform 0.3s ease;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(135deg, #FF0000, #cc0000);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transform: translateY(12px);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.discography-carousel .carrusel-horizontal__card:hover .carrusel-horizontal__instagram {
+.catalog-card:hover .catalog-card__play {
   transform: translateY(0);
 }
 
-/* Para el botón de YouTube (segundo) */
-.discography-carousel .carrusel-horizontal__instagram:last-child {
-  background: linear-gradient(135deg, #FF0000, #cc0000);
+.catalog-card__play:hover {
+  box-shadow: 0 12px 30px rgba(255, 0, 0, 0.4);
+  transform: translateY(-3px) !important;
 }
 
-/* Información de la tarjeta */
-.discography-carousel .carrusel-horizontal__info {
-  padding: 1.2rem;
-  text-align: center;
-  position: relative;
+/* Estado "próximamente" */
+.catalog-card__play--soon {
+  background: rgba(10, 10, 10, 0.9);
+  border: 1px dashed rgba(251, 191, 36, 0.5);
+  color: #fbbf24;
+  cursor: default;
 }
 
-.discography-carousel .carrusel-horizontal__info::before {
-  content: '';
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 3px;
-  background: var(--gradient-accent);
-  border-radius: 2px;
+.catalog-card__play--soon:hover {
+  box-shadow: none;
+  transform: translateY(0) !important;
 }
 
-.discography-carousel .carrusel-horizontal__info h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.2rem;
-  color: var(--text-primary);
+/* Info inferior */
+.catalog-card__info {
+  padding: 1.5rem 0.25rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.discography-carousel .carrusel-horizontal__info p {
-  font-size: 0.7rem;
-  color: var(--gold);
-  font-weight: 600;
-  letter-spacing: 1px;
+.catalog-card__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  color: var(--text-primary, #f5f5f5);
+  margin: 0;
   text-transform: uppercase;
 }
 
-/* ========================================
-   FLECHAS DE NAVEGACIÓN (visibles y funcionales)
-   ======================================== */
-.discography-carousel .carrusel-horizontal__btn {
-  position: absolute;
-  top: 45%;
-  transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  color: white;
-  font-size: 1.2rem;
-  cursor: pointer;
-  z-index: 15;
-  transition: all 0.25s ease;
-  display: flex !important;      /* Forzar visibilidad */
-  align-items: center;
-  justify-content: center;
-  opacity: 0.7;
+/* Línea fina dorada bajo el título */
+.catalog-card__divider {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, #a855f7, #fbbf24);
+  transition: width 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.discography-carousel .carrusel-horizontal__btn:hover {
-  background: var(--purple);
-  border-color: var(--purple);
-  opacity: 1;
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: var(--shadow-glow);
+.catalog-card:hover .catalog-card__divider {
+  width: 70px;
 }
 
-.discography-carousel .carrusel-horizontal__btn--prev {
-  left: 10px;
-}
-
-.discography-carousel .carrusel-horizontal__btn--next {
-  right: 10px;
-}
-
-/* ========================================
-   DOTS (indicadores)
-   ======================================== */
-.discography-carousel .carrusel-horizontal__dots {
+.catalog-card__meta {
   display: flex;
-  justify-content: center;
-  gap: 0.8rem;
-  margin-top: 2rem;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fbbf24;
 }
 
-.discography-carousel .carrusel-horizontal__dots .dot {
-  width: 10px;
-  height: 10px;
-  background: var(--text-tertiary);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  opacity: 0.5;
+.catalog-card__dot {
+  color: rgba(255, 255, 255, 0.3);
 }
 
-.discography-carousel .carrusel-horizontal__dots .dot.active {
-  width: 28px;
-  background: var(--purple);
-  border-radius: 6px;
+.catalog-card__sub {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.02em;
+}
+
+/* ============================================ */
+/* VARIANTE "PRÓXIMAMENTE"                       */
+/* ============================================ */
+
+.catalog-card--soon .catalog-card__image {
+  border: 1px dashed rgba(251, 191, 36, 0.35);
+}
+
+.catalog-card--soon .catalog-card__image img {
+  filter: grayscale(0.5) brightness(0.75);
+  opacity: 0.85;
+}
+
+.catalog-card--soon:hover .catalog-card__image img {
+  filter: grayscale(0.3) brightness(0.85);
+}
+
+/* Badge lateral rotado */
+.catalog-card__soon-badge {
+  position: absolute;
+  top: 3.5rem;
+  right: -1.85rem;
+  z-index: 3;
+  padding: 0.3rem 1rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #0a0a0a;
+  background: #fbbf24;
+  transform: rotate(90deg);
+  transform-origin: center;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+}
+
+/* Ocultar overlay en la card próximamente */
+.catalog-card--soon .catalog-card__overlay {
   opacity: 1;
+  background: linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.7) 100%);
 }
 
-.discography-carousel .carrusel-horizontal__dots .dot:hover {
-  opacity: 0.8;
-  background: var(--purple-light);
+.catalog-card--soon .catalog-card__play--soon {
+  transform: translateY(0);
 }
 
-/* ========================================
-   RESPONSIVE
-   ======================================== */
-@media (max-width: 1024px) {
-  .discography-carousel .carrusel-horizontal__card {
-    flex: 0 0 300px;
+/* ============================================ */
+/* RESPONSIVE                                    */
+/* ============================================ */
+
+@media (max-width: 992px) {
+  .section-header--editorial {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
-  .discography-carousel .carrusel-horizontal__image {
-    height: 300px;
+
+  .section-header__right {
+    align-items: flex-start;
+  }
+
+  .catalog-card {
+    width: 280px;
   }
 }
 
 @media (max-width: 768px) {
-  .discography-carousel .carrusel-horizontal {
-    padding: 0 1rem;
+  .discography-carousel {
+    padding: 4rem 0;
   }
-  .discography-carousel .carrusel-horizontal__card {
-    flex: 0 0 280px;
+
+  .section-header--editorial {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
   }
-  .discography-carousel .carrusel-horizontal__image {
-    height: 280px;
+
+  .catalog-counter__current {
+    font-size: 1.6rem;
   }
-  .discography-carousel .carrusel-horizontal__btn {
+
+  .catalog-card {
+    width: 240px;
+  }
+
+  .catalog-card__title {
+    font-size: 1.35rem;
+  }
+
+  .carrusel-horizontal__btn {
     width: 40px;
     height: 40px;
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
-  .discography-carousel .carrusel-horizontal__btn--prev {
-    left: 5px;
-  }
-  .discography-carousel .carrusel-horizontal__btn--next {
-    right: 5px;
-  }
-}
 
-@media (max-width: 640px) {
-  .discography-carousel .carrusel-horizontal__card {
-    flex: 0 0 260px;
+  /* Ocultar botones en mobile, dejar swipe */
+  .carrusel-horizontal__btn--prev,
+  .carrusel-horizontal__btn--next {
+    display: none;
   }
-  .discography-carousel .carrusel-horizontal__image {
-    height: 260px;
-  }
-  .discography-carousel .carrusel-horizontal__info h3 {
-    font-size: 1rem;
+
+  .catalog-card__ref {
+    font-size: 0.62rem;
+    padding: 0.25rem 0.55rem;
   }
 }
 
 @media (max-width: 480px) {
-  .discography-carousel .carrusel-horizontal__card {
-    flex: 0 0 220px;
+  .catalog-card {
+    width: 210px;
   }
-  .discography-carousel .carrusel-horizontal__image {
-    height: 220px;
+
+  .catalog-card__title {
+    font-size: 1.2rem;
   }
-  .discography-carousel .carrusel-horizontal__btn {
-    width: 36px;
-    height: 36px;
-    font-size: 0.9rem;
+
+  .catalog-card__play {
+    font-size: 0.75rem;
+    padding: 0.6rem 1.1rem;
+  }
+
+  .catalog-card__info {
+    padding-top: 1.15rem;
   }
 }
 
+/* ============================================ */
+/* ACCESIBILIDAD — REDUCE MOTION                 */
+/* ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .discography-carousel::before {
+    animation: none;
+  }
+
+  .catalog-card,
+  .catalog-card__image img,
+  .catalog-card__image::before,
+  .catalog-card__divider,
+  .catalog-card__play,
+  .carrusel-horizontal__btn {
+    transition: none !important;
+  }
+
+  .catalog-card:hover {
+    transform: none;
+  }
+
+  .catalog-card:hover .catalog-card__image img {
+    transform: none;
+  }
+}
