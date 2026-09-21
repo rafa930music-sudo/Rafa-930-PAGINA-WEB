@@ -41,9 +41,9 @@
 }
 
 @keyframes floatBlobs {
-  0% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -40px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(30px, -40px) scale(1.1); }
+  66%  { transform: translate(-20px, 20px) scale(0.9); }
   100% { transform: translate(10px, -10px) scale(1.05); }
 }
 
@@ -71,16 +71,16 @@
   position: relative;
   border-radius: 30px;
   overflow: hidden;
-  box-shadow: 
+  box-shadow:
     0 30px 60px rgba(0, 0, 0, 0.4),
     0 0 0 1px rgba(168, 85, 247, 0.15) inset;
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), 
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
               box-shadow 0.6s ease;
 }
 
 .about__image:hover {
   transform: scale(1.02) rotate(1deg);
-  box-shadow: 
+  box-shadow:
     0 40px 80px rgba(168, 85, 247, 0.3),
     0 0 0 2px rgba(168, 85, 247, 0.3) inset;
 }
@@ -107,7 +107,7 @@
   gap: 0.5rem;
 }
 
-/* Eyebrow – más discreto pero con estilo */
+/* Eyebrow principal – más discreto pero con estilo */
 .about__text .eyebrow {
   font-size: 0.65rem;
   font-weight: 700;
@@ -159,6 +159,7 @@
   transition: color 0.3s ease;
 }
 
+/* Primer párrafo – gancho narrativo con más peso */
 .about__content p:first-of-type {
   font-size: 1.15rem;
   font-weight: 500;
@@ -175,6 +176,80 @@
 }
 
 /* ============================================ */
+/* SUB-EYEBROW INTERNO – "EL TRIBUTO INMUTABLE" */
+/* ============================================ */
+
+.about__subeyebrow {
+  display: block;
+  position: relative;
+  margin-top: 1.75rem;
+  margin-bottom: 0.25rem;
+  padding-left: 0.9rem;
+  font-family: 'Bebas Neue', 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--purple);
+  opacity: 0.85;
+}
+
+.about__subeyebrow::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 1.1em;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #a855f7, #fbbf24);
+}
+
+/* ============================================ */
+/* MANIFIESTO DEL 930 – ÚLTIMO PÁRRAFO DESTACADO */
+/* ============================================ */
+
+.about__content p:last-of-type {
+  position: relative;
+  margin-top: 0.75rem;
+  padding: 1.25rem 1.5rem 1.25rem 2.5rem;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  font-style: italic;
+  color: var(--text-primary);
+  background: linear-gradient(135deg,
+              rgba(168, 85, 247, 0.08) 0%,
+              rgba(251, 191, 36, 0.04) 100%);
+  border-left: 3px solid var(--purple);
+  border-radius: 0 14px 14px 0;
+  overflow: hidden;
+}
+
+.about__content p:last-of-type::before {
+  content: '\201C'; /* “ */
+  position: absolute;
+  top: -0.35rem;
+  left: 0.55rem;
+  font-family: 'Bebas Neue', Georgia, serif;
+  font-size: 3.2rem;
+  line-height: 1;
+  color: var(--purple);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* Resaltado sutil del código postal 08930 si va en <mark> o <code> */
+.about__content p:last-of-type mark,
+.about__content p:last-of-type code {
+  background: transparent;
+  color: #fbbf24;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================ */
 /* BOTONES – ESTILO DIFERENTE, MÁS MODERNO     */
 /* ============================================ */
 
@@ -186,7 +261,7 @@
 }
 
 .about__cta .btn {
-  all: unset; /* Reseteamos estilos para construir desde cero */
+  all: unset;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -204,8 +279,6 @@
   color: var(--text-primary);
   text-decoration: none;
 }
-
-/* Cada botón con identidad propia */
 
 .about__cta .btn--primary {
   background: linear-gradient(135deg, #a855f7, #7e22ce);
@@ -225,7 +298,7 @@
   transform: scale(0.97);
 }
 
-/* El segundo botón (colaboraciones) – con borde y fondo transparente */
+/* Segundo botón (colaboraciones) – contorno */
 .about__cta .btn--primary:nth-of-type(2) {
   background: transparent;
   color: var(--text-primary);
@@ -240,7 +313,7 @@
   box-shadow: 0 8px 25px rgba(168, 85, 247, 0.15);
 }
 
-/* El tercer botón (desarrollo) – estilo minimalista */
+/* Tercer botón (desarrollo) – minimalista */
 .about__cta .btn--primary:nth-of-type(3) {
   background: transparent;
   color: var(--text-tertiary);
@@ -302,6 +375,23 @@
     font-size: 1rem;
   }
 
+  /* El manifiesto del 930 se mantiene legible en mobile */
+  .about__content p:last-of-type {
+    font-size: 0.98rem;
+    padding: 1.1rem 1.15rem 1.1rem 2.15rem;
+  }
+
+  .about__content p:last-of-type::before {
+    font-size: 2.6rem;
+    left: 0.4rem;
+    top: -0.25rem;
+  }
+
+  .about__subeyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+  }
+
   .about__cta {
     flex-direction: column;
     align-items: stretch;
@@ -314,7 +404,6 @@
     font-size: 0.85rem;
   }
 
-  /* Para móvil, hacemos los tres botones diferentes pero con el mismo selector general */
   .about__cta .btn--primary:nth-of-type(2),
   .about__cta .btn--primary:nth-of-type(3) {
     border-color: rgba(168, 85, 247, 0.15);
@@ -330,6 +419,11 @@
     font-size: 0.9rem;
   }
 
+  .about__content p:last-of-type {
+    font-size: 0.92rem;
+    padding: 1rem 1rem 1rem 1.9rem;
+  }
+
   .about__image {
     max-width: 260px;
   }
@@ -339,9 +433,8 @@
 /* ANIMACIÓN DE ENTRADA CON RETRASO (opcional) */
 /* ============================================ */
 
-/* Si usas AOS, ya tienes animación, pero añadimos un extra */
 .about__image {
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), 
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
               box-shadow 0.6s ease;
 }
 
@@ -356,6 +449,12 @@
 .about__content p:hover {
   transform: translateX(4px);
   opacity: 0.9;
+}
+
+/* La cita-manifiesto NO se desplaza al hover (es más solemne) */
+.about__content p:last-of-type:hover {
+  transform: none;
+  opacity: 1;
 }
 
 /* ============================================ */
