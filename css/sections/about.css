@@ -234,6 +234,7 @@
   border-bottom: none;
 }
 
+/* Número de capítulo */
 .about__chapter-num {
   position: relative;
   display: block;
@@ -246,6 +247,7 @@
   transition: color 0.4s ease, transform 0.4s ease;
 }
 
+/* Línea vertical conectora entre capítulos */
 .about__chapter-num::after {
   content: '';
   position: absolute;
@@ -268,6 +270,7 @@
   transform: translateY(-2px);
 }
 
+/* Párrafos */
 .about__content p {
   font-size: 1rem;
   line-height: 1.8;
@@ -293,6 +296,7 @@
   margin-bottom: 2rem;
 }
 
+/* Sub-eyebrow "El tributo inmutable" */
 .about__subeyebrow {
   display: block;
   position: relative;
@@ -319,6 +323,7 @@
   background: linear-gradient(180deg, #a855f7, #fbbf24);
 }
 
+/* Cita-manifiesto */
 .about__quote {
   position: relative;
   margin: 0;
