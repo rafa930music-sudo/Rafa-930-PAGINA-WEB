@@ -10,7 +10,7 @@
   isolation: isolate;
 }
 
-/* Textura de grano sutil */
+/* Textura de grano sutil (efecto papel impreso) */
 .about::before {
   content: '';
   position: absolute;
@@ -22,7 +22,7 @@
   mix-blend-mode: overlay;
 }
 
-/* Blob morado */
+/* Blobs difuminados de fondo */
 .about::after {
   content: '';
   position: absolute;
@@ -38,6 +38,22 @@
   pointer-events: none;
   animation: floatBlobs 20s ease-in-out infinite alternate;
   will-change: transform;
+}
+
+.about__blob-gold {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  bottom: -50px;
+  left: -50px;
+  border-radius: 50%;
+  background: #fbbf24;
+  filter: blur(100px);
+  opacity: 0.25;
+  z-index: 0;
+  pointer-events: none;
+  animation: floatBlobs 20s ease-in-out infinite alternate;
+  animation-delay: -5s;
 }
 
 @keyframes floatBlobs {
@@ -64,7 +80,7 @@
 }
 
 /* ============================================ */
-/* FIGURA EDITORIAL                              */
+/* FIGURA EDITORIAL – IMAGEN + PIE DE FOTO      */
 /* ============================================ */
 
 .about__figure {
@@ -74,7 +90,7 @@
 
 .about__image {
   position: relative;
-  border-radius: 4px;
+  border-radius: 4px; /* más "editorial", menos "app" */
   overflow: hidden;
   box-shadow:
     0 30px 60px rgba(0, 0, 0, 0.45),
@@ -83,7 +99,7 @@
               box-shadow 0.6s ease;
 }
 
-/* Marco offset dorado */
+/* Marco offset tipo "impresión" — línea dorada desplazada */
 .about__figure::before {
   content: '';
   position: absolute;
@@ -101,7 +117,7 @@
 }
 
 .about__image:hover {
-  transform: scale(1.015);
+  transform: scale(1.015) rotate(0.5deg);
   box-shadow:
     0 40px 80px rgba(168, 85, 247, 0.3),
     0 0 0 2px rgba(168, 85, 247, 0.3) inset;
@@ -117,6 +133,43 @@
 .about__image:hover img {
   transform: scale(1.03);
   filter: brightness(1.05) saturate(1.05);
+}
+
+/* Pie de foto tipo revista */
+.about__caption {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 1.75rem;
+  padding-left: 0.25rem;
+  font-family: 'Bebas Neue', 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-tertiary, rgba(255, 255, 255, 0.55));
+}
+
+.about__caption-num {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  border-radius: 2px;
+}
+
+.about__caption-text {
+  position: relative;
+  opacity: 0.85;
+}
+
+.about__caption-text::before {
+  content: '—';
+  margin-right: 0.65rem;
+  color: rgba(168, 85, 247, 0.6);
 }
 
 /* ============================================ */
@@ -156,13 +209,14 @@
 }
 
 /* ============================================ */
-/* CAPÍTULOS NUMERADOS                           */
+/* CONTENIDO – CAPÍTULOS NUMERADOS              */
 /* ============================================ */
 
 .about__content {
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
+  counter-reset: chapter;
 }
 
 .about__chapter {
@@ -192,7 +246,6 @@
   transition: color 0.4s ease, transform 0.4s ease;
 }
 
-/* Línea vertical conectora */
 .about__chapter-num::after {
   content: '';
   position: absolute;
@@ -223,8 +276,16 @@
   transition: color 0.3s ease;
 }
 
+.about__content p:first-of-type strong {
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--purple, #a855f7);
+  opacity: 0.85;
+}
+
 /* ============================================ */
-/* MANIFIESTO 930                                */
+/* MANIFIESTO 930 – CITA EDITORIAL              */
 /* ============================================ */
 
 .about__manifesto {
@@ -285,6 +346,16 @@
   color: #fbbf24;
   opacity: 0.35;
   pointer-events: none;
+}
+
+/* Resaltado del 08930 si va en <mark> */
+.about__quote mark,
+.about__quote code {
+  background: transparent;
+  color: #fbbf24;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.05em;
 }
 
 /* ============================================ */
@@ -380,6 +451,10 @@
     max-width: 440px;
     margin: 0 auto;
     width: 100%;
+  }
+
+  .about__caption {
+    justify-content: center;
   }
 
   .about__text {
@@ -486,7 +561,8 @@
 /* ============================================ */
 
 @media (prefers-reduced-motion: reduce) {
-  .about::after {
+  .about::after,
+  .about__blob-gold {
     animation: none;
   }
 
