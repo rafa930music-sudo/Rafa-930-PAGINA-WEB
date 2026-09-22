@@ -1,9 +1,7 @@
-/* ========================================
-   CARRUSEL PREMIUM - Rafa 930
-   Con navegación por flechas, dots, scroll suave y efecto glassmorphism
-   ======================================== */
+/* ======================================== */
+/* CARRUSEL COLABORADORES — v2 (limpio)      */
+/* ======================================== */
 
-/* Contenedor principal de la sección */
 .carrusel-colaboradores {
   background: var(--bg-primary);
   padding: 5rem 0;
@@ -11,7 +9,7 @@
   position: relative;
 }
 
-/* Contenedor del carrusel (track + botones) */
+/* Contenedor */
 .carrusel-horizontal {
   max-width: 1200px;
   margin: 2rem auto 0;
@@ -19,7 +17,7 @@
   position: relative;
 }
 
-/* Pista deslizante (scroll horizontal nativo) */
+/* Track (scroll horizontal nativo) */
 .carrusel-horizontal__track {
   display: flex;
   gap: 1.5rem;
@@ -27,42 +25,38 @@
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   padding: 1rem 0.5rem 2rem;
-  /* Ocultar scrollbar por defecto pero mantener funcionalidad */
-  scrollbar-width: thin;
-  scrollbar-color: var(--purple) var(--bg-card);
+
+  /* Ocultar scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .carrusel-horizontal__track::-webkit-scrollbar {
-  height: 6px;
+  display: none;
 }
 
-.carrusel-horizontal__track::-webkit-scrollbar-track {
-  background: var(--bg-card);
-  border-radius: 10px;
-}
+/* ======================================== */
+/* CARDS                                     */
+/* ======================================== */
 
-.carrusel-horizontal__track::-webkit-scrollbar-thumb {
-  background: var(--purple);
-  border-radius: 10px;
-}
-
-/* Tarjetas */
 .carrusel-horizontal__card {
   flex: 0 0 340px;
-  background: var(--bg-card);
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--border-color);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(168, 85, 247, 0.15);
   overflow: hidden;
   scroll-snap-align: start;
-  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-  box-shadow: var(--shadow-sm);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 .carrusel-horizontal__card:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-8px);
   border-color: var(--purple);
-  box-shadow: var(--shadow-glow), var(--shadow-3d);
+  box-shadow: 0 20px 60px rgba(168, 85, 247, 0.25);
 }
 
 /* Imagen */
@@ -84,11 +78,14 @@
   transform: scale(1.05);
 }
 
-/* Overlay con botón */
+/* Overlay con botón Instagram */
 .carrusel-horizontal__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+  background: linear-gradient(to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    transparent 100%);
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -104,17 +101,18 @@
 .carrusel-horizontal__instagram {
   background: linear-gradient(135deg, #833AB4, #E4405F);
   padding: 0.7rem 1.8rem;
-  border-radius: var(--radius-full);
-  color: white;
+  border-radius: 9999px;
+  color: #fff;
   font-weight: 600;
   font-size: 0.85rem;
   display: flex;
   align-items: center;
   gap: 0.6rem;
+  text-decoration: none;
   transform: translateY(20px);
   transition: transform 0.3s ease, box-shadow 0.2s;
   letter-spacing: 0.5px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .carrusel-horizontal__card:hover .carrusel-horizontal__instagram {
@@ -126,7 +124,7 @@
   box-shadow: 0 8px 20px rgba(228, 64, 95, 0.5);
 }
 
-/* Info de la tarjeta */
+/* Info */
 .carrusel-horizontal__info {
   padding: 1.5rem;
   text-align: center;
@@ -141,63 +139,29 @@
   transform: translateX(-50%);
   width: 50px;
   height: 3px;
-  background: var(--gradient-accent);
+  background: linear-gradient(90deg, #a855f7, #fbbf24);
   border-radius: 3px;
 }
 
 .carrusel-horizontal__info h3 {
   font-size: 1.3rem;
-  margin-bottom: 0.25rem;
+  margin: 0 0 0.25rem;
   color: var(--text-primary);
 }
 
 .carrusel-horizontal__info p {
   font-size: 0.75rem;
-  color: var(--gold);
+  color: var(--gold, #fbbf24);
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
+  margin: 0;
 }
 
-/* Botones de navegación (flechas) */
-.carrusel-horizontal__btn {
-  position: absolute;
-  top: 45%;
-  transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  color: white;
-  font-size: 1.2rem;
-  cursor: pointer;
-  z-index: 15;
-  transition: all 0.25s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.7;
-}
+/* ======================================== */
+/* DOTS                                      */
+/* ======================================== */
 
-.carrusel-horizontal__btn:hover {
-  background: var(--purple);
-  border-color: var(--purple);
-  opacity: 1;
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: var(--shadow-glow);
-}
-
-.carrusel-horizontal__btn--prev {
-  left: -20px;
-}
-
-.carrusel-horizontal__btn--next {
-  right: -20px;
-}
-
-/* Dots (indicadores) */
 .carrusel-horizontal__dots {
   display: flex;
   justify-content: center;
@@ -205,148 +169,78 @@
   margin-top: 2rem;
 }
 
-.carrusel-horizontal__dots .dot {
+.carrusel-horizontal__dots button {
   width: 10px;
   height: 10px;
-  background: var(--text-tertiary);
+  background: var(--text-tertiary, rgba(255, 255, 255, 0.3));
+  border: none;
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.25s ease;
   opacity: 0.5;
+  padding: 0;
 }
 
-.carrusel-horizontal__dots .dot:hover {
+.carrusel-horizontal__dots button:hover {
   opacity: 0.8;
-  background: var(--purple-light);
+  background: var(--purple-light, #c084fc);
 }
 
-.carrusel-horizontal__dots .dot.active {
+.carrusel-horizontal__dots button.is-active,
+.carrusel-horizontal__dots button.active {
   width: 28px;
-  background: var(--purple);
+  background: var(--purple, #a855f7);
   border-radius: 6px;
   opacity: 1;
 }
 
-/* Responsive */
+/* ======================================== */
+/* RESPONSIVE                                */
+/* ======================================== */
+
 @media (min-width: 1400px) {
-  .carrusel-horizontal__card {
-    flex: 0 0 400px;
-  }
-  .carrusel-horizontal__image {
-    height: 450px;
-  }
+  .carrusel-horizontal__card { flex: 0 0 400px; }
+  .carrusel-horizontal__image { height: 450px; }
 }
 
 @media (max-width: 1024px) {
-  .carrusel-horizontal__card {
-    flex: 0 0 320px;
-  }
-  .carrusel-horizontal__image {
-    height: 360px;
-  }
-  .carrusel-horizontal__btn--prev {
-    left: -10px;
-  }
-  .carrusel-horizontal__btn--next {
-    right: -10px;
-  }
+  .carrusel-horizontal__card { flex: 0 0 320px; }
+  .carrusel-horizontal__image { height: 360px; }
 }
 
 @media (max-width: 768px) {
-  .carrusel-horizontal__card {
-    flex: 0 0 280px;
-  }
-  .carrusel-horizontal__image {
-    height: 320px;
-  }
-  .carrusel-horizontal__btn {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
-  }
+  .carrusel-horizontal__card { flex: 0 0 280px; }
+  .carrusel-horizontal__image { height: 320px; }
 }
 
 @media (max-width: 640px) {
-  .carrusel-horizontal {
-    padding: 0 0.5rem;
-  }
-  .carrusel-horizontal__btn--prev {
-    left: 5px;
-  }
-  .carrusel-horizontal__btn--next {
-    right: 5px;
-  }
-  .carrusel-horizontal__card {
-    flex: 0 0 260px;
-  }
-  .carrusel-horizontal__image {
-    height: 280px;
-  }
-  .carrusel-horizontal__info h3 {
-    font-size: 1.1rem;
-  }
-  .carrusel-horizontal__info p {
-    font-size: 0.7rem;
-  }
+  .carrusel-horizontal { padding: 0 0.5rem; }
+  .carrusel-horizontal__card { flex: 0 0 260px; }
+  .carrusel-horizontal__image { height: 280px; }
+  .carrusel-horizontal__info h3 { font-size: 1.1rem; }
+  .carrusel-horizontal__info p { font-size: 0.7rem; }
 }
 
 @media (max-width: 480px) {
-  .carrusel-horizontal__card {
-    flex: 0 0 220px;
-  }
-  .carrusel-horizontal__image {
-    height: 240px;
-  }
-  .carrusel-horizontal__info {
-    padding: 1rem;
-  }
-  .carrusel-horizontal__btn {
-    width: 36px;
-    height: 36px;
-    font-size: 0.9rem;
-  }
+  .carrusel-horizontal__card { flex: 0 0 220px; }
+  .carrusel-horizontal__image { height: 240px; }
+  .carrusel-horizontal__info { padding: 1rem; }
 }
 
-/* Tarjetas de colaboradores mejoradas */
-.carrusel-colaboradores .carrusel-horizontal__card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(168, 85, 247, 0.15);
-  border-radius: var(--radius-xl);
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-  position: relative;
-  overflow: hidden;
-}
+/* ======================================== */
+/* ACCESIBILIDAD                             */
+/* ======================================== */
 
-/* Efecto de borde gradiente animado */
-.carrusel-colaboradores .carrusel-horizontal__card::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  z-index: -1;
-  background: conic-gradient(from var(--angle, 0deg), 
-    #a855f7, #fbbf24, #ec4899, #a855f7);
-  border-radius: inherit;
-  animation: spinBorder 6s linear infinite;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-.carrusel-colaboradores .carrusel-horizontal__card:hover::before {
-  opacity: 1;
-}
-@property --angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
-}
-@keyframes spinBorder {
-  to { --angle: 360deg; }
-}
-
-/* Hover 3D inclinado */
-.carrusel-colaboradores .carrusel-horizontal__card:hover {
-  transform: translateY(-10px) scale(1.02) rotateX(2deg) rotateY(2deg);
-  box-shadow: 0 20px 60px rgba(168, 85, 247, 0.3);
+@media (prefers-reduced-motion: reduce) {
+  .carrusel-horizontal__card,
+  .carrusel-horizontal__image img,
+  .carrusel-horizontal__instagram {
+    transition: none !important;
+  }
+  .carrusel-horizontal__card:hover {
+    transform: none;
+  }
+  .carrusel-horizontal__card:hover .carrusel-horizontal__image img {
+    transform: none;
+  }
 }

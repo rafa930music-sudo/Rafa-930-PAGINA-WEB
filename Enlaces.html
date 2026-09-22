@@ -1,742 +1,1346 @@
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
-    <title>Rafa 930 | Enlaces oficiales</title>
-    <meta name="description" content="Enlaces oficiales de Rafa 930: música, videoclips, desarrollo web con IA, Street Vibes Radio, booking y contacto.">
-    <meta name="author" content="Rafa 930">
-    <meta name="theme-color" content="#0a0a1a">
-    <meta name="color-scheme" content="dark">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Rafa 930 · Enlaces oficiales">
-    <meta property="og:description" content="Música urbana, fotografía, IA y Street Vibes Radio.">
-    <meta property="og:image" content="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/images/Foto-perfil.webp">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/">
-    <script type="application/ld+json">
-        {"@context":"https://schema.org","@type":"WebSite","name":"Rafa 930","url":"https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/","description":"Enlaces oficiales del artista musical y fotógrafo Rafa 930."}
-    </script>
-    <link rel="icon" type="image/x-icon" href="images/Foto-perfil.ico">
-    <link rel="icon" type="image/webp" sizes="32x32" href="images/logo.webp">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/logo.webp">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap"></noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --bg-deep: #06060f;
-            --bg-card: rgba(10, 8, 26, 0.9);
-            --bg-card-hover: rgba(18, 14, 40, 0.97);
-            --border-card: rgba(139, 92, 246, 0.18);
-            --border-card-hover: rgba(251, 191, 36, 0.6);
-            --text-primary: #f1f0f9;
-            --text-secondary: #c4bfe0;
-            --text-tertiary: #8b85a8;
-            --purple: #8b5cf6;
-            --gold: #fbbf24;
-            --cyan: #06b6d4;
-            --font-sans: 'Montserrat', sans-serif;
-            --font-display: 'Bebas Neue', cursive;
-            --shadow-card: 0 8px 35px rgba(0, 0, 0, 0.6);
-            --shadow-card-hover: 0 18px 55px rgba(0, 0, 0, 0.8), 0 0 60px rgba(139, 92, 246, 0.25);
-            --featured-glow: linear-gradient(135deg, #ec4899, #f97316, #fbbf24);
-            --icon-wrap-bg: rgba(139, 92, 246, 0.12);
-            --icon-wrap-hover: rgba(139, 92, 246, 0.25);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+  <title>Rafa 930 | Enlaces oficiales</title>
+  <meta name="description" content="Enlaces oficiales de Rafa 930: música, videoclips, desarrollo web con IA, Street Vibes Radio, booking y contacto.">
+  <meta name="author" content="Rafa 930">
+  <meta name="theme-color" content="#06060f">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="index, follow">
 
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        body {
-            background: var(--bg-deep);
-            color: var(--text-primary);
-            font-family: var(--font-sans);
-            min-height: 100vh;
-            min-height: 100dvh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 6px;
-            position: relative;
-            overflow-x: hidden;
-        }
+  <meta property="og:title" content="Rafa 930 · Enlaces oficiales">
+  <meta property="og:description" content="Música urbana, fotografía, IA y Street Vibes Radio.">
+  <meta property="og:image" content="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/images/Foto-perfil.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/Enlaces.html">
 
-        .bg-dynamic {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            background: radial-gradient(ellipse at 30% 20%, #120c2e 0%, #06060f 55%, #020010 100%);
-        }
-        .bg-dynamic::before {
-            content: '';
-            position: absolute;
-            inset: -8%;
-            background-image: url('https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            filter: brightness(0.4) saturate(1.3) contrast(1.2);
-            transform: scale(1.06);
-            will-change: transform;
-        }
-        .bg-dynamic::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.78);
-            z-index: 1;
-        }
-        #particlesBg {
-            position: fixed;
-            inset: 0;
-            z-index: 1;
-            pointer-events: none;
-            width: 100%;
-            height: 100%;
-        }
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebSite","name":"Rafa 930","url":"https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/","description":"Enlaces oficiales del artista musical y fotógrafo Rafa 930."}
+  </script>
 
-        .splash {
-            position: fixed;
-            inset: 0;
-            z-index: 10000;
-            background: #06060f;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.7s ease, visibility 0.7s;
-            pointer-events: none;
-        }
-        .splash.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-        .splash-logo {
-            width: clamp(70px, 22vw, 200px);
-            height: clamp(70px, 22vw, 200px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: splashFadeIn 0.9s ease-out forwards;
-        }
-        .splash-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-            filter: brightness(0) invert(1) drop-shadow(0 0 120px rgba(139, 92, 246, 0.6));
-        }
-        @keyframes splashFadeIn {
-            0% { transform: scale(0.7); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
+  <link rel="icon" type="image/x-icon" href="images/Foto-perfil.ico">
+  <link rel="icon" type="image/webp" sizes="32x32" href="images/logo.webp">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/logo.webp">
 
-        .toast-container {
-            position: fixed;
-            bottom: 22px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            pointer-events: none;
-        }
-        .toast {
-            background: rgba(16, 10, 35, 0.96);
-            backdrop-filter: blur(40px);
-            -webkit-backdrop-filter: blur(40px);
-            color: #fff;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            animation: toastIn 0.4s ease, toastOut 0.4s 2s ease forwards;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        @keyframes toastIn {
-            0% { opacity: 0; transform: translateY(22px) scale(0.9); }
-            100% { opacity: 1; transform: translateY(0) scale(1); }
-        }
-        @keyframes toastOut {
-            0% { opacity: 1; transform: translateY(0) scale(1); }
-            100% { opacity: 0; transform: translateY(-8px) scale(0.95); }
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+  </noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        .qr-modal-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 9000;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        .qr-modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        .qr-modal-card {
-            background: rgba(10, 8, 26, 0.95);
-            backdrop-filter: blur(45px);
-            -webkit-backdrop-filter: blur(45px);
-            border: 1px solid rgba(139, 92, 246, 0.22);
-            border-radius: 20px;
-            padding: 18px;
-            text-align: center;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
-            transform: scale(0.85);
-            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
-            max-width: 85vw;
-        }
-        .qr-modal-overlay.active .qr-modal-card {
-            transform: scale(1);
-        }
-        .qr-modal-card img {
-            width: clamp(150px, 38vw, 210px);
-            height: auto;
-            border-radius: 12px;
-            background: #fff;
-            padding: 7px;
-        }
-        .qr-modal-title {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            margin-top: 10px;
-            color: #fff;
-        }
-        .qr-modal-sub {
-            font-size: 0.65rem;
-            color: var(--text-tertiary);
-        }
-        .qr-modal-actions {
-            margin-top: 12px;
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .btn-sm {
-            background: rgba(139, 92, 246, 0.12);
-            border: 1px solid rgba(139, 92, 246, 0.22);
-            color: #fff;
-            padding: 7px 16px;
-            border-radius: 22px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            font-family: var(--font-sans);
-        }
-        .btn-sm:hover {
-            background: rgba(139, 92, 246, 0.25);
-            box-shadow: 0 0 25px rgba(139, 92, 246, 0.25);
-        }
+  <style>
+    :root {
+      --bg-deep: #06060f;
+      --bg-card: rgba(14, 11, 30, 0.72);
+      --bg-card-hover: rgba(22, 18, 46, 0.92);
+      --border-card: rgba(139, 92, 246, 0.16);
+      --border-card-hover: rgba(251, 191, 36, 0.55);
+      --text-primary: #f5f4fb;
+      --text-secondary: #c9c4e2;
+      --text-tertiary: #8f88ad;
+      --purple: #8b5cf6;
+      --purple-bright: #a855f7;
+      --purple-light: #c4b5fd;
+      --gold: #fbbf24;
+      --gold-soft: #fcd34d;
+      --cyan: #06b6d4;
+      --pink: #ec4899;
+      --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Bebas Neue', cursive;
+      --shadow-card: 0 8px 35px rgba(0, 0, 0, 0.5);
+      --shadow-card-hover: 0 18px 55px rgba(0, 0, 0, 0.7), 0 0 60px rgba(139, 92, 246, 0.22);
+      --featured-glow: linear-gradient(135deg, #ec4899, #f97316, #fbbf24);
+    }
 
-        .hub {
-            width: 100%;
-            max-width: 520px;
-            position: relative;
-            z-index: 10;
-            padding: 8px 0 4px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        @media (min-width: 600px) {
-            .hub { max-width: 480px; padding: 12px 0 6px; }
-        }
-        @media (min-width: 900px) {
-            .hub { max-width: 500px; padding: 16px 0 8px; }
-        }
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .header { text-align: center; margin-bottom: 4px; width: 100%; }
-        @media (min-width: 480px) { .header { margin-bottom: 6px; } }
-        @media (min-width: 768px) { .header { margin-bottom: 8px; } }
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-        .avatar-wrap { position: relative; width: 60px; height: 60px; margin: 0 auto 4px; }
-        @media (min-width: 480px) { .avatar-wrap { width: 72px; height: 72px; margin-bottom: 5px; } }
-        @media (min-width: 768px) { .avatar-wrap { width: 80px; height: 80px; margin-bottom: 6px; } }
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 24px 16px 32px;
+      position: relative;
+      overflow-x: hidden;
+    }
 
-        .avatar {
-            width: 100%; height: 100%; border-radius: 50%; overflow: hidden;
-            border: 2px solid rgba(139, 92, 246, 0.4); box-shadow: 0 0 60px rgba(139, 92, 246, 0.25);
-            transition: 0.5s; cursor: pointer; position: relative; outline: none;
-        }
-        .avatar::after {
-            content: ''; position: absolute; inset: -2px; border-radius: 50%;
-            background: linear-gradient(135deg, #8b5cf6, #4f46e5, #fbbf24); background-size: 300% 300%;
-            animation: borderGlow 4s ease-in-out infinite; z-index: -1; padding: 2px;
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor; mask-composite: exclude;
-        }
-        @keyframes borderGlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .avatar img { width: 100%; height: 100%; object-fit: cover; }
-        .avatar:hover { transform: scale(1.05) translateY(-2px); box-shadow: 0 0 80px rgba(139, 92, 246, 0.35); }
-        .orbit-ring {
-            position: absolute; inset: -4px; border-radius: 50%;
-            border: 1px solid rgba(139, 92, 246, 0.08); animation: orbitSpin 30s linear infinite; pointer-events: none;
-        }
-        @keyframes orbitSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    /* ============================================ */
+    /* FONDO — gradiente + blobs animados            */
+    /* ============================================ */
+    .bg-dynamic {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 25% 15%, rgba(139, 92, 246, 0.22) 0%, transparent 50%),
+        radial-gradient(ellipse at 75% 85%, rgba(251, 191, 36, 0.10) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 50%, #0e0a22 0%, #06060f 55%, #020010 100%);
+    }
+    .bg-dynamic::before,
+    .bg-dynamic::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.35;
+    }
+    .bg-dynamic::before {
+      width: 500px;
+      height: 500px;
+      top: -100px;
+      left: -150px;
+      background: #8b5cf6;
+      animation: blobFloat 18s ease-in-out infinite alternate;
+    }
+    .bg-dynamic::after {
+      width: 400px;
+      height: 400px;
+      bottom: -120px;
+      right: -100px;
+      background: #ec4899;
+      opacity: 0.25;
+      animation: blobFloat 22s ease-in-out infinite alternate-reverse;
+    }
+    @keyframes blobFloat {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(60px, -40px) scale(1.15); }
+      100% { transform: translate(-30px, 30px) scale(0.95); }
+    }
 
-        h1 {
-            font-family: var(--font-display); font-size: clamp(2rem, 8vw, 3rem);
-            font-weight: 700; letter-spacing: 1.5px; color: #fff; text-transform: uppercase; line-height: 1;
-        }
-        .subtitle {
-            color: var(--text-secondary); font-size: clamp(0.4rem, 1.4vw, 0.65rem);
-            font-weight: 400; letter-spacing: 1.2px; opacity: 0.85; font-family: var(--font-display);
-        }
-        .divider-line {
-            width: clamp(24px, 5vw, 36px); height: 3px; margin: 4px auto 0;
-            background: var(--featured-glow); background-size: 300% 300%;
-            animation: dividerPulse 3s ease-in-out infinite alternate; border-radius: 2px; opacity: 0.8;
-        }
-        @keyframes dividerPulse {
-            0% { opacity: 0.5; transform: scaleX(0.8); }
-            100% { opacity: 1; transform: scaleX(1.2); }
-        }
+    #particlesBg {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+    }
 
-        .links { display: flex; flex-direction: column; gap: 5px; margin-bottom: 6px; width: 100%; }
-        @media (min-width: 480px) { .links { gap: 6px; margin-bottom: 8px; } }
+    /* ============================================ */
+    /* SPLASH                                        */
+    /* ============================================ */
+    .splash {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: radial-gradient(ellipse at center, #0e0a22 0%, #06060f 70%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.7s ease, visibility 0.7s;
+      pointer-events: none;
+    }
+    .splash.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .splash-logo {
+      width: clamp(140px, 40vw, 260px);
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: splashFadeIn 1s ease-out forwards;
+    }
+    .splash-logo img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 0 60px rgba(139, 92, 246, 0.7));
+    }
+    @keyframes splashFadeIn {
+      0% { transform: scale(0.75); opacity: 0; }
+      60% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
 
-        .link-btn {
-            display: flex; align-items: center; justify-content: space-between;
-            background: var(--bg-card); backdrop-filter: blur(45px); -webkit-backdrop-filter: blur(45px);
-            border: 1px solid var(--border-card); border-radius: 10px; padding: 10px 12px;
-            text-decoration: none; color: var(--text-primary); font-weight: 600;
-            font-size: clamp(0.7rem, 2.2vw, 0.85rem); transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
-            position: relative; overflow: hidden; cursor: pointer; box-shadow: var(--shadow-card);
-            min-height: 44px; -webkit-tap-highlight-color: transparent;
-        }
-        @media (min-width: 480px) { .link-btn { border-radius: 11px; padding: 11px 14px; min-height: 46px; } }
-        @media (min-width: 768px) { .link-btn { border-radius: 12px; padding: 12px 16px; min-height: 48px; } }
+    /* ============================================ */
+    /* TOASTS                                        */
+    /* ============================================ */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
+    }
+    .toast {
+      background: rgba(20, 14, 42, 0.96);
+      backdrop-filter: blur(40px);
+      -webkit-backdrop-filter: blur(40px);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 8px 35px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(139, 92, 246, 0.25);
+      animation: toastIn 0.4s ease, toastOut 0.4s 2s ease forwards;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    @keyframes toastIn {
+      0% { opacity: 0; transform: translateY(22px) scale(0.9); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes toastOut {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-8px) scale(0.95); }
+    }
 
-        .link-btn::after {
-            content: ''; position: absolute; inset: -1px; border-radius: inherit; padding: 2px;
-            background: linear-gradient(135deg, #8b5cf6, #4f46e5, #fbbf24); background-size: 300% 300%;
-            animation: borderAnim 4s linear infinite;
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: 0.5s;
-        }
-        @keyframes borderAnim {
-            0% { background-position: 0% 50%; }
-            33% { background-position: 100% 0%; }
-            66% { background-position: 100% 100%; }
-            100% { background-position: 0% 50%; }
-        }
-        .link-btn:hover::after { opacity: 1; }
-        .link-btn:hover {
-            background: var(--bg-card-hover); border-color: var(--border-card-hover);
-            transform: translateY(-2px) scale(1.01); box-shadow: var(--shadow-card-hover);
-        }
+    /* ============================================ */
+    /* MODAL QR                                      */
+    /* ============================================ */
+    .qr-modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9000;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+      cursor: pointer;
+      padding: 20px;
+    }
+    .qr-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .qr-modal-card {
+      background: rgba(14, 11, 32, 0.96);
+      backdrop-filter: blur(45px);
+      -webkit-backdrop-filter: blur(45px);
+      border: 1px solid rgba(139, 92, 246, 0.25);
+      border-radius: 24px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      transform: scale(0.85);
+      transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+      max-width: 90vw;
+      cursor: default;
+    }
+    .qr-modal-overlay.active .qr-modal-card {
+      transform: scale(1);
+    }
+    .qr-modal-card img {
+      width: clamp(180px, 45vw, 240px);
+      height: auto;
+      border-radius: 14px;
+      background: #fff;
+      padding: 10px;
+    }
+    .qr-modal-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      margin-top: 14px;
+      color: #fff;
+      letter-spacing: 0.05em;
+    }
+    .qr-modal-sub {
+      font-size: 0.8rem;
+      color: var(--text-tertiary);
+      margin-top: 4px;
+    }
+    .qr-modal-actions {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-sm {
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      font-family: var(--font-sans);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-sm:hover {
+      background: rgba(139, 92, 246, 0.28);
+      box-shadow: 0 0 25px rgba(139, 92, 246, 0.3);
+    }
 
-        .ripple-effect {
-            position: absolute; border-radius: 50%; background: rgba(255, 255, 255, 0.15);
-            transform: scale(0); animation: rippleAnim 0.6s ease-out; pointer-events: none;
-        }
-        @keyframes rippleAnim { to { transform: scale(4); opacity: 0; } }
+    /* ============================================ */
+    /* HUB principal                                 */
+    /* ============================================ */
+    .hub {
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+      z-index: 10;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
 
-        .link-left { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; }
-        @media (min-width: 480px) { .link-left { gap: 9px; } }
-        @media (min-width: 768px) { .link-left { gap: 10px; } }
+    /* ============================================ */
+    /* HEADER / AVATAR / TITLE                       */
+    /* ============================================ */
+    .header {
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
 
-        .link-left .icon-wrap {
-            flex: 0 0 28px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
-            border-radius: 50%; background: var(--icon-wrap-bg); transition: 0.4s;
-            box-shadow: 0 0 14px rgba(139, 92, 246, 0.04); flex-shrink: 0;
-        }
-        @media (min-width: 480px) { .link-left .icon-wrap { flex: 0 0 30px; width: 30px; height: 30px; } }
-        @media (min-width: 768px) { .link-left .icon-wrap { flex: 0 0 32px; width: 32px; height: 32px; } }
-        .link-btn:hover .link-left .icon-wrap { background: var(--icon-wrap-hover); transform: scale(1.08); }
-        .link-left .icon-wrap i { font-size: 0.9rem; color: var(--gold); transition: 0.3s; }
-        @media (min-width: 480px) { .link-left .icon-wrap i { font-size: 0.95rem; } }
-        @media (min-width: 768px) { .link-left .icon-wrap i { font-size: 1rem; } }
-        .link-btn:hover .link-left .icon-wrap i { filter: drop-shadow(0 0 16px rgba(251, 191, 36, 0.5)); }
-        .link-left .icon-wrap i.fa-spotify { color: #1DB954; }
-        .link-left .icon-wrap i.fa-youtube { color: #FF0000; }
-        .link-left .icon-wrap i.fa-crown { color: var(--gold); }
-        .link-left .icon-wrap i.fa-laptop-code { color: var(--cyan); }
-        .link-left .icon-wrap i.fa-podcast { color: #5ab0a0; }
-        .link-left .icon-wrap i.fa-calendar-check { color: #d46a8a; }
+    /* Avatar con anillo doble + badge verificado */
+    .avatar-wrap {
+      position: relative;
+      width: 112px;
+      height: 112px;
+      margin-bottom: 16px;
+    }
 
-        .link-left .link-text { display: flex; flex-direction: column; flex: 1; min-width: 0; overflow: hidden; }
-        .link-left .link-text .title {
-            font-weight: 600; font-size: 0.78rem; font-family: var(--font-display); text-transform: uppercase;
-            letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-        }
-        @media (min-width: 480px) { .link-left .link-text .title { font-size: 0.82rem; } }
-        @media (min-width: 768px) { .link-left .link-text .title { font-size: 0.85rem; } }
-        .link-left .link-text .desc {
-            font-size: 0.45rem; color: #cbd5e1; font-weight: 500; opacity: 0.9;
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-        }
-        @media (min-width: 480px) { .link-left .link-text .desc { font-size: 0.48rem; } }
-        @media (min-width: 768px) { .link-left .link-text .desc { font-size: 0.5rem; } }
+    .avatar-ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      padding: 3px;
+      background: conic-gradient(from 0deg, #8b5cf6, #ec4899, #fbbf24, #8b5cf6);
+      animation: ringRotate 6s linear infinite;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+    }
+    @keyframes ringRotate {
+      to { transform: rotate(360deg); }
+    }
 
-        .link-btn .arrow { font-size: 0.55rem; color: var(--text-tertiary); transition: 0.3s; margin-left: 3px; flex-shrink: 0; }
-        @media (min-width: 480px) { .link-btn .arrow { font-size: 0.6rem; margin-left: 4px; } }
-        @media (min-width: 768px) { .link-btn .arrow { font-size: 0.65rem; } }
-        .link-btn:hover .arrow { transform: translateX(5px); color: var(--gold); }
+    .avatar {
+      position: absolute;
+      inset: 3px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #0e0a22;
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+      outline: none;
+    }
+    .avatar:hover {
+      transform: scale(1.05);
+    }
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-        .badge-ia, .badge-new {
-            display: inline-block; border-radius: 3px; font-weight: 700; text-transform: uppercase;
-            margin-left: 4px; font-size: 0.28rem; padding: 0 3px; letter-spacing: 0.3px; vertical-align: middle;
-        }
-        .badge-ia { background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.25); color: #a78bfa; }
-        .badge-new { background: rgba(251, 191, 36, 0.12); border: 1px solid rgba(251, 191, 36, 0.22); color: #fbbf24; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
+    .verified-badge {
+      position: absolute;
+      bottom: -4px;
+      right: -4px;
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #8b5cf6, #6366f1);
+      border-radius: 50%;
+      border: 3px solid #06060f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.75rem;
+      z-index: 2;
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.5);
+    }
 
-        .link-btn--featured {
-            background: rgba(236, 72, 153, 0.16); backdrop-filter: blur(25px); border: 2px solid #ec4899;
-            box-shadow: 0 0 45px rgba(236, 72, 153, 0.45), 0 0 90px rgba(249, 115, 22, 0.18);
-            padding: 12px 14px;
-        }
-        @media (min-width: 480px) { .link-btn--featured { padding: 13px 15px; } }
-        @media (min-width: 768px) { .link-btn--featured { padding: 14px 16px; } }
-        .link-btn--featured::before {
-            content: ''; position: absolute; inset: -2px; border-radius: inherit; padding: 2px;
-            background: var(--featured-glow); background-size: 300% 300%; animation: borderGlowFeatured 2.5s infinite;
-            z-index: -1; -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0.9;
-        }
-        @keyframes borderGlowFeatured {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .link-btn--featured:hover { background: rgba(236, 72, 153, 0.25); border-color: #f97316; }
-        .link-btn--featured .link-left .link-text .title,
-        .link-btn--featured .link-left .link-text .desc,
-        .link-btn--featured .arrow { color: #fff; }
-        .link-btn--featured .link-left .icon-wrap { background: rgba(255, 255, 255, 0.15); }
-        .link-btn--featured .link-left .icon-wrap i { color: #fff; }
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 9vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #fff;
+      text-transform: uppercase;
+      line-height: 0.95;
+      background: linear-gradient(180deg, #ffffff 0%, #c4b5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 40px rgba(139, 92, 246, 0.4);
+    }
 
-        .qr-block {
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            background: var(--bg-card); backdrop-filter: blur(45px); -webkit-backdrop-filter: blur(45px);
-            border: 1px solid var(--border-card); border-radius: 10px; padding: 8px 14px;
-            margin-bottom: 6px; cursor: pointer; transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
-            box-shadow: var(--shadow-card); width: 100%; max-width: 280px; -webkit-tap-highlight-color: transparent;
-        }
-        @media (min-width: 480px) { .qr-block { border-radius: 11px; padding: 9px 16px; margin-bottom: 8px; max-width: 300px; } }
-        @media (min-width: 768px) { .qr-block { border-radius: 12px; padding: 10px 18px; max-width: 320px; } }
-        .qr-block:hover {
-            background: var(--bg-card-hover); border-color: var(--border-card-hover);
-            transform: translateY(-2px) scale(1.01); box-shadow: var(--shadow-card-hover);
-        }
-        .qr-block img { width: 36px; height: 36px; border-radius: 6px; background: #fff; padding: 3px; flex-shrink: 0; }
-        @media (min-width: 480px) { .qr-block img { width: 40px; height: 40px; } }
-        @media (min-width: 768px) { .qr-block img { width: 44px; height: 44px; } }
-        .qr-block .qr-info { display: flex; flex-direction: column; gap: 1px; text-align: left; }
-        .qr-block .qr-info .qr-title {
-            font-family: var(--font-display); font-size: 0.7rem; font-weight: 600; color: #fff;
-            text-transform: uppercase; letter-spacing: 0.3px;
-        }
-        .qr-block .qr-info .qr-sub { font-size: 0.4rem; color: var(--text-tertiary); font-weight: 500; }
-        .qr-block .qr-arrow { font-size: 0.5rem; color: var(--text-tertiary); transition: 0.3s; flex-shrink: 0; margin-left: auto; }
-        .qr-block:hover .qr-arrow { color: var(--gold); transform: translateX(4px); }
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      opacity: 0.9;
+      font-family: var(--font-display);
+      margin-top: 8px;
+      text-transform: uppercase;
+    }
 
-        .social-dock {
-            display: flex; justify-content: center; gap: 12px;
-            background: rgba(6, 6, 15, 0.8); backdrop-filter: blur(45px); -webkit-backdrop-filter: blur(45px);
-            border: 1px solid rgba(139, 92, 246, 0.15); border-radius: 28px; padding: 6px 14px;
-            width: fit-content; margin: 0 auto 6px;
-        }
-        @media (min-width: 480px) { .social-dock { gap: 14px; padding: 7px 16px; border-radius: 30px; margin-bottom: 7px; } }
-        @media (min-width: 768px) { .social-dock { gap: 16px; padding: 8px 18px; margin-bottom: 8px; } }
-        .social-icon {
-            color: var(--text-secondary); font-size: 1rem; text-decoration: none;
-            transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.2); opacity: 0.5; outline: none; position: relative;
-        }
-        @media (min-width: 480px) { .social-icon { font-size: 1.05rem; } }
-        @media (min-width: 768px) { .social-icon { font-size: 1.1rem; } }
-        .social-icon:hover { opacity: 1; transform: translateY(-3px) scale(1.15); color: var(--gold); filter: drop-shadow(0 0 14px rgba(251, 191, 36, 0.4)); }
-        .social-icon .fa-instagram { color: #E4405F; }
-        .social-icon .fa-envelope { color: #EA4335; }
-        .social-icon .fa-whatsapp { color: #25D366; }
+    .divider-line {
+      width: 56px;
+      height: 3px;
+      margin: 14px auto 0;
+      background: var(--featured-glow);
+      background-size: 300% 300%;
+      animation: dividerPulse 3s ease-in-out infinite alternate;
+      border-radius: 2px;
+      opacity: 0.95;
+    }
+    @keyframes dividerPulse {
+      0% { opacity: 0.6; transform: scaleX(0.85); }
+      100% { opacity: 1; transform: scaleX(1.15); }
+    }
 
-        .footer {
-            text-align: center; font-size: 0.4rem; color: var(--text-tertiary);
-            padding: 4px 2px 2px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
-            gap: 3px; border-top: 1px solid rgba(139, 92, 246, 0.08); margin-top: 2px; width: 100%;
-        }
-        @media (min-width: 480px) { .footer { font-size: 0.42rem; gap: 4px; padding: 5px 2px 3px; } }
-        @media (min-width: 768px) { .footer { font-size: 0.45rem; gap: 5px; } }
-        .footer a, .footer button {
-            color: var(--text-tertiary); text-decoration: none; transition: 0.3s; padding: 1px 3px;
-            border-radius: 4px; cursor: pointer; background: none; border: none;
-            font-family: var(--font-sans); font-size: inherit; letter-spacing: inherit;
-        }
-        .footer a:hover, .footer button:hover { color: #fff; background: rgba(139, 92, 246, 0.08); }
-        .footer .divider-dot { opacity: 0.08; font-size: 0.25rem; }
-        .footer .footer-item { display: inline-flex; align-items: center; gap: 2px; }
-        .footer .footer-item i { font-size: 0.35rem; opacity: 0.4; }
+    /* ============================================ */
+    /* LINKS                                         */
+    /* ============================================ */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      margin-top: 4px;
+    }
 
-        @keyframes fadeUp {
-            0% { opacity: 0; transform: translateY(10px) scale(0.95); }
-            100% { opacity: 1; transform: translateY(0) scale(1); }
-        }
-        .animate { animation: fadeUp 0.35s ease forwards; opacity: 0; }
-        .d1 { animation-delay: 0.02s; } .d2 { animation-delay: 0.04s; } .d3 { animation-delay: 0.06s; }
-        .d4 { animation-delay: 0.08s; } .d5 { animation-delay: 0.10s; } .d6 { animation-delay: 0.12s; }
-        .d7 { animation-delay: 0.14s; } .d8 { animation-delay: 0.16s; } .d9 { animation-delay: 0.18s; }
-        .d10 { animation-delay: 0.20s; }
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-card);
+      backdrop-filter: blur(40px);
+      -webkit-backdrop-filter: blur(40px);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      padding: 14px 16px;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 600;
+      transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: var(--shadow-card);
+      min-height: 64px;
+      -webkit-tap-highlight-color: transparent;
+      gap: 12px;
+    }
 
-        ::-webkit-scrollbar { width: 3px; }
-        ::-webkit-scrollbar-track { background: var(--bg-deep); }
-        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
-    </style>
+    .link-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(139, 92, 246, 0.1), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.5s;
+      pointer-events: none;
+    }
+    .link-btn:hover::before {
+      opacity: 1;
+    }
+
+    .link-btn::after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1.5px;
+      background: linear-gradient(135deg, #8b5cf6, #4f46e5, #fbbf24);
+      background-size: 300% 300%;
+      animation: borderAnim 4s linear infinite;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: 0.5s;
+      pointer-events: none;
+    }
+    @keyframes borderAnim {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .link-btn:hover::after {
+      opacity: 1;
+    }
+    .link-btn:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-card-hover);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .ripple-effect {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      transform: scale(0);
+      animation: rippleAnim 0.6s ease-out;
+      pointer-events: none;
+    }
+    @keyframes rippleAnim {
+      to { transform: scale(4); opacity: 0; }
+    }
+
+    .link-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .link-left .icon-wrap {
+      flex: 0 0 44px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.15);
+      transition: 0.4s;
+      flex-shrink: 0;
+    }
+    .link-btn:hover .link-left .icon-wrap {
+      background: rgba(139, 92, 246, 0.22);
+      border-color: rgba(139, 92, 246, 0.35);
+      transform: scale(1.06) rotate(-3deg);
+    }
+    .link-left .icon-wrap i {
+      font-size: 1.15rem;
+      color: var(--gold);
+      transition: 0.3s;
+    }
+    .link-btn:hover .link-left .icon-wrap i {
+      filter: drop-shadow(0 0 12px currentColor);
+    }
+    .link-left .icon-wrap i.fa-spotify { color: #1DB954; }
+    .link-left .icon-wrap i.fa-youtube { color: #FF0000; }
+    .link-left .icon-wrap i.fa-crown { color: var(--gold); }
+    .link-left .icon-wrap i.fa-laptop-code { color: var(--cyan); }
+    .link-left .icon-wrap i.fa-podcast { color: #5ab0a0; }
+    .link-left .icon-wrap i.fa-calendar-check { color: #f472b6; }
+
+    .link-left .link-text {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+    }
+    .link-left .link-text .title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.15;
+      color: #fff;
+    }
+    .link-left .link-text .desc {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.2;
+    }
+
+    .link-btn .arrow {
+      font-size: 0.8rem;
+      color: var(--text-tertiary);
+      transition: 0.3s;
+      flex-shrink: 0;
+      opacity: 0.7;
+    }
+    .link-btn:hover .arrow {
+      transform: translateX(5px);
+      color: var(--gold);
+      opacity: 1;
+    }
+
+    /* Badges */
+    .badge-ia, .badge-new {
+      display: inline-block;
+      border-radius: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-left: 6px;
+      font-size: 0.58rem;
+      padding: 2px 6px;
+      letter-spacing: 0.5px;
+      vertical-align: middle;
+      font-family: var(--font-sans);
+      position: relative;
+      top: -1px;
+    }
+    .badge-ia {
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      color: #a78bfa;
+    }
+    .badge-new {
+      background: rgba(251, 191, 36, 0.15);
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      color: #fbbf24;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+
+    /* Featured */
+    .link-btn--featured {
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.18), rgba(249, 115, 22, 0.12));
+      backdrop-filter: blur(25px);
+      border: 2px solid rgba(236, 72, 153, 0.6);
+      box-shadow: 0 0 45px rgba(236, 72, 153, 0.35), 0 0 90px rgba(249, 115, 22, 0.15);
+      padding: 16px 18px;
+      min-height: 72px;
+    }
+    .link-btn--featured::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      padding: 2px;
+      background: var(--featured-glow);
+      background-size: 300% 300%;
+      animation: borderGlowFeatured 3s infinite;
+      z-index: -1;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.85;
+    }
+    @keyframes borderGlowFeatured {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .link-btn--featured:hover {
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.28), rgba(249, 115, 22, 0.2));
+      border-color: #f97316;
+      box-shadow: 0 0 60px rgba(236, 72, 153, 0.5), 0 0 110px rgba(249, 115, 22, 0.25);
+    }
+    .link-btn--featured .link-left .link-text .title,
+    .link-btn--featured .link-left .link-text .desc,
+    .link-btn--featured .arrow {
+      color: #fff;
+    }
+    .link-btn--featured .link-left .link-text .desc {
+      opacity: 0.9;
+    }
+    .link-btn--featured .link-left .icon-wrap {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .link-btn--featured .link-left .icon-wrap i {
+      color: #fff;
+    }
+
+    /* ============================================ */
+    /* QR BLOCK                                      */
+    /* ============================================ */
+    .qr-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      background: var(--bg-card);
+      backdrop-filter: blur(45px);
+      -webkit-backdrop-filter: blur(45px);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      padding: 12px 18px;
+      cursor: pointer;
+      transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+      box-shadow: var(--shadow-card);
+      width: 100%;
+      max-width: 340px;
+      -webkit-tap-highlight-color: transparent;
+      margin: 0 auto;
+    }
+    .qr-block:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-card-hover);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card-hover);
+    }
+    .qr-block img {
+      width: 52px;
+      height: 52px;
+      border-radius: 10px;
+      background: #fff;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+    .qr-block .qr-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      text-align: left;
+      flex: 1;
+    }
+    .qr-block .qr-info .qr-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .qr-block .qr-info .qr-sub {
+      font-size: 0.72rem;
+      color: var(--text-tertiary);
+      font-weight: 500;
+    }
+    .qr-block .qr-arrow {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      transition: 0.3s;
+      flex-shrink: 0;
+    }
+    .qr-block:hover .qr-arrow {
+      color: var(--gold);
+      transform: translateX(4px);
+    }
+
+    /* ============================================ */
+    /* SOCIAL DOCK                                   */
+    /* ============================================ */
+    .social-dock {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      background: rgba(6, 6, 15, 0.75);
+      backdrop-filter: blur(45px);
+      -webkit-backdrop-filter: blur(45px);
+      border: 1px solid rgba(139, 92, 246, 0.15);
+      border-radius: 9999px;
+      padding: 10px 14px;
+      width: fit-content;
+      margin: 0 auto;
+    }
+    .social-icon {
+      color: var(--text-secondary);
+      font-size: 1.15rem;
+      text-decoration: none;
+      transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+      opacity: 0.75;
+      outline: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      position: relative;
+    }
+    .social-icon:hover {
+      opacity: 1;
+      transform: translateY(-3px) scale(1.1);
+      background: rgba(139, 92, 246, 0.12);
+    }
+    .social-icon i {
+      transition: 0.3s;
+    }
+    .social-icon:hover i.fa-instagram {
+      color: #E4405F;
+      filter: drop-shadow(0 0 10px rgba(228, 64, 95, 0.6));
+    }
+    .social-icon:hover i.fa-envelope {
+      color: #EA4335;
+      filter: drop-shadow(0 0 10px rgba(234, 67, 53, 0.6));
+    }
+    .social-icon:hover i.fa-whatsapp {
+      color: #25D366;
+      filter: drop-shadow(0 0 10px rgba(37, 211, 102, 0.6));
+    }
+    .social-icon:hover i.fa-spotify {
+      color: #1DB954;
+      filter: drop-shadow(0 0 10px rgba(29, 185, 84, 0.6));
+    }
+    .social-icon:hover i.fa-youtube {
+      color: #FF0000;
+      filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.6));
+    }
+
+    /* ============================================ */
+    /* FOOTER                                        */
+    /* ============================================ */
+    .footer {
+      text-align: center;
+      font-size: 0.72rem;
+      color: var(--text-tertiary);
+      padding: 16px 2px 4px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      border-top: 1px solid rgba(139, 92, 246, 0.1);
+      width: 100%;
+      margin-top: 4px;
+      line-height: 1.6;
+    }
+    .footer a, .footer button {
+      color: var(--text-tertiary);
+      text-decoration: none;
+      transition: 0.3s;
+      padding: 4px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: var(--font-sans);
+      font-size: inherit;
+      letter-spacing: inherit;
+    }
+    .footer a:hover, .footer button:hover {
+      color: #fff;
+      background: rgba(139, 92, 246, 0.12);
+    }
+    .footer .divider-dot {
+      opacity: 0.3;
+    }
+    .footer .footer-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .footer .footer-item i {
+      font-size: 0.75rem;
+      opacity: 0.6;
+    }
+
+    /* ============================================ */
+    /* ANIMACIONES                                   */
+    /* ============================================ */
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(14px) scale(0.96); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .animate {
+      animation: fadeUp 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+      opacity: 0;
+    }
+    .d1 { animation-delay: 0.05s; }
+    .d2 { animation-delay: 0.12s; }
+    .d3 { animation-delay: 0.18s; }
+    .d4 { animation-delay: 0.24s; }
+    .d5 { animation-delay: 0.30s; }
+    .d6 { animation-delay: 0.36s; }
+    .d7 { animation-delay: 0.42s; }
+    .d8 { animation-delay: 0.48s; }
+    .d9 { animation-delay: 0.54s; }
+    .d10 { animation-delay: 0.60s; }
+
+    /* ============================================ */
+    /* SCROLLBAR                                     */
+    /* ============================================ */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-deep); }
+    ::-webkit-scrollbar-thumb {
+      background: var(--gold);
+      border-radius: 10px;
+    }
+
+    /* ============================================ */
+    /* RESPONSIVE                                    */
+    /* ============================================ */
+    @media (max-width: 480px) {
+      body {
+        padding: 16px 12px 24px;
+      }
+      .hub {
+        gap: 20px;
+      }
+      .avatar-wrap {
+        width: 96px;
+        height: 96px;
+        margin-bottom: 12px;
+      }
+      .verified-badge {
+        width: 28px;
+        height: 28px;
+        font-size: 0.7rem;
+        border-width: 2px;
+      }
+      .link-btn {
+        padding: 12px 14px;
+        min-height: 60px;
+      }
+      .link-left .icon-wrap {
+        flex: 0 0 40px;
+        width: 40px;
+        height: 40px;
+      }
+      .link-left .icon-wrap i {
+        font-size: 1.05rem;
+      }
+      .link-left .link-text .title {
+        font-size: 0.88rem;
+      }
+      .link-left .link-text .desc {
+        font-size: 0.7rem;
+      }
+      .social-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1.05rem;
+      }
+      .footer {
+        font-size: 0.68rem;
+        gap: 4px;
+      }
+    }
+
+    /* ============================================ */
+    /* ACCESIBILIDAD                                 */
+    /* ============================================ */
+    @media (prefers-reduced-motion: reduce) {
+      .bg-dynamic::before,
+      .bg-dynamic::after,
+      .avatar-ring,
+      .divider-line,
+      .link-btn::after,
+      .link-btn--featured::before,
+      .badge-new {
+        animation: none !important;
+      }
+      .link-btn:hover,
+      .avatar:hover,
+      .social-icon:hover,
+      .qr-block:hover {
+        transform: none;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="bg-dynamic" id="bgDynamic" aria-hidden="true"></div>
-    <canvas id="particlesBg" aria-hidden="true"></canvas>
+  <div class="bg-dynamic" aria-hidden="true"></div>
+  <canvas id="particlesBg" aria-hidden="true"></canvas>
 
-    <div class="splash" id="splash" role="status" aria-label="Cargando">
-        <div class="splash-logo"><img src="images/logo.webp" alt="Rafa 930 Logo" onerror="this.src='https://placehold.co/200x200/06060f/8b5cf6?text=R9'"></div>
+  <!-- SPLASH -->
+  <div class="splash" id="splash" role="status" aria-label="Cargando">
+    <div class="splash-logo">
+      <img src="images/logo-white.webp" alt="Rafa 930 Logo">
+    </div>
+  </div>
+
+  <!-- TOASTS -->
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- MODAL QR -->
+  <div class="qr-modal-overlay" id="qrModal" role="dialog" aria-modal="true" aria-labelledby="qrModalTitle">
+    <div class="qr-modal-card">
+      <img id="qrModalImg" src="" alt="Código QR de Rafa 930">
+      <div class="qr-modal-title" id="qrModalTitle">Escanea para acceder</div>
+      <div class="qr-modal-sub">Rafa 930 · Web oficial</div>
+      <div class="qr-modal-actions">
+        <button class="btn-sm" id="qrModalDownload"><i class="fa-solid fa-download" aria-hidden="true"></i> Descargar</button>
+        <button class="btn-sm" id="qrModalClose"><i class="fa-solid fa-xmark" aria-hidden="true"></i> Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="hub" role="main">
+    <!-- HEADER -->
+    <header class="header animate d1">
+      <div class="avatar-wrap">
+        <div class="avatar-ring" aria-hidden="true"></div>
+        <div class="avatar" role="button" tabindex="0" aria-label="Ir a la página oficial de Rafa 930" onclick="window.open('https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/', '_blank')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+          <img src="images/Foto-perfil.webp" alt="Rafa 930" loading="eager" onerror="this.src='https://placehold.co/400x400/06060f/8b5cf6?text=R9'">
+        </div>
+        <div class="verified-badge" aria-label="Cuenta verificada">
+          <i class="fa-solid fa-check" aria-hidden="true"></i>
+        </div>
+      </div>
+      <h1>RAFA 930</h1>
+      <p class="subtitle">Músico · Fotógrafo · Desarrollador IA</p>
+      <div class="divider-line" aria-hidden="true"></div>
+    </header>
+
+    <!-- LINKS -->
+    <nav class="links" aria-label="Enlaces principales">
+      <a href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/" class="link-btn link-btn--featured animate d2" target="_blank" rel="noopener noreferrer">
+        <div class="link-left">
+          <div class="icon-wrap"><i class="fa-solid fa-crown" aria-hidden="true"></i></div>
+          <div class="link-text">
+            <span class="title">Plataforma Oficial</span>
+            <span class="desc">Portfolio · Biografía · Proyectos</span>
+          </div>
+        </div>
+        <i class="fa-solid fa-arrow-right arrow" aria-hidden="true"></i>
+      </a>
+
+      <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" class="link-btn animate d3" target="_blank" rel="noopener noreferrer">
+        <div class="link-left">
+          <div class="icon-wrap"><i class="fa-brands fa-spotify" aria-hidden="true"></i></div>
+          <div class="link-text">
+            <span class="title">Spotify · Discografía</span>
+            <span class="desc">Escucha toda mi música</span>
+          </div>
+        </div>
+        <i class="fa-solid fa-chevron-right arrow" aria-hidden="true"></i>
+      </a>
+
+      <a href="https://youtube.com/@rafa_930" class="link-btn animate d4" target="_blank" rel="noopener noreferrer">
+        <div class="link-left">
+          <div class="icon-wrap"><i class="fa-brands fa-youtube" aria-hidden="true"></i></div>
+          <div class="link-text">
+            <span class="title">YouTube · Videoclips</span>
+            <span class="desc">Videoclips oficiales y contenido</span>
+          </div>
+        </div>
+        <i class="fa-solid fa-chevron-right arrow" aria-hidden="true"></i>
+      </a>
+
+      <a href="https://www.ivoox.com/street-vibes-radio_pr_posts_3110928_1.html" class="link-btn animate d5" target="_blank" rel="noopener noreferrer">
+        <div class="link-left">
+          <div class="icon-wrap"><i class="fa-solid fa-podcast" aria-hidden="true"></i></div>
+          <div class="link-text">
+            <span class="title">Street Vibes Radio <span class="badge-new">NUEVO</span></span>
+            <span class="desc">Podcast · Entrevistas · Cultura urbana</span>
+          </div>
+        </div>
+        <i class="fa-solid fa-chevron-right arrow" aria-hidden="true"></i>
+      </a>
+
+      <a href="https://rafa930music-sudo.github.io/930-Digital/" class="link-btn animate d6" target="_blank" rel="noopener noreferrer">
+        <div class="link-left">
+          <div class="icon-wrap"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></div>
+          <div class="link-text">
+            <span class="title">930 Digital <span class="badge-ia">IA</span></span>
+            <span class="desc">Desarrollo web con inteligencia artificial</span>
+          </div>
+        </div>
+        <i class="fa-solid fa-chevron-right arrow" aria-hidden="true"></i>
+      </a>
+
+      <a href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#booking" class="link-btn animate d7" target="_blank" rel="noopener noreferrer">
+        <div class="link-left">
+          <div class="icon-wrap"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i></div>
+          <div class="link-text">
+            <span class="title">Booking · Conciertos</span>
+            <span class="desc">Contrataciones y fechas en vivo</span>
+          </div>
+        </div>
+        <i class="fa-solid fa-chevron-right arrow" aria-hidden="true"></i>
+      </a>
+    </nav>
+
+    <!-- QR BLOCK -->
+    <div class="qr-block animate d8" id="qrBlock" role="button" tabindex="0" aria-label="Ver código QR ampliado">
+      <img id="qrBlockImg" src="" alt="QR Rafa 930" loading="lazy">
+      <div class="qr-info">
+        <span class="qr-title">Código QR</span>
+        <span class="qr-sub">Escanea para acceder a la web</span>
+      </div>
+      <i class="fa-solid fa-chevron-right qr-arrow" aria-hidden="true"></i>
     </div>
 
-    <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
-
-    <div class="qr-modal-overlay" id="qrModal" role="dialog" aria-modal="true" aria-labelledby="qrModalTitle">
-        <div class="qr-modal-card">
-            <img id="qrModalImg" src="" alt="Código QR de Rafa 930">
-            <div class="qr-modal-title" id="qrModalTitle">Escanea para acceder</div>
-            <div class="qr-modal-sub">Rafa 930 · Web oficial</div>
-            <div class="qr-modal-actions">
-                <button class="btn-sm" id="qrModalDownload"><i class="fa-solid fa-download"></i> Descargar</button>
-                <button class="btn-sm" id="qrModalClose"><i class="fa-solid fa-xmark"></i> Cerrar</button>
-            </div>
-        </div>
+    <!-- SOCIAL DOCK -->
+    <div class="social-dock animate d9" role="navigation" aria-label="Redes sociales">
+      <a href="https://instagram.com/rafa930_oficial" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+      </a>
+      <a href="#" id="gmailBtn" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Enviar correo">
+        <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+      </a>
+      <a href="#" id="whatsappBtn" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+      </a>
+      <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+        <i class="fa-brands fa-spotify" aria-hidden="true"></i>
+      </a>
+      <a href="https://youtube.com/@rafa_930" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+      </a>
     </div>
 
-    <main class="hub" role="main">
-        <header class="header animate d1">
-            <div class="avatar-wrap">
-                <div class="avatar" role="button" tabindex="0" aria-label="Ir a la página oficial de Rafa 930" onclick="window.open('https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/', '_blank')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
-                    <img src="images/Foto-perfil.webp" alt="Rafa 930" loading="eager" onerror="this.src='https://placehold.co/400x400/06060f/8b5cf6?text=R9'">
-                </div>
-                <div class="orbit-ring" aria-hidden="true"></div>
-            </div>
-            <h1>RAFA 930</h1>
-            <p class="subtitle">Músico · Fotógrafo · Desarrollador IA</p>
-            <div class="divider-line" aria-hidden="true"></div>
-        </header>
+    <!-- FOOTER -->
+    <footer class="footer animate d10" role="contentinfo">
+      <span class="footer-item">
+        <i class="fa-regular fa-envelope" aria-hidden="true"></i> rafa930.music@gmail.com
+      </span>
+      <span class="divider-dot" aria-hidden="true">·</span>
+      <button id="copyEmail" class="footer-item">
+        <i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar email
+      </button>
+      <span class="divider-dot" aria-hidden="true">·</span>
+      <button id="shareProfile" class="footer-item">
+        <i class="fa-regular fa-share-from-square" aria-hidden="true"></i> Compartir
+      </button>
+      <span class="divider-dot" aria-hidden="true">·</span>
+      <span class="footer-item">
+        <i class="fa-regular fa-copyright" aria-hidden="true"></i> 2026 RAFA 930
+      </span>
+    </footer>
+  </main>
 
-        <nav class="links" aria-label="Enlaces principales">
-            <a href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/" class="link-btn link-btn--featured animate d2" target="_blank" rel="noopener noreferrer">
-                <div class="link-left"><div class="icon-wrap"><i class="fa-solid fa-crown" aria-hidden="true"></i></div><div class="link-text"><span class="title">Plataforma Oficial</span><span class="desc">Portfolio · Biografía · Proyectos</span></div></div>
-                <i class="fa-solid fa-arrow-right arrow" aria-hidden="true"></i>
-            </a>
-            <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" class="link-btn animate d3" target="_blank" rel="noopener noreferrer">
-                <div class="link-left"><div class="icon-wrap"><i class="fa-brands fa-spotify" aria-hidden="true"></i></div><div class="link-text"><span class="title">Spotify · Discografía</span><span class="desc">Escucha toda mi música</span></div></div>
-                <i class="fa-solid fa-chevron-right arrow" aria-hidden="true"></i>
-            </a>
-            <a href="https://youtube.com/@rafa_930" class="link-btn animate d4" target="_blank" rel="noopener noreferrer">
-                <div class="link-left"><div class="icon-wrap"><i class="fa-brands fa-youtube" aria-hidden="true"></i></div><div class="link-text"><span class="title">YouTube · Videoclips</span><span class="desc">Videoclips oficiales y contenido</span></div></div>
-                <i class="fa-solid fa-chevron-right arrow" aria-hidden="true"></i>
-            </a>
-            <a href="https://www.ivoox.com/street-vibes-radio_pr_posts_3110928_1.html" class="link-btn animate d5" target="_blank" rel="noopener noreferrer" style="border-color:rgba(90,176,160,0.08);">
-                <div class="link-left"><div class="icon-wrap"><i class="fa-solid fa-podcast" style="color:#5ab0a0;" aria-hidden="true"></i></div><div class="link-text"><span class="title">Street Vibes Radio <span class="badge-new">NUEVO</span></span><span class="desc">Podcast · Entrevistas · Cultura urbana</span></div></div>
-                <i class="fa-solid fa-chevron-right arrow" aria-hidden="true"></i>
-            </a>
-            <a href="https://rafa930music-sudo.github.io/930-Digital/" class="link-btn animate d6" target="_blank" rel="noopener noreferrer">
-                <div class="link-left"><div class="icon-wrap"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></div><div class="link-text"><span class="title">930 Digital <span class="badge-ia">IA</span></span><span class="desc">Desarrollo web con inteligencia artificial</span></div></div>
-                <i class="fa-solid fa-chevron-right arrow" aria-hidden="true"></i>
-            </a>
-            <a href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#booking" class="link-btn animate d7" target="_blank" rel="noopener noreferrer">
-                <div class="link-left"><div class="icon-wrap"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i></div><div class="link-text"><span class="title">Booking · Conciertos</span><span class="desc">Contrataciones y fechas en vivo</span></div></div>
-                <i class="fa-solid fa-chevron-right arrow" aria-hidden="true"></i>
-            </a>
-        </nav>
+  <script>
+    (() => {
+      // SPLASH
+      const splash = document.getElementById('splash');
+      if (splash) {
+        setTimeout(() => {
+          splash.classList.add('hidden');
+          setTimeout(() => { splash.style.display = 'none'; }, 700);
+        }, 1600);
+      }
 
-        <div class="qr-block animate d8" id="qrBlock" role="button" tabindex="0" aria-label="Ver código QR ampliado">
-            <img id="qrBlockImg" src="" alt="QR Rafa 930" loading="lazy">
-            <div class="qr-info"><span class="qr-title">Código QR</span><span class="qr-sub">Escanea para acceder a la web</span></div>
-            <i class="fa-solid fa-chevron-right qr-arrow" aria-hidden="true"></i>
-        </div>
+      // TOASTS
+      const toastContainer = document.getElementById('toastContainer');
+      const showToast = (msg, icon = 'fa-solid fa-circle-check') => {
+        if (!toastContainer) return;
+        const t = document.createElement('div');
+        t.className = 'toast';
+        t.innerHTML = `<i class="${icon}" aria-hidden="true"></i> ${msg}`;
+        toastContainer.appendChild(t);
+        setTimeout(() => { if (t.parentNode) t.remove(); }, 2600);
+      };
 
-        <div class="social-dock animate d9" role="navigation" aria-label="Redes sociales">
-            <a href="https://instagram.com/rafa930_oficial" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-            <a href="#" id="gmailBtn" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Enviar correo"><i class="fa-regular fa-envelope" aria-hidden="true"></i></a>
-            <a href="#" id="whatsappBtn" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
-            <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><i class="fa-brands fa-spotify" aria-hidden="true"></i></a>
-            <a href="#" id="youtubeSocialBtn" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
-        </div>
+      // QR
+      const qrUrl = 'https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/';
+      const qrApi = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(qrUrl)}&bgcolor=ffffff&color=000000&margin=10`;
+      const qrBlockImg = document.getElementById('qrBlockImg');
+      const qrModalImg = document.getElementById('qrModalImg');
+      if (qrBlockImg) qrBlockImg.src = qrApi;
+      if (qrModalImg) qrModalImg.src = qrApi;
 
-        <footer class="footer animate d10" role="contentinfo">
-            <span class="footer-item"><i class="fa-regular fa-envelope" aria-hidden="true"></i> rafa930.music@gmail.com</span>
-            <span class="divider-dot" aria-hidden="true">·</span>
-            <button id="copyEmail" class="footer-item"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar email</button>
-            <span class="divider-dot" aria-hidden="true">·</span>
-            <button id="shareProfile" class="footer-item"><i class="fa-regular fa-share-from-square" aria-hidden="true"></i> Compartir</button>
-            <span class="divider-dot" aria-hidden="true">·</span>
-            <span class="footer-item"><i class="fa-regular fa-copyright" aria-hidden="true"></i> 2026 RAFA 930</span>
-        </footer>
-    </main>
+      const qrModal = document.getElementById('qrModal');
+      const openModal = () => { if (qrModal) qrModal.classList.add('active'); };
+      const closeModal = () => { if (qrModal) qrModal.classList.remove('active'); };
 
-    <script>
-        (() => {
-            const splash = document.getElementById('splash');
-            if (splash) {
-                setTimeout(() => { splash.classList.add('hidden'); setTimeout(() => { splash.style.display = 'none'; }, 700); }, 1500);
+      document.getElementById('qrBlock')?.addEventListener('click', openModal);
+      document.getElementById('qrBlock')?.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); }
+      });
+      document.getElementById('qrModalClose')?.addEventListener('click', closeModal);
+      qrModal?.addEventListener('click', e => { if (e.target === qrModal) closeModal(); });
+      document.getElementById('qrModalDownload')?.addEventListener('click', () => {
+        if (qrModalImg?.src) {
+          const a = document.createElement('a');
+          a.download = 'rafa930-qr.png';
+          a.href = qrModalImg.src;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          showToast('QR descargado exitosamente', 'fa-solid fa-check');
+        }
+      });
+
+      // SHARE
+      document.getElementById('shareProfile')?.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const shareData = {
+          title: 'Rafa 930 · Enlaces oficiales',
+          text: '🎵 Descubre la música de Rafa 930',
+          url: qrUrl
+        };
+        try {
+          if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+            await navigator.share(shareData);
+          } else {
+            await navigator.clipboard.writeText(qrUrl);
+            showToast('¡Enlace copiado al portapapeles!', 'fa-solid fa-share-nodes');
+          }
+        } catch (err) {
+          try {
+            await navigator.clipboard.writeText(qrUrl);
+            showToast('Enlace copiado', 'fa-solid fa-copy');
+          } catch (clipErr) {
+            showToast('No se pudo compartir', 'fa-solid fa-triangle-exclamation');
+          }
+        }
+      });
+
+      // EMAIL + WHATSAPP
+      const email = 'rafa930.music@gmail.com';
+      document.getElementById('gmailBtn').href = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent('Consulta profesional · Rafa 930')}&body=${encodeURIComponent('Hola Rafa 930,\n\nQuiero contactar contigo.\n\n¡Saludos!')}`;
+      document.getElementById('whatsappBtn').href = `https://wa.me/34671591814?text=${encodeURIComponent('Hola Rafa 930! 👋 Me encanta tu trabajo.')}`;
+
+      // COPY EMAIL
+      document.getElementById('copyEmail')?.addEventListener('click', async (e) => {
+        e.preventDefault();
+        try {
+          await navigator.clipboard.writeText(email);
+          showToast('Email copiado al portapapeles', 'fa-solid fa-envelope-circle-check');
+        } catch {
+          showToast('Email: ' + email, 'fa-regular fa-envelope');
+        }
+      });
+
+      // RIPPLE + MOUSE TRACKING en cards
+      document.querySelectorAll('.link-btn, .qr-block').forEach(el => {
+        el.addEventListener('click', function(e) {
+          const ripple = document.createElement('span');
+          ripple.className = 'ripple-effect';
+          const rect = this.getBoundingClientRect();
+          const size = Math.max(rect.width, rect.height) * 1.2;
+          ripple.style.width = ripple.style.height = `${size}px`;
+          ripple.style.left = `${e.clientX - rect.left - size/2}px`;
+          ripple.style.top = `${e.clientY - rect.top - size/2}px`;
+          this.appendChild(ripple);
+          ripple.addEventListener('animationend', () => ripple.remove());
+        });
+        el.addEventListener('mousemove', function(e) {
+          const rect = this.getBoundingClientRect();
+          this.style.setProperty('--x', `${e.clientX - rect.left}px`);
+          this.style.setProperty('--y', `${e.clientY - rect.top}px`);
+        });
+      });
+
+      // PARTÍCULAS
+      const canvas = document.getElementById('particlesBg');
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let w, h, particles = [], anim;
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        const maxP = isMobile ? 15 : 30;
+        let mx = -1000, my = -1000;
+
+        const resize = () => {
+          w = window.innerWidth;
+          h = window.innerHeight;
+          canvas.width = w;
+          canvas.height = h;
+        };
+        window.addEventListener('resize', () => { resize(); initParticles(); });
+        resize();
+
+        document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+        document.addEventListener('mouseleave', () => { mx = -1000; my = -1000; });
+
+        class Particle {
+          constructor() { this.reset(); }
+          reset() {
+            this.x = Math.random() * w;
+            this.y = Math.random() * h;
+            this.size = Math.random() * 1.8 + 0.4;
+            this.sx = (Math.random() - 0.5) * 0.15;
+            this.sy = (Math.random() - 0.5) * 0.15;
+            this.opacity = Math.random() * 0.35 + 0.15;
+            this.pulse = Math.random() * Math.PI * 2;
+            this.ps = 0.004 + Math.random() * 0.01;
+            this.color = Math.random() < 0.5
+              ? 'rgba(139,92,246,0.28)'
+              : 'rgba(251,191,36,0.18)';
+          }
+          update() {
+            this.x += this.sx;
+            this.y += this.sy;
+            this.pulse += this.ps;
+            const dx = this.x - mx, dy = this.y - my;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 80) {
+              const f = (80 - dist) / 80;
+              this.x += (dx / dist) * f * 0.4;
+              this.y += (dy / dist) * f * 0.4;
             }
+            if (this.x > w) this.x = 0;
+            if (this.x < 0) this.x = w;
+            if (this.y > h) this.y = 0;
+            if (this.y < 0) this.y = h;
+          }
+          draw() {
+            const alpha = this.opacity + Math.sin(this.pulse) * 0.1;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size * (0.9 + Math.sin(this.pulse) * 0.12), 0, Math.PI * 2);
+            ctx.fillStyle = this.color;
+            ctx.globalAlpha = Math.min(alpha, 0.6);
+            ctx.fill();
+            ctx.globalAlpha = 1;
+          }
+        }
 
-            const toastContainer = document.getElementById('toastContainer');
-            const showToast = (msg, icon = 'fa-solid fa-circle-check') => {
-                if (!toastContainer) return;
-                const t = document.createElement('div'); t.className = 'toast';
-                t.innerHTML = `<i class="${icon}" aria-hidden="true"></i> ${msg}`;
-                toastContainer.appendChild(t);
-                setTimeout(() => { if (t.parentNode) t.remove(); }, 2600);
-            };
+        const initParticles = () => {
+          particles = Array.from({ length: maxP }, () => new Particle());
+        };
 
-            const qrUrl = 'https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/';
-            const qrApi = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(qrUrl)}&bgcolor=ffffff&color=000000&margin=10`;
-            const qrBlockImg = document.getElementById('qrBlockImg');
-            const qrModalImg = document.getElementById('qrModalImg');
-            if (qrBlockImg) qrBlockImg.src = qrApi;
-            if (qrModalImg) qrModalImg.src = qrApi;
-
-            const qrModal = document.getElementById('qrModal');
-            const openModal = () => { if (qrModal) qrModal.classList.add('active'); };
-            const closeModal = () => { if (qrModal) qrModal.classList.remove('active'); };
-            document.getElementById('qrBlock')?.addEventListener('click', openModal);
-            document.getElementById('qrBlock')?.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); } });
-            document.getElementById('qrModalClose')?.addEventListener('click', closeModal);
-            qrModal?.addEventListener('click', e => { if (e.target === qrModal) closeModal(); });
-            document.getElementById('qrModalDownload')?.addEventListener('click', () => {
-                if (qrModalImg?.src) {
-                    const a = document.createElement('a'); a.download = 'rafa930-qr.png'; a.href = qrModalImg.src;
-                    document.body.appendChild(a); a.click(); a.remove(); showToast('QR descargado exitosamente', 'fa-solid fa-check');
-                }
-            });
-
-            document.getElementById('shareProfile')?.addEventListener('click', async (e) => {
-                e.preventDefault();
-                const shareData = { title: 'Rafa 930 · Enlaces oficiales', text: '🎵 Descubre la música de Rafa 930', url: qrUrl };
-                try {
-                    if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
-                        await navigator.share(shareData);
-                    } else {
-                        await navigator.clipboard.writeText(qrUrl);
-                        showToast('¡Enlace copiado al portapapeles!', 'fa-solid fa-share-nodes');
-                    }
-                } catch (err) {
-                    try { await navigator.clipboard.writeText(qrUrl); showToast('Enlace copiado', 'fa-solid fa-copy'); } catch (clipErr) { showToast('No se pudo compartir', 'fa-solid fa-triangle-exclamation'); }
-                }
-            });
-
-            const email = 'rafa930.music@gmail.com';
-            document.getElementById('gmailBtn').href = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent('Consulta profesional · Rafa 930')}&body=${encodeURIComponent('Hola Rafa 930,\n\nQuiero contactar contigo.\n\n¡Saludos!')}`;
-            document.getElementById('whatsappBtn').href = `https://wa.me/34671591814?text=${encodeURIComponent('Hola Rafa 930! 👋 Me encanta tu trabajo.')}`;
-            document.getElementById('youtubeSocialBtn')?.addEventListener('click', e => { e.preventDefault(); window.open('https://youtube.com/@rafa_930', '_blank', 'noopener'); });
-            document.getElementById('copyEmail')?.addEventListener('click', async (e) => {
-                e.preventDefault();
-                try { await navigator.clipboard.writeText(email); showToast('Email copiado al portapapeles', 'fa-solid fa-envelope-circle-check'); } catch { showToast('Email: ' + email, 'fa-regular fa-envelope'); }
-            });
-
-            document.querySelectorAll('.link-btn, .qr-block').forEach(el => {
-                el.addEventListener('click', function(e) {
-                    const ripple = document.createElement('span'); ripple.className = 'ripple-effect';
-                    const rect = this.getBoundingClientRect(); const size = Math.max(rect.width, rect.height) * 1.2;
-                    ripple.style.width = ripple.style.height = `${size}px`;
-                    ripple.style.left = `${e.clientX - rect.left - size/2}px`; ripple.style.top = `${e.clientY - rect.top - size/2}px`;
-                    this.appendChild(ripple); ripple.addEventListener('animationend', () => ripple.remove());
-                });
-            });
-
-            const bgDynamic = document.getElementById('bgDynamic');
-            if (bgDynamic && window.innerWidth > 768) {
-                const styleEl = document.createElement('style');
-                styleEl.textContent = `.bg-dynamic::before { transform: translate(var(--px, 0px), var(--py, 0px)) scale(1.06); transition: transform 0.2s ease-out; }`;
-                document.head.appendChild(styleEl);
-                document.addEventListener('mousemove', e => {
-                    const x = (e.clientX / window.innerWidth - 0.5) * 8;
-                    const y = (e.clientY / window.innerHeight - 0.5) * 8;
-                    bgDynamic.style.setProperty('--px', `${x}px`); bgDynamic.style.setProperty('--py', `${y}px`);
-                }, { passive: true });
+        const connect = () => {
+          ctx.strokeStyle = 'rgba(139,92,246,0.05)';
+          for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+              const dx = particles[i].x - particles[j].x;
+              const dy = particles[i].y - particles[j].y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < 90) {
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.globalAlpha = 0.05 * (1 - dist / 90);
+                ctx.lineWidth = 0.4;
+                ctx.stroke();
+                ctx.globalAlpha = 1;
+              }
             }
+          }
+        };
 
-            const canvas = document.getElementById('particlesBg');
-            if (canvas) {
-                const ctx = canvas.getContext('2d'); let w, h, particles = [], anim;
-                const isMobile = window.matchMedia('(max-width: 768px)').matches;
-                const maxP = isMobile ? 18 : 32;
-                let mx = -1000, my = -1000;
-                const resize = () => { w = window.innerWidth; h = window.innerHeight; canvas.width = w; canvas.height = h; };
-                window.addEventListener('resize', () => { resize(); initParticles(); }); resize();
-                document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
-                document.addEventListener('mouseleave', () => { mx = -1000; my = -1000; });
+        const animate = () => {
+          ctx.clearRect(0, 0, w, h);
+          particles.forEach(p => { p.update(); p.draw(); });
+          connect();
+          anim = requestAnimationFrame(animate);
+        };
 
-                class Particle {
-                    constructor() { this.reset(); }
-                    reset() {
-                        this.x = Math.random() * w; this.y = Math.random() * h; this.size = Math.random() * 1.8 + 0.4;
-                        this.sx = (Math.random() - 0.5) * 0.15; this.sy = (Math.random() - 0.5) * 0.15;
-                        this.opacity = Math.random() * 0.35 + 0.15; this.pulse = Math.random() * Math.PI * 2;
-                        this.ps = 0.004 + Math.random() * 0.01;
-                        this.color = Math.random() < 0.5 ? 'rgba(139,92,246,0.22)' : 'rgba(251,191,36,0.14)';
-                    }
-                    update() {
-                        this.x += this.sx; this.y += this.sy; this.pulse += this.ps;
-                        const dx = this.x - mx, dy = this.y - my, dist = Math.sqrt(dx*dx+dy*dy);
-                        if (dist < 80) { const f = (80 - dist) / 80; this.x += (dx/dist) * f * 0.4; this.y += (dy/dist) * f * 0.4; }
-                        if (this.x > w) this.x = 0; if (this.x < 0) this.x = w; if (this.y > h) this.y = 0; if (this.y < 0) this.y = h;
-                    }
-                    draw() {
-                        const alpha = this.opacity + Math.sin(this.pulse) * 0.1;
-                        ctx.beginPath(); ctx.arc(this.x, this.y, this.size * (0.9 + Math.sin(this.pulse) * 0.12), 0, Math.PI*2);
-                        ctx.fillStyle = this.color; ctx.globalAlpha = Math.min(alpha, 0.55); ctx.fill(); ctx.globalAlpha = 1;
-                    }
-                }
-                const initParticles = () => { particles = Array.from({ length: maxP }, () => new Particle()); };
-                const connect = () => {
-                    ctx.strokeStyle = 'rgba(139,92,246,0.04)';
-                    for (let i = 0; i < particles.length; i++) for (let j = i + 1; j < particles.length; j++) {
-                        const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y, dist = Math.sqrt(dx*dx+dy*dy);
-                        if (dist < 90) { ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y); ctx.globalAlpha = 0.04 * (1 - dist/90); ctx.lineWidth = 0.4; ctx.stroke(); ctx.globalAlpha = 1; }
-                    }
-                };
-                const animate = () => { ctx.clearRect(0,0,w,h); particles.forEach(p => { p.update(); p.draw(); }); connect(); anim = requestAnimationFrame(animate); };
-                initParticles(); animate();
-                window.addEventListener('beforeunload', () => { if (anim) cancelAnimationFrame(anim); });
-            }
-
-            document.querySelectorAll('.footer button').forEach(btn => {
-                btn.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); } });
-            });
-        })();
-    </script>
+        initParticles();
+        animate();
+        window.addEventListener('beforeunload', () => { if (anim) cancelAnimationFrame(anim); });
+      }
+    })();
+  </script>
 </body>
 </html>

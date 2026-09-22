@@ -1,37 +1,195 @@
-.contact {
-  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+/* ============================================ */
+/* SOCIAL SECTION                                */
+/* ============================================ */
+
+.social-section {
+  position: relative;
+  padding: 5rem 0;
+  background: var(--bg-primary);
 }
-.contact__grid {
+
+.social__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.2rem;
+  margin-top: 2.5rem;
 }
-.contact__item {
+
+/* Card base */
+.social__card {
+  position: relative;
   display: flex;
-  gap: 1.2rem;
   align-items: center;
-  padding: 1.2rem;
-  background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  transition: var(--transition-bounce);
-  border: 1px solid var(--border-color);
+  gap: 1.25rem;
+  padding: 1.4rem 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-lg, 16px);
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
 }
-.contact__item:hover {
-  border-color: var(--gold);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-}
-.contact__icon {
-  width: 52px;
-  height: 52px;
-  background: linear-gradient(135deg, var(--gold), var(--purple));
-  border-radius: 50%;
+
+/* Icono circular */
+.social__icon {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(168, 85, 247, 0.1);
+  color: var(--text-primary, #fff);
+  font-size: 1.4rem;
   flex-shrink: 0;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
-.contact__icon i { color: white; font-size: 1.3rem; }
-.contact__item h4 { font-size: 0.95rem; margin-bottom: 0.2rem; color: var(--text-primary); }
-.contact__item a { font-size: 0.8rem; color: var(--text-secondary); }
-.contact__item a:hover { color: var(--gold); }
+
+/* Info (nombre + subtítulo) */
+.social__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.social__name {
+  font-family: 'Bebas Neue', 'Montserrat', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-primary, #fff);
+  line-height: 1.1;
+}
+
+.social__handle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  color: var(--text-tertiary, rgba(255, 255, 255, 0.5));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Flecha */
+.social__arrow {
+  flex-shrink: 0;
+  color: var(--text-tertiary, rgba(255, 255, 255, 0.4));
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* --- Hover --- */
+.social__card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(168, 85, 247, 0.35);
+  box-shadow: 0 12px 35px rgba(168, 85, 247, 0.15);
+}
+
+.social__card:hover .social__icon {
+  background: rgba(168, 85, 247, 0.2);
+  transform: scale(1.08);
+}
+
+.social__card:hover .social__arrow {
+  color: var(--text-primary, #fff);
+  transform: translate(3px, -3px);
+}
+
+/* --- Colores por red (hover) --- */
+.social__card--instagram:hover {
+  border-color: rgba(228, 64, 95, 0.5);
+  box-shadow: 0 12px 35px rgba(228, 64, 95, 0.2);
+}
+.social__card--instagram:hover .social__icon {
+  background: linear-gradient(135deg, #833AB4, #E4405F);
+  color: #fff;
+}
+
+.social__card--spotify:hover {
+  border-color: rgba(29, 185, 84, 0.5);
+  box-shadow: 0 12px 35px rgba(29, 185, 84, 0.2);
+}
+.social__card--spotify:hover .social__icon {
+  background: #1DB954;
+  color: #000;
+}
+
+.social__card--youtube:hover {
+  border-color: rgba(255, 0, 0, 0.5);
+  box-shadow: 0 12px 35px rgba(255, 0, 0, 0.2);
+}
+.social__card--youtube:hover .social__icon {
+  background: #FF0000;
+  color: #fff;
+}
+
+.social__card--links:hover {
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 12px 35px rgba(168, 85, 247, 0.2);
+}
+.social__card--links:hover .social__icon {
+  background: linear-gradient(135deg, #a855f7, #fbbf24);
+  color: #0a0a0a;
+}
+
+/* ============================================ */
+/* RESPONSIVE                                    */
+/* ============================================ */
+
+@media (max-width: 768px) {
+  .social-section {
+    padding: 4rem 0;
+  }
+
+  .social__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .social__card {
+    padding: 1.1rem 1.2rem;
+    gap: 1rem;
+  }
+
+  .social__icon {
+    width: 46px;
+    height: 46px;
+    font-size: 1.2rem;
+  }
+
+  .social__name {
+    font-size: 1.05rem;
+  }
+
+  .social__handle {
+    font-size: 0.72rem;
+  }
+}
+
+/* ============================================ */
+/* ACCESIBILIDAD                                 */
+/* ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .social__card,
+  .social__icon,
+  .social__arrow {
+    transition: none !important;
+  }
+  .social__card:hover {
+    transform: none;
+  }
+  .social__card:hover .social__icon {
+    transform: none;
+  }
+  .social__card:hover .social__arrow {
+    transform: none;
+  }
+}

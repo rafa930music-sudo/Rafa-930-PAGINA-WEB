@@ -1,28 +1,142 @@
-.social-section { background: var(--bg-secondary); }
-.social__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.2rem;
-  margin: 0 auto;
+/* ============================================ */
+/* CONTACT SECTION                               */
+/* ============================================ */
+
+.contact {
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+  padding: 5rem 0;
 }
-.social__card {
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+
+.contact__item {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  padding: 1.4rem 1.5rem;
   background: var(--bg-card);
-  border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 1.8rem;
-  text-align: center;
+  border: 1px solid var(--border-color);
   text-decoration: none;
   transition: var(--transition-bounce);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact__item:hover {
+  border-color: var(--gold, #fbbf24);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Icono circular */
+.contact__icon {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, var(--gold, #fbbf24), var(--purple, #a855f7));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: var(--transition-bounce);
+}
+
+.contact__item:hover .contact__icon {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.contact__icon i {
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+/* Info */
+.contact__info {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.8rem;
+  gap: 0.2rem;
+  min-width: 0;
+  flex: 1;
 }
-.social__card:hover {
-  transform: translateY(-6px);
-  border-color: var(--purple);
-  box-shadow: var(--shadow-lg);
+
+.contact__info h4 {
+  font-size: 0.95rem;
+  margin: 0;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-family: 'Bebas Neue', 'Montserrat', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
-.social__card i { font-size: 2.2rem; transition: var(--transition-bounce); }
-.social__card:hover i { transform: scale(1.15); }
-.social__card span { font-weight: 600; font-size: 0.85rem; color: var(--text-primary); }
+
+.contact__info span {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s ease;
+}
+
+.contact__item:hover .contact__info span {
+  color: var(--gold, #fbbf24);
+}
+
+/* ============================================ */
+/* RESPONSIVE                                    */
+/* ============================================ */
+
+@media (max-width: 992px) {
+  .contact__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .contact {
+    padding: 4rem 0;
+  }
+
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .contact__item {
+    padding: 1.2rem 1.3rem;
+    gap: 1rem;
+  }
+
+  .contact__icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .contact__icon i {
+    font-size: 1.15rem;
+  }
+}
+
+/* ============================================ */
+/* ACCESIBILIDAD                                 */
+/* ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .contact__item,
+  .contact__icon {
+    transition: none !important;
+  }
+  .contact__item:hover {
+    transform: none;
+  }
+  .contact__item:hover .contact__icon {
+    transform: none;
+  }
+}
