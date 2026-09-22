@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
 <head>
@@ -1231,16 +1232,18 @@
     <i class="fas fa-arrow-up" aria-hidden="true"></i>
   </button>
 
-  <!-- ============================================ -->
-  <!-- COOKIE BANNER                                 -->
-  <!-- ============================================ -->
-  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-modal="true" aria-label="Consentimiento de cookies" style="display: none;">
-    <p>🍪 Usamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra <a href="cookies.html">Política de Cookies</a>.</p>
-    <div>
-      <button class="btn btn--primary btn--sm" onclick="aceptarCookies()">Aceptar</button>
-      <button class="btn btn--outline btn--sm" onclick="rechazarCookies()">Rechazar</button>
-    </div>
+<!-- ============================================ -->
+<!-- COOKIE BANNER                                 -->
+<!-- ============================================ -->
+<div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Consentimiento de cookies" style="display: none;">
+  <p data-i18n="cookie_text">🍪 Usamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra <a href="cookies.html">Política de Cookies</a>.</p>
+  <div>
+    <button class="btn btn--primary btn--sm" id="cookieAccept" data-i18n="cookie_accept">Aceptar</button>
+    <button class="btn btn--outline btn--sm" id="cookieReject" data-i18n="cookie_reject">Rechazar</button>
   </div>
+</div>
+
+
 
   <!-- ============================================ -->
   <!-- REPRODUCTOR DE MÚSICA                        -->

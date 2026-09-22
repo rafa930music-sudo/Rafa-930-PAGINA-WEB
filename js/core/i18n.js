@@ -1,3 +1,4 @@
+// js/i18n.js
 import { showToast } from './utils.js';
 
 const translations = {
@@ -24,7 +25,7 @@ const translations = {
 
     // About
     about_eyebrow: "Mi historia",
-    about_title: "Música · Fotografía · Código",
+    aabout_title: 'Música · Fotografía · <span class="text-gradient">Código</span>',
     about_930_eyebrow: "El tributo inmutable · ¿Por qué 930?",
     about_p1: "Nacido como Rafael Moreno Román, mi historia comenzó en los callejones de Mataró entre saltos de parkour, partidos interminables de fútbol callejero y la disciplina silenciosa del movimiento.",
     about_p2: "A los 10 años, el destino trasladó mis pasos al barrio de La Mina, un enclave de crudeza y autenticidad sin filtros en Sant Adrià de Besòs.",
@@ -34,10 +35,12 @@ const translations = {
     // Discografía
     disc_eyebrow: "Mi música",
     disc_title: "Discografía",
+    disc_catalog: "CATÁLOGO",
     disc_single: "SINGLE",
     disc_ep: "EP",
     disc_album: "ÁLBUM",
     disc_soon: "Próximamente",
+    disc_soon_sub: "Próximamente",
     disc_btn_youtube: "YouTube",
     disc_listen_now: 'Escucha "Diferentes Caminos" en Spotify',
 
@@ -59,7 +62,7 @@ const translations = {
 
     // Booking
     booking_eyebrow: "Contacto",
-    booking_title: "¿Trabajamos juntos?",
+    booking_title: 'juntos?',
     booking_desc: "Para conciertos, sesiones fotográficas, desarrollo web o cualquier consulta profesional, contáctame.",
     booking_music: "Música / Conciertos",
     booking_email: "Email profesional",
@@ -93,7 +96,7 @@ const translations = {
     form_budget: "Presupuesto estimado",
     form_message: "Mensaje",
     form_message_placeholder: "Cuéntame tu idea...",
-    form_privacy: "Acepto la política de privacidad",
+    form_privacy: 'He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener noreferrer">Política de Privacidad</a>',
     form_submit: "Enviar mensaje",
     form_success: "¡Consulta enviada con éxito! Te responderé en menos de 24 horas.",
     form_error: "Error al enviar. Intenta de nuevo.",
@@ -117,6 +120,8 @@ const translations = {
     contact_webdev_link: "930 Digital",
     contact_escuchar: "Escuchar ahora",
     contact_suscribirse: "Suscribirse",
+    contact_whatsapp_label: "WhatsApp",
+    contact_whatsapp_desc: "Respuesta rápida",
 
     // Footer
     footer_desc: "Artista musical · Fotógrafo profesional · Desarrollador web",
@@ -128,7 +133,7 @@ const translations = {
 
     // Colaboradores
     colab_eyebrow: "Colaboraciones",
-    colab_title: "He trabajado con <span class=\"text-gradient\">ellos</span>",
+    colab_title: 'He trabajado con <span class="text-gradient">ellos</span>',
     colab_view: "Ver",
     colab_role_photographer: "Fotógrafo",
     colab_role_producer: "Productor",
@@ -136,7 +141,7 @@ const translations = {
     colab_role_model: "Modelo",
 
     // Cookie banner
-    cookie_text: "🍪 Usamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra <a href=\"cookies.html\">Política de Cookies</a>.",
+    cookie_text: '🍪 Usamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra <a href="cookies.html">Política de Cookies</a>.',
     cookie_accept: "Aceptar",
     cookie_reject: "Rechazar"
   },
@@ -164,7 +169,7 @@ const translations = {
 
     // About
     about_eyebrow: "My story",
-    about_title: "Music · Photography · Code",
+    about_title: 'Music · Photography · <span class="text-gradient">Code</span>',
     about_930_eyebrow: "The immutable tribute · Why 930?",
     about_p1: "Born Rafael Moreno Román, my story began in the alleyways of Mataró between parkour jumps, endless street football matches and the silent discipline of movement.",
     about_p2: "At the age of 10, destiny moved my steps to the neighbourhood of La Mina, an enclave of raw, unfiltered authenticity in Sant Adrià de Besòs.",
@@ -174,10 +179,12 @@ const translations = {
     // Discography
     disc_eyebrow: "My music",
     disc_title: "Discography",
+    disc_catalog: "CATALOG",
     disc_single: "SINGLE",
     disc_ep: "EP",
     disc_album: "ALBUM",
     disc_soon: "Coming soon",
+    disc_soon_sub: "Coming soon",
     disc_btn_youtube: "YouTube",
     disc_listen_now: 'Listen to "Diferentes Caminos" on Spotify',
 
@@ -199,7 +206,7 @@ const translations = {
 
     // Booking
     booking_eyebrow: "Contact",
-    booking_title: "Work together?",
+    booking_title: 'together?',
     booking_desc: "For concerts, photo sessions, web development or any professional inquiry, contact me.",
     booking_music: "Music / Concerts",
     booking_email: "Professional email",
@@ -233,7 +240,7 @@ const translations = {
     form_budget: "Estimated budget",
     form_message: "Message",
     form_message_placeholder: "Tell me your idea...",
-    form_privacy: "I accept the privacy policy",
+    form_privacy: 'I have read and accept the <a href="privacidad.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>',
     form_submit: "Send message",
     form_success: "Inquiry sent successfully! I'll reply within 24 hours.",
     form_error: "Error sending. Please try again.",
@@ -257,6 +264,8 @@ const translations = {
     contact_webdev_link: "930 Digital",
     contact_escuchar: "Listen now",
     contact_suscribirse: "Subscribe",
+    contact_whatsapp_label: "WhatsApp",
+    contact_whatsapp_desc: "Fast response",
 
     // Footer
     footer_desc: "Music artist · Professional photographer · Web developer",
@@ -268,7 +277,7 @@ const translations = {
 
     // Collaborations
     colab_eyebrow: "Collaborations",
-    colab_title: "I've worked with <span class=\"text-gradient\">them</span>",
+    colab_title: 'I\'ve worked with <span class="text-gradient">them</span>',
     colab_view: "View",
     colab_role_photographer: "Photographer",
     colab_role_producer: "Producer",
@@ -276,7 +285,7 @@ const translations = {
     colab_role_model: "Model",
 
     // Cookie banner
-    cookie_text: "🍪 We use cookies to improve your experience. By continuing to browse, you accept our <a href=\"cookies.html\">Cookie Policy</a>.",
+    cookie_text: '🍪 We use cookies to improve your experience. By continuing to browse, you accept our <a href="cookies.html">Cookie Policy</a>.',
     cookie_accept: "Accept",
     cookie_reject: "Reject"
   }
@@ -288,29 +297,44 @@ export function t(key) {
   return translations[currentLang]?.[key] || key;
 }
 
-export function setLanguage(lang) {
+export function setLanguage(lang, { silent = false } = {}) {
   currentLang = lang;
   localStorage.setItem('idioma', lang);
 
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
-    if (translations[lang]?.[key]) {
-      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-        el.placeholder = translations[lang][key];
-      } else if (el.tagName === 'SELECT' && el.options && key === 'select_option') {
-        el.options[0].text = translations[lang][key];
-      } else {
-        // Para el hero_subtitle, about_p3, colab_title y otros con HTML,
-        // inyectamos el contenido completo (spans, <br>, <mark>, etc.)
-        el.innerHTML = translations[lang][key];
-      }
+    const value = translations[lang]?.[key];
+    if (value === undefined) return;
+
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      el.placeholder = value;
+    } else if (el.tagName === 'SELECT' && el.options && key === 'select_option') {
+      el.options[0].text = value;
+    } else {
+      el.innerHTML = value;
     }
   });
-  showToast(`Idioma cambiado a ${lang === 'es' ? 'Español' : 'English'}`);
+
+  // Actualizamos <html lang="...">
+  document.documentElement.lang = lang;
+
+  if (!silent) {
+    showToast(`Idioma cambiado a ${lang === 'es' ? 'Español' : 'English'}`);
+  }
 }
 
 export function initI18n() {
-  setLanguage(currentLang);
+  // 1) Sincronizar estado del selector con el idioma guardado
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const isActive = btn.dataset.lang === currentLang;
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-checked', String(isActive));
+  });
+
+  // 2) Aplicar traducciones sin mostrar toast
+  setLanguage(currentLang, { silent: true });
+
+  // 3) Listeners
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const lang = btn.dataset.lang;
