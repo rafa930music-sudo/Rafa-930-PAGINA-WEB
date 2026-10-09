@@ -91,7 +91,7 @@ interface SeoMetadata {
 const SCREEN_SEO: Record<ScreenId, Record<Language, SeoMetadata>> = {
   revista: {
     ca: {
-      title: 'RAFA 930 · Revista de Barrio | Música, Fotografia & Web',
+      title: 'RAFA 930 | Música, Fotografia & Web',
       description:
         'Web oficial de RAFA 930 (Rafael Moreno Román): música urbana des de La Mina (Barcelona), discografia, fotografia editorial i desenvolupament web 930 Digital.',
       keywords:
@@ -99,7 +99,7 @@ const SCREEN_SEO: Record<ScreenId, Record<Language, SeoMetadata>> = {
       locale: 'ca_ES',
     },
     es: {
-      title: 'RAFA 930 · Revista de Barrio | Música, Fotografía & Web',
+      title: 'RAFA 930 | Música, Fotografía & Web',
       description:
         'Web oficial de RAFA 930 (Rafael Moreno Román): música urbana desde La Mina (Barcelona), discografía, fotografía editorial y desarrollo web 930 Digital.',
       keywords:
@@ -107,7 +107,7 @@ const SCREEN_SEO: Record<ScreenId, Record<Language, SeoMetadata>> = {
       locale: 'es_ES',
     },
     en: {
-      title: 'RAFA 930 · Revista de Barrio | Music, Photography & Web',
+      title: 'RAFA 930 | Music, Photography & Web',
       description:
         'Official website of RAFA 930 (Rafael Moreno Román): urban music from La Mina (Barcelona), discography, editorial photography, and 930 Digital web studio.',
       keywords:
