@@ -11,7 +11,6 @@ import { Footer } from './components/Footer';
 import { FloatingWidgets } from './components/FloatingWidgets';
 import { SplashScreen } from './components/SplashScreen';
 import { AmbientColorBubbles } from './components/AmbientColorBubbles';
-import { SeoKnowledgeGraphHub } from './components/SeoKnowledgeGraphHub';
 import { RevistaScreen } from './components/Screens/RevistaScreen';
 import { DiscografiaScreen } from './components/Screens/DiscografiaScreen';
 import { GaleriaScreen } from './components/Screens/GaleriaScreen';
@@ -220,8 +219,6 @@ export default function App() {
           />
         )}
       </main>
-
-      <SeoKnowledgeGraphHub language={language} onNavigate={handleScreenChange} />
 
       <Footer
         onNavigate={handleScreenChange}
