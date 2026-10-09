@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/?lang=es" />
+    <xhtml:link rel="alternate" hreflang="ca" href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/?lang=ca" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/" />
+    <image:image>
+      <image:loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/assets/de-vuelta-original.jpg</image:loc>
+      <image:title>RAFA 930 - De Vuelta (Portada Oficial 2026)</image:title>
+      <image:caption>Portada oficial del single De Vuelta (2026) de RAFA 930 (Rafael Moreno Román) en el metro de Barcelona.</image:caption>
+      <image:geo_location>Sant Adrià de Besòs, Barcelona, España</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://lh3.googleusercontent.com/aida-public/AB6AXuBiB5ndFO8BKZk16GSPdBRO6I4fqt3tcLuOZolfcdsWzR3wA5wBTpmdzXs41uwoExtegnt12b6_BoB1uy-SPZXQC1ROa-81zxV7Y_gsXQHFKNRSiyZszuVbDNqndxbfMJKhwifawiB8O16QJVZjZlXabHQh90wezknMFuxvqiA-rm3pfAMv73L8OKBvkjDGaIk9eWL8XFDczqF4YdTAIbXwCQ8RFiDA96uV2Aq7RehzV6ExpB0NSAVDDuVdG3h0ZG4Z6Q</image:loc>
+      <image:title>RAFA 930 (Rafael Moreno Román) — Retrato Editorial Oficial en Barcelona</image:title>
+      <image:caption>Retrato de autor en blanco y negro de RAFA 930 en La Mina, Sant Adrià de Besòs (Barcelona), fotografía por Incrife.</image:caption>
+      <image:geo_location>Sant Adrià de Besòs, Barcelona, España</image:geo_location>
+    </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/WaV1KeSN5_4/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>RAFA 930 - Nose si estaré mañana (Videoclip Oficial)</video:title>
+      <video:description>Videoclip oficial de Nose si estaré mañana por RAFA 930 (Rafael Moreno Román). Música urbana y rap consciente desde La Mina, Barcelona (08930).</video:description>
+      <video:player_loc>https://www.youtube.com/embed/WaV1KeSN5_4</video:player_loc>
+      <video:duration>168</video:duration>
+      <video:publication_date>2026-01-15T00:00:00+01:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/lCwhG67eijs/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>RAFA 930 - EP My World (Full Visual Experience)</video:title>
+      <video:description>EP My World de RAFA 930 (Rafael Moreno Román). Proyecto conceptual de música urbana desde Sant Adrià de Besòs, Barcelona.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/lCwhG67eijs</video:player_loc>
+      <video:duration>395</video:duration>
+      <video:publication_date>2025-06-01T00:00:00+01:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#discografia</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#galeria</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#serveis</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#presskit</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#contacte</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#legal</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>

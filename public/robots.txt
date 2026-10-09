@@ -1,0 +1,27 @@
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: *
+Allow: /
+Allow: /Rafa-930-PAGINA-WEB/
+Allow: /#revista
+Allow: /#discografia
+Allow: /#galeria
+Allow: /#serveis
+Allow: /#presskit
+Allow: /#contacte
+Allow: /#legal
+
+Sitemap: https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/sitemap.xml

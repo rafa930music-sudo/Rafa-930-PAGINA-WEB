@@ -1,0 +1,26 @@
+{
+  "name": "RAFA 930 · Música Urbana, Fotografía & Desarrollo Digital",
+  "short_name": "RAFA 930",
+  "description": "Plataforma oficial de RAFA 930 (Rafael Moreno Román): música urbana, fotografía editorial y desarrollo web desde Barcelona.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#050507",
+  "theme_color": "#ec4899",
+  "orientation": "portrait-primary",
+  "categories": ["music", "photography", "entertainment"],
+  "lang": "es",
+  "icons": [
+    {
+      "src": "./assets/logo-white.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/logo-white.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "RAFA 930 · Revista de Barrio",
+  "description": "Web oficial de RAFA 930 (Rafael Moreno Román): música urbana desde La Mina (Barcelona), discografía, fotografía editorial y desarrollo web 930 Digital.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
