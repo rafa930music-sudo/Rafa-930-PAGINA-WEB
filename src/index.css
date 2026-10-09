@@ -163,6 +163,11 @@ html.light .text-gradient-lila-rosa-rojo {
   min-height: 48px;
 }
 
+#seo-knowledge-graph-hub {
+  display: none !important;
+  visibility: hidden !important;
+}
+
 @keyframes rafaRoamA {
   0%, 100% {
     transform: translate3d(0px, 0px, 0) scale(1);

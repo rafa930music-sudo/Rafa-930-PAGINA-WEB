@@ -11,15 +11,15 @@
   "lang": "es",
   "icons": [
     {
-      "src": "./assets/logo-white.webp",
+      "src": "https://lh3.googleusercontent.com/aida-public/AB6AXuBiB5ndFO8BKZk16GSPdBRO6I4fqt3tcLuOZolfcdsWzR3wA5wBTpmdzXs41uwoExtegnt12b6_BoB1uy-SPZXQC1ROa-81zxV7Y_gsXQHFKNRSiyZszuVbDNqndxbfMJKhwifawiB8O16QJVZjZlXabHQh90wezknMFuxvqiA-rm3pfAMv73L8OKBvkjDGaIk9eWL8XFDczqF4YdTAIbXwCQ8RFiDA96uV2Aq7RehzV6ExpB0NSAVDDuVdG3h0ZG4Z6Q",
       "sizes": "192x192",
-      "type": "image/webp",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     },
     {
-      "src": "./assets/logo-white.webp",
+      "src": "https://lh3.googleusercontent.com/aida-public/AB6AXuBiB5ndFO8BKZk16GSPdBRO6I4fqt3tcLuOZolfcdsWzR3wA5wBTpmdzXs41uwoExtegnt12b6_BoB1uy-SPZXQC1ROa-81zxV7Y_gsXQHFKNRSiyZszuVbDNqndxbfMJKhwifawiB8O16QJVZjZlXabHQh90wezknMFuxvqiA-rm3pfAMv73L8OKBvkjDGaIk9eWL8XFDczqF4YdTAIbXwCQ8RFiDA96uV2Aq7RehzV6ExpB0NSAVDDuVdG3h0ZG4Z6Q",
       "sizes": "512x512",
-      "type": "image/webp",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     }
   ]

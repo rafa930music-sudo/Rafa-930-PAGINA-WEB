@@ -20,7 +20,9 @@ export const SeoKnowledgeGraphHub: React.FC<SeoKnowledgeGraphHubProps> = ({
     <aside
       id="seo-knowledge-graph-hub"
       aria-label="Archivo Documental Completo e Índice de Contenidos Oficial de RAFA 930 (Rafael Moreno Román)"
-      className="sr-only"
+      className="sr-only hidden"
+      hidden
+      aria-hidden="true"
       lang={language}
     >
       <article itemScope itemType="https://schema.org/Person">
