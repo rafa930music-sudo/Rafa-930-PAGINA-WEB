@@ -87,7 +87,7 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
     return () => window.removeEventListener('pointermove', handlePointerMove);
   }, []);
 
-  // 1. PORTADA (REVISTA): 3D Depth-of-Field Roaming Luminous Spheres Engine
+  // 1. PORTADA (REVISTA): 3D Depth-of-Field Roaming Luminous Spheres Engine (GPU-Accelerated)
   useEffect(() => {
     if (currentScreen !== 'revista') return;
 
@@ -96,8 +96,9 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
     let time = 0;
 
     const animateBubbles = () => {
-      time += 0.016;
+      time += 0.014;
       const scrollY = window.scrollY || 0;
+      const vw = window.innerWidth || 1280;
       const vh = window.innerHeight || 900;
 
       mouseRef.current.x += (mouseRef.current.targetX - mouseRef.current.x) * 0.06;
@@ -106,26 +107,26 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
       const my = mouseRef.current.y;
 
       if (orbRefs.current[0]) {
-        const ox = Math.sin(time * 0.45) * 90 + Math.cos(time * 0.25) * 40 - mx * 35;
-        const oy = Math.cos(time * 0.38) * 75 - (scrollY * 0.15) % vh - my * 35;
-        orbRefs.current[0].style.transform = `translate3d(${ox.toFixed(1)}px, ${oy.toFixed(1)}px, -80px)`;
+        const ox = Math.sin(time * 0.45) * 80 - mx * 30;
+        const oy = Math.cos(time * 0.38) * 65 - (scrollY * 0.12) % vh - my * 30;
+        orbRefs.current[0].style.transform = `translate3d(${ox.toFixed(1)}px, ${oy.toFixed(1)}px, 0px)`;
       }
       if (orbRefs.current[1]) {
-        const ox = Math.cos(time * 0.4) * -105 + Math.sin(time * 0.22) * 45 + mx * 45;
-        const oy = Math.sin(time * 0.34) * 85 - (scrollY * 0.22) % vh + my * 45;
-        orbRefs.current[1].style.transform = `translate3d(${ox.toFixed(1)}px, ${oy.toFixed(1)}px, -40px)`;
+        const ox = Math.cos(time * 0.4) * -90 + mx * 35;
+        const oy = Math.sin(time * 0.34) * 70 - (scrollY * 0.16) % vh + my * 35;
+        orbRefs.current[1].style.transform = `translate3d(${ox.toFixed(1)}px, ${oy.toFixed(1)}px, 0px)`;
       }
       if (orbRefs.current[2]) {
-        const ox = Math.sin(time * 0.5 + 1.5) * 95 - mx * 55;
-        const oy = Math.cos(time * 0.42 + 1.1) * -80 - (scrollY * 0.18) % vh - my * 55;
-        orbRefs.current[2].style.transform = `translate3d(${ox.toFixed(1)}px, ${oy.toFixed(1)}px, 20px)`;
+        const ox = Math.sin(time * 0.5 + 1.5) * 85 - mx * 40;
+        const oy = Math.cos(time * 0.42 + 1.1) * -70 - (scrollY * 0.14) % vh - my * 40;
+        orbRefs.current[2].style.transform = `translate3d(${ox.toFixed(1)}px, ${oy.toFixed(1)}px, 0px)`;
       }
 
       for (let i = 0; i < state.length; i++) {
         const b = state[i];
-        b.x += b.vx * (1.6 + b.z * 1.4);
-        b.y += b.vy * (1.6 + b.z * 1.4);
-        b.phase += b.phaseSpeed * 1.8;
+        b.x += b.vx * (1.35 + b.z * 1.15);
+        b.y += b.vy * (1.35 + b.z * 1.15);
+        b.phase += b.phaseSpeed * 1.5;
 
         if (b.x > 98) b.x = 2;
         if (b.x < 2) b.x = 98;
@@ -134,19 +135,16 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
 
         const el = bubbleRefs.current[i];
         if (el) {
-          const swayX = Math.sin(b.phase) * b.swayAmp + mx * (b.z * 48);
-          const swayY = Math.cos(b.phase * 0.85) * (b.swayAmp * 0.75) + my * (b.z * 38);
+          const swayX = Math.sin(b.phase) * b.swayAmp + mx * (b.z * 40);
+          const swayY = Math.cos(b.phase * 0.85) * (b.swayAmp * 0.7) + my * (b.z * 32);
           const scrollShiftY = -((scrollY * b.parallax) % vh);
-          let effectiveY = ((b.y / 100) * vh + swayY + scrollShiftY) % vh;
-          if (effectiveY < -40) effectiveY += vh + 40;
 
-          const zOsc = Math.sin(b.phase * 1.1) * 45;
-          const zDepth = (b.z - 0.5) * 180 + zOsc;
-          const scale = (0.65 + b.z * 0.65) + Math.sin(b.phase * 1.3) * 0.16;
+          const px = (b.x / 100) * vw + swayX;
+          let py = ((b.y / 100) * vh + swayY + scrollShiftY) % vh;
+          if (py < -40) py += vh + 40;
 
-          el.style.left = `${b.x.toFixed(2)}%`;
-          el.style.top = `${effectiveY.toFixed(1)}px`;
-          el.style.transform = `translate3d(${swayX.toFixed(1)}px, 0px, ${zDepth.toFixed(1)}px) scale(${scale.toFixed(3)})`;
+          const scale = 0.7 + b.z * 0.55 + Math.sin(b.phase * 1.2) * 0.12;
+          el.style.transform = `translate3d(${px.toFixed(1)}px, ${py.toFixed(1)}px, 0px) scale(${scale.toFixed(3)})`;
         }
       }
 
@@ -636,16 +634,19 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
               ref={(el) => {
                 bubbleRefs.current[idx] = el;
               }}
-              className="absolute rounded-full will-change-transform"
+              className="absolute top-0 left-0 rounded-full will-change-transform"
               style={{
                 width: `${b.size}px`,
                 height: `${b.size}px`,
-                left: `${b.x}%`,
-                top: `${b.y}%`,
-                opacity: b.opacity,
-                filter: b.z < 0.48 ? 'blur(1.2px)' : 'none',
-                background: `radial-gradient(circle at 28% 28%, #ffffff 0%, ${b.color} 48%, rgba(5,5,7,0.85) 92%, transparent 100%)`,
-                boxShadow: `0 10px 24px -4px rgba(0,0,0,0.65), 0 0 ${Math.round(b.size * 1.45)}px ${b.glow}, inset -3px -4px 8px rgba(0,0,0,0.55), inset 2px 2px 5px rgba(255,255,255,0.85)`,
+                opacity: theme === 'light' ? b.opacity * 0.42 : b.opacity,
+                background:
+                  theme === 'light'
+                    ? `radial-gradient(circle at 30% 30%, #ffffff 0%, ${b.color} 65%, transparent 100%)`
+                    : `radial-gradient(circle at 28% 28%, #ffffff 0%, ${b.color} 48%, rgba(5,5,7,0.85) 92%, transparent 100%)`,
+                boxShadow:
+                  theme === 'light'
+                    ? `0 4px 14px -2px ${b.glow}`
+                    : `0 10px 24px -4px rgba(0,0,0,0.65), 0 0 ${Math.round(b.size * 1.45)}px ${b.glow}, inset -3px -4px 8px rgba(0,0,0,0.55), inset 2px 2px 5px rgba(255,255,255,0.85)`,
                 border: `1px solid ${b.color}`,
               }}
             />
@@ -665,9 +666,6 @@ interface SectionBubbleItem {
   size: number;
   x: number;
   y: number;
-  vx: number;
-  vy: number;
-  phase: number;
   color: string;
   glow: string;
   animClass: string;
@@ -678,63 +676,14 @@ interface SectionBubbleItem {
 export const SectionColorBubbles: React.FC<{
   variant?: 'music' | 'editorial' | 'electric' | 'rays';
 }> = ({ variant = 'editorial' }) => {
-  const itemRefs = useRef<(HTMLSpanElement | null)[]>([]);
+  const cluster: SectionBubbleItem[] = [
+    { size: 20, x: 7, y: 24, color: '#a855f7', glow: 'rgba(168,85,247,0.55)', animClass: 'rafa-roam-a', duration: '7s', delay: '0.2s' },
+    { size: 15, x: 90, y: 18, color: '#00d4ff', glow: 'rgba(0,212,255,0.6)', animClass: 'rafa-roam-b', duration: '6.4s', delay: '0.7s' },
+    { size: 22, x: 86, y: 70, color: '#ec4899', glow: 'rgba(236,72,153,0.55)', animClass: 'rafa-roam-c', duration: '7.8s', delay: '1.1s' },
+    { size: 13, x: 11, y: 76, color: '#00d4ff', glow: 'rgba(0,212,255,0.6)', animClass: 'rafa-roam-b', duration: '6.6s', delay: '1.6s' },
+    { size: 17, x: 54, y: 84, color: '#e11d48', glow: 'rgba(225,29,72,0.52)', animClass: 'rafa-roam-a', duration: '7.2s', delay: '0.9s' },
+  ];
 
-  const cluster: SectionBubbleItem[] =
-    variant === 'music'
-      ? [
-          { size: 18, x: 6, y: 20, vx: 0.045, vy: -0.038, phase: 0.3, color: '#00d4ff', glow: 'rgba(0,212,255,0.65)', animClass: 'rafa-roam-a', duration: '6.5s', delay: '0s' },
-          { size: 26, x: 88, y: 24, vx: -0.04, vy: 0.035, phase: 1.5, color: '#ec4899', glow: 'rgba(236,72,153,0.6)', animClass: 'rafa-roam-b', duration: '7.5s', delay: '0.6s' },
-          { size: 14, x: 82, y: 74, vx: -0.05, vy: -0.042, phase: 2.7, color: '#a855f7', glow: 'rgba(168,85,247,0.65)', animClass: 'rafa-roam-c', duration: '6s', delay: '1.2s' },
-          { size: 21, x: 14, y: 78, vx: 0.038, vy: -0.046, phase: 3.9, color: '#e11d48', glow: 'rgba(225,29,72,0.58)', animClass: 'rafa-roam-a', duration: '7.2s', delay: '0.4s' },
-          { size: 13, x: 48, y: 16, vx: 0.048, vy: 0.04, phase: 5.1, color: '#00d4ff', glow: 'rgba(0,212,255,0.7)', animClass: 'rafa-roam-b', duration: '5.8s', delay: '0.9s' },
-          { size: 16, x: 62, y: 84, vx: -0.042, vy: -0.036, phase: 4.3, color: '#ec4899', glow: 'rgba(236,72,153,0.6)', animClass: 'rafa-roam-c', duration: '6.8s', delay: '1.5s' },
-        ]
-      : variant === 'electric'
-      ? [
-          { size: 24, x: 8, y: 18, vx: 0.042, vy: 0.036, phase: 0.6, color: '#00d4ff', glow: 'rgba(0,212,255,0.68)', animClass: 'rafa-roam-b', duration: '6.8s', delay: '0.2s' },
-          { size: 15, x: 90, y: 32, vx: -0.048, vy: -0.038, phase: 1.9, color: '#00d4ff', glow: 'rgba(0,212,255,0.68)', animClass: 'rafa-roam-a', duration: '5.9s', delay: '0.8s' },
-          { size: 20, x: 84, y: 78, vx: -0.038, vy: -0.044, phase: 3.2, color: '#ec4899', glow: 'rgba(236,72,153,0.58)', animClass: 'rafa-roam-c', duration: '7.1s', delay: '1.1s' },
-          { size: 13, x: 18, y: 72, vx: 0.05, vy: -0.04, phase: 4.4, color: '#a855f7', glow: 'rgba(168,85,247,0.62)', animClass: 'rafa-roam-a', duration: '6.2s', delay: '0.5s' },
-          { size: 17, x: 52, y: 42, vx: -0.044, vy: 0.042, phase: 2.3, color: '#e11d48', glow: 'rgba(225,29,72,0.58)', animClass: 'rafa-roam-b', duration: '6.6s', delay: '1.4s' },
-        ]
-      : [
-          { size: 20, x: 7, y: 24, vx: 0.044, vy: -0.036, phase: 0.4, color: '#a855f7', glow: 'rgba(168,85,247,0.62)', animClass: 'rafa-roam-a', duration: '6.4s', delay: '0.2s' },
-          { size: 15, x: 90, y: 18, vx: -0.046, vy: 0.04, phase: 1.8, color: '#00d4ff', glow: 'rgba(0,212,255,0.68)', animClass: 'rafa-roam-b', duration: '5.8s', delay: '0.7s' },
-          { size: 24, x: 86, y: 70, vx: -0.038, vy: -0.042, phase: 3.0, color: '#ec4899', glow: 'rgba(236,72,153,0.58)', animClass: 'rafa-roam-c', duration: '7.3s', delay: '1.1s' },
-          { size: 13, x: 11, y: 76, vx: 0.048, vy: -0.038, phase: 4.2, color: '#00d4ff', glow: 'rgba(0,212,255,0.68)', animClass: 'rafa-roam-b', duration: '6.1s', delay: '1.6s' },
-          { size: 17, x: 54, y: 84, vx: -0.042, vy: -0.045, phase: 5.4, color: '#e11d48', glow: 'rgba(225,29,72,0.58)', animClass: 'rafa-roam-a', duration: '6.7s', delay: '0.9s' },
-        ];
-
-  useEffect(() => {
-    if (variant !== 'editorial') return;
-    const localState = cluster.map((c) => ({ ...c }));
-    let rafId: number;
-
-    const tick = () => {
-      for (let i = 0; i < localState.length; i++) {
-        const item = localState[i];
-        item.x += item.vx * 1.8;
-        item.y += item.vy * 1.8;
-        item.phase += 0.035;
-
-        if (item.x > 95 || item.x < 4) item.vx *= -1;
-        if (item.y > 92 || item.y < 6) item.vy *= -1;
-
-        const el = itemRefs.current[i];
-        if (el) {
-          el.style.left = `${item.x.toFixed(2)}%`;
-          el.style.top = `${item.y.toFixed(2)}%`;
-        }
-      }
-      rafId = requestAnimationFrame(tick);
-    };
-
-    rafId = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafId);
-  }, [variant]);
-
-  // Music variant: subtle local audio wave ribbons instead of bubbles
   if (variant === 'music') {
     return (
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden z-0 select-none opacity-45">
@@ -743,7 +692,6 @@ export const SectionColorBubbles: React.FC<{
     );
   }
 
-  // Rays variant for Galeria: subtle studio prism glow
   if (variant === 'rays') {
     return (
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden z-0 select-none opacity-55">
@@ -752,7 +700,6 @@ export const SectionColorBubbles: React.FC<{
     );
   }
 
-  // Electric variant for Services / Contact: subtle cyber glow
   if (variant === 'electric') {
     return (
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden z-0 select-none opacity-45">
@@ -766,18 +713,15 @@ export const SectionColorBubbles: React.FC<{
       {cluster.map((b, i) => (
         <span
           key={i}
-          ref={(el) => {
-            itemRefs.current[i] = el;
-          }}
           className={`${b.animClass} absolute rounded-full will-change-transform`}
           style={{
             width: `${b.size}px`,
             height: `${b.size}px`,
             left: `${b.x}%`,
             top: `${b.y}%`,
-            opacity: 0.56,
+            opacity: 0.48,
             background: `radial-gradient(circle at 30% 30%, #ffffff 0%, ${b.color} 55%, transparent 100%)`,
-            boxShadow: `0 0 ${Math.round(b.size * 1.3)}px ${b.glow}, inset 0 0 4px rgba(255,255,255,0.7)`,
+            boxShadow: `0 0 ${Math.round(b.size * 1.2)}px ${b.glow}`,
             border: `1px solid ${b.color}`,
             animationDuration: b.duration,
             animationDelay: b.delay,

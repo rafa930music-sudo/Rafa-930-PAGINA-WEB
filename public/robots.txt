@@ -13,9 +13,30 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 User-agent: *
 Allow: /
 Allow: /Rafa-930-PAGINA-WEB/
+Allow: /Rafa-930-PAGINA-WEB/links.html
+Allow: /Rafa-930-PAGINA-WEB/assets/rafa-930-cara.jpg
+Allow: /Rafa-930-PAGINA-WEB/assets/de-vuelta-original.jpg
 Allow: /#revista
 Allow: /#discografia
 Allow: /#galeria

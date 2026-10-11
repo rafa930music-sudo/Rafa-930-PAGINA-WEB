@@ -1,0 +1,468 @@
+import React, { useState, useEffect, useRef } from 'react';
+import { Language } from '../types';
+import {
+  Radio,
+  Youtube,
+  Instagram,
+  Globe,
+  Terminal,
+  Play,
+  Share2,
+  Check,
+  ArrowUpRight,
+  Download,
+  ExternalLink,
+  Volume2,
+} from 'lucide-react';
+
+export interface LinktreeItem {
+  id: string;
+  label: string;
+  sub?: string;
+  url: string;
+  highlight?: boolean;
+  icon: React.FC<{ className?: string }>;
+}
+
+const PORTRAIT_URL =
+  'https://lh3.googleusercontent.com/aida-public/AB6AXuBiB5ndFO8BKZk16GSPdBRO6I4fqt3tcLuOZolfcdsWzR3wA5wBTpmdzXs41uwoExtegnt12b6_BoB1uy-SPZXQC1ROa-81zxV7Y_gsXQHFKNRSiyZszuVbDNqndxbfMJKhwifawiB8O16QJVZjZlXabHQh90wezknMFuxvqiA-rm3pfAMv73L8OKBvkjDGaIk9eWL8XFDczqF4YdTAIbXwCQ8RFiDA96uV2Aq7RehzV6ExpB0NSAVDDuVdG3h0ZG4Z6Q';
+
+export const DE_VUELTA_YOUTUBE_URL = 'https://youtu.be/RVuiWbT_mNk';
+export const DE_VUELTA_VIDEO_ID = 'RVuiWbT_mNk';
+
+export const RAFA_LINKTREE_ITEMS: LinktreeItem[] = [
+  {
+    id: 'web',
+    label: 'Web Oficial',
+    sub: 'RAFA 930',
+    url: 'https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/',
+    highlight: true,
+    icon: Globe,
+  },
+  {
+    id: 'spotify',
+    label: 'Spotify',
+    sub: 'RAFA 930',
+    url: 'https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng',
+    icon: Radio,
+  },
+  {
+    id: 'youtube',
+    label: 'YouTube',
+    sub: '@rafa_930',
+    url: 'https://youtube.com/@rafa_930',
+    icon: Youtube,
+  },
+  {
+    id: 'instagram',
+    label: 'Instagram',
+    sub: '@rafa930_oficial',
+    url: 'https://instagram.com/rafa930_oficial',
+    icon: Instagram,
+  },
+  {
+    id: '930-digital',
+    label: '930 Digital',
+    sub: 'Estudio Web',
+    url: 'https://rafa930music-sudo.github.io/930-Digital/',
+    icon: Terminal,
+  },
+];
+
+interface SocialLinksProps {
+  language?: Language;
+  showDownloadButtons?: boolean;
+  onClose?: () => void;
+}
+
+export const SocialLinks: React.FC<SocialLinksProps> = ({
+  showDownloadButtons = true,
+  onClose,
+}) => {
+  const [copied, setCopied] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
+  const [splashExiting, setSplashExiting] = useState(false);
+  const [playVideoInline, setPlayVideoInline] = useState(false);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+
+  useEffect(() => {
+    const exitTimer = setTimeout(() => {
+      setSplashExiting(true);
+    }, 1500);
+
+    const completeTimer = setTimeout(() => {
+      setShowSplash(false);
+    }, 2050);
+
+    return () => {
+      clearTimeout(exitTimer);
+      clearTimeout(completeTimer);
+    };
+  }, []);
+
+  // Interactive 3D Neon Bubbles & Constellation Canvas
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let animId = 0;
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    const handleResize = () => {
+      if (!canvas) return;
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    };
+    window.addEventListener('resize', handleResize);
+
+    const palette = ['#a855f7', '#00d4ff', '#ec4899', '#e11d48'];
+    const orbs = Array.from({ length: 34 }, (_, i) => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      z: 0.3 + Math.random() * 0.9,
+      r: 3 + Math.random() * 20,
+      vx: (Math.random() - 0.5) * 0.65,
+      vy: -0.35 - Math.random() * 0.75,
+      color: palette[i % palette.length],
+      phase: Math.random() * Math.PI * 2,
+    }));
+
+    let tick = 0;
+    const render = () => {
+      tick += 0.02;
+      ctx.clearRect(0, 0, width, height);
+
+      // Subtle connecting lines between close orbs
+      for (let i = 0; i < orbs.length; i++) {
+        for (let j = i + 1; j < orbs.length; j++) {
+          const dx = orbs[i].x - orbs[j].x;
+          const dy = orbs[i].y - orbs[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 135) {
+            ctx.save();
+            ctx.strokeStyle = '#00d4ff';
+            ctx.globalAlpha = (1 - dist / 135) * 0.12;
+            ctx.lineWidth = 0.8;
+            ctx.beginPath();
+            ctx.moveTo(orbs[i].x, orbs[i].y);
+            ctx.lineTo(orbs[j].x, orbs[j].y);
+            ctx.stroke();
+            ctx.restore();
+          }
+        }
+      }
+
+      // Draw 3D glowing spheres
+      for (const o of orbs) {
+        o.x += o.vx * o.z + Math.sin(tick + o.phase) * 0.25;
+        o.y += o.vy * o.z;
+
+        if (o.y + o.r < -20) {
+          o.y = height + o.r + 10;
+          o.x = Math.random() * width;
+        }
+        if (o.x < -30) o.x = width + 30;
+        if (o.x > width + 30) o.x = -30;
+
+        const radius = o.r * o.z;
+        const grad = ctx.createRadialGradient(
+          o.x - radius * 0.3,
+          o.y - radius * 0.3,
+          radius * 0.08,
+          o.x,
+          o.y,
+          radius
+        );
+        grad.addColorStop(0, '#ffffff');
+        grad.addColorStop(0.35, o.color);
+        grad.addColorStop(1, 'transparent');
+
+        ctx.save();
+        ctx.globalAlpha = 0.22 + Math.sin(tick * 1.5 + o.phase) * 0.08;
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(o.x, o.y, radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      animId = requestAnimationFrame(render);
+    };
+
+    render();
+    return () => {
+      cancelAnimationFrame(animId);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const handleDismissSplash = () => {
+    if (splashExiting) return;
+    setSplashExiting(true);
+    setTimeout(() => {
+      setShowSplash(false);
+    }, 450);
+  };
+
+  const handleShare = async () => {
+    const shareUrl = 'https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/links.html';
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: 'RAFA 930', url: shareUrl });
+        return;
+      } catch {}
+    }
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {}
+  };
+
+  return (
+    <div className="relative w-full min-h-[100dvh] bg-[#050507] flex flex-col items-center justify-between px-4 sm:px-6 py-6 sm:py-8 text-[#ffffff] select-none overflow-x-hidden">
+      {/* Interactive 3D Canvas Background */}
+      <canvas
+        ref={canvasRef}
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 w-full h-full z-0"
+      />
+
+      {/* Top Neon Line */}
+      <div
+        aria-hidden="true"
+        className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#a855f7] via-[#00d4ff] to-[#ec4899] shadow-[0_0_14px_rgba(0,212,255,0.75)] z-[110]"
+      />
+
+      {/* Fullscreen Splash Screen Identical to Main Website */}
+      {showSplash && (
+        <div
+          role="dialog"
+          aria-label="RAFA 930"
+          onClick={handleDismissSplash}
+          className={`fixed inset-0 z-[105] bg-[#050507] flex items-center justify-center px-6 sm:px-12 select-none cursor-pointer overflow-hidden transition-all duration-500 ${
+            splashExiting ? 'opacity-0 scale-[1.03] pointer-events-none' : 'opacity-100 scale-100'
+          }`}
+        >
+          <div className="pointer-events-none absolute -top-28 left-1/4 w-[26rem] h-[26rem] rounded-full bg-[#a855f7]/22 blur-[140px]" />
+          <div className="pointer-events-none absolute top-1/2 right-1/4 w-[24rem] h-[24rem] rounded-full bg-[#ec4899]/20 blur-[140px]" />
+          <div className="pointer-events-none absolute -bottom-28 left-1/3 w-[22rem] h-[22rem] rounded-full bg-[#e11d48]/18 blur-[130px]" />
+          <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[20rem] h-[20rem] rounded-full bg-[#00d4ff]/14 blur-[125px]" />
+
+          <div className="pointer-events-none absolute inset-4 sm:inset-8 border border-[#22222e] rounded-2xl shadow-[inset_0_0_40px_rgba(0,212,255,0.06)]" />
+
+          <div className="relative z-10 w-full max-w-4xl flex flex-col items-center justify-center">
+            <div className="font-['Bebas_Neue'] font-extrabold tracking-tight text-[clamp(2.6rem,11vw,6.75rem)] leading-none whitespace-nowrap inline-flex items-baseline justify-center gap-3 sm:gap-4 text-[#ffffff] drop-shadow-[0_0_32px_rgba(0,212,255,0.18)]">
+              <span>RAFA</span>
+              <span className="text-gradient-lila-rosa-rojo">930</span>
+            </div>
+            <div className="mt-4 sm:mt-5 h-[2px] w-32 sm:w-44 rounded-full bg-gradient-to-r from-[#a855f7] via-[#00d4ff] to-[#ec4899] shadow-[0_0_14px_rgba(0,212,255,0.6)]" />
+          </div>
+        </div>
+      )}
+
+      {/* Animated Ambient Aura Blobs */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed -top-24 -left-20 w-80 h-80 rounded-full bg-[#a855f7]/20 blur-[120px] rafa-roam-a"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed top-1/3 -right-20 w-80 h-80 rounded-full bg-[#ec4899]/18 blur-[120px] rafa-roam-b"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed -bottom-24 left-1/4 w-72 h-72 rounded-full bg-[#00d4ff]/16 blur-[120px] rafa-roam-c"
+      />
+
+      {/* Top Bar */}
+      <div className="relative z-10 w-full max-w-[410px] flex items-center justify-between">
+        <button
+          type="button"
+          onClick={handleShare}
+          aria-label="Compartir"
+          className="w-10 h-10 rounded-xl bg-[#111118]/85 backdrop-blur-md border border-[#22222e] hover:border-[#00d4ff] flex items-center justify-center text-white transition-all cursor-pointer"
+        >
+          {copied ? (
+            <Check className="w-4 h-4 text-[#00d4ff]" />
+          ) : (
+            <Share2 className="w-4 h-4 text-[#a1a1b5]" />
+          )}
+        </button>
+
+        {onClose ? (
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Cerrar"
+            className="w-10 h-10 rounded-xl bg-[#111118]/85 backdrop-blur-md border border-[#22222e] hover:border-[#ec4899] flex items-center justify-center text-[#a1a1b5] hover:text-white transition-all cursor-pointer"
+          >
+            ✕
+          </button>
+        ) : (
+          <span className="px-2.5 py-1 rounded-full bg-[#111118]/80 border border-[#00d4ff]/35 text-[10px] font-mono text-[#00d4ff]">
+            08930 · BCN
+          </span>
+        )}
+      </div>
+
+      {/* Main Content */}
+      <div className="relative z-10 w-full max-w-[410px] flex flex-col items-center my-auto py-4">
+        {/* Avatar with animated neon ring */}
+        <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full p-[2.5px] bg-gradient-to-tr from-[#a855f7] via-[#00d4ff] to-[#ec4899] shadow-[0_0_32px_rgba(0,212,255,0.28)] mb-3.5">
+          <img
+            src={PORTRAIT_URL}
+            alt="RAFA 930"
+            referrerPolicy="no-referrer"
+            className="w-full h-full object-cover object-top rounded-full border-2 border-[#050507]"
+          />
+          <span className="absolute bottom-0.5 right-0.5 w-6 h-6 rounded-full bg-[#00d4ff] text-[#050507] font-bold text-xs flex items-center justify-center border-2 border-[#050507] shadow-[0_0_10px_#00d4ff]">
+            ✓
+          </span>
+        </div>
+
+        <h1 className="font-['Bebas_Neue'] text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+          RAFA <span className="text-gradient-lila-rosa-rojo">930</span>
+        </h1>
+
+        <p className="text-xs font-mono text-[#a1a1b5] mt-1">
+          Música · Fotos · Web
+        </p>
+
+        {/* Featured Video Card — DE VUELTA (https://youtu.be/RVuiWbT_mNk) */}
+        <div className="w-full mt-5 rounded-2xl bg-[#111118]/90 backdrop-blur-xl border border-[#00d4ff]/45 shadow-[0_0_28px_rgba(0,212,255,0.16)] overflow-hidden">
+          {playVideoInline ? (
+            <div className="relative aspect-video w-full bg-black">
+              <iframe
+                src={`https://www.youtube.com/embed/${DE_VUELTA_VIDEO_ID}?autoplay=1&rel=0`}
+                title="RAFA 930 - De Vuelta"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full border-0"
+              />
+            </div>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setPlayVideoInline(true)}
+              className="group relative aspect-video w-full bg-[#0a0a0f] overflow-hidden block cursor-pointer"
+            >
+              <img
+                src={`https://i.ytimg.com/vi/${DE_VUELTA_VIDEO_ID}/hqdefault.jpg`}
+                alt="RAFA 930 - De Vuelta"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050507] via-[#050507]/30 to-transparent" />
+              <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#ec4899] text-white text-[10px] font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
+                <Volume2 className="w-3 h-3" />
+                <span>NUEVO TEMA · DE VUELTA</span>
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-14 h-14 rounded-full gradient-lila-rosa-rojo text-white flex items-center justify-center shadow-[0_0_28px_rgba(236,72,153,0.75)] group-hover:scale-110 transition-transform">
+                  <Play className="w-6 h-6 fill-current ml-0.5" />
+                </div>
+              </div>
+            </button>
+          )}
+
+          <div className="px-4 py-3 flex items-center justify-between gap-2 bg-[#111118]">
+            <div className="text-left">
+              <div className="text-sm font-bold text-white leading-tight">De Vuelta</div>
+              <div className="text-[11px] font-mono text-[#00d4ff]">RAFA 930 · 2026</div>
+            </div>
+            <a
+              href={DE_VUELTA_YOUTUBE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3.5 py-1.5 rounded-lg gradient-lila-rosa-rojo text-white text-xs font-semibold inline-flex items-center gap-1.5 hover:opacity-95 transition-opacity"
+            >
+              <span>Abrir en YouTube</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </div>
+
+        {/* Short-Named Linktree Buttons */}
+        <div className="w-full flex flex-col gap-2.5 mt-4">
+          {RAFA_LINKTREE_ITEMS.map((item) => {
+            const IconComponent = item.icon;
+            return (
+              <a
+                key={item.id}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group w-full h-14 px-4 rounded-xl flex items-center justify-between transition-all duration-200 active:scale-[0.98] backdrop-blur-md ${
+                  item.highlight
+                    ? 'gradient-lila-rosa-rojo text-white shadow-[0_6px_22px_rgba(236,72,153,0.38)] hover:opacity-95'
+                    : 'bg-[#111118]/85 border border-[#22222e] hover:border-[#00d4ff] text-white shadow-[0_4px_16px_rgba(0,0,0,0.4)]'
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <div
+                    className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${
+                      item.highlight
+                        ? 'bg-black/25 text-white'
+                        : 'bg-[#050507] border border-[#22222e] text-[#00d4ff] group-hover:text-[#ec4899]'
+                    }`}
+                  >
+                    <IconComponent className="w-4 h-4" />
+                  </div>
+                  <span className="font-semibold text-sm tracking-tight">{item.label}</span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  {item.sub && (
+                    <span
+                      className={`text-[11px] font-mono ${
+                        item.highlight ? 'text-white/85' : 'text-[#a1a1b5]'
+                      }`}
+                    >
+                      {item.sub}
+                    </span>
+                  )}
+                  <ArrowUpRight
+                    className={`w-4 h-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${
+                      item.highlight ? 'text-white' : 'text-[#a1a1b5] group-hover:text-[#00d4ff]'
+                    }`}
+                  />
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="relative z-10 w-full max-w-[410px] pt-3 border-t border-[#22222e] flex flex-col items-center gap-2">
+        {showDownloadButtons && (
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <a
+              href="./links.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#111118] border border-[#ec4899]/50 hover:border-[#ec4899] text-[11px] font-mono text-[#f472b6] hover:text-white transition-colors"
+            >
+              <span>Ver HTML completo</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
+            <a
+              href="./links.html"
+              download="RAFA-930-Links.html"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#111118] border border-[#00d4ff]/40 hover:border-[#00d4ff] text-[11px] font-mono text-[#00d4ff] transition-colors"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Descargar HTML</span>
+            </a>
+          </div>
+        )}
+        <span className="text-[10px] font-mono text-[#a1a1b5]/60">RAFA 930</span>
+      </div>
+    </div>
+  );
+};
+
+export default SocialLinks;

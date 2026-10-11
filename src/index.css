@@ -62,7 +62,7 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-/* Pure White & Black/Lilac/Pink/Red Light Mode Support */
+/* High-Contrast Editorial Light Mode & Dark Mode Contrast System */
 html.light {
   color-scheme: light;
 }
@@ -70,43 +70,116 @@ html.light {
 html.light,
 html.light body,
 .light {
-  background-color: #ffffff !important;
-  color: #050507 !important;
+  background-color: #f8f7fc !important;
+  color: #09080f !important;
 }
 
+/* Primary Deep Surfaces -> Crisp Alabaster White in Light Mode */
 html.light .bg-\[\#050507\],
 html.light .bg-\[\#050507\]\/90,
 html.light .bg-\[\#050507\]\/95,
+html.light .bg-\[\#050507\]\/85,
 html.light .bg-\[\#050507\]\/80,
 html.light .bg-\[\#0c0c0e\] {
-  background-color: rgba(255, 255, 255, 0.94) !important;
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  color: #09080f !important;
 }
 
+/* Secondary Section Surfaces -> Soft Editorial Lavender-Gray for clear section separation */
 html.light .bg-\[\#0a0a0f\],
 html.light .bg-\[\#121215\] {
-  background-color: #f6f4fb !important;
+  background-color: #efecf8 !important;
+  color: #09080f !important;
 }
 
+/* Elevated Cards -> Pure White with defined depth shadow and crisp border */
 html.light .bg-\[\#111118\],
+html.light .bg-\[\#111118\]\/95,
+html.light .bg-\[\#111118\]\/90,
+html.light .bg-\[\#111118\]\/85,
 html.light .bg-\[\#16161a\] {
   background-color: #ffffff !important;
-  box-shadow: 0 8px 28px -6px rgba(168, 85, 247, 0.1), 0 2px 8px -2px rgba(5, 5, 7, 0.05);
+  color: #09080f !important;
+  box-shadow: 0 10px 30px -8px rgba(15, 12, 32, 0.09), 0 2px 8px -2px rgba(15, 12, 32, 0.06);
 }
 
+/* Form Inputs, Selects & Textareas in Light Mode -> Pure white with strong slate border */
+html.light input,
+html.light select,
+html.light textarea {
+  background-color: #ffffff !important;
+  color: #09080f !important;
+  border-color: #b8b0d4 !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #65607d !important;
+}
+
+html.light input:focus,
+html.light select:focus,
+html.light textarea:focus {
+  border-color: #be185d !important;
+  box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.14) !important;
+}
+
+/* Borders & Dividers -> Visible Editorial Slate-Violet instead of washed-out gray */
 html.light .border-\[\#22222e\],
 html.light .border-\[\#26262b\],
 html.light .divide-\[\#22222e\] > :not([hidden]) ~ :not([hidden]) {
-  border-color: #e4def2 !important;
+  border-color: #cbc4e3 !important;
 }
 
+/* Primary Text -> Deep Ink Black (#09080f) */
 html.light .text-\[\#ffffff\],
 html.light .text-\[\#f5f5f4\] {
-  color: #050507 !important;
+  color: #09080f !important;
 }
 
+/* Secondary / Body Text -> High-Contrast Slate (#2d2a3e, WCAG AAA contrast) */
 html.light .text-\[\#a1a1b5\],
-html.light .text-\[\#a1a1aa\] {
-  color: #4b4860 !important;
+html.light .text-\[\#a1a1aa\],
+html.light .text-\[\#d4d4d8\] {
+  color: #2d2a3e !important;
+}
+
+/* Accent Colors in Light Mode -> Deepened for maximum legibility on white backgrounds */
+html.light .text-\[\#00d4ff\] {
+  color: #0284c7 !important;
+}
+
+html.light .border-\[\#00d4ff\]\/25,
+html.light .border-\[\#00d4ff\]\/30,
+html.light .border-\[\#00d4ff\]\/35,
+html.light .border-\[\#00d4ff\]\/40,
+html.light .border-\[\#00d4ff\]\/45,
+html.light .border-\[\#00d4ff\]\/50 {
+  border-color: rgba(2, 132, 199, 0.5) !important;
+}
+
+html.light .bg-\[\#00d4ff\]\/10,
+html.light .bg-\[\#00d4ff\]\/15 {
+  background-color: rgba(2, 132, 199, 0.12) !important;
+}
+
+html.light .text-\[\#f472b6\],
+html.light .text-\[\#ec4899\] {
+  color: #be185d !important;
+}
+
+html.light .text-\[\#c084fc\],
+html.light .text-\[\#a855f7\] {
+  color: #6d28d9 !important;
+}
+
+html.light .text-\[\#e11d48\] {
+  color: #be123c !important;
+}
+
+/* Dark Mode Contrast Boost -> Slightly brighter muted text for effortless reading */
+html.dark .text-\[\#a1a1b5\] {
+  color: #b8b8cc;
 }
 
 .gradient-lila-rosa-rojo {
@@ -125,9 +198,10 @@ html.light .text-\[\#a1a1aa\] {
 }
 
 html.light .electric-badge {
-  background-color: rgba(0, 180, 216, 0.1);
-  border: 1px solid rgba(0, 150, 199, 0.45);
-  color: #0077b6;
+  background-color: rgba(2, 132, 199, 0.1);
+  border: 1px solid rgba(2, 132, 199, 0.5);
+  color: #0369a1;
+  box-shadow: none;
 }
 
 .electric-card-border {
@@ -142,7 +216,7 @@ html.light .electric-badge {
 }
 
 html.light .text-gradient-lila-rosa-rojo {
-  background: linear-gradient(135deg, #9333ea 0%, #db2777 50%, #e11d48 100%);
+  background: linear-gradient(135deg, #6d28d9 0%, #be185d 52%, #be123c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -173,13 +247,13 @@ html.light .text-gradient-lila-rosa-rojo {
     transform: translate3d(0px, 0px, 0) scale(1);
   }
   25% {
-    transform: translate3d(48px, -42px, 0) scale(1.15);
+    transform: translate3d(42px, -36px, 0) scale(1.1);
   }
   50% {
-    transform: translate3d(-36px, -78px, 0) scale(0.9);
+    transform: translate3d(-32px, -64px, 0) scale(0.92);
   }
   75% {
-    transform: translate3d(-52px, -28px, 0) scale(1.1);
+    transform: translate3d(-44px, -24px, 0) scale(1.06);
   }
 }
 
@@ -188,10 +262,10 @@ html.light .text-gradient-lila-rosa-rojo {
     transform: translate3d(0px, 0px, 0) scale(1);
   }
   33% {
-    transform: translate3d(-56px, 44px, 0) scale(1.14);
+    transform: translate3d(-48px, 38px, 0) scale(1.1);
   }
   66% {
-    transform: translate3d(46px, -54px, 0) scale(0.88);
+    transform: translate3d(40px, -46px, 0) scale(0.9);
   }
 }
 
@@ -200,13 +274,13 @@ html.light .text-gradient-lila-rosa-rojo {
     transform: translate3d(0px, 0px, 0) scale(1);
   }
   25% {
-    transform: translate3d(38px, 52px, 0) scale(0.92);
+    transform: translate3d(34px, 44px, 0) scale(0.94);
   }
   50% {
-    transform: translate3d(68px, -34px, 0) scale(1.16);
+    transform: translate3d(56px, -28px, 0) scale(1.12);
   }
   75% {
-    transform: translate3d(-40px, -48px, 0) scale(1.06);
+    transform: translate3d(-34px, -40px, 0) scale(1.04);
   }
 }
 
@@ -214,19 +288,19 @@ html.light .text-gradient-lila-rosa-rojo {
   animation-name: rafaRoamA;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
-  will-change: transform, left, top;
+  will-change: transform;
 }
 
 .rafa-roam-b {
   animation-name: rafaRoamB;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
-  will-change: transform, left, top;
+  will-change: transform;
 }
 
 .rafa-roam-c {
   animation-name: rafaRoamC;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
-  will-change: transform, left, top;
+  will-change: transform;
 }

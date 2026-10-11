@@ -28,7 +28,7 @@ export const TRACKS: Track[] = [
     coverUrl: ARTIST_IMAGES.deVuelta2026,
     duration: '2:56',
     spotifyUrl: 'https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng',
-    youtubeUrl: 'https://youtube.com/@rafa_930',
+    youtubeUrl: 'https://youtu.be/RVuiWbT_mNk',
     description: 'El nou tema destacat de RAFA 930 en 2026. Energia nocturna, retorn amb més força i la identitat pura del 930.',
     plays: 'Nou llançament 2026',
     lyricsExcerpt: 'Estic de tornada al carrer on tot va començar,\nsota les llums de neó ningú em farà callar.\nCada pas que dono porta el segell del 930,\ntorno amb més veritat i l’ànima ben desperta...',

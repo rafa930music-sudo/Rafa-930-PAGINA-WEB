@@ -243,10 +243,23 @@ export const Spatial3DCanvas: React.FC<Spatial3DCanvasProps> = ({
     window.addEventListener('resize', handleResize);
 
     let reqId: number;
+    let isVisible = true;
     const clock = new THREE.Clock();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          isVisible = entry.isIntersecting;
+        });
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(container);
 
     const animate = () => {
       reqId = requestAnimationFrame(animate);
+      if (!isVisible) return;
+
       const t = clock.getElapsedTime();
       const st = stateRef.current;
 
@@ -299,6 +312,7 @@ export const Spatial3DCanvas: React.FC<Spatial3DCanvasProps> = ({
     animate();
 
     return () => {
+      observer.disconnect();
       cancelAnimationFrame(reqId);
       window.removeEventListener('resize', handleResize);
       canvasEl.removeEventListener('pointerdown', onPointerDown);
@@ -338,7 +352,7 @@ export const Spatial3DCanvas: React.FC<Spatial3DCanvasProps> = ({
 
   return (
     <div
-      className={`relative w-full rounded-xl overflow-hidden bg-[#050507] border border-[#00d4ff]/35 shadow-[0_0_25px_rgba(0,212,255,0.12)] ${heightClass} ${className}`}
+      className={`relative w-full rounded-xl overflow-hidden bg-[#07070c] border border-[#00d4ff]/35 shadow-[0_0_25px_rgba(0,212,255,0.12)] ${heightClass} ${className}`}
     >
       <div
         aria-hidden="true"

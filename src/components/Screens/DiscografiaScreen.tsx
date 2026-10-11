@@ -8,7 +8,6 @@ import {
   ExternalLink,
   FileText,
   X,
-  Video,
   Radio,
 } from 'lucide-react';
 
@@ -23,7 +22,6 @@ const TRACK_I18N: Record<
     description: Record<Language, string>;
     lyricsExcerpt: Record<Language, string>;
     credits: Record<Language, string>;
-    youtubeEmbedId?: string;
   }
 > = {
   'de-vuelta': {
@@ -69,7 +67,6 @@ const TRACK_I18N: Record<
       es: 'Letra: RAFA 930 · Producción: Ouxxox · Mezcla & Máster: 930 Records',
       en: 'Lyrics: RAFA 930 · Production: Ouxxox · Mix & Master: 930 Records',
     },
-    youtubeEmbedId: 'WaV1KeSN5_4',
   },
   'my-world-ep': {
     categoryLabel: {
@@ -92,7 +89,6 @@ const TRACK_I18N: Record<
       es: 'RAFA 930 · Dirección Visual: Incrife · Arte: 930 Digital',
       en: 'RAFA 930 · Visual Direction: Incrife · Art: 930 Digital',
     },
-    youtubeEmbedId: 'lCwhG67eijs',
   },
   'la-vida-es-bella': {
     categoryLabel: {
@@ -212,7 +208,6 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
   const [filter, setFilter] = useState<'all' | 'single' | 'ep' | 'album' | 'hit'>('all');
   const [selectedTrackId, setSelectedTrackId] = useState<string>(TRACKS[0].id);
   const [activeLyricsTrack, setActiveLyricsTrack] = useState<Track | null>(null);
-  const [activeVideoEmbed, setActiveVideoEmbed] = useState<{ title: string; youtubeId: string } | null>(null);
 
   const filteredTracks = TRACKS.filter((t) => {
     if (filter === 'all') return true;
@@ -301,11 +296,21 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
           </h1>
           <p className="text-[#a1a1b5] text-base max-w-2xl mt-2 leading-relaxed">
             {language === 'ca'
-              ? 'Música urbana, rap conscient i composicions originals. Explora cada llançament a YouTube, mira els videoclips oficials o consulta les lletres completes.'
+              ? 'Música urbana, rap conscient i composicions originals. Explora cada llançament a YouTube o consulta les lletres completes.'
               : language === 'es'
-              ? 'Música urbana, rap consciente y composiciones originales. Explora cada lanzamiento en YouTube, mira los videoclips oficiales o consulta las letras completas.'
-              : 'Urban music, conscious rap, and original compositions. Explore each release on YouTube, watch official music videos, or read the full lyrics.'}
+              ? 'Música urbana, rap consciente y composiciones originales. Explora cada lanzamiento en YouTube o consulta las letras completas.'
+              : 'Urban music, conscious rap, and original compositions. Explore each release on YouTube or read the full lyrics.'}
           </p>
+          <div className="mt-4 inline-flex items-center gap-2.5 px-3.5 py-2 rounded-lg bg-[#111118] border border-[#ec4899]/40 text-xs font-mono text-[#f472b6] shadow-[0_0_16px_rgba(236,72,153,0.15)]">
+            <span className="w-2 h-2 rounded-full bg-[#ec4899] animate-pulse" />
+            <span>
+              {language === 'ca'
+                ? 'PRÒXIMAMENT ES PUJARÀ TOTA LA MÚSICA A TOTES LES PLATAFORMES DIGITALS'
+                : language === 'es'
+                ? 'PRÓXIMAMENTE SE SUBIRÁ TODA LA MÚSICA A TODAS LAS PLATAFORMAS DIGITALES'
+                : 'FULL CATALOG COMING SOON TO ALL STREAMING PLATFORMS'}
+            </span>
+          </div>
         </div>
 
         {/* Official Spotify Profile Card / CTA */}
@@ -390,28 +395,6 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
 
-            {currentI18n?.youtubeEmbedId && (
-              <button
-                type="button"
-                onClick={() =>
-                  setActiveVideoEmbed({
-                    title: currentPlayingTrack.title,
-                    youtubeId: currentI18n.youtubeEmbedId!,
-                  })
-                }
-                className="touch-target-44 px-4 py-2.5 rounded-lg bg-[#0a0a0f] border border-[#00d4ff]/50 text-xs font-mono text-[#00d4ff] hover:bg-[#00d4ff]/10 flex items-center gap-1.5"
-              >
-                <Video className="w-4 h-4 text-[#00d4ff]" />
-                <span>
-                  {language === 'ca'
-                    ? 'Videoclip'
-                    : language === 'es'
-                    ? 'Videoclip'
-                    : 'Music Video'}
-                </span>
-              </button>
-            )}
-
             <button
               type="button"
               onClick={() => setActiveLyricsTrack(currentPlayingTrack)}
@@ -483,24 +466,6 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
-                  {tI18n?.youtubeEmbedId && (
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setActiveVideoEmbed({
-                          title: track.title,
-                          youtubeId: tI18n.youtubeEmbedId!,
-                        });
-                      }}
-                      className="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg bg-black/80 backdrop-blur border border-white/15 text-white text-[11px] font-mono flex items-center gap-1.5 hover:border-[#ec4899] transition-colors"
-                    >
-                      <Video className="w-3.5 h-3.5 text-[#ec4899]" />
-                      <span>
-                        {language === 'ca' ? 'Vídeo' : language === 'es' ? 'Vídeo' : 'Video'}
-                      </span>
-                    </button>
-                  )}
                 </div>
 
                 <div className="flex items-center justify-between gap-2 text-xs font-mono text-[#a1a1b5] mb-1 tabular-nums">
@@ -577,54 +542,6 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
           );
         })}
       </div>
-
-      {/* Video Theater Modal */}
-      {activeVideoEmbed && (
-        <div
-          className="fixed inset-0 z-50 bg-[#050507]/95 backdrop-blur-xl flex items-center justify-center p-4"
-          role="dialog"
-          aria-modal="true"
-          onClick={() => setActiveVideoEmbed(null)}
-        >
-          <div
-            className="bg-[#111118] border border-[#22222e] rounded-2xl max-w-4xl w-full overflow-hidden shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between px-5 py-4 border-b border-[#22222e]">
-              <div>
-                <span className="text-xs font-mono text-[#ec4899]">
-                  {language === 'ca'
-                    ? 'VIDEOCLIP OFICIAL · RAFA 930'
-                    : language === 'es'
-                    ? 'VIDEOCLIP OFICIAL · RAFA 930'
-                    : 'OFFICIAL MUSIC VIDEO · RAFA 930'}
-                </span>
-                <h3 className="font-['Cormorant_Garamond'] text-2xl font-semibold text-[#ffffff]">
-                  {activeVideoEmbed.title}
-                </h3>
-              </div>
-              <button
-                type="button"
-                onClick={() => setActiveVideoEmbed(null)}
-                className="touch-target-44 p-2 rounded-lg bg-[#0a0a0f] text-[#a1a1b5] hover:text-white border border-[#22222e]"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-            <div className="relative aspect-video w-full bg-black">
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${activeVideoEmbed.youtubeId}?autoplay=1&rel=0`}
-                title={activeVideoEmbed.title}
-                referrerPolicy="strict-origin-when-cross-origin"
-                sandbox="allow-scripts allow-same-origin allow-presentation"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full border-0"
-              />
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Lyrics Modal View */}
       {activeLyricsTrack && (

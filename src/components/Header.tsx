@@ -13,6 +13,8 @@ import {
   Briefcase,
   FileText,
   Mail,
+  Share2,
+  Check,
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -37,6 +39,32 @@ export const Header: React.FC<HeaderProps> = ({
   onToggleTheme,
 }) => {
   const [burgerOpen, setBurgerOpen] = useState(false);
+  const [sharedCopied, setSharedCopied] = useState(false);
+
+  const handleShareWeb = async () => {
+    const shareUrl = 'https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/';
+    const shareTitle = 'RAFA 930 | Música, Fotografía & Web';
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: shareTitle,
+          text:
+            language === 'ca'
+              ? 'Web oficial de RAFA 930 — Música, Fotografia & Web'
+              : language === 'es'
+              ? 'Web oficial de RAFA 930 — Música, Fotografía & Web'
+              : 'Official website of RAFA 930 — Music, Photography & Web',
+          url: shareUrl,
+        });
+        return;
+      } catch {}
+    }
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setSharedCopied(true);
+      setTimeout(() => setSharedCopied(false), 2200);
+    } catch {}
+  };
 
   // Close BurgerNav on ESC key
   useEffect(() => {
@@ -195,6 +223,45 @@ export const Header: React.FC<HeaderProps> = ({
               ) : (
                 <Moon className="w-4 h-4 text-[#a855f7]" />
               )}
+            </button>
+
+            <button
+              type="button"
+              onClick={handleShareWeb}
+              className="touch-target-44 w-10 h-10 sm:w-auto sm:px-3 sm:py-2 rounded-lg border border-[#22222e] bg-[#111118] text-xs font-mono text-[#a1a1b5] hover:text-[#ffffff] hover:border-[#00d4ff] transition-colors flex items-center justify-center gap-1.5 shrink-0"
+              aria-label={
+                language === 'ca'
+                  ? 'Compartir web'
+                  : language === 'es'
+                  ? 'Compartir web'
+                  : 'Share website'
+              }
+              title={
+                language === 'ca'
+                  ? 'Compartir web'
+                  : language === 'es'
+                  ? 'Compartir web'
+                  : 'Share website'
+              }
+            >
+              {sharedCopied ? (
+                <Check className="w-4 h-4 text-[#00d4ff]" />
+              ) : (
+                <Share2 className="w-4 h-4 text-[#00d4ff]" />
+              )}
+              <span className="hidden lg:inline">
+                {sharedCopied
+                  ? language === 'ca'
+                    ? 'Copiat'
+                    : language === 'es'
+                    ? 'Copiado'
+                    : 'Copied'
+                  : language === 'ca'
+                  ? 'Compartir'
+                  : language === 'es'
+                  ? 'Compartir'
+                  : 'Share'}
+              </span>
             </button>
 
             <button

@@ -1,5 +1,5 @@
 Contact: mailto:rafa.930music@gmail.com
 Preferred-Languages: ca, es, en
-Canonical: https://rafa930.com/security.txt
+Canonical: https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/security.txt
 Expires: 2027-12-31T23:59:59.000Z
-Policy: https://rafa930.com/#legal
+Policy: https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#legal

@@ -280,7 +280,7 @@ function setMetaTag(selector: string, attribute: string, value: string) {
 export function isSearchCrawler(): boolean {
   if (typeof navigator === 'undefined') return false;
   const ua = navigator.userAgent || '';
-  return /bot|googlebot|bingbot|crawler|spider|robot|crawling|lighthouse|headless|facebookexternalhit|twitterbot|whatsapp|slackbot|applebot/i.test(
+  return /bot|googlebot|bingbot|crawler|spider|robot|crawling|lighthouse|headless|facebookexternalhit|twitterbot|whatsapp|slackbot|applebot|gptbot|oai-searchbot|claudebot|perplexitybot|duckduckbot/i.test(
     ua
   );
 }
@@ -345,6 +345,8 @@ export function applyDynamicSeo(screen: ScreenId, language: Language) {
 
   setMetaTag('meta[name="description"]', 'content', meta.description);
   setMetaTag('meta[name="keywords"]', 'content', meta.keywords);
+  setMetaTag('meta[name="DC.title"]', 'content', meta.title);
+  setMetaTag('meta[name="DC.description"]', 'content', meta.description);
   setMetaTag('meta[property="og:title"]', 'content', meta.title);
   setMetaTag('meta[property="og:description"]', 'content', meta.description);
   setMetaTag('meta[property="og:locale"]', 'content', meta.locale);
@@ -355,4 +357,6 @@ export function applyDynamicSeo(screen: ScreenId, language: Language) {
     screen === 'revista' ? OFFICIAL_SITE_URL : `${OFFICIAL_SITE_URL}#${screen}`;
   setMetaTag('link[rel="canonical"]', 'href', canonicalUrl);
   setMetaTag('meta[property="og:url"]', 'content', canonicalUrl);
+  setMetaTag('meta[name="twitter:url"]', 'content', canonicalUrl);
 }
+
