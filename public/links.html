@@ -816,7 +816,7 @@
       } catch (e) {}
     });
 
-    // 4. Fondo animado 3D (Burbujas de neón + Red de constelación)
+    // 4. Fondo 3D Galaxia Cosmos 🌌✨ (Campo Estelar, Nebulosa y Estrellas Fugaces)
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
     let width = (canvas.width = window.innerWidth);
@@ -827,73 +827,146 @@
       height = canvas.height = window.innerHeight;
     });
 
-    const palette = ['#a855f7', '#00d4ff', '#ec4899', '#e11d48'];
-    const orbs = Array.from({ length: 34 }, (_, i) => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      z: 0.3 + Math.random() * 0.9,
-      r: 3 + Math.random() * 20,
-      vx: (Math.random() - 0.5) * 0.65,
-      vy: -0.35 - Math.random() * 0.75,
-      color: palette[i % palette.length],
-      phase: Math.random() * Math.PI * 2
-    }));
+    const starPalette = ['#ffffff', '#e0f2fe', '#ede9fe', '#fef08a', '#fbcfe8'];
+    const stars = Array.from({ length: 140 }, () => {
+      const z = 0.15 + Math.random() * 0.85;
+      const isMajor = Math.random() < 0.09;
+      return {
+        x: Math.random(),
+        y: Math.random(),
+        z,
+        r: isMajor ? 1.8 + Math.random() * 1.2 : 0.6 + Math.random() * 1.2,
+        baseAlpha: isMajor ? 0.85 + Math.random() * 0.15 : 0.25 + Math.random() * 0.6,
+        twinkleSpeed: 1.2 + Math.random() * 3.0,
+        twinklePhase: Math.random() * Math.PI * 2,
+        color: starPalette[Math.floor(Math.random() * starPalette.length)],
+        hasFlare: isMajor
+      };
+    });
+
+    const meteors = [];
+    let meteorCooldown = 40;
 
     let tick = 0;
     function animate() {
-      tick += 0.02;
+      tick += 0.016;
       ctx.clearRect(0, 0, width, height);
 
-      for (let i = 0; i < orbs.length; i++) {
-        for (let j = i + 1; j < orbs.length; j++) {
-          const dx = orbs[i].x - orbs[j].x;
-          const dy = orbs[i].y - orbs[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 135) {
-            ctx.save();
-            ctx.strokeStyle = '#00d4ff';
-            ctx.globalAlpha = (1 - dist / 135) * 0.12;
-            ctx.lineWidth = 0.8;
-            ctx.beginPath();
-            ctx.moveTo(orbs[i].x, orbs[i].y);
-            ctx.lineTo(orbs[j].x, orbs[j].y);
-            ctx.stroke();
-            ctx.restore();
-          }
-        }
-      }
+      const maxDim = Math.max(width, height);
+      const coreX = width * 0.5;
+      const coreY = height * 0.42;
 
-      for (const o of orbs) {
-        o.x += o.vx * o.z + Math.sin(tick + o.phase) * 0.25;
-        o.y += o.vy * o.z;
-        if (o.y + o.r < -20) {
-          o.y = height + o.r + 10;
-          o.x = Math.random() * width;
-        }
-        if (o.x < -30) o.x = width + 30;
-        if (o.x > width + 30) o.x = -30;
+      // 1. Núcleo Galáctico y Nebulosa Cósmica
+      ctx.save();
+      ctx.translate(coreX, coreY);
+      ctx.rotate(-0.35 + Math.sin(tick * 0.06) * 0.03);
 
-        const radius = o.r * o.z;
-        const grad = ctx.createRadialGradient(
-          o.x - radius * 0.3,
-          o.y - radius * 0.3,
-          radius * 0.08,
-          o.x,
-          o.y,
-          radius
-        );
-        grad.addColorStop(0, '#ffffff');
-        grad.addColorStop(0.35, o.color);
-        grad.addColorStop(1, 'transparent');
+      const coreGrad = ctx.createRadialGradient(0, 0, 10, 0, 0, maxDim * 0.6);
+      coreGrad.addColorStop(0, 'rgba(168, 85, 247, 0.22)');
+      coreGrad.addColorStop(0.35, 'rgba(99, 102, 241, 0.14)');
+      coreGrad.addColorStop(0.65, 'rgba(236, 72, 153, 0.08)');
+      coreGrad.addColorStop(1, 'rgba(5, 5, 7, 0)');
+      ctx.fillStyle = coreGrad;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, maxDim * 0.6, maxDim * 0.3, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      const cyanGrad = ctx.createRadialGradient(maxDim * 0.15, -maxDim * 0.08, 5, maxDim * 0.15, -maxDim * 0.08, maxDim * 0.4);
+      cyanGrad.addColorStop(0, 'rgba(0, 212, 255, 0.16)');
+      cyanGrad.addColorStop(0.55, 'rgba(168, 85, 247, 0.07)');
+      cyanGrad.addColorStop(1, 'rgba(5, 5, 7, 0)');
+      ctx.fillStyle = cyanGrad;
+      ctx.beginPath();
+      ctx.ellipse(maxDim * 0.15, -maxDim * 0.08, maxDim * 0.4, maxDim * 0.2, 0.25, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      // 2. Campo Estelar Centelleante Multicapa
+      for (let i = 0; i < stars.length; i++) {
+        const s = stars[i];
+        const px = s.x * width;
+        const py = s.y * height;
+        const twinkle = 0.5 + 0.5 * Math.sin(tick * s.twinkleSpeed + s.twinklePhase);
+        const alpha = s.baseAlpha * twinkle;
 
         ctx.save();
-        ctx.globalAlpha = 0.22 + Math.sin(tick * 1.5 + o.phase) * 0.08;
-        ctx.fillStyle = grad;
+        ctx.fillStyle = s.color;
+        ctx.globalAlpha = Math.max(0.12, Math.min(1, alpha));
         ctx.beginPath();
-        ctx.arc(o.x, o.y, radius, 0, Math.PI * 2);
+        ctx.arc(px, py, s.r * (0.8 + s.z * 0.4), 0, Math.PI * 2);
+        ctx.fill();
+
+        if (s.hasFlare && alpha > 0.6) {
+          const flareLen = s.r * 4.5 + 2;
+          ctx.strokeStyle = s.color;
+          ctx.lineWidth = 0.65;
+          ctx.globalAlpha = alpha * 0.6;
+          ctx.beginPath();
+          ctx.moveTo(px - flareLen, py);
+          ctx.lineTo(px + flareLen, py);
+          ctx.moveTo(px, py - flareLen);
+          ctx.lineTo(px, py + flareLen);
+          ctx.stroke();
+        }
+        ctx.restore();
+      }
+
+      // 3. Estrellas Fugaces (Meteors)
+      meteorCooldown--;
+      if (meteorCooldown <= 0 && meteors.length < 2) {
+        meteors.push({
+          x: Math.random() * width * 0.9,
+          y: Math.random() * height * 0.35,
+          length: 90 + Math.random() * 80,
+          speed: 15 + Math.random() * 8,
+          angle: Math.PI / 4 + (Math.random() - 0.5) * 0.35,
+          life: 0,
+          maxLife: 32 + Math.floor(Math.random() * 18),
+          color: Math.random() < 0.6 ? '#ffffff' : Math.random() < 0.5 ? '#00d4ff' : '#f472b6'
+        });
+        meteorCooldown = 160 + Math.floor(Math.random() * 180);
+      }
+
+      for (let m = meteors.length - 1; m >= 0; m--) {
+        const meteor = meteors[m];
+        meteor.life++;
+        meteor.x += Math.cos(meteor.angle) * meteor.speed;
+        meteor.y += Math.sin(meteor.angle) * meteor.speed;
+
+        const progress = meteor.life / meteor.maxLife;
+        const alpha = progress < 0.25 ? progress / 0.25 : 1 - (progress - 0.25) / 0.75;
+
+        if (progress >= 1 || meteor.x > width + 100 || meteor.y > height + 100) {
+          meteors.splice(m, 1);
+          continue;
+        }
+
+        const tailX = meteor.x - Math.cos(meteor.angle) * meteor.length;
+        const tailY = meteor.y - Math.sin(meteor.angle) * meteor.length;
+
+        const lineGrad = ctx.createLinearGradient(tailX, tailY, meteor.x, meteor.y);
+        lineGrad.addColorStop(0, 'rgba(255, 255, 255, 0)');
+        lineGrad.addColorStop(0.75, meteor.color === '#ffffff' ? 'rgba(0, 212, 255, 0.45)' : meteor.color);
+        lineGrad.addColorStop(1, '#ffffff');
+
+        ctx.save();
+        ctx.strokeStyle = lineGrad;
+        ctx.lineWidth = 1.6;
+        ctx.globalAlpha = alpha;
+        ctx.beginPath();
+        ctx.moveTo(tailX, tailY);
+        ctx.lineTo(meteor.x, meteor.y);
+        ctx.stroke();
+
+        ctx.fillStyle = '#ffffff';
+        ctx.shadowColor = meteor.color;
+        ctx.shadowBlur = 10;
+        ctx.beginPath();
+        ctx.arc(meteor.x, meteor.y, 2, 0, Math.PI * 2);
         ctx.fill();
         ctx.restore();
       }
+
       requestAnimationFrame(animate);
     }
     animate();

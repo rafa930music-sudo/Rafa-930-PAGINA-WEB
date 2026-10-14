@@ -242,65 +242,33 @@ html.light .text-gradient-lila-rosa-rojo {
   visibility: hidden !important;
 }
 
-@keyframes rafaRoamA {
+@keyframes galaxyBreathe {
   0%, 100% {
-    transform: translate3d(0px, 0px, 0) scale(1);
-  }
-  25% {
-    transform: translate3d(42px, -36px, 0) scale(1.1);
+    opacity: 0.85;
+    transform: scale(1);
   }
   50% {
-    transform: translate3d(-32px, -64px, 0) scale(0.92);
-  }
-  75% {
-    transform: translate3d(-44px, -24px, 0) scale(1.06);
+    opacity: 1;
+    transform: scale(1.03);
   }
 }
 
-@keyframes rafaRoamB {
+@keyframes starlightTwinkle {
   0%, 100% {
-    transform: translate3d(0px, 0px, 0) scale(1);
-  }
-  33% {
-    transform: translate3d(-48px, 38px, 0) scale(1.1);
-  }
-  66% {
-    transform: translate3d(40px, -46px, 0) scale(0.9);
-  }
-}
-
-@keyframes rafaRoamC {
-  0%, 100% {
-    transform: translate3d(0px, 0px, 0) scale(1);
-  }
-  25% {
-    transform: translate3d(34px, 44px, 0) scale(0.94);
+    opacity: 0.45;
   }
   50% {
-    transform: translate3d(56px, -28px, 0) scale(1.12);
-  }
-  75% {
-    transform: translate3d(-34px, -40px, 0) scale(1.04);
+    opacity: 0.95;
   }
 }
 
-.rafa-roam-a {
-  animation-name: rafaRoamA;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  will-change: transform;
+.galaxy-breathe {
+  animation: galaxyBreathe 8s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
-.rafa-roam-b {
-  animation-name: rafaRoamB;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  will-change: transform;
+.starlight-twinkle {
+  animation: starlightTwinkle 4s ease-in-out infinite;
+  will-change: opacity;
 }
 
-.rafa-roam-c {
-  animation-name: rafaRoamC;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  will-change: transform;
-}
