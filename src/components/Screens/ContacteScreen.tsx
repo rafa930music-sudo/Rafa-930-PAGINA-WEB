@@ -23,6 +23,15 @@ import {
   Radio,
   Loader2,
 } from 'lucide-react';
+import {
+  SpotifyLogo,
+  YouTubeLogo,
+  DeezerLogo,
+  AppleMusicLogo,
+  AmazonMusicLogo,
+  TidalLogo,
+  WhatsAppLogo,
+} from '../PlatformLogos';
 
 interface ContacteScreenProps {
   language: Language;
@@ -245,12 +254,12 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
             <div className="p-4 bg-[#0a0a0f] border border-[#22222e] rounded-lg mt-4">
               <h4 className="text-xs font-mono text-[#a1a1b5] mb-3">Todas mis plataformas digitales</h4>
               <div className="flex gap-3 flex-wrap">
-                <a href={OFFICIAL_SPOTIFY_URL} target="_blank" rel="noopener noreferrer" title="Spotify"><img src="https://cdn.simpleicons.org/spotify/1DB954" alt="Spotify" className="w-6 h-6" /></a>
-                <a href="https://www.youtube.com/@Rafa930" target="_blank" rel="noopener noreferrer" title="YouTube"><img src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube" className="w-6 h-6" /></a>
-                <a href="https://www.deezer.com/mx/artist/224265995" target="_blank" rel="noopener noreferrer" title="Deezer"><img src="https://cdn.simpleicons.org/deezer/FFB700" alt="Deezer" className="w-6 h-6" /></a>
-                <a href="https://music.apple.com/es/artist/rafa-930/1724193275" target="_blank" rel="noopener noreferrer" title="Apple Music"><img src="https://cdn.simpleicons.org/applemusic/FA5788" alt="Apple Music" className="w-6 h-6" /></a>
-                <a href="https://music.amazon.in/artists/B0CJM7BWF1/rafa-930" target="_blank" rel="noopener noreferrer" title="Amazon Music"><img src="https://cdn.simpleicons.org/amazonmusic/FF9900" alt="Amazon Music" className="w-6 h-6" /></a>
-                <a href="https://tidal.com/artist/41128230" target="_blank" rel="noopener noreferrer" title="Tidal"><img src="https://cdn.simpleicons.org/tidal/00FFFF" alt="Tidal" className="w-6 h-6" /></a>
+                <a href={OFFICIAL_SPOTIFY_URL} target="_blank" rel="noopener noreferrer" title="Spotify" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#1DB954] text-[#1DB954] transition-colors"><SpotifyLogo className="w-5 h-5" /></a>
+                <a href="https://www.youtube.com/@Rafa930" target="_blank" rel="noopener noreferrer" title="YouTube" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF0000] text-[#FF0000] transition-colors"><YouTubeLogo className="w-5 h-5" /></a>
+                <a href="https://www.deezer.com/mx/artist/224265995" target="_blank" rel="noopener noreferrer" title="Deezer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FFB700] text-[#FFB700] transition-colors"><DeezerLogo className="w-5 h-5" /></a>
+                <a href="https://music.apple.com/es/artist/rafa-930/1724193275" target="_blank" rel="noopener noreferrer" title="Apple Music" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FA5788] text-[#FA5788] transition-colors"><AppleMusicLogo className="w-5 h-5" /></a>
+                <a href="https://music.amazon.in/artists/B0CJM7BWF1/rafa-930" target="_blank" rel="noopener noreferrer" title="Amazon Music" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF9900] text-[#FF9900] transition-colors"><AmazonMusicLogo className="w-5 h-5" /></a>
+                <a href="https://tidal.com/artist/41128230" target="_blank" rel="noopener noreferrer" title="Tidal" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#00FFFF] text-[#00FFFF] transition-colors"><TidalLogo className="w-5 h-5" /></a>
               </div>
             </div>
 

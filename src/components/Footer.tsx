@@ -2,14 +2,20 @@ import React from 'react';
 import { ScreenId, Language, LegalDocId } from '../types';
 import { OFFICIAL_SPOTIFY_URL } from '../data/content';
 import {
-  Camera,
-  Youtube,
   Terminal,
   ShieldCheck,
   ArrowRight,
   Zap,
-  Radio,
 } from 'lucide-react';
+import {
+  SpotifyLogo,
+  YouTubeLogo,
+  InstagramLogo,
+  DeezerLogo,
+  AppleMusicLogo,
+  AmazonMusicLogo,
+  TidalLogo,
+} from './PlatformLogos';
 
 interface FooterProps {
   onNavigate: (screen: ScreenId) => void;
@@ -53,9 +59,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenLegalTab, lang
               aria-label="Spotify"
               className="touch-target-44 w-10 h-10 rounded-lg bg-[#111118] border border-[#22222e] flex items-center justify-center text-[#a1a1b5] hover:text-[#1DB954] hover:border-[#1DB954] transition-colors"
             >
-              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.502 17.309c-.218.358-.684.471-1.042.253-2.855-1.745-6.449-2.14-10.684-1.173-.41.094-.82-.162-.914-.572-.094-.41.162-.82.572-.914 4.636-1.059 8.608-.616 11.815 1.364.358.218.471.684.253 1.042zm1.468-3.264c-.274.446-.86.588-1.306.314-3.269-2.009-8.252-2.592-12.119-1.417-.5.152-1.033-.133-1.185-.633-.152-.5.133-1.033.633-1.185 4.417-1.341 9.914-.689 13.663 1.615.446.274.588.86.314 1.306zm.126-3.399C15.18 8.36 8.71 8.146 4.969 9.282c-.602.183-1.242-.166-1.425-.768-.183-.602.166-1.242.768-1.425 4.316-1.31 11.458-1.063 15.98 1.621.541.321.718 1.022.397 1.563-.321.541-1.022.718-1.563.397z"/>
-              </svg>
+              <SpotifyLogo className="w-5 h-5" />
             </a>
 
             <a
@@ -63,9 +67,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenLegalTab, lang
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="touch-target-44 w-10 h-10 rounded-lg bg-[#111118] border border-[#22222e] flex items-center justify-center text-[#a1a1b5] hover:text-[#ffffff] hover:border-[#ec4899] transition-colors"
+              className="touch-target-44 w-10 h-10 rounded-lg bg-[#111118] border border-[#22222e] flex items-center justify-center text-[#a1a1b5] hover:text-[#ec4899] hover:border-[#ec4899] transition-colors"
             >
-              <Camera className="w-4 h-4" />
+              <InstagramLogo className="w-5 h-5" />
             </a>
 
             <a
@@ -73,9 +77,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenLegalTab, lang
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"
-              className="touch-target-44 w-10 h-10 rounded-lg bg-[#111118] border border-[#22222e] flex items-center justify-center text-[#a1a1b5] hover:text-[#ffffff] hover:border-[#e11d48] transition-colors"
+              className="touch-target-44 w-10 h-10 rounded-lg bg-[#111118] border border-[#22222e] flex items-center justify-center text-[#a1a1b5] hover:text-[#FF0000] hover:border-[#FF0000] transition-colors"
             >
-              <Youtube className="w-4 h-4" />
+              <YouTubeLogo className="w-5 h-5" />
             </a>
 
             <a
@@ -208,9 +212,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenLegalTab, lang
       <div className="w-full bg-[#050507] border-t border-[#22222e]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-5 flex flex-col items-center justify-center gap-4 text-xs">
           {/* Platforms Block */}
-          <div className="flex gap-4 mb-4">
-             <a href={OFFICIAL_SPOTIFY_URL} target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity"><img src="https://cdn.simpleicons.org/spotify/fff" alt="Spotify" className="w-6 h-6" /></a>
-             <a href="https://youtube.com/@rafa_930" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity"><img src="https://cdn.simpleicons.org/youtube/fff" alt="YouTube" className="w-6 h-6" /></a>
+          <div className="flex gap-3 mb-2 flex-wrap justify-center items-center">
+             <a href={OFFICIAL_SPOTIFY_URL} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#1DB954] text-[#1DB954] hover:scale-105 transition-all" title="Spotify"><SpotifyLogo className="w-4 h-4" /></a>
+             <a href="https://youtube.com/@rafa_930" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF0000] text-[#FF0000] hover:scale-105 transition-all" title="YouTube"><YouTubeLogo className="w-4 h-4" /></a>
+             <a href="https://www.deezer.com/mx/artist/224265995" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#A238FF] text-[#A238FF] hover:scale-105 transition-all" title="Deezer"><DeezerLogo className="w-4 h-4" /></a>
+             <a href="https://music.apple.com/es/artist/rafa-930/1724193275" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FA243C] text-[#FA243C] hover:scale-105 transition-all" title="Apple Music"><AppleMusicLogo className="w-4 h-4" /></a>
+             <a href="https://music.amazon.in/artists/B0CJM7BWF1/rafa-930" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF9900] text-[#FF9900] hover:scale-105 transition-all" title="Amazon Music"><AmazonMusicLogo className="w-4 h-4" /></a>
+             <a href="https://tidal.com/artist/41128230" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#00FFFF] text-[#00FFFF] hover:scale-105 transition-all" title="Tidal"><TidalLogo className="w-4 h-4" /></a>
+             <a href="https://instagram.com/rafa930_oficial" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#EC4899] text-[#EC4899] hover:scale-105 transition-all" title="Instagram"><InstagramLogo className="w-4 h-4" /></a>
           </div>
 
           <div className="flex items-center gap-2 text-[#ffffff] font-mono text-[11px] uppercase tracking-wide text-center">

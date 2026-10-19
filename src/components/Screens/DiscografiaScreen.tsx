@@ -10,6 +10,14 @@ import {
   X,
   Radio,
 } from 'lucide-react';
+import {
+  SpotifyLogo,
+  YouTubeLogo,
+  DeezerLogo,
+  AppleMusicLogo,
+  AmazonMusicLogo,
+  TidalLogo,
+} from '../PlatformLogos';
 
 interface DiscografiaScreenProps {
   language: Language;
@@ -309,12 +317,12 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
             {language === 'ca' ? 'Totes les plataformes' : language === 'es' ? 'Todas mis plataformas digitales' : 'All my digital platforms'}
           </span>
           <div className="flex items-center gap-3">
-             <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#1DB954] transition-colors" title="Spotify"><img src="https://cdn.simpleicons.org/spotify/1DB954" alt="Spotify" className="w-5 h-5" /></a>
-             <a href="https://www.youtube.com/@Rafa930" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF0000] transition-colors" title="YouTube"><img src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube" className="w-5 h-5" /></a>
-             <a href="https://www.deezer.com/mx/artist/224265995" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FFB700] transition-colors" title="Deezer"><img src="https://cdn.simpleicons.org/deezer/FFB700" alt="Deezer" className="w-5 h-5" /></a>
-             <a href="https://music.apple.com/es/artist/rafa-930/1724193275" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FA5788] transition-colors" title="Apple Music"><img src="https://cdn.simpleicons.org/applemusic/FA5788" alt="Apple Music" className="w-5 h-5" /></a>
-             <a href="https://music.amazon.in/artists/B0CJM7BWF1/rafa-930" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF9900] transition-colors" title="Amazon Music"><img src="https://cdn.simpleicons.org/amazonmusic/FF9900" alt="Amazon Music" className="w-5 h-5" /></a>
-             <a href="https://tidal.com/artist/41128230" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#00FFFF] transition-colors" title="Tidal"><img src="https://cdn.simpleicons.org/tidal/00FFFF" alt="Tidal" className="w-5 h-5" /></a>
+             <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#1DB954] text-[#1DB954] transition-colors" title="Spotify"><SpotifyLogo className="w-5 h-5" /></a>
+             <a href="https://www.youtube.com/@Rafa930" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF0000] text-[#FF0000] transition-colors" title="YouTube"><YouTubeLogo className="w-5 h-5" /></a>
+             <a href="https://www.deezer.com/mx/artist/224265995" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FFB700] text-[#FFB700] transition-colors" title="Deezer"><DeezerLogo className="w-5 h-5" /></a>
+             <a href="https://music.apple.com/es/artist/rafa-930/1724193275" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FA5788] text-[#FA5788] transition-colors" title="Apple Music"><AppleMusicLogo className="w-5 h-5" /></a>
+             <a href="https://music.amazon.in/artists/B0CJM7BWF1/rafa-930" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF9900] text-[#FF9900] transition-colors" title="Amazon Music"><AmazonMusicLogo className="w-5 h-5" /></a>
+             <a href="https://tidal.com/artist/41128230" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#00FFFF] text-[#00FFFF] transition-colors" title="Tidal"><TidalLogo className="w-5 h-5" /></a>
           </div>
         </div>
 

@@ -14,6 +14,16 @@ import {
   ExternalLink,
 } from 'lucide-react';
 
+import {
+  SpotifyLogo,
+  YouTubeLogo,
+  DeezerLogo,
+  AppleMusicLogo,
+  AmazonMusicLogo,
+  TidalLogo,
+  InstagramLogo,
+} from '../PlatformLogos';
+
 interface EnllacosScreenProps {
   language: Language;
   onSelectScreen: (screen: any) => void;
@@ -163,7 +173,8 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
       subtitle: content.spotifySub,
       url: officialSpotifyUrl,
       badge: 'Spotify',
-      logoUrl: 'https://cdn.simpleicons.org/spotify/1DB954',
+      Logo: SpotifyLogo,
+      logoColor: '#1DB954',
       borderHover: 'hover:border-[#1DB954]',
       badgeColor: 'text-[#1ed760] bg-[#1DB954]/10 border-[#1DB954]/30',
       isPrimary: true,
@@ -174,7 +185,8 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
       subtitle: content.youtubeSub,
       url: officialYoutubeUrl,
       badge: 'YouTube',
-      logoUrl: 'https://cdn.simpleicons.org/youtube/FF0000',
+      Logo: YouTubeLogo,
+      logoColor: '#FF0000',
       borderHover: 'hover:border-[#FF0000]',
       badgeColor: 'text-[#FF0000] bg-[#FF0000]/10 border-[#FF0000]/30',
     },
@@ -184,7 +196,8 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
       subtitle: content.deezerSub,
       url: 'https://www.deezer.com/mx/artist/224265995',
       badge: 'Deezer',
-      logoUrl: 'https://cdn.simpleicons.org/deezer/FFB700',
+      Logo: DeezerLogo,
+      logoColor: '#FFB700',
       borderHover: 'hover:border-[#FFB700]',
       badgeColor: 'text-[#FFB700] bg-[#FFB700]/10 border-[#FFB700]/30',
     },
@@ -194,7 +207,8 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
       subtitle: content.appleSub,
       url: 'https://music.apple.com/es/artist/rafa-930/1724193275',
       badge: 'Apple Music',
-      logoUrl: 'https://cdn.simpleicons.org/applemusic/FA5788',
+      Logo: AppleMusicLogo,
+      logoColor: '#FA5788',
       borderHover: 'hover:border-[#FA5788]',
       badgeColor: 'text-[#FA5788] bg-[#FA5788]/10 border-[#FA5788]/30',
     },
@@ -204,7 +218,8 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
       subtitle: content.amazonSub,
       url: 'https://music.amazon.in/artists/B0CJM7BWF1/rafa-930',
       badge: 'Amazon Music',
-      logoUrl: 'https://cdn.simpleicons.org/amazonmusic/FF9900',
+      Logo: AmazonMusicLogo,
+      logoColor: '#FF9900',
       borderHover: 'hover:border-[#FF9900]',
       badgeColor: 'text-[#FF9900] bg-[#FF9900]/10 border-[#FF9900]/30',
     },
@@ -214,7 +229,8 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
       subtitle: content.tidalSub,
       url: 'https://tidal.com/artist/41128230',
       badge: 'Tidal',
-      logoUrl: 'https://cdn.simpleicons.org/tidal/00FFFF',
+      Logo: TidalLogo,
+      logoColor: '#00FFFF',
       borderHover: 'hover:border-[#00FFFF]',
       badgeColor: 'text-[#00FFFF] bg-[#00FFFF]/10 border-[#00FFFF]/30',
     },
@@ -224,7 +240,8 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
       subtitle: content.instagramSub,
       url: officialInstagramUrl,
       badge: 'Instagram',
-      logoUrl: 'https://cdn.simpleicons.org/instagram/EC4899',
+      Logo: InstagramLogo,
+      logoColor: '#EC4899',
       borderHover: 'hover:border-[#EC4899]',
       badgeColor: 'text-[#EC4899] bg-[#EC4899]/10 border-[#EC4899]/30',
     },
@@ -387,13 +404,11 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
               rel="noopener noreferrer"
               className={`group flex items-center p-3.5 sm:p-4 rounded-xl bg-[#111118]/85 backdrop-blur-md border border-[#22222e] ${link.borderHover} transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.35)] cursor-pointer`}
             >
-              <div className="w-11 h-11 rounded-xl bg-[#0a0a0f] border border-[#22222e] flex items-center justify-center p-2.5 mr-3.5 shrink-0 group-hover:scale-105 transition-transform">
-                <img
-                  src={link.logoUrl}
-                  alt={link.badge}
-                  className="w-full h-full object-contain"
-                  loading="lazy"
-                />
+              <div
+                className="w-11 h-11 rounded-xl bg-[#0a0a0f] border border-[#22222e] flex items-center justify-center p-2.5 mr-3.5 shrink-0 group-hover:scale-105 transition-transform"
+                style={{ color: link.logoColor }}
+              >
+                <link.Logo className="w-6 h-6" />
               </div>
 
               <div className="flex-1 min-w-0 text-left">

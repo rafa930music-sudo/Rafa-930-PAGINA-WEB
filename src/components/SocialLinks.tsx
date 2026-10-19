@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Language } from '../types';
 import {
-  Radio,
-  Youtube,
-  Instagram,
   Globe,
   Terminal,
   Play,
@@ -14,6 +11,15 @@ import {
   ExternalLink,
   Volume2,
 } from 'lucide-react';
+import {
+  SpotifyLogo,
+  YouTubeLogo,
+  DeezerLogo,
+  AppleMusicLogo,
+  AmazonMusicLogo,
+  TidalLogo,
+  InstagramLogo,
+} from './PlatformLogos';
 
 export interface LinktreeItem {
   id: string;
@@ -44,21 +50,49 @@ export const RAFA_LINKTREE_ITEMS: LinktreeItem[] = [
     label: 'Spotify',
     sub: 'RAFA 930',
     url: 'https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng',
-    icon: Radio,
+    icon: SpotifyLogo,
   },
   {
     id: 'youtube',
     label: 'YouTube',
     sub: '@rafa_930',
     url: 'https://youtube.com/@rafa_930',
-    icon: Youtube,
+    icon: YouTubeLogo,
+  },
+  {
+    id: 'deezer',
+    label: 'Deezer',
+    sub: 'RAFA 930',
+    url: 'https://www.deezer.com/mx/artist/224265995',
+    icon: DeezerLogo,
+  },
+  {
+    id: 'apple',
+    label: 'Apple Music',
+    sub: 'RAFA 930',
+    url: 'https://music.apple.com/es/artist/rafa-930/1724193275',
+    icon: AppleMusicLogo,
+  },
+  {
+    id: 'amazon',
+    label: 'Amazon Music',
+    sub: 'RAFA 930',
+    url: 'https://music.amazon.in/artists/B0CJM7BWF1/rafa-930',
+    icon: AmazonMusicLogo,
+  },
+  {
+    id: 'tidal',
+    label: 'Tidal',
+    sub: 'RAFA 930',
+    url: 'https://tidal.com/artist/41128230',
+    icon: TidalLogo,
   },
   {
     id: 'instagram',
     label: 'Instagram',
     sub: '@rafa930_oficial',
     url: 'https://instagram.com/rafa930_oficial',
-    icon: Instagram,
+    icon: InstagramLogo,
   },
   {
     id: '930-digital',
