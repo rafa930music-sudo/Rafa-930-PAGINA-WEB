@@ -143,10 +143,10 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
       ctx.clearRect(0, 0, width, height);
 
       // =======================================================================
-      // SCENE 1: PORTADA (REVISTA) -> CINEMATIC 3D GALAXY COSMOS 🌌✨
+      // SCENE 1: PORTADA (REVISTA & ENLLACOS) -> CINEMATIC 3D GALAXY COSMOS 🌌✨
       // Galactic Core, Deep Space Nebula Clouds, Multi-layer Starfield & Meteors
       // =======================================================================
-      if (scr === 'revista') {
+      if (scr === 'revista' || scr === 'enllacos') {
         const coreX = width * 0.52 + mx * 35;
         const coreY = height * 0.44 + my * 25 - Math.min(60, scrollY * 0.04);
         const maxDim = Math.max(width, height);
