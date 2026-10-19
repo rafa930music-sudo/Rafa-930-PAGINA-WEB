@@ -225,7 +225,7 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
               className="p-4 bg-[#0a0a0f] border border-[#22222e] hover:border-[#a855f7] rounded-lg flex items-center gap-4 transition-colors block group"
             >
               <div className="w-10 h-10 rounded-lg bg-[#111118] border border-[#22222e] text-[#a855f7] flex items-center justify-center shrink-0">
-                <MessageSquare className="w-5 h-5" />
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.52-.075-.149-.67-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.005 0C5.37 0 .002 5.368.002 12.006c0 2.092.548 4.136 1.593 5.922L.002 24l6.337-1.666a11.895 11.895 0 005.666 1.445h.005c6.635 0 12.003-5.368 12.003-12.005 0-3.211-1.25-6.233-3.522-8.504"/></svg>
               </div>
               <div>
                 <span className="text-[11px] font-mono text-[#a1a1b5] block">
@@ -235,11 +235,24 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                     ? 'WhatsApp Directo'
                     : 'Direct WhatsApp'}
                 </span>
-                <span className="text-sm font-semibold text-[#ffffff] group-hover:text-[#a855f7] block tabular-nums">
+<div className="text-sm font-semibold text-[#ffffff] group-hover:text-[#a855f7] block tabular-nums">
                   +34 671 59 18 14
-                </span>
+                </div>
               </div>
             </a>
+            
+            {/* Platforms block for ContacteScreen */}
+            <div className="p-4 bg-[#0a0a0f] border border-[#22222e] rounded-lg mt-4">
+              <h4 className="text-xs font-mono text-[#a1a1b5] mb-3">Todas mis plataformas digitales</h4>
+              <div className="flex gap-3 flex-wrap">
+                <a href={OFFICIAL_SPOTIFY_URL} target="_blank" rel="noopener noreferrer" title="Spotify"><img src="https://cdn.simpleicons.org/spotify/1DB954" alt="Spotify" className="w-6 h-6" /></a>
+                <a href="https://www.youtube.com/@Rafa930" target="_blank" rel="noopener noreferrer" title="YouTube"><img src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube" className="w-6 h-6" /></a>
+                <a href="https://www.deezer.com/mx/artist/224265995" target="_blank" rel="noopener noreferrer" title="Deezer"><img src="https://cdn.simpleicons.org/deezer/FFB700" alt="Deezer" className="w-6 h-6" /></a>
+                <a href="https://music.apple.com/es/artist/rafa-930/1724193275" target="_blank" rel="noopener noreferrer" title="Apple Music"><img src="https://cdn.simpleicons.org/applemusic/FA5788" alt="Apple Music" className="w-6 h-6" /></a>
+                <a href="https://music.amazon.in/artists/B0CJM7BWF1/rafa-930" target="_blank" rel="noopener noreferrer" title="Amazon Music"><img src="https://cdn.simpleicons.org/amazonmusic/FF9900" alt="Amazon Music" className="w-6 h-6" /></a>
+                <a href="https://tidal.com/artist/41128230" target="_blank" rel="noopener noreferrer" title="Tidal"><img src="https://cdn.simpleicons.org/tidal/00FFFF" alt="Tidal" className="w-6 h-6" /></a>
+              </div>
+            </div>
 
             <a
               href="https://instagram.com/rafa930_oficial"

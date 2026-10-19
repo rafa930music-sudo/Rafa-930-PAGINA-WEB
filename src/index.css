@@ -209,16 +209,24 @@ html.light .electric-badge {
   box-shadow: 0 0 24px -6px rgba(0, 212, 255, 0.2);
 }
 
+.text-gradient-930,
 .text-gradient-lila-rosa-rojo {
-  background: linear-gradient(135deg, #c084fc 0%, #f472b6 50%, #fb7185 100%);
+  background: linear-gradient(90deg, #00d4ff 0%, #818cf8 25%, #c084fc 45%, #ec4899 68%, #fb923c 86%, #facc15 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  filter: drop-shadow(0 0 14px rgba(192, 132, 252, 0.35));
 }
 
+html.light .text-gradient-930,
 html.light .text-gradient-lila-rosa-rojo {
-  background: linear-gradient(135deg, #6d28d9 0%, #be185d 52%, #be123c 100%);
+  background: linear-gradient(90deg, #0284c7 0%, #6366f1 25%, #9333ea 45%, #db2777 68%, #ea580c 86%, #d97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  filter: none;
 }
 
 .fluid-hero-title {
@@ -271,4 +279,19 @@ html.light .text-gradient-lila-rosa-rojo {
   animation: starlightTwinkle 4s ease-in-out infinite;
   will-change: opacity;
 }
+
+@keyframes fadeInLetter {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.95);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+
 

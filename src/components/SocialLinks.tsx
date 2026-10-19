@@ -314,14 +314,14 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
         className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#a855f7] via-[#00d4ff] to-[#ec4899] shadow-[0_0_14px_rgba(0,212,255,0.75)] z-[110]"
       />
 
-      {/* Fullscreen Splash Screen Identical to Main Website */}
+      {/* Fullscreen Splash Screen with Signature Emblem */}
       {showSplash && (
         <div
           role="dialog"
-          aria-label="RAFA 930"
+          aria-label="Firma Oficial RAFA 930"
           onClick={handleDismissSplash}
-          className={`fixed inset-0 z-[105] bg-[#050507] flex items-center justify-center px-6 sm:px-12 select-none cursor-pointer overflow-hidden transition-all duration-500 ${
-            splashExiting ? 'opacity-0 scale-[1.03] pointer-events-none' : 'opacity-100 scale-100'
+          className={`fixed inset-0 z-[105] bg-[#050507] flex items-center justify-center p-6 select-none cursor-pointer overflow-hidden transition-all duration-500 ${
+            splashExiting ? 'opacity-0 scale-105 pointer-events-none' : 'opacity-100 scale-100'
           }`}
         >
           <div className="pointer-events-none absolute -top-28 left-1/4 w-[26rem] h-[26rem] rounded-full bg-[#a855f7]/22 blur-[140px]" />
@@ -329,30 +329,98 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
           <div className="pointer-events-none absolute -bottom-28 left-1/3 w-[22rem] h-[22rem] rounded-full bg-[#e11d48]/18 blur-[130px]" />
           <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[20rem] h-[20rem] rounded-full bg-[#00d4ff]/14 blur-[125px]" />
 
-          <div className="pointer-events-none absolute inset-4 sm:inset-8 border border-[#22222e] rounded-2xl shadow-[inset_0_0_40px_rgba(0,212,255,0.06)]" />
+          <div className="relative z-10 w-full max-w-sm flex flex-col items-center justify-center">
+            {/* Signature Emblem Frame */}
+            <div className="relative w-64 h-64 flex items-center justify-center">
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 rounded-full border border-[#00d4ff]/25 shadow-[0_0_25px_rgba(0,212,255,0.15)] animate-[spin_24s_linear_infinite]"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-3 rounded-full border border-[#ec4899]/20 shadow-[inset_0_0_30px_rgba(236,72,153,0.08)]"
+              />
+              <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 bg-[#00d4ff] shadow-[0_0_8px_#00d4ff]" />
+              <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 bg-[#ec4899] shadow-[0_0_8px_#ec4899]" />
+              <div className="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 rotate-45 bg-[#a855f7] shadow-[0_0_8px_#a855f7]" />
+              <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 rotate-45 bg-[#00d4ff] shadow-[0_0_8px_#00d4ff]" />
 
-          <div className="relative z-10 w-full max-w-4xl flex flex-col items-center justify-center">
-            <div className="font-['Bebas_Neue'] font-extrabold tracking-tight text-[clamp(2.6rem,11vw,6.75rem)] leading-none whitespace-nowrap inline-flex items-baseline justify-center gap-3 sm:gap-4 text-[#ffffff] drop-shadow-[0_0_32px_rgba(0,212,255,0.18)]">
-              <span>RAFA</span>
-              <span className="text-gradient-lila-rosa-rojo">930</span>
+              <svg
+                className="w-56 h-44 relative z-10 drop-shadow-[0_0_18px_rgba(0,212,255,0.4)]"
+                viewBox="0 0 320 220"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <linearGradient id="sigGradLinks" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#c084fc" />
+                    <stop offset="50%" stopColor="#00d4ff" />
+                    <stop offset="100%" stopColor="#f472b6" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M 35 125 C 42 75, 55 42, 68 38 C 82 34, 102 42, 106 62 C 109 78, 96 98, 72 104 C 55 108, 48 118, 44 148 M 68 104 C 85 106, 100 128, 114 154"
+                  stroke="url(#sigGradLinks)"
+                  strokeWidth="3.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  style={{ strokeDasharray: 380, strokeDashoffset: 0, animation: 'sigDraw 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards' }}
+                />
+                <path
+                  d="M 112 142 C 118 132, 126 122, 136 122 C 146 122, 144 135, 140 144 C 136 150, 126 150, 124 142 C 122 134, 132 126, 144 126 C 150 126, 158 136, 160 148 M 158 142 C 166 112, 172 82, 174 74 C 176 66, 168 68, 164 78 C 158 96, 154 138, 152 170 M 150 134 C 158 132, 174 132, 180 144 C 184 152, 180 162, 172 162 C 166 162, 164 152, 172 142 C 178 134, 188 126, 196 126 C 204 126, 206 138, 204 148"
+                  stroke="url(#sigGradLinks)"
+                  strokeWidth="2.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  style={{ strokeDasharray: 420, strokeDashoffset: 0, animation: 'sigDraw 1.5s cubic-bezier(0.25, 1, 0.5, 1) 0.15s forwards' }}
+                />
+                <path
+                  d="M 204 144 C 218 138, 234 115, 244 115 C 254 115, 252 130, 244 138 C 236 144, 226 136, 232 124 C 238 114, 252 112, 256 128 C 258 142, 252 165, 246 178 M 256 124 C 266 120, 276 120, 278 132 C 280 140, 270 146, 264 146 C 274 146, 282 152, 280 164 C 278 174, 264 176, 254 172 M 282 142 C 288 134, 298 128, 304 134 C 310 142, 308 158, 302 166 C 294 174, 284 168, 286 154 C 288 142, 298 132, 306 136"
+                  stroke="url(#sigGradLinks)"
+                  strokeWidth="2.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  style={{ strokeDasharray: 450, strokeDashoffset: 0, animation: 'sigDraw 1.6s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards' }}
+                />
+                <path
+                  d="M 52 178 C 110 170, 195 166, 295 178 C 305 179, 298 186, 275 192 C 210 206, 120 198, 85 188"
+                  stroke="url(#sigGradLinks)"
+                  strokeWidth="2.4"
+                  strokeLinecap="round"
+                  style={{ strokeDasharray: 320, strokeDashoffset: 0, animation: 'sigDraw 1.4s cubic-bezier(0.25, 1, 0.5, 1) 0.5s forwards' }}
+                />
+              </svg>
             </div>
-            <div className="mt-4 sm:mt-5 h-[2px] w-32 sm:w-44 rounded-full bg-gradient-to-r from-[#a855f7] via-[#00d4ff] to-[#ec4899] shadow-[0_0_14px_rgba(0,212,255,0.6)]" />
+
+            <div className="mt-3 text-center">
+              <p
+                className="text-2xl text-white font-normal drop-shadow-[0_0_12px_rgba(0,212,255,0.45)]"
+                style={{ fontFamily: "'Alex Brush', 'Caveat', cursive" }}
+              >
+                Rafa 930
+              </p>
+              <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#00d4ff]/80">
+                Firma Oficial
+              </p>
+            </div>
           </div>
         </div>
       )}
 
-      {/* Animated Ambient Aura Blobs */}
+      {/* Animated Ambient Cosmic Nebula */}
       <div
         aria-hidden="true"
-        className="pointer-events-none fixed -top-24 -left-20 w-80 h-80 rounded-full bg-[#a855f7]/20 blur-[120px] rafa-roam-a"
+        className="pointer-events-none fixed -top-24 -left-20 w-80 h-80 rounded-full bg-[#a855f7]/15 blur-[120px] galaxy-breathe"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none fixed top-1/3 -right-20 w-80 h-80 rounded-full bg-[#ec4899]/18 blur-[120px] rafa-roam-b"
+        className="pointer-events-none fixed top-1/3 -right-20 w-80 h-80 rounded-full bg-[#ec4899]/14 blur-[120px] galaxy-breathe"
+        style={{ animationDelay: '3s' }}
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none fixed -bottom-24 left-1/4 w-72 h-72 rounded-full bg-[#00d4ff]/16 blur-[120px] rafa-roam-c"
+        className="pointer-events-none fixed -bottom-24 left-1/4 w-72 h-72 rounded-full bg-[#00d4ff]/12 blur-[120px] galaxy-breathe"
+        style={{ animationDelay: '5s' }}
       />
 
       {/* Top Bar */}
@@ -402,7 +470,7 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
         </div>
 
         <h1 className="font-['Bebas_Neue'] text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-          RAFA <span className="text-gradient-lila-rosa-rojo">930</span>
+          RAFA <span className="text-gradient-930">930</span>
         </h1>
 
         <p className="text-xs font-mono text-[#a1a1b5] mt-1">

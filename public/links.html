@@ -16,7 +16,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Syne:wght@800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Syne:wght@800&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -187,28 +187,87 @@
       100% { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    .splash-title {
-      font-family: 'Syne', 'Plus Jakarta Sans', sans-serif;
-      font-weight: 800;
-      font-size: clamp(2.65rem, 11vw, 6.75rem);
-      letter-spacing: -0.02em;
-      line-height: 1;
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: baseline;
+    .sig-emblem-wrap {
+      position: relative;
+      width: clamp(14rem, 65vw, 19rem);
+      height: clamp(14rem, 65vw, 19rem);
+      display: flex;
+      align-items: center;
       justify-content: center;
-      gap: clamp(0.65rem, 2.2vw, 1.1rem);
-      color: #ffffff;
-      filter: drop-shadow(0 0 32px rgba(0, 212, 255, 0.18));
     }
 
-    .splash-bar {
-      margin-top: 1.15rem;
-      height: 2px;
-      width: clamp(7.5rem, 28vw, 11rem);
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--lila), var(--cyan), var(--rosa));
-      box-shadow: 0 0 14px rgba(0, 212, 255, 0.6);
+    .sig-emblem-ring-outer {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 212, 255, 0.28);
+      box-shadow: 0 0 25px rgba(0, 212, 255, 0.15);
+      animation: sigSpin 24s linear infinite;
+    }
+
+    .sig-emblem-ring-inner {
+      position: absolute;
+      inset: 0.85rem;
+      border-radius: 50%;
+      border: 1px solid rgba(236, 72, 153, 0.22);
+      box-shadow: inset 0 0 25px rgba(236, 72, 153, 0.08);
+    }
+
+    @keyframes sigSpin {
+      100% { transform: rotate(360deg); }
+    }
+
+    .sig-diamond {
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      transform: rotate(45deg);
+      background: var(--cyan);
+      box-shadow: 0 0 8px var(--cyan);
+    }
+    .sig-diamond.top { top: -3px; left: calc(50% - 3.5px); }
+    .sig-diamond.bottom { bottom: -3px; left: calc(50% - 3.5px); background: var(--rosa); box-shadow: 0 0 8px var(--rosa); }
+    .sig-diamond.left { left: -3px; top: calc(50% - 3.5px); background: var(--lila); box-shadow: 0 0 8px var(--lila); }
+    .sig-diamond.right { right: -3px; top: calc(50% - 3.5px); }
+
+    .sig-svg {
+      width: 90%;
+      height: 75%;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 0 16px rgba(0, 212, 255, 0.4));
+    }
+
+    .sig-stroke-1 { stroke-dasharray: 380; stroke-dashoffset: 0; animation: sigDraw 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+    .sig-stroke-2 { stroke-dasharray: 420; stroke-dashoffset: 0; animation: sigDraw 1.5s cubic-bezier(0.25, 1, 0.5, 1) 0.15s forwards; }
+    .sig-stroke-3 { stroke-dasharray: 450; stroke-dashoffset: 0; animation: sigDraw 1.6s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards; }
+    .sig-stroke-4 { stroke-dasharray: 320; stroke-dashoffset: 0; animation: sigDraw 1.4s cubic-bezier(0.25, 1, 0.5, 1) 0.5s forwards; }
+
+    @keyframes sigDraw {
+      0% { stroke-dashoffset: 450; opacity: 0.15; }
+      30% { opacity: 1; }
+      100% { stroke-dashoffset: 0; opacity: 1; }
+    }
+
+    .sig-caption {
+      margin-top: 0.85rem;
+      text-align: center;
+    }
+
+    .sig-text {
+      font-family: 'Alex Brush', 'Caveat', cursive;
+      font-size: clamp(1.8rem, 6vw, 2.25rem);
+      color: #ffffff;
+      filter: drop-shadow(0 0 14px rgba(0, 212, 255, 0.45));
+    }
+
+    .sig-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      color: rgba(0, 212, 255, 0.85);
+      margin-top: 0.25rem;
     }
 
     /* =================================================================
@@ -633,19 +692,47 @@
   <div class="top-neon-line"></div>
   <canvas id="bg-canvas"></canvas>
 
-  <!-- SPLASH SCREEN IDÉNTICO AL 100% A LA PÁGINA WEB -->
-  <div id="splash" role="dialog" aria-label="RAFA 930">
+  <!-- SPLASH SCREEN CON FIRMA EN LETRA LLIGADA Y FORMA EMBLEMA -->
+  <div id="splash" role="dialog" aria-label="Firma Oficial RAFA 930">
     <div class="splash-glow-1"></div>
     <div class="splash-glow-2"></div>
     <div class="splash-glow-3"></div>
     <div class="splash-glow-4"></div>
-    <div class="splash-frame"></div>
     <div class="splash-wordmark">
-      <div class="splash-title">
-        <span>RAFA</span>
-        <span class="text-gradient">930</span>
+      <div class="sig-emblem-wrap">
+        <div class="sig-emblem-ring-outer"></div>
+        <div class="sig-emblem-ring-inner"></div>
+        <div class="sig-diamond top"></div>
+        <div class="sig-diamond bottom"></div>
+        <div class="sig-diamond left"></div>
+        <div class="sig-diamond right"></div>
+
+        <svg class="sig-svg" viewBox="0 0 320 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="sigGradHtml" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#c084fc" />
+              <stop offset="50%" stop-color="#00d4ff" />
+              <stop offset="100%" stop-color="#f472b6" />
+            </linearGradient>
+            <filter id="sigGlowHtml" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <path d="M 35 125 C 42 75, 55 42, 68 38 C 82 34, 102 42, 106 62 C 109 78, 96 98, 72 104 C 55 108, 48 118, 44 148 M 68 104 C 85 106, 100 128, 114 154" stroke="url(#sigGradHtml)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#sigGlowHtml)" class="sig-stroke-1" />
+          <path d="M 112 142 C 118 132, 126 122, 136 122 C 146 122, 144 135, 140 144 C 136 150, 126 150, 124 142 C 122 134, 132 126, 144 126 C 150 126, 158 136, 160 148 M 158 142 C 166 112, 172 82, 174 74 C 176 66, 168 68, 164 78 C 158 96, 154 138, 152 170 M 150 134 C 158 132, 174 132, 180 144 C 184 152, 180 162, 172 162 C 166 162, 164 152, 172 142 C 178 134, 188 126, 196 126 C 204 126, 206 138, 204 148" stroke="url(#sigGradHtml)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#sigGlowHtml)" class="sig-stroke-2" />
+          <path d="M 204 144 C 218 138, 234 115, 244 115 C 254 115, 252 130, 244 138 C 236 144, 226 136, 232 124 C 238 114, 252 112, 256 128 C 258 142, 252 165, 246 178 M 256 124 C 266 120, 276 120, 278 132 C 280 140, 270 146, 264 146 C 274 146, 282 152, 280 164 C 278 174, 264 176, 254 172 M 282 142 C 288 134, 298 128, 304 134 C 310 142, 308 158, 302 166 C 294 174, 284 168, 286 154 C 288 142, 298 132, 306 136" stroke="url(#sigGradHtml)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#sigGlowHtml)" class="sig-stroke-3" />
+          <path d="M 52 178 C 110 170, 195 166, 295 178 C 305 179, 298 186, 275 192 C 210 206, 120 198, 85 188" stroke="url(#sigGradHtml)" stroke-width="2.4" stroke-linecap="round" filter="url(#sigGlowHtml)" class="sig-stroke-4" />
+        </svg>
       </div>
-      <div class="splash-bar"></div>
+
+      <div class="sig-caption">
+        <p class="sig-text">Rafa 930</p>
+        <p class="sig-badge">Firma Oficial</p>
+      </div>
     </div>
   </div>
 
@@ -721,7 +808,7 @@
         <a class="btn" href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" target="_blank" rel="noopener noreferrer">
           <div class="btn-left">
             <div class="btn-icon-box">
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14.5c2.5-1 5.5-1 8 0"/><path d="M7 11.5c3.5-1.5 6.5-1.5 10 0"/><path d="M6.5 8.5c4-1.5 7-1.5 11 0"/></svg>
+              <img src="https://cdn.simpleicons.org/spotify/1DB954" alt="Spotify" class="btn-icon" />
             </div>
             <span class="btn-label">Spotify</span>
           </div>
@@ -734,7 +821,7 @@
         <a class="btn" href="https://youtube.com/@rafa_930" target="_blank" rel="noopener noreferrer">
           <div class="btn-left">
             <div class="btn-icon-box">
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+              <img src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube" class="btn-icon" />
             </div>
             <span class="btn-label">YouTube</span>
           </div>
@@ -744,10 +831,62 @@
           </div>
         </a>
 
+        <a class="btn" href="https://www.deezer.com/mx/artist/224265995" target="_blank" rel="noopener noreferrer">
+          <div class="btn-left">
+            <div class="btn-icon-box">
+              <img src="https://cdn.simpleicons.org/deezer/FFB700" alt="Deezer" class="btn-icon" />
+            </div>
+            <span class="btn-label">Deezer</span>
+          </div>
+          <div class="btn-right">
+            <span class="btn-sub">RAFA 930</span>
+            <span class="btn-arrow">↗</span>
+          </div>
+        </a>
+
+        <a class="btn" href="https://music.apple.com/es/artist/rafa-930/1724193275" target="_blank" rel="noopener noreferrer">
+          <div class="btn-left">
+            <div class="btn-icon-box">
+              <img src="https://cdn.simpleicons.org/applemusic/FA5788" alt="Apple Music" class="btn-icon" />
+            </div>
+            <span class="btn-label">Apple Music</span>
+          </div>
+          <div class="btn-right">
+            <span class="btn-sub">RAFA 930</span>
+            <span class="btn-arrow">↗</span>
+          </div>
+        </a>
+
+        <a class="btn" href="https://music.amazon.in/artists/B0CJM7BWF1/rafa-930" target="_blank" rel="noopener noreferrer">
+          <div class="btn-left">
+            <div class="btn-icon-box">
+              <img src="https://cdn.simpleicons.org/amazonmusic/FF9900" alt="Amazon Music" class="btn-icon" />
+            </div>
+            <span class="btn-label">Amazon Music</span>
+          </div>
+          <div class="btn-right">
+            <span class="btn-sub">RAFA 930</span>
+            <span class="btn-arrow">↗</span>
+          </div>
+        </a>
+
+        <a class="btn" href="https://tidal.com/artist/41128230" target="_blank" rel="noopener noreferrer">
+          <div class="btn-left">
+            <div class="btn-icon-box">
+              <img src="https://cdn.simpleicons.org/tidal/00FFFF" alt="Tidal" class="btn-icon" />
+            </div>
+            <span class="btn-label">Tidal</span>
+          </div>
+          <div class="btn-right">
+            <span class="btn-sub">RAFA 930</span>
+            <span class="btn-arrow">↗</span>
+          </div>
+        </a>
+
         <a class="btn" href="https://instagram.com/rafa930_oficial" target="_blank" rel="noopener noreferrer">
           <div class="btn-left">
             <div class="btn-icon-box">
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              <img src="https://cdn.simpleicons.org/instagram/ec4899" alt="Instagram" class="btn-icon" />
             </div>
             <span class="btn-label">Instagram</span>
           </div>
@@ -756,23 +895,18 @@
             <span class="btn-arrow">↗</span>
           </div>
         </a>
-
-        <a class="btn" href="https://rafa930music-sudo.github.io/930-Digital/" target="_blank" rel="noopener noreferrer">
-          <div class="btn-left">
-            <div class="btn-icon-box">
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            </div>
-            <span class="btn-label">930 Digital</span>
-          </div>
-          <div class="btn-right">
-            <span class="btn-sub">Estudio Web</span>
-            <span class="btn-arrow">↗</span>
-          </div>
-        </a>
       </nav>
     </div>
 
-    <div class="footer">RAFA 930</div>
+    <footer class="footer mt-8 text-center border-t border-[#22222e] pt-6 pb-4">
+      <div class="flex justify-center gap-4 mb-4">
+        <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 transition-opacity"><img src="https://cdn.simpleicons.org/spotify/fff" alt="Spotify" class="w-5 h-5" /></a>
+        <a href="https://youtube.com/@rafa_930" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 transition-opacity"><img src="https://cdn.simpleicons.org/youtube/fff" alt="YouTube" class="w-5 h-5" /></a>
+      </div>
+      <p class="text-[#ffffff] font-mono text-[10px] uppercase tracking-wide">
+        © 2026 RAFA 930 · Rafael Moreno Román · Todos los derechos reservados
+      </p>
+    </footer>
   </main>
 
   <div id="toast">Enlace copiado</div>

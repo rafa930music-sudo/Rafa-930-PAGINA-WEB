@@ -32,6 +32,7 @@ interface Meteor {
 
 // 180 Astronomical Star Seeds across varied spectral classes (white, ice-blue, pale gold, violet-tinted)
 const STAR_PALETTE = ['#ffffff', '#e0f2fe', '#ede9fe', '#fef08a', '#fbcfe8', '#bae6fd'];
+const LIGHT_STAR_PALETTE = ['#4f46e5', '#7c3aed', '#0284c7', '#be185d', '#0891b2', '#9333ea', '#6366f1'];
 
 function createStarfield(count = 180): GalaxyStar[] {
   const stars: GalaxyStar[] = [];
@@ -131,7 +132,7 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
       const scr = screenRef.current;
       const isPlaying = playingRef.current;
       const isLight = themeRef.current === 'light';
-      const alphaMul = isLight ? 0.65 : 1.0;
+      const alphaMul = 1.0;
       const scrollY = window.scrollY || 0;
 
       mouseRef.current.x += (mouseRef.current.targetX - mouseRef.current.x) * 0.05;
@@ -158,10 +159,10 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
         // Galactic Center Nebula (Cosmic Violet & Indigo)
         const coreGrad = ctx.createRadialGradient(0, 0, 10, 0, 0, maxDim * 0.55);
         if (isLight) {
-          coreGrad.addColorStop(0, 'rgba(168, 85, 247, 0.16)');
-          coreGrad.addColorStop(0.35, 'rgba(99, 102, 241, 0.10)');
-          coreGrad.addColorStop(0.65, 'rgba(0, 212, 255, 0.06)');
-          coreGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+          coreGrad.addColorStop(0, 'rgba(147, 51, 234, 0.32)');
+          coreGrad.addColorStop(0.35, 'rgba(99, 102, 241, 0.22)');
+          coreGrad.addColorStop(0.65, 'rgba(6, 182, 212, 0.16)');
+          coreGrad.addColorStop(1, 'rgba(247, 246, 252, 0)');
         } else {
           coreGrad.addColorStop(0, 'rgba(168, 85, 247, 0.22)');
           coreGrad.addColorStop(0.32, 'rgba(99, 102, 241, 0.14)');
@@ -175,9 +176,9 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
 
         // Secondary Starlight Cyan Nebula Arm
         const cyanGrad = ctx.createRadialGradient(maxDim * 0.14, -maxDim * 0.06, 5, maxDim * 0.14, -maxDim * 0.06, maxDim * 0.38);
-        cyanGrad.addColorStop(0, isLight ? 'rgba(0, 212, 255, 0.12)' : 'rgba(0, 212, 255, 0.16)');
-        cyanGrad.addColorStop(0.55, isLight ? 'rgba(192, 132, 252, 0.06)' : 'rgba(168, 85, 247, 0.08)');
-        cyanGrad.addColorStop(1, 'rgba(5, 5, 7, 0)');
+        cyanGrad.addColorStop(0, isLight ? 'rgba(6, 182, 212, 0.28)' : 'rgba(0, 212, 255, 0.16)');
+        cyanGrad.addColorStop(0.55, isLight ? 'rgba(168, 85, 247, 0.20)' : 'rgba(168, 85, 247, 0.08)');
+        cyanGrad.addColorStop(1, isLight ? 'rgba(247, 246, 252, 0)' : 'rgba(5, 5, 7, 0)');
         ctx.fillStyle = cyanGrad;
         ctx.beginPath();
         ctx.ellipse(maxDim * 0.14, -maxDim * 0.06, maxDim * 0.38, maxDim * 0.18, 0.25, 0, Math.PI * 2);
@@ -185,8 +186,8 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
 
         // Tertiary Astral Magenta Core Dust Pocket
         const pinkGrad = ctx.createRadialGradient(-maxDim * 0.16, maxDim * 0.08, 5, -maxDim * 0.16, maxDim * 0.08, maxDim * 0.32);
-        pinkGrad.addColorStop(0, isLight ? 'rgba(236, 72, 153, 0.10)' : 'rgba(236, 72, 153, 0.14)');
-        pinkGrad.addColorStop(0.6, 'rgba(225, 29, 72, 0)');
+        pinkGrad.addColorStop(0, isLight ? 'rgba(236, 72, 153, 0.25)' : 'rgba(236, 72, 153, 0.14)');
+        pinkGrad.addColorStop(0.6, isLight ? 'rgba(219, 39, 119, 0)' : 'rgba(225, 29, 72, 0)');
         ctx.fillStyle = pinkGrad;
         ctx.beginPath();
         ctx.ellipse(-maxDim * 0.16, maxDim * 0.08, maxDim * 0.32, maxDim * 0.15, -0.3, 0, Math.PI * 2);
@@ -203,22 +204,27 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
             my * (star.z * 36);
 
           const twinkle = 0.5 + 0.5 * Math.sin(t * star.twinkleSpeed + star.twinklePhase);
-          const currentAlpha = star.baseAlpha * twinkle * alphaMul;
+          const starColor = isLight ? LIGHT_STAR_PALETTE[i % LIGHT_STAR_PALETTE.length] : star.color;
+          const currentAlpha = (isLight ? 0.45 + star.baseAlpha * 0.55 : star.baseAlpha) * twinkle;
 
           ctx.save();
-          ctx.fillStyle = star.color;
-          ctx.globalAlpha = Math.max(0.12, Math.min(1, currentAlpha));
+          ctx.fillStyle = starColor;
+          ctx.globalAlpha = Math.max(isLight ? 0.35 : 0.12, Math.min(1, currentAlpha));
 
-          const r = star.size * (0.75 + star.z * 0.45);
+          const r = star.size * (isLight ? 1.0 + star.z * 0.55 : 0.75 + star.z * 0.45);
+          if (isLight) {
+            ctx.shadowColor = starColor;
+            ctx.shadowBlur = 4;
+          }
           ctx.beginPath();
           ctx.arc(px, py, r, 0, Math.PI * 2);
           ctx.fill();
 
           // Delicate 4-Point Diffraction Spike Flare on prominent stars
-          if (star.hasFlare && currentAlpha > 0.55) {
-            const flareLen = r * 4.5 + 2.5;
-            ctx.strokeStyle = star.color;
-            ctx.lineWidth = 0.65;
+          if (star.hasFlare && currentAlpha > 0.45) {
+            const flareLen = r * 4.8 + 2.5;
+            ctx.strokeStyle = starColor;
+            ctx.lineWidth = isLight ? 0.9 : 0.65;
             ctx.globalAlpha = currentAlpha * 0.6;
             ctx.beginPath();
             ctx.moveTo(px - flareLen, py);
@@ -229,7 +235,7 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
 
             // Soft star halo
             const haloGrad = ctx.createRadialGradient(px, py, 0, px, py, flareLen * 0.7);
-            haloGrad.addColorStop(0, star.color);
+            haloGrad.addColorStop(0, starColor);
             haloGrad.addColorStop(1, 'transparent');
             ctx.fillStyle = haloGrad;
             ctx.globalAlpha = currentAlpha * 0.35;
@@ -279,25 +285,31 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
           const tailY = meteor.y - Math.sin(meteor.angle) * meteor.length;
 
           const lineGrad = ctx.createLinearGradient(tailX, tailY, meteor.x, meteor.y);
-          lineGrad.addColorStop(0, 'rgba(255, 255, 255, 0)');
-          lineGrad.addColorStop(0.7, meteor.color === '#ffffff' ? 'rgba(0, 212, 255, 0.45)' : meteor.color);
-          lineGrad.addColorStop(1, '#ffffff');
+          if (isLight) {
+            lineGrad.addColorStop(0, 'rgba(124, 58, 237, 0)');
+            lineGrad.addColorStop(0.7, 'rgba(6, 182, 212, 0.85)');
+            lineGrad.addColorStop(1, '#4f46e5');
+          } else {
+            lineGrad.addColorStop(0, 'rgba(255, 255, 255, 0)');
+            lineGrad.addColorStop(0.7, meteor.color === '#ffffff' ? 'rgba(0, 212, 255, 0.45)' : meteor.color);
+            lineGrad.addColorStop(1, '#ffffff');
+          }
 
           ctx.save();
           ctx.strokeStyle = lineGrad;
-          ctx.lineWidth = 1.6;
-          ctx.globalAlpha = meteorAlpha;
+          ctx.lineWidth = isLight ? 2.4 : 1.6;
+          ctx.globalAlpha = isLight ? Math.min(1, meteorAlpha * 1.3) : meteorAlpha;
           ctx.beginPath();
           ctx.moveTo(tailX, tailY);
           ctx.lineTo(meteor.x, meteor.y);
           ctx.stroke();
 
           // Blazing star head
-          ctx.fillStyle = '#ffffff';
-          ctx.shadowColor = meteor.color;
-          ctx.shadowBlur = 10;
+          ctx.fillStyle = isLight ? '#0284c7' : '#ffffff';
+          ctx.shadowColor = isLight ? '#7c3aed' : meteor.color;
+          ctx.shadowBlur = isLight ? 12 : 10;
           ctx.beginPath();
-          ctx.arc(meteor.x, meteor.y, 2, 0, Math.PI * 2);
+          ctx.arc(meteor.x, meteor.y, isLight ? 2.8 : 2, 0, Math.PI * 2);
           ctx.fill();
           ctx.restore();
         }

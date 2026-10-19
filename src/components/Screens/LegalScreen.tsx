@@ -731,11 +731,11 @@ function DetailedCredits({ lang }: { lang: Language }) {
         es: '02. PRODUCCIÓN MUSICAL, BEATS & INGENIERÍA SONORA',
         en: '02. MUSIC PRODUCTION, BEATS & SOUND ENGINEERING',
       },
-      name: 'Ouxxox & 930 Records',
+      name: 'Incrife, Ouxxox & 930 Records',
       detail: {
-        ca: 'Producció d’instrumentals, arranjaments d’estudi, mescla i masterització des dels inicis a La Mina.',
-        es: 'Producción de instrumentales, arreglos de estudio, mezcla y masterización desde los inicios en La Mina.',
-        en: 'Instrumental production, studio arrangements, mixing, and mastering since the beginnings in La Mina.',
+        ca: 'Producció d’instrumentals (Incrife com a productor del senzill "Nose si estaré mañana"), arranjaments d’estudi, mescla i masterització.',
+        es: 'Producción de instrumentales (Incrife como productor del sencillo "Nose si estaré mañana"), arreglos de estudio, mezcla y masterización.',
+        en: 'Instrumental production (Incrife as producer of the single "Nose si estaré mañana"), studio arrangements, mixing, and mastering.',
       },
     },
     {

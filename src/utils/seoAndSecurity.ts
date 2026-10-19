@@ -219,6 +219,32 @@ const SCREEN_SEO: Record<ScreenId, Record<Language, SeoMetadata>> = {
       locale: 'en_US',
     },
   },
+  enllacos: {
+    ca: {
+      title: 'Enllaços Oficials & Spotify · RAFA 930',
+      description:
+        'Tots els enllaços oficials de RAFA 930: perfil de Spotify, videoclips a YouTube, Instagram, presskit i contractació.',
+      keywords:
+        'Enllaços RAFA 930, Spotify oficial, YouTube, Instagram, música urbana Barcelona',
+      locale: 'ca_ES',
+    },
+    es: {
+      title: 'Enlaces Oficiales & Spotify · RAFA 930',
+      description:
+        'Todos los enlaces oficiales de RAFA 930: perfil de Spotify, videoclips en YouTube, Instagram, presskit y contratación.',
+      keywords:
+        'Enlaces RAFA 930, Spotify oficial, YouTube, Instagram, música urbana Barcelona',
+      locale: 'es_ES',
+    },
+    en: {
+      title: 'Official Links & Spotify · RAFA 930',
+      description:
+        'All official links for RAFA 930: Spotify artist profile, YouTube music videos, Instagram, presskit, and booking.',
+      keywords:
+        'RAFA 930 links, official Spotify, YouTube, Instagram, Barcelona urban music',
+      locale: 'en_US',
+    },
+  },
   contacte: {
     ca: {
       title: 'Contacte Directe & Booking Oficial · RAFA 930 Barcelona',

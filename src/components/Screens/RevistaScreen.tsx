@@ -9,7 +9,6 @@ import {
   submitToFormspree,
   FORMSPREE_ENDPOINT,
 } from '../../utils/seoAndSecurity';
-import { Spatial3DCanvas } from '../Spatial3DCanvas';
 import { Card3D } from '../Card3D';
 import { SectionColorBubbles } from '../AmbientColorBubbles';
 import {
@@ -32,6 +31,7 @@ interface RevistaScreenProps {
   language: Language;
   onNavigate: (screen: ScreenId) => void;
   onOpenLegalTab?: (tab: LegalDocId) => void;
+  onShowSplash?: () => void;
 }
 
 const TIMELINE_I18N: {
@@ -175,9 +175,9 @@ const TIMELINE_I18N: {
 
 const COLLABORATORS_ROLE_I18N: Record<string, Record<Language, string>> = {
   incrife: {
-    ca: 'Fotògraf',
-    es: 'Fotógrafo',
-    en: 'Photographer',
+    ca: 'Fotògraf & Productor',
+    es: 'Fotógrafo & Productor',
+    en: 'Photographer & Producer',
   },
   ouxxox: {
     ca: 'Productor',
@@ -346,22 +346,8 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
         <div className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
           {/* Left Editorial Column */}
           <div className="lg:col-span-7 flex flex-col items-start gap-6">
-            <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-[#a1a1b5]">
-              <span className="text-[#ec4899] font-semibold">
-                {language === 'ca'
-                  ? 'EDICIÓ MONOGRÀFICA · RAFA 930'
-                  : language === 'es'
-                  ? 'EDICIÓN MONOGRÁFICA · RAFA 930'
-                  : 'MONOGRAPH EDITION · RAFA 930'}
-              </span>
-              <span aria-hidden="true" className="text-[#00d4ff]">·</span>
-              <span className="px-2.5 py-0.5 rounded-md bg-[#00d4ff]/10 border border-[#00d4ff]/40 text-[#00d4ff] font-semibold shadow-[0_0_12px_rgba(0,212,255,0.2)]">
-                MATARÓ — SANT ADRIÀ DE BESÒS (BARCELONA)
-              </span>
-            </div>
-
             <h1 className="font-['Cormorant_Garamond'] fluid-hero-title font-semibold text-[#ffffff]">
-              RAFA <span className="text-gradient-lila-rosa-rojo">930</span>
+              RAFA <span className="text-gradient-930">930</span>
             </h1>
 
             <div className="border-l-2 border-[#ec4899] pl-4">
@@ -573,23 +559,23 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
             <div className="space-y-4 text-[#a1a1b5] text-sm sm:text-base leading-relaxed max-w-2xl">
               <p className="first-letter:text-5xl first-letter:font-['Cormorant_Garamond'] first-letter:font-semibold first-letter:text-[#ec4899] first-letter:float-left first-letter:mr-3 first-letter:leading-none">
                 {language === 'ca'
-                  ? 'Rafael Moreno Román (RAFA 930) va néixer i créixer a Mataró. La seva infància va transcórrer entre el carrer, el futbol, el parkour i els moments en família. Als 10 anys, per causes familiars, es va traslladar al barri de La Mina (Sant Adrià de Besòs), on va descobrir una altra realitat i va començar un camí vital i artístic que marcaria per sempre la seva obra.'
+                  ? 'RAFA 930 és un artista emergent, multidisciplinari: desenvolupador web, fotògraf i molt més. La seva música neix d\'una necessitat vital, impulsada per la curiositat i pel suport incondicional dels seus amics Ouxxox i Incrife. La seva obra combina una composició musical profunda amb una estètica fotogràfica cinematogràfica, construint un relat autèntic sobre l\'entorn i les vivències personals.'
                   : language === 'es'
-                  ? 'Rafael Moreno Román (RAFA 930) nació y creció en Mataró. Su infancia transcurrió entre la calle, el fútbol, el parkour y los momentos en familia. A los 10 años, por causas familiares, se trasladó al barrio de La Mina (Sant Adrià de Besòs), donde descubrió otra realidad y comenzó un camino vital y artístico que marcaría para siempre su obra.'
-                  : 'Rafael Moreno Román (RAFA 930) was born and raised in Mataró. His childhood was spent between the streets, football, parkour, and family moments. At age 10, for family reasons, he moved to the neighborhood of La Mina (Sant Adrià de Besòs), where he discovered a new reality and began a vital and artistic path that would forever shape his work.'}
+                  ? 'RAFA 930 es un artista emergente, multidisciplinar: desarrollador web, fotógrafo y mucho más. Su música nace de una necesidad vital, impulsada por la curiosidad y por el apoyo incondicional de sus amigos Ouxxox e Incrife. Su obra combina una composición musical profunda con una estética fotográfica cinematográfica, construyendo un relato auténtico sobre el entorno y las vivencias personales.'
+                  : 'RAFA 930 is an emerging, multidisciplinary artist: web developer, photographer, and much more. His music is born from a vital need, driven by curiosity and the unconditional support of his friends Ouxxox and Incrife. His work combines deep musical composition with a cinematic photographic aesthetic, building an authentic narrative about the environment and personal experiences.'}
               </p>
               <p>
                 {language === 'ca' ? (
                   <>
-                    A la <strong className="text-[#ffffff] font-medium">Biblioteca de la Font de La Mina</strong> va conèixer un grup d’amics que componien música —entre ells el productor Ouxxox i el fotògraf Incrife— i allà va germinar la seva vocació creativa. Amb el pas dels anys, va ampliar el seu llenguatge cap a la fotografia de retrat i el desenvolupament web, integrant tres disciplines sota una mateixa mirada autoral.
+                    El seu projecte és una convergència entre la producció sonora, la narrativa visual i la innovació digital. RAFA 930 no només lidera la seva pròpia visió artística, sinó que també impulsa el desenvolupament digital de tercers, aportant una mirada professional, precisa i connectada amb les necessitats del mercat cultural contemporani.
                   </>
                 ) : language === 'es' ? (
                   <>
-                    En la <strong className="text-[#ffffff] font-medium">Biblioteca de la Font de La Mina</strong> conoció a un grupo de amigos que componían música —entre ellos el productor Ouxxox y el fotógrafo Incrife— y allí germinó su vocación creativa. Con el paso de los años, amplió su lenguaje hacia la fotografía de retrato y el desarrollo web, integrando tres disciplinas bajo una misma mirada autoral.
+                    Su proyecto es una convergencia entre la producción sonora, la narrativa visual y la innovación digital. RAFA 930 no solo lidera su propia visión artística, sino que también impulsa el desarrollo digital de terceros, aportando una mirada profesional, precisa y conectada con las necesidades del mercado cultural contemporáneo.
                   </>
                 ) : (
                   <>
-                    At the <strong className="text-[#ffffff] font-medium">Font de La Mina Library</strong>, he met a group of friends who composed music—including producer Ouxxox and photographer Incrife—where his creative calling took root. Over the years, he expanded his craft into portrait photography and web development, uniting three disciplines under one auteur vision.
+                    His project is a convergence of sound production, visual narrative, and digital innovation. RAFA 930 not only leads his own artistic vision but also drives digital development for others, bringing a professional, precise perspective connected to the needs of the contemporary cultural market.
                   </>
                 )}
               </p>
@@ -697,24 +683,6 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                 </span>
               </div>
             </Card3D>
-
-            <div className="space-y-2">
-              <div className="flex items-center justify-between text-xs font-mono text-[#a1a1b5]">
-                <span>
-                  {language === 'ca'
-                    ? 'INSTAL·LACIÓ ESCULTÒRICA INTERACTIVA 3D'
-                    : language === 'es'
-                    ? 'INSTALACIÓN ESCULTÓRICA INTERACTIVA 3D'
-                    : 'INTERACTIVE 3D SCULPTURAL INSTALLATION'}
-                </span>
-                <span className="text-[#00d4ff] font-semibold">WebGL · 3D</span>
-              </div>
-              <Spatial3DCanvas
-                currentScreen="revista"
-                language={language}
-                heightClass="h-[260px]"
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -836,23 +804,13 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                 ? 'Discografía Seleccionada'
                 : 'Selected Discography'}
             </h2>
-            <div className="mt-2.5 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#111118] border border-[#ec4899]/40 text-[11px] font-mono text-[#f472b6]">
-              <span className="w-2 h-2 rounded-full bg-[#ec4899] animate-pulse shrink-0" />
-              <span>
-                {language === 'ca'
-                  ? 'Pròximament es pujarà tota la meva música a les plataformes'
-                  : language === 'es'
-                  ? 'Próximamente se subirá toda mi música a las plataformas'
-                  : 'All my music will soon be uploaded to streaming platforms'}
-              </span>
-            </div>
           </div>
           <div className="flex flex-wrap items-center gap-4">
             <a
               href={OFFICIAL_SPOTIFY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3.5 py-2 rounded-lg bg-[#111118] border border-[#00d4ff]/40 hover:border-[#00d4ff] text-xs font-mono text-[#00d4ff] flex items-center gap-1.5 whitespace-nowrap shadow-[0_0_14px_rgba(0,212,255,0.12)] transition-colors"
+              className="px-3.5 py-2 rounded-lg bg-[#111118] border border-[#1DB954]/50 hover:border-[#1ed760] text-xs font-mono text-[#1ed760] flex items-center gap-1.5 whitespace-nowrap shadow-[0_0_14px_rgba(29,185,84,0.15)] transition-colors"
             >
               <Radio className="w-3.5 h-3.5" />
               <span>
@@ -904,6 +862,10 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                     ? 'NUEVO DESTACADO 2026'
                     : 'NEW FEATURED 2026'}
                 </span>
+                <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#050507]/85 backdrop-blur-md border border-[#1DB954]/60 text-[10px] font-mono text-[#1ed760] shadow-[0_0_10px_rgba(29,185,84,0.3)]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1DB954] animate-pulse" />
+                  <span>Spotify</span>
+                </div>
               </div>
               <div className="text-xs font-mono text-[#00d4ff] mb-1 tabular-nums">
                 {language === 'ca'
@@ -926,20 +888,27 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
 
             <div className="pt-5 mt-4 border-t border-[#22222e] flex gap-2">
               <a
+                href={OFFICIAL_SPOTIFY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="touch-target-44 flex-1 py-2.5 px-3 bg-[#1DB954] hover:bg-[#1ed760] text-black font-semibold rounded-lg flex items-center justify-center gap-1.5 text-xs transition-all shadow-[0_0_12px_rgba(29,185,84,0.25)]"
+              >
+                <svg className="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24">
+                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.502 17.309c-.218.358-.684.471-1.042.253-2.855-1.745-6.449-2.14-10.684-1.173-.41.094-.82-.162-.914-.572-.094-.41.162-.82.572-.914 4.636-1.059 8.608-.616 11.815 1.364.358.218.471.684.253 1.042zm1.468-3.264c-.274.446-.86.588-1.306.314-3.269-2.009-8.252-2.592-12.119-1.417-.5.152-1.033-.133-1.185-.633-.152-.5.133-1.033.633-1.185 4.417-1.341 9.914-.689 13.663 1.615.446.274.588.86.314 1.306zm.126-3.399C15.18 8.36 8.71 8.146 4.969 9.282c-.602.183-1.242-.166-1.425-.768-.183-.602.166-1.242.768-1.425 4.316-1.31 11.458-1.063 15.98 1.621.541.321.718 1.022.397 1.563-.321.541-1.022.718-1.563.397z"/>
+                </svg>
+                <span>Spotify</span>
+                <ExternalLink className="w-3 h-3 text-black/70" />
+              </a>
+
+              <a
                 href="https://youtu.be/RVuiWbT_mNk"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="touch-target-44 flex-1 py-2.5 px-4 gradient-lila-rosa-rojo text-white hover:opacity-95 rounded-lg flex items-center justify-center gap-2 text-xs font-semibold transition-all"
+                className="touch-target-44 flex-1 py-2.5 px-3 gradient-lila-rosa-rojo text-white hover:opacity-95 rounded-lg flex items-center justify-center gap-1.5 text-xs font-semibold transition-all"
               >
                 <Play className="w-3.5 h-3.5 fill-current" />
-                <span>
-                  {language === 'ca'
-                    ? 'Escoltar a YouTube'
-                    : language === 'es'
-                    ? 'Escuchar en YouTube'
-                    : 'Listen on YouTube'}
-                </span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <span>YouTube</span>
+                <ExternalLink className="w-3 h-3" />
               </a>
             </div>
           </Card3D>

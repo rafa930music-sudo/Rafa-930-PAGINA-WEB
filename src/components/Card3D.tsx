@@ -21,6 +21,11 @@ export const Card3D: React.FC<Card3DProps> = ({
   const rafRef = useRef<number | null>(null);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Disable 3D tilt calculation on mobile and touch devices
+    if (typeof window !== 'undefined' && !window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      return;
+    }
+
     const el = cardRef.current;
     if (!el) return;
 
@@ -43,11 +48,7 @@ export const Card3D: React.FC<Card3DProps> = ({
       const rotateX = normY * -intensity;
       const rotateY = normX * intensity;
 
-      const isLight = document.documentElement.classList.contains('light');
-      const baseShadow = isLight
-        ? 'rgba(15, 12, 32, 0.14)'
-        : 'rgba(0, 0, 0, 0.68)';
-
+      const baseShadow = 'rgba(0, 0, 0, 0.68)';
       const shadowX = -normX * 14;
       const shadowY = -normY * 14 + 12;
 
@@ -59,11 +60,11 @@ export const Card3D: React.FC<Card3DProps> = ({
         const gx = ((x / rect.width) * 100).toFixed(1);
         const gy = ((y / rect.height) * 100).toFixed(1);
         glareRef.current.style.background = `radial-gradient(380px circle at ${gx}% ${gy}%, ${glowColor}, transparent 70%)`;
-        glareRef.current.style.opacity = isLight ? '0.45' : '0.85';
+        glareRef.current.style.opacity = '0.85';
       }
 
       if (rimRef.current) {
-        rimRef.current.style.opacity = isLight ? '0.35' : '0.65';
+        rimRef.current.style.opacity = '0.65';
       }
     });
   };
@@ -91,32 +92,23 @@ export const Card3D: React.FC<Card3DProps> = ({
       onClick={onClick}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{
-        transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg) translate3d(0, 0, 0px) scale3d(1, 1, 1)',
-      }}
-      className={`relative overflow-hidden will-change-transform ${className}`}
+      className={`relative overflow-hidden ${className}`}
     >
-      {/* 3D Specular Glare Overlay */}
+      {/* 3D Specular Glare Overlay (Desktop only) */}
       <div
         ref={glareRef}
         aria-hidden="true"
-        style={{ opacity: 0 }}
-        className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-200"
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 z-20 mix-blend-screen hidden sm:block"
       />
-      {/* 3D Top Bevel Rim Highlight */}
+
+      {/* Rim light border (Desktop only) */}
       <div
         ref={rimRef}
         aria-hidden="true"
-        style={{
-          opacity: 0,
-          background:
-            'linear-gradient(135deg, rgba(255,255,255,0.18) 0%, transparent 45%, rgba(0,212,255,0.1) 100%)',
-        }}
-        className="pointer-events-none absolute inset-0 z-10 rounded-[inherit] transition-opacity duration-200"
+        className="pointer-events-none absolute inset-0 rounded-[inherit] border border-[#00d4ff]/40 opacity-0 transition-opacity duration-300 z-20 hidden sm:block"
       />
-      <div className="relative z-20 h-full flex flex-col justify-between">
-        {children}
-      </div>
+
+      {children}
     </div>
   );
 };

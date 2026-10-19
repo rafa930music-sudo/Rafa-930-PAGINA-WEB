@@ -63,9 +63,9 @@ const TRACK_I18N: Record<
       en: 'I look at the sky and don’t know if I’ll be here tomorrow,\nbut today I swear I sing from the soul.\nStepping onto the street with faith in my eyes,\nfrom La Mina with a sharpened voice...',
     },
     credits: {
-      ca: 'Lletra: RAFA 930 · Producció: Ouxxox · Mescla & Màster: 930 Records',
-      es: 'Letra: RAFA 930 · Producción: Ouxxox · Mezcla & Máster: 930 Records',
-      en: 'Lyrics: RAFA 930 · Production: Ouxxox · Mix & Master: 930 Records',
+      ca: 'Lletra: RAFA 930 · Producció: Incrife · Mescla & Màster: 930 Records',
+      es: 'Letra: RAFA 930 · Producción: Incrife · Mezcla & Máster: 930 Records',
+      en: 'Lyrics: RAFA 930 · Production: Incrife · Mix & Master: 930 Records',
     },
   },
   'my-world-ep': {
@@ -296,20 +296,25 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
           </h1>
           <p className="text-[#a1a1b5] text-base max-w-2xl mt-2 leading-relaxed">
             {language === 'ca'
-              ? 'Música urbana, rap conscient i composicions originals. Explora cada llançament a YouTube o consulta les lletres completes.'
+              ? 'Música urbana, rap conscient i composicions originals. Disponibles en Spotify, reprodueix a YouTube o consulta les lletres completes.'
               : language === 'es'
-              ? 'Música urbana, rap consciente y composiciones originales. Explora cada lanzamiento en YouTube o consulta las letras completas.'
-              : 'Urban music, conscious rap, and original compositions. Explore each release on YouTube or read the full lyrics.'}
+              ? 'Música urbana, rap consciente y composiciones originales. Disponibles en Spotify, reproduce en YouTube o consulta las letras completas.'
+              : 'Urban music, conscious rap, and original compositions. Available on Spotify, watch on YouTube, or view full lyrics.'}
           </p>
-          <div className="mt-4 inline-flex items-center gap-2.5 px-3.5 py-2 rounded-lg bg-[#111118] border border-[#ec4899]/40 text-xs font-mono text-[#f472b6] shadow-[0_0_16px_rgba(236,72,153,0.15)]">
-            <span className="w-2 h-2 rounded-full bg-[#ec4899] animate-pulse" />
-            <span>
-              {language === 'ca'
-                ? 'PRÒXIMAMENT ES PUJARÀ TOTA LA MÚSICA A TOTES LES PLATAFORMES DIGITALS'
-                : language === 'es'
-                ? 'PRÓXIMAMENTE SE SUBIRÁ TODA LA MÚSICA A TODAS LAS PLATAFORMAS DIGITALES'
-                : 'FULL CATALOG COMING SOON TO ALL STREAMING PLATFORMS'}
-            </span>
+        </div>
+
+        {/* Digital Platforms Block */}
+        <div className="flex flex-col gap-3">
+          <span className="text-[10px] font-mono uppercase tracking-wider text-[#a1a1b5]">
+            {language === 'ca' ? 'Totes les plataformes' : language === 'es' ? 'Todas mis plataformas digitales' : 'All my digital platforms'}
+          </span>
+          <div className="flex items-center gap-3">
+             <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#1DB954] transition-colors" title="Spotify"><img src="https://cdn.simpleicons.org/spotify/1DB954" alt="Spotify" className="w-5 h-5" /></a>
+             <a href="https://www.youtube.com/@Rafa930" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF0000] transition-colors" title="YouTube"><img src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube" className="w-5 h-5" /></a>
+             <a href="https://www.deezer.com/mx/artist/224265995" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FFB700] transition-colors" title="Deezer"><img src="https://cdn.simpleicons.org/deezer/FFB700" alt="Deezer" className="w-5 h-5" /></a>
+             <a href="https://music.apple.com/es/artist/rafa-930/1724193275" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FA5788] transition-colors" title="Apple Music"><img src="https://cdn.simpleicons.org/applemusic/FA5788" alt="Apple Music" className="w-5 h-5" /></a>
+             <a href="https://music.amazon.in/artists/B0CJM7BWF1/rafa-930" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF9900] transition-colors" title="Amazon Music"><img src="https://cdn.simpleicons.org/amazonmusic/FF9900" alt="Amazon Music" className="w-5 h-5" /></a>
+             <a href="https://tidal.com/artist/41128230" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#00FFFF] transition-colors" title="Tidal"><img src="https://cdn.simpleicons.org/tidal/00FFFF" alt="Tidal" className="w-5 h-5" /></a>
           </div>
         </div>
 
@@ -318,28 +323,28 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
           href={OFFICIAL_SPOTIFY_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="touch-target-48 px-5 py-3.5 rounded-xl bg-[#111118] border border-[#00d4ff]/45 hover:border-[#00d4ff] text-[#ffffff] flex items-center gap-3.5 shadow-[0_0_22px_rgba(0,212,255,0.14)] transition-all shrink-0 group"
+          className="touch-target-48 px-5 py-3.5 rounded-xl bg-[#111118] border border-[#1DB954]/50 hover:border-[#1ed760] text-[#ffffff] flex items-center gap-3.5 shadow-[0_0_22px_rgba(29,185,84,0.18)] transition-all shrink-0 group"
         >
-          <div className="w-10 h-10 rounded-lg bg-[#00d4ff]/15 border border-[#00d4ff]/40 flex items-center justify-center text-[#00d4ff] shrink-0">
-            <Radio className="w-5 h-5" />
+          <div className="w-10 h-10 rounded-lg bg-[#1DB954]/20 border border-[#1DB954]/50 flex items-center justify-center text-[#1ed760] shrink-0">
+             <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.502 17.309c-.218.358-.684.471-1.042.253-2.855-1.745-6.449-2.14-10.684-1.173-.41.094-.82-.162-.914-.572-.094-.41.162-.82.572-.914 4.636-1.059 8.608-.616 11.815 1.364.358.218.471.684.253 1.042zm1.468-3.264c-.274.446-.86.588-1.306.314-3.269-2.009-8.252-2.592-12.119-1.417-.5.152-1.033-.133-1.185-.633-.152-.5.133-1.033.633-1.185 4.417-1.341 9.914-.689 13.663 1.615.446.274.588.86.314 1.306zm.126-3.399C15.18 8.36 8.71 8.146 4.969 9.282c-.602.183-1.242-.166-1.425-.768-.183-.602.166-1.242.768-1.425 4.316-1.31 11.458-1.063 15.98 1.621.541.321.718 1.022.397 1.563-.321.541-1.022.718-1.563.397z"/></svg>
           </div>
           <div>
-            <span className="text-[10px] font-mono uppercase tracking-wider text-[#00d4ff] block font-semibold">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-[#1ed760] block font-semibold">
               {language === 'ca'
                 ? 'PERFIL D’ARTISTA OFICIAL'
                 : language === 'es'
                 ? 'PERFIL DE ARTISTA OFICIAL'
                 : 'OFFICIAL ARTIST PROFILE'}
             </span>
-            <span className="text-xs sm:text-sm font-semibold text-[#ffffff] group-hover:text-[#00d4ff] transition-colors flex items-center gap-1.5">
+            <span className="text-xs sm:text-sm font-semibold text-[#ffffff] group-hover:text-[#1ed760] transition-colors flex items-center gap-1.5">
               <span>
                 {language === 'ca'
-                  ? 'Seguir RAFA 930 a Spotify (Pròximament)'
+                  ? 'Escoltar a Spotify · Seguir RAFA 930'
                   : language === 'es'
-                  ? 'Seguir a RAFA 930 en Spotify (Próximamente)'
-                  : 'Follow RAFA 930 on Spotify (Coming Soon)'}
+                  ? 'Escuchar en Spotify · Seguir a RAFA 930'
+                  : 'Listen on Spotify · Follow RAFA 930'}
               </span>
-              <ExternalLink className="w-3.5 h-3.5 text-[#00d4ff]" />
+              <ExternalLink className="w-3.5 h-3.5 text-[#1ed760]" />
             </span>
           </div>
         </a>
@@ -371,8 +376,6 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
               </h2>
               <p className="text-xs font-mono text-[#a1a1b5] mt-1 tabular-nums">
                 RAFA 930
-                {currentPlayingTrack.bpm ? ` · ${currentPlayingTrack.bpm} BPM` : ''}
-                {currentPlayingTrack.keyNote ? ` · ${currentPlayingTrack.keyNote}` : ''}
               </p>
             </div>
           </div>
@@ -414,17 +417,20 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
               href={currentPlayingTrack.spotifyUrl || OFFICIAL_SPOTIFY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="touch-target-44 px-4 py-2.5 rounded-lg bg-[#0a0a0f] border border-[#00d4ff]/40 hover:border-[#00d4ff] text-[#ffffff] text-xs font-mono flex items-center gap-1.5"
+              className="touch-target-44 px-4 py-2.5 rounded-lg bg-[#1DB954] hover:bg-[#1ed760] text-black font-semibold text-xs font-mono flex items-center gap-1.5 shadow-[0_0_15px_rgba(29,185,84,0.35)] transition-all"
             >
+              <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.502 17.309c-.218.358-.684.471-1.042.253-2.855-1.745-6.449-2.14-10.684-1.173-.41.094-.82-.162-.914-.572-.094-.41.162-.82.572-.914 4.636-1.059 8.608-.616 11.815 1.364.358.218.471.684.253 1.042zm1.468-3.264c-.274.446-.86.588-1.306.314-3.269-2.009-8.252-2.592-12.119-1.417-.5.152-1.033-.133-1.185-.633-.152-.5.133-1.033.633-1.185 4.417-1.341 9.914-.689 13.663 1.615.446.274.588.86.314 1.306zm.126-3.399C15.18 8.36 8.71 8.146 4.969 9.282c-.602.183-1.242-.166-1.425-.768-.183-.602.166-1.242.768-1.425 4.316-1.31 11.458-1.063 15.98 1.621.541.321.718 1.022.397 1.563-.321.541-1.022.718-1.563.397z"/>
+              </svg>
               <span>Spotify</span>
-              <ExternalLink className="w-3.5 h-3.5 text-[#00d4ff]" />
+              <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>
       </Card3D>
 
       {/* Category Filter Controls */}
-      <div className="flex flex-wrap items-center gap-1.5 p-1.5 bg-[#0a0a0f]/90 backdrop-blur-md border border-[#22222e] rounded-lg w-fit shadow-[0_10px_25px_-8px_rgba(0,0,0,0.65)]">
+      <div className="flex items-center gap-1.5 p-1.5 bg-[#0a0a0f]/90 backdrop-blur-md border border-[#22222e] rounded-lg max-w-full overflow-x-auto scrollbar-none shadow-[0_10px_25px_-8px_rgba(0,0,0,0.65)]">
         {filterButtons.map((btn) => (
           <button
             key={btn.id}
@@ -466,6 +472,10 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
+                  <div className="absolute top-2.5 right-2.5 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#050507]/85 backdrop-blur-md border border-[#1DB954]/60 text-[10px] font-mono text-[#1ed760] shadow-[0_0_12px_rgba(29,185,84,0.35)]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#1DB954] animate-pulse" />
+                    <span>Spotify</span>
+                  </div>
                 </div>
 
                 <div className="flex items-center justify-between gap-2 text-xs font-mono text-[#a1a1b5] mb-1 tabular-nums">
@@ -492,21 +502,29 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
 
               <div className="pt-4 border-t border-[#22222e] mt-4 flex items-center gap-2">
                 <a
+                  href={track.spotifyUrl || OFFICIAL_SPOTIFY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="touch-target-44 flex-1 py-2.5 px-3 rounded-lg bg-[#1DB954] hover:bg-[#1ed760] text-black hover:opacity-95 flex items-center justify-center gap-1.5 text-xs font-bold transition-all shadow-[0_0_14px_rgba(29,185,84,0.25)]"
+                >
+                  <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.502 17.309c-.218.358-.684.471-1.042.253-2.855-1.745-6.449-2.14-10.684-1.173-.41.094-.82-.162-.914-.572-.094-.41.162-.82.572-.914 4.636-1.059 8.608-.616 11.815 1.364.358.218.471.684.253 1.042zm1.468-3.264c-.274.446-.86.588-1.306.314-3.269-2.009-8.252-2.592-12.119-1.417-.5.152-1.033-.133-1.185-.633-.152-.5.133-1.033.633-1.185 4.417-1.341 9.914-.689 13.663 1.615.446.274.588.86.314 1.306zm.126-3.399C15.18 8.36 8.71 8.146 4.969 9.282c-.602.183-1.242-.166-1.425-.768-.183-.602.166-1.242.768-1.425 4.316-1.31 11.458-1.063 15.98 1.621.541.321.718 1.022.397 1.563-.321.541-1.022.718-1.563.397z"/>
+                  </svg>
+                  <span>Spotify</span>
+                  <ExternalLink className="w-3 h-3 text-black/70" />
+                </a>
+
+                <a
                   href={track.youtubeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="touch-target-44 flex-1 py-2.5 px-3 rounded-lg gradient-lila-rosa-rojo text-white hover:opacity-95 flex items-center justify-center gap-2 text-xs font-semibold transition-all"
+                  className="touch-target-44 flex-1 py-2.5 px-3 rounded-lg gradient-lila-rosa-rojo text-white hover:opacity-95 flex items-center justify-center gap-1.5 text-xs font-semibold transition-all"
                 >
                   <Play className="w-3.5 h-3.5 fill-current" />
-                  <span>
-                    {language === 'ca'
-                      ? 'YouTube'
-                      : language === 'es'
-                      ? 'YouTube'
-                      : 'YouTube'}
-                  </span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <span>YouTube</span>
+                  <ExternalLink className="w-3 h-3" />
                 </a>
 
                 <button
@@ -522,21 +540,10 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
                       ? 'Ver letra completa'
                       : 'View full lyrics'
                   }
-                  className="touch-target-44 px-3 py-2.5 bg-[#0a0a0f] border border-[#22222e] hover:border-[#a855f7] text-[#a1a1b5] hover:text-[#ffffff] rounded-lg transition-colors flex items-center gap-1 text-xs"
+                  className="touch-target-44 px-3 py-2.5 bg-[#0a0a0f] border border-[#22222e] hover:border-[#a855f7] text-[#a1a1b5] hover:text-[#ffffff] rounded-lg transition-colors flex items-center justify-center text-xs"
                 >
                   <FileText className="w-4 h-4" />
                 </button>
-
-                <a
-                  href={track.spotifyUrl || OFFICIAL_SPOTIFY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  title="Spotify"
-                  className="touch-target-44 px-3 py-2.5 bg-[#0a0a0f] border border-[#00d4ff]/35 hover:border-[#00d4ff] text-[#00d4ff] rounded-lg transition-colors flex items-center gap-1 text-xs font-mono"
-                >
-                  <Radio className="w-3.5 h-3.5" />
-                </a>
               </div>
             </Card3D>
           );

@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { ScreenId, Language, ThemeMode, LegalDocId } from '../types';
+import { ScreenId, Language, LegalDocId } from '../types';
 import {
   Menu,
   X,
   ArrowRight,
-  Sun,
-  Moon,
   ShieldCheck,
   Home,
   Disc3,
@@ -24,8 +22,6 @@ interface HeaderProps {
   language: Language;
   onToggleLanguage: () => void;
   onSelectLanguage?: (lang: Language) => void;
-  theme: ThemeMode;
-  onToggleTheme: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -35,37 +31,8 @@ export const Header: React.FC<HeaderProps> = ({
   language,
   onToggleLanguage,
   onSelectLanguage,
-  theme,
-  onToggleTheme,
 }) => {
   const [burgerOpen, setBurgerOpen] = useState(false);
-  const [sharedCopied, setSharedCopied] = useState(false);
-
-  const handleShareWeb = async () => {
-    const shareUrl = 'https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/';
-    const shareTitle = 'RAFA 930 | Música, Fotografía & Web';
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: shareTitle,
-          text:
-            language === 'ca'
-              ? 'Web oficial de RAFA 930 — Música, Fotografia & Web'
-              : language === 'es'
-              ? 'Web oficial de RAFA 930 — Música, Fotografía & Web'
-              : 'Official website of RAFA 930 — Music, Photography & Web',
-          url: shareUrl,
-        });
-        return;
-      } catch {}
-    }
-    try {
-      await navigator.clipboard.writeText(shareUrl);
-      setSharedCopied(true);
-      setTimeout(() => setSharedCopied(false), 2200);
-    } catch {}
-  };
-
   // Close BurgerNav on ESC key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -152,13 +119,15 @@ export const Header: React.FC<HeaderProps> = ({
           className="h-[2px] w-full bg-gradient-to-r from-[#a855f7] via-[#00d4ff] to-[#ec4899] shadow-[0_0_12px_rgba(0,212,255,0.65)]"
         />
         <div className="flex justify-between items-center w-full px-3 sm:px-6 md:px-10 h-16 sm:h-18 max-w-7xl mx-auto gap-2">
-          {/* Zone 1: Brand Wordmark -> RAFA 930 */}
+          {/* Zone 1: Brand Wordmark -> RAFA 930 (Click to view official signature splash) */}
           <button
             type="button"
             onClick={() => handleNavClick('revista')}
-            className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#ffffff] hover:opacity-90 transition-opacity font-['Bebas_Neue'] whitespace-nowrap shrink-0 focus:outline-none"
+            className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#ffffff] hover:opacity-90 transition-opacity font-['Bebas_Neue'] whitespace-nowrap shrink-0 focus:outline-none flex items-center gap-2 group cursor-pointer"
           >
-            RAFA <span className="text-gradient-lila-rosa-rojo">930</span>
+            <span>
+              RAFA <span className="text-gradient-930">930</span>
+            </span>
           </button>
 
           {/* Zone 2: Clean Desktop Navigation Links */}
@@ -212,57 +181,6 @@ export const Header: React.FC<HeaderProps> = ({
               })}
             </div>
 
-            <button
-              type="button"
-              onClick={onToggleTheme}
-              className="touch-target-44 w-10 h-10 sm:w-auto sm:px-3 sm:py-2 rounded-lg border border-[#22222e] bg-[#111118] text-xs font-mono text-[#a1a1b5] hover:text-[#ffffff] hover:border-[#a855f7] transition-colors flex items-center justify-center gap-1.5 shrink-0"
-              aria-label={theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
-            >
-              {theme === 'dark' ? (
-                <Sun className="w-4 h-4 text-[#ec4899]" />
-              ) : (
-                <Moon className="w-4 h-4 text-[#a855f7]" />
-              )}
-            </button>
-
-            <button
-              type="button"
-              onClick={handleShareWeb}
-              className="touch-target-44 w-10 h-10 sm:w-auto sm:px-3 sm:py-2 rounded-lg border border-[#22222e] bg-[#111118] text-xs font-mono text-[#a1a1b5] hover:text-[#ffffff] hover:border-[#00d4ff] transition-colors flex items-center justify-center gap-1.5 shrink-0"
-              aria-label={
-                language === 'ca'
-                  ? 'Compartir web'
-                  : language === 'es'
-                  ? 'Compartir web'
-                  : 'Share website'
-              }
-              title={
-                language === 'ca'
-                  ? 'Compartir web'
-                  : language === 'es'
-                  ? 'Compartir web'
-                  : 'Share website'
-              }
-            >
-              {sharedCopied ? (
-                <Check className="w-4 h-4 text-[#00d4ff]" />
-              ) : (
-                <Share2 className="w-4 h-4 text-[#00d4ff]" />
-              )}
-              <span className="hidden lg:inline">
-                {sharedCopied
-                  ? language === 'ca'
-                    ? 'Copiat'
-                    : language === 'es'
-                    ? 'Copiado'
-                    : 'Copied'
-                  : language === 'ca'
-                  ? 'Compartir'
-                  : language === 'es'
-                  ? 'Compartir'
-                  : 'Share'}
-              </span>
-            </button>
 
             <button
               type="button"
@@ -317,7 +235,7 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Drawer Top Header */}
             <div className="flex items-center justify-between px-5 sm:px-6 h-16 sm:h-18 border-b border-[#22222e] shrink-0">
               <span className="font-['Bebas_Neue'] text-2xl font-extrabold tracking-tight text-[#ffffff]">
-                RAFA <span className="text-gradient-lila-rosa-rojo">930</span>
+                RAFA <span className="text-gradient-930">930</span>
               </span>
               <button
                 type="button"
@@ -416,6 +334,7 @@ export const Header: React.FC<HeaderProps> = ({
                   </button>
                 ))}
               </div>
+
 
               <button
                 type="button"

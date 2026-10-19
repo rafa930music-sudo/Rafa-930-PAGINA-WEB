@@ -8,76 +8,131 @@ interface SplashScreenProps {
 
 export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
   const [isExiting, setIsExiting] = useState(false);
+  const text = "RAFA 930";
 
   useEffect(() => {
-    const exitTimer = setTimeout(() => {
-      setIsExiting(true);
-    }, 1450);
+    const timer = setTimeout(() => {
+      handleDismiss();
+    }, 3000);
 
-    const completeTimer = setTimeout(() => {
-      onComplete();
-    }, 1950);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') {
+        handleDismiss();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      clearTimeout(exitTimer);
-      clearTimeout(completeTimer);
+      clearTimeout(timer);
+      window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [onComplete]);
+  }, []);
 
   const handleDismiss = () => {
     if (isExiting) return;
     setIsExiting(true);
-    setTimeout(() => {
-      onComplete();
-    }, 400);
+    setTimeout(onComplete, 500);
   };
 
   return (
     <div
       role="dialog"
-      aria-label="RAFA 930"
+      aria-label="Cargando RAFA 930"
       onClick={handleDismiss}
-      className={`fixed inset-0 z-[100] bg-[#050507] flex items-center justify-center px-6 sm:px-12 select-none cursor-pointer overflow-hidden transition-all duration-500 ${
-        isExiting ? 'opacity-0 scale-[1.03] pointer-events-none' : 'opacity-100 scale-100'
+      className={`fixed inset-0 z-[99999] w-screen h-[100dvh] bg-[#050507] flex flex-col items-center justify-center p-4 sm:p-6 md:p-12 overflow-hidden transition-opacity duration-500 cursor-pointer select-none ${
+        isExiting ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
-      {/* Ambient Luxury Lighting (Lila, Rosa, Rojo + Subtle Electric Blue / Rayo) */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-28 left-1/4 w-[26rem] h-[26rem] rounded-full bg-[#a855f7]/20 blur-[140px]"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 right-1/4 w-[24rem] h-[24rem] rounded-full bg-[#ec4899]/18 blur-[140px]"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-28 left-1/3 w-[22rem] h-[22rem] rounded-full bg-[#e11d48]/16 blur-[130px]"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[20rem] h-[20rem] rounded-full bg-[#00d4ff]/12 blur-[125px]"
-      />
+      {/* Galaxy background with stars */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#1e1b4b_0%,#0f172a_35%,#020617_100%)] pointer-events-none" />
+      <div className="absolute inset-0 opacity-40 pointer-events-none">
+        {Array.from({ length: 45 }).map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-white animate-pulse"
+            style={{
+              width: Math.random() * 2.2 + 1 + 'px',
+              height: Math.random() * 2.2 + 1 + 'px',
+              top: Math.random() * 100 + '%',
+              left: Math.random() * 100 + '%',
+              animationDelay: Math.random() * 5 + 's',
+              opacity: Math.random() * 0.7 + 0.3,
+            }}
+          />
+        ))}
+      </div>
 
-      {/* Fine Luxury Frame Border */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-4 sm:inset-8 border border-[#22222e] rounded-2xl shadow-[inset_0_0_40px_rgba(0,212,255,0.05)]"
-      />
+      {/* Progressive letter animation styles */}
+      <style>{`
+        @keyframes letterReveal {
+          0% {
+            opacity: 0;
+            transform: translateY(22px) scale(0.92);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+        .animate-letter-reveal {
+          animation: letterReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+      `}</style>
 
-      {/* Strictly Single-Line Horizontal RAFA 930 Wordmark, Fluidly Fitted to Screen Width */}
-      <div className="relative z-10 w-full max-w-4xl flex flex-col items-center justify-center">
-        <div
-          aria-hidden="true"
-          className="font-['Bebas_Neue'] font-extrabold tracking-tight text-[clamp(2.25rem,10vw,6.75rem)] leading-none whitespace-nowrap inline-flex items-baseline justify-center gap-2.5 sm:gap-4 text-[#ffffff] drop-shadow-[0_0_32px_rgba(0,212,255,0.16)]"
-        >
-          <span>RAFA</span>
-          <span className="text-gradient-lila-rosa-rojo">930</span>
-        </div>
-        <div
-          aria-hidden="true"
-          className="mt-4 sm:mt-5 h-[2px] w-28 sm:w-44 rounded-full bg-gradient-to-r from-[#a855f7] via-[#00d4ff] to-[#ec4899] shadow-[0_0_14px_rgba(0,212,255,0.55)]"
-        />
+      {/* Central animated text with the 4-color gradient on 930 */}
+      <div className="flex justify-center items-center z-10 max-w-full px-2">
+        <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tight font-['Bebas_Neue'] whitespace-nowrap flex items-center justify-center">
+          {text.split('').map((char, index) => {
+            let charStyle: React.CSSProperties = {
+              animationDelay: `${index * 0.12}s`,
+            };
+
+            if (char === '9') {
+              charStyle = {
+                ...charStyle,
+                background: 'linear-gradient(90deg, #00d4ff 0%, #818cf8 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                filter: 'drop-shadow(0 0 20px rgba(0, 212, 255, 0.5))',
+              };
+            } else if (char === '3') {
+              charStyle = {
+                ...charStyle,
+                background: 'linear-gradient(90deg, #818cf8 0%, #c084fc 40%, #ec4899 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                filter: 'drop-shadow(0 0 20px rgba(192, 132, 252, 0.5))',
+              };
+            } else if (char === '0') {
+              charStyle = {
+                ...charStyle,
+                background: 'linear-gradient(90deg, #ec4899 0%, #fb923c 45%, #facc15 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                filter: 'drop-shadow(0 0 20px rgba(250, 204, 21, 0.5))',
+              };
+            } else {
+              charStyle = {
+                ...charStyle,
+                color: '#ffffff',
+                filter: 'drop-shadow(0 0 16px rgba(255, 255, 255, 0.25))',
+              };
+            }
+
+            return (
+              <span
+                key={index}
+                className="animate-letter-reveal opacity-0 inline-block"
+                style={charStyle}
+              >
+                {char === ' ' ? '\u00A0' : char}
+              </span>
+            );
+          })}
+        </h1>
       </div>
     </div>
   );

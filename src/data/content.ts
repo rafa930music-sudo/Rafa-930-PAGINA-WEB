@@ -1,4 +1,5 @@
 import { Track, Collaborator, GalleryPhoto, TimelineEvent, ServicePackage } from '../types';
+import rafa930Photo from '../assets/images/RAFA930.jpg';
 
 export const OFFICIAL_SPOTIFY_URL = 'https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng';
 
@@ -33,8 +34,6 @@ export const TRACKS: Track[] = [
     plays: 'Nou llançament 2026',
     lyricsExcerpt: 'Estic de tornada al carrer on tot va començar,\nsota les llums de neó ningú em farà callar.\nCada pas que dono porta el segell del 930,\ntorno amb més veritat i l’ànima ben desperta...',
     credits: 'Lletra i Veu: Rafa 930 · 930 Records',
-    bpm: 126,
-    keyNote: 'C minor',
   },
   {
     id: 'nose-si-estare-manana',
@@ -49,9 +48,7 @@ export const TRACKS: Track[] = [
     description: 'Un single cargado de urgencia vital, melodías envolventes y la introspección más honesta del artista.',
     plays: '1.2K+ reproduccions',
     lyricsExcerpt: 'Miro al cielo y no sé si estaré mañana,\npero hoy te juro que canto con el alma.\nSalgo a la calle con la fe en la mirada,\ndesde La Mina con la voz afilada...',
-    credits: 'Lletra: Rafa 930 · Producció: Ouxxox · Mescla & Master: 930 Records',
-    bpm: 128,
-    keyNote: 'F minor',
+    credits: 'Lletra: Rafa 930 · Producció: Incrife · Mescla & Master: 930 Records',
   },
   {
     id: 'tu-aroma',
@@ -67,8 +64,6 @@ export const TRACKS: Track[] = [
     plays: '850+ reps',
     lyricsExcerpt: 'Em queda el teu aroma quan el vent passa,\nla ciutat calla i el teu record m’abraça...',
     credits: 'Rafa 930 · 930 Records (2026)',
-    bpm: 105,
-    keyNote: 'A minor',
   },
   {
     id: 'la-vida-es-bella',
@@ -85,8 +80,6 @@ export const TRACKS: Track[] = [
     upcomingNote: 'Primer avançament oficial (2026): Tú Aroma',
     lyricsExcerpt: 'Perquè la vida és bella si la saps mirar,\nencara que el camí costi de trepitjar.\nDes de Sant Adrià fins on vulgui arribar,\nporto la meva gent al meu cantar...',
     credits: 'Rafa 930 & Col·laboradors de La Mina',
-    bpm: 100,
-    keyNote: 'D major',
   },
   {
     id: 'my-world-ep',
@@ -102,8 +95,6 @@ export const TRACKS: Track[] = [
     plays: '3.8K+ reproduccions',
     lyricsExcerpt: 'Un minut i deu segons per dir el que sento,\nlo material s’apaga amb el pas del temps,\ncontra un sistema cec jo no em doblego,\nporto el meu barri a cada sentiment...',
     credits: 'Rafa 930 · Visuals: Incrife · Art: 930 Digital',
-    bpm: 94,
-    keyNote: 'C# minor',
   },
   {
     id: 'un-amor-prohibido',
@@ -119,8 +110,6 @@ export const TRACKS: Track[] = [
     plays: '1.000+ reps',
     lyricsExcerpt: 'Sé que deien que no podia ser,\nun amor prohibit sota el mateix carrer.\nTu i jo mirant la lluna créixer,\nsense por del que hagi de vèncer...',
     credits: 'Rafa 930',
-    bpm: 96,
-    keyNote: 'G minor',
   },
   {
     id: 'hago-dinero',
@@ -136,8 +125,6 @@ export const TRACKS: Track[] = [
     plays: '500+ reps',
     lyricsExcerpt: 'Faig diners amb el meu talent i el meu suor,\nsense vendre el meu nom ni perdre el meu valor...',
     credits: 'Rafa 930 feat. Ouxxox',
-    bpm: 130,
-    keyNote: 'E minor',
   },
   {
     id: 'vive-suena-en-tu-mundo',
@@ -153,8 +140,6 @@ export const TRACKS: Track[] = [
     plays: 'Primera referència',
     lyricsExcerpt: 'Viu i somia en el teu propi món,\nno deixis que apaguin el que portes al fons...',
     credits: 'Rafa 930',
-    bpm: 90,
-    keyNote: 'D minor',
   },
 ];
 
@@ -162,7 +147,7 @@ export const COLLABORATORS: Collaborator[] = [
   {
     id: 'incrife',
     name: 'Incrife',
-    role: 'Fotògraf',
+    role: 'Fotògraf & Productor',
     roleColor: 'primary',
     avatarUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCUfIyKWcRu1ZDkZ5cjd0I3mrV9PqQXJaKk91VlWta5dxPTp_XRnks2RbzJrwAcWw6yNp_f6sW2l2qbex3TqbfnLNbLQgjDsvPKBdHuCMA5xIi3_VPp2xktQMEAVN-xWlhVpgPlYqwms5wsGNlFf_5IJOxyVmUlNPck-nq5elvZpI12j-_oP9othWAGVZJwwNibdLDGBBiCoMgLuHNVHWh7GaAEA5H9I-H3mFMORRIfbIa2Ib8JlrmITpUmWTqnTpv_4g',
     instagramUrl: 'https://www.instagram.com/incrife/',
@@ -234,25 +219,36 @@ export const COLLABORATORS: Collaborator[] = [
 export const GALLERY_PHOTOS: GalleryPhoto[] = [
   {
     id: 'g-portrait-main',
-    title: 'RAFA 930 · Rafael Moreno Román',
+    title: 'RAFA 930',
     category: 'retrat',
     categoryLabel: 'Retrat Oficial',
+    imageUrl: rafa930Photo,
+    credits: 'Arxiu 930 · Rafa 930',
+    year: '2025',
+    location: 'Barcelona',
+    description: 'Retrat editorial oficial de RAFA 930 per a 930 Records.',
+  },
+  {
+    id: 'g-portrait-incrife',
+    title: 'RAFA 930 · Clarobscur',
+    category: 'retrat',
+    categoryLabel: 'Arxiu Editorial',
     imageUrl: ARTIST_IMAGES.heroPortrait,
     credits: 'Foto: Incrife (@incrife)',
     year: '2025',
     location: 'Barcelona',
-    description: 'Retrat oficial de RAFA 930 (Rafael Moreno Román).',
+    description: 'Sessió editorial oficial en clarobscur per Incrife per a 930 Records.',
   },
   {
     id: 'g-library',
     title: 'Biblioteca Font de La Mina',
     category: 'mina',
-    categoryLabel: 'Arxiu',
+    categoryLabel: 'Arxiu Històric',
     imageUrl: ARTIST_IMAGES.libraryOrigin,
-    credits: 'Arxiu RAFA 930',
+    credits: 'Arxiu 930',
     year: 'Orígens',
     location: 'Sant Adrià de Besòs',
-    description: 'Biblioteca Font de La Mina (Sant Adrià de Besòs).',
+    description: 'Bressol creatiu de les primeres lletres i composicions.',
   },
   {
     id: 'g-salma',
@@ -297,6 +293,17 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     year: '2024',
     location: 'Sant Adrià de Besòs',
     description: '',
+  },
+  {
+    id: 'g-kingsla',
+    title: 'Kingsla',
+    category: 'urbana',
+    categoryLabel: 'Artista',
+    imageUrl: COLLABORATORS[3].avatarUrl,
+    credits: '@amine_grafi',
+    year: '2024',
+    location: 'Sant Adrià de Besòs',
+    description: 'Retrat d’artista urbà a Sant Adrià de Besòs.',
   },
   {
     id: 'g-incrife',
@@ -383,21 +390,6 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
 ];
 
 export const SERVICE_PACKAGES: ServicePackage[] = [
-  {
-    id: 'pack-musica',
-    title: 'Música Original & Featurings',
-    category: 'musica',
-    basePrice: 150,
-    description: 'Trap, reggaetón i rap amb identitat pròpia. Concerts, col·laboracions, veu i composició.',
-    features: [
-      'Composició i lletra original personalitzada',
-      'Veu principal i harmonies gravades en alta fidelitat',
-      'Llicència comercial completa per a plataformes',
-      'Col·laboració per a concerts o festivals',
-    ],
-    turnaround: '3 a 7 dies hàbils',
-    auraClass: 'custom-aura-violet',
-  },
   {
     id: 'pack-foto',
     title: 'Fotografia Professional & Editorial',
