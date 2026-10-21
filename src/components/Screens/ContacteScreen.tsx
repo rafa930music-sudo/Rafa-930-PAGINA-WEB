@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import { Language, LegalDocId } from '../../types';
-import { OFFICIAL_SPOTIFY_URL } from '../../data/content';
+import {
+  OFFICIAL_SPOTIFY_URL,
+  OFFICIAL_YOUTUBE_URL,
+  OFFICIAL_INSTAGRAM_URL,
+  OFFICIAL_DEEZER_URL,
+  OFFICIAL_APPLE_MUSIC_URL,
+  OFFICIAL_AMAZON_MUSIC_URL,
+  OFFICIAL_TIDAL_URL,
+} from '../../data/content';
 import {
   sanitizeUserInput,
   isValidEmail,
@@ -16,12 +24,12 @@ import {
   Send,
   Check,
   MessageSquare,
-  Instagram,
-  Youtube,
   MapPin,
   AlertCircle,
   Radio,
   Loader2,
+  Instagram,
+  Youtube,
 } from 'lucide-react';
 import {
   SpotifyLogo,
@@ -31,6 +39,7 @@ import {
   AmazonMusicLogo,
   TidalLogo,
   WhatsAppLogo,
+  InstagramLogo,
 } from '../PlatformLogos';
 
 interface ContacteScreenProps {
@@ -255,7 +264,7 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
               <h4 className="text-xs font-mono text-[#a1a1b5] mb-3">Todas mis plataformas digitales</h4>
               <div className="flex gap-3 flex-wrap">
                 <a href={OFFICIAL_SPOTIFY_URL} target="_blank" rel="noopener noreferrer" title="Spotify" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#1DB954] text-[#1DB954] transition-colors"><SpotifyLogo className="w-5 h-5" /></a>
-                <a href="https://www.youtube.com/@Rafa930" target="_blank" rel="noopener noreferrer" title="YouTube" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF0000] text-[#FF0000] transition-colors"><YouTubeLogo className="w-5 h-5" /></a>
+                <a href={OFFICIAL_YOUTUBE_URL} target="_blank" rel="noopener noreferrer" title="YouTube" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF0000] text-[#FF0000] transition-colors"><YouTubeLogo className="w-5 h-5" /></a>
                 <a href="https://www.deezer.com/mx/artist/224265995" target="_blank" rel="noopener noreferrer" title="Deezer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FFB700] text-[#FFB700] transition-colors"><DeezerLogo className="w-5 h-5" /></a>
                 <a href="https://music.apple.com/es/artist/rafa-930/1724193275" target="_blank" rel="noopener noreferrer" title="Apple Music" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FA5788] text-[#FA5788] transition-colors"><AppleMusicLogo className="w-5 h-5" /></a>
                 <a href="https://music.amazon.in/artists/B0CJM7BWF1/rafa-930" target="_blank" rel="noopener noreferrer" title="Amazon Music" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF9900] text-[#FF9900] transition-colors"><AmazonMusicLogo className="w-5 h-5" /></a>
@@ -287,7 +296,7 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
             </a>
 
             <a
-              href="https://youtube.com/@rafa_930"
+              href={OFFICIAL_YOUTUBE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="p-4 bg-[#0a0a0f] border border-[#00d4ff]/35 hover:border-[#00d4ff] rounded-lg flex items-center gap-4 transition-colors block group shadow-[0_0_16px_rgba(0,212,255,0.08)]"

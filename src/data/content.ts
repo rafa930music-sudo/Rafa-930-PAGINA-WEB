@@ -2,6 +2,12 @@ import { Track, Collaborator, GalleryPhoto, TimelineEvent, ServicePackage } from
 import rafa930Photo from '../assets/images/RAFA930.jpg';
 
 export const OFFICIAL_SPOTIFY_URL = 'https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng';
+export const OFFICIAL_YOUTUBE_URL = 'https://www.youtube.com/@rafa_930';
+export const OFFICIAL_INSTAGRAM_URL = 'https://www.instagram.com/rafa930_oficial';
+export const OFFICIAL_DEEZER_URL = 'https://www.deezer.com/mx/artist/224265995';
+export const OFFICIAL_APPLE_MUSIC_URL = 'https://music.apple.com/es/artist/rafa-930/1724193275';
+export const OFFICIAL_AMAZON_MUSIC_URL = 'https://music.amazon.in/artists/B0CJM7BWF1/rafa-930';
+export const OFFICIAL_TIDAL_URL = 'https://tidal.com/artist/41128230';
 
 export const OFFICIAL_LOGOS = {
   header: '/assets/logo-white.webp',

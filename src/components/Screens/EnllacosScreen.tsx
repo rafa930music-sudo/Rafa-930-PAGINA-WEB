@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 import { Language } from '../../types';
-import { ARTIST_IMAGES, OFFICIAL_SPOTIFY_URL } from '../../data/content';
+import {
+  ARTIST_IMAGES,
+  OFFICIAL_SPOTIFY_URL,
+  OFFICIAL_YOUTUBE_URL,
+  OFFICIAL_INSTAGRAM_URL,
+  OFFICIAL_DEEZER_URL,
+  OFFICIAL_APPLE_MUSIC_URL,
+  OFFICIAL_AMAZON_MUSIC_URL,
+  OFFICIAL_TIDAL_URL,
+} from '../../data/content';
 import { SectionColorBubbles } from '../AmbientColorBubbles';
 import {
   ArrowUpRight,
@@ -132,8 +141,8 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
 
   const shareUrl = typeof window !== 'undefined' ? `${window.location.origin}${window.location.pathname}#enllacos` : 'https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/#enllacos';
   const officialSpotifyUrl = OFFICIAL_SPOTIFY_URL;
-  const officialYoutubeUrl = 'https://www.youtube.com/@Rafa930';
-  const officialInstagramUrl = 'https://www.instagram.com/rafa930_oficial';
+  const officialYoutubeUrl = OFFICIAL_YOUTUBE_URL;
+  const officialInstagramUrl = OFFICIAL_INSTAGRAM_URL;
 
   const handleCopyLink = async () => {
     try {
@@ -194,7 +203,7 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
       id: 'deezer',
       title: content.deezerProfile,
       subtitle: content.deezerSub,
-      url: 'https://www.deezer.com/mx/artist/224265995',
+      url: OFFICIAL_DEEZER_URL,
       badge: 'Deezer',
       Logo: DeezerLogo,
       logoColor: '#FFB700',
@@ -205,7 +214,7 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
       id: 'apple',
       title: content.appleProfile,
       subtitle: content.appleSub,
-      url: 'https://music.apple.com/es/artist/rafa-930/1724193275',
+      url: OFFICIAL_APPLE_MUSIC_URL,
       badge: 'Apple Music',
       Logo: AppleMusicLogo,
       logoColor: '#FA5788',
@@ -216,7 +225,7 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
       id: 'amazon',
       title: content.amazonProfile,
       subtitle: content.amazonSub,
-      url: 'https://music.amazon.in/artists/B0CJM7BWF1/rafa-930',
+      url: OFFICIAL_AMAZON_MUSIC_URL,
       badge: 'Amazon Music',
       Logo: AmazonMusicLogo,
       logoColor: '#FF9900',
@@ -227,7 +236,7 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
       id: 'tidal',
       title: content.tidalProfile,
       subtitle: content.tidalSub,
-      url: 'https://tidal.com/artist/41128230',
+      url: OFFICIAL_TIDAL_URL,
       badge: 'Tidal',
       Logo: TidalLogo,
       logoColor: '#00FFFF',
