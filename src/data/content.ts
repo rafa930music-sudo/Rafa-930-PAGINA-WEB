@@ -42,6 +42,8 @@ export const ARTIST_IMAGES = {
 
 
 
+
+
 export const TRACKS: Track[] = [
   {
     id: 'de-vuelta',
@@ -240,7 +242,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     title: 'RAFA 930',
     category: 'retrat',
     categoryLabel: 'Retrat Oficial',
-    imageUrl: '/assets/RAFA930.jpg',
+    imageUrl: rafa930Photo,
     credits: 'Arxiu 930 · Rafa 930',
     year: '2025',
     location: 'Barcelona',
