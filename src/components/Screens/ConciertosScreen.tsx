@@ -202,10 +202,11 @@ export const ConciertosScreen: React.FC<ConciertosScreenProps> = ({
     },
     {
       order: '03',
-      title: 'Viviendo Para Ser Recordado',
-      tag: language === 'ca' ? 'Darreres Novetats · Single' : language === 'es' ? 'Últimas Novedades · Single' : 'Latest Release · Single',
-      desc: language === 'ca' ? 'Single emotiu i intens sobre el llegat i la memòria als carrers.' : language === 'es' ? 'Sencillo emotivo e intenso sobre el legado y la memoria en las calles.' : 'Emotional and intense single about legacy and street memory.',
+      title: 'Hago Dinero',
+      tag: language === 'ca' ? 'Trap Urbà · Hit de Carrer' : language === 'es' ? 'Trap Urbano · Hit Callejero' : 'Urban Trap · Street Hit',
+      desc: language === 'ca' ? 'Potència sonora pura, ambició i superació des del barri de La Mina.' : language === 'es' ? 'Potencia sonora pura, ambición y superación desde el barrio de La Mina.' : 'Pure sound power, hustle and determination straight from La Mina.',
       highlight: true,
+      spotifyUrl: 'https://open.spotify.com/artist/06iYQvB7eM6Zq03q0dYx9k',
     },
     {
       order: '04',

@@ -2,14 +2,10 @@ import React, { useState } from 'react';
 import { Track, Language } from '../../types';
 import { TRACKS, OFFICIAL_SPOTIFY_URL } from '../../data/content';
 import { Card3D } from '../Card3D';
-import { Vinyl3DPlayer } from '../Vinyl3DPlayer';
 import { SectionColorBubbles } from '../AmbientColorBubbles';
 import {
   Play,
   ExternalLink,
-  FileText,
-  X,
-  Radio,
 } from 'lucide-react';
 import {
   SpotifyLogo,
@@ -29,7 +25,7 @@ const TRACK_I18N: Record<
   {
     categoryLabel: Record<Language, string>;
     description: Record<Language, string>;
-    lyricsExcerpt: Record<Language, string>;
+    lyricsExcerpt?: Record<Language, string>;
     credits: Record<Language, string>;
   }
 > = {
@@ -53,6 +49,23 @@ const TRACK_I18N: Record<
       ca: 'Lletra i Veu: RAFA 930 · 930 Records (2026)',
       es: 'Letra y Voz: RAFA 930 · 930 Records (2026)',
       en: 'Lyrics & Vocals: RAFA 930 · 930 Records (2026)',
+    },
+  },
+  'hago-dinero': {
+    categoryLabel: {
+      ca: 'HIT SINGLE · TRAP POTENT',
+      es: 'HIT SINGLE · TRAP POTENTE',
+      en: 'HIT SINGLE · POWERFUL TRAP',
+    },
+    description: {
+      ca: 'Creixement orgànic sostingut a plataformes d’streaming i YouTube amb so trap potent i lírica directa del barri.',
+      es: 'Crecimiento orgánico sostenido en plataformas de streaming y YouTube con sonido trap potente y lírica directa de barrio.',
+      en: 'Sustained organic growth across streaming platforms and YouTube with powerful trap sound and direct neighborhood lyrics.',
+    },
+    credits: {
+      ca: 'Lletra i Veu: RAFA 930 · 930 Records',
+      es: 'Letra y Voz: RAFA 930 · 930 Records',
+      en: 'Lyrics & Vocals: RAFA 930 · 930 Records',
     },
   },
   'nose-si-estare-manana': {
@@ -97,28 +110,6 @@ const TRACK_I18N: Record<
       ca: 'RAFA 930 · Direcció Visual: Incrife · Art: 930 Digital',
       es: 'RAFA 930 · Dirección Visual: Incrife · Arte: 930 Digital',
       en: 'RAFA 930 · Visual Direction: Incrife · Art: 930 Digital',
-    },
-  },
-  'viviendo-para-ser-recordado': {
-    categoryLabel: {
-      ca: 'DARRERES NOVETATS · SINGLE OFICIAL',
-      es: 'ÚLTIMAS NOVEDADES · SENCILLO OFICIAL',
-      en: 'LATEST RELEASES · OFFICIAL SINGLE',
-    },
-    description: {
-      ca: 'Single emotiu i intens sobre el llegat, la memòria i el camí recorregut als carrers.',
-      es: 'Sencillo emotivo e intenso sobre el legado, la memoria y el camino recorrido en las calles.',
-      en: 'Emotional and intense single about legacy, memory, and the path walked on the streets.',
-    },
-    lyricsExcerpt: {
-      ca: 'Viviendo para ser recordado,\nen un carrer on mai s’ha perdonat ni oblidat...\nporto la meva història gravada a la pell,\nsense por del destí ni d’un futur cruel...',
-      es: 'Viviendo para ser recordado,\nen un calle donde nunca se ha perdonado ni olvidado...\nllevo mi historia grabada en la piel,\nsin miedo al destino ni a un futuro cruel...',
-      en: 'Living to be remembered,\non a street where nothing is forgiven or forgotten...\ncarrying my story etched into my skin,\nfearless of destiny or a cruel future...',
-    },
-    credits: {
-      ca: 'RAFA 930 · 930 Records (2026)',
-      es: 'RAFA 930 · 930 Records (2026)',
-      en: 'RAFA 930 · 930 Records (2026)',
     },
   },
   'romeo-y-julieta': {
@@ -215,24 +206,19 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
   language,
 }) => {
   const [filter, setFilter] = useState<'all' | 'single' | 'ep' | 'album' | 'hit'>('all');
-  const [selectedTrackId, setSelectedTrackId] = useState<string>(TRACKS[0].id);
-  const [activeLyricsTrack, setActiveLyricsTrack] = useState<Track | null>(null);
 
   const filteredTracks = TRACKS.filter((t) => {
     if (filter === 'all') return true;
     return t.category === filter;
   });
 
-  const currentPlayingTrack = TRACKS.find((t) => t.id === selectedTrackId) || TRACKS[0];
-  const currentI18n = TRACK_I18N[currentPlayingTrack.id];
-
   const filterButtons = [
     {
       id: 'all',
       label: {
-        ca: 'Totes les obres (8)',
-        es: 'Todas las obras (8)',
-        en: 'All works (8)',
+        ca: `Totes les obres (${TRACKS.length})`,
+        es: `Todas las obras (${TRACKS.length})`,
+        en: `All works (${TRACKS.length})`,
       },
     },
     {
@@ -269,7 +255,6 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
     },
   ];
 
-  const activeLyricsI18n = activeLyricsTrack ? TRACK_I18N[activeLyricsTrack.id] : null;
 
   return (
     <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-10 sm:py-16 space-y-12 overflow-hidden">
@@ -298,17 +283,17 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
           </div>
           <h1 className="font-['Cormorant_Garamond'] text-4xl sm:text-6xl font-semibold text-[#ffffff]">
             {language === 'ca'
-              ? 'Discografia & Lletres'
+              ? 'Discografia Oficial'
               : language === 'es'
-              ? 'Discografía & Letras'
-              : 'Discography & Lyrics'}
+              ? 'Discografía Oficial'
+              : 'Official Discography'}
           </h1>
           <p className="text-[#a1a1b5] text-base max-w-2xl mt-2 leading-relaxed">
             {language === 'ca'
-              ? 'Música urbana, rap conscient i composicions originals. Disponibles en Spotify, reprodueix a YouTube o consulta les lletres completes.'
+              ? 'Música urbana, rap conscient i composicions originals. Disponibles en streaming oficial a Spotify i YouTube.'
               : language === 'es'
-              ? 'Música urbana, rap consciente y composiciones originales. Disponibles en Spotify, reproduce en YouTube o consulta las letras completas.'
-              : 'Urban music, conscious rap, and original compositions. Available on Spotify, watch on YouTube, or view full lyrics.'}
+              ? 'Música urbana, rap consciente y composiciones originales. Disponibles en streaming oficial en Spotify y YouTube.'
+              : 'Urban music, conscious rap, and original compositions. Available on official streaming on Spotify and YouTube.'}
           </p>
         </div>
 
@@ -359,14 +344,6 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
         </a>
       </div>
 
-      {/* Featured Active Track Console (Interactive 3D Vinyl Player) */}
-      <Vinyl3DPlayer
-        track={currentPlayingTrack}
-        language={language}
-        categoryLabel={currentI18n ? currentI18n.categoryLabel[language] : currentPlayingTrack.categoryLabel}
-        onOpenLyrics={() => setActiveLyricsTrack(currentPlayingTrack)}
-      />
-
       {/* Category Filter Controls */}
       <div className="flex items-center gap-1.5 p-1.5 bg-[#0a0a0f]/90 backdrop-blur-md border border-[#22222e] rounded-lg max-w-full overflow-x-auto scrollbar-none shadow-[0_10px_25px_-8px_rgba(0,0,0,0.65)]">
         {filterButtons.map((btn) => (
@@ -388,18 +365,14 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
       {/* Tracks Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredTracks.map((track) => {
-          const isCurrent = currentPlayingTrack.id === track.id;
           const tI18n = TRACK_I18N[track.id];
 
           return (
             <Card3D
               key={track.id}
               intensity={8}
-              onClick={() => setSelectedTrackId(track.id)}
               glowColor="rgba(236, 72, 153, 0.24)"
-              className={`bg-[#111118]/90 backdrop-blur-sm border rounded-xl p-5 group shadow-[0_14px_34px_-10px_rgba(0,0,0,0.7)] cursor-pointer ${
-                isCurrent ? 'border-[#ec4899]' : 'border-[#22222e] hover:border-[#a855f7]'
-              }`}
+              className="bg-[#111118]/90 backdrop-blur-sm border border-[#22222e] hover:border-[#a855f7] rounded-xl p-5 group shadow-[0_14px_34px_-10px_rgba(0,0,0,0.7)]"
             >
               <div>
                 <div className="relative aspect-square rounded-lg overflow-hidden bg-[#0a0a0f] mb-4">
@@ -438,12 +411,11 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-[#22222e] mt-4 flex items-center gap-2">
+              <div className="pt-4 border-t border-[#22222e] mt-4 flex items-center gap-2.5">
                 <a
                   href={track.spotifyUrl || OFFICIAL_SPOTIFY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
                   className="touch-target-44 flex-1 py-2.5 px-3 rounded-lg bg-[#1DB954] hover:bg-[#1ed760] text-black hover:opacity-95 flex items-center justify-center gap-1.5 text-xs font-bold transition-all shadow-[0_0_14px_rgba(29,185,84,0.25)]"
                 >
                   <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
@@ -457,101 +429,17 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
                   href={track.youtubeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
                   className="touch-target-44 flex-1 py-2.5 px-3 rounded-lg gradient-lila-rosa-rojo text-white hover:opacity-95 flex items-center justify-center gap-1.5 text-xs font-semibold transition-all"
                 >
                   <Play className="w-3.5 h-3.5 fill-current" />
                   <span>YouTube</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
-
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setActiveLyricsTrack(track);
-                  }}
-                  title={
-                    language === 'ca'
-                      ? 'Veure lletra completa'
-                      : language === 'es'
-                      ? 'Ver letra completa'
-                      : 'View full lyrics'
-                  }
-                  className="touch-target-44 px-3 py-2.5 bg-[#0a0a0f] border border-[#22222e] hover:border-[#a855f7] text-[#a1a1b5] hover:text-[#ffffff] rounded-lg transition-colors flex items-center justify-center text-xs"
-                >
-                  <FileText className="w-4 h-4" />
-                </button>
               </div>
             </Card3D>
           );
         })}
       </div>
-
-      {/* Lyrics Modal View */}
-      {activeLyricsTrack && (
-        <div
-          className="fixed inset-0 z-50 bg-[#050507]/90 backdrop-blur-md flex items-center justify-center p-4"
-          role="dialog"
-          aria-modal="true"
-          onClick={() => setActiveLyricsTrack(null)}
-        >
-          <div
-            className="bg-[#111118] border border-[#22222e] rounded-xl max-w-lg w-full p-6 space-y-4 shadow-2xl relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-start justify-between border-b border-[#22222e] pb-4">
-              <div>
-                <span className="text-xs font-mono text-[#ec4899]">
-                  {language === 'ca'
-                    ? 'LLETRA OFICIAL'
-                    : language === 'es'
-                    ? 'LETRA OFICIAL'
-                    : 'OFFICIAL LYRICS'}
-                </span>
-                <h3 className="font-['Cormorant_Garamond'] text-3xl font-semibold text-[#ffffff] mt-0.5">
-                  {activeLyricsTrack.title}
-                </h3>
-                <p className="text-xs text-[#a1a1b5] font-mono tabular-nums">
-                  RAFA 930 · {activeLyricsTrack.year}
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={() => setActiveLyricsTrack(null)}
-                className="touch-target-44 p-2 rounded-lg bg-[#0a0a0f] text-[#a1a1b5] hover:text-white border border-[#22222e]"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="max-h-72 overflow-y-auto pr-2 space-y-3 font-serif italic text-base text-[#ffffff] whitespace-pre-line leading-relaxed bg-[#0a0a0f] p-5 rounded-lg border border-[#22222e]">
-              {activeLyricsI18n
-                ? activeLyricsI18n.lyricsExcerpt[language]
-                : activeLyricsTrack.lyricsExcerpt}
-            </div>
-
-            <div className="pt-2 flex items-center justify-between">
-              <span className="text-[11px] font-mono text-[#a1a1b5]">© RAFA 930 · Rafael Moreno Román</span>
-              <a
-                href={activeLyricsTrack.youtubeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-semibold text-[#ec4899] hover:underline flex items-center gap-1"
-              >
-                <span>
-                  {language === 'ca'
-                    ? 'Escoltar a YouTube'
-                    : language === 'es'
-                    ? 'Escuchar en YouTube'
-                    : 'Listen on YouTube'}
-                </span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

@@ -856,10 +856,10 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
             >
               <span>
                 {language === 'ca'
-                  ? 'Veure catàleg complet i lletres'
+                  ? 'Veure catàleg complet'
                   : language === 'es'
-                  ? 'Ver catálogo completo y letras'
-                  : 'View full catalog & lyrics'}
+                  ? 'Ver catálogo completo'
+                  : 'View full catalog'}
               </span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>

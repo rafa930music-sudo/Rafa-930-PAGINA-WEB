@@ -117,27 +117,27 @@ const SCREEN_SEO: Record<ScreenId, Record<Language, SeoMetadata>> = {
   },
   discografia: {
     ca: {
-      title: 'Discografia & Lletres Oficials · RAFA 930 (2023–2026)',
+      title: 'Discografia Oficial · RAFA 930 (2023–2026)',
       description:
-        'Escolta el catàleg musical oficial de RAFA 930: De Vuelta, Nose si estaré mañana, Tú Aroma, EP My World, La Vida Es Bella, Un Amor Prohibido i lletres completes.',
+        'Escolta el catàleg musical oficial de RAFA 930: De Vuelta, Nose si estaré mañana, Tú Aroma, EP My World, La Vida Es Bella, Un Amor Prohibido, Romeo y Julieta, Hago Dinero i més.',
       keywords:
-        'Discografia RAFA 930, De Vuelta, Nose si estaré mañana, EP My World, La Vida Es Bella, Tú Aroma, Un Amor Prohibido, Hago Dinero, Vive sueña en tu mundo',
+        'Discografia RAFA 930, De Vuelta, Nose si estaré mañana, EP My World, La Vida Es Bella, Tú Aroma, Un Amor Prohibido, Hago Dinero, Romeo y Julieta, Vive sueña en tu mundo',
       locale: 'ca_ES',
     },
     es: {
-      title: 'Discografía & Letras Oficiales · RAFA 930 (2023–2026)',
+      title: 'Discografía Oficial · RAFA 930 (2023–2026)',
       description:
-        'Escucha el catálogo musical oficial de RAFA 930: De Vuelta, Nose si estaré mañana, Tú Aroma, EP My World, La Vida Es Bella, Un Amor Prohibido y letras completas.',
+        'Escucha el catálogo musical oficial de RAFA 930: De Vuelta, Nose si estaré mañana, Tú Aroma, EP My World, La Vida Es Bella, Un Amor Prohibido, Romeo y Julieta, Hago Dinero y más.',
       keywords:
-        'Discografía RAFA 930, De Vuelta, Nose si estaré mañana, EP My World, La Vida Es Bella, Tú Aroma, Un Amor Prohibido, Hago Dinero, Vive sueña en tu mundo',
+        'Discografía RAFA 930, De Vuelta, Nose si estaré mañana, EP My World, La Vida Es Bella, Tú Aroma, Un Amor Prohibido, Hago Dinero, Romeo y Julieta, Vive sueña en tu mundo',
       locale: 'es_ES',
     },
     en: {
-      title: 'Official Discography & Lyrics · RAFA 930 (2023–2026)',
+      title: 'Official Discography · RAFA 930 (2023–2026)',
       description:
-        'Stream the official music catalog of RAFA 930: De Vuelta, Nose si estaré mañana, Tú Aroma, EP My World, La Vida Es Bella, Un Amor Prohibido, and full lyrics.',
+        'Stream the official music catalog of RAFA 930: De Vuelta, Nose si estaré mañana, Tú Aroma, EP My World, La Vida Es Bella, Un Amor Prohibido, Romeo and Juliet, Hago Dinero and more.',
       keywords:
-        'RAFA 930 discography, De Vuelta, Nose si estaré mañana, EP My World, La Vida Es Bella, Tú Aroma, Un Amor Prohibido, Hago Dinero',
+        'RAFA 930 discography, De Vuelta, Nose si estaré mañana, EP My World, La Vida Es Bella, Tú Aroma, Un Amor Prohibido, Hago Dinero, Romeo y Julieta',
       locale: 'en_US',
     },
   },

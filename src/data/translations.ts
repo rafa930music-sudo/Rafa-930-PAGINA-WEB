@@ -40,9 +40,9 @@ export const SHEETS_CONFIG: SheetMeta[] = [
       en: 'Discography & Masters',
     },
     subtitle: {
-      ca: 'Catàleg oficial, lletres completes i so d’alta fidelitat',
-      es: 'Catálogo oficial, letras completas y sonido de alta fidelidad',
-      en: 'Official catalog, complete lyrics and high-fidelity sound',
+      ca: 'Catàleg oficial i reproducció d’alta fidelitat a Spotify i YouTube',
+      es: 'Catálogo oficial y streaming de alta fidelidad en Spotify y YouTube',
+      en: 'Official catalog and high-fidelity streaming on Spotify and YouTube',
     },
     categoryTag: {
       ca: 'AUDIO & PRODUCCIÓ',
