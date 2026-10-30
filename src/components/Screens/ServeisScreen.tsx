@@ -429,9 +429,9 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
               key={pkg.id}
               intensity={4}
               onClick={() => setSelectedPackage(pkg.id)}
-              glowColor="rgba(236, 72, 153, 0.16)"
-              className={`bg-[#111118] border rounded-xl p-6 sm:p-8 cursor-pointer ${
-                isSelected ? 'border-[#ec4899]' : 'border-[#22222e] hover:border-[#a855f7]'
+              glowColor="rgba(255, 0, 104, 0.54)"
+              className={`bg-[#1e0313] border rounded-[24px] p-6 sm:p-8 cursor-pointer shadow-luro ${
+                isSelected ? 'border-[#ff0068]' : 'border-[#22222e] hover:border-[#ff0068]'
               }`}
             >
               <div>

@@ -403,8 +403,8 @@ export const GaleriaScreen: React.FC<GaleriaScreenProps> = ({
         ))}
       </div>
 
-      {/* Gallery Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Gallery Grid (Visionnaire 4-column dense grid + Luro cards) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {filteredPhotos.map((photo, idx) => {
           const pI18n = PHOTO_I18N[photo.id];
           const title = pI18n ? pI18n.title[language] : photo.title;
@@ -418,8 +418,8 @@ export const GaleriaScreen: React.FC<GaleriaScreenProps> = ({
               key={photo.id}
               intensity={8}
               onClick={() => setActivePhoto(photo)}
-              glowColor="rgba(0, 212, 255, 0.24)"
-              className="group cursor-pointer bg-[#111118]/90 backdrop-blur-sm border border-[#22222e] rounded-xl overflow-hidden hover:border-[#ec4899] shadow-[0_14px_34px_-10px_rgba(0,0,0,0.72)]"
+              glowColor="rgba(255, 0, 104, 0.54)"
+              className="group cursor-pointer bg-[#1e0313] border border-[#22222e] rounded-[24px] overflow-hidden hover:border-[#ff0068] shadow-luro"
             >
               <div className="relative aspect-[4/5] bg-[#0a0a0f] overflow-hidden">
                 <img

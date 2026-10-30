@@ -30,7 +30,7 @@ export const ScrollLateralBar: React.FC = () => {
       aria-valuemin={0}
       aria-valuemax={100}
       aria-label="Barra de scroll lateral progresiva"
-      className="fixed right-0 top-0 bottom-0 w-[3.5px] sm:w-[4px] bg-[#0a0a0f]/80 z-[100] pointer-events-none overflow-hidden hidden sm:block"
+      className="fixed right-0 top-0 bottom-0 w-[3px] sm:w-[4px] bg-[#0a0a0f]/80 z-[100] pointer-events-none overflow-hidden"
     >
       {/* Background guide track */}
       <div className="absolute inset-0 opacity-20 bg-gradient-to-b from-[#a855f7] via-[#00d4ff] to-[#ec4899]" />

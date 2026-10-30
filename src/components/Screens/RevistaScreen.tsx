@@ -389,14 +389,14 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                 : 'Urban artist born in Mataró and forged between the residential blocks and the Font de La Mina Library. His work integrates honest musical composition, chiaroscuro portrait photography, and digital platform development for creators and brands.'}
             </p>
 
-            {/* Primary Navigation Actions */}
-            <div className="flex flex-wrap items-center gap-3 pt-2 w-full">
+            {/* Primary Navigation Actions (Desktop.fm discipline: 1 dominant CTA pill, ghost links for rest) */}
+            <div className="flex flex-wrap items-center gap-5 pt-3 w-full">
               <button
                 type="button"
                 onClick={() => onNavigate('discografia')}
-                className="touch-target-48 inline-flex items-center justify-center gap-2 gradient-lila-rosa-rojo text-white text-xs font-semibold px-6 py-3.5 rounded-lg hover:opacity-95 transition-all whitespace-nowrap shrink-0"
+                className="touch-target-48 inline-flex items-center justify-center gap-2 bg-[#1e0313] text-white text-sm font-semibold px-8 py-3.5 rounded-[180px] shadow-luro hover:scale-105 transition-all whitespace-nowrap shrink-0 border border-[#ff0068]/50"
               >
-                <Play className="w-4 h-4 fill-current" />
+                <Play className="w-4 h-4 fill-current text-[#ff0068]" />
                 <span>
                   {language === 'ca'
                     ? 'Explorar Discografia'
@@ -409,9 +409,9 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
               <button
                 type="button"
                 onClick={() => onNavigate('galeria')}
-                className="touch-target-48 inline-flex items-center justify-center gap-2 border border-[#22222e] bg-[#111118] hover:border-[#ec4899] text-[#ffffff] text-xs font-semibold px-6 py-3.5 rounded-lg transition-all whitespace-nowrap shrink-0"
+                className="text-xs font-semibold text-[#a1a1b5] hover:text-[#ff0068] transition-colors flex items-center gap-1.5 underline underline-offset-4 decoration-[#22222e]"
               >
-                <Camera className="w-4 h-4 text-[#ec4899]" />
+                <Camera className="w-4 h-4 text-[#ff0068]" />
                 <span>
                   {language === 'ca'
                     ? 'Arxiu Fotogràfic'
@@ -424,9 +424,9 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
               <button
                 type="button"
                 onClick={() => onNavigate('serveis')}
-                className="touch-target-48 inline-flex items-center justify-center gap-2 border border-[#00d4ff]/50 bg-[#111118] hover:border-[#00d4ff] hover:bg-[#00d4ff]/10 text-[#ffffff] text-xs font-semibold px-6 py-3.5 rounded-lg transition-all whitespace-nowrap shrink-0 shadow-[0_0_16px_rgba(0,212,255,0.16)]"
+                className="text-xs font-semibold text-[#a1a1b5] hover:text-[#ff0068] transition-colors flex items-center gap-1.5 underline underline-offset-4 decoration-[#22222e]"
               >
-                <Terminal className="w-4 h-4 text-[#00d4ff]" />
+                <Terminal className="w-4 h-4 text-[#ff0068]" />
                 <span>
                   {language === 'ca'
                     ? 'Serveis & Tarifes'

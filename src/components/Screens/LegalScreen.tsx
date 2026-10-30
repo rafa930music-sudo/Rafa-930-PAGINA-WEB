@@ -178,21 +178,28 @@ export const LegalScreen: React.FC<LegalScreenProps> = ({
       </div>
 
       {/* Dedicated Legal Header */}
-      <div className="space-y-3">
-        <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-[#a1a1b5]">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] shadow-[0_0_8px_#00d4ff]" />
-          <span className="text-[#ec4899] font-semibold">
-            {language === 'ca'
-              ? 'APARTAT OFICIAL JURÍDIC & NORMATIU'
-              : language === 'es'
-              ? 'APARTADO OFICIAL JURÍDICO & NORMATIVO'
-              : 'OFFICIAL LEGAL & REGULATORY SECTION'}
-          </span>
-          <span aria-hidden="true" className="text-[#00d4ff]">·</span>
-          <span>LSSI-CE · RGPD UE 2016/679 · LOPDGDD 3/2018 · LPI</span>
+      <div className="space-y-3 relative overflow-hidden p-4 sm:p-6 md:p-8 rounded-2xl bg-[#111118] border border-[#00d4ff]/30 shadow-[0_0_20px_rgba(0,212,255,0.06)]">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2 text-[11px] sm:text-xs font-mono text-[#a1a1b5]">
+            <span className="w-2 h-2 rounded-full bg-[#00d4ff] animate-pulse shrink-0" />
+            <span className="text-[#ec4899] font-bold tracking-wider">
+              {language === 'ca'
+                ? 'CENTRE LEGAL OFICIAL & NORMATIVA UE'
+                : language === 'es'
+                ? 'CENTRO LEGAL OFICIAL & NORMATIVA UE'
+                : 'OFFICIAL LEGAL CENTER & EU REGULATORY'}
+            </span>
+            <span aria-hidden="true" className="text-[#00d4ff] hidden sm:inline">·</span>
+            <span className="hidden sm:inline">LSSI-CE · RGPD UE 2016/679 · LOPDGDD 3/2018</span>
+          </div>
+
+          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#00d4ff]/10 border border-[#00d4ff]/30 text-[#00d4ff] text-[10px] sm:text-[11px] font-mono">
+            <CheckCircle2 className="w-3.5 h-3.5 text-[#00d4ff] shrink-0" />
+            <span className="font-semibold uppercase tracking-tight">Verificado · 08930 BCN</span>
+          </div>
         </div>
 
-        <h1 className="font-['Cormorant_Garamond'] text-3xl sm:text-5xl md:text-6xl font-semibold text-[#ffffff]">
+        <h1 className="font-['Cormorant_Garamond'] text-2xl sm:text-4xl md:text-5xl font-semibold text-[#ffffff] leading-tight">
           {language === 'ca'
             ? 'Centre Legal, Privacitat & Crèdits · RAFA 930'
             : language === 'es'
@@ -200,25 +207,30 @@ export const LegalScreen: React.FC<LegalScreenProps> = ({
             : 'Legal, Privacy & Credits Center · RAFA 930'}
         </h1>
 
-        <p className="text-[#a1a1b5] text-sm sm:text-base max-w-3xl leading-relaxed">
+        <p className="text-[#a1a1b5] text-xs sm:text-sm md:text-base max-w-3xl leading-relaxed">
           {language === 'ca'
-            ? 'Documentació legal completa, separada i estructurada sobre la titularitat del lloc web, el tractament confidencial de dades personals, l’ús de memòria tècnica i els drets de propietat intel·lectual.'
+            ? 'Documentació legal completa, estructurada i oficial sobre la titularitat del lloc web, el tractament confidencial de dades personals, l’ús de memòria tècnica local i els drets d’autoria i propietat intel·lectual.'
             : language === 'es'
-            ? 'Documentación legal completa, separada y estructurada sobre la titularidad del sitio web, el tratamiento confidencial de datos personales, el uso de memoria técnica y los derechos de propiedad intelectual.'
-            : 'Complete, dedicated, and structured legal documentation covering website ownership, confidential personal data processing, technical storage usage, and intellectual property rights.'}
+            ? 'Documentación legal completa, estructurada y oficial sobre la titularidad del sitio web, el tratamiento confidencial de datos personales, el uso de memoria técnica local y los derechos de autoría y propiedad intelectual.'
+            : 'Complete, structured, and official legal documentation covering website ownership, confidential personal data processing, technical local storage usage, and intellectual property rights.'}
         </p>
       </div>
 
       {/* Responsive Split Architecture: Left Navigation Index + Right Detailed Document */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left Column: Structured Section Index */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+        {/* Left Column: Structured Section Index (Responsive Tabs) */}
         <aside className="lg:col-span-4 space-y-3 lg:sticky lg:top-24">
-          <div className="text-xs font-mono text-[#a855f7] uppercase px-1">
-            {language === 'ca'
-              ? 'Índex de Documents Oficials'
-              : language === 'es'
-              ? 'Índice de Documentos Oficiales'
-              : 'Official Document Index'}
+          <div className="flex items-center justify-between px-1">
+            <div className="text-xs font-mono text-[#a855f7] font-semibold uppercase tracking-wider">
+              {language === 'ca'
+                ? 'Índex de Documents Oficials'
+                : language === 'es'
+                ? 'Índice de Documentos Oficiales'
+                : 'Official Document Index'}
+            </div>
+            <span className="text-[10px] font-mono text-[#a1a1b5] bg-[#111118] px-2 py-0.5 rounded border border-[#22222e]">
+              4 DOCS
+            </span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2.5">
@@ -230,29 +242,36 @@ export const LegalScreen: React.FC<LegalScreenProps> = ({
                   key={tab.id}
                   type="button"
                   onClick={() => setActiveTab(tab.id)}
-                  className={`p-4 rounded-xl border text-left transition-all flex items-start gap-3.5 ${
+                  className={`w-full p-3.5 sm:p-4 rounded-xl border text-left transition-all flex items-start gap-3 cursor-pointer ${
                     isActive
-                      ? 'bg-[#111118] border-[#ec4899] shadow-lg'
+                      ? 'bg-[#111118] border-[#ec4899] shadow-[0_0_15px_rgba(236,72,153,0.15)] ring-1 ring-[#ec4899]'
                       : 'bg-[#0a0a0f] border-[#22222e] hover:border-[#a855f7]'
                   }`}
                 >
                   <div
-                    className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${
+                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center shrink-0 ${
                       isActive
-                        ? 'gradient-lila-rosa-rojo text-white'
+                        ? 'bg-gradient-to-r from-[#a855f7] via-[#ec4899] to-[#00d4ff] text-white shadow-md'
                         : 'bg-[#111118] border border-[#22222e] text-[#a1a1b5]'
                     }`}
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <div className="text-[11px] font-mono text-[#ec4899] tabular-nums">
-                      DOC. {tab.number}
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] sm:text-[11px] font-mono text-[#ec4899] font-bold tabular-nums">
+                        DOC. {tab.number}
+                      </span>
+                      {isActive && (
+                        <span className="text-[9px] font-mono bg-[#ec4899]/20 text-[#ec4899] px-1.5 py-0.2 rounded border border-[#ec4899]/40 uppercase">
+                          Activo
+                        </span>
+                      )}
                     </div>
-                    <div className="font-semibold text-sm text-[#ffffff] truncate">
+                    <div className="font-semibold text-xs sm:text-sm text-[#ffffff] truncate mt-0.5">
                       {tab.label[language]}
                     </div>
-                    <div className="text-xs text-[#a1a1b5] mt-0.5 line-clamp-2">
+                    <div className="text-[11px] sm:text-xs text-[#a1a1b5] mt-0.5 line-clamp-2 leading-relaxed">
                       {tab.subtitle[language]}
                     </div>
                   </div>
@@ -262,8 +281,8 @@ export const LegalScreen: React.FC<LegalScreenProps> = ({
           </div>
 
           {/* Summary Quick Card */}
-          <div className="p-5 rounded-xl bg-[#0a0a0f] border border-[#22222e] space-y-2.5 hidden lg:block">
-            <div className="flex items-center gap-2 text-xs font-mono text-[#a855f7]">
+          <div className="p-4 sm:p-5 rounded-xl bg-[#0a0a0f] border border-[#22222e] space-y-3 hidden lg:block shadow-md">
+            <div className="flex items-center gap-2 text-xs font-mono text-[#a855f7] font-semibold">
               <FileText className="w-4 h-4 text-[#ec4899]" />
               <span>
                 {language === 'ca'
@@ -273,49 +292,51 @@ export const LegalScreen: React.FC<LegalScreenProps> = ({
                   : 'CONTROLLER DETAILS'}
               </span>
             </div>
-            <div className="text-xs text-[#a1a1b5] space-y-1 font-mono">
-              <p className="text-[#ffffff] font-semibold">RAFA 930 · Rafael Moreno Román</p>
+            <div className="text-xs text-[#a1a1b5] space-y-1.5 font-mono leading-relaxed">
+              <p className="text-[#ffffff] font-bold text-sm">RAFA 930 · Rafael Moreno Román</p>
               <p>Sant Adrià de Besòs (CP 08930)</p>
               <p>Barcelona, España</p>
-              <a
-                href="mailto:rafa.930music@gmail.com"
-                className="text-[#ec4899] hover:underline block pt-1"
-              >
-                rafa.930music@gmail.com
-              </a>
+              <div className="pt-2 border-t border-[#22222e]">
+                <a
+                  href="mailto:rafa.930music@gmail.com"
+                  className="text-[#00d4ff] hover:underline flex items-center gap-1.5 font-semibold"
+                >
+                  <Mail className="w-3.5 h-3.5" />
+                  <span>rafa.930music@gmail.com</span>
+                </a>
+              </div>
             </div>
           </div>
         </aside>
 
         {/* Right Column: Detailed & Ordered Legal Content */}
-        <div
-          id="legal-document-body"
-          className="lg:col-span-8 bg-[#111118] border border-[#22222e] rounded-2xl p-5 sm:p-8 md:p-10 space-y-8"
-        >
-          {activeTab === 'aviso' && <DetailedAvisoLegal lang={language} />}
-          {activeTab === 'privacitat' && <DetailedPrivacidad lang={language} />}
-          {activeTab === 'cookies' && <DetailedCookies lang={language} />}
-          {activeTab === 'credits' && <DetailedCredits lang={language} />}
+        <div className="lg:col-span-8 bg-[#111118] border border-[#22222e] rounded-2xl p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 shadow-xl">
+          <div id="legal-document-body" className="space-y-6 sm:space-y-8">
+            {activeTab === 'aviso' && <DetailedAvisoLegal lang={language} />}
+            {activeTab === 'privacitat' && <DetailedPrivacidad lang={language} />}
+            {activeTab === 'cookies' && <DetailedCookies lang={language} />}
+            {activeTab === 'credits' && <DetailedCredits lang={language} />}
 
-          {/* Document Footer Seal */}
-          <div className="pt-6 border-t border-[#22222e] flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-[#a1a1b5] font-mono">
-            <div className="flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-[#ec4899]" />
-              <span>
-                {language === 'ca'
-                  ? 'Vigent i actualitzat: Setembre 2026 · Barcelona'
-                  : language === 'es'
-                  ? 'Vigente y actualizado: Septiembre 2026 · Barcelona'
-                  : 'Valid and updated: September 2026 · Barcelona'}
-              </span>
+            {/* Document Footer Seal */}
+            <div className="pt-6 border-t border-[#22222e] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-[#a1a1b5] font-mono">
+              <div className="flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-[#ec4899] shrink-0" />
+                <span>
+                  {language === 'ca'
+                    ? 'Vigent i actualitzat: 2026 · Sant Adrià de Besòs (08930)'
+                    : language === 'es'
+                    ? 'Vigente y actualizado: 2026 · Sant Adrià de Besòs (08930)'
+                    : 'Valid and updated: 2026 · Sant Adrià de Besòs (08930)'}
+                </span>
+              </div>
+              <a
+                href="mailto:rafa.930music@gmail.com?subject=Consulta%20Legal%20RGPD%20-%20RAFA%20930"
+                className="inline-flex items-center gap-1.5 text-[#00d4ff] hover:underline font-semibold"
+              >
+                <Mail className="w-3.5 h-3.5 text-[#00d4ff] shrink-0" />
+                <span>rafa.930music@gmail.com</span>
+              </a>
             </div>
-            <a
-              href="mailto:rafa.930music@gmail.com?subject=Consulta%20Legal%20RGPD%20-%20RAFA%20930"
-              className="inline-flex items-center gap-1.5 text-[#ec4899] hover:underline"
-            >
-              <Mail className="w-3.5 h-3.5" />
-              <span>rafa.930music@gmail.com</span>
-            </a>
           </div>
         </div>
       </div>

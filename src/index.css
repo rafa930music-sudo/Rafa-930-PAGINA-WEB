@@ -1,28 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Cormorant Garamond", "Instrument Serif", Georgia, serif;
-  --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-serif-editorial: "Cormorant Garamond", "Instrument Serif", serif;
-  --font-mono: "JetBrains Mono", monospace;
-
-  --color-surface: #050507;
-  --color-surface-elevated: #0a0a0f;
-  --color-surface-card: #111118;
-  --color-surface-border: #22222e;
-
-  --color-lila: #a855f7;
-  --color-lila-light: #c084fc;
-  --color-rosa: #ec4899;
-  --color-rosa-light: #f472b6;
-  --color-rojo: #e11d48;
-  --color-rojo-bright: #ef4444;
-  --color-azul-rayo: #00d4ff;
-  --color-blanco: #ffffff;
-  --color-negro: #050507;
-
-  --color-text-primary: #ffffff;
-  --color-text-muted: #a1a1b5;
+  --color-canvas: #10020a;
+  --color-card: #1e0313;
+  --color-surface-product: #f2f2f2;
+  --color-plasma: #ff0068;
+  --color-frost: #ffffff;
+  --color-muted: #a1a1b5;
 }
 
 :root {
@@ -33,10 +17,29 @@
 
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
-  background-color: #050507;
+  background-color: #10020a;
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+}
+
+.shadow-luro {
+  box-shadow: 0 0 33px 0 rgba(255, 0, 104, 0.54), 0 0 99px -21px rgba(255, 0, 104, 0.4);
+}
+
+.shadow-luro-sm {
+  box-shadow: 0 0 21px -5px rgba(255, 0, 104, 0.9), 0 0 27px -3px rgba(255, 0, 104, 0.6);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 20s linear infinite;
 }
 
 .font-editorial {

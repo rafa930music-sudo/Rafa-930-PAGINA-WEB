@@ -20,6 +20,7 @@ import { ContacteScreen } from './components/Screens/ContacteScreen';
 import { LegalScreen } from './components/Screens/LegalScreen';
 import { ConciertosScreen } from './components/Screens/ConciertosScreen';
 import { ScrollLateralBar } from './components/ScrollLateralBar';
+import { CookieConsentModal } from './components/CookieConsentModal';
 
 const VALID_SCREENS: ScreenId[] = [
   'revista',
@@ -41,6 +42,7 @@ export default function App() {
     return 'revista';
   });
   const [legalInitialTab, setLegalInitialTab] = useState<LegalDocId>('aviso');
+  const [isCookieModalOpen, setIsCookieModalOpen] = useState<boolean>(false);
 
   // Language state with URL query or localStorage persistence
   const [language, setLanguage] = useState<Language>(() => {
@@ -213,10 +215,18 @@ export default function App() {
       <Footer
         onNavigate={handleScreenChange}
         onOpenLegalTab={handleOpenLegalTab}
+        onOpenCookieConfig={() => setIsCookieModalOpen(true)}
         language={language}
       />
 
       <FloatingWidgets language={language} hasMiniPlayer={false} />
+
+      <CookieConsentModal
+        language={language}
+        onOpenLegalTab={handleOpenLegalTab}
+        isOpenExternal={isCookieModalOpen}
+        onCloseExternal={() => setIsCookieModalOpen(false)}
+      />
     </div>
   );
 }
