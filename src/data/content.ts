@@ -1,4 +1,6 @@
 import { Track, Collaborator, GalleryPhoto, TimelineEvent, ServicePackage } from '../types';
+import rafa930Photo from '../assets/images/RAFA930.jpg';
+import rafa930Cara from '../assets/images/rafa-930-cara.jpg';
 
 export const OFFICIAL_SPOTIFY_URL = 'https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng';
 export const OFFICIAL_YOUTUBE_URL = 'https://www.youtube.com/@rafa_930';
@@ -16,7 +18,7 @@ export const OFFICIAL_LOGOS = {
 };
 
 export const ARTIST_IMAGES = {
-  heroPortrait: '/assets/rafa-930-cara.jpg',
+  heroPortrait: rafa930Cara,
   laMinaHeroBg: '/assets/barrio-de-la-mina.png',
   libraryOrigin: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBIMi02-J8CtYH8J1lAHIZskWS59fYoM2-4hrCZ1VGGD2QGHblDY0pcd1OYoTa4C_EQs4yJ-VZWKkfPzaQnx6n_HihlkQT6f7T3tzNrn1dqwxELf2hFy9Fijm5M5IGxHQnNVs0DSLIZcw19Gy7v_Ow7EiVliX1AriJFYP2_PzZeiaR1sN4fXXXq1JrgKGq07iCrt1WBsGPT6QfmWbD6_sV6uhWhpTD9gKr-i2LZ61R1jrokXoPb9OZairijjRmxrs2l6g',
   deVuelta2026: '/assets/de-vuelta-original.jpg',
@@ -228,7 +230,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     title: 'RAFA 930',
     category: 'retrat',
     categoryLabel: 'Retrat Oficial',
-    imageUrl: '/assets/RAFA930.jpg',
+    imageUrl: rafa930Photo,
     credits: 'Arxiu 930 · Rafa 930',
     year: '2025',
     location: 'Barcelona',
