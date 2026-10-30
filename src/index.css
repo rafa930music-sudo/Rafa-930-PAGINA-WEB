@@ -219,8 +219,18 @@ html.light .electric-badge {
   filter: drop-shadow(0 0 14px rgba(192, 132, 252, 0.35));
 }
 
+.group:hover .group-hover-gradient-930 {
+  background: linear-gradient(90deg, #00d4ff 0%, #818cf8 25%, #c084fc 45%, #ec4899 68%, #fb923c 86%, #facc15 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  filter: drop-shadow(0 0 16px rgba(0, 212, 255, 0.85));
+}
+
 html.light .text-gradient-930,
-html.light .text-gradient-lila-rosa-rojo {
+html.light .text-gradient-lila-rosa-rojo,
+html.light .group:hover .group-hover-gradient-930 {
   background: linear-gradient(90deg, #0284c7 0%, #6366f1 25%, #9333ea 45%, #db2777 68%, #ea580c 86%, #d97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -291,6 +301,43 @@ html.light .text-gradient-lila-rosa-rojo {
     transform: translateY(0) scale(1);
     filter: blur(0);
   }
+}
+
+/* =========================================================================
+   BARRA DE SCROLL NATIVA DISCRETA Y ELEGANTE (SIN BLOQUE MORADO)
+   ========================================================================= */
+
+/* Ancho y estilo del scrollbar nativo */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050507;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1c1c28;
+  border-radius: 9999px;
+  border: 2px solid #050507;
+  transition: all 0.2s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00d4ff;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+::-webkit-scrollbar-corner {
+  background: #050507;
+}
+
+/* Soporte Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1c1c28 #050507;
 }
 
 

@@ -29,15 +29,24 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenLegalTab, lang
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleSectionJump = (sectionId: string) => {
+    onNavigate('revista');
+    setTimeout(() => {
+      const el = document.getElementById(sectionId);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      else scrollToTop();
+    }, 100);
+  };
+
   return (
-    <footer className="w-full bg-[#0a0a0f] border-t border-[#00d4ff]/25">
+    <footer className="w-full bg-[#050811] border-t border-white/10 text-white">
       <div
         aria-hidden="true"
-        className="h-[1px] w-full bg-gradient-to-r from-transparent via-[#00d4ff]/60 to-transparent shadow-[0_0_12px_rgba(0,212,255,0.4)]"
+        className="h-[1px] w-full bg-gradient-to-r from-transparent via-[#00d4ff]/60 to-transparent shadow-[0_0_12px_rgba(229,184,105,0.4)]"
       />
-      {/* Main Footer Area (Artistic, Navigation & Direct Contact) */}
+      {/* Main Footer Area */}
       <div className="w-full px-4 sm:px-6 md:px-10 py-10 md:py-14 max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-center justify-between pb-8 border-b border-[#22222e] gap-6">
+        <div className="flex flex-col md:flex-row md:items-center justify-between pb-8 border-b border-white/10 gap-6">
           <div className="flex items-center gap-4">
             <button
               type="button"
@@ -45,9 +54,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenLegalTab, lang
                 onNavigate('revista');
                 scrollToTop();
               }}
-              className="font-['Bebas_Neue'] text-2xl sm:text-3xl font-extrabold tracking-tight text-[#ffffff] hover:opacity-90 transition-opacity text-left cursor-pointer"
+              className="font-['Bebas_Neue'] text-2xl sm:text-3xl font-extrabold tracking-tight text-white font-['Bebas_Neue'] text-left cursor-pointer flex items-center gap-2 group"
             >
-              RAFA <span className="text-gradient-930">930</span>
+              <span className="transition-all duration-300 transform group-hover:scale-105 inline-flex items-center gap-1">
+                <span className="transition-all duration-300 group-hover-gradient-930">RAFA</span>
+                <span className="text-gradient-930 group-hover:filter group-hover:drop-shadow-[0_0_16px_rgba(0,212,255,0.9)]">930</span>
+              </span>
             </button>
           </div>
 
@@ -57,7 +69,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenLegalTab, lang
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Spotify"
-              className="touch-target-44 w-10 h-10 rounded-lg bg-[#111118] border border-[#22222e] flex items-center justify-center text-[#a1a1b5] hover:text-[#1DB954] hover:border-[#1DB954] transition-colors"
+              className="touch-target-44 w-10 h-10 rounded-xl bg-[#0a0f1d] border border-white/10 flex items-center justify-center text-[#8c98b4] hover:text-[#1DB954] hover:border-[#1DB954] transition-colors"
             >
               <SpotifyLogo className="w-5 h-5" />
             </a>
@@ -67,7 +79,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenLegalTab, lang
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="touch-target-44 w-10 h-10 rounded-lg bg-[#111118] border border-[#22222e] flex items-center justify-center text-[#a1a1b5] hover:text-[#ec4899] hover:border-[#ec4899] transition-colors"
+              className="touch-target-44 w-10 h-10 rounded-xl bg-[#0a0f1d] border border-white/10 flex items-center justify-center text-[#8c98b4] hover:text-[#00d4ff] hover:border-[#00d4ff] transition-colors"
             >
               <InstagramLogo className="w-5 h-5" />
             </a>
@@ -77,7 +89,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenLegalTab, lang
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"
-              className="touch-target-44 w-10 h-10 rounded-lg bg-[#111118] border border-[#22222e] flex items-center justify-center text-[#a1a1b5] hover:text-[#FF0000] hover:border-[#FF0000] transition-colors"
+              className="touch-target-44 w-10 h-10 rounded-xl bg-[#0a0f1d] border border-white/10 flex items-center justify-center text-[#8c98b4] hover:text-[#FF0000] hover:border-[#FF0000] transition-colors"
             >
               <YouTubeLogo className="w-5 h-5" />
             </a>
@@ -87,52 +99,48 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenLegalTab, lang
               target="_blank"
               rel="noopener noreferrer"
               aria-label="930 Digital"
-              className="touch-target-44 w-10 h-10 rounded-lg bg-[#111118] border border-[#00d4ff]/35 flex items-center justify-center text-[#00d4ff] hover:text-[#ffffff] hover:border-[#00d4ff] shadow-[0_0_12px_rgba(0,212,255,0.12)] transition-colors"
+              className="touch-target-44 w-10 h-10 rounded-xl bg-[#0a0f1d] border border-[#00d4ff]/30 flex items-center justify-center text-[#00d4ff] hover:text-white hover:border-[#00d4ff] transition-colors"
             >
               <Terminal className="w-4 h-4" />
             </a>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 py-8 text-xs">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 py-8 text-xs font-mono">
           <div>
-            <h4 className="font-semibold text-[#ffffff] mb-3">
-              {language === 'ca' ? 'Seccions Principals' : language === 'es' ? 'Secciones Principales' : 'Main Sections'}
+            <h4 className="font-semibold text-white uppercase tracking-wider mb-3">
+              Secciones Principales
             </h4>
-            <ul className="space-y-2 text-[#a1a1b5]">
+            <ul className="space-y-2 text-[#8c98b4]">
               <li>
-                <button type="button" onClick={() => { onNavigate('revista'); scrollToTop(); }} className="hover:text-[#ec4899] transition-colors py-0.5">
-                  {language === 'ca' ? 'Portada Editorial' : language === 'es' ? 'Portada Editorial' : 'Editorial Home'}
+                <button type="button" onClick={() => { onNavigate('revista'); scrollToTop(); }} className="hover:text-[#00d4ff] transition-colors py-0.5">
+                  00. Portada & Manifiesto
                 </button>
               </li>
               <li>
-                <button type="button" onClick={() => { onNavigate('enllacos'); scrollToTop(); }} className="hover:text-[#ec4899] transition-colors py-0.5">
-                  {language === 'ca' ? 'Enllaços' : language === 'es' ? 'Enlaces' : 'Links'}
+                <button type="button" onClick={() => handleSectionJump('discografia')} className="hover:text-[#00d4ff] transition-colors py-0.5">
+                  01. Discografía Oficial 2023–2026
                 </button>
               </li>
               <li>
-                <button type="button" onClick={() => { onNavigate('discografia'); scrollToTop(); }} className="hover:text-[#ec4899] transition-colors py-0.5">
-                  {language === 'ca' ? 'Catàleg Discogràfic' : language === 'es' ? 'Catálogo Discográfico' : 'Discography Catalog'}
+                <button type="button" onClick={() => handleSectionJump('videos')} className="hover:text-[#00d4ff] transition-colors py-0.5">
+                  02. Vídeos & Videoclips
                 </button>
               </li>
               <li>
-                <button type="button" onClick={() => { onNavigate('galeria'); scrollToTop(); }} className="hover:text-[#ec4899] transition-colors py-0.5">
-                  {language === 'ca' ? 'Arxiu Fotogràfic' : language === 'es' ? 'Archivo Fotográfico' : 'Photography Archive'}
+                <button type="button" onClick={() => handleSectionJump('biografia')} className="hover:text-[#00d4ff] transition-colors py-0.5">
+                  03. Biografía Oficial
                 </button>
               </li>
               <li>
-                <button type="button" onClick={() => { onNavigate('serveis'); scrollToTop(); }} className="hover:text-[#ec4899] transition-colors py-0.5">
-                  {language === 'ca' ? 'Serveis & Tarifes' : language === 'es' ? 'Servicios & Tarifas' : 'Services & Rates'}
+                <button type="button" onClick={() => handleSectionJump('fotos')} className="hover:text-[#00d4ff] transition-colors py-0.5">
+                  04. Archivo Fotográfico
                 </button>
               </li>
               <li>
-                <button type="button" onClick={() => { onNavigate('presskit'); scrollToTop(); }} className="hover:text-[#ec4899] transition-colors py-0.5">
-                  Presskit & Rider
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={() => { onNavigate('contacte'); scrollToTop(); }} className="hover:text-[#ec4899] transition-colors py-0.5">
-                  {language === 'ca' ? 'Contacte & Booking' : language === 'es' ? 'Contacto & Booking' : 'Contact & Booking'}
+                <button type="button" onClick={() => { onNavigate('conciertos'); scrollToTop(); }} className="hover:text-[#00d4ff] text-[#00d4ff] transition-colors py-0.5 flex items-center gap-1 font-semibold">
+                  <span>05. {language === 'ca' ? 'Concerts & Directes' : language === 'es' ? 'Conciertos & Directos' : 'Concerts & Live'}</span>
+                  <span className="text-[10px] px-1.5 py-0.2 bg-[#00d4ff]/15 border border-[#00d4ff]/40 rounded text-[#00d4ff]">{language === 'ca' ? 'Pròximament' : language === 'es' ? 'Próximamente' : 'Soon'}</span>
                 </button>
               </li>
             </ul>
@@ -229,36 +237,36 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenLegalTab, lang
             </p>
           </div>
 
-          {/* Separated Legal Links Strip */}
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-mono">
+          {/* Marco Legal Destacado — Secció Legal / Sección Legal */}
+          <div className="w-full max-w-3xl bg-[#0a0a0f] border border-[#22222e] rounded-xl px-4 py-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-mono shadow-inner">
             <button
               type="button"
               onClick={() => onOpenLegalTab('aviso')}
-              className="text-[#a1a1b5] hover:text-[#ec4899] transition-colors"
+              className="text-[#ffffff] hover:text-[#00d4ff] transition-colors font-medium hover:underline underline-offset-4 decoration-[#00d4ff]"
             >
               {language === 'ca' ? '01. Avís Legal' : language === 'es' ? '01. Aviso Legal' : '01. Legal Notice'}
             </button>
-            <span className="text-[#22222e]" aria-hidden="true">|</span>
+            <span className="text-[#00d4ff]/40 font-bold" aria-hidden="true">|</span>
             <button
               type="button"
               onClick={() => onOpenLegalTab('privacitat')}
-              className="text-[#a1a1b5] hover:text-[#ec4899] transition-colors"
+              className="text-[#ffffff] hover:text-[#ec4899] transition-colors font-medium hover:underline underline-offset-4 decoration-[#ec4899]"
             >
               {language === 'ca' ? '02. Privacitat RGPD' : language === 'es' ? '02. Privacidad RGPD' : '02. GDPR Privacy'}
             </button>
-            <span className="text-[#22222e]" aria-hidden="true">|</span>
+            <span className="text-[#ec4899]/40 font-bold" aria-hidden="true">|</span>
             <button
               type="button"
               onClick={() => onOpenLegalTab('cookies')}
-              className="text-[#a1a1b5] hover:text-[#ec4899] transition-colors"
+              className="text-[#ffffff] hover:text-[#a855f7] transition-colors font-medium hover:underline underline-offset-4 decoration-[#a855f7]"
             >
               {language === 'ca' ? '03. Cookies' : language === 'es' ? '03. Cookies' : '03. Cookies'}
             </button>
-            <span className="text-[#22222e]" aria-hidden="true">|</span>
+            <span className="text-[#a855f7]/40 font-bold" aria-hidden="true">|</span>
             <button
               type="button"
               onClick={() => onOpenLegalTab('credits')}
-              className="text-[#a1a1b5] hover:text-[#ec4899] transition-colors"
+              className="text-[#ffffff] hover:text-[#00d4ff] transition-colors font-medium hover:underline underline-offset-4 decoration-[#00d4ff]"
             >
               {language === 'ca' ? '04. Crèdits' : language === 'es' ? '04. Créditos' : '04. Credits'}
             </button>

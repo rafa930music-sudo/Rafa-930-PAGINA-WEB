@@ -25,6 +25,9 @@ import {
   AlertCircle,
   Radio,
   Loader2,
+  ShieldCheck,
+  Award,
+  MapPin,
 } from 'lucide-react';
 
 interface RevistaScreenProps {
@@ -42,21 +45,6 @@ const TIMELINE_I18N: {
   highlight?: boolean;
 }[] = [
   {
-    year: '2023 · 24 Mar',
-    badge: { ca: 'PRIMER TEMA OFICIAL', es: 'PRIMER TEMA OFICIAL', en: 'FIRST OFFICIAL TRACK' },
-    title: {
-      ca: 'Vive, sueña en tu mundo',
-      es: 'Vive, sueña en tu mundo',
-      en: 'Vive, sueña en tu mundo',
-    },
-    description: {
-      ca: 'El punt de partida discogràfic que va donar inici a l’expressió sonora de RAFA 930.',
-      es: 'El punto de partida discográfico que dio inicio a la expresión sonora de RAFA 930.',
-      en: 'The discographic starting point that launched RAFA 930’s sonic expression.',
-    },
-    highlight: true,
-  },
-  {
     year: '2023 · Etapa Inicial',
     badge: { ca: 'ETAPA INICIAL', es: 'ETAPA INICIAL', en: 'EARLY STAGE' },
     title: {
@@ -65,10 +53,11 @@ const TIMELINE_I18N: {
       en: 'Poeta · Arrepentido · Así es la vida · Pienso · La Luna',
     },
     description: {
-      ca: 'Temes nascuts des de la sinceritat més crua als carrers de La Mina.',
-      es: 'Temas nacidos desde la sinceridad más cruda en las calles de La Mina.',
-      en: 'Tracks born from raw honesty in the streets of La Mina.',
+      ca: 'Primers temes nascuts des de la sinceritat més crua als carrers de La Mina.',
+      es: 'Primeros temas nacidos desde la sinceridad más cruda en las calles de La Mina.',
+      en: 'Early tracks born from raw honesty in the streets of La Mina.',
     },
+    highlight: true,
   },
   {
     year: '2024 · Consolidació',
@@ -99,17 +88,17 @@ const TIMELINE_I18N: {
     },
   },
   {
-    year: '2024 · Hit Singles',
-    badge: { ca: 'HIT SINGLES', es: 'HIT SINGLES', en: 'HIT SINGLES' },
+    year: '2024 · Hit Single',
+    badge: { ca: 'HIT SINGLE', es: 'HIT SINGLE', en: 'HIT SINGLE' },
     title: {
-      ca: 'Un Amor Prohibido (+1.000 reps) · Hago Dinero (+500 reps)',
-      es: 'Un Amor Prohibido (+1.000 reps) · Hago Dinero (+500 reps)',
-      en: 'Un Amor Prohibido (1,000+ plays) · Hago Dinero (500+ plays)',
+      ca: 'Hago Dinero (+500 reps)',
+      es: 'Hago Dinero (+500 reps)',
+      en: 'Hago Dinero (500+ plays)',
     },
     description: {
-      ca: 'Creixement orgànic sostingut en plataformes d’streaming i YouTube.',
-      es: 'Crecimiento orgánico sostenido en plataformas de streaming y YouTube.',
-      en: 'Sustained organic growth across streaming platforms and YouTube.',
+      ca: 'Creixement orgànic sostingut en plataformes d’streaming i YouTube amb so trap potent.',
+      es: 'Crecimiento orgánico sostenido en plataformas de streaming y YouTube con sonido trap potente.',
+      en: 'Sustained organic growth across streaming platforms and YouTube with powerful trap sound.',
     },
     highlight: true,
   },
@@ -129,21 +118,21 @@ const TIMELINE_I18N: {
   },
   {
     year: '2025 · EP Conceptual',
-    badge: { ca: "EP 'MY WORLD'", es: "EP 'MY WORLD'", en: "EP 'MY WORLD'" },
+    badge: { ca: "JA A SPOTIFY", es: "YA EN SPOTIFY", en: "OUT ON SPOTIFY" },
     title: {
-      ca: '1 Minuto y 10 Segundos · Lo Material No Lo Es Todo · Fuck Sistema · Romeo y Julieta',
-      es: '1 Minuto y 10 Segundos · Lo Material No Lo Es Todo · Fuck Sistema · Romeo y Julieta',
-      en: '1 Minuto y 10 Segundos · Lo Material No Lo Es Todo · Fuck Sistema · Romeo y Julieta',
+      ca: "EP 'My World': 1 Minuto y 10 Segundos · Lo Material No Lo Es Todo · Fuck Sistema",
+      es: "EP 'My World': 1 Minuto y 10 Segundos · Lo Material No Lo Es Todo · Fuck Sistema",
+      en: "EP 'My World': 1 Minuto y 10 Segundos · Lo Material No Lo Es Todo · Fuck Sistema",
     },
     description: {
-      ca: 'Un projecte conceptual en tres actes que desafia el cànon comercial per reivindicar valors reals.',
-      es: 'Un proyecto conceptual en tres actos que desafía el canon comercial para reivindicar valores reales.',
-      en: 'A three-act conceptual project challenging commercial norms to champion real values.',
+      ca: 'Un projecte conceptual que desafia el cànon comercial per reivindicar valors reals. Ja disponible oficialment a Spotify.',
+      es: 'Un proyecto conceptual que desafía el canon comercial para reivindicar valores reales. Ya disponible oficialmente en Spotify.',
+      en: 'A conceptual project challenging commercial norms to champion real values. Available officially on Spotify.',
     },
     highlight: true,
   },
   {
-    year: '2026 · Senzills & Avançaments',
+    year: '2026 · Senzills Oficials',
     badge: { ca: 'LLANÇAMENTS 2026', es: 'LANZAMIENTOS 2026', en: '2026 RELEASES' },
     title: {
       ca: 'Tú Aroma · Nose si estaré mañana',
@@ -151,18 +140,18 @@ const TIMELINE_I18N: {
       en: 'Tú Aroma · Nose si estaré mañana',
     },
     description: {
-      ca: 'Tú Aroma (primer avançament oficial del pròxim àlbum La Vida Es Bella) i el senzill Nose si estaré mañana.',
-      es: 'Tú Aroma (primer adelanto oficial del próximo álbum La Vida Es Bella) y el sencillo Nose si estaré mañana.',
-      en: 'Tú Aroma (first official preview of the upcoming album La Vida Es Bella) and the single Nose si estaré mañana.',
+      ca: 'Senzills oficials: «Tú Aroma» i «Nose si estaré mañana» amb la producció de 930 Records i Incrife.',
+      es: 'Sencillos oficiales: «Tú Aroma» y «Nose si estaré mañana» con la producción de 930 Records e Incrife.',
+      en: 'Official singles: “Tú Aroma” and “Nose si estaré mañana” produced by 930 Records and Incrife.',
     },
   },
   {
     year: '2026 · Present (Destacat)',
     badge: { ca: 'TEMA DESTACAT 2026', es: 'TEMA DESTACADO 2026', en: 'FEATURED 2026 RELEASE' },
     title: {
-      ca: 'De Vuelta & Àlbum La Vida Es Bella',
-      es: 'De Vuelta & Álbum La Vida Es Bella',
-      en: 'De Vuelta & Album La Vida Es Bella',
+      ca: 'De Vuelta',
+      es: 'De Vuelta',
+      en: 'De Vuelta',
     },
     description: {
       ca: 'Acabat de pujar: «De Vuelta» lidera els temes destacats de 2026 amb una nova energia nocturna i l’essència pura del 930.',
@@ -322,9 +311,25 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
       {/* HERO EDITORIAL MONOGRAPH — LILA, ROSA, ROJO, BLANCO Y NEGRO */}
       {/* ========================================================================= */}
       <section
-        className="relative min-h-[84vh] flex items-center justify-center px-4 sm:px-6 md:px-10 py-12 md:py-20 border-b border-[#22222e] overflow-hidden"
+        className="relative min-h-[88vh] flex items-center justify-center px-4 sm:px-6 md:px-10 py-16 md:py-24 border-b border-[#22222e] overflow-hidden"
         id="hero"
       >
+        {/* Fondo fotográfico auténtico del Barrio de La Mina aportado por el artista */}
+        <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
+          <img
+            src={ARTIST_IMAGES.laMinaHeroBg}
+            alt="Barrio de La Mina — Edificis de La Mina, Sant Adrià de Besòs (Barcelona 08930)"
+            className="w-full h-full object-cover object-center scale-105 filter contrast-125 brightness-[0.38] saturate-[0.80] transition-transform duration-1000"
+          />
+          {/* Degradados oscuros y de atmósfera neón para máxima legibilidad */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#050507] via-[#050507]/85 to-[#050507]/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#050507] via-[#050507]/90 to-transparent sm:w-4/5" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#00d4ff]/12 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-[#ec4899]/15 via-transparent to-transparent" />
+          {/* Línea inferior de neón */}
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00d4ff]/50 to-transparent" />
+        </div>
+
         <SectionColorBubbles variant="electric" />
         <div
           aria-hidden="true"
@@ -346,26 +351,42 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
         <div className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
           {/* Left Editorial Column */}
           <div className="lg:col-span-7 flex flex-col items-start gap-6">
-            <h1 className="font-['Cormorant_Garamond'] fluid-hero-title font-semibold text-[#ffffff]">
-              RAFA <span className="text-gradient-930">930</span>
-            </h1>
+            <div>
+              <h1 className="font-['Cormorant_Garamond'] fluid-hero-title font-semibold text-[#ffffff] tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
+                RAFA <span className="text-gradient-930 drop-shadow-[0_0_35px_rgba(168,85,247,0.55)]">930</span>
+              </h1>
+              <div className="mt-2 text-xs sm:text-sm font-mono tracking-widest text-[#a855f7] uppercase font-semibold flex flex-wrap items-center gap-2">
+                <span>MÚSICA URBANA</span>
+                <span className="text-[#00d4ff]">·</span>
+                <span>RAP CONSCIENTE</span>
+                <span className="text-[#ec4899]">·</span>
+                <span>FOTOGRAFÍA & WEB</span>
+              </div>
+            </div>
 
-            <div className="border-l-2 border-[#ec4899] pl-4">
-              <p className="text-[#f472b6] font-['Cormorant_Garamond'] italic text-2xl sm:text-3xl leading-snug">
+            <div className="relative border-l-4 border-[#ec4899] pl-5 py-3 my-1 bg-gradient-to-r from-[#111118]/85 via-[#111118]/45 to-transparent rounded-r-xl backdrop-blur-md border border-y-0 border-r-0 shadow-[0_0_24px_rgba(236,72,153,0.18)]">
+              <p className="text-[#f472b6] font-['Cormorant_Garamond'] italic text-2xl sm:text-3xl md:text-4xl leading-snug font-medium drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
                 {language === 'ca'
                   ? '«De La Mina al món. Amb la veritat per davant.»'
                   : language === 'es'
                   ? '«De La Mina al mundo. Con la verdad por delante.»'
                   : '“From La Mina to the world. Leading with the truth.”'}
               </p>
+              <span className="text-[11px] font-mono text-[#a1a1b5] mt-1.5 block">
+                {language === 'ca'
+                  ? 'Identitat 08930 · Crònica de carrer & expressió artística independent'
+                  : language === 'es'
+                  ? 'Identidad 08930 · Crónica de calle & expresión artística independiente'
+                  : '08930 Identity · Street chronicle & independent artistic expression'}
+              </span>
             </div>
 
-            <p className="text-[#a1a1b5] text-base sm:text-lg max-w-2xl leading-relaxed">
+            <p className="text-[#e2e2ec] text-base sm:text-lg max-w-2xl leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.7)]">
               {language === 'ca'
-                ? 'Artista urbà nascut a Mataró i forjat entre els carrers i la Biblioteca Font de La Mina. La seva obra integra composició musical honesta, fotografia de retrat en clarobscur i desenvolupament de plataformes digitals per a creadors i marques.'
+                ? 'Artista urbà nascut a Mataró i forjat entre els blocs i la Biblioteca Font de La Mina. La seva obra integra composició musical honesta, fotografia de retrat en clarobscur i desenvolupament de plataformes digitals per a creadors i marques.'
                 : language === 'es'
-                ? 'Artista urbano nacido en Mataró y forjado entre las calles y la Biblioteca Font de La Mina. Su obra integra composición musical honesta, fotografía de retrato en claroscuro y desarrollo de plataformas digitales para creadores y marcas.'
-                : 'Urban artist born in Mataró and forged between the streets and the Font de La Mina Library. His work integrates honest musical composition, chiaroscuro portrait photography, and digital platform development for creators and brands.'}
+                ? 'Artista urbano nacido en Mataró y forjado entre los bloques y la Biblioteca Font de La Mina. Su obra integra composición musical honesta, fotografía de retrato en claroscuro y desarrollo de plataformas digitales para creadores y marcas.'
+                : 'Urban artist born in Mataró and forged between the residential blocks and the Font de La Mina Library. His work integrates honest musical composition, chiaroscuro portrait photography, and digital platform development for creators and brands.'}
             </p>
 
             {/* Primary Navigation Actions */}
@@ -494,6 +515,10 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                   src={ARTIST_IMAGES.heroPortrait}
                   loading="eager"
                 />
+                <div className="absolute top-3 left-3 bg-[#050507]/85 backdrop-blur-md border border-[#00d4ff]/40 text-[#00d4ff] text-[10px] font-mono px-2.5 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-[0_0_12px_rgba(0,212,255,0.3)]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] animate-ping" />
+                  <span>LA MINA · 08930</span>
+                </div>
               </div>
               <div className="pt-3 px-1 flex items-center justify-between text-xs font-serif italic text-[#a1a1b5]">
                 <span>
@@ -683,6 +708,8 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                 </span>
               </div>
             </Card3D>
+
+
           </div>
         </div>
       </section>
@@ -829,10 +856,10 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
             >
               <span>
                 {language === 'ca'
-                  ? 'Veure catàleg complet i lletres (8 obres)'
+                  ? 'Veure catàleg complet i lletres'
                   : language === 'es'
-                  ? 'Ver catálogo completo y letras (8 obras)'
-                  : 'View full catalog & lyrics (8 works)'}
+                  ? 'Ver catálogo completo y letras'
+                  : 'View full catalog & lyrics'}
               </span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
@@ -913,28 +940,39 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
             </div>
           </Card3D>
 
-          {/* Card 2 */}
+          {/* Card 2: EP My World (Ya disponible en Spotify) */}
           <Card3D
             intensity={5}
-            glowColor="rgba(236, 72, 153, 0.18)"
-            className="bg-[#111118] border border-[#22222e] hover:border-[#ec4899] rounded-xl p-5 group"
+            glowColor="rgba(236, 72, 153, 0.22)"
+            className="bg-[#111118] border border-[#ec4899]/50 hover:border-[#00d4ff] rounded-xl p-5 group shadow-[0_0_20px_rgba(236,72,153,0.12)]"
           >
             <div>
               <div className="relative aspect-square rounded-lg overflow-hidden bg-[#0a0a0f] mb-4">
                 <img
-                  alt="EP My World"
+                  alt="EP My World — RAFA 930"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover group-hover:scale-105 duration-500 transition-transform"
                   src={ARTIST_IMAGES.epMyWorld}
                   loading="lazy"
                 />
+                <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#ec4899] text-white text-[10px] font-mono font-bold uppercase tracking-wider shadow-lg">
+                  {language === 'ca'
+                    ? 'JA A SPOTIFY'
+                    : language === 'es'
+                    ? 'YA EN SPOTIFY'
+                    : 'OUT ON SPOTIFY'}
+                </span>
+                <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#050507]/85 backdrop-blur-md border border-[#1DB954]/60 text-[10px] font-mono text-[#1ed760] shadow-[0_0_10px_rgba(29,185,84,0.3)]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1DB954] animate-pulse" />
+                  <span>Álbum</span>
+                </div>
               </div>
               <div className="text-xs font-mono text-[#ec4899] mb-1 tabular-nums">
                 {language === 'ca'
-                  ? 'EP CONCEPTUAL · 2025 · TRILOGIA'
+                  ? 'EP CONCEPTUAL · 2025 · 3 TEMES'
                   : language === 'es'
-                  ? 'EP CONCEPTUAL · 2025 · TRILOGÍA'
-                  : 'CONCEPTUAL EP · 2025 · TRILOGY'}
+                  ? 'EP CONCEPTUAL · 2025 · 3 TEMAS'
+                  : 'CONCEPTUAL EP · 2025 · 3 TRACKS'}
               </div>
               <h3 className="font-['Cormorant_Garamond'] font-semibold text-2xl text-[#ffffff]">
                 EP My World
@@ -946,77 +984,94 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
               </ul>
             </div>
 
-            <div className="pt-5 mt-4 border-t border-[#22222e] flex gap-2">
+            <div className="pt-5 mt-4 border-t border-[#22222e] flex flex-col sm:flex-row gap-2">
+              <a
+                href="https://open.spotify.com/album/25v5dLghLWzumiIXqLDD8A?si=yVkoZMeNSnGFTFE8P48Pug"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="touch-target-44 flex-1 py-2.5 px-3 bg-[#1DB954] hover:bg-[#1ed760] text-black font-semibold rounded-lg flex items-center justify-center gap-1.5 text-xs transition-all shadow-[0_0_12px_rgba(29,185,84,0.25)]"
+              >
+                <Radio className="w-3.5 h-3.5 shrink-0" />
+                <span>Spotify</span>
+                <ExternalLink className="w-3 h-3 text-black/70" />
+              </a>
+
               <a
                 href="https://www.youtube.com/watch?v=lCwhG67eijs&list=PLs6c6tp_0W8Q_4mPsWLRQ8Zwt569Rpe5x"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="touch-target-44 flex-1 py-2.5 px-4 gradient-lila-rosa-rojo text-white hover:opacity-95 rounded-lg flex items-center justify-center gap-2 text-xs font-semibold transition-all"
+                className="touch-target-44 flex-1 py-2.5 px-3 gradient-lila-rosa-rojo text-white hover:opacity-95 rounded-lg flex items-center justify-center gap-1.5 text-xs font-semibold transition-all"
               >
                 <Play className="w-3.5 h-3.5 fill-current" />
-                <span>
-                  {language === 'ca'
-                    ? 'Escoltar a YouTube'
-                    : language === 'es'
-                    ? 'Escuchar en YouTube'
-                    : 'Listen on YouTube'}
-                </span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <span>YouTube</span>
+                <ExternalLink className="w-3 h-3" />
               </a>
             </div>
           </Card3D>
 
-          {/* Card 3 */}
+          {/* Card 3: Nose si estaré mañana (Single Oficial 2026) */}
           <Card3D
             intensity={5}
-            glowColor="rgba(225, 29, 72, 0.18)"
-            className="bg-[#111118] border border-[#22222e] hover:border-[#e11d48] rounded-xl p-5 group"
+            glowColor="rgba(0, 212, 255, 0.18)"
+            className="bg-[#111118] border border-[#22222e] hover:border-[#00d4ff] rounded-xl p-5 group"
           >
             <div>
               <div className="relative aspect-square rounded-lg overflow-hidden bg-[#0a0a0f] mb-4">
                 <img
-                  alt="La Vida Es Bella"
+                  alt="Nose si estaré mañana — RAFA 930"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover group-hover:scale-105 duration-500 transition-transform"
-                  src={ARTIST_IMAGES.albumVidaEsBella}
+                  src={ARTIST_IMAGES.single2026}
                   loading="lazy"
                 />
+                <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#00d4ff] text-black text-[10px] font-mono font-bold uppercase tracking-wider shadow-lg">
+                  {language === 'ca'
+                    ? 'SENZILL OFICIAL'
+                    : language === 'es'
+                    ? 'SENCILLO OFICIAL'
+                    : 'OFFICIAL SINGLE'}
+                </span>
               </div>
-              <div className="text-xs font-mono text-[#e11d48] mb-1 tabular-nums">
+              <div className="text-xs font-mono text-[#00d4ff] mb-1 tabular-nums">
                 {language === 'ca'
-                  ? 'ÀLBUM DEBUT · 2026 · AVANÇAMENT: TÚ AROMA'
+                  ? 'SENZILL 2026 · 1.2K+ REPS'
                   : language === 'es'
-                  ? 'ÁLBUM DEBUT · 2026 · ADELANTO: TÚ AROMA'
-                  : 'DEBUT ALBUM · 2026 · PREVIEW: TÚ AROMA'}
+                  ? 'SENCILLO 2026 · 1.2K+ REPS'
+                  : 'SINGLE 2026 · 1.2K+ PLAYS'}
               </div>
               <h3 className="font-['Cormorant_Garamond'] font-semibold text-2xl text-[#ffffff]">
-                La Vida Es Bella
+                Nose si estaré mañana
               </h3>
               <p className="text-[#a1a1b5] text-xs sm:text-sm mt-2 leading-relaxed">
                 {language === 'ca'
-                  ? 'El projecte de llarga durada que celebra la resiliència, la maduresa escènica i l’amor per la vida.'
+                  ? 'Un single carregat d’urgència vital, melodies introspectives i la veu pura de RAFA 930.'
                   : language === 'es'
-                  ? 'El proyecto de larga duración que celebra la resiliencia, la madurez escénica y el amor por la vida.'
-                  : 'The full-length project celebrating resilience, stage maturity, and love for life.'}
+                  ? 'Un single cargado de urgencia vital, melodías introspectivas y la voz pura de RAFA 930.'
+                  : 'A single charged with vital urgency, introspective melodies, and the pure voice of RAFA 930.'}
               </p>
             </div>
 
-            <div className="pt-5 mt-4 border-t border-[#22222e]">
+            <div className="pt-5 mt-4 border-t border-[#22222e] flex flex-col sm:flex-row gap-2">
               <a
-                href="https://youtube.com/@rafa_930"
+                href={OFFICIAL_SPOTIFY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="touch-target-44 w-full py-2.5 px-4 bg-[#0a0a0f] border border-[#ec4899]/60 hover:bg-[#ec4899] text-[#f472b6] hover:text-white rounded-lg flex items-center justify-center gap-2 text-xs font-semibold transition-colors"
+                className="touch-target-44 flex-1 py-2.5 px-3 bg-[#1DB954] hover:bg-[#1ed760] text-black font-semibold rounded-lg flex items-center justify-center gap-1.5 text-xs transition-all"
+              >
+                <Radio className="w-3.5 h-3.5 shrink-0" />
+                <span>Spotify</span>
+                <ExternalLink className="w-3 h-3 text-black/70" />
+              </a>
+
+              <a
+                href="https://www.youtube.com/watch?v=WaV1KeSN5_4"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="touch-target-44 flex-1 py-2.5 px-3 gradient-lila-rosa-rojo text-white hover:opacity-95 rounded-lg flex items-center justify-center gap-1.5 text-xs font-semibold transition-all"
               >
                 <Play className="w-3.5 h-3.5 fill-current" />
-                <span>
-                  {language === 'ca'
-                    ? 'Escoltar a YouTube Oficial'
-                    : language === 'es'
-                    ? 'Escuchar en YouTube Oficial'
-                    : 'Listen on Official YouTube'}
-                </span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <span>YouTube</span>
+                <ExternalLink className="w-3 h-3" />
               </a>
             </div>
           </Card3D>

@@ -482,7 +482,7 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
       // =======================================================================
       // SCENE 5: PRESSKIT -> 3D STAGE ARENA CONCERT LASER CONES
       // =======================================================================
-      else if (scr === 'presskit') {
+      else if (scr === 'conciertos') {
         const stageX = width * 0.5 + mx * 45;
         const stageY = height + 30;
 
@@ -574,7 +574,7 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-0 overflow-hidden select-none"
+      className="pointer-events-none fixed inset-0 z-0 overflow-hidden select-none opacity-35"
     >
       <canvas
         ref={canvasRef}

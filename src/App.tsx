@@ -15,17 +15,18 @@ import { RevistaScreen } from './components/Screens/RevistaScreen';
 import { DiscografiaScreen } from './components/Screens/DiscografiaScreen';
 import { GaleriaScreen } from './components/Screens/GaleriaScreen';
 import { ServeisScreen } from './components/Screens/ServeisScreen';
-import { PresskitScreen } from './components/Screens/PresskitScreen';
 import { EnllacosScreen } from './components/Screens/EnllacosScreen';
 import { ContacteScreen } from './components/Screens/ContacteScreen';
 import { LegalScreen } from './components/Screens/LegalScreen';
+import { ConciertosScreen } from './components/Screens/ConciertosScreen';
+import { ScrollLateralBar } from './components/ScrollLateralBar';
 
 const VALID_SCREENS: ScreenId[] = [
   'revista',
   'discografia',
+  'conciertos',
   'galeria',
   'serveis',
-  'presskit',
   'enllacos',
   'contacte',
   'legal',
@@ -35,6 +36,7 @@ export default function App() {
   const [currentScreen, setCurrentScreen] = useState<ScreenId>(() => {
     let hash = window.location.hash.replace('#', '').toLowerCase();
     if (hash === 'links' || hash === 'enlaces') hash = 'enllacos';
+    if (hash === 'concerts' || hash === 'gira' || hash === 'concierto' || hash === 'directos') hash = 'conciertos';
     if (VALID_SCREENS.includes(hash as ScreenId)) return hash as ScreenId;
     return 'revista';
   });
@@ -67,6 +69,7 @@ export default function App() {
     const handleHashChange = () => {
       let hash = window.location.hash.replace('#', '').toLowerCase();
       if (hash === 'links' || hash === 'enlaces') hash = 'enllacos';
+      if (hash === 'concerts' || hash === 'gira' || hash === 'concierto' || hash === 'directos') hash = 'conciertos';
       if (VALID_SCREENS.includes(hash as ScreenId)) {
         setCurrentScreen(hash as ScreenId);
       }
@@ -140,6 +143,8 @@ export default function App() {
         isPlayingMusic={false}
       />
 
+      <ScrollLateralBar />
+
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[10000] focus:px-4 focus:py-2.5 focus:bg-[#a855f7] focus:text-white focus:font-semibold focus:rounded-md"
@@ -171,6 +176,14 @@ export default function App() {
           />
         )}
 
+        {currentScreen === 'conciertos' && (
+          <ConciertosScreen
+            language={language}
+            onNavigate={handleScreenChange}
+            onOpenLegalTab={handleOpenLegalTab}
+          />
+        )}
+
         {currentScreen === 'galeria' && (
           <GaleriaScreen
             language={language}
@@ -179,8 +192,6 @@ export default function App() {
         )}
 
         {currentScreen === 'serveis' && <ServeisScreen language={language} />}
-
-        {currentScreen === 'presskit' && <PresskitScreen language={language} />}
 
         {currentScreen === 'enllacos' && (
           <EnllacosScreen language={language} onSelectScreen={handleScreenChange} />

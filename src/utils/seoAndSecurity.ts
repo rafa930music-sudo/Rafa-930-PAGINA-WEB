@@ -193,32 +193,7 @@ const SCREEN_SEO: Record<ScreenId, Record<Language, SeoMetadata>> = {
       locale: 'en_US',
     },
   },
-  presskit: {
-    ca: {
-      title: 'Presskit Oficial (EPK) & Rider Tècnic 2026 · RAFA 930',
-      description:
-        'Dossier de premsa oficial (EPK), biografia executiva i Rider Tècnic d’escenari de RAFA 930 per a promotors, sales i festivals.',
-      keywords:
-        'Presskit RAFA 930, EPK artista urbà, Rider tècnic concert, contractació concerts Barcelona',
-      locale: 'ca_ES',
-    },
-    es: {
-      title: 'Presskit Oficial (EPK) & Rider Técnico 2026 · RAFA 930',
-      description:
-        'Dossier de prensa oficial (EPK), biografía ejecutiva y Rider Técnico de escenario de RAFA 930 para promotores, salas y festivales.',
-      keywords:
-        'Presskit RAFA 930, EPK artista urbano, Rider técnico concierto, contratación conciertos Barcelona',
-      locale: 'es_ES',
-    },
-    en: {
-      title: 'Official Press Kit (EPK) & Stage Rider 2026 · RAFA 930',
-      description:
-        'Official Electronic Press Kit (EPK), executive biography, and stage technical rider of RAFA 930 for promoters, venues, and festivals.',
-      keywords:
-        'RAFA 930 EPK, electronic press kit, live technical rider, urban artist booking Barcelona',
-      locale: 'en_US',
-    },
-  },
+
   enllacos: {
     ca: {
       title: 'Enllaços Oficials & Spotify · RAFA 930',
@@ -291,6 +266,32 @@ const SCREEN_SEO: Record<ScreenId, Record<Language, SeoMetadata>> = {
       description:
         'Official legal documentation for RAFA 930: LSSI-CE Legal Notice, EU GDPR Privacy Policy, Cookie & Storage Policy, and Artistic Credits.',
       keywords: 'RAFA 930 legal notice, GDPR privacy policy, artistic credits 930 Records',
+      locale: 'en_US',
+    },
+  },
+  conciertos: {
+    ca: {
+      title: 'Concerts, Directes & Gira 2026 · RAFA 930',
+      description:
+        'Pròximament: concerts en directe, xous d’escenari i contractació oficial de RAFA 930 des de La Mina (Sant Adrià de Besòs, Barcelona).',
+      keywords:
+        'Concerts RAFA 930, directes música urbana Barcelona, gira 2026, contractar concert rap',
+      locale: 'ca_ES',
+    },
+    es: {
+      title: 'Conciertos, Directos & Gira 2026 · RAFA 930',
+      description:
+        'Próximamente: conciertos en directo, shows de escenario y contratación oficial de RAFA 930 desde La Mina (Sant Adrià de Besòs, Barcelona).',
+      keywords:
+        'Conciertos RAFA 930, directos música urbana Barcelona, gira 2026, contratar concierto rap',
+      locale: 'es_ES',
+    },
+    en: {
+      title: 'Concerts, Live Shows & Tour 2026 · RAFA 930',
+      description:
+        'Coming soon: live concerts, stage shows, and official booking for RAFA 930 from La Mina (Sant Adrià de Besòs, Barcelona).',
+      keywords:
+        'RAFA 930 concerts, live urban music Barcelona, tour 2026, book live rap show',
       locale: 'en_US',
     },
   },

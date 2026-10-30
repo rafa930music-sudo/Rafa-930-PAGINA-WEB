@@ -1,4 +1,4 @@
-export type ScreenId = 'revista' | 'discografia' | 'galeria' | 'serveis' | 'presskit' | 'enllacos' | 'contacte' | 'legal';
+export type ScreenId = 'revista' | 'discografia' | 'conciertos' | 'galeria' | 'serveis' | 'enllacos' | 'contacte' | 'legal';
 
 export type Language = 'ca' | 'es' | 'en';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScreenId, Language, ThemeMode } from '../types';
 import { SHEETS_CONFIG } from '../data/translations';
-import { Newspaper, Music2, Briefcase, FileText, Send, ShieldCheck } from 'lucide-react';
+import { Newspaper, Music2, Briefcase, Ticket, Send, ShieldCheck } from 'lucide-react';
 
 interface MobileBottomNavProps {
   currentScreen: ScreenId;
@@ -31,8 +31,8 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
         return <Music2 className={className} />;
       case 'serveis':
         return <Briefcase className={className} />;
-      case 'presskit':
-        return <FileText className={className} />;
+      case 'conciertos':
+        return <Ticket className={className} />;
       case 'contacte':
         return <Send className={className} />;
       case 'legal':

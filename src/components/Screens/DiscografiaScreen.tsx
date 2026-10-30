@@ -78,14 +78,14 @@ const TRACK_I18N: Record<
   },
   'my-world-ep': {
     categoryLabel: {
-      ca: 'EP CONCEPTUAL · 3 TEMES',
-      es: 'EP CONCEPTUAL · 3 TEMAS',
-      en: 'CONCEPTUAL EP · 3 TRACKS',
+      ca: 'EP OFICIAL · JA A SPOTIFY',
+      es: 'EP OFICIAL · YA EN SPOTIFY',
+      en: 'OFFICIAL EP · OUT NOW ON SPOTIFY',
     },
     description: {
-      ca: 'Trilogia conceptual composta per: 01. 1 Minuto y 10 Segundos · 02. Lo Material No Lo Es Todo · 03. Fuck Sistema.',
-      es: 'Trilogía conceptual compuesta por: 01. 1 Minuto y 10 Segundos · 02. Lo Material No Lo Es Todo · 03. Fuck Sistema.',
-      en: 'Conceptual trilogy featuring: 01. 1 Minuto y 10 Segundos · 02. Lo Material No Lo Es Todo · 03. Fuck Sistema.',
+      ca: 'Trilogia conceptual disponible oficialment a Spotify: 01. 1 Minuto y 10 Segundos · 02. Lo Material No Lo Es Todo · 03. Fuck Sistema.',
+      es: 'Trilogía conceptual disponible oficialmente en Spotify: 01. 1 Minuto y 10 Segundos · 02. Lo Material No Lo Es Todo · 03. Fuck Sistema.',
+      en: 'Conceptual trilogy available officially on Spotify: 01. 1 Minuto y 10 Segundos · 02. Lo Material No Lo Es Todo · 03. Fuck Sistema.',
     },
     lyricsExcerpt: {
       ca: 'Un minut i deu segons per dir el que sento,\nallò material s’apaga amb el pas del temps,\ncontra un sistema cec jo no em doblego,\nporto el meu barri a cada sentiment...',
@@ -98,38 +98,104 @@ const TRACK_I18N: Record<
       en: 'RAFA 930 · Visual Direction: Incrife · Art: 930 Digital',
     },
   },
-  'la-vida-es-bella': {
+  'viviendo-para-ser-recordado': {
     categoryLabel: {
-      ca: 'ÀLBUM DEBUT (2026)',
-      es: 'ÁLBUM DEBUT (2026)',
-      en: 'DEBUT ALBUM (2026)',
+      ca: 'DARRERES NOVETATS · SINGLE OFICIAL',
+      es: 'ÚLTIMAS NOVEDADES · SENCILLO OFICIAL',
+      en: 'LATEST RELEASES · OFFICIAL SINGLE',
     },
     description: {
-      ca: 'El projecte de llarga durada que celebra la resiliència, la maduresa escènica i l’amor per la vida.',
-      es: 'El proyecto de larga duración que celebra la resiliencia, la madurez escénica y el amor por la vida.',
-      en: 'The full-length project celebrating resilience, stage maturity, and love for life.',
+      ca: 'Single emotiu i intens sobre el llegat, la memòria i el camí recorregut als carrers.',
+      es: 'Sencillo emotivo e intenso sobre el legado, la memoria y el camino recorrido en las calles.',
+      en: 'Emotional and intense single about legacy, memory, and the path walked on the streets.',
     },
     lyricsExcerpt: {
-      ca: 'Perquè la vida és bella si la saps mirar,\nencara que el camí costi de trepitjar.\nDes de Sant Adrià fins on vulgui arribar,\nporto la meva gent al meu cantar...',
-      es: 'Porque la vida es bella si la sabes mirar,\naunque el camino cueste de pisar.\nDesde Sant Adrià hasta donde quiera llegar,\nllevo a mi gente en mi cantar...',
-      en: 'Because life is beautiful if you know how to look,\neven when the road is hard to walk.\nFrom Sant Adrià as far as I can reach,\nI carry my people in my song...',
+      ca: 'Viviendo para ser recordado,\nen un carrer on mai s’ha perdonat ni oblidat...\nporto la meva història gravada a la pell,\nsense por del destí ni d’un futur cruel...',
+      es: 'Viviendo para ser recordado,\nen un calle donde nunca se ha perdonado ni olvidado...\nllevo mi historia grabada en la piel,\nsin miedo al destino ni a un futuro cruel...',
+      en: 'Living to be remembered,\non a street where nothing is forgiven or forgotten...\ncarrying my story etched into my skin,\nfearless of destiny or a cruel future...',
     },
     credits: {
-      ca: 'RAFA 930 & Col·laboradors de La Mina',
-      es: 'RAFA 930 & Colaboradores de La Mina',
-      en: 'RAFA 930 & La Mina Collaborators',
+      ca: 'RAFA 930 · 930 Records (2026)',
+      es: 'RAFA 930 · 930 Records (2026)',
+      en: 'RAFA 930 · 930 Records (2026)',
+    },
+  },
+  'romeo-y-julieta': {
+    categoryLabel: {
+      ca: 'SINGLE OFICIAL · AUDIO',
+      es: 'SENCILLO OFICIAL · AUDIO',
+      en: 'OFFICIAL SINGLE · AUDIO',
+    },
+    description: {
+      ca: 'Relat romàntic urbà intens que reinterpreta el clàssic des de la perspectiva del barri.',
+      es: 'Relato romántico urbano intenso que reinterpreta el clásico desde la perspectiva del barrio.',
+      en: 'Intense urban romantic tale reinterpreting the classic from a neighborhood perspective.',
+    },
+    lyricsExcerpt: {
+      ca: 'Som com Romeo i Julieta al mateix carrer,\non les promeses valen més que qualsevol paper...\nTu i jo contra el món sencer...',
+      es: 'Somos como Romeo y Julieta en la misma calle,\ndonde las promesas valen más que cualquier papel...\nTú y yo contra el mundo entero...',
+      en: 'We are like Romeo and Juliet on the same street,\nwhere promises mean more than any paper...\nYou and I against the entire world...',
+    },
+    credits: {
+      ca: 'RAFA 930 · 930 Records',
+      es: 'RAFA 930 · 930 Records',
+      en: 'RAFA 930 · 930 Records',
+    },
+  },
+  'diferentes-caminos': {
+    categoryLabel: {
+      ca: 'TEMA INÈDIT · YOUTUBE',
+      es: 'TEMA INÉDITO · YOUTUBE',
+      en: 'UNRELEASED TRACK · YOUTUBE',
+    },
+    description: {
+      ca: 'Reflexió profunda sobre la separació de rutes i la maduresa personal davant la vida.',
+      es: 'Reflexión profunda sobre la separación de rutas y la madurez personal ante la vida.',
+      en: 'Deep reflection on path separation and personal maturity in life.',
+    },
+    lyricsExcerpt: {
+      ca: 'Ara prenem diferents camins sota el mateix cel,\nrecordant tot allò que vam escriure en paper...',
+      es: 'Ahora tomamos diferentes caminos bajo el mismo cielo,\nrecordando todo aquello que escribimos en papel...',
+      en: 'Now we take different paths under the same sky,\nremembering everything we wrote on paper...',
+    },
+    credits: {
+      ca: 'RAFA 930 · 930 Records',
+      es: 'RAFA 930 · 930 Records',
+      en: 'RAFA 930 · 930 Records',
+    },
+  },
+  'pasan-los-dias': {
+    categoryLabel: {
+      ca: 'TEMA INÈDIT · YOUTUBE',
+      es: 'TEMA INÉDITO · YOUTUBE',
+      en: 'UNRELEASED TRACK · YOUTUBE',
+    },
+    description: {
+      ca: 'El pas del temps i la constància diària en la recerca de metes i superació personal.',
+      es: 'El paso del tiempo y la constancia diaria en la búsqueda de metas y superación personal.',
+      en: 'The passage of time and daily perseverance in pursuing goals and personal growth.',
+    },
+    lyricsExcerpt: {
+      ca: 'Pasan los días y la mente sigue en pie,\nlluitant per tot allò que jo sempre vaig creure...',
+      es: 'Pasan los días y la mente sigue en pie,\nluchando por todo aquello que yo siempre creí...',
+      en: 'Days pass and the mind remains standing,\nfighting for everything I always believed in...',
+    },
+    credits: {
+      ca: 'RAFA 930 · 930 Records',
+      es: 'RAFA 930 · 930 Records',
+      en: 'RAFA 930 · 930 Records',
     },
   },
   'un-amor-prohibido': {
     categoryLabel: {
-      ca: 'HIT SINGLE · +1.000 REPS',
-      es: 'HIT SINGLE · +1.000 REPS',
-      en: 'HIT SINGLE · 1,000+ PLAYS',
+      ca: 'HIT SINGLE · +1.2K REPS',
+      es: 'HIT SINGLE · +1.2K REPS',
+      en: 'HIT SINGLE · 1.2K+ PLAYS',
     },
     description: {
-      ca: 'Un dels temes més corejats de la trajectòria de RAFA 930, que va consolidar la seva audiència a les xarxes.',
-      es: 'Uno de los temas más coreados de la trayectoria de RAFA 930, que consolidó su audiencia en las redes.',
-      en: 'One of the most celebrated tracks in RAFA 930’s catalog, consolidating his audience across platforms.',
+      ca: 'Un dels temes més corejats i escoltats de la trajectòria de RAFA 930 a YouTube.',
+      es: 'Uno de los temas más coreados y escuchados de la trayectoria de RAFA 930 en YouTube.',
+      en: 'One of the most chanted and streamed tracks in RAFA 930’s career on YouTube.',
     },
     lyricsExcerpt: {
       ca: 'Sé que deien que no podia ser,\nun amor prohibit sota el mateix carrer.\nTu i jo mirant la lluna créixer,\nsense por del que hagi de vèncer...',
@@ -140,72 +206,6 @@ const TRACK_I18N: Record<
       ca: 'RAFA 930 · 930 Records',
       es: 'RAFA 930 · 930 Records',
       en: 'RAFA 930 · 930 Records',
-    },
-  },
-  'hago-dinero': {
-    categoryLabel: {
-      ca: 'HIT SINGLE · +500 REPS',
-      es: 'HIT SINGLE · +500 REPS',
-      en: 'HIT SINGLE · 500+ PLAYS',
-    },
-    description: {
-      ca: 'Batec trap pur amb lírica directa sobre autosuficiència, treball dur i lleialtat a les arrels.',
-      es: 'Pulso trap puro con lírica directa sobre autosuficiencia, trabajo duro y lealtad a las raíces.',
-      en: 'Pure trap pulse with direct lyricism on self-reliance, hard work, and loyalty to one’s roots.',
-    },
-    lyricsExcerpt: {
-      ca: 'Faig diners amb el meu talent i la meva suor,\nsense vendre el meu nom ni perdre el meu valor...',
-      es: 'Hago dinero con mi talento y mi sudor,\nsin vender mi nombre ni perder mi valor...',
-      en: 'Making money with my talent and my sweat,\nnever selling out my name or losing my worth...',
-    },
-    credits: {
-      ca: 'RAFA 930 · Prod. Ouxxox',
-      es: 'RAFA 930 · Prod. Ouxxox',
-      en: 'RAFA 930 · Prod. Ouxxox',
-    },
-  },
-  'tu-aroma': {
-    categoryLabel: {
-      ca: 'AVANÇAMENT 2026 · LA VIDA ES BELLA',
-      es: 'ADELANTO 2026 · LA VIDA ES BELLA',
-      en: '2026 PREVIEW · LA VIDA ES BELLA',
-    },
-    description: {
-      ca: 'Primer avançament oficial (2026) del pròxim àlbum debut La Vida Es Bella. Una peça càlida, melòdica i lluminosa.',
-      es: 'Primer adelanto oficial (2026) del próximo álbum debut La Vida Es Bella. Una pieza cálida, melódica y luminosa.',
-      en: 'First official 2026 preview of the upcoming debut album La Vida Es Bella. A warm, melodic, and luminous piece.',
-    },
-    lyricsExcerpt: {
-      ca: 'Em queda el teu aroma quan el vent passa,\nla ciutat calla i el teu record m’abraça...',
-      es: 'Me queda tu aroma cuando el viento pasa,\nla ciudad calla y tu recuerdo me abraza...',
-      en: 'Your scent lingers when the wind blows by,\nthe city goes quiet and your memory holds me...',
-    },
-    credits: {
-      ca: 'RAFA 930 · Producció: 930 Records (2026)',
-      es: 'RAFA 930 · Producción: 930 Records (2026)',
-      en: 'RAFA 930 · Production: 930 Records (2026)',
-    },
-  },
-  'vive-suena-en-tu-mundo': {
-    categoryLabel: {
-      ca: 'DEBUT OFICIAL · 24 MARÇ 2023',
-      es: 'DEBUT OFICIAL · 24 MARZO 2023',
-      en: 'OFFICIAL DEBUT · MARCH 24, 2023',
-    },
-    description: {
-      ca: 'La primera cançó publicada per RAFA 930 al març de 2023. El fonament de tota la seva carrera.',
-      es: 'La primera canción publicada por RAFA 930 en marzo de 2023. El cimiento de toda su carrera.',
-      en: 'The very first song released by RAFA 930 in March 2023. The foundation of his entire career.',
-    },
-    lyricsExcerpt: {
-      ca: 'Viu i somia en el teu propi món,\nno deixis que apaguin el que portes al fons...',
-      es: 'Vive y sueña en tu propio mundo,\nno dejes que apaguen lo que llevas en el fondo...',
-      en: 'Live and dream in your own world,\nnever let them dim what you carry deep inside...',
-    },
-    credits: {
-      ca: 'RAFA 930 · Origen Biblioteca Font de La Mina',
-      es: 'RAFA 930 · Origen Biblioteca Font de La Mina',
-      en: 'RAFA 930 · Origin Font de La Mina Library',
     },
   },
 };

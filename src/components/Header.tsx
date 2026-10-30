@@ -13,6 +13,7 @@ import {
   Mail,
   Share2,
   Check,
+  Ticket,
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -33,6 +34,29 @@ export const Header: React.FC<HeaderProps> = ({
   onSelectLanguage,
 }) => {
   const [burgerOpen, setBurgerOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  // Progressive scroll tracking with smooth real-time percentage
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollHeight > 0) {
+        const progress = Math.min(100, Math.max(0, (window.scrollY / scrollHeight) * 100));
+        setScrollProgress(progress);
+      } else {
+        setScrollProgress(0);
+      }
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, [currentScreen]);
+
   // Close BurgerNav on ESC key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -61,6 +85,12 @@ export const Header: React.FC<HeaderProps> = ({
       Icon: Disc3,
     },
     {
+      id: 'conciertos',
+      label: { ca: 'Concerts', es: 'Conciertos', en: 'Concerts' },
+      shortLabel: { ca: 'Concerts', es: 'Conciertos', en: 'Concerts' },
+      Icon: Ticket,
+    },
+    {
       id: 'galeria',
       label: { ca: 'Fotografia', es: 'Fotografía', en: 'Photography' },
       shortLabel: { ca: 'Fotos', es: 'Fotos', en: 'Photos' },
@@ -71,12 +101,6 @@ export const Header: React.FC<HeaderProps> = ({
       label: { ca: 'Serveis', es: 'Servicios', en: 'Services' },
       shortLabel: { ca: 'Serveis', es: 'Servicios', en: 'Services' },
       Icon: Briefcase,
-    },
-    {
-      id: 'presskit',
-      label: { ca: 'Presskit', es: 'Presskit', en: 'Presskit' },
-      shortLabel: { ca: 'Presskit', es: 'Presskit', en: 'Presskit' },
-      Icon: FileText,
     },
     {
       id: 'contacte',
@@ -114,19 +138,51 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#050507]/95 backdrop-blur-xl border-b border-[#00d4ff]/25 w-full transition-colors shadow-[0_4px_25px_rgba(0,212,255,0.08)]">
+        {/* Barra de scroll progresiva superior con los colores corporativos de RAFA 930 */}
         <div
-          aria-hidden="true"
-          className="h-[2px] w-full bg-gradient-to-r from-[#a855f7] via-[#00d4ff] to-[#ec4899] shadow-[0_0_12px_rgba(0,212,255,0.65)]"
-        />
+          role="progressbar"
+          aria-valuenow={Math.round(scrollProgress)}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-label={
+            language === 'ca'
+              ? 'Progrés de navegació i desplaçament'
+              : language === 'es'
+              ? 'Progreso de navegación y desplazamiento'
+              : 'Navigation and scroll progress'
+          }
+          className="h-[3px] sm:h-[3.5px] w-full bg-[#0a0a0f]/90 relative overflow-hidden"
+        >
+          {/* Fondo sutil de guía */}
+          <div className="absolute inset-0 opacity-15 bg-gradient-to-r from-[#a855f7] via-[#00d4ff] to-[#ec4899]" />
+
+          {/* Barra de relleno progresivo dinámico */}
+          <div
+            className="h-full transition-[width] duration-75 ease-out relative"
+            style={{
+              width: `${scrollProgress}%`,
+              background:
+                'linear-gradient(90deg, #a855f7 0%, #c084fc 22%, #ec4899 48%, #00d4ff 78%, #e11d48 100%)',
+              boxShadow:
+                '0 0 14px rgba(0, 212, 255, 0.9), 0 0 24px rgba(236, 72, 153, 0.7)',
+            }}
+          >
+            {/* Destello de neón en la punta del progreso */}
+            {scrollProgress > 0 && (
+              <div className="absolute right-0 top-0 bottom-0 w-3 bg-white blur-[1px] opacity-95 shadow-[0_0_10px_#ffffff,0_0_16px_#00d4ff]" />
+            )}
+          </div>
+        </div>
         <div className="flex justify-between items-center w-full px-3 sm:px-6 md:px-10 h-16 sm:h-18 max-w-7xl mx-auto gap-2">
           {/* Zone 1: Brand Wordmark -> RAFA 930 (Click to view official signature splash) */}
           <button
             type="button"
             onClick={() => handleNavClick('revista')}
-            className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#ffffff] hover:opacity-90 transition-opacity font-['Bebas_Neue'] whitespace-nowrap shrink-0 focus:outline-none flex items-center gap-2 group cursor-pointer"
+            className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#ffffff] font-['Bebas_Neue'] whitespace-nowrap shrink-0 focus:outline-none flex items-center gap-2 group cursor-pointer"
           >
-            <span>
-              RAFA <span className="text-gradient-930">930</span>
+            <span className="transition-all duration-300 transform group-hover:scale-105 inline-flex items-center gap-1">
+              <span className="transition-all duration-300 group-hover-gradient-930">RAFA</span>
+              <span className="text-gradient-930 group-hover:filter group-hover:drop-shadow-[0_0_16px_rgba(0,212,255,0.9)]">930</span>
             </span>
           </button>
 
