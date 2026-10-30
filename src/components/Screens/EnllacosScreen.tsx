@@ -270,7 +270,7 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
           <img
             src={ARTIST_IMAGES.heroPortrait}
             alt="RAFA 930"
-            className="w-full h-full object-cover object-top rounded-full bg-[#050507]"
+            className="w-full h-full object-cover object-center rounded-full bg-[#050507]"
             loading="eager"
             decoding="async"
           />

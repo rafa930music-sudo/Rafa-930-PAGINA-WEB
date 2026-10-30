@@ -507,11 +507,11 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
               glowColor="rgba(0, 212, 255, 0.24)"
               className="bg-[#111118] border border-[#00d4ff]/35 rounded-xl p-4 shadow-[0_0_28px_rgba(0,212,255,0.12)]"
             >
-              <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-[#0a0a0f]">
+              <div className="relative aspect-square rounded-lg overflow-hidden bg-[#0a0a0f]">
                 <img
-                  alt="RAFA 930 — Retrato editorial por Incrife"
+                  alt="RAFA 930 — Retrato oficial de cara"
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
                   src={ARTIST_IMAGES.heroPortrait}
                   loading="eager"
                 />
@@ -523,12 +523,12 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
               <div className="pt-3 px-1 flex items-center justify-between text-xs font-serif italic text-[#a1a1b5]">
                 <span>
                   {language === 'ca'
-                    ? 'Fig. 01 — Retrat editorial per Incrife'
+                    ? 'Fig. 01 — Retrat oficial · RAFA 930'
                     : language === 'es'
-                    ? 'Fig. 01 — Retrato editorial por Incrife'
-                    : 'Fig. 01 — Editorial portrait by Incrife'}
+                    ? 'Fig. 01 — Retrato oficial · RAFA 930'
+                    : 'Fig. 01 — Official portrait · RAFA 930'}
                 </span>
-                <span className="font-mono not-italic text-[#00d4ff] font-semibold">Barcelona, 2025</span>
+                <span className="font-mono not-italic text-[#00d4ff] font-semibold">Barcelona · 08930</span>
               </div>
             </Card3D>
           </div>

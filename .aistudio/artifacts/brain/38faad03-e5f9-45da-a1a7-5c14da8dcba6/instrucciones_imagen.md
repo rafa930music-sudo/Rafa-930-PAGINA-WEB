@@ -1,12 +1,16 @@
+# Activos Fotográficos Oficiales — RAFA 930
 
-# Instrucciones para actualizar tu foto de perfil
+Se han integrado con éxito las imágenes oficiales directamente desde tu repositorio de GitHub (`rafa930music-sudo/Rafa-930-PAGINA-WEB`):
 
-Para poder mostrar la nueva foto que me has pasado en tu web, necesito que sea accesible a través de una URL pública. Como soy un asistente de IA, no puedo alojar archivos locales directamente.
+1. **Foto de la Portada / Cara (`rafa-930-cara.jpg`)**:
+   - Archivo: `/assets/rafa-930-cara.jpg` (512x512 píxeles, retrato oficial centrado).
+   - Aplicado a la portada editorial (`#revista`), tarjeta 3D hero, avatar en pantalla de enlaces (`#enllacos`) y canvas.
+   - Encuadre optimizado en 1:1 (`aspect-square`) y `object-center` para que tu rostro no sufra ningún recorte indebido.
 
-Por favor, sigue estos pasos:
-
-1. **Sube la foto** a un servicio de alojamiento de imágenes (ejemplos: Imgur, Postimages, o tu Google Drive configurado como público).
-2. **Copia el enlace directo** (la URL) a la imagen.
-3. **Pásamelo por aquí**.
-
-Una vez tenga la URL, actualizaré inmediatamente tu galería de fotos manteniendo tanto la nueva como la anterior.
+2. **Carátulas Oficiales de Lanzamientos Integradas**:
+   - *Romeo y Julieta*: `/assets/romeo-y-julieta-cover.jpg`
+   - *Diferentes Caminos*: `/assets/diferentes-caminos-cover.jpg`
+   - *Pasan los días*: `/assets/pasan-los-dias-cover.jpg`
+   - *Un Amor Prohibido*: `/assets/un-amor-prohibido-cover.jpg`
+   - *Hago dinero*: `/assets/hago-dinero-cover.jpg`
+   - *De Vuelta*: `/assets/de-vuelta-original.jpg`
