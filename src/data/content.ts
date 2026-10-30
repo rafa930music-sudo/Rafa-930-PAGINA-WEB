@@ -1,6 +1,14 @@
 import { Track, Collaborator, GalleryPhoto, TimelineEvent, ServicePackage } from '../types';
 import rafa930Photo from '../assets/images/RAFA930.jpg';
 import rafa930Cara from '../assets/images/rafa-930-cara.jpg';
+import logoWhite from '../assets/images/logo-white.webp';
+import laMinaHeroBg from '../assets/images/barrio-de-la-mina.png';
+import deVueltaOriginal from '../assets/images/de-vuelta-original.jpg';
+import romeoYJulietaCover from '../assets/images/romeo-y-julieta-cover.jpg';
+import diferentesCaminosCover from '../assets/images/diferentes-caminos-cover.jpg';
+import pasanLosDiasCover from '../assets/images/pasan-los-dias-cover.jpg';
+import unAmorProhibidoCover from '../assets/images/un-amor-prohibido-cover.jpg';
+import hagoDineroCover from '../assets/images/hago-dinero-cover.jpg';
 
 export const OFFICIAL_SPOTIFY_URL = 'https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng';
 export const OFFICIAL_YOUTUBE_URL = 'https://www.youtube.com/@rafa_930';
@@ -11,25 +19,25 @@ export const OFFICIAL_AMAZON_MUSIC_URL = 'https://music.amazon.in/artists/B0CJM7
 export const OFFICIAL_TIDAL_URL = 'https://tidal.com/artist/41128230';
 
 export const OFFICIAL_LOGOS = {
-  header: '/assets/logo-white.webp',
-  splash: '/assets/logo-white.webp',
-  drawer: '/assets/logo-white.webp',
-  footer: '/assets/logo-white.webp',
+  header: logoWhite,
+  splash: logoWhite,
+  drawer: logoWhite,
+  footer: logoWhite,
 };
 
 export const ARTIST_IMAGES = {
   heroPortrait: rafa930Cara,
-  laMinaHeroBg: '/assets/barrio-de-la-mina.png',
+  laMinaHeroBg: laMinaHeroBg,
   libraryOrigin: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBIMi02-J8CtYH8J1lAHIZskWS59fYoM2-4hrCZ1VGGD2QGHblDY0pcd1OYoTa4C_EQs4yJ-VZWKkfPzaQnx6n_HihlkQT6f7T3tzNrn1dqwxELf2hFy9Fijm5M5IGxHQnNVs0DSLIZcw19Gy7v_Ow7EiVliX1AriJFYP2_PzZeiaR1sN4fXXXq1JrgKGq07iCrt1WBsGPT6QfmWbD6_sV6uhWhpTD9gKr-i2LZ61R1jrokXoPb9OZairijjRmxrs2l6g',
-  deVuelta2026: '/assets/de-vuelta-original.jpg',
+  deVuelta2026: deVueltaOriginal,
   single2026: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDGTYqFc3bFayNNyiHKhStt8PNvnFAtx3lLpQKAuqa3D7ySkL99KV7e0Rl-9rW_sH4gnGO55wKi4bmv6kh47F-D4YuSDcG0-7L521iycPf3d1VwY12NcDRaz6BvFU4outsxQSmkNb6lYyeQ080zJxYcQ0-QK4g3gPAPpKr0_PZYe3WLadjYPpUkjpNXSKPRWBEaGbBkropt8z4MbDK9CVjpDe1VXkOiRn5r2vpLNO0Oo1dsy3awaE5QN3Z4M74lLlEi0w',
   epMyWorld: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC7umsBXBKoq4mr8o79Y1SY-mr0f2raX8yiZpKafc6w2ZGARSNxXMeea1k_MYI6qGhNz6mkN9BnlTBzOEhpJCYCyB9aNOF2HrngraD_1Dy26kZHItdPi5Ku5ql_8LXIy2YoUIDlshZ3oO4_q_1kFEDOV1WjhdhFTyoeM48tPB3vyFRVd7u2y-Xd1yMaMprRg0rAqlnavIuXg2evdvkJuxQgqF2_GDDzFMS8c9boGH5ZOvDH4bS7P1mna8A0ESLnhu3auw',
   albumVidaEsBella: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAKBmmSM6VqpZx8-2WYsJKIx09_0LmbWIUl0C56QHNXe-L4mOTyOocUMCDRiAfPWbTy4zsD4JeImMi_2q0iYXFgN9lvxjtjZ71NuAoOMe8sf6AUyJuJ3hzhf_9Mq7FV3MNmcTcoApLpDwsMNTUvXSbWwWf3tMPeauMsQOaKldhWOx8oFwcWBWlMlKXanvZKJuPr1loZtV9MBg8iKZJelnXKS2X6f8S_hQzFl2S3vGhm8qvOx5ZeqoUzrSTy2FdYeADtwA',
-  romeoYJulietaCover: '/assets/romeo-y-julieta-cover.jpg',
-  diferentesCaminosCover: '/assets/diferentes-caminos-cover.jpg',
-  pasanLosDiasCover: '/assets/pasan-los-dias-cover.jpg',
-  unAmorProhibidoCover: '/assets/un-amor-prohibido-cover.jpg',
-  hagoDineroCover: '/assets/hago-dinero-cover.jpg',
+  romeoYJulietaCover: romeoYJulietaCover,
+  diferentesCaminosCover: diferentesCaminosCover,
+  pasanLosDiasCover: pasanLosDiasCover,
+  unAmorProhibidoCover: unAmorProhibidoCover,
+  hagoDineroCover: hagoDineroCover,
 };
 
 export const TRACKS: Track[] = [
