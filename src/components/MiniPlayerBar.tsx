@@ -71,6 +71,13 @@ export const MiniPlayerBar: React.FC<MiniPlayerBarProps> = ({
               alt={track.title}
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover"
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (!target.dataset.retried) {
+                  target.dataset.retried = '1';
+                  target.src = `./assets/${track.id}-cover.jpg`;
+                }
+              }}
             />
             {isPlayingMusic && (
               <div className="absolute inset-0 bg-black/50 flex items-center justify-center">

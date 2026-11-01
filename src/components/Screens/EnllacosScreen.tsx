@@ -271,6 +271,20 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
             src={ARTIST_IMAGES.heroPortrait}
             alt="RAFA 930"
             className="w-full h-full object-cover object-center rounded-full bg-[#050507]"
+            onError={(e) => {
+              const target = e.currentTarget;
+              const fallbacks = [
+                './assets/rafa-930-cara.jpg',
+                './rafa-930-cara.jpg',
+                'https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/assets/rafa-930-cara.jpg',
+                'https://rafa930music-sudo.github.io/assets/rafa-930-cara.jpg',
+              ];
+              const currentIndex = Number(target.dataset.fallbackIndex || '0');
+              if (currentIndex < fallbacks.length) {
+                target.dataset.fallbackIndex = String(currentIndex + 1);
+                target.src = fallbacks[currentIndex];
+              }
+            }}
             loading="eager"
             decoding="async"
           />

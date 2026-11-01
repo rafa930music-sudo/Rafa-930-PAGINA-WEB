@@ -378,6 +378,20 @@ export const Spatial3DCanvas: React.FC<Spatial3DCanvasProps> = ({
             alt="RAFA 930"
             referrerPolicy="no-referrer"
             className="w-36 h-36 rounded-lg object-cover border border-[#22222e] mb-3"
+            onError={(e) => {
+              const target = e.currentTarget;
+              const fallbacks = [
+                './assets/rafa-930-cara.jpg',
+                './rafa-930-cara.jpg',
+                'https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/assets/rafa-930-cara.jpg',
+                'https://rafa930music-sudo.github.io/assets/rafa-930-cara.jpg',
+              ];
+              const currentIndex = Number(target.dataset.fallbackIndex || '0');
+              if (currentIndex < fallbacks.length) {
+                target.dataset.fallbackIndex = String(currentIndex + 1);
+                target.src = fallbacks[currentIndex];
+              }
+            }}
           />
           <p className="text-xs font-mono text-[#a1a1b5]">RAFA 930</p>
         </div>

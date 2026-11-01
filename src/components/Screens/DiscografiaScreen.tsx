@@ -382,6 +382,13 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.dataset.retried) {
+                        target.dataset.retried = '1';
+                        target.src = `./assets/${track.id}-cover.jpg`;
+                      }
+                    }}
                   />
                   <div className="absolute top-2.5 right-2.5 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#050507]/85 backdrop-blur-md border border-[#1DB954]/60 text-[10px] font-mono text-[#1ed760] shadow-[0_0_12px_rgba(29,185,84,0.35)]">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#1DB954] animate-pulse" />

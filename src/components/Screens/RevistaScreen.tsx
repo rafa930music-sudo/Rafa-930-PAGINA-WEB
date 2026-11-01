@@ -513,6 +513,20 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
                   src={ARTIST_IMAGES.heroPortrait}
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    const fallbacks = [
+                      './assets/rafa-930-cara.jpg',
+                      './rafa-930-cara.jpg',
+                      'https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/assets/rafa-930-cara.jpg',
+                      'https://rafa930music-sudo.github.io/assets/rafa-930-cara.jpg',
+                    ];
+                    const currentIndex = Number(target.dataset.fallbackIndex || '0');
+                    if (currentIndex < fallbacks.length) {
+                      target.dataset.fallbackIndex = String(currentIndex + 1);
+                      target.src = fallbacks[currentIndex];
+                    }
+                  }}
                   loading="eager"
                 />
                 <div className="absolute top-3 left-3 bg-[#050507]/85 backdrop-blur-md border border-[#00d4ff]/40 text-[#00d4ff] text-[10px] font-mono px-2.5 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-[0_0_12px_rgba(0,212,255,0.3)]">
@@ -881,6 +895,13 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                   className="w-full h-full object-cover group-hover:scale-105 duration-500 transition-transform"
                   src={ARTIST_IMAGES.deVuelta2026}
                   loading="lazy"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (!target.dataset.retried) {
+                      target.dataset.retried = '1';
+                      target.src = './assets/de-vuelta-original.jpg';
+                    }
+                  }}
                 />
                 <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#ec4899] text-white text-[10px] font-mono font-bold uppercase tracking-wider shadow-lg">
                   {language === 'ca'
