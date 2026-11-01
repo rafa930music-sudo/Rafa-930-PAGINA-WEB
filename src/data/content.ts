@@ -2,7 +2,7 @@ import { Track, Collaborator, GalleryPhoto, TimelineEvent, ServicePackage } from
 import rafa930Photo from '../assets/images/RAFA930.jpg';
 import rafa930Cara from '../assets/images/rafa-930-cara.jpg';
 import logoWhite from '../assets/images/logo-white.webp';
-import laMinaHeroBg from '../assets/images/barrio-de-la-mina.png';
+import laMinaHeroBg from '@/src/assets/images/barrio-de-la-mina.png';
 import deVueltaOriginal from '../assets/images/de-vuelta-original.jpg';
 import romeoYJulietaCover from '../assets/images/romeo-y-julieta-cover.jpg';
 import diferentesCaminosCover from '../assets/images/diferentes-caminos-cover.jpg';
