@@ -1,14 +1,14 @@
 import { Track, Collaborator, GalleryPhoto, TimelineEvent, ServicePackage } from '../types';
-import rafa930Photo from '../assets/images/RAFA930.jpg';
-import rafa930Cara from '../assets/images/rafa-930-cara.jpg';
-import logoWhite from '../assets/images/logo-white.webp';
+import rafa930Photo from '@/src/assets/images/RAFA930.jpg';
+import rafa930Cara from '@/src/assets/images/rafa-930-cara.jpg';
+import logoWhite from '@/src/assets/images/logo-white.webp';
 import laMinaHeroBg from '@/src/assets/images/barrio-de-la-mina.png';
-import deVueltaOriginal from '../assets/images/de-vuelta-original.jpg';
-import romeoYJulietaCover from '../assets/images/romeo-y-julieta-cover.jpg';
-import diferentesCaminosCover from '../assets/images/diferentes-caminos-cover.jpg';
-import pasanLosDiasCover from '../assets/images/pasan-los-dias-cover.jpg';
-import unAmorProhibidoCover from '../assets/images/un-amor-prohibido-cover.jpg';
-import hagoDineroCover from '../assets/images/hago-dinero-cover.jpg';
+import deVueltaOriginal from '@/src/assets/images/de-vuelta-original.jpg';
+import romeoYJulietaCover from '@/src/assets/images/romeo-y-julieta-cover.jpg';
+import diferentesCaminosCover from '@/src/assets/images/diferentes-caminos-cover.jpg';
+import pasanLosDiasCover from '@/src/assets/images/pasan-los-dias-cover.jpg';
+import unAmorProhibidoCover from '@/src/assets/images/un-amor-prohibido-cover.jpg';
+import hagoDineroCover from '@/src/assets/images/hago-dinero-cover.jpg';
 
 export const OFFICIAL_SPOTIFY_URL = 'https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng';
 export const OFFICIAL_YOUTUBE_URL = 'https://www.youtube.com/@rafa_930';
