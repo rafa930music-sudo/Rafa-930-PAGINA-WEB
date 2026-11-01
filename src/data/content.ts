@@ -1,33 +1,48 @@
 import { Track, Collaborator, GalleryPhoto, TimelineEvent, ServicePackage } from '../types';
-
-// NOTA: Ya no importamos las imágenes aquí. Al moverlas a la carpeta 'public',
-// las llamamos directamente con strings. Esto evita errores en Vite.
+import rafa930Photo from '@/src/assets/images/RAFA930.jpg';
+import rafa930Cara from '@/src/assets/images/rafa-930-cara.jpg';
+import logoWhite from '@/src/assets/images/logo-white.webp';
+import laMinaHeroBg from '@/src/assets/images/barrio-de-la-mina.png';
+import deVueltaOriginal from '@/src/assets/images/de-vuelta-original.jpg';
+import romeoYJulietaCover from '@/src/assets/images/romeo-y-julieta-cover.jpg';
+import diferentesCaminosCover from '@/src/assets/images/diferentes-caminos-cover.jpg';
+import pasanLosDiasCover from '@/src/assets/images/pasan-los-dias-cover.jpg';
+import unAmorProhibidoCover from '@/src/assets/images/un-amor-prohibido-cover.jpg';
+import hagoDineroCover from '@/src/assets/images/hago-dinero-cover.jpg';
 
 export const OFFICIAL_SPOTIFY_URL = 'https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng';
 export const OFFICIAL_YOUTUBE_URL = 'https://www.youtube.com/@rafa_930';
+export const OFFICIAL_INSTAGRAM_URL = 'https://www.instagram.com/rafa930_oficial';
+export const OFFICIAL_DEEZER_URL = 'https://www.deezer.com/mx/artist/224265995';
+export const OFFICIAL_APPLE_MUSIC_URL = 'https://music.apple.com/es/artist/rafa-930/1724193275';
+export const OFFICIAL_AMAZON_MUSIC_URL = 'https://music.amazon.in/artists/B0CJM7BWF1/rafa-930';
 export const OFFICIAL_TIDAL_URL = 'https://tidal.com/artist/41128230';
 
 export const OFFICIAL_LOGOS = {
-  header: '/images/logo-white.webp',
-  splash: '/images/logo-white.webp',
-  drawer: '/images/logo-white.webp',
-  footer: '/images/logo-white.webp',
+  header: logoWhite,
+  splash: logoWhite,
+  drawer: logoWhite,
+  footer: logoWhite,
 };
 
 export const ARTIST_IMAGES = {
-  heroPortrait: '/images/rafa-930-cara.jpg',
-  laMinaHeroBg: '/images/barrio-de-la-mina.png',
+  heroPortrait: rafa930Cara,
+  laMinaHeroBg: laMinaHeroBg,
   libraryOrigin: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBIMi02-J8CtYH8J1lAHIZskWS59fYoM2-4hrCZ1VGGD2QGHblDY0pcd1OYoTa4C_EQs4yJ-VZWKkfPzaQnx6n_HihlkQT6f7T3tzNrn1dqwxELf2hFy9Fijm5M5IGxHQnNVs0DSLIZcw19Gy7v_Ow7EiVliX1AriJFYP2_PzZeiaR1sN4fXXXq1JrgKGq07iCrt1WBsGPT6QfmWbD6_sV6uhWhpTD9gKr-i2LZ61R1jrokXoPb9OZairijjRmxrs2l6g',
-  deVuelta2026: '/images/de-vuelta-original.jpg',
+  deVuelta2026: deVueltaOriginal,
   single2026: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDGTYqFc3bFayNNyiHKhStt8PNvnFAtx3lLpQKAuqa3D7ySkL99KV7e0Rl-9rW_sH4gnGO55wKi4bmv6kh47F-D4YuSDcG0-7L521iycPf3d1VwY12NcDRaz6BvFU4outsxQSmkNb6lYyeQ080zJxYcQ0-QK4g3gPAPpKr0_PZYe3WLadjYPpUkjpNXSKPRWBEaGbBkropt8z4MbDK9CVjpDe1VXkOiRn5r2vpLNO0Oo1dsy3awaE5QN3Z4M74lLlEi0w',
   epMyWorld: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC7umsBXBKoq4mr8o79Y1SY-mr0f2raX8yiZpKafc6w2ZGARSNxXMeea1k_MYI6qGhNz6mkN9BnlTBzOEhpJCYCyB9aNOF2HrngraD_1Dy26kZHItdPi5Ku5ql_8LXIy2YoUIDlshZ3oO4_q_1kFEDOV1WjhdhFTyoeM48tPB3vyFRVd7u2y-Xd1yMaMprRg0rAqlnavIuXg2evdvkJuxQgqF2_GDDzFMS8c9boGH5ZOvDH4bS7P1mna8A0ESLnhu3auw',
   albumVidaEsBella: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAKBmmSM6VqpZx8-2WYsJKIx09_0LmbWIUl0C56QHNXe-L4mOTyOocUMCDRiAfPWbTy4zsD4JeImMi_2q0iYXFgN9lvxjtjZ71NuAoOMe8sf6AUyJuJ3hzhf_9Mq7FV3MNmcTcoApLpDwsMNTUvXSbWwWf3tMPeauMsQOaKldhWOx8oFwcWBWlMlKXanvZKJuPr1loZtV9MBg8iKZJelnXKS2X6f8S_hQzFl2S3vGhm8qvOx5ZeqoUzrSTy2FdYeADtwA',
-  romeoYJulietaCover: '/images/romeo-y-julieta-cover.jpg',
-  diferentesCaminosCover: '/images/diferentes-caminos-cover.jpg',
-  pasanLosDiasCover: '/images/pasan-los-dias-cover.jpg',
-  unAmorProhibidoCover: '/images/un-amor-prohibido-cover.jpg',
-  hagoDineroCover: '/images/hago-dinero-cover.jpg',
+  romeoYJulietaCover: romeoYJulietaCover,
+  diferentesCaminosCover: diferentesCaminosCover,
+  pasanLosDiasCover: pasanLosDiasCover,
+  unAmorProhibidoCover: unAmorProhibidoCover,
+  hagoDineroCover: hagoDineroCover,
 };
+
+
+
+
 
 export const TRACKS: Track[] = [
   {
@@ -227,7 +242,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     title: 'RAFA 930',
     category: 'retrat',
     categoryLabel: 'Retrat Oficial',
-    imageUrl: '/images/RAFA930.jpg',
+    imageUrl: rafa930Photo,
     credits: 'Arxiu 930 · Rafa 930',
     year: '2025',
     location: 'Barcelona',
