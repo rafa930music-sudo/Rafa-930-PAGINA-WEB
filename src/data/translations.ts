@@ -51,8 +51,28 @@ export const SHEETS_CONFIG: SheetMeta[] = [
     },
   },
   {
-    id: 'serveis',
+    id: 'galeria',
     number: '03',
+    total: '06',
+    name: {
+      ca: 'Galeria & Arxiu',
+      es: 'Galería & Archivo',
+      en: 'Gallery & Archive',
+    },
+    subtitle: {
+      ca: 'Retrats editorials en clarobscur i arxiu documental per Incrife',
+      es: 'Retratos editoriales en claroscuro y archivo documental por Incrife',
+      en: 'Chiaroscuro editorial portraits and documentary archive by Incrife',
+    },
+    categoryTag: {
+      ca: 'FOTOGRAFIA & ART',
+      es: 'FOTOGRAFÍA & ARTE',
+      en: 'PHOTOGRAPHY & ART',
+    },
+  },
+  {
+    id: 'serveis',
+    number: '04',
     total: '06',
     name: {
       ca: 'Serveis d’Estudi & Web',
@@ -68,26 +88,6 @@ export const SHEETS_CONFIG: SheetMeta[] = [
       ca: 'ESTUDI 930 & DIGITAL',
       es: 'ESTUDIO 930 & DIGITAL',
       en: 'STUDIO 930 & DIGITAL',
-    },
-  },
-  {
-    id: 'conciertos',
-    number: '03',
-    total: '06',
-    name: {
-      ca: 'Concerts & Gira',
-      es: 'Conciertos & Gira',
-      en: 'Concerts & Tour',
-    },
-    subtitle: {
-      ca: 'Pròximament: directes, repertori d’escenari i rider tècnic oficial',
-      es: 'Próximamente: directos, repertorio de escenario y rider técnico oficial',
-      en: 'Coming soon: live shows, stage setlist and official technical rider',
-    },
-    categoryTag: {
-      ca: 'DIRECTES & GIRA',
-      es: 'DIRECTOS & GIRA',
-      en: 'LIVE & TOUR',
     },
   },
   {

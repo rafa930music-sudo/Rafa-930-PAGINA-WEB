@@ -10,18 +10,19 @@ import {
 import { Card3D } from '../Card3D';
 import { SectionColorBubbles } from '../AmbientColorBubbles';
 import {
-  Terminal,
   Mic,
   Camera,
+  Terminal,
   CheckCircle2,
   Clock,
   ExternalLink,
-  Calculator,
   MessageCircle,
   Mail,
   Send,
   Loader2,
   Check,
+  Sparkles,
+  FileSpreadsheet,
 } from 'lucide-react';
 
 interface ServeisScreenProps {
@@ -31,7 +32,6 @@ interface ServeisScreenProps {
 interface ExtraItemI18n {
   id: string;
   name: Record<Language, string>;
-  price: number;
   category: 'musica' | 'fotografia' | 'web';
 }
 
@@ -43,7 +43,6 @@ const EXTRAS_I18N: ExtraItemI18n[] = [
       es: 'Masterización profesional para plataformas de streaming',
       en: 'Professional mastering for streaming platforms',
     },
-    price: 40,
     category: 'musica',
   },
   {
@@ -53,7 +52,6 @@ const EXTRAS_I18N: ExtraItemI18n[] = [
       es: 'Guion y dirección artística para videoclip',
       en: 'Script & art direction for music video',
     },
-    price: 90,
     category: 'musica',
   },
   {
@@ -63,17 +61,15 @@ const EXTRAS_I18N: ExtraItemI18n[] = [
       es: 'Diseño de portada oficial en alta resolución',
       en: 'High-resolution official cover art design',
     },
-    price: 50,
     category: 'musica',
   },
   {
     id: 'extra-photos',
     name: {
-      ca: '15 fotografies addicionals editades en alta resolució',
-      es: '15 fotografías adicionales editadas en alta resolución',
-      en: '15 additional high-resolution edited photographs',
+      ca: 'Fotografies addicionals editades en alta resolució',
+      es: 'Fotografías adicionales editadas en alta resolución',
+      en: 'Additional high-resolution edited photographs',
     },
-    price: 45,
     category: 'fotografia',
   },
   {
@@ -83,7 +79,6 @@ const EXTRAS_I18N: ExtraItemI18n[] = [
       es: 'Pieza vertical / Reel Behind the Scenes 4K',
       en: '4K Vertical Reel / Behind the Scenes piece',
     },
-    price: 60,
     category: 'fotografia',
   },
   {
@@ -93,7 +88,6 @@ const EXTRAS_I18N: ExtraItemI18n[] = [
       es: 'Dossier / EPK interactivo para promotores y festivales',
       en: 'Interactive EPK / Presskit for promoters & festivals',
     },
-    price: 70,
     category: 'web',
   },
   {
@@ -103,7 +97,6 @@ const EXTRAS_I18N: ExtraItemI18n[] = [
       es: 'Configuración de dominio propio + posicionamiento SEO',
       en: 'Custom domain setup + SEO positioning',
     },
-    price: 55,
     category: 'web',
   },
 ];
@@ -148,105 +141,103 @@ const PACKAGE_I18N: Record<
       ],
       en: [
         'Original lyric composition or collaborative verse (Feat)',
-        'Professional studio vocal recording',
+        'Studio vocal recording with professional grade gear',
         'Guidance on melodic structure and urban rhythm',
-        'Delivery of audio stems in 24-bit WAV format',
+        'Stem export delivery in WAV 24-bit format',
       ],
     },
   },
   'pack-foto': {
     title: {
-      ca: 'Sessió Fotogràfica Editorial & Moda',
-      es: 'Sesión Fotográfica Editorial & Moda',
-      en: 'Editorial & Fashion Photography Session',
+      ca: 'Fotografia Professional & Editorial',
+      es: 'Fotografía Profesional & Editorial',
+      en: 'Professional & Editorial Photography',
     },
     description: {
-      ca: 'Retrat d’autor, moda urbana (streetwear) i portades discogràfiques amb estètica cinematogràfica.',
-      es: 'Retrato de autor, moda urbana (streetwear) y portadas discográficas con estética cinematográfica.',
-      en: 'Auteur portrait, urban streetwear fashion, and album cover shoots with a cinematographic aesthetic.',
+      ca: 'Retrats urbans, sessions per a artistes, moda i estètica cinematogràfica d’alt impacte per Incrife.',
+      es: 'Retratos urbanos, sesiones para artistas, moda y estética cinematográfica de alto impacto por Incrife.',
+      en: 'Urban portraits, artist photoshoot sessions, fashion, and high-impact cinematic aesthetics by Incrife.',
     },
     turnaround: {
-      ca: '5 – 7 dies',
-      es: '5 – 7 días',
-      en: '5 – 7 days',
+      ca: '48 a 72 hores',
+      es: '48 a 72 horas',
+      en: '48 to 72 hours',
     },
     features: {
       ca: [
-        'Sessió de 2 hores en exterior (Barcelona / Sant Adrià) o estudi',
-        '20 fotografies editades en alta resolució (color i B/N)',
-        'Direcció de posat i estilisme visual urbà',
-        'Llicència d’ús per a portades, premsa i xarxes socials',
+        'Sessió fotogràfica a exteriors o estudi',
+        'Fotografies editades i retocades en color grading',
+        'Format llest per a xarxes, premsa i cartelleria',
+        'Direcció d’art i assessorament d’estilisme',
       ],
       es: [
-        'Sesión de 2 horas en exterior (Barcelona / Sant Adrià) o estudio',
-        '20 fotografías editadas en alta resolución (color y B/N)',
-        'Dirección de posado y estilismo visual urbano',
-        'Licencia de uso para portadas, prensa y redes sociales',
+        'Sesión fotográfica en exteriores o estudio',
+        'Fotografías editadas y retocadas en color grading',
+        'Formato listo para redes, prensa y cartelería',
+        'Dirección de arte y asesoramiento de estilismo',
       ],
       en: [
-        '2-hour outdoor (Barcelona / Sant Adrià) or studio session',
-        '20 high-resolution edited photos (color and B&W)',
-        'Posing direction and urban visual styling',
-        'Usage license for cover art, press, and social media',
+        'On-location or studio photoshoot session',
+        'Edited and retouched photos with custom color grading',
+        'Ready-to-publish formats for social media, press & posters',
+        'Art direction and styling advice',
       ],
     },
   },
   'pack-web': {
     title: {
-      ca: 'Desenvolupament Web & Portfoli Digital',
-      es: 'Desarrollo Web & Portfolio Digital',
-      en: 'Web Development & Digital Portfolio',
+      ca: 'Desenvolupament Web & Plataformes · 930 Digital',
+      es: 'Desarrollo Web & Plataformas · 930 Digital',
+      en: 'Web Development & Platforms · 930 Digital',
     },
     description: {
-      ca: 'Disseny i programació de pàgines web d’alt impacte per a artistes, segells, estudis creatius i marques.',
-      es: 'Diseño y programación de páginas web de alto impacto para artistas, sellos, estudios creativos y marcas.',
-      en: 'High-impact website design and development for artists, labels, creative studios, and brands.',
+      ca: 'Pàgines web, portfolios, presskits digitals i aplicacions amb disseny avantguardista i lliurament ràpid.',
+      es: 'Páginas web, portfolios, presskits digitales y aplicaciones con diseño vanguardista y entrega rápida.',
+      en: 'Websites, portfolios, digital presskits, and apps with cutting-edge design and fast delivery.',
     },
     turnaround: {
-      ca: '10 – 15 dies',
-      es: '10 – 15 días',
-      en: '10 – 15 days',
+      ca: '3 a 5 dies hàbils',
+      es: '3 a 5 días hábiles',
+      en: '3 to 5 business days',
     },
     features: {
       ca: [
-        'Disseny web responsive a mida (Mòbil, Tablet i Escriptori)',
-        'Integració de catàleg musical, galeria i formulari de booking',
-        'Optimització de velocitat, accessibilitat i SEO',
-        'Multillenguatge (Català, Espanyol i Anglès) inclòs',
+        'Web responsive d’alt rendiment (mòbil i escriptori)',
+        'Dossier / EPK interactiu amb reproductor i biografia',
+        'Domini personalitzat, SEO i càrrega ultraràpida',
+        'Assessorament directe i suport tècnic',
       ],
       es: [
-        'Diseño web responsive a medida (Móvil, Tablet y Escritorio)',
-        'Integración de catálogo musical, galería y formulario de booking',
-        'Optimización de velocidad, accesibilidad y SEO',
-        'Multiidioma (Catalán, Español e Inglés) incluido',
+        'Web responsive de alto rendimiento (móvil y escritorio)',
+        'Dossier / EPK interactivo con reproductor y biografía',
+        'Dominio personalizado, SEO y carga ultrarrápida',
+        'Asesoramiento directo y soporte técnico',
       ],
       en: [
-        'Custom responsive web design (Mobile, Tablet, and Desktop)',
-        'Integration of music catalog, gallery, and booking form',
-        'Speed, accessibility, and SEO optimization',
-        'Multilingual support (Catalan, Spanish, and English) included',
+        'High-performance responsive website (mobile & desktop)',
+        'Interactive EPK / Dossier with audio player and bio',
+        'Custom domain setup, SEO and ultra-fast loading',
+        'Direct consultation and technical support',
       ],
     },
   },
 };
 
 export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
-  const [selectedPackage, setSelectedPackage] = useState<string>('pack-web');
-  const [selectedExtras, setSelectedExtras] = useState<string[]>(['domain-seo']);
-  const [showQuickForm, setShowQuickForm] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState<string>('pack-foto');
+  const [selectedExtras, setSelectedExtras] = useState<string[]>([]);
+
+  // Form states
   const [clientName, setClientName] = useState('');
   const [clientEmail, setClientEmail] = useState('');
   const [clientNotes, setClientNotes] = useState('');
+  const [websiteTrap, setWebsiteTrap] = useState(''); // Anti-bot honeypot
   const [quoteSending, setQuoteSending] = useState(false);
   const [quoteSent, setQuoteSent] = useState(false);
-  const [quoteError, setQuoteError] = useState<string | null>(null);
-
-  const currentPkg = SERVICE_PACKAGES.find((p) => p.id === selectedPackage) || SERVICE_PACKAGES[0];
-  const currentPkgI18n = PACKAGE_I18N[currentPkg.id];
-  const currentPkgTitle = currentPkgI18n ? currentPkgI18n.title[language] : currentPkg.title;
+  const [quoteError, setQuoteError] = useState('');
+  const [showQuickForm, setShowQuickForm] = useState(false);
 
   const toggleExtra = (id: string) => {
-    setQuoteSent(false);
     if (selectedExtras.includes(id)) {
       setSelectedExtras(selectedExtras.filter((e) => e !== id));
     } else {
@@ -254,67 +245,75 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
     }
   };
 
-  const extrasTotal = selectedExtras.reduce((sum, extraId) => {
-    const extra = EXTRAS_I18N.find((e) => e.id === extraId);
-    return sum + (extra ? extra.price : 0);
-  }, 0);
-
-  const totalPrice = currentPkg.basePrice + extrasTotal;
+  const currentPkg = SERVICE_PACKAGES.find((p) => p.id === selectedPackage) || SERVICE_PACKAGES[0];
+  const currentPkgTrans = PACKAGE_I18N[currentPkg.id];
+  const currentPkgTitle = currentPkgTrans ? currentPkgTrans.title[language] : currentPkg.title;
 
   const handleDirectQuoteSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setQuoteError(null);
-    const cleanName = sanitizeUserInput(clientName, 80);
-    const cleanEmail = sanitizeUserInput(clientEmail, 120);
-    const cleanNotes = sanitizeUserInput(clientNotes, 500);
+    setQuoteError('');
 
-    if (!cleanName || cleanName.length < 2) {
+    // Honeypot check
+    if (websiteTrap) {
+      setQuoteSent(true);
+      return;
+    }
+
+    if (!clientName.trim()) {
       setQuoteError(
         language === 'ca'
-          ? 'Introdueix el teu nom.'
+          ? 'Per favor, indica el teu nom.'
           : language === 'es'
-          ? 'Introduce tu nombre.'
+          ? 'Por favor, indica tu nombre.'
           : 'Please enter your name.'
       );
       return;
     }
-    if (!isValidEmail(cleanEmail)) {
+
+    if (!isValidEmail(clientEmail)) {
       setQuoteError(
         language === 'ca'
-          ? 'Introdueix un correu vàlid.'
+          ? 'Introduïu un correu electrònic vàlid.'
           : language === 'es'
-          ? 'Introduce un correo válido.'
-          : 'Please enter a valid email.'
+          ? 'Introduce un correo electrónico válido.'
+          : 'Please enter a valid email address.'
       );
       return;
     }
+
     const rate = checkSubmissionRateLimit();
     if (!rate.allowed) {
       setQuoteError(
         language === 'ca'
-          ? `Espera ${rate.waitSeconds}s abans d'enviar.`
+          ? `Espereu ${rate.waitSeconds} segons abans de tornar a enviar.`
           : language === 'es'
-          ? `Espera ${rate.waitSeconds}s antes de enviar.`
-          : `Please wait ${rate.waitSeconds}s.`
+          ? `Espera ${rate.waitSeconds} segundos antes de volver a enviar.`
+          : `Please wait ${rate.waitSeconds}s before submitting again.`
       );
       return;
     }
 
+    setQuoteSending(true);
+
+    const cleanName = sanitizeUserInput(clientName, 100);
+    const cleanEmail = sanitizeUserInput(clientEmail, 120);
+    const cleanNotes = sanitizeUserInput(clientNotes, 600);
+
     const selectedExtraNames = selectedExtras
-      .map((id) => EXTRAS_I18N.find((ex) => ex.id === id)?.name[language])
+      .map((id) => EXTRAS_I18N.find((e) => e.id === id)?.name[language])
       .filter(Boolean)
       .join(', ');
 
-    setQuoteSending(true);
     await submitToFormspree({
       name: cleanName,
       email: cleanEmail,
-      inquiryType: `Presupuesto: ${currentPkgTitle}`,
-      estimatedBudget: `${totalPrice} € (Base ${currentPkg.basePrice}€ + Extras: ${selectedExtraNames || 'Ninguno'})`,
-      message: cleanNotes || `Solicitud de presupuesto calculado online para ${currentPkgTitle}.`,
-      sourceScreen: 'Calculadora de Servicios (#serveis)',
+      inquiryType: `Solicitud de Presupuesto: ${currentPkgTitle}`,
+      estimatedBudget: 'A medida / Consultar sin compromiso',
+      message: `${cleanNotes || 'Solicitud de presupuesto personalizado.'}\nServicio principal: ${currentPkgTitle}\nComplementos requeridos: ${selectedExtraNames || 'Ninguno'}`,
+      sourceScreen: 'Solicitud de Presupuesto (#serveis)',
       language,
     });
+
     setQuoteSending(false);
     setQuoteSent(true);
   };
@@ -327,16 +326,16 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
 
     const text =
       language === 'ca'
-        ? `Hola RAFA 930, m'interessa contractar el servei "${currentPkgTitle}" (Base: ${currentPkg.basePrice}€)${
+        ? `Hola RAFA 930, m'interessa sol·licitar un pressupost personalitzat per al servei de "${currentPkgTitle}"${
             selectedExtraNames ? ` amb els complements: ${selectedExtraNames}` : ''
-          }. Pressupost estimat: ${totalPrice}€. Podem parlar per concretar dates?`
+          }. Podem parlar per concretar detalls?`
         : language === 'es'
-        ? `Hola RAFA 930, me interesa contratar el servicio de "${currentPkgTitle}" (Base: ${currentPkg.basePrice}€)${
+        ? `Hola RAFA 930, me interesa solicitar un presupuesto personalizado para el servicio de "${currentPkgTitle}"${
             selectedExtraNames ? ` con los extras: ${selectedExtraNames}` : ''
-          }. Presupuesto estimado: ${totalPrice}€. ¿Podemos hablar para concretar fechas?`
-        : `Hello RAFA 930, I am interested in booking the "${currentPkgTitle}" service (Base: ${currentPkg.basePrice}€)${
-            selectedExtraNames ? ` with extras: ${selectedExtraNames}` : ''
-          }. Estimated budget: ${totalPrice}€. Can we discuss dates?`;
+          }. ¿Podemos hablar para concretar detalles?`
+        : `Hello RAFA 930, I would like to request a custom quote for "${currentPkgTitle}"${
+            selectedExtraNames ? ` with add-ons: ${selectedExtraNames}` : ''
+          }. Can we discuss the details?`;
 
     return `https://wa.me/34671591814?text=${encodeURIComponent(text)}`;
   };
@@ -344,27 +343,35 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
   const generateMailto = () => {
     const subject =
       language === 'ca'
-        ? `Pressupost Professional: ${currentPkgTitle} - RAFA 930`
+        ? `Sol·licitud de Pressupost: ${currentPkgTitle} - RAFA 930`
         : language === 'es'
-        ? `Presupuesto Profesional: ${currentPkgTitle} - RAFA 930`
-        : `Professional Quote: ${currentPkgTitle} - RAFA 930`;
+        ? `Solicitud de Presupuesto: ${currentPkgTitle} - RAFA 930`
+        : `Quote Request: ${currentPkgTitle} - RAFA 930`;
+
+    const selectedExtraNames = selectedExtras
+      .map((id) => EXTRAS_I18N.find((e) => e.id === id)?.name[language])
+      .filter(Boolean)
+      .join(', ');
+
     const body =
       language === 'ca'
-        ? `Hola RAFA 930,\n\nM'agradaria sol·licitar el servei: ${currentPkgTitle}.\nComplements seleccionats: ${selectedExtras.join(', ') || 'Cap'}\nPressupost estimat: ${totalPrice}€.\n\nNom:\nTelèfon:\nDetalls del projecte:\n`
+        ? `Hola RAFA 930,\n\nM'agradaria demanar un pressupost personalitzat per al servei: ${currentPkgTitle}.\nComplements requerits: ${selectedExtraNames || 'Cap'}.\n\nNom:\nTelèfon:\nDetalls del projecte:\n`
         : language === 'es'
-        ? `Hola RAFA 930,\n\nMe gustaría solicitar el servicio de ${currentPkgTitle}.\nExtras seleccionados: ${selectedExtras.join(', ') || 'Ninguno'}\nPresupuesto estimado: ${totalPrice}€.\n\nNombre:\nTeléfono:\nDetalles del proyecto:\n`
-        : `Hello RAFA 930,\n\nI would like to request the ${currentPkgTitle} service.\nSelected extras: ${selectedExtras.join(', ') || 'None'}\nEstimated budget: ${totalPrice}€.\n\nName:\nPhone:\nProject details:\n`;
+        ? `Hola RAFA 930,\n\nMe gustaría pedir un presupuesto personalizado para el servicio: ${currentPkgTitle}.\nComplementos requeridos: ${selectedExtraNames || 'Ninguno'}.\n\nNombre:\nTeléfono:\nDetalles del proyecto:\n`
+        : `Hello RAFA 930,\n\nI would like to request a custom quote for: ${currentPkgTitle}.\nRequired add-ons: ${selectedExtraNames || 'None'}.\n\nName:\nPhone:\nProject details:\n`;
+
     return `mailto:rafa.930music@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   return (
     <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-10 sm:py-16 space-y-16 overflow-hidden">
       <SectionColorBubbles variant="electric" />
+
       {/* Editorial Header */}
       <div className="border-b border-[#22222e] pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
           <div className="flex items-center gap-2 text-xs font-mono text-[#a1a1b5] mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] shadow-[0_0_8px_#00d4ff]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff]" />
             <span className="text-[#ec4899] font-semibold">
               {language === 'ca'
                 ? 'SERVEIS PROFESSIONALS · RAFA 930'
@@ -381,6 +388,7 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
                 : 'MUSIC, PHOTOGRAPHY & WEB DEVELOPMENT'}
             </span>
           </div>
+
           <h1 className="font-['Cormorant_Garamond'] text-4xl sm:text-6xl font-semibold text-[#ffffff]">
             {language === 'ca'
               ? 'Solucions Creatives & Digitals'
@@ -388,12 +396,13 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
               ? 'Soluciones Creativas & Digitales'
               : 'Creative & Digital Solutions'}
           </h1>
+
           <p className="text-[#a1a1b5] text-base max-w-2xl mt-2 leading-relaxed">
             {language === 'ca'
-              ? 'Producció artística i desenvolupament digital per a músics, marques i professionals. Selecciona una disciplina i configura el teu pressupost a mida.'
+              ? 'Producció artística i desenvolupament digital per a músics, marques i professionals. Selecciona una disciplina i sol·licita el teu pressupost a mida.'
               : language === 'es'
-              ? 'Producción artística y desarrollo digital para músicos, marcas y profesionales. Selecciona una disciplina y configura tu presupuesto a medida.'
-              : 'Artistic production and digital development for musicians, brands, and professionals. Select a discipline and configure your custom quote.'}
+              ? 'Producción artística y desarrollo digital para músicos, marcas y profesionales. Selecciona una disciplina y solicita tu presupuesto a medida.'
+              : 'Artistic production and digital development for musicians, brands, and professionals. Select a discipline and request your custom quote.'}
           </p>
         </div>
 
@@ -427,21 +436,24 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
           return (
             <Card3D
               key={pkg.id}
-              intensity={4}
+              intensity={3}
               onClick={() => setSelectedPackage(pkg.id)}
-              glowColor="rgba(255, 0, 104, 0.54)"
-              className={`bg-[#1e0313] border rounded-[24px] p-6 sm:p-8 cursor-pointer shadow-luro ${
-                isSelected ? 'border-[#ff0068]' : 'border-[#22222e] hover:border-[#ff0068]'
+              glowColor="rgba(168, 85, 247, 0.2)"
+              className={`bg-[#111118] border rounded-2xl p-6 sm:p-8 cursor-pointer transition-all duration-300 flex flex-col justify-between ${
+                isSelected
+                  ? 'border-[#a855f7] shadow-[0_4px_24px_rgba(168,85,247,0.25)]'
+                  : 'border-[#22222e] hover:border-[#a855f7]/50'
               }`}
             >
               <div>
                 <div className="flex items-center justify-between text-xs font-mono text-[#a1a1b5] mb-4">
                   <span className="text-[#a855f7] font-semibold">
                     0{idx + 1}.{' '}
-                    {language === 'ca' ? 'MODALITAT' : language === 'es' ? 'MODALIDAD' : 'PACKAGE'}
+                    {language === 'ca' ? 'DISCIPLINA' : language === 'es' ? 'DISCIPLINA' : 'SERVICE'}
                   </span>
                   {isSelected && (
-                    <span className="text-[#ec4899] font-semibold">
+                    <span className="text-[#ec4899] font-semibold flex items-center gap-1">
+                      <Sparkles className="w-3 h-3 text-[#ec4899]" />
                       {language === 'ca'
                         ? 'SELECCIONAT'
                         : language === 'es'
@@ -472,17 +484,15 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[#22222e] flex items-baseline justify-between tabular-nums">
-                <div>
-                  <span className="text-[11px] font-mono text-[#a1a1b5] block">
+              <div className="pt-4 border-t border-[#22222e] flex items-center justify-between">
+                <div className="flex items-center gap-1.5 text-xs font-mono text-[#00d4ff]">
+                  <Send className="w-3.5 h-3.5" />
+                  <span>
                     {language === 'ca'
-                      ? 'Tarifa base des de'
+                      ? 'Demana Pressupost'
                       : language === 'es'
-                      ? 'Tarifa base desde'
-                      : 'Base rate from'}
-                  </span>
-                  <span className="text-3xl font-semibold text-[#ffffff] font-['Cormorant_Garamond']">
-                    {pkg.basePrice} €
+                      ? 'Pedir Presupuesto'
+                      : 'Request Quote'}
                   </span>
                 </div>
                 <div className="text-right text-[11px] font-mono text-[#a855f7]">
@@ -495,35 +505,35 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
         })}
       </div>
 
-      {/* Interactive Live Budget Calculator */}
-      <section className="bg-[#111118] border border-[#00d4ff]/35 rounded-xl p-6 sm:p-10 shadow-[0_0_24px_rgba(0,212,255,0.08)]">
+      {/* Interactive Custom Quote Request Panel */}
+      <section className="bg-[#111118] border border-[#00d4ff]/35 rounded-2xl p-6 sm:p-10 shadow-[0_0_24px_rgba(0,212,255,0.08)]">
         <div className="flex flex-col lg:flex-row gap-10 items-start">
           <div className="flex-1 space-y-6 w-full">
-            <div className="flex items-center gap-2">
-              <Calculator className="w-5 h-5 text-[#00d4ff]" />
+            <div className="flex items-center gap-2.5">
+              <FileSpreadsheet className="w-6 h-6 text-[#00d4ff]" />
               <h3 className="font-['Cormorant_Garamond'] text-2xl sm:text-3xl font-semibold text-[#ffffff]">
                 {language === 'ca'
-                  ? 'Calculadora de Pressupost a Mida'
+                  ? 'Sol·licitud de Pressupost Personalitzat'
                   : language === 'es'
-                  ? 'Calculadora de Presupuesto a Medida'
-                  : 'Custom Quote Calculator'}
+                  ? 'Solicitud de Presupuesto Personalizado'
+                  : 'Custom Quote Request'}
               </h3>
             </div>
-            <p className="text-xs sm:text-sm text-[#a1a1b5]">
+            <p className="text-xs sm:text-sm text-[#a1a1b5] leading-relaxed">
               {language === 'ca'
-                ? 'Personalitza el teu encàrrec afegint complements tècnics o artístics segons els objectius del teu projecte.'
+                ? 'Personalitza el teu encàrrec afegint els complements tècnics o artístics que s’ajustin a la teva idea. Rebràs una proposta a mida sense cap compromís.'
                 : language === 'es'
-                ? 'Personaliza tu encargo añadiendo complementos técnicos o artísticos según los objetivos de tu proyecto.'
-                : 'Customize your order by adding technical or artistic add-ons tailored to your project goals.'}
+                ? 'Personaliza tu encargo añadiendo los complementos técnicos o artísticos que se ajusten a tu idea. Recibirás una propuesta a medida sin ningún compromiso.'
+                : 'Customize your project by selecting the technical or artistic add-ons that fit your idea. You will receive a tailored proposal with no obligation.'}
             </p>
 
             <div className="space-y-3">
               <span className="text-xs font-mono text-[#a855f7] block">
                 {language === 'ca'
-                  ? 'Complements disponibles:'
+                  ? 'Complements i requisits addicionals:'
                   : language === 'es'
-                  ? 'Complementos disponibles:'
-                  : 'Available add-ons:'}
+                  ? 'Complementos y requisitos adicionales:'
+                  : 'Additional add-ons and requirements:'}
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {EXTRAS_I18N.map((extra) => {
@@ -539,12 +549,7 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
                           : 'bg-[#0a0a0f] border-[#22222e] text-[#a1a1b5] hover:border-[#a855f7]'
                       }`}
                     >
-                      <div className="space-y-0.5 pr-2">
-                        <span className="text-xs font-semibold block">{extra.name[language]}</span>
-                        <span className="text-[11px] font-mono text-[#ec4899] tabular-nums">
-                          +{extra.price} €
-                        </span>
-                      </div>
+                      <span className="text-xs font-semibold block pr-2">{extra.name[language]}</span>
                       <div
                         className={`w-5 h-5 rounded flex items-center justify-center border shrink-0 ${
                           isChecked
@@ -561,31 +566,24 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
             </div>
           </div>
 
-          {/* Right: Summary Box */}
-          <div className="w-full lg:w-96 bg-[#0a0a0f] border border-[#00d4ff]/35 rounded-xl p-6 space-y-6 tabular-nums shadow-[0_0_20px_rgba(0,212,255,0.06)]">
+          {/* Right: Proposal Summary & Submission Panel */}
+          <div className="w-full lg:w-96 bg-[#0a0a0f] border border-[#00d4ff]/35 rounded-xl p-6 space-y-6 shadow-[0_0_20px_rgba(0,212,255,0.06)]">
             <div className="border-b border-[#22222e] pb-4">
-              <span className="text-[11px] font-mono text-[#00d4ff] font-semibold">
+              <span className="text-[11px] font-mono text-[#00d4ff] font-semibold uppercase tracking-wider block mb-1">
                 {language === 'ca'
-                  ? 'Resum de la proposta'
+                  ? 'Resum de la sol·licitud'
                   : language === 'es'
-                  ? 'Resumen de la propuesta'
-                  : 'Proposal summary'}
+                  ? 'Resumen de la solicitud'
+                  : 'Request summary'}
               </span>
-              <h4 className="font-['Cormorant_Garamond'] text-2xl font-semibold text-[#ffffff] mt-1">
+              <h4 className="font-['Cormorant_Garamond'] text-2xl font-semibold text-[#ffffff]">
                 {currentPkgTitle}
               </h4>
-              <span className="text-xs font-mono text-[#a855f7]">
-                {language === 'ca'
-                  ? `Tarifa base: ${currentPkg.basePrice} €`
-                  : language === 'es'
-                  ? `Tarifa base: ${currentPkg.basePrice} €`
-                  : `Base rate: ${currentPkg.basePrice} €`}
-              </span>
             </div>
 
             {selectedExtras.length > 0 && (
               <div className="space-y-2 border-b border-[#22222e] pb-4">
-                <span className="text-[11px] font-mono text-[#a1a1b5]">
+                <span className="text-[11px] font-mono text-[#a1a1b5] block">
                   {language === 'ca'
                     ? 'Complements seleccionats:'
                     : language === 'es'
@@ -596,100 +594,111 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
                   const item = EXTRAS_I18N.find((e) => e.id === id);
                   if (!item) return null;
                   return (
-                    <div key={id} className="flex justify-between text-xs text-[#ffffff]">
-                      <span className="truncate pr-2">{item.name[language]}</span>
-                      <span className="font-mono text-[#ec4899]">+{item.price}€</span>
+                    <div key={id} className="flex items-center gap-1.5 text-xs text-[#ffffff]">
+                      <Check className="w-3.5 h-3.5 text-[#ec4899] shrink-0" />
+                      <span className="truncate">{item.name[language]}</span>
                     </div>
                   );
                 })}
               </div>
             )}
 
-            <div className="flex items-baseline justify-between pt-2">
-              <span className="text-sm text-[#a1a1b5] font-medium">
-                {language === 'ca'
-                  ? 'Total estimat'
-                  : language === 'es'
-                  ? 'Total estimado'
-                  : 'Estimated total'}
-              </span>
-              <span className="text-4xl font-semibold font-['Cormorant_Garamond'] text-gradient-lila-rosa-rojo">
-                {totalPrice} €
-              </span>
-            </div>
-
-            <div className="space-y-2.5 pt-2">
+            <div className="space-y-3 pt-2">
               {quoteSent ? (
                 <div className="p-4 rounded-lg bg-[#111118] border border-[#00d4ff] text-center space-y-1.5">
                   <div className="flex items-center justify-center gap-1.5 text-xs font-semibold text-[#00d4ff]">
                     <Check className="w-4 h-4" />
                     <span>
                       {language === 'ca'
-                        ? 'Pressupost enviat a RAFA 930!'
+                        ? 'Sol·licitud enviada a RAFA 930!'
                         : language === 'es'
-                        ? '¡Presupuesto enviado a RAFA 930!'
-                        : 'Quote sent to RAFA 930!'}
+                        ? '¡Solicitud enviada a RAFA 930!'
+                        : 'Quote request sent to RAFA 930!'}
                     </span>
                   </div>
                   <p className="text-[11px] text-[#a1a1b5]">
                     {language === 'ca'
-                      ? `Rebràs resposta a ${clientEmail} en menys de 24h.`
+                      ? `Et respondrem directament a ${clientEmail} en menys de 24h.`
                       : language === 'es'
-                      ? `Recibirás respuesta en ${clientEmail} en menos de 24h.`
-                      : `You will receive a reply at ${clientEmail} within 24h.`}
+                      ? `Te responderemos directamente a ${clientEmail} en menos de 24h.`
+                      : `We will reply directly to ${clientEmail} within 24h.`}
                   </p>
                 </div>
               ) : showQuickForm ? (
-                <form onSubmit={handleDirectQuoteSubmit} className="space-y-2.5 p-3.5 rounded-lg bg-[#111118] border border-[#ec4899]/50">
+                <form onSubmit={handleDirectQuoteSubmit} className="space-y-3 p-4 rounded-xl bg-[#111118] border border-[#ec4899]/50">
+                  {/* Honeypot anti-spam trap */}
+                  <input
+                    type="text"
+                    name="website_trap"
+                    value={websiteTrap}
+                    onChange={(e) => setWebsiteTrap(e.target.value)}
+                    className="hidden"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+
                   {quoteError && (
                     <p className="text-[11px] text-[#e11d48] font-mono">{quoteError}</p>
                   )}
-                  <input
-                    type="text"
-                    required
-                    value={clientName}
-                    onChange={(e) => setClientName(e.target.value)}
-                    placeholder={
-                      language === 'ca'
-                        ? 'El teu nom *'
-                        : language === 'es'
-                        ? 'Tu nombre *'
-                        : 'Your name *'
-                    }
-                    className="w-full px-3 py-2 rounded bg-[#0a0a0f] border border-[#22222e] text-xs text-white focus:outline-none focus:border-[#ec4899]"
-                  />
-                  <input
-                    type="email"
-                    required
-                    value={clientEmail}
-                    onChange={(e) => setClientEmail(e.target.value)}
-                    placeholder={
-                      language === 'ca'
-                        ? 'El teu correu *'
-                        : language === 'es'
-                        ? 'Tu correo electrónico *'
-                        : 'Your email *'
-                    }
-                    className="w-full px-3 py-2 rounded bg-[#0a0a0f] border border-[#22222e] text-xs text-white focus:outline-none focus:border-[#ec4899]"
-                  />
-                  <input
-                    type="text"
-                    value={clientNotes}
-                    onChange={(e) => setClientNotes(e.target.value)}
-                    placeholder={
-                      language === 'ca'
-                        ? 'Data o nota breu (opcional)'
-                        : language === 'es'
-                        ? 'Fecha o nota breve (opcional)'
-                        : 'Date or brief note (optional)'
-                    }
-                    className="w-full px-3 py-2 rounded bg-[#0a0a0f] border border-[#22222e] text-xs text-white focus:outline-none focus:border-[#ec4899]"
-                  />
-                  <div className="flex gap-2">
+
+                  <div>
+                    <label className="text-[10px] font-mono text-[#a1a1b5] uppercase block mb-1">
+                      {language === 'ca' ? 'Nom *' : language === 'es' ? 'Nombre *' : 'Name *'}
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={clientName}
+                      onChange={(e) => setClientName(e.target.value)}
+                      placeholder={
+                        language === 'ca'
+                          ? 'El teu nom o marca'
+                          : language === 'es'
+                          ? 'Tu nombre o marca'
+                          : 'Your name or brand'
+                      }
+                      className="w-full px-3 py-2 rounded-lg bg-[#0a0a0f] border border-[#22222e] text-xs text-white focus:outline-none focus:border-[#ec4899]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[10px] font-mono text-[#a1a1b5] uppercase block mb-1">
+                      {language === 'ca' ? 'Correu *' : language === 'es' ? 'Correo electrónico *' : 'Email *'}
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={clientEmail}
+                      onChange={(e) => setClientEmail(e.target.value)}
+                      placeholder="email@domain.com"
+                      className="w-full px-3 py-2 rounded-lg bg-[#0a0a0f] border border-[#22222e] text-xs text-white focus:outline-none focus:border-[#ec4899]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[10px] font-mono text-[#a1a1b5] uppercase block mb-1">
+                      {language === 'ca' ? 'Detalls del projecte' : language === 'es' ? 'Detalles del proyecto' : 'Project details'}
+                    </label>
+                    <input
+                      type="text"
+                      value={clientNotes}
+                      onChange={(e) => setClientNotes(e.target.value)}
+                      placeholder={
+                        language === 'ca'
+                          ? 'Data orientativa, idea o comentaris'
+                          : language === 'es'
+                          ? 'Fecha orientativa, idea o comentarios'
+                          : 'Target date, idea or comments'
+                      }
+                      className="w-full px-3 py-2 rounded-lg bg-[#0a0a0f] border border-[#22222e] text-xs text-white focus:outline-none focus:border-[#ec4899]"
+                    />
+                  </div>
+
+                  <div className="flex gap-2 pt-1">
                     <button
                       type="submit"
                       disabled={quoteSending}
-                      className="flex-1 py-2.5 px-3 rounded gradient-lila-rosa-rojo text-white font-semibold text-xs flex items-center justify-center gap-1.5"
+                      className="flex-1 py-2.5 px-3 rounded-lg gradient-lila-rosa-rojo text-white font-semibold text-xs flex items-center justify-center gap-1.5 shadow-md"
                     >
                       {quoteSending ? (
                         <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -698,16 +707,16 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
                       )}
                       <span>
                         {language === 'ca'
-                          ? 'Confirmar enviament'
+                          ? 'Enviar Sol·licitud'
                           : language === 'es'
-                          ? 'Confirmar envío'
-                          : 'Confirm send'}
+                          ? 'Enviar Solicitud'
+                          : 'Send Request'}
                       </span>
                     </button>
                     <button
                       type="button"
                       onClick={() => setShowQuickForm(false)}
-                      className="px-2.5 py-2 rounded bg-[#0a0a0f] border border-[#22222e] text-[11px] text-[#a1a1b5] hover:text-white"
+                      className="px-3 py-2.5 rounded-lg bg-[#0a0a0f] border border-[#22222e] text-[11px] text-[#a1a1b5] hover:text-white transition-colors"
                     >
                       ✕
                     </button>
@@ -722,10 +731,10 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
                   <Send className="w-4 h-4" />
                   <span>
                     {language === 'ca'
-                      ? 'Enviar Pressupost Directe (Web)'
+                      ? 'Demanar Pressupost Personalitzat'
                       : language === 'es'
-                      ? 'Enviar Presupuesto Directo (Web)'
-                      : 'Send Direct Quote (Web)'}
+                      ? 'Pedir Presupuesto Personalizado'
+                      : 'Request Custom Quote'}
                   </span>
                 </button>
               )}
@@ -739,10 +748,10 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
                 <MessageCircle className="w-4 h-4 text-[#a855f7]" />
                 <span>
                   {language === 'ca'
-                    ? 'Sol·licitar per WhatsApp'
+                    ? 'Consultar per WhatsApp'
                     : language === 'es'
-                    ? 'Solicitar por WhatsApp'
-                    : 'Request via WhatsApp'}
+                    ? 'Consultar por WhatsApp'
+                    : 'Consult via WhatsApp'}
                 </span>
               </a>
 
@@ -753,20 +762,20 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
                 <Mail className="w-4 h-4 text-[#ec4899]" />
                 <span>
                   {language === 'ca'
-                    ? 'Sol·licitar per Correu'
+                    ? 'Consultar per Correu'
                     : language === 'es'
-                    ? 'Solicitar por Correo'
-                    : 'Request via Email'}
+                    ? 'Consultar por Correo'
+                    : 'Consult via Email'}
                 </span>
               </a>
             </div>
 
-            <p className="text-[11px] text-[#a1a1b5] text-center font-mono">
+            <p className="text-[11px] text-[#a1a1b5] text-center font-mono leading-relaxed">
               {language === 'ca'
-                ? 'Pressupost orientatiu sense compromís. Resposta en menys de 24h.'
+                ? 'Proposta personalitzada sense cap compromís. Resposta directa en menys de 24h.'
                 : language === 'es'
-                ? 'Presupuesto orientativo sin compromiso. Respuesta en menos de 24h.'
-                : 'Non-binding estimated quote. Response within 24h.'}
+                ? 'Propuesta personalizada sin ningún compromiso. Respuesta directa en menos de 24h.'
+                : 'Customized proposal with no obligation. Direct response within 24h.'}
             </p>
           </div>
         </div>

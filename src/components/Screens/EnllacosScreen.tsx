@@ -298,7 +298,7 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
 
         <div>
           <div className="inline-flex items-center gap-2 text-xs font-mono text-[#a1a1b5] mb-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] shadow-[0_0_8px_#00d4ff]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff]" />
             <span className="text-[#00d4ff] font-semibold">{content.badge}</span>
             <span aria-hidden="true" className="text-[#a1a1b5]">·</span>
             <span>08930 · LA MINA</span>

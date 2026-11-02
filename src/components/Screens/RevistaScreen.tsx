@@ -352,19 +352,12 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
           {/* Left Editorial Column */}
           <div className="lg:col-span-7 flex flex-col items-start gap-6">
             <div>
-              <h1 className="font-['Cormorant_Garamond'] fluid-hero-title font-semibold text-[#ffffff] tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
-                RAFA <span className="text-gradient-930 drop-shadow-[0_0_35px_rgba(168,85,247,0.55)]">930</span>
+              <h1 className="font-['Bebas_Neue'] tracking-wider fluid-hero-title font-extrabold text-[#ffffff] drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
+                RAFA <span className="text-gradient-930 drop-shadow-[0_0_35px_rgba(0,212,255,0.7)]">930</span>
               </h1>
-              <div className="mt-2 text-xs sm:text-sm font-mono tracking-widest text-[#a855f7] uppercase font-semibold flex flex-wrap items-center gap-2">
-                <span>MÚSICA URBANA</span>
-                <span className="text-[#00d4ff]">·</span>
-                <span>RAP CONSCIENTE</span>
-                <span className="text-[#ec4899]">·</span>
-                <span>FOTOGRAFÍA & WEB</span>
-              </div>
             </div>
 
-            <div className="relative border-l-4 border-[#ec4899] pl-5 py-3 my-1 bg-gradient-to-r from-[#111118]/85 via-[#111118]/45 to-transparent rounded-r-xl backdrop-blur-md border border-y-0 border-r-0 shadow-[0_0_24px_rgba(236,72,153,0.18)]">
+            <div className="relative p-5 my-1 bg-[#111118]/80 border border-[#22222e] rounded-xl backdrop-blur-md">
               <p className="text-[#f472b6] font-['Cormorant_Garamond'] italic text-2xl sm:text-3xl md:text-4xl leading-snug font-medium drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
                 {language === 'ca'
                   ? '«De La Mina al món. Amb la veritat per davant.»'
@@ -383,20 +376,20 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
 
             <p className="text-[#e2e2ec] text-base sm:text-lg max-w-2xl leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.7)]">
               {language === 'ca'
-                ? 'Artista urbà nascut a Mataró i forjat entre els blocs i la Biblioteca Font de La Mina. La seva obra integra composició musical honesta, fotografia de retrat en clarobscur i desenvolupament de plataformes digitals per a creadors i marques.'
+                ? 'Artista urbà nascut a Mataró i forjat entre els blocs del barri de La Mina. La seva obra integra composició musical honesta, fotografia de retrat en clarobscur i desenvolupament de plataformes digitals per a creadors i marques.'
                 : language === 'es'
-                ? 'Artista urbano nacido en Mataró y forjado entre los bloques y la Biblioteca Font de La Mina. Su obra integra composición musical honesta, fotografía de retrato en claroscuro y desarrollo de plataformas digitales para creadores y marcas.'
-                : 'Urban artist born in Mataró and forged between the residential blocks and the Font de La Mina Library. His work integrates honest musical composition, chiaroscuro portrait photography, and digital platform development for creators and brands.'}
+                ? 'Artista urbano nacido en Mataró y forjado entre los bloques del barrio de La Mina. Su obra integra composición musical honesta, fotografía de retrato en claroscuro y desarrollo de plataformas digitales para creadores y marcas.'
+                : 'Urban artist born in Mataró and forged between the blocks of La Mina neighborhood. His work integrates honest musical composition, chiaroscuro portrait photography, and digital platform development for creators and brands.'}
             </p>
 
-            {/* Primary Navigation Actions (Desktop.fm discipline: 1 dominant CTA pill, ghost links for rest) */}
-            <div className="flex flex-wrap items-center gap-5 pt-3 w-full">
+            {/* Primary Navigation Actions — Authentic 930 Colors (Lila, Rosa, Cyan, Obsidian) */}
+            <div className="flex flex-wrap items-center gap-4 pt-3 w-full">
               <button
                 type="button"
                 onClick={() => onNavigate('discografia')}
-                className="touch-target-48 inline-flex items-center justify-center gap-2 bg-[#1e0313] text-white text-sm font-semibold px-8 py-3.5 rounded-[180px] shadow-luro hover:scale-105 transition-all whitespace-nowrap shrink-0 border border-[#ff0068]/50"
+                className="touch-target-48 inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#a855f7] via-[#ec4899] to-[#00d4ff] text-white text-sm font-semibold px-7 py-3.5 rounded-xl shadow-[0_4px_22px_rgba(168,85,247,0.35)] hover:shadow-[0_6px_28px_rgba(236,72,153,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 whitespace-nowrap shrink-0 cursor-pointer"
               >
-                <Play className="w-4 h-4 fill-current text-[#ff0068]" />
+                <Play className="w-4 h-4 fill-white text-white" />
                 <span>
                   {language === 'ca'
                     ? 'Explorar Discografia'
@@ -404,14 +397,15 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                     ? 'Explorar Discografía'
                     : 'Explore Discography'}
                 </span>
+                <ArrowRight className="w-4 h-4 text-white/85" />
               </button>
 
               <button
                 type="button"
                 onClick={() => onNavigate('galeria')}
-                className="text-xs font-semibold text-[#a1a1b5] hover:text-[#ff0068] transition-colors flex items-center gap-1.5 underline underline-offset-4 decoration-[#22222e]"
+                className="touch-target-44 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#111118]/90 hover:bg-[#181824] border border-[#22222e] hover:border-[#00d4ff]/60 text-xs font-semibold text-[#e2e2ec] hover:text-[#00d4ff] transition-all cursor-pointer shadow-sm group"
               >
-                <Camera className="w-4 h-4 text-[#ff0068]" />
+                <Camera className="w-4 h-4 text-[#00d4ff] group-hover:scale-110 transition-transform" />
                 <span>
                   {language === 'ca'
                     ? 'Arxiu Fotogràfic'
@@ -424,9 +418,9 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
               <button
                 type="button"
                 onClick={() => onNavigate('serveis')}
-                className="text-xs font-semibold text-[#a1a1b5] hover:text-[#ff0068] transition-colors flex items-center gap-1.5 underline underline-offset-4 decoration-[#22222e]"
+                className="touch-target-44 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#111118]/90 hover:bg-[#181824] border border-[#22222e] hover:border-[#ec4899]/60 text-xs font-semibold text-[#e2e2ec] hover:text-[#ec4899] transition-all cursor-pointer shadow-sm group"
               >
-                <Terminal className="w-4 h-4 text-[#ff0068]" />
+                <Terminal className="w-4 h-4 text-[#ec4899] group-hover:scale-110 transition-transform" />
                 <span>
                   {language === 'ca'
                     ? 'Serveis & Tarifes'
@@ -568,10 +562,10 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
           <span aria-hidden="true" className="text-[#00d4ff]">·</span>
           <span>
             {language === 'ca'
-              ? 'DE MATARÓ A LA BIBLIOTECA FONT DE LA MINA'
+              ? 'DE MATARÓ AL BARRI DE LA MINA'
               : language === 'es'
-              ? 'DE MATARÓ A LA BIBLIOTECA FONT DE LA MINA'
-              : 'FROM MATARÓ TO FONT DE LA MINA LIBRARY'}
+              ? 'DE MATARÓ AL BARRIO DE LA MINA'
+              : 'FROM MATARÓ TO LA MINA'}
           </span>
         </div>
 
@@ -598,23 +592,23 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
             <div className="space-y-4 text-[#a1a1b5] text-sm sm:text-base leading-relaxed max-w-2xl">
               <p className="first-letter:text-5xl first-letter:font-['Cormorant_Garamond'] first-letter:font-semibold first-letter:text-[#ec4899] first-letter:float-left first-letter:mr-3 first-letter:leading-none">
                 {language === 'ca'
-                  ? 'RAFA 930 és un artista emergent, multidisciplinari: desenvolupador web, fotògraf i molt més. La seva música neix d\'una necessitat vital, impulsada per la curiositat i pel suport incondicional dels seus amics Ouxxox i Incrife. La seva obra combina una composició musical profunda amb una estètica fotogràfica cinematogràfica, construint un relat autèntic sobre l\'entorn i les vivències personals.'
+                  ? 'RAFA 930 és un artista urbà emergent i multidisciplinari: raper, desenvolupador web, fotògraf i creador total des de l’entorn de La Mina i Mataró (08930). La seva música destil·la rap conscient i trap melódico de carrer, amb lletres profundes que parlen de superació personal, la duresa i la bellesa del barri, la lleialtat familiar, la nit i el contrast entre somnis i realitat. Impulsat per la curiositat i pel suport incondicional dels seus amics Ouxxox i Incrife, la seva obra uneix una lírica crua i honesta amb una estètica fotogràfica cinematogràfica en clarobscur.'
                   : language === 'es'
-                  ? 'RAFA 930 es un artista emergente, multidisciplinar: desarrollador web, fotógrafo y mucho más. Su música nace de una necesidad vital, impulsada por la curiosidad y por el apoyo incondicional de sus amigos Ouxxox e Incrife. Su obra combina una composición musical profunda con una estética fotográfica cinematográfica, construyendo un relato auténtico sobre el entorno y las vivencias personales.'
-                  : 'RAFA 930 is an emerging, multidisciplinary artist: web developer, photographer, and much more. His music is born from a vital need, driven by curiosity and the unconditional support of his friends Ouxxox and Incrife. His work combines deep musical composition with a cinematic photographic aesthetic, building an authentic narrative about the environment and personal experiences.'}
+                  ? 'RAFA 930 es un artista urbano emergente y multidisciplinar: rapero, desarrollador web, fotógrafo y creador total desde el entorno de La Mina y Mataró (08930). Su música destila rap consciente y trap melódico de calle, con letras profundas que abordan la superación personal, la crudeza y la belleza del barrio, la lealtad de los suyos, la noche y el pulso entre los sueños y la realidad. Impulsado por la curiosidad y por el apoyo incondicional de sus amigos Ouxxox e Incrife, su obra une una lírica sincera y directa con una estética fotográfica cinematográfica en claroscuro.'
+                  : 'RAFA 930 is an emerging, multidisciplinary urban artist: rapper, web developer, photographer, and total creator hailing from La Mina and Mataró (08930). His music distills conscious rap and melodic street trap, featuring deep lyrics about resilience, neighborhood life, loyalty, nocturnal ambition, and the pursuit of dreams. Driven by curiosity and the unconditional support of his friends Ouxxox and Incrife, his work merges raw, honest storytelling with cinematic chiaroscuro visual aesthetics.'}
               </p>
               <p>
                 {language === 'ca' ? (
                   <>
-                    El seu projecte és una convergència entre la producció sonora, la narrativa visual i la innovació digital. RAFA 930 no només lidera la seva pròpia visió artística, sinó que també impulsa el desenvolupament digital de tercers, aportant una mirada professional, precisa i connectada amb les necessitats del mercat cultural contemporani.
+                    El seu projecte és una convergència entre la producció sonora, la narrativa visual i la innovació digital. RAFA 930 no només lidera la seva pròpia visió artística amb barres afilades i so impecable, sinó que també impulsa el desenvolupament digital de tercers a través de 930 Digital, aportant una mirada professional, precisa i connectada amb l’essència del carrer.
                   </>
                 ) : language === 'es' ? (
                   <>
-                    Su proyecto es una convergencia entre la producción sonora, la narrativa visual y la innovación digital. RAFA 930 no solo lidera su propia visión artística, sino que también impulsa el desarrollo digital de terceros, aportando una mirada profesional, precisa y conectada con las necesidades del mercado cultural contemporáneo.
+                    Su proyecto es una convergencia entre la producción sonora, la narrativa visual y la innovación digital. RAFA 930 no solo lidera su propia visión artística con barras afiladas y sonido impecable, sino que también impulsa el desarrollo digital de terceros a través de 930 Digital, aportando una mirada profesional, precisa y conectada con la esencia de la calle.
                   </>
                 ) : (
                   <>
-                    His project is a convergence of sound production, visual narrative, and digital innovation. RAFA 930 not only leads his own artistic vision but also drives digital development for others, bringing a professional, precise perspective connected to the needs of the contemporary cultural market.
+                    His project is a true convergence of sound production, visual narrative, and digital innovation. RAFA 930 not only leads his artistic vision with sharp bars and pristine sound, but also drives digital development through 930 Digital, bringing a professional perspective rooted in street culture.
                   </>
                 )}
               </p>
@@ -702,7 +696,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
             >
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-[#0a0a0f]">
                 <img
-                  alt="Biblioteca Font de La Mina"
+                  alt="Barri de La Mina"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   src={ARTIST_IMAGES.libraryOrigin}
@@ -712,10 +706,10 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
               <div className="pt-3 px-1 flex justify-between items-center text-xs font-serif italic text-[#a1a1b5]">
                 <span>
                   {language === 'ca'
-                    ? 'Fig. 02 — Biblioteca Font de La Mina (Punt d’origen)'
+                    ? 'Fig. 02 — Barri de La Mina (Punt d’origen)'
                     : language === 'es'
-                    ? 'Fig. 02 — Biblioteca Font de La Mina (Punto de origen)'
-                    : 'Fig. 02 — Font de La Mina Library (Point of origin)'}
+                    ? 'Fig. 02 — Barrio de La Mina (Punto de origen)'
+                    : 'Fig. 02 — La Mina Neighborhood (Point of origin)'}
                 </span>
                 <span className="font-mono not-italic text-[#a855f7]">
                   {language === 'ca' ? 'Arxiu' : language === 'es' ? 'Archivo' : 'Archive'}

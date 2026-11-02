@@ -128,6 +128,11 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
     let t = 0;
 
     const renderScene = () => {
+      if (document.hidden) {
+        rafId = requestAnimationFrame(renderScene);
+        return;
+      }
+
       t += 0.016;
       const scr = screenRef.current;
       const isPlaying = playingRef.current;

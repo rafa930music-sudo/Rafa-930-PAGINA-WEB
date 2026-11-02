@@ -1,4 +1,5 @@
 import React from 'react';
+import logoWhite from '../assets/images/logo-white.webp';
 
 interface RafaLogoProps {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'custom';
@@ -17,10 +18,10 @@ export const RafaLogo: React.FC<RafaLogoProps> = ({
 }) => {
   const sizeClasses = {
     xs: 'w-7 h-7',
-    sm: 'w-10 h-10',
-    md: 'w-14 h-14',
-    lg: 'w-24 h-24',
-    xl: 'w-40 h-40',
+    sm: 'w-9 h-9 sm:w-10 sm:h-10',
+    md: 'w-12 h-12 sm:w-14 sm:h-14',
+    lg: 'w-20 h-20 sm:w-24 sm:h-24',
+    xl: 'w-32 h-32 sm:w-40 sm:h-40',
     custom: '',
   }[size];
 
@@ -35,28 +36,21 @@ export const RafaLogo: React.FC<RafaLogoProps> = ({
           style={{
             background:
               theme === 'light'
-                ? 'radial-gradient(circle, rgba(124,58,237,0.25) 0%, rgba(217,70,239,0.1) 60%, transparent 80%)'
-                : 'radial-gradient(circle, rgba(139,92,246,0.45) 0%, rgba(192,132,252,0.15) 60%, transparent 85%)',
+                ? 'radial-gradient(circle, rgba(0,212,255,0.3) 0%, rgba(236,72,153,0.2) 60%, transparent 80%)'
+                : 'radial-gradient(circle, rgba(0,212,255,0.45) 0%, rgba(168,85,247,0.3) 50%, rgba(236,72,153,0.2) 75%, transparent 90%)',
           }}
         />
       )}
 
-      {/* Official 3D wireframe globe & orbital ring logo - exact authentic original representation */}
+      {/* Official 3D wireframe globe & orbital ring logo */}
       <img
-        src={`${import.meta.env.BASE_URL}assets/logo-white.webp`}
+        src={logoWhite}
         alt={alt}
         width={96}
         height={96}
-        className={`relative z-10 object-contain aspect-square ${sizeClasses}`}
+        className={`relative z-10 object-contain aspect-square drop-shadow-[0_0_12px_rgba(0,212,255,0.35)] ${sizeClasses}`}
         loading="eager"
         decoding="async"
-        onError={(e) => {
-          // Fallback to .jpg if ever needed
-          const target = e.currentTarget;
-          if (target.src.endsWith('.webp')) {
-            target.src = `${import.meta.env.BASE_URL}assets/logo-white.jpg`;
-          }
-        }}
       />
     </div>
   );

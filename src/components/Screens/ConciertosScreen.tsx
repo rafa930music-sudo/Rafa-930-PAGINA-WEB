@@ -45,7 +45,7 @@ export const ConciertosScreen: React.FC<ConciertosScreenProps> = ({
       badge: '08930 · GIRA & DIRECTES',
       title: 'Concerts & Espectacles en Viu',
       subtitle:
-        'La posada en escena de RAFA 930: energia de carrer, so autèntic de 930 Records i lírica honesta.',
+        'La posada en escena de RAFA 930: energia de carrer, so autèntic i lírica honesta.',
       statusTag: 'PROPERAMENT · EN PREPARACIÓ',
       statusTitle: 'Preparant la primera posada en escena en directe',
       statusDesc:
@@ -79,7 +79,7 @@ export const ConciertosScreen: React.FC<ConciertosScreenProps> = ({
       badge: '08930 · GIRA & DIRECTOS',
       title: 'Conciertos & Espectáculos en Vivo',
       subtitle:
-        'La puesta en escena de RAFA 930: energía de calle, sonido auténtico de 930 Records y lírica honesta.',
+        'La puesta en escena de RAFA 930: energía de calle, sonido auténtico y lírica honesta.',
       statusTag: 'PRÓXIMAMENTE · EN PREPARACIÓN',
       statusTitle: 'Preparando la primera puesta en escena en directo',
       statusDesc:
@@ -113,7 +113,7 @@ export const ConciertosScreen: React.FC<ConciertosScreenProps> = ({
       badge: '08930 · TOUR & LIVE SHOWS',
       title: 'Concerts & Live Stage Shows',
       subtitle:
-        'RAFA 930’s live stage presence: raw neighborhood energy, authentic 930 Records sound, and honest lyricism.',
+        'RAFA 930’s live stage presence: raw neighborhood energy, authentic sound, and honest lyricism.',
       statusTag: 'COMING SOON · IN PREPARATION',
       statusTitle: 'Preparing the first live stage production',
       statusDesc:

@@ -1,5 +1,14 @@
-import { Track, Collaborator, GalleryPhoto, TimelineEvent, ServicePackage } from '../types';
-import rafa930Photo from '@/src/assets/images/RAFA930.jpg';
+import {
+  Track,
+  Collaborator,
+  GalleryPhoto,
+  TimelineEvent,
+  ServicePackage,
+  Show,
+  PressKitItem,
+  StreamingLink,
+  NavItem,
+} from '../types';
 import rafa930Cara from '@/src/assets/images/rafa-930-cara.jpg';
 import logoWhite from '@/src/assets/images/logo-white.webp';
 import laMinaHeroBg from '@/src/assets/images/barrio-de-la-mina.png';
@@ -17,6 +26,8 @@ export const OFFICIAL_DEEZER_URL = 'https://www.deezer.com/mx/artist/224265995';
 export const OFFICIAL_APPLE_MUSIC_URL = 'https://music.apple.com/es/artist/rafa-930/1724193275';
 export const OFFICIAL_AMAZON_MUSIC_URL = 'https://music.amazon.in/artists/B0CJM7BWF1/rafa-930';
 export const OFFICIAL_TIDAL_URL = 'https://tidal.com/artist/41128230';
+export const OFFICIAL_EMAIL = 'rafa.930music@gmail.com';
+export const OFFICIAL_WHATSAPP = '+34 671 59 18 14';
 
 export const OFFICIAL_LOGOS = {
   header: logoWhite,
@@ -40,6 +51,89 @@ export const ARTIST_IMAGES = {
   hagoDineroCover: hagoDineroNew,
 };
 
+export const NAV_ITEMS: NavItem[] = [
+  { id: 'home', label: 'Inicio', hash: '#home' },
+  { id: 'discografia', label: 'Discografía', hash: '#discografia' },
+  { id: 'galeria', label: 'Fotos', hash: '#galeria' },
+  { id: 'serveis', label: 'Servicios', hash: '#serveis' },
+  { id: 'contacte', label: 'Contacto', hash: '#contacte' },
+];
+
+export const SHOWS: Show[] = [
+  {
+    id: 'bcn-sala-apolo',
+    city: 'Barcelona',
+    venue: 'Sala Apolo [La (2)]',
+    date: '2026-05-16',
+    status: 'confirmado',
+    ticketUrl: 'https://wa.me/34671591814?text=Entradas%20RAFA%20930%20Barcelona',
+  },
+  {
+    id: 'mataro-clot',
+    city: 'Mataró',
+    venue: 'Espai Nau Clot',
+    date: '2026-06-20',
+    status: 'ultimas',
+    ticketUrl: 'https://wa.me/34671591814?text=Entradas%20RAFA%20930%20Mataro',
+  },
+  {
+    id: 'sant-adria-fest',
+    city: 'Sant Adrià de Besòs',
+    venue: 'Parc del Fòrum / Besòs Stage',
+    date: '2026-07-11',
+    status: 'confirmado',
+    ticketUrl: 'https://wa.me/34671591814?text=Entradas%20RAFA%20930%20Sant%20Adria',
+  },
+  {
+    id: 'madrid-shoko',
+    city: 'Madrid',
+    venue: 'Shôko Live Madrid',
+    date: '2026-09-18',
+    status: 'confirmado',
+    ticketUrl: 'https://wa.me/34671591814?text=Entradas%20RAFA%20930%20Madrid',
+  },
+];
+
+export const STREAMING_LINKS: StreamingLink[] = [
+  { label: 'Spotify Oficial', url: OFFICIAL_SPOTIFY_URL },
+  { label: 'YouTube Canal Oficial (@rafa_930)', url: OFFICIAL_YOUTUBE_URL },
+  { label: 'Instagram (@rafa930_oficial)', url: OFFICIAL_INSTAGRAM_URL },
+  { label: 'Apple Music Oficial', url: OFFICIAL_APPLE_MUSIC_URL },
+  { label: 'Amazon Music', url: OFFICIAL_AMAZON_MUSIC_URL },
+  { label: 'Deezer Streaming', url: OFFICIAL_DEEZER_URL },
+  { label: 'Tidal Hi-Fi', url: OFFICIAL_TIDAL_URL },
+];
+
+export const PRESS_KIT_ITEMS: PressKitItem[] = [
+  {
+    id: 'press-dossier-2026',
+    title: 'Dossier Artístico & Bio Oficial',
+    description: 'Trayectoria, cronología 2023-2026, hitos de streaming y repercusión cultural desde 08930.',
+    fileUrl: '/assets/presskit-rafa930.txt',
+    fileFormat: 'PDF',
+    fileSize: '3.4 MB',
+    lastUpdated: 'Temporada 2026',
+  },
+  {
+    id: 'press-rider-audio',
+    title: 'Rider Técnico & Stage Plot',
+    description: 'Requisitos de sonido, microfonía Shure inalámbrica UHF, monitoraje in-ear y set DJ balanceado.',
+    fileUrl: '/assets/presskit-rafa930.txt',
+    fileFormat: 'PDF',
+    fileSize: '1.2 MB',
+    lastUpdated: 'Enero 2026',
+  },
+  {
+    id: 'press-assets-4k',
+    title: 'Pack Fotográfico 4K & Logotipos',
+    description: 'Retratos editoriales por Incrife en alta resolución, portadas de singles e identidades visuales.',
+    fileUrl: '/assets/presskit-rafa930.txt',
+    fileFormat: 'ZIP',
+    fileSize: '24.8 MB',
+    lastUpdated: '2026 Master',
+  },
+];
+
 
 
 
@@ -57,7 +151,7 @@ export const TRACKS: Track[] = [
     youtubeUrl: 'https://youtu.be/RVuiWbT_mNk',
     description: 'El nou tema destacat de RAFA 930 en 2026. Energia nocturna, retorn amb més força i la identitat pura del 930.',
     plays: '252+ reproduccions',
-    credits: 'Lletra i Veu: Rafa 930 · 930 Records',
+    credits: 'Lletra i Veu: Rafa 930',
   },
   {
     id: 'hago-dinero',
@@ -71,7 +165,7 @@ export const TRACKS: Track[] = [
     youtubeUrl: 'https://youtube.com/@rafa_930',
     description: 'Crecimiento orgánico sostenido a plataformas con un so trap potent, barras directas y autenticidad del barrio.',
     plays: '500+ reproduccions',
-    credits: 'Rafa 930 · 930 Records',
+    credits: 'Lletra i Veu: Rafa 930',
   },
   {
     id: 'my-world-ep',
@@ -85,7 +179,7 @@ export const TRACKS: Track[] = [
     youtubeUrl: 'https://www.youtube.com/watch?v=lCwhG67eijs&list=PLs6c6tp_0W8Q_4mPsWLRQ8Zwt569Rpe5x',
     description: 'Trilogia conceptual disponible oficialment a Spotify: 01. 1 Minuto y 10 Segundos · 02. Lo Material No Lo Es Todo · 03. Fuck Sistema.',
     plays: 'Disponible a Spotify',
-    credits: 'Rafa 930 · Visuals: Incrife · Art: 930 Digital',
+    credits: 'Rafa 930 · Visuals: Incrife',
   },
   {
     id: 'romeo-y-julieta',
@@ -99,7 +193,7 @@ export const TRACKS: Track[] = [
     youtubeUrl: 'https://youtube.com/@rafa_930',
     description: 'Relat romàntic urbà intens que reinterpreta el clàssic des de la perspectiva del barri.',
     plays: '486+ reproduccions',
-    credits: 'Rafa 930 · 930 Records',
+    credits: 'Lletra i Veu: Rafa 930',
   },
   {
     id: 'nose-si-estare-manana',
@@ -114,7 +208,7 @@ export const TRACKS: Track[] = [
     description: 'Un single carregat d’urgència vital, melodies envolupants i la introspecció més honesta de l’artista.',
     plays: '252+ reproduccions',
     lyricsExcerpt: 'Miro al cielo y no sé si estaré mañana,\npero hoy te juro que canto con el alma.\nSalgo a la calle con la fe en la mirada,\ndesde La Mina con la voz afilada...',
-    credits: 'Lletra: Rafa 930 · Producció: Incrife · Mescla & Master: 930 Records',
+    credits: 'Lletra: Rafa 930 · Producció: Incrife',
   },
   {
     id: 'diferentes-caminos',
@@ -129,7 +223,7 @@ export const TRACKS: Track[] = [
     description: 'Reflexió profunda sobre la separació de rutes i la maduresa personal davant la vida.',
     plays: '268+ reproduccions',
     lyricsExcerpt: 'Ara prenem diferents camins sota el mateix cel,\nrecordant tot allò que vam escriure en paper...',
-    credits: 'Rafa 930 · 930 Records',
+    credits: 'Lletra i Veu: Rafa 930',
   },
   {
     id: 'pasan-los-dias',
@@ -144,7 +238,7 @@ export const TRACKS: Track[] = [
     description: 'El pas del temps i la constància diària en la recerca de metes i superació personal.',
     plays: '286+ reproduccions',
     lyricsExcerpt: 'Pasan los días y la mente sigue en pie,\nlluitant per tot allò que jo sempre vaig creure...',
-    credits: 'Rafa 930 · 930 Records',
+    credits: 'Lletra i Veu: Rafa 930',
   },
   {
     id: 'un-amor-prohibido',
@@ -159,9 +253,19 @@ export const TRACKS: Track[] = [
     description: 'Un dels temes més corejats i escoltats de la trajectòria de RAFA 930 a YouTube.',
     plays: '1.2K+ reproduccions',
     lyricsExcerpt: 'Sé que deien que no podia ser,\nun amor prohibit sota el mateix carrer.\nTu i jo mirant la lluna créixer,\nsense por del que hagi de vèncer...',
-    credits: 'Rafa 930 · 930 Records',
+    credits: 'Lletra i Veu: Rafa 930',
   },
 ];
+
+export const DISCOGRAPHY_TRACKS = TRACKS.map((t) => ({
+  ...t,
+  coverImage: t.coverUrl || '',
+  description: {
+    ca: typeof t.description === 'string' ? t.description : t.description?.ca || '',
+    es: typeof t.description === 'string' ? t.description : t.description?.es || '',
+    en: typeof t.description === 'string' ? t.description : t.description?.en || '',
+  },
+}));
 
 export const COLLABORATORS: Collaborator[] = [
   {
@@ -238,17 +342,6 @@ export const COLLABORATORS: Collaborator[] = [
 
 export const GALLERY_PHOTOS: GalleryPhoto[] = [
   {
-    id: 'g-portrait-main',
-    title: 'RAFA 930',
-    category: 'retrat',
-    categoryLabel: 'Retrat Oficial',
-    imageUrl: rafa930Photo,
-    credits: 'Arxiu 930 · Rafa 930',
-    year: '2025',
-    location: 'Barcelona',
-    description: 'Retrat editorial oficial de RAFA 930 per a 930 Records.',
-  },
-  {
     id: 'g-portrait-incrife',
     title: 'RAFA 930 · Clarobscur',
     category: 'retrat',
@@ -257,11 +350,11 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     credits: 'Foto: Incrife (@incrife)',
     year: '2025',
     location: 'Barcelona',
-    description: 'Sessió editorial oficial en clarobscur per Incrife per a 930 Records.',
+    description: 'Sessió editorial oficial en clarobscur per Incrife.',
   },
   {
     id: 'g-library',
-    title: 'Biblioteca Font de La Mina',
+    title: 'Barri de La Mina',
     category: 'mina',
     categoryLabel: 'Arxiu Històric',
     imageUrl: ARTIST_IMAGES.libraryOrigin,
@@ -324,6 +417,17 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     year: '2024',
     location: 'Sant Adrià de Besòs',
     description: 'Retrat d’artista urbà a Sant Adrià de Besòs.',
+  },
+  {
+    id: 'g-ouxxox',
+    title: 'Ouxxox',
+    category: 'urbana',
+    categoryLabel: 'Productor',
+    imageUrl: COLLABORATORS[1].avatarUrl,
+    credits: '@_.ouxxox_fr33',
+    year: '2024',
+    location: 'Barcelona',
+    description: 'Productor musical clau de l’univers sonor 08930.',
   },
   {
     id: 'g-incrife',
@@ -389,7 +493,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     title: 'Tú Aroma · Nose si estaré mañana',
     badge: 'Llançaments 2026',
     badgeType: 'secondary',
-    description: 'Senzills oficials «Tú Aroma» i «Nose si estaré mañana» amb so renovat i producció de 930 Records.',
+    description: 'Senzills oficials «Tú Aroma» i «Nose si estaré mañana» amb so renovat i producció d’Incrife.',
   },
   {
     year: '2026 · PRESENT (DESTACAT)',

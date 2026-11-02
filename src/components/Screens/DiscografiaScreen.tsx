@@ -264,7 +264,7 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
       <div className="relative z-10 border-b border-[#22222e] pb-8 flex flex-col lg:flex-row lg:items-end justify-between gap-6">
         <div>
           <div className="flex items-center gap-2 text-xs font-mono text-[#a1a1b5] mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] shadow-[0_0_8px_#00d4ff]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff]" />
             <span className="text-[#ec4899] font-semibold">
               {language === 'ca'
                 ? 'CATÀLEG DISCOGRÀFIC OFICIAL · RAFA 930'
@@ -410,7 +410,11 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
                 </h3>
 
                 <p className="text-xs sm:text-sm text-[#a1a1b5] mt-2 leading-relaxed">
-                  {tI18n ? tI18n.description[language] : track.description}
+                  {tI18n
+                    ? tI18n.description[language]
+                    : typeof track.description === 'string'
+                    ? track.description
+                    : track.description[language]}
                 </p>
 
                 <p className="text-[11px] font-mono text-[#a1a1b5] mt-3 border-t border-[#22222e] pt-2">

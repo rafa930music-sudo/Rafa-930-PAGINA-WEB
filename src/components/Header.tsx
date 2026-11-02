@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ScreenId, Language, LegalDocId } from '../types';
+import { RafaBrandLogo } from './RafaBrandLogo';
 import {
   Menu,
   X,
@@ -14,6 +15,7 @@ import {
   Share2,
   Check,
   Ticket,
+  Radio,
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -23,6 +25,7 @@ interface HeaderProps {
   language: Language;
   onToggleLanguage: () => void;
   onSelectLanguage?: (lang: Language) => void;
+  onShowSplash?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -32,13 +35,16 @@ export const Header: React.FC<HeaderProps> = ({
   language,
   onToggleLanguage,
   onSelectLanguage,
+  onShowSplash,
 }) => {
   const [burgerOpen, setBurgerOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   // Progressive scroll tracking with smooth real-time percentage
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+
+    const updateProgress = () => {
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
       if (scrollHeight > 0) {
         const progress = Math.min(100, Math.max(0, (window.scrollY / scrollHeight) * 100));
@@ -46,9 +52,17 @@ export const Header: React.FC<HeaderProps> = ({
       } else {
         setScrollProgress(0);
       }
+      ticking = false;
     };
 
-    handleScroll();
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    };
+
+    updateProgress();
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleScroll, { passive: true });
     return () => {
@@ -85,27 +99,21 @@ export const Header: React.FC<HeaderProps> = ({
       Icon: Disc3,
     },
     {
-      id: 'conciertos',
-      label: { ca: 'Concerts', es: 'Conciertos', en: 'Concerts' },
-      shortLabel: { ca: 'Concerts', es: 'Conciertos', en: 'Concerts' },
-      Icon: Ticket,
-    },
-    {
       id: 'galeria',
-      label: { ca: 'Fotografia', es: 'Fotografía', en: 'Photography' },
+      label: { ca: 'Galeria', es: 'Galería', en: 'Gallery' },
       shortLabel: { ca: 'Fotos', es: 'Fotos', en: 'Photos' },
       Icon: Camera,
     },
     {
       id: 'serveis',
       label: { ca: 'Serveis', es: 'Servicios', en: 'Services' },
-      shortLabel: { ca: 'Serveis', es: 'Servicios', en: 'Services' },
+      shortLabel: { ca: 'Estudi', es: 'Estudio', en: 'Studio' },
       Icon: Briefcase,
     },
     {
       id: 'contacte',
-      label: { ca: 'Contacte', es: 'Contacto', en: 'Contact' },
-      shortLabel: { ca: 'Contacte', es: 'Contacto', en: 'Contact' },
+      label: { ca: 'Booking & Contacte', es: 'Booking & Contacto', en: 'Booking & Contact' },
+      shortLabel: { ca: 'Booking', es: 'Booking', en: 'Booking' },
       Icon: Mail,
     },
   ];
@@ -175,16 +183,17 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
         <div className="flex justify-between items-center w-full px-3 sm:px-6 md:px-10 h-16 sm:h-18 max-w-7xl mx-auto gap-2">
           {/* Zone 1: Brand Wordmark -> RAFA 930 (Click to view official signature splash) */}
-          <button
-            type="button"
-            onClick={() => handleNavClick('revista')}
-            className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#ffffff] font-['Bebas_Neue'] whitespace-nowrap shrink-0 focus:outline-none flex items-center gap-2 group cursor-pointer"
-          >
-            <span className="transition-all duration-300 transform group-hover:scale-105 inline-flex items-center gap-1">
-              <span className="transition-all duration-300 group-hover-gradient-930">RAFA</span>
-              <span className="text-gradient-930 group-hover:filter group-hover:drop-shadow-[0_0_16px_rgba(0,212,255,0.9)]">930</span>
-            </span>
-          </button>
+          <RafaBrandLogo
+            onClick={() => {
+              if (currentScreen === 'revista' && onShowSplash) {
+                onShowSplash();
+              } else {
+                handleNavClick('revista');
+              }
+            }}
+            title={language === 'ca' ? 'Veure intro RAFA 930' : language === 'es' ? 'Ver intro RAFA 930' : 'View RAFA 930 intro'}
+            size="md"
+          />
 
           {/* Zone 2: Clean Desktop Navigation Links */}
           <nav aria-label="Main Navigation" className="hidden xl:flex items-center gap-6">
@@ -290,9 +299,13 @@ export const Header: React.FC<HeaderProps> = ({
           >
             {/* Drawer Top Header */}
             <div className="flex items-center justify-between px-5 sm:px-6 h-16 sm:h-18 border-b border-[#22222e] shrink-0">
-              <span className="font-['Bebas_Neue'] text-2xl font-extrabold tracking-tight text-[#ffffff]">
-                RAFA <span className="text-gradient-930">930</span>
-              </span>
+              <RafaBrandLogo
+                onClick={() => {
+                  handleNavClick('revista');
+                  if (onShowSplash) onShowSplash();
+                }}
+                size="sm"
+              />
               <button
                 type="button"
                 onClick={() => setBurgerOpen(false)}
@@ -426,7 +439,7 @@ export const Header: React.FC<HeaderProps> = ({
           aria-hidden="true"
           className="h-[1.5px] w-full bg-gradient-to-r from-[#a855f7] via-[#00d4ff] to-[#ec4899] shadow-[0_0_10px_rgba(0,212,255,0.6)]"
         />
-        <div className="grid grid-cols-6 items-center h-16 max-w-2xl mx-auto px-1">
+        <div className="grid grid-cols-5 items-center h-16 max-w-2xl mx-auto px-1">
           {navItems.map((item) => {
             const isActive = currentScreen === item.id;
             const IconComponent = item.Icon;

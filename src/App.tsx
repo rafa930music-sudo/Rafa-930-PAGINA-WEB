@@ -1,231 +1,162 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import React, { useState, useEffect } from 'react';
-import { ScreenId, Language, ThemeMode, LegalDocId } from './types';
-import { applyDynamicSeo, installRuntimeSecurityGuards, isSearchCrawler } from './utils/seoAndSecurity';
+import type { ScreenId, Language, LegalDocId } from './types';
+
+// Componentes del diseño original RAFA 930
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { MobileBottomNav } from './components/MobileBottomNav';
+import { ScrollLateralBar } from './components/ScrollLateralBar';
 import { FloatingWidgets } from './components/FloatingWidgets';
 import { SplashScreen } from './components/SplashScreen';
 import { AmbientColorBubbles } from './components/AmbientColorBubbles';
+import { CookieConsentModal } from './components/CookieConsentModal';
+
+// Pantallas del diseño original
 import { RevistaScreen } from './components/Screens/RevistaScreen';
 import { DiscografiaScreen } from './components/Screens/DiscografiaScreen';
 import { GaleriaScreen } from './components/Screens/GaleriaScreen';
 import { ServeisScreen } from './components/Screens/ServeisScreen';
-import { EnllacosScreen } from './components/Screens/EnllacosScreen';
 import { ContacteScreen } from './components/Screens/ContacteScreen';
 import { LegalScreen } from './components/Screens/LegalScreen';
-import { ConciertosScreen } from './components/Screens/ConciertosScreen';
-import { ScrollLateralBar } from './components/ScrollLateralBar';
-import { CookieConsentModal } from './components/CookieConsentModal';
 
-const VALID_SCREENS: ScreenId[] = [
-  'revista',
-  'discografia',
-  'conciertos',
-  'galeria',
-  'serveis',
-  'enllacos',
-  'contacte',
-  'legal',
-];
+import { applyDynamicSeo } from './utils/seoAndSecurity';
 
 export default function App() {
-  const [currentScreen, setCurrentScreen] = useState<ScreenId>(() => {
-    let hash = window.location.hash.replace('#', '').toLowerCase();
-    if (hash === 'links' || hash === 'enlaces') hash = 'enllacos';
-    if (hash === 'concerts' || hash === 'gira' || hash === 'concierto' || hash === 'directos') hash = 'conciertos';
-    if (VALID_SCREENS.includes(hash as ScreenId)) return hash as ScreenId;
-    return 'revista';
-  });
-  const [legalInitialTab, setLegalInitialTab] = useState<LegalDocId>('aviso');
-  const [isCookieModalOpen, setIsCookieModalOpen] = useState<boolean>(false);
+  const [currentScreen, setCurrentScreen] = useState<ScreenId>('revista');
+  const [language, setLanguage] = useState<Language>('es');
+  const [legalTab, setLegalTab] = useState<LegalDocId>('aviso');
+  const [cookieConfigOpen, setCookieConfigOpen] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
 
-  // Language state with URL query or localStorage persistence
-  const [language, setLanguage] = useState<Language>(() => {
-    try {
-      const params = new URLSearchParams(window.location.search);
-      const urlLang = params.get('lang');
-      if (urlLang === 'ca' || urlLang === 'es' || urlLang === 'en') return urlLang;
-      const saved = localStorage.getItem('rafa930_lang');
-      if (saved === 'ca' || saved === 'es' || saved === 'en') return saved;
-    } catch {}
-    return 'es';
-  });
-
-  const [showSplash, setShowSplash] = useState<boolean>(true);
-
-  const handleCompleteSplash = React.useCallback(() => {
-    setShowSplash(false);
-  }, []);
-
-  const handleTriggerSplash = React.useCallback(() => {
-    setShowSplash(true);
-  }, []);
-
-  // Sync URL hash for deep linking & browser back/forward navigation
+  // Sincronización dinámica de SEO (títulos, canónicas, OpenGraph)
   useEffect(() => {
-    const handleHashChange = () => {
-      let hash = window.location.hash.replace('#', '').toLowerCase();
-      if (hash === 'links' || hash === 'enlaces') hash = 'enllacos';
-      if (hash === 'concerts' || hash === 'gira' || hash === 'concierto' || hash === 'directos') hash = 'conciertos';
-      if (VALID_SCREENS.includes(hash as ScreenId)) {
-        setCurrentScreen(hash as ScreenId);
-      }
-    };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
-
-  useEffect(() => {
-    const root = document.documentElement;
-    root.classList.remove('light');
-    root.classList.add('dark');
-  }, []);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem('rafa930_lang', language);
-    } catch {}
     applyDynamicSeo(currentScreen, language);
   }, [currentScreen, language]);
 
-  useEffect(() => {
-    const cleanupSecurity = installRuntimeSecurityGuards();
-    return () => cleanupSecurity();
-  }, []);
-
-  const handleToggleLanguage = () => {
-    setLanguage((prev) => {
-      if (prev === 'ca') return 'es';
-      if (prev === 'es') return 'en';
-      return 'ca';
-    });
-  };
-
-  const handleScreenChange = (screen: ScreenId) => {
-    setCurrentScreen(screen);
-    try {
-      window.history.replaceState(null, '', `#${screen}`);
-    } catch {}
+  const handleSelectScreen = (screen: ScreenId) => {
+    let target = screen;
+    if (
+      target === 'home' ||
+      (target as string) === 'conciertos' ||
+      (target as string) === 'presskit' ||
+      (target as string) === 'enllacos'
+    ) {
+      target = 'revista';
+    }
+    setCurrentScreen(target);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleOpenLegalTab = (tab: LegalDocId) => {
-    setLegalInitialTab(tab);
+    setLegalTab(tab);
     setCurrentScreen('legal');
-    try {
-      window.history.replaceState(null, '', '#legal');
-    } catch {}
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const skipText = {
-    ca: 'Saltar al contingut principal',
-    es: 'Saltar al contenido principal',
-    en: 'Skip to main content',
-  }[language];
+  const handleToggleLanguage = () => {
+    const nextLang: Record<Language, Language> = {
+      es: 'ca',
+      ca: 'en',
+      en: 'es',
+    };
+    setLanguage(nextLang[language]);
+  };
 
   return (
-    <div
-      className="min-h-[100dvh] w-full bg-[#050507] text-[#ffffff] relative overflow-x-hidden selection:bg-[#ec4899] selection:text-white flex flex-col justify-between"
-    >
+    <div className="min-h-screen bg-[#050507] text-[#ffffff] font-sans relative selection:bg-[#ec4899] selection:text-white">
+      {/* 1. Splash Screen oficial interactivo */}
       {showSplash && (
         <SplashScreen
           language={language}
-          onComplete={handleCompleteSplash}
+          onComplete={() => setShowSplash(false)}
         />
       )}
 
-      <AmbientColorBubbles
-        currentScreen={currentScreen}
-        isPlayingMusic={false}
-      />
-
+      {/* 2. Barra de scroll lateral progresiva corporativa */}
       <ScrollLateralBar />
 
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[10000] focus:px-4 focus:py-2.5 focus:bg-[#a855f7] focus:text-white focus:font-semibold focus:rounded-md"
-      >
-        {skipText}
-      </a>
+      {/* 3. Fondo atmosférico de estrellas y partículas orbitales */}
+      <AmbientColorBubbles currentScreen={currentScreen} />
 
+      {/* 4. Cabecera principal con barra de progreso, logotipo oficial y navegación completa */}
       <Header
         currentScreen={currentScreen}
-        onSelectScreen={handleScreenChange}
+        onSelectScreen={handleSelectScreen}
         onOpenLegalTab={handleOpenLegalTab}
         language={language}
         onToggleLanguage={handleToggleLanguage}
         onSelectLanguage={setLanguage}
+        onShowSplash={() => setShowSplash(true)}
       />
 
-      <main id="main-content" className="flex-1 relative z-10 w-full pt-16 sm:pt-18">
-        {currentScreen === 'revista' && (
+      {/* 5. Contenido principal con las pantallas del diseño original */}
+      <div className="relative z-10 pt-16 sm:pt-18 pb-20 lg:pb-0">
+        {(currentScreen === 'revista' || currentScreen === 'home') && (
           <RevistaScreen
             language={language}
-            onNavigate={handleScreenChange}
+            onNavigate={handleSelectScreen}
             onOpenLegalTab={handleOpenLegalTab}
+            onShowSplash={() => setShowSplash(true)}
           />
         )}
 
         {currentScreen === 'discografia' && (
-          <DiscografiaScreen
-            language={language}
-          />
-        )}
-
-        {currentScreen === 'conciertos' && (
-          <ConciertosScreen
-            language={language}
-            onNavigate={handleScreenChange}
-            onOpenLegalTab={handleOpenLegalTab}
-          />
+          <DiscografiaScreen language={language} />
         )}
 
         {currentScreen === 'galeria' && (
           <GaleriaScreen
             language={language}
-            onNavigateToServices={() => handleScreenChange('serveis')}
+            onNavigateToServices={() => handleSelectScreen('serveis')}
           />
         )}
 
-        {currentScreen === 'serveis' && <ServeisScreen language={language} />}
-
-        {currentScreen === 'enllacos' && (
-          <EnllacosScreen language={language} onSelectScreen={handleScreenChange} />
+        {currentScreen === 'serveis' && (
+          <ServeisScreen language={language} />
         )}
 
         {currentScreen === 'contacte' && (
-          <ContacteScreen language={language} onOpenLegalTab={handleOpenLegalTab} />
+          <ContacteScreen
+            language={language}
+            onOpenLegalTab={handleOpenLegalTab}
+          />
         )}
 
         {currentScreen === 'legal' && (
           <LegalScreen
             language={language}
-            initialTab={legalInitialTab}
-            onNavigate={handleScreenChange}
+            initialTab={legalTab}
+            onNavigate={handleSelectScreen}
           />
         )}
-      </main>
+      </div>
 
+      {/* 6. Pie de página oficial con enlaces a plataformas, créditos y atajos */}
       <Footer
-        onNavigate={handleScreenChange}
+        onNavigate={handleSelectScreen}
         onOpenLegalTab={handleOpenLegalTab}
-        onOpenCookieConfig={() => setIsCookieModalOpen(true)}
+        onOpenCookieConfig={() => setCookieConfigOpen(true)}
         language={language}
+        onShowSplash={() => setShowSplash(true)}
       />
 
-      <FloatingWidgets language={language} hasMiniPlayer={false} />
+      {/* 7. Barra de navegación inferior móvil */}
+      <MobileBottomNav
+        currentScreen={currentScreen}
+        onNavigate={handleSelectScreen}
+        language={language}
+        theme="dark"
+      />
 
+      {/* 8. Widgets flotantes: botón volver arriba + contacto rápido por WhatsApp */}
+      <FloatingWidgets language={language} />
+
+      {/* 9. Modal de consentimiento y configuración de Cookies RGPD */}
       <CookieConsentModal
         language={language}
         onOpenLegalTab={handleOpenLegalTab}
-        isOpenExternal={isCookieModalOpen}
-        onCloseExternal={() => setIsCookieModalOpen(false)}
+        isOpenExternal={cookieConfigOpen}
+        onCloseExternal={() => setCookieConfigOpen(false)}
       />
     </div>
   );

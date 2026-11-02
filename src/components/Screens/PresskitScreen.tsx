@@ -39,7 +39,7 @@ Recurs: ${assetTitle}
 - 04. Il·luminació: Ambientació en tons lila, rosa, vermell i contrallum blanc
 
 4. ENLLAÇOS & CONTACTE DE CONTRACTACIÓ (BOOKING)
-- Web Oficial: https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/
+- Web Oficial: https://rafa930.com/
 - Email: rafa.930music@gmail.com
 - WhatsApp Directe: +34 671 59 18 14
 - Spotify: https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng
@@ -74,7 +74,7 @@ Recurso: ${assetTitle}
 - 04. Iluminación: Ambientación en tonos lila, rosa, rojo, azul eléctrico y contraluz blanco
 
 4. ENLACES & CONTACTO DE CONTRATACIÓN (BOOKING)
-- Web Oficial: https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/
+- Web Oficial: https://rafa930.com/
 - Email: rafa.930music@gmail.com
 - WhatsApp Directo: +34 671 59 18 14
 - Spotify: https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng
@@ -108,7 +108,7 @@ Asset: ${assetTitle}
 - 04. Lighting: Lilac, pink, crimson red, electric blue atmosphere with crisp white backlight
 
 4. OFFICIAL LINKS & BOOKING CONTACT
-- Official Website: https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/
+- Official Website: https://rafa930.com/
 - Email: rafa.930music@gmail.com
 - Direct WhatsApp: +34 671 59 18 14
 - Spotify: https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng

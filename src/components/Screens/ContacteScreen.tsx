@@ -30,6 +30,7 @@ import {
   Loader2,
   Instagram,
   Youtube,
+  ExternalLink,
 } from 'lucide-react';
 import {
   SpotifyLogo,
@@ -166,7 +167,7 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
       {/* Editorial Header */}
       <div className="border-b border-[#22222e] pb-8">
         <div className="flex items-center gap-2 text-xs font-mono text-[#a1a1b5] mb-3">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] shadow-[0_0_8px_#00d4ff]" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff]" />
           <span className="text-[#ec4899] font-semibold">
             {language === 'ca'
               ? 'CONTACTE & CONTRACTACIÓ · RAFA 930'
@@ -253,10 +254,10 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                     ? 'WhatsApp Directo'
                     : 'Direct WhatsApp'}
                 </span>
-<div className="text-sm font-semibold text-[#ffffff] group-hover:text-[#a855f7] block tabular-nums">
-                  +34 671 59 18 14
+                  <div className="text-sm font-semibold text-[#ffffff] group-hover:text-[#a855f7] block tabular-nums">
+                    +34 671 59 18 14
+                  </div>
                 </div>
-              </div>
             </a>
             
             {/* Platforms block for ContacteScreen */}

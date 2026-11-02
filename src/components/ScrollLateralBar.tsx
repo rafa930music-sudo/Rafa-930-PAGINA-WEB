@@ -4,7 +4,9 @@ export const ScrollLateralBar: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+
+    const updateProgress = () => {
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
       if (scrollHeight > 0) {
         const progress = Math.min(100, Math.max(0, (window.scrollY / scrollHeight) * 100));
@@ -12,9 +14,17 @@ export const ScrollLateralBar: React.FC = () => {
       } else {
         setScrollProgress(0);
       }
+      ticking = false;
     };
 
-    handleScroll();
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    };
+
+    updateProgress();
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleScroll, { passive: true });
     return () => {
@@ -42,13 +52,11 @@ export const ScrollLateralBar: React.FC = () => {
           height: `${scrollProgress}%`,
           background:
             'linear-gradient(180deg, #a855f7 0%, #c084fc 22%, #ec4899 48%, #00d4ff 78%, #e11d48 100%)',
-          boxShadow:
-            '0 0 14px rgba(0, 212, 255, 0.9), 0 0 24px rgba(236, 72, 153, 0.7)',
+          boxShadow: '0 0 8px rgba(0, 212, 255, 0.35)',
         }}
       >
-        {/* Glowing tip at bottom of progress */}
         {scrollProgress > 0 && (
-          <div className="absolute bottom-0 left-0 right-0 h-3 bg-white blur-[1px] opacity-95 shadow-[0_0_10px_#ffffff,0_0_16px_#00d4ff]" />
+          <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-white/90 rounded-full" />
         )}
       </div>
     </div>

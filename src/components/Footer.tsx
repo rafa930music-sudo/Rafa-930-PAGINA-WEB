@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScreenId, Language, LegalDocId } from '../types';
 import { OFFICIAL_SPOTIFY_URL } from '../data/content';
+import { RafaBrandLogo } from './RafaBrandLogo';
 import {
   Terminal,
   ShieldCheck,
@@ -46,28 +47,26 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer className="w-full bg-[#050811] border-t border-white/10 text-white pb-16 xl:pb-0">
+    <footer className="w-full bg-[#050507] border-t border-[#22222e] text-white pb-16 xl:pb-0">
       <div
         aria-hidden="true"
-        className="h-[1px] w-full bg-gradient-to-r from-transparent via-[#00d4ff]/60 to-transparent shadow-[0_0_12px_rgba(229,184,105,0.4)]"
+        className="h-[1px] w-full bg-gradient-to-r from-transparent via-[#00d4ff]/30 to-transparent"
       />
       {/* Main Footer Area */}
       <div className="w-full px-4 sm:px-6 md:px-10 py-10 md:py-14 max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-center justify-between pb-8 border-b border-white/10 gap-6">
           <div className="flex items-center gap-4">
-            <button
-              type="button"
+            <RafaBrandLogo
               onClick={() => {
-                onNavigate('revista');
-                scrollToTop();
+                if (onShowSplash) onShowSplash();
+                else {
+                  onNavigate('revista');
+                  scrollToTop();
+                }
               }}
-              className="font-['Bebas_Neue'] text-2xl sm:text-3xl font-extrabold tracking-tight text-white font-['Bebas_Neue'] text-left cursor-pointer flex items-center gap-2 group"
-            >
-              <span className="transition-all duration-300 transform group-hover:scale-105 inline-flex items-center gap-1">
-                <span className="transition-all duration-300 group-hover-gradient-930">RAFA</span>
-                <span className="text-gradient-930 group-hover:filter group-hover:drop-shadow-[0_0_16px_rgba(0,212,255,0.9)]">930</span>
-              </span>
-            </button>
+              title="RAFA 930 · Ver portada / intro"
+              size="md"
+            />
           </div>
 
           <div className="flex items-center gap-2.5">
@@ -145,9 +144,8 @@ export const Footer: React.FC<FooterProps> = ({
                 </button>
               </li>
               <li>
-                <button type="button" onClick={() => { onNavigate('conciertos'); scrollToTop(); }} className="hover:text-[#00d4ff] text-[#00d4ff] transition-colors py-0.5 flex items-center gap-1 font-semibold">
-                  <span>05. {language === 'ca' ? 'Concerts & Directes' : language === 'es' ? 'Conciertos & Directos' : 'Concerts & Live'}</span>
-                  <span className="text-[10px] px-1.5 py-0.2 bg-[#00d4ff]/15 border border-[#00d4ff]/40 rounded text-[#00d4ff]">{language === 'ca' ? 'Pròximament' : language === 'es' ? 'Próximamente' : 'Soon'}</span>
+                <button type="button" onClick={() => { onNavigate('contacte'); scrollToTop(); }} className="hover:text-[#00d4ff] transition-colors py-0.5">
+                  05. {language === 'ca' ? 'Booking & Contacte' : language === 'es' ? 'Booking & Contacto' : 'Booking & Contact'}
                 </button>
               </li>
             </ul>

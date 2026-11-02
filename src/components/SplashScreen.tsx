@@ -79,9 +79,9 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
         }
       `}</style>
 
-      {/* Central animated text with the 4-color gradient on 930 */}
-      <div className="flex justify-center items-center z-10 max-w-full px-2">
-        <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tight font-['Bebas_Neue'] whitespace-nowrap flex items-center justify-center">
+      {/* Central animated typographic wordmark */}
+      <div className="flex flex-col items-center justify-center z-10 max-w-full px-4 gap-5">
+        <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-wider font-['Bebas_Neue'] whitespace-nowrap flex items-center justify-center">
           {text.split('').map((char, index) => {
             let charStyle: React.CSSProperties = {
               animationDelay: `${index * 0.12}s`,

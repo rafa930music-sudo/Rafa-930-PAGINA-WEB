@@ -7,23 +7,41 @@ import { Language, ScreenId } from '../types';
 export function sanitizeUserInput(input: string, maxLength = 800): string {
   if (!input) return '';
   return input
-    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '') // Strip control chars
-    .replace(/[<>]/g, '') // Strip HTML angle brackets to prevent XSS injection
-    .replace(/(?:javascript|data|vbscript):/gi, '')
-    .replace(/on\w+\s*=/gi, '')
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F-\u009F]/g, '') // Strip control & unprintable chars
+    .replace(/[<>'"&`]/g, (char) => {
+      // Escape HTML sensitive chars to prevent XSS / script payload injection
+      const map: Record<string, string> = {
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;',
+        '&': '&amp;',
+        '`': '&#96;',
+      };
+      return map[char] || '';
+    })
+    .replace(/(?:javascript|data|vbscript|file):/gi, '') // Strip dangerous protocols
+    .replace(/on\w+\s*=/gi, '') // Strip inline event handlers (onload, onerror, onclick)
     .replace(/(__proto__|constructor|prototype)/gi, '') // Prevent prototype pollution strings
+    .replace(/(?:union\s+select|insert\s+into|drop\s+table|exec\s*\(|--|\/\*|\*\/)/gi, '') // Strip SQL tokens
     .trim()
     .slice(0, maxLength);
 }
 
 export function isValidEmail(email: string): boolean {
   const clean = email.trim();
-  return /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]{2,}$/.test(clean) && clean.length <= 120;
+  // RFC 5322 compatible defensive regex with length limit
+  return (
+    clean.length <= 120 &&
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/.test(
+      clean
+    )
+  );
 }
 
 export function isValidPhone(phone: string): boolean {
   if (!phone.trim()) return true; // Optional field
-  return /^[+\d\s()-]{6,22}$/.test(phone.trim());
+  return /^[+\d\s().-]{6,25}$/.test(phone.trim());
 }
 
 const RATE_LIMIT_KEY = 'rafa930_last_submit_ts';
@@ -49,7 +67,8 @@ export function checkSubmissionRateLimit(): { allowed: boolean; waitSeconds: num
 /**
  * Installs runtime DOM security guards:
  * 1. Prevents drag-and-drop file/script injection into the window
- * 2. Enforces rel="noopener noreferrer" on all target="_blank" external links
+ * 2. Enforces rel="noopener noreferrer" and referrerpolicy="strict-origin-when-cross-origin" on all target="_blank" links
+ * 3. Nullifies window.opener reference on external navigation
  */
 export function installRuntimeSecurityGuards(): () => void {
   const preventDrop = (e: DragEvent) => {
@@ -64,6 +83,7 @@ export function installRuntimeSecurityGuards(): () => void {
       if (!currentRel.includes('noopener') || !currentRel.includes('noreferrer')) {
         target.setAttribute('rel', 'noopener noreferrer');
       }
+      target.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
     }
   };
 
@@ -295,6 +315,58 @@ const SCREEN_SEO: Record<ScreenId, Record<Language, SeoMetadata>> = {
       locale: 'en_US',
     },
   },
+  presskit: {
+    ca: {
+      title: 'Press Kit Oficial & Rider Tècnic · RAFA 930',
+      description:
+        'Electronic Press Kit (EPK), biografia oficial, rider d’escenari i recursos de premsa de RAFA 930.',
+      keywords:
+        'Press Kit RAFA 930, EPK música urbana, rider tècnic, biografia Rafael Moreno Román',
+      locale: 'ca_ES',
+    },
+    es: {
+      title: 'Press Kit Oficial & Rider Técnico · RAFA 930',
+      description:
+        'Electronic Press Kit (EPK), biografía oficial, rider de escenario y recursos de prensa de RAFA 930.',
+      keywords:
+        'Press Kit RAFA 930, EPK música urbana, rider técnico, biografía Rafael Moreno Román',
+      locale: 'es_ES',
+    },
+    en: {
+      title: 'Official Press Kit & Technical Rider · RAFA 930',
+      description:
+        'Electronic Press Kit (EPK), official artist biography, stage rider, and press assets for RAFA 930.',
+      keywords:
+        'RAFA 930 press kit, EPK urban music, stage technical rider, biography Rafael Moreno Román',
+      locale: 'en_US',
+    },
+  },
+  home: {
+    ca: {
+      title: 'RAFA 930 | Música, Fotografia & Web',
+      description:
+        'Web oficial de RAFA 930 (Rafael Moreno Román): música urbana des de La Mina (Barcelona), discografia, fotografia editorial i desenvolupament web 930 Digital.',
+      keywords:
+        'RAFA 930, Rafael Moreno Román, música urbana Barcelona, La Mina, Sant Adrià de Besòs, 08930, rap conscient, fotografia editorial, Incrife, 930 Digital',
+      locale: 'ca_ES',
+    },
+    es: {
+      title: 'RAFA 930 | Música, Fotografía & Web',
+      description:
+        'Web oficial de RAFA 930 (Rafael Moreno Román): música urbana desde La Mina (Barcelona), discografía, fotografía editorial y desarrollo web 930 Digital.',
+      keywords:
+        'RAFA 930, Rafael Moreno Román, música urbana Barcelona, La Mina, Sant Adrià de Besòs, 08930, rap consciente, fotografía editorial, Incrife, 930 Digital',
+      locale: 'es_ES',
+    },
+    en: {
+      title: 'RAFA 930 | Music, Photography & Web',
+      description:
+        'Official website of RAFA 930 (Rafael Moreno Román): urban music from La Mina (Barcelona), discography, editorial photography, and 930 Digital web studio.',
+      keywords:
+        'RAFA 930, Rafael Moreno Román, Barcelona urban music, conscious rap, editorial portrait photography, Incrife, 930 Digital web studio',
+      locale: 'en_US',
+    },
+  },
 };
 
 function setMetaTag(selector: string, attribute: string, value: string) {
@@ -312,7 +384,7 @@ export function isSearchCrawler(): boolean {
   );
 }
 
-export const OFFICIAL_SITE_URL = 'https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/';
+export const OFFICIAL_SITE_URL = 'https://rafa930.com/';
 export const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xjgjonqv';
 
 export interface FormspreePayload {
@@ -330,6 +402,14 @@ export async function submitToFormspree(
   payload: FormspreePayload
 ): Promise<{ ok: boolean; error?: string }> {
   try {
+    const cleanName = sanitizeUserInput(payload.name, 100);
+    const cleanEmail = sanitizeUserInput(payload.email, 120);
+    const cleanPhone = sanitizeUserInput(payload.phone || '', 25);
+    const cleanType = sanitizeUserInput(payload.inquiryType, 50);
+    const cleanBudget = sanitizeUserInput(payload.estimatedBudget || '', 50);
+    const cleanMessage = sanitizeUserInput(payload.message, 1000);
+    const cleanSource = sanitizeUserInput(payload.sourceScreen, 80);
+
     const response = await fetch(FORMSPREE_ENDPOINT, {
       method: 'POST',
       headers: {
@@ -337,14 +417,14 @@ export async function submitToFormspree(
         Accept: 'application/json',
       },
       body: JSON.stringify({
-        _subject: `[RAFA 930 Web · ${payload.inquiryType.toUpperCase()}] Nueva solicitud de ${payload.name}`,
-        Nombre: payload.name,
-        email: payload.email,
-        Telefono_WhatsApp: payload.phone || 'No especificado',
-        Area_Proyecto: payload.inquiryType,
-        Presupuesto_Estimado: payload.estimatedBudget || 'A medida / Consultar',
-        Mensaje: payload.message,
-        Origen_Formulario: payload.sourceScreen,
+        _subject: `[RAFA 930 Web · ${cleanType.toUpperCase()}] Nueva solicitud de ${cleanName}`,
+        Nombre: cleanName,
+        email: cleanEmail,
+        Telefono_WhatsApp: cleanPhone || 'No especificado',
+        Area_Proyecto: cleanType,
+        Presupuesto_Estimado: cleanBudget || 'A medida / Consultar',
+        Mensaje: cleanMessage,
+        Origen_Formulario: cleanSource,
         Idioma: payload.language.toUpperCase(),
       }),
     });

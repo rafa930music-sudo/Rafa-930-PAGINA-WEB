@@ -1,347 +1,127 @@
 @import "tailwindcss";
 
 @theme {
-  --color-canvas: #10020a;
-  --color-card: #1e0313;
-  --color-surface-product: #f2f2f2;
-  --color-plasma: #ff0068;
-  --color-frost: #ffffff;
-  --color-muted: #a1a1b5;
+  /* Paleta Eléctrica RAFA 930: Azul Eléctrico y Rosa Neón */
+  --color-void: #040308;
+  --color-surface: #0a0814;
+  --color-card: #100d20;
+  --color-card-elevated: #18132e;
+
+  /* Neón Eléctrico Primario y Secundario */
+  --color-electric-blue: #00f0ff;
+  --color-electric-cyan: #00e5ff;
+  --color-electric-pink: #ff007f;
+  --color-electric-magenta: #ff1493;
+  --color-electric-purple: #9d4edd;
+  
+  /* Textos */
+  --color-bright: #ffffff;
+  --color-glow-text: #f0f4ff;
+  --color-dim: #9490b8;
+  --color-faint: #5a547a;
+
+  /* Streaming */
+  --color-spotify: #1db954;
 }
 
-:root {
-  --header-height: 4.5rem;
-  scroll-padding-top: var(--header-height);
-  color-scheme: dark;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+    background-color: #040308;
+  }
+
+  body {
+    background-color: #040308;
+    color: #e2e0f5;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Selección de texto en rosa eléctrico sobre negro */
+  ::selection {
+    background-color: #ff007f;
+    color: #ffffff;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #00f0ff;
+    outline-offset: 3px;
+  }
 }
 
-body {
-  font-family: "Plus Jakarta Sans", sans-serif;
-  background-color: #10020a;
-  color: #ffffff;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+/* Efectos de Resplandor Neón de Alta Intensidad */
+.glow-blue {
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.35), inset 0 0 15px rgba(0, 240, 255, 0.15);
 }
 
-.shadow-luro {
-  box-shadow: 0 0 33px 0 rgba(255, 0, 104, 0.54), 0 0 99px -21px rgba(255, 0, 104, 0.4);
+.glow-pink {
+  box-shadow: 0 0 25px rgba(255, 0, 127, 0.4), inset 0 0 15px rgba(255, 0, 127, 0.2);
 }
 
-.shadow-luro-sm {
-  box-shadow: 0 0 21px -5px rgba(255, 0, 104, 0.9), 0 0 27px -3px rgba(255, 0, 104, 0.6);
+.glow-dual {
+  box-shadow: -8px 0 30px rgba(0, 240, 255, 0.3), 8px 0 30px rgba(255, 0, 127, 0.35);
 }
 
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+.text-glow-blue {
+  text-shadow: 0 0 20px rgba(0, 240, 255, 0.6), 0 0 40px rgba(0, 240, 255, 0.3);
 }
 
-.animate-marquee {
-  display: flex;
-  width: 200%;
-  animation: marquee 20s linear infinite;
+.text-glow-pink {
+  text-shadow: 0 0 20px rgba(255, 0, 127, 0.65), 0 0 40px rgba(255, 0, 127, 0.3);
 }
 
-.font-editorial {
-  font-family: "Cormorant Garamond", Georgia, serif;
+/* Animación de rotación de vinilo con luz de neón */
+@keyframes neon-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.04);
+  }
 }
 
-.font-\[\'Bebas_Neue\'\] {
-  font-family: "Syne", "Plus Jakarta Sans", sans-serif !important;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+.animate-neon-pulse {
+  animation: neon-pulse 4s ease-in-out infinite;
 }
 
-.font-\[\'Montserrat\'\] {
-  font-family: "Plus Jakarta Sans", sans-serif !important;
-}
-
-.font-\[\'Cormorant_Garamond\'\] {
-  font-family: "Cormorant Garamond", Georgia, serif !important;
-}
-
-.font-mono {
-  font-family: "JetBrains Mono", monospace !important;
-  font-variant-numeric: tabular-nums;
-}
-
-/* High-Contrast Editorial Light Mode & Dark Mode Contrast System */
-html.light {
-  color-scheme: light;
-}
-
-html.light,
-html.light body,
-.light {
-  background-color: #f8f7fc !important;
-  color: #09080f !important;
-}
-
-/* Primary Deep Surfaces -> Crisp Alabaster White in Light Mode */
-html.light .bg-\[\#050507\],
-html.light .bg-\[\#050507\]\/90,
-html.light .bg-\[\#050507\]\/95,
-html.light .bg-\[\#050507\]\/85,
-html.light .bg-\[\#050507\]\/80,
-html.light .bg-\[\#0c0c0e\] {
-  background-color: rgba(255, 255, 255, 0.96) !important;
-  color: #09080f !important;
-}
-
-/* Secondary Section Surfaces -> Soft Editorial Lavender-Gray for clear section separation */
-html.light .bg-\[\#0a0a0f\],
-html.light .bg-\[\#121215\] {
-  background-color: #efecf8 !important;
-  color: #09080f !important;
-}
-
-/* Elevated Cards -> Pure White with defined depth shadow and crisp border */
-html.light .bg-\[\#111118\],
-html.light .bg-\[\#111118\]\/95,
-html.light .bg-\[\#111118\]\/90,
-html.light .bg-\[\#111118\]\/85,
-html.light .bg-\[\#16161a\] {
-  background-color: #ffffff !important;
-  color: #09080f !important;
-  box-shadow: 0 10px 30px -8px rgba(15, 12, 32, 0.09), 0 2px 8px -2px rgba(15, 12, 32, 0.06);
-}
-
-/* Form Inputs, Selects & Textareas in Light Mode -> Pure white with strong slate border */
-html.light input,
-html.light select,
-html.light textarea {
-  background-color: #ffffff !important;
-  color: #09080f !important;
-  border-color: #b8b0d4 !important;
-}
-
-html.light input::placeholder,
-html.light textarea::placeholder {
-  color: #65607d !important;
-}
-
-html.light input:focus,
-html.light select:focus,
-html.light textarea:focus {
-  border-color: #be185d !important;
-  box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.14) !important;
-}
-
-/* Borders & Dividers -> Visible Editorial Slate-Violet instead of washed-out gray */
-html.light .border-\[\#22222e\],
-html.light .border-\[\#26262b\],
-html.light .divide-\[\#22222e\] > :not([hidden]) ~ :not([hidden]) {
-  border-color: #cbc4e3 !important;
-}
-
-/* Primary Text -> Deep Ink Black (#09080f) */
-html.light .text-\[\#ffffff\],
-html.light .text-\[\#f5f5f4\] {
-  color: #09080f !important;
-}
-
-/* Secondary / Body Text -> High-Contrast Slate (#2d2a3e, WCAG AAA contrast) */
-html.light .text-\[\#a1a1b5\],
-html.light .text-\[\#a1a1aa\],
-html.light .text-\[\#d4d4d8\] {
-  color: #2d2a3e !important;
-}
-
-/* Accent Colors in Light Mode -> Deepened for maximum legibility on white backgrounds */
-html.light .text-\[\#00d4ff\] {
-  color: #0284c7 !important;
-}
-
-html.light .border-\[\#00d4ff\]\/25,
-html.light .border-\[\#00d4ff\]\/30,
-html.light .border-\[\#00d4ff\]\/35,
-html.light .border-\[\#00d4ff\]\/40,
-html.light .border-\[\#00d4ff\]\/45,
-html.light .border-\[\#00d4ff\]\/50 {
-  border-color: rgba(2, 132, 199, 0.5) !important;
-}
-
-html.light .bg-\[\#00d4ff\]\/10,
-html.light .bg-\[\#00d4ff\]\/15 {
-  background-color: rgba(2, 132, 199, 0.12) !important;
-}
-
-html.light .text-\[\#f472b6\],
-html.light .text-\[\#ec4899\] {
-  color: #be185d !important;
-}
-
-html.light .text-\[\#c084fc\],
-html.light .text-\[\#a855f7\] {
-  color: #6d28d9 !important;
-}
-
-html.light .text-\[\#e11d48\] {
-  color: #be123c !important;
-}
-
-/* Dark Mode Contrast Boost -> Slightly brighter muted text for effortless reading */
-html.dark .text-\[\#a1a1b5\] {
-  color: #b8b8cc;
+/* Clases de Estilo del Diseño Original RAFA 930 */
+.text-gradient-930 {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .gradient-lila-rosa-rojo {
-  background: linear-gradient(135deg, #a855f7 0%, #ec4899 52%, #e11d48 100%);
-}
-
-.gradient-electric-line {
-  background: linear-gradient(90deg, #a855f7 0%, #00d4ff 50%, #ec4899 100%);
-}
-
-.electric-badge {
-  background-color: rgba(0, 212, 255, 0.1);
-  border: 1px solid rgba(0, 212, 255, 0.4);
-  color: #00d4ff;
-  box-shadow: 0 0 14px -2px rgba(0, 212, 255, 0.25);
-}
-
-html.light .electric-badge {
-  background-color: rgba(2, 132, 199, 0.1);
-  border: 1px solid rgba(2, 132, 199, 0.5);
-  color: #0369a1;
-  box-shadow: none;
-}
-
-.electric-card-border {
-  border-color: rgba(0, 212, 255, 0.38) !important;
-  box-shadow: 0 0 24px -6px rgba(0, 212, 255, 0.2);
-}
-
-.text-gradient-930,
-.text-gradient-lila-rosa-rojo {
-  background: linear-gradient(90deg, #00d4ff 0%, #818cf8 25%, #c084fc 45%, #ec4899 68%, #fb923c 86%, #facc15 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  display: inline-block;
-  filter: drop-shadow(0 0 14px rgba(192, 132, 252, 0.35));
-}
-
-.group:hover .group-hover-gradient-930 {
-  background: linear-gradient(90deg, #00d4ff 0%, #818cf8 25%, #c084fc 45%, #ec4899 68%, #fb923c 86%, #facc15 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  display: inline-block;
-  filter: drop-shadow(0 0 16px rgba(0, 212, 255, 0.85));
-}
-
-html.light .text-gradient-930,
-html.light .text-gradient-lila-rosa-rojo,
-html.light .group:hover .group-hover-gradient-930 {
-  background: linear-gradient(90deg, #0284c7 0%, #6366f1 25%, #9333ea 45%, #db2777 68%, #ea580c 86%, #d97706 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  display: inline-block;
-  filter: none;
-}
-
-.fluid-hero-title {
-  font-size: clamp(2.85rem, 7vw, 5.5rem);
-  line-height: 1.0;
-  letter-spacing: -0.02em;
-  text-wrap: balance;
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #e11d48 100%);
 }
 
 .touch-target-44 {
-  min-width: 44px;
   min-height: 44px;
+  min-width: 44px;
 }
 
 .touch-target-48 {
   min-height: 48px;
 }
 
-#seo-knowledge-graph-hub {
-  display: none !important;
-  visibility: hidden !important;
+.fluid-hero-title {
+  font-size: clamp(2.5rem, 6vw, 4.75rem);
+  line-height: 1.05;
 }
 
-@keyframes galaxyBreathe {
-  0%, 100% {
-    opacity: 0.85;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.03);
-  }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-@keyframes starlightTwinkle {
-  0%, 100% {
-    opacity: 0.45;
-  }
-  50% {
-    opacity: 0.95;
-  }
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
 }
-
-.galaxy-breathe {
-  animation: galaxyBreathe 8s ease-in-out infinite;
-  will-change: transform, opacity;
-}
-
-.starlight-twinkle {
-  animation: starlightTwinkle 4s ease-in-out infinite;
-  will-change: opacity;
-}
-
-@keyframes fadeInLetter {
-  0% {
-    opacity: 0;
-    transform: translateY(16px) scale(0.95);
-    filter: blur(8px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
-}
-
-/* =========================================================================
-   BARRA DE SCROLL NATIVA DISCRETA Y ELEGANTE (SIN BLOQUE MORADO)
-   ========================================================================= */
-
-/* Ancho y estilo del scrollbar nativo */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #050507;
-  border-left: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-::-webkit-scrollbar-thumb {
-  background: #1c1c28;
-  border-radius: 9999px;
-  border: 2px solid #050507;
-  transition: all 0.2s ease-in-out;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #00d4ff;
-  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
-}
-
-::-webkit-scrollbar-corner {
-  background: #050507;
-}
-
-/* Soporte Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #1c1c28 #050507;
-}
-
-
-

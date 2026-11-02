@@ -79,7 +79,9 @@ export const Spatial3DCanvas: React.FC<Spatial3DCanvasProps> = ({
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.15;
 
-    container.innerHTML = '';
+    while (container.firstChild) {
+      container.removeChild(container.firstChild);
+    }
     container.appendChild(renderer.domElement);
 
     const canvasEl = renderer.domElement;

@@ -342,10 +342,10 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
         className="pointer-events-none fixed inset-0 w-full h-full z-0"
       />
 
-      {/* Top Neon Line */}
+      {/* Top Accent Line */}
       <div
         aria-hidden="true"
-        className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#a855f7] via-[#00d4ff] to-[#ec4899] shadow-[0_0_14px_rgba(0,212,255,0.75)] z-[110]"
+        className="fixed top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-[#a855f7] via-[#00d4ff] to-[#ec4899] opacity-75 z-[110]"
       />
 
       {/* Fullscreen Splash Screen with Signature Emblem */}
@@ -368,16 +368,16 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
             <div className="relative w-64 h-64 flex items-center justify-center">
               <div
                 aria-hidden="true"
-                className="absolute inset-0 rounded-full border border-[#00d4ff]/25 shadow-[0_0_25px_rgba(0,212,255,0.15)] animate-[spin_24s_linear_infinite]"
+                className="absolute inset-0 rounded-full border border-[#00d4ff]/25 shadow-[0_0_20px_rgba(0,212,255,0.1)] animate-[spin_24s_linear_infinite]"
               />
               <div
                 aria-hidden="true"
-                className="absolute inset-3 rounded-full border border-[#ec4899]/20 shadow-[inset_0_0_30px_rgba(236,72,153,0.08)]"
+                className="absolute inset-3 rounded-full border border-[#ec4899]/20"
               />
-              <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 bg-[#00d4ff] shadow-[0_0_8px_#00d4ff]" />
-              <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 bg-[#ec4899] shadow-[0_0_8px_#ec4899]" />
-              <div className="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 rotate-45 bg-[#a855f7] shadow-[0_0_8px_#a855f7]" />
-              <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 rotate-45 bg-[#00d4ff] shadow-[0_0_8px_#00d4ff]" />
+              <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 bg-[#00d4ff]" />
+              <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 bg-[#ec4899]" />
+              <div className="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 rotate-45 bg-[#a855f7]" />
+              <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 rotate-45 bg-[#00d4ff]" />
 
               <svg
                 className="w-56 h-44 relative z-10 drop-shadow-[0_0_18px_rgba(0,212,255,0.4)]"

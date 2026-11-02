@@ -357,17 +357,17 @@ function DetailedAvisoLegal({ lang }: { lang: Language }) {
             body: 'En compliment del deure d’informació recollit a l’article 10 de la Llei 34/2002, d’11 de juliol, de Serveis de la Societat de la Informació i de Comerç Electrònic (LSSI-CE), es fa constar les dades identificatives del titular d’aquest lloc web:',
             bullets: [
               'Titular i Nom Artístic Oficial: Rafael Moreno Román (RAFA 930)',
-              'Segell & Estudi Creatiu: 930 Records & 930 Digital Studio',
+              'Projecte Artístic: RAFA 930 (Música Urbana Independent)',
               'Domicili d’activitat: Sant Adrià de Besòs (Barri de La Mina), Codi Postal 08930, Barcelona (Espanya)',
               'Correu electrònic oficial de contacte: rafa.930music@gmail.com',
               'Telèfon / WhatsApp professional: +34 671 59 18 14',
-              'Activitat: Creació musical, producció discogràfica, direcció de fotografia editorial i desenvolupament web.',
+              'Activitat: Creació musical, composició lírica, actuacions en directe i difusió artística independent.',
             ],
           },
           {
             num: 'ARTICLE 02',
             title: 'Objecte i Condicions Generals d’Ús',
-            body: 'El present lloc web té per objecte difondre l’obra musical, l’arxiu fotogràfic, el dossier de premsa (Presskit) i els serveis professionals de RAFA 930. L’accés i navegació atribueix la condició d’Usuari i implica l’acceptació íntegra d’aquestes condicions.',
+            body: 'El present lloc web té per objecte difondre l’obra musical, el catàleg discogràfic oficial, la informació de concerts i les vies de contractació directa de RAFA 930. L’accés i navegació atribueix la condició d’Usuari i implica l’acceptació íntegra d’aquestes condicions.',
           },
           {
             num: 'ARTICLE 03',
@@ -398,17 +398,17 @@ function DetailedAvisoLegal({ lang }: { lang: Language }) {
             body: 'En cumplimiento del deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se hacen constar los datos identificativos del titular de este sitio web:',
             bullets: [
               'Titular y Nombre Artístico Oficial: Rafael Moreno Román (RAFA 930)',
-              'Sello & Estudio Creativo: 930 Records & 930 Digital Studio',
+              'Proyecto Artístico: RAFA 930 (Música Urbana Independiente)',
               'Domicilio de actividad: Sant Adrià de Besòs (Barrio de La Mina), Código Postal 08930, Barcelona (España)',
               'Correo electrónico oficial de contacto: rafa.930music@gmail.com',
               'Teléfono / WhatsApp profesional: +34 671 59 18 14',
-              'Actividad: Creación musical, producción discográfica, dirección de fotografía editorial y desarrollo web.',
+              'Actividad: Creación musical, composición lírica, actuaciones en directo y difusión artística independiente.',
             ],
           },
           {
             num: 'ARTÍCULO 02',
             title: 'Objeto y Condiciones Generales de Uso',
-            body: 'El presente sitio web tiene por objeto difundir la obra musical, el archivo fotográfico, el dossier de prensa (Presskit) y los servicios profesionales de RAFA 930. El acceso y navegación atribuye la condición de Usuario e implica la aceptación íntegra de estas condiciones.',
+            body: 'El presente sitio web tiene por objeto difundir la obra musical, el catálogo discográfico oficial, la información de conciertos y las vías de contratación directa de RAFA 930. El acceso y navegación atribuye la condición de Usuario e implica la aceptación íntegra de estas condiciones.',
           },
           {
             num: 'ARTÍCULO 03',
@@ -427,7 +427,7 @@ function DetailedAvisoLegal({ lang }: { lang: Language }) {
           },
           {
             num: 'ARTÍCULO 06',
-            title: 'Legislación Aplicable y Jurisdicción Competente',
+            title: 'Legislación Aplicable y Jurisdicción Competent',
             body: 'Este Aviso Legal se rige íntegramente por la legislación española y europea. Para cualquier controversia derivada del acceso o uso de este sitio web, las partes se someten a los Juzgados y Tribunales de la ciudad de Barcelona.',
           },
         ]
@@ -438,11 +438,11 @@ function DetailedAvisoLegal({ lang }: { lang: Language }) {
             body: 'In compliance with Article 10 of Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE), the identifying details of the owner and operator of this website are set forth below:',
             bullets: [
               'Owner & Official Artist Name: Rafael Moreno Román (RAFA 930)',
-              'Imprint & Creative Studio: 930 Records & 930 Digital Studio',
+              'Artistic Project: RAFA 930 (Independent Urban Music)',
               'Registered Location: Sant Adrià de Besòs (La Mina), Postal Code 08930, Barcelona (Spain)',
               'Official Contact Email: rafa.930music@gmail.com',
               'Professional Phone / WhatsApp: +34 671 59 18 14',
-              'Activity: Music creation, record production, editorial photography direction, and web development.',
+              'Activity: Music creation, lyric writing, live performances, and independent artistic distribution.',
             ],
           },
           {
@@ -752,7 +752,7 @@ function DetailedCredits({ lang }: { lang: Language }) {
         es: '02. PRODUCCIÓN MUSICAL, BEATS & INGENIERÍA SONORA',
         en: '02. MUSIC PRODUCTION, BEATS & SOUND ENGINEERING',
       },
-      name: 'Incrife, Ouxxox & 930 Records',
+      name: 'Incrife & Ouxxox',
       detail: {
         ca: 'Producció d’instrumentals (Incrife com a productor del senzill "Nose si estaré mañana"), arranjaments d’estudi, mescla i masterització.',
         es: 'Producción de instrumentales (Incrife como productor del sencillo "Nose si estaré mañana"), arreglos de estudio, mezcla y masterización.',

@@ -55,8 +55,8 @@ export const MiniPlayerBar: React.FC<MiniPlayerBarProps> = ({
       }
       className="fixed bottom-[66px] xl:bottom-0 inset-x-0 z-40 bg-[#050507]/95 backdrop-blur-xl border-t border-[#22222e] shadow-2xl"
     >
-      {/* Top gradient progress accent line with electric blue core */}
-      <div className="h-[2px] w-full bg-gradient-to-r from-[#a855f7] via-[#00d4ff] to-[#ec4899] shadow-[0_0_12px_rgba(0,212,255,0.65)]" />
+      {/* Top gradient accent line */}
+      <div className="h-[1px] w-full bg-gradient-to-r from-[#a855f7] via-[#00d4ff] to-[#ec4899] opacity-80" />
 
       <div className="max-w-7xl mx-auto px-3 sm:px-6 md:px-10 h-16 sm:h-18 flex items-center justify-between gap-3">
         {/* Track Info */}
