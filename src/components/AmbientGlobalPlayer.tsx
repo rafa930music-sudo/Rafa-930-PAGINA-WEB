@@ -79,11 +79,14 @@ export const AmbientGlobalPlayer: React.FC = () => {
       }
     }
 
-    // Try 3: Default audio files (e.g. /de-vuelta-ambient.mp3)
+    // Try 3: Default audio files (e.g. /assets/de-vuelta-ambient.wav)
     let playedDefaultFile = false;
+    const baseUrl = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
     for (const src of AMBIENT_AUDIO_CONFIG.candidatePaths) {
       try {
-        const audio = new Audio(src);
+        const cleanPath = src.replace(/^\.\//, '').replace(/^\//, '');
+        const targetSrc = src.startsWith('http') ? src : `${baseUrl}/${cleanPath}`;
+        const audio = new Audio(targetSrc);
         audio.loop = true;
         audio.volume = currentPrefs.isMuted ? 0 : currentPrefs.volume;
         await audio.play();
