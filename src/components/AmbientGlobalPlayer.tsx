@@ -88,6 +88,7 @@ export const AmbientGlobalPlayer: React.FC = () => {
         const targetSrc = src.startsWith('http') ? src : `${baseUrl}/${cleanPath}`;
         const audio = new Audio(targetSrc);
         audio.loop = true;
+        // Fix: Set volume immediately before play, ensuring it uses current prefs
         audio.volume = currentPrefs.isMuted ? 0 : currentPrefs.volume;
         await audio.play();
         audioRef.current = audio;
@@ -100,11 +101,11 @@ export const AmbientGlobalPlayer: React.FC = () => {
       }
     }
 
-    // Try 4: If no file found or autoplay blocked, run the Web Audio API synthesized beat
+    // Try 4: If no file found or autoplay blocked, we stay silent instead of playing the synth track
     if (!playedDefaultFile) {
-      soundEngine.playTrack(AMBIENT_AUDIO_CONFIG.fallbackSynthTrack);
-      setIsPlaying(true);
-      setActiveTrackName(AMBIENT_AUDIO_CONFIG.title);
+      console.warn('Ambient audio file not found or playback blocked.');
+      setIsPlaying(false);
+      setActiveTrackName('Audio no disponible');
     }
   }, [applyAudioSettings]);
 
@@ -167,6 +168,10 @@ export const AmbientGlobalPlayer: React.FC = () => {
     const handleFirstUserInteraction = () => {
       if (triggered) return;
       triggered = true;
+      
+      // Ensure audio context is active immediately upon user interaction
+      soundEngine.initCtx();
+      
       const currentPrefs = getAudioPreferences();
       startPlayback(currentPrefs);
 
