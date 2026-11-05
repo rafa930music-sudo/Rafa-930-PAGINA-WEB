@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Language } from '../types';
+import laMinaHeroBg from '@/src/assets/images/barrio-de-la-mina.png';
 
 interface SplashScreenProps {
   language?: Language;
   onComplete: () => void;
 }
 
-export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
+export const SplashScreen: React.FC<SplashScreenProps> = ({ language = 'es', onComplete }) => {
   const [isExiting, setIsExiting] = useState(false);
   const text = "RAFA 930";
 
   useEffect(() => {
     const timer = setTimeout(() => {
       handleDismiss();
-    }, 3000);
+    }, 3200);
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') {
@@ -37,32 +38,27 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
   return (
     <div
       role="dialog"
-      aria-label="Cargando RAFA 930"
+      aria-label="Cargando RAFA 930 — Barrio de La Mina"
       onClick={handleDismiss}
       className={`fixed inset-0 z-[99999] w-screen h-[100dvh] bg-[#050507] flex flex-col items-center justify-center p-4 sm:p-6 md:p-12 overflow-hidden transition-opacity duration-500 cursor-pointer select-none ${
         isExiting ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
-      {/* Galaxy background with stars */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#1e1b4b_0%,#0f172a_35%,#020617_100%)] pointer-events-none" />
-      <div className="absolute inset-0 opacity-40 pointer-events-none">
-        {Array.from({ length: 45 }).map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-white animate-pulse"
-            style={{
-              width: Math.random() * 2.2 + 1 + 'px',
-              height: Math.random() * 2.2 + 1 + 'px',
-              top: Math.random() * 100 + '%',
-              left: Math.random() * 100 + '%',
-              animationDelay: Math.random() * 5 + 's',
-              opacity: Math.random() * 0.7 + 0.3,
-            }}
-          />
-        ))}
+      {/* Fondo fotográfico en Blanco y Negro de La Mina — Optimizado para visión horizontal y vertical */}
+      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+        <img
+          src={laMinaHeroBg}
+          alt="Edificios de La Mina, Sant Adrià de Besòs (Barcelona 08930)"
+          className="w-full h-full object-cover object-[center_35%] filter grayscale contrast-[1.38] brightness-[0.72] scale-105 duration-1000 transition-transform"
+        />
+        {/* Degradados cinematográficos para destacar la arquitectura y garantizar contraste con el texto */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050507] via-transparent to-[#050507]/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050507]/75 via-transparent to-[#050507]/90" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_25%,rgba(5,5,7,0.88)_95%)]" />
+        <div className="absolute inset-0 bg-[#050507]/20" />
       </div>
 
-      {/* Progressive letter animation styles */}
+      {/* Progressive letter animation styles and progress bar */}
       <style>{`
         @keyframes letterReveal {
           0% {
@@ -77,11 +73,23 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
         .animate-letter-reveal {
           animation: letterReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
+        @keyframes splashProgress {
+          0% {
+            width: 0%;
+          }
+          100% {
+            width: 100%;
+          }
+        }
+        .animate-splash-bar {
+          animation: splashProgress 3s linear forwards;
+        }
       `}</style>
 
-      {/* Central animated typographic wordmark */}
-      <div className="flex flex-col items-center justify-center z-10 max-w-full px-4 gap-5">
-        <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-wider font-['Bebas_Neue'] whitespace-nowrap flex items-center justify-center">
+      {/* Central animated typography and branding — Disposición horizontal optimizada */}
+      <div className="flex flex-col items-center justify-center z-10 w-full max-w-6xl px-4 gap-3 sm:gap-5 md:gap-6 text-center">
+        {/* Wordmark RAFA 930 */}
+        <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-extrabold tracking-wider font-['Bebas_Neue'] whitespace-nowrap flex items-center justify-center drop-shadow-[0_8px_30px_rgba(0,0,0,0.95)]">
           {text.split('').map((char, index) => {
             let charStyle: React.CSSProperties = {
               animationDelay: `${index * 0.12}s`,
@@ -94,7 +102,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
-                filter: 'drop-shadow(0 0 20px rgba(0, 212, 255, 0.5))',
+                filter: 'drop-shadow(0 0 25px rgba(0, 212, 255, 0.65))',
               };
             } else if (char === '3') {
               charStyle = {
@@ -103,7 +111,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
-                filter: 'drop-shadow(0 0 20px rgba(192, 132, 252, 0.5))',
+                filter: 'drop-shadow(0 0 25px rgba(192, 132, 252, 0.65))',
               };
             } else if (char === '0') {
               charStyle = {
@@ -112,13 +120,13 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
-                filter: 'drop-shadow(0 0 20px rgba(250, 204, 21, 0.5))',
+                filter: 'drop-shadow(0 0 25px rgba(250, 204, 21, 0.65))',
               };
             } else {
               charStyle = {
                 ...charStyle,
                 color: '#ffffff',
-                filter: 'drop-shadow(0 0 16px rgba(255, 255, 255, 0.25))',
+                filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.35))',
               };
             }
 
@@ -133,6 +141,22 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
             );
           })}
         </h1>
+
+        {/* Lema identitario oficial — Blanco neón brillante */}
+        <p className="font-['Cormorant_Garamond'] italic text-lg sm:text-2xl md:text-3xl lg:text-4xl text-center text-[#ffffff] font-bold tracking-wide whitespace-normal md:whitespace-nowrap drop-shadow-[0_0_20px_rgba(255,255,255,0.95)] [text-shadow:0_0_12px_#ffffff,0_0_25px_rgba(0,212,255,0.8),0_0_40px_rgba(236,72,153,0.6)] max-w-5xl">
+          {language === 'ca'
+            ? '«De La Mina al món. Amb la veritat per davant.»'
+            : language === 'es'
+            ? '«De La Mina al mundo. Con la verdad por delante.»'
+            : '“From La Mina to the world. Leading with the truth.”'}
+        </p>
+      </div>
+
+      {/* Indicador inferior de progreso discreto y limpio sin textos adicionales */}
+      <div className="absolute bottom-6 sm:bottom-10 flex flex-col items-center z-10 select-none">
+        <div className="w-48 sm:w-64 md:w-80 h-1 bg-white/10 rounded-full overflow-hidden border border-white/20">
+          <div className="h-full bg-gradient-to-r from-[#00d4ff] via-[#ec4899] to-[#00d4ff] animate-splash-bar rounded-full" />
+        </div>
       </div>
     </div>
   );

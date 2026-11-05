@@ -10,6 +10,7 @@ import {
   ExternalLink,
   X,
 } from 'lucide-react';
+import { SpotifyLogo, YouTubeLogo } from './PlatformLogos';
 
 interface MiniPlayerBarProps {
   language: Language;
@@ -173,16 +174,28 @@ export const MiniPlayerBar: React.FC<MiniPlayerBarProps> = ({
           </button>
         </div>
 
-        {/* Right External Link & Close */}
+        {/* Right External Links & Close */}
         <div className="flex items-center gap-1.5 shrink-0">
+          <a
+            href={track.spotifyUrl || 'https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng'}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#1DB954] text-xs font-mono text-[#a1a1b5] hover:text-[#1DB954] transition-colors"
+            title="Spotify"
+          >
+            <SpotifyLogo className="w-3.5 h-3.5 text-white" />
+            <span>Spotify</span>
+          </a>
+
           <a
             href={track.youtubeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-1 px-3 py-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#ec4899] text-xs font-mono text-[#a1a1b5] hover:text-[#ffffff] transition-colors"
+            className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF0000] text-xs font-mono text-[#a1a1b5] hover:text-[#FF0000] transition-colors"
+            title="YouTube"
           >
+            <YouTubeLogo className="w-3.5 h-3.5 text-white" />
             <span>YouTube</span>
-            <ExternalLink className="w-3.5 h-3.5 text-[#ec4899]" />
           </a>
 
           <button

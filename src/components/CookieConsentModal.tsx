@@ -34,15 +34,15 @@ export const CookieConsentModal: React.FC<CookieConsentModalProps> = ({
   });
 
   useEffect(() => {
+    // Siempre mostrar la consulta de cookies al oyente al entrar
+    setIsVisible(true);
     const stored = localStorage.getItem(STORAGE_KEY);
-    if (!stored) {
-      setIsVisible(true);
-    } else {
+    if (stored) {
       try {
         const parsed = JSON.parse(stored);
         setPrefs(parsed);
       } catch (e) {
-        setIsVisible(true);
+        // Fallback
       }
     }
   }, []);

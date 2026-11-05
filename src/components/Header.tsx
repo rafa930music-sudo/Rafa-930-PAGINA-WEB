@@ -204,10 +204,10 @@ export const Header: React.FC<HeaderProps> = ({
                   key={item.id}
                   type="button"
                   onClick={() => handleNavClick(item.id)}
-                  className={`text-sm font-medium transition-colors relative py-1 whitespace-nowrap shrink-0 flex items-center gap-1.5 ${
+                  className={`text-sm font-medium transition-colors relative py-1 whitespace-nowrap shrink-0 flex items-center gap-1.5 no-underline ${
                     isActive
-                      ? 'text-[#ffffff] font-semibold underline decoration-[#00d4ff] decoration-2 underline-offset-8'
-                      : 'text-[#a1a1b5] hover:text-[#00d4ff] hover:underline hover:decoration-[#00d4ff] hover:underline-offset-8'
+                      ? 'text-[#ffffff] font-semibold'
+                      : 'text-[#a1a1b5] hover:text-[#00d4ff]'
                   }`}
                 >
                   {isActive && (
@@ -245,7 +245,6 @@ export const Header: React.FC<HeaderProps> = ({
                 );
               })}
             </div>
-
 
             <button
               type="button"

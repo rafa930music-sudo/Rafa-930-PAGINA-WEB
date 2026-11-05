@@ -240,6 +240,32 @@ const SCREEN_SEO: Record<ScreenId, Record<Language, SeoMetadata>> = {
       locale: 'en_US',
     },
   },
+  redes: {
+    ca: {
+      title: 'Redes Socials & Canals Oficials · RAFA 930',
+      description:
+        'Tots els perfils oficials de RAFA 930: Spotify, YouTube, Instagram, TikTok, Deezer, Apple Music i canal de booking.',
+      keywords:
+        'Redes RAFA 930, Instagram rafa930_oficial, TikTok, Spotify oficial, YouTube',
+      locale: 'ca_ES',
+    },
+    es: {
+      title: 'Redes Sociales & Canales Oficiales · RAFA 930',
+      description:
+        'Todos los perfiles oficiales de RAFA 930: Spotify, YouTube, Instagram, TikTok, Deezer, Apple Music y canal de booking.',
+      keywords:
+        'Redes RAFA 930, Instagram rafa930_oficial, TikTok, Spotify oficial, YouTube',
+      locale: 'es_ES',
+    },
+    en: {
+      title: 'Official Social Networks & Channels · RAFA 930',
+      description:
+        'All official profiles for RAFA 930: Spotify, YouTube, Instagram, TikTok, Deezer, Apple Music and booking channel.',
+      keywords:
+        'RAFA 930 social networks, Instagram rafa930_oficial, TikTok, official Spotify, YouTube',
+      locale: 'en_US',
+    },
+  },
   contacte: {
     ca: {
       title: 'Contacte Directe & Booking Oficial · RAFA 930 Barcelona',

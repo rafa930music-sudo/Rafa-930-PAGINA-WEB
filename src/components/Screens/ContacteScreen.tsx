@@ -8,6 +8,7 @@ import {
   OFFICIAL_APPLE_MUSIC_URL,
   OFFICIAL_AMAZON_MUSIC_URL,
   OFFICIAL_TIDAL_URL,
+  ARTIST_IMAGES,
 } from '../../data/content';
 import {
   sanitizeUserInput,
@@ -162,41 +163,53 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
   };
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-10 sm:py-16 space-y-16 overflow-hidden">
+    <div className="relative w-full min-h-screen py-10 sm:py-16 overflow-hidden">
+      {/* Background image full width 100% */}
+      <div className="absolute inset-0 pointer-events-none opacity-20 overflow-hidden select-none z-0">
+        <img
+          src={ARTIST_IMAGES.laMinaHeroBg}
+          alt=""
+          className="w-full h-full object-cover object-center filter contrast-125 brightness-75 scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050507] via-[#050507]/85 to-[#050507]" />
+      </div>
+
       <SectionColorBubbles variant="electric" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 space-y-16">
       {/* Editorial Header */}
       <div className="border-b border-[#22222e] pb-8">
         <div className="flex items-center gap-2 text-xs font-mono text-[#a1a1b5] mb-3">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff]" />
-          <span className="text-[#ec4899] font-semibold">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] shadow-[0_0_8px_#00d4ff]" />
+          <span className="text-[#ec4899] font-bold">
             {language === 'ca'
-              ? 'CONTACTE & CONTRACTACIÓ · RAFA 930'
+              ? 'BOOKING OFICIAL & CONTRACTACIÓ · RAFA 930'
               : language === 'es'
-              ? 'CONTACTO & CONTRATACIÓN · RAFA 930'
-              : 'CONTACT & BOOKING · RAFA 930'}
+              ? 'BOOKING OFICIAL & CONTRATACIÓN · RAFA 930'
+              : 'OFFICIAL BOOKING & MANAGEMENT · RAFA 930'}
           </span>
           <span aria-hidden="true" className="text-[#00d4ff]">·</span>
           <span>
             {language === 'ca'
-              ? 'RESPOSTA EN 24 HORES'
+              ? 'RESPOSTA PRIORITÀRIA EN 24 HORES'
               : language === 'es'
-              ? 'RESPUESTA EN 24 HORAS'
-              : 'RESPONSE WITHIN 24 HOURS'}
+              ? 'RESPUESTA PRIORITARIA EN 24 HORAS'
+              : 'PRIORITY RESPONSE WITHIN 24 HOURS'}
           </span>
         </div>
         <h1 className="font-['Cormorant_Garamond'] text-4xl sm:text-6xl font-semibold text-[#ffffff]">
           {language === 'ca'
-            ? 'Contacte Directe'
+            ? 'Booking & Contractació Directa'
             : language === 'es'
-            ? 'Contacto Directo'
-            : 'Direct Contact'}
+            ? 'Booking & Contratación Directa'
+            : 'Booking & Direct Management'}
         </h1>
-        <p className="text-[#a1a1b5] text-base max-w-2xl mt-2 leading-relaxed">
+        <p className="text-[#e2e8f0] text-base max-w-2xl mt-2 leading-relaxed">
           {language === 'ca'
-            ? 'Per a contractacions de concerts, festivals, sessions fotogràfiques, desenvolupament web o consultes de premsa.'
+            ? 'Canal directe per a contractacions de concerts, festivals, direcció visual de projectes, desenvolupament web a mida o consultes professionals. Contacta per formulari o directament per WhatsApp.'
             : language === 'es'
-            ? 'Para contrataciones de conciertos, festivales, sesiones fotográficas, desarrollo web o consultas de prensa.'
-            : 'For concert bookings, festivals, photography sessions, web development, or press inquiries.'}
+            ? 'Canal directo para contrataciones de conciertos, festivales, dirección visual de proyectos, desarrollo web a medida o consultas profesionales. Contacta por formulario o directamente por WhatsApp.'
+            : 'Direct channel for concert bookings, festival showcases, project visual direction, custom web development, or professional inquiries. Contact via form or directly via WhatsApp.'}
         </p>
       </div>
 
@@ -523,7 +536,7 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                           ? 'Tu nombre o empresa'
                           : 'Your name or company'
                       }
-                      className="touch-target-48 w-full px-4 bg-[#0a0a0f] border border-[#22222e] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#ec4899] text-sm"
+                      className="touch-target-48 w-full px-4 bg-[#0a0a0f] border border-[#22222e] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#ec4899] text-base sm:text-sm"
                     />
                   </div>
 
@@ -542,7 +555,7 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="nombre@dominio.com"
-                      className="touch-target-48 w-full px-4 bg-[#0a0a0f] border border-[#22222e] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#ec4899] text-sm"
+                      className="touch-target-48 w-full px-4 bg-[#0a0a0f] border border-[#22222e] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#ec4899] text-base sm:text-sm"
                     />
                   </div>
                 </div>
@@ -562,7 +575,7 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+34 600 000 000"
-                      className="touch-target-48 w-full px-4 bg-[#0a0a0f] border border-[#22222e] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#ec4899] text-sm"
+                      className="touch-target-48 w-full px-4 bg-[#0a0a0f] border border-[#22222e] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#ec4899] text-base sm:text-sm"
                     />
                   </div>
 
@@ -578,7 +591,7 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                       id="c-tipo"
                       value={formData.type}
                       onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                      className="touch-target-48 w-full px-4 bg-[#0a0a0f] border border-[#22222e] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#ec4899] text-sm"
+                      className="touch-target-48 w-full px-4 bg-[#0a0a0f] border border-[#22222e] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#ec4899] text-base sm:text-sm"
                     >
                       <option value="concierto">
                         {language === 'ca'
@@ -640,7 +653,7 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                         ? 'Explica detalles como fecha prevista, localización o requerimientos...'
                         : 'Explain details such as target date, location, or requirements...'
                     }
-                    className="w-full p-4 bg-[#0a0a0f] border border-[#22222e] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#ec4899] text-sm"
+                    className="w-full p-4 bg-[#0a0a0f] border border-[#22222e] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#ec4899] text-base sm:text-sm"
                   />
                 </div>
 
@@ -660,7 +673,7 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                         <button
                           type="button"
                           onClick={() => onOpenLegalTab && onOpenLegalTab('privacitat')}
-                          className="text-[#ec4899] underline font-semibold"
+                          className="text-[#ec4899] hover:text-[#00d4ff] font-semibold transition-colors"
                         >
                           política de privacitat & RGPD
                         </button>{' '}
@@ -672,7 +685,7 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                         <button
                           type="button"
                           onClick={() => onOpenLegalTab && onOpenLegalTab('privacitat')}
-                          className="text-[#ec4899] underline font-semibold"
+                          className="text-[#ec4899] hover:text-[#00d4ff] font-semibold transition-colors"
                         >
                           política de privacidad & RGPD
                         </button>{' '}
@@ -684,7 +697,7 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                         <button
                           type="button"
                           onClick={() => onOpenLegalTab && onOpenLegalTab('privacitat')}
-                          className="text-[#ec4899] underline font-semibold"
+                          className="text-[#ec4899] hover:text-[#00d4ff] font-semibold transition-colors"
                         >
                           privacy policy & GDPR
                         </button>{' '}
@@ -727,6 +740,7 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
             )}
           </Card3D>
         </div>
+      </div>
       </div>
     </div>
   );

@@ -147,6 +147,20 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
 
       ctx.clearRect(0, 0, width, height);
 
+      // Safe helper to create radial gradient without non-finite values
+      const createSafeRadialGradient = (
+        x0: number, y0: number, r0: number,
+        x1: number, y1: number, r1: number
+      ) => {
+        const safeX0 = Number.isFinite(x0) ? x0 : 0;
+        const safeY0 = Number.isFinite(y0) ? y0 : 0;
+        const safeR0 = Number.isFinite(r0) && r0 >= 0 ? r0 : 0;
+        const safeX1 = Number.isFinite(x1) ? x1 : 0;
+        const safeY1 = Number.isFinite(y1) ? y1 : 0;
+        const safeR1 = Number.isFinite(r1) && r1 >= 0 ? r1 : 1;
+        return ctx.createRadialGradient(safeX0, safeY0, safeR0, safeX1, safeY1, safeR1);
+      };
+
       // =======================================================================
       // SCENE 1: PORTADA (REVISTA & ENLLACOS) -> CINEMATIC 3D GALAXY COSMOS 🌌✨
       // Galactic Core, Deep Space Nebula Clouds, Multi-layer Starfield & Meteors
@@ -162,7 +176,7 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
         ctx.rotate(-0.35 + Math.sin(t * 0.08) * 0.04);
 
         // Galactic Center Nebula (Cosmic Violet & Indigo)
-        const coreGrad = ctx.createRadialGradient(0, 0, 10, 0, 0, maxDim * 0.55);
+        const coreGrad = createSafeRadialGradient(0, 0, 10, 0, 0, Math.max(1, maxDim * 0.55));
         if (isLight) {
           coreGrad.addColorStop(0, 'rgba(147, 51, 234, 0.32)');
           coreGrad.addColorStop(0.35, 'rgba(99, 102, 241, 0.22)');
@@ -176,26 +190,26 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
         }
         ctx.fillStyle = coreGrad;
         ctx.beginPath();
-        ctx.ellipse(0, 0, maxDim * 0.55, maxDim * 0.28, 0, 0, Math.PI * 2);
+        ctx.ellipse(0, 0, Math.max(1, maxDim * 0.55), Math.max(1, maxDim * 0.28), 0, 0, Math.PI * 2);
         ctx.fill();
 
         // Secondary Starlight Cyan Nebula Arm
-        const cyanGrad = ctx.createRadialGradient(maxDim * 0.14, -maxDim * 0.06, 5, maxDim * 0.14, -maxDim * 0.06, maxDim * 0.38);
+        const cyanGrad = createSafeRadialGradient(maxDim * 0.14, -maxDim * 0.06, 5, maxDim * 0.14, -maxDim * 0.06, Math.max(1, maxDim * 0.38));
         cyanGrad.addColorStop(0, isLight ? 'rgba(6, 182, 212, 0.28)' : 'rgba(0, 212, 255, 0.16)');
         cyanGrad.addColorStop(0.55, isLight ? 'rgba(168, 85, 247, 0.20)' : 'rgba(168, 85, 247, 0.08)');
         cyanGrad.addColorStop(1, isLight ? 'rgba(247, 246, 252, 0)' : 'rgba(5, 5, 7, 0)');
         ctx.fillStyle = cyanGrad;
         ctx.beginPath();
-        ctx.ellipse(maxDim * 0.14, -maxDim * 0.06, maxDim * 0.38, maxDim * 0.18, 0.25, 0, Math.PI * 2);
+        ctx.ellipse(maxDim * 0.14, -maxDim * 0.06, Math.max(1, maxDim * 0.38), Math.max(1, maxDim * 0.18), 0.25, 0, Math.PI * 2);
         ctx.fill();
 
         // Tertiary Astral Magenta Core Dust Pocket
-        const pinkGrad = ctx.createRadialGradient(-maxDim * 0.16, maxDim * 0.08, 5, -maxDim * 0.16, maxDim * 0.08, maxDim * 0.32);
+        const pinkGrad = createSafeRadialGradient(-maxDim * 0.16, maxDim * 0.08, 5, -maxDim * 0.16, maxDim * 0.08, Math.max(1, maxDim * 0.32));
         pinkGrad.addColorStop(0, isLight ? 'rgba(236, 72, 153, 0.25)' : 'rgba(236, 72, 153, 0.14)');
         pinkGrad.addColorStop(0.6, isLight ? 'rgba(219, 39, 119, 0)' : 'rgba(225, 29, 72, 0)');
         ctx.fillStyle = pinkGrad;
         ctx.beginPath();
-        ctx.ellipse(-maxDim * 0.16, maxDim * 0.08, maxDim * 0.32, maxDim * 0.15, -0.3, 0, Math.PI * 2);
+        ctx.ellipse(-maxDim * 0.16, maxDim * 0.08, Math.max(1, maxDim * 0.32), Math.max(1, maxDim * 0.15), -0.3, 0, Math.PI * 2);
         ctx.fill();
 
         ctx.restore();
@@ -222,7 +236,7 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
             ctx.shadowBlur = 4;
           }
           ctx.beginPath();
-          ctx.arc(px, py, r, 0, Math.PI * 2);
+          ctx.arc(px, py, Math.max(0.1, r), 0, Math.PI * 2);
           ctx.fill();
 
           // Delicate 4-Point Diffraction Spike Flare on prominent stars
@@ -239,13 +253,13 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
             ctx.stroke();
 
             // Soft star halo
-            const haloGrad = ctx.createRadialGradient(px, py, 0, px, py, flareLen * 0.7);
+            const haloGrad = createSafeRadialGradient(px, py, 0, px, py, Math.max(0.1, flareLen * 0.7));
             haloGrad.addColorStop(0, starColor);
             haloGrad.addColorStop(1, 'transparent');
             ctx.fillStyle = haloGrad;
             ctx.globalAlpha = currentAlpha * 0.35;
             ctx.beginPath();
-            ctx.arc(px, py, flareLen * 0.7, 0, Math.PI * 2);
+            ctx.arc(px, py, Math.max(0.1, flareLen * 0.7), 0, Math.PI * 2);
             ctx.fill();
           }
 
@@ -330,7 +344,7 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
         const vanishX = width * 0.5 + mx * 75;
         const horizonY = height * 0.34 + my * 28 - Math.min(80, scrollY * 0.05);
 
-        const grad = ctx.createRadialGradient(
+        const grad = createSafeRadialGradient(
           vanishX,
           horizonY,
           10,
@@ -443,7 +457,7 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
         const vanishX = width * 0.5 + mx * 65;
         const horizonY = height * 0.5 + my * 35;
 
-        const grad = ctx.createRadialGradient(
+        const grad = createSafeRadialGradient(
           vanishX,
           horizonY,
           5,

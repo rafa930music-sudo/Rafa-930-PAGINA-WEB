@@ -29,6 +29,7 @@ import {
   Award,
   MapPin,
 } from 'lucide-react';
+import { InstagramLogo, SpotifyLogo, YouTubeLogo } from '../PlatformLogos';
 
 interface RevistaScreenProps {
   language: Language;
@@ -42,6 +43,7 @@ const TIMELINE_I18N: {
   badge?: Record<Language, string>;
   title: Record<Language, string>;
   description: Record<Language, string>;
+  coverUrl: string;
   highlight?: boolean;
 }[] = [
   {
@@ -57,6 +59,7 @@ const TIMELINE_I18N: {
       es: 'Primeros temas nacidos desde la sinceridad más cruda en las calles de La Mina.',
       en: 'Early tracks born from raw honesty in the streets of La Mina.',
     },
+    coverUrl: ARTIST_IMAGES.libraryOrigin,
     highlight: true,
   },
   {
@@ -72,6 +75,7 @@ const TIMELINE_I18N: {
       es: 'Sonoridades profundas de trap emocional y letras sobre superación y crecimiento publicadas en 2024.',
       en: 'Deep emotional trap textures and lyrics focused on resilience and personal growth released in 2024.',
     },
+    coverUrl: ARTIST_IMAGES.pasanLosDiasCover,
   },
   {
     year: '2024 · Romanticisme Urbà',
@@ -86,6 +90,7 @@ const TIMELINE_I18N: {
       es: 'Apertura hacia la lírica romántica y relatos de vivencias cercanas durante el 2024.',
       en: 'Expansion into romantic lyricism and intimate personal stories throughout 2024.',
     },
+    coverUrl: ARTIST_IMAGES.romeoYJulietaCover,
   },
   {
     year: '2024 · Hit Single',
@@ -100,6 +105,7 @@ const TIMELINE_I18N: {
       es: 'Crecimiento orgánico sostenido en plataformas de streaming y YouTube con sonido trap potente.',
       en: 'Sustained organic growth across streaming platforms and YouTube with powerful trap sound.',
     },
+    coverUrl: ARTIST_IMAGES.hagoDineroCover,
     highlight: true,
   },
   {
@@ -115,6 +121,7 @@ const TIMELINE_I18N: {
       es: 'Reflexiones sociales y lírica consciente que conecta directamente con las vivencias del barrio.',
       en: 'Social reflections and conscious lyricism connecting directly with neighborhood life.',
     },
+    coverUrl: ARTIST_IMAGES.diferentesCaminosCover,
   },
   {
     year: '2025 · EP Conceptual',
@@ -129,6 +136,7 @@ const TIMELINE_I18N: {
       es: 'Un proyecto conceptual que desafía el canon comercial para reivindicar valores reales. Ya disponible oficialmente en Spotify.',
       en: 'A conceptual project challenging commercial norms to champion real values. Available officially on Spotify.',
     },
+    coverUrl: ARTIST_IMAGES.epMyWorld,
     highlight: true,
   },
   {
@@ -144,6 +152,7 @@ const TIMELINE_I18N: {
       es: 'Sencillos oficiales: «Tú Aroma» y «Nose si estaré mañana» con la producción de 930 Records e Incrife.',
       en: 'Official singles: “Tú Aroma” and “Nose si estaré mañana” produced by 930 Records and Incrife.',
     },
+    coverUrl: ARTIST_IMAGES.single2026,
   },
   {
     year: '2026 · Present (Destacat)',
@@ -158,6 +167,7 @@ const TIMELINE_I18N: {
       es: 'Recién subido: «De Vuelta» lidera los temas destacados de 2026 con una nueva energía nocturna y la esencia pura del 930.',
       en: 'Just uploaded: “De Vuelta” leads the 2026 featured tracks with nocturnal energy and the pure essence of 930.',
     },
+    coverUrl: ARTIST_IMAGES.deVuelta2026,
     highlight: true,
   },
 ];
@@ -311,7 +321,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
       {/* HERO EDITORIAL MONOGRAPH — LILA, ROSA, ROJO, BLANCO Y NEGRO */}
       {/* ========================================================================= */}
       <section
-        className="relative min-h-[88vh] flex items-center justify-center px-4 sm:px-6 md:px-10 py-16 md:py-24 border-b border-[#22222e] overflow-hidden"
+        className="relative min-h-[88vh] flex items-center justify-center px-4 sm:px-6 md:px-10 py-16 md:py-24 overflow-hidden"
         id="hero"
       >
         {/* Fondo fotográfico auténtico del Barrio de La Mina aportado por el artista */}
@@ -326,8 +336,6 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
           <div className="absolute inset-0 bg-gradient-to-r from-[#050507] via-[#050507]/90 to-transparent sm:w-4/5" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#00d4ff]/12 via-transparent to-transparent" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-[#ec4899]/15 via-transparent to-transparent" />
-          {/* Línea inferior de neón */}
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00d4ff]/50 to-transparent" />
         </div>
 
         <SectionColorBubbles variant="electric" />
@@ -348,228 +356,91 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
           className="pointer-events-none absolute top-12 right-1/4 w-96 h-96 rounded-full bg-[#00d4ff]/16 blur-[130px]"
         />
 
-        <div className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
-          {/* Left Editorial Column */}
-          <div className="lg:col-span-7 flex flex-col items-start gap-6">
-            <div>
-              <h1 className="font-['Bebas_Neue'] tracking-wider fluid-hero-title font-extrabold text-[#ffffff] drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
-                RAFA <span className="text-gradient-930 drop-shadow-[0_0_35px_rgba(0,212,255,0.7)]">930</span>
-              </h1>
-            </div>
+        <div className="max-w-4xl w-full mx-auto flex flex-col items-center justify-center text-center relative z-10 space-y-6">
+          {/* Centered Brand Title */}
+          <h1 className="font-['Bebas_Neue'] tracking-wider text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold text-[#ffffff] drop-shadow-[0_4px_30px_rgba(0,0,0,0.9)] text-center leading-none">
+            RAFA <span className="text-gradient-930 drop-shadow-[0_0_40px_rgba(0,212,255,0.85)]">930</span>
+          </h1>
 
-            <div className="relative p-5 my-1 bg-[#111118]/80 border border-[#22222e] rounded-xl backdrop-blur-md">
-              <p className="text-[#f472b6] font-['Cormorant_Garamond'] italic text-2xl sm:text-3xl md:text-4xl leading-snug font-medium drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
-                {language === 'ca'
-                  ? '«De La Mina al món. Amb la veritat per davant.»'
-                  : language === 'es'
-                  ? '«De La Mina al mundo. Con la verdad por delante.»'
-                  : '“From La Mina to the world. Leading with the truth.”'}
-              </p>
-              <span className="text-[11px] font-mono text-[#a1a1b5] mt-1.5 block">
-                {language === 'ca'
-                  ? 'Identitat 08930 · Crònica de carrer & expressió artística independent'
-                  : language === 'es'
-                  ? 'Identidad 08930 · Crónica de calle & expresión artística independiente'
-                  : '08930 Identity · Street chronicle & independent artistic expression'}
-              </span>
-            </div>
-
-            <p className="text-[#e2e2ec] text-base sm:text-lg max-w-2xl leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.7)]">
+          {/* Centered Signature Quote (Horizontal, sin selección, sin subrayado, degradado neón animado) */}
+          <div className="w-full flex items-center justify-center overflow-hidden px-2 my-2 select-none pointer-events-auto">
+            <p className="font-['Cormorant_Garamond'] italic text-lg sm:text-2xl md:text-3xl lg:text-4xl leading-normal font-bold text-center whitespace-normal md:whitespace-nowrap tracking-wide select-none selection:bg-transparent border-none outline-none no-underline animate-neon-gradient-text break-words max-w-full">
               {language === 'ca'
-                ? 'Artista urbà nascut a Mataró i forjat entre els blocs del barri de La Mina. La seva obra integra composició musical honesta, fotografia de retrat en clarobscur i desenvolupament de plataformes digitals per a creadors i marques.'
+                ? '«De La Mina al món. Amb la veritat per davant.»'
                 : language === 'es'
-                ? 'Artista urbano nacido en Mataró y forjado entre los bloques del barrio de La Mina. Su obra integra composición musical honesta, fotografía de retrato en claroscuro y desarrollo de plataformas digitales para creadores y marcas.'
-                : 'Urban artist born in Mataró and forged between the blocks of La Mina neighborhood. His work integrates honest musical composition, chiaroscuro portrait photography, and digital platform development for creators and brands.'}
+                ? '«De La Mina al mundo. Con la verdad por delante.»'
+                : '“From La Mina to the world. Leading with the truth.”'}
             </p>
-
-            {/* Primary Navigation Actions — Authentic 930 Colors (Lila, Rosa, Cyan, Obsidian) */}
-            <div className="flex flex-wrap items-center gap-4 pt-3 w-full">
-              <button
-                type="button"
-                onClick={() => onNavigate('discografia')}
-                className="touch-target-48 inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#a855f7] via-[#ec4899] to-[#00d4ff] text-white text-sm font-semibold px-7 py-3.5 rounded-xl shadow-[0_4px_22px_rgba(168,85,247,0.35)] hover:shadow-[0_6px_28px_rgba(236,72,153,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 whitespace-nowrap shrink-0 cursor-pointer"
-              >
-                <Play className="w-4 h-4 fill-white text-white" />
-                <span>
-                  {language === 'ca'
-                    ? 'Explorar Discografia'
-                    : language === 'es'
-                    ? 'Explorar Discografía'
-                    : 'Explore Discography'}
-                </span>
-                <ArrowRight className="w-4 h-4 text-white/85" />
-              </button>
-
-              <button
-                type="button"
-                onClick={() => onNavigate('galeria')}
-                className="touch-target-44 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#111118]/90 hover:bg-[#181824] border border-[#22222e] hover:border-[#00d4ff]/60 text-xs font-semibold text-[#e2e2ec] hover:text-[#00d4ff] transition-all cursor-pointer shadow-sm group"
-              >
-                <Camera className="w-4 h-4 text-[#00d4ff] group-hover:scale-110 transition-transform" />
-                <span>
-                  {language === 'ca'
-                    ? 'Arxiu Fotogràfic'
-                    : language === 'es'
-                    ? 'Archivo Fotográfico'
-                    : 'Photography Archive'}
-                </span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => onNavigate('serveis')}
-                className="touch-target-44 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#111118]/90 hover:bg-[#181824] border border-[#22222e] hover:border-[#ec4899]/60 text-xs font-semibold text-[#e2e2ec] hover:text-[#ec4899] transition-all cursor-pointer shadow-sm group"
-              >
-                <Terminal className="w-4 h-4 text-[#ec4899] group-hover:scale-110 transition-transform" />
-                <span>
-                  {language === 'ca'
-                    ? 'Serveis & Tarifes'
-                    : language === 'es'
-                    ? 'Servicios & Tarifas'
-                    : 'Services & Rates'}
-                </span>
-              </button>
-            </div>
-
-            {/* Quiet Share Row */}
-            <div className="pt-4 border-t border-[#22222e] w-full flex flex-wrap items-center gap-3 text-xs font-mono text-[#a1a1b5]">
-              <span className="flex items-center gap-1.5">
-                <Share2 className="w-3.5 h-3.5 text-[#00d4ff]" />
-                <span>
-                  {language === 'ca' ? 'Canals:' : language === 'es' ? 'Canales:' : 'Channels:'}
-                </span>
-              </span>
-              <a
-                className="hover:text-[#00d4ff] underline underline-offset-4 decoration-[#00d4ff]"
-                href="https://youtube.com/@rafa_930"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                YouTube Oficial
-              </a>
-              <span aria-hidden="true" className="text-[#00d4ff]">·</span>
-              <a
-                className="hover:text-[#00d4ff] underline underline-offset-4 decoration-[#a855f7] flex items-center gap-1"
-                href={OFFICIAL_SPOTIFY_URL}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <Radio className="w-3.5 h-3.5 text-[#00d4ff]" />
-                <span>Spotify Oficial</span>
-              </a>
-              <span aria-hidden="true" className="text-[#00d4ff]">·</span>
-              <a
-                className="hover:text-[#00d4ff] underline underline-offset-4 decoration-[#ec4899]"
-                href="https://instagram.com/rafa930_oficial"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Instagram (@rafa930_oficial)
-              </a>
-              <span aria-hidden="true" className="text-[#00d4ff]">·</span>
-              <button
-                onClick={handleCopyLink}
-                className="hover:text-[#00d4ff] flex items-center gap-1"
-                type="button"
-              >
-                {copiedLink ? (
-                  <Check className="w-3.5 h-3.5 text-[#ec4899]" />
-                ) : (
-                  <Copy className="w-3.5 h-3.5" />
-                )}
-                <span>
-                  {copiedLink
-                    ? language === 'ca'
-                      ? 'Enllaç copiat'
-                      : language === 'es'
-                      ? 'Enlace copiado'
-                      : 'Link copied'
-                    : language === 'ca'
-                    ? 'Copiar enllaç'
-                    : language === 'es'
-                    ? 'Copiar enlace'
-                    : 'Copy link'}
-                </span>
-              </button>
-            </div>
           </div>
 
-          {/* Right Column: Editorial Portrait */}
-          <div className="lg:col-span-5 space-y-5">
-            <Card3D
-              intensity={5}
-              glowColor="rgba(0, 212, 255, 0.24)"
-              className="bg-[#111118] border border-[#00d4ff]/35 rounded-xl p-4 shadow-[0_0_28px_rgba(0,212,255,0.12)]"
+          {/* Centered Actions — Fluid Stacking on Mobile, Side-by-Side on Tablet/Desktop */}
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2 w-full max-w-xl mx-auto">
+            <button
+              type="button"
+              onClick={() => onNavigate('discografia')}
+              className="touch-target-48 w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#a855f7] via-[#ec4899] to-[#00d4ff] text-white text-sm font-semibold px-7 py-3.5 rounded-xl shadow-[0_4px_22px_rgba(168,85,247,0.35)] hover:shadow-[0_6px_28px_rgba(236,72,153,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 whitespace-nowrap shrink-0 cursor-pointer"
             >
-              <div className="relative aspect-square rounded-lg overflow-hidden bg-[#0a0a0f]">
-                <img
-                  alt="RAFA 930 — Retrato oficial de cara"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
-                  src={ARTIST_IMAGES.heroPortrait}
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    const fallbacks = [
-                      './assets/rafa-930-cara.jpg',
-                      './rafa-930-cara.jpg',
-                      'https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/assets/rafa-930-cara.jpg',
-                      'https://rafa930music-sudo.github.io/assets/rafa-930-cara.jpg',
-                    ];
-                    const currentIndex = Number(target.dataset.fallbackIndex || '0');
-                    if (currentIndex < fallbacks.length) {
-                      target.dataset.fallbackIndex = String(currentIndex + 1);
-                      target.src = fallbacks[currentIndex];
-                    }
-                  }}
-                  loading="eager"
-                />
-                <div className="absolute top-3 left-3 bg-[#050507]/85 backdrop-blur-md border border-[#00d4ff]/40 text-[#00d4ff] text-[10px] font-mono px-2.5 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-[0_0_12px_rgba(0,212,255,0.3)]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] animate-ping" />
-                  <span>LA MINA · 08930</span>
-                </div>
-              </div>
-              <div className="pt-3 px-1 flex items-center justify-between text-xs font-serif italic text-[#a1a1b5]">
-                <span>
-                  {language === 'ca'
-                    ? 'Fig. 01 — Retrat oficial · RAFA 930'
-                    : language === 'es'
-                    ? 'Fig. 01 — Retrato oficial · RAFA 930'
-                    : 'Fig. 01 — Official portrait · RAFA 930'}
-                </span>
-                <span className="font-mono not-italic text-[#00d4ff] font-semibold">Barcelona · 08930</span>
-              </div>
-            </Card3D>
+              <Play className="w-4 h-4 fill-white text-white" />
+              <span>
+                {language === 'ca'
+                  ? 'Explorar Discografia'
+                  : language === 'es'
+                  ? 'Explorar Discografía'
+                  : 'Explore Discography'}
+              </span>
+              <ArrowRight className="w-4 h-4 text-white/85" />
+            </button>
+
+            <button
+              type="button"
+              onClick={() => onNavigate('galeria')}
+              className="touch-target-44 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#111118]/90 hover:bg-[#181824] border border-[#22222e] hover:border-[#00d4ff]/60 text-xs font-semibold text-[#e2e2ec] hover:text-[#00d4ff] transition-all cursor-pointer shadow-sm group"
+            >
+              <Camera className="w-4 h-4 text-[#00d4ff] group-hover:scale-110 transition-transform" />
+              <span>
+                {language === 'ca'
+                  ? 'Arxiu Fotogràfic'
+                  : language === 'es'
+                  ? 'Archivo Fotográfico'
+                  : 'Photography Archive'}
+              </span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => onNavigate('serveis')}
+              className="touch-target-44 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#111118]/90 hover:bg-[#181824] border border-[#22222e] hover:border-[#ec4899]/60 text-xs font-semibold text-[#e2e2ec] hover:text-[#ec4899] transition-all cursor-pointer shadow-sm group"
+            >
+              <Terminal className="w-4 h-4 text-[#ec4899] group-hover:scale-110 transition-transform" />
+              <span>
+                {language === 'ca'
+                  ? 'Serveis & Tarifes'
+                  : language === 'es'
+                  ? 'Servicios & Tarifas'
+                  : 'Services & Rates'}
+              </span>
+            </button>
           </div>
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* CAPÍTULO I · BIOGRAFÍA & ORÍGENES */}
-      {/* ========================================================================= */}
       <section
-        className="py-16 md:py-24 px-4 sm:px-6 md:px-10 border-b border-[#22222e] max-w-7xl mx-auto"
+        className="relative w-full py-16 md:py-28 bg-gradient-to-b from-[#050507] to-[#0a0a0f] overflow-hidden"
         id="biografia"
       >
-        <div className="flex items-center gap-2 text-xs font-mono text-[#a1a1b5] mb-6">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] shadow-[0_0_8px_#00d4ff]" />
-          <span className="text-[#a855f7] font-semibold">
-            {language === 'ca'
-              ? '01. BIOGRAFIA & ORÍGENS'
-              : language === 'es'
-              ? '01. BIOGRAFÍA & ORÍGENES'
-              : '01. BIOGRAPHY & ORIGINS'}
-          </span>
-          <span aria-hidden="true" className="text-[#00d4ff]">·</span>
-          <span>
-            {language === 'ca'
-              ? 'DE MATARÓ AL BARRI DE LA MINA'
-              : language === 'es'
-              ? 'DE MATARÓ AL BARRIO DE LA MINA'
-              : 'FROM MATARÓ TO LA MINA'}
-          </span>
+        {/* Fondo fotográfico auténtico 100% ancho total sin cortes */}
+        <div className="absolute inset-0 pointer-events-none opacity-60 overflow-hidden select-none">
+          <img
+            src={ARTIST_IMAGES.laMinaHeroBg}
+            alt="Barrio de La Mina"
+            className="w-full h-full object-cover object-center filter contrast-125 brightness-90 saturate-110 scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#050507] via-[#050507]/60 to-[#050507]/80" />
+          <div className="absolute inset-0 bg-[#050507]/40 backdrop-blur-[2px]" />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           <div className="lg:col-span-7 space-y-6">
             <h2 className="font-['Cormorant_Garamond'] text-3xl sm:text-5xl font-semibold text-[#ffffff] leading-tight">
               {language === 'ca'
@@ -579,8 +450,8 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                 : 'A trajectory built on authenticity and neighborhood culture'}
             </h2>
 
-            <blockquote className="py-4 border-y border-[#22222e]">
-              <p className="font-['Cormorant_Garamond'] italic text-2xl sm:text-3xl text-[#f472b6] leading-snug">
+            <blockquote className="py-3">
+              <p className="font-['Cormorant_Garamond'] italic text-2xl sm:text-3xl text-[#00f0ff] leading-snug font-medium drop-shadow-[0_0_18px_rgba(0,240,255,0.7)] [text-shadow:0_0_10px_#00f0ff,0_0_25px_rgba(0,212,255,0.5)]">
                 {language === 'ca'
                   ? '“Amb la música podia expressar les meves emocions i els meus pensaments més profunds.”'
                   : language === 'es'
@@ -589,15 +460,15 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
               </p>
             </blockquote>
 
-            <div className="space-y-4 text-[#a1a1b5] text-sm sm:text-base leading-relaxed max-w-2xl">
-              <p className="first-letter:text-5xl first-letter:font-['Cormorant_Garamond'] first-letter:font-semibold first-letter:text-[#ec4899] first-letter:float-left first-letter:mr-3 first-letter:leading-none">
+            <div className="space-y-4 text-[#f8fafc] text-sm sm:text-base leading-relaxed max-w-2xl font-normal drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+              <p className="first-letter:text-5xl first-letter:font-['Cormorant_Garamond'] first-letter:font-bold first-letter:text-[#ec4899] first-letter:float-left first-letter:mr-3 first-letter:leading-none first-letter:drop-shadow-[0_0_15px_#ec4899]">
                 {language === 'ca'
                   ? 'RAFA 930 és un artista urbà emergent i multidisciplinari: raper, desenvolupador web, fotògraf i creador total des de l’entorn de La Mina i Mataró (08930). La seva música destil·la rap conscient i trap melódico de carrer, amb lletres profundes que parlen de superació personal, la duresa i la bellesa del barri, la lleialtat familiar, la nit i el contrast entre somnis i realitat. Impulsat per la curiositat i pel suport incondicional dels seus amics Ouxxox i Incrife, la seva obra uneix una lírica crua i honesta amb una estètica fotogràfica cinematogràfica en clarobscur.'
                   : language === 'es'
                   ? 'RAFA 930 es un artista urbano emergente y multidisciplinar: rapero, desarrollador web, fotógrafo y creador total desde el entorno de La Mina y Mataró (08930). Su música destila rap consciente y trap melódico de calle, con letras profundas que abordan la superación personal, la crudeza y la belleza del barrio, la lealtad de los suyos, la noche y el pulso entre los sueños y la realidad. Impulsado por la curiosidad y por el apoyo incondicional de sus amigos Ouxxox e Incrife, su obra une una lírica sincera y directa con una estética fotográfica cinematográfica en claroscuro.'
                   : 'RAFA 930 is an emerging, multidisciplinary urban artist: rapper, web developer, photographer, and total creator hailing from La Mina and Mataró (08930). His music distills conscious rap and melodic street trap, featuring deep lyrics about resilience, neighborhood life, loyalty, nocturnal ambition, and the pursuit of dreams. Driven by curiosity and the unconditional support of his friends Ouxxox and Incrife, his work merges raw, honest storytelling with cinematic chiaroscuro visual aesthetics.'}
               </p>
-              <p>
+              <p className="text-[#f1f5f9]">
                 {language === 'ca' ? (
                   <>
                     El seu projecte és una convergència entre la producció sonora, la narrativa visual i la innovació digital. RAFA 930 no només lidera la seva pròpia visió artística amb barres afilades i so impecable, sinó que també impulsa el desenvolupament digital de tercers a través de 930 Digital, aportant una mirada professional, precisa i connectada amb l’essència del carrer.
@@ -619,18 +490,18 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
               <Card3D
                 intensity={4}
                 onClick={() => onNavigate('discografia')}
-                glowColor="rgba(168, 85, 247, 0.18)"
-                className="p-5 bg-[#111118] border border-[#22222e] rounded-xl hover:border-[#a855f7] cursor-pointer"
+                glowColor="rgba(168, 85, 247, 0.22)"
+                className="p-5 bg-[#0e0e15]/95 backdrop-blur-md border border-[#303042] rounded-xl hover:border-[#a855f7] cursor-pointer shadow-lg"
               >
                 <Mic className="w-5 h-5 text-[#a855f7] mb-3" />
-                <h3 className="font-semibold text-[#ffffff] text-sm mb-1">
+                <h3 className="font-bold text-[#ffffff] text-sm mb-1">
                   {language === 'ca'
                     ? 'Composició & Directe'
                     : language === 'es'
                     ? 'Composición & Directo'
                     : 'Composition & Live'}
                 </h3>
-                <p className="text-xs text-[#a1a1b5] leading-relaxed">
+                <p className="text-xs text-[#cbd5e1] leading-relaxed">
                   {language === 'ca'
                     ? 'Música urbana, rap conscient i xous en viu amb identitat pròpia.'
                     : language === 'es'
@@ -642,18 +513,18 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
               <Card3D
                 intensity={4}
                 onClick={() => onNavigate('galeria')}
-                glowColor="rgba(236, 72, 153, 0.18)"
-                className="p-5 bg-[#111118] border border-[#22222e] rounded-xl hover:border-[#ec4899] cursor-pointer"
+                glowColor="rgba(236, 72, 153, 0.22)"
+                className="p-5 bg-[#0e0e15]/95 backdrop-blur-md border border-[#303042] rounded-xl hover:border-[#ec4899] cursor-pointer shadow-lg"
               >
                 <Camera className="w-5 h-5 text-[#ec4899] mb-3" />
-                <h3 className="font-semibold text-[#ffffff] text-sm mb-1">
+                <h3 className="font-bold text-[#ffffff] text-sm mb-1">
                   {language === 'ca'
                     ? 'Fotografia Editorial'
                     : language === 'es'
                     ? 'Fotografía Editorial'
                     : 'Editorial Photography'}
                 </h3>
-                <p className="text-xs text-[#a1a1b5] leading-relaxed">
+                <p className="text-xs text-[#cbd5e1] leading-relaxed">
                   {language === 'ca'
                     ? 'Retrat d’autor, sessions de moda urbana i direcció visual de portades.'
                     : language === 'es'
@@ -665,18 +536,18 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
               <Card3D
                 intensity={4}
                 onClick={() => onNavigate('serveis')}
-                glowColor="rgba(0, 212, 255, 0.24)"
-                className="p-5 bg-[#111118] border border-[#00d4ff]/35 rounded-xl hover:border-[#00d4ff] cursor-pointer shadow-[0_0_20px_rgba(0,212,255,0.1)]"
+                glowColor="rgba(0, 212, 255, 0.28)"
+                className="p-5 bg-[#0e0e15]/95 backdrop-blur-md border border-[#00d4ff]/50 rounded-xl hover:border-[#00d4ff] cursor-pointer shadow-[0_0_24px_rgba(0,212,255,0.14)]"
               >
                 <Terminal className="w-5 h-5 text-[#00d4ff] mb-3" />
-                <h3 className="font-semibold text-[#ffffff] text-sm mb-1">
+                <h3 className="font-bold text-[#ffffff] text-sm mb-1">
                   {language === 'ca'
                     ? 'Desenvolupament Web'
                     : language === 'es'
                     ? 'Desarrollo Web'
                     : 'Web Development'}
                 </h3>
-                <p className="text-xs text-[#a1a1b5] leading-relaxed">
+                <p className="text-xs text-[#cbd5e1] leading-relaxed">
                   {language === 'ca'
                     ? 'Portfolis professionals, presskits interactius i disseny digital a mida.'
                     : language === 'es'
@@ -687,14 +558,40 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
             </div>
           </div>
 
-          {/* Right Archival Figure + 3D Sculpture Viewer */}
-          <div className="lg:col-span-5 space-y-6">
+          {/* Right Side: Portrait Image ("Mi Cara") positioned side-by-side with Biography Text */}
+          <div className="lg:col-span-5 space-y-6 flex flex-col items-center">
+            <Card3D
+              intensity={5}
+              glowColor="rgba(0, 212, 255, 0.28)"
+              className="bg-[#111118] border border-[#00d4ff]/50 rounded-2xl p-3 shadow-[0_0_35px_rgba(0,212,255,0.25)] w-full max-w-md group"
+            >
+              <div className="relative aspect-square rounded-xl overflow-hidden bg-[#050507]">
+                <img
+                  alt="RAFA 930 — Retrato oficial de cara"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                  src={ARTIST_IMAGES.heroPortrait}
+                  loading="eager"
+                  decoding="sync"
+                />
+              </div>
+              <div className="pt-3 px-1 flex justify-between items-center text-xs font-serif italic text-[#a1a1b5]">
+                <span>
+                  {language === 'ca'
+                    ? 'Retrat Oficial — RAFA 930'
+                    : language === 'es'
+                    ? 'Retrato Oficial — RAFA 930'
+                    : 'Official Portrait — RAFA 930'}
+                </span>
+              </div>
+            </Card3D>
+
             <Card3D
               intensity={4}
               glowColor="rgba(168, 85, 247, 0.16)"
-              className="bg-[#111118] border border-[#22222e] rounded-xl p-4"
+              className="bg-[#111118] border border-[#22222e] rounded-xl p-3 w-full max-w-md"
             >
-              <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-[#0a0a0f]">
+              <div className="relative aspect-[16/9] rounded-lg overflow-hidden bg-[#0a0a0f]">
                 <img
                   alt="Barri de La Mina"
                   referrerPolicy="no-referrer"
@@ -703,22 +600,21 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                   loading="lazy"
                 />
               </div>
-              <div className="pt-3 px-1 flex justify-between items-center text-xs font-serif italic text-[#a1a1b5]">
+              <div className="pt-2 px-1 flex justify-between items-center text-xs font-serif italic text-[#a1a1b5]">
                 <span>
                   {language === 'ca'
                     ? 'Fig. 02 — Barri de La Mina (Punt d’origen)'
                     : language === 'es'
                     ? 'Fig. 02 — Barrio de La Mina (Punto de origen)'
-                    : 'Fig. 02 — La Mina Neighborhood (Point of origin)'}
+                    : 'Fig. 02 — La Mina Neighborhood (Origin point)'}
                 </span>
                 <span className="font-mono not-italic text-[#a855f7]">
                   {language === 'ca' ? 'Arxiu' : language === 'es' ? 'Archivo' : 'Archive'}
                 </span>
               </div>
             </Card3D>
-
-
           </div>
+        </div>
         </div>
       </section>
 
@@ -733,64 +629,92 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
             ? 'Cronología de lanzamientos y trayectoria'
             : 'Release timeline and artistic trajectory'
         }
-        className="relative py-16 md:py-24 px-4 sm:px-6 md:px-10 border-b border-[#22222e] bg-[#0a0a0f] overflow-hidden"
+        className="relative py-16 md:py-24 px-4 sm:px-6 md:px-10 bg-[#0a0a0f] overflow-hidden"
       >
+        {/* Fondo metálico industrial futurista con fuerte presencia visible */}
+        <div className="absolute inset-0 pointer-events-none opacity-65 overflow-hidden select-none">
+          <img
+            src={ARTIST_IMAGES.metallicBg}
+            alt=""
+            className="w-full h-full object-cover scale-105 filter contrast-125 brightness-110 saturate-125"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/50 to-[#0a0a0f]/80" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0a0a0f_90%)]" />
+        </div>
+
         <SectionColorBubbles variant="editorial" />
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="flex items-center gap-2 text-xs font-mono text-[#a1a1b5] mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] shadow-[0_0_8px_#00d4ff]" />
-            <span className="text-[#ec4899] font-semibold">
-              {language === 'ca'
-                ? '02. CRONOLOGIA D’OBRA'
-                : language === 'es'
-                ? '02. CRONOLOGÍA DE OBRA'
-                : '02. WORK TIMELINE'}
-            </span>
-            <span aria-hidden="true" className="text-[#00d4ff]">·</span>
-            <span>
-              {language === 'ca'
-                ? 'ARXIU 2023–2026'
-                : language === 'es'
-                ? 'ARCHIVO 2023–2026'
-                : 'ARCHIVE 2023–2026'}
-            </span>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+              <h2 className="font-['Cormorant_Garamond'] text-3xl sm:text-5xl font-semibold text-[#ffffff]">
+                {language === 'ca'
+                  ? 'Evolució musical i conceptual'
+                  : language === 'es'
+                  ? 'Evolución musical y conceptual'
+                  : 'Musical and conceptual evolution'}
+              </h2>
+              <p className="text-[#a1a1b5] text-sm sm:text-base mt-2 max-w-2xl">
+                {language === 'ca'
+                  ? 'Trajectòria discogràfica documentada: de les primeres maquetes al barri fins als llançaments oficials a Spotify i plataformes.'
+                  : language === 'es'
+                  ? 'Trayectoria discográfica documentada: de las primeras maquetas en el barrio hasta los lanzamientos oficiales en Spotify y plataformas.'
+                  : 'Documented discographical trajectory: from early street demos to official releases on Spotify and streaming.'}
+              </p>
+            </div>
           </div>
 
-          <h2 className="font-['Cormorant_Garamond'] text-3xl sm:text-5xl font-semibold text-[#ffffff] mb-10">
-            {language === 'ca'
-              ? 'Evolució musical i conceptual'
-              : language === 'es'
-              ? 'Evolución musical y conceptual'
-              : 'Musical and conceptual evolution'}
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {TIMELINE_I18N.map((item, idx) => (
               <Card3D
                 key={idx}
-                intensity={4}
-                glowColor="rgba(168, 85, 247, 0.16)"
-                className={`bg-[#111118] border rounded-xl p-6 ${
-                  item.highlight ? 'border-[#ec4899]/70' : 'border-[#22222e]'
+                intensity={5}
+                glowColor={item.highlight ? 'rgba(0, 212, 255, 0.28)' : 'rgba(168, 85, 247, 0.2)'}
+                className={`relative bg-[#111118]/95 backdrop-blur-md rounded-2xl overflow-hidden group transition-all duration-300 flex flex-col justify-between ${
+                  item.highlight
+                    ? 'border border-[#00d4ff]/60 shadow-[0_0_30px_rgba(0,212,255,0.18)]'
+                    : 'border border-[#22222e] hover:border-[#a855f7]/70'
                 }`}
               >
                 <div>
-                  <div className="flex items-center justify-between gap-2 text-xs font-mono text-[#a1a1b5] mb-2 tabular-nums">
-                    <time className="text-[#a855f7] font-semibold">{item.year}</time>
+                  {/* Artwork Banner */}
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#050507]">
+                    <img
+                      src={item.coverUrl}
+                      alt={item.title[language]}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#111118] via-[#111118]/40 to-transparent" />
+                    
+                    {/* Badge */}
                     {item.badge && (
-                      <span className="text-[#ec4899] font-semibold">{item.badge[language]}</span>
+                      <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#050507]/90 backdrop-blur-md border border-[#ec4899]/60 text-[10px] font-mono text-[#ec4899] font-bold uppercase tracking-wider shadow-md">
+                        {item.badge[language]}
+                      </div>
                     )}
+                    
+                    <div className="absolute bottom-2 right-3 text-[11px] font-mono text-[#00d4ff] font-semibold bg-[#050507]/80 px-2 py-0.5 rounded">
+                      Cap. 0{idx + 1}
+                    </div>
                   </div>
-                  <h3 className="font-['Cormorant_Garamond'] font-semibold text-xl text-[#ffffff] leading-snug">
-                    {item.title[language]}
-                  </h3>
-                  <p className="text-[#a1a1b5] text-xs sm:text-sm mt-2 leading-relaxed">
-                    {item.description[language]}
-                  </p>
+
+                  {/* Body Content */}
+                  <div className="p-5 space-y-2">
+                    <div className="text-xs font-mono text-[#a855f7] font-semibold tracking-wider">
+                      {item.year}
+                    </div>
+                    <h3 className="font-['Cormorant_Garamond'] font-semibold text-xl text-[#ffffff] leading-snug group-hover:text-[#00d4ff] transition-colors">
+                      {item.title[language]}
+                    </h3>
+                    <p className="text-[#cbd5e1] text-xs leading-relaxed line-clamp-3">
+                      {item.description[language]}
+                    </p>
+                  </div>
                 </div>
-                <div className="mt-4 pt-3 border-t border-[#22222e] text-[11px] font-mono text-[#a1a1b5] tabular-nums flex justify-between">
-                  <span className="text-[#00d4ff]">Cap. 0{idx + 1}</span>
-                  <span>
+
+                <div className="px-5 pb-5 pt-3 flex items-center justify-between text-[11px] font-mono text-[#a1a1b5]">
+                  <span className="text-[#00d4ff]">RAFA 930</span>
+                  <span className="text-[#a1a1b5]">
                     {language === 'ca'
                       ? 'Catàleg Oficial'
                       : language === 'es'
@@ -804,34 +728,24 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* CAPÍTULO III · DISCOGRAFÍA SELECCIONADA */}
-      {/* ========================================================================= */}
       <section
-        className="relative py-16 md:py-24 px-4 sm:px-6 md:px-10 border-b border-[#22222e] max-w-7xl mx-auto overflow-hidden"
+        className="relative w-full py-16 md:py-24 overflow-hidden"
         id="musica"
       >
+        {/* Fondo atmosférico fotográfico de Discografía 100% ancho total */}
+        <div className="absolute inset-0 pointer-events-none opacity-60 overflow-hidden select-none">
+          <img
+            src={ARTIST_IMAGES.epMyWorld}
+            alt="Arte Musical RAFA 930"
+            className="w-full h-full object-cover object-center scale-105 filter contrast-125 brightness-100 saturate-125"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/50 to-[#0a0a0f]/80" />
+          <div className="absolute inset-0 bg-[#0a0a0f]/30 backdrop-blur-[2px]" />
+        </div>
         <SectionColorBubbles variant="music" />
-        <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 relative z-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div>
-            <div className="flex items-center gap-2 text-xs font-mono text-[#a1a1b5] mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] shadow-[0_0_8px_#00d4ff]" />
-              <span className="text-[#e11d48] font-semibold">
-                {language === 'ca'
-                  ? '03. CATÀLEG DISCOGRÀFIC'
-                  : language === 'es'
-                  ? '03. CATÁLOGO DISCOGRÁFICO'
-                  : '03. DISCOGRAPHY CATALOG'}
-              </span>
-              <span aria-hidden="true" className="text-[#00d4ff]">·</span>
-              <span>
-                {language === 'ca'
-                  ? 'OBRES DESTACADES'
-                  : language === 'es'
-                  ? 'OBRAS DESTACADAS'
-                  : 'FEATURED WORKS'}
-              </span>
-            </div>
             <h2 className="font-['Cormorant_Garamond'] text-3xl sm:text-5xl font-semibold text-[#ffffff]">
               {language === 'ca'
                 ? 'Discografia Seleccionada'
@@ -878,8 +792,8 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
           {/* Card 1: De Vuelta (Featured Release) */}
           <Card3D
             intensity={5}
-            glowColor="rgba(0, 212, 255, 0.24)"
-            className="bg-[#111118] border border-[#00d4ff]/50 hover:border-[#ec4899] rounded-xl p-5 group shadow-[0_0_24px_rgba(0,212,255,0.12)]"
+            glowColor="rgba(0, 212, 255, 0.3)"
+            className="bg-[#0e0e15]/95 backdrop-blur-md border border-[#00d4ff]/60 hover:border-[#ec4899] rounded-xl p-5 group shadow-[0_0_28px_rgba(0,212,255,0.2)]"
           >
             <div>
               <div className="relative aspect-square rounded-lg overflow-hidden bg-[#0a0a0f] mb-4">
@@ -904,22 +818,22 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                     ? 'NUEVO DESTACADO 2026'
                     : 'NEW FEATURED 2026'}
                 </span>
-                <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#050507]/85 backdrop-blur-md border border-[#1DB954]/60 text-[10px] font-mono text-[#1ed760] shadow-[0_0_10px_rgba(29,185,84,0.3)]">
+                <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#050507]/90 backdrop-blur-md border border-[#1DB954]/70 text-[10px] font-mono text-[#1ed760] font-semibold shadow-[0_0_12px_rgba(29,185,84,0.35)]">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#1DB954] animate-pulse" />
                   <span>Spotify</span>
                 </div>
               </div>
-              <div className="text-xs font-mono text-[#00d4ff] mb-1 tabular-nums">
+              <div className="text-xs font-mono text-[#00d4ff] font-semibold mb-1 tabular-nums tracking-wide">
                 {language === 'ca'
-                  ? 'SENZILL DESTACAT · 2026 · 126 BPM'
+                  ? 'TEMA DESTACAT · 2026'
                   : language === 'es'
-                  ? 'TEMA DESTACADO · 2026 · 126 BPM'
-                  : 'FEATURED SINGLE · 2026 · 126 BPM'}
+                  ? 'TEMA DESTACADO · 2026'
+                  : 'FEATURED SINGLE · 2026'}
               </div>
-              <h3 className="font-['Cormorant_Garamond'] font-semibold text-2xl text-[#ffffff]">
+              <h3 className="font-['Cormorant_Garamond'] font-bold text-2xl sm:text-3xl text-[#ffffff] drop-shadow-sm">
                 De Vuelta
               </h3>
-              <p className="text-[#a1a1b5] text-xs sm:text-sm mt-2 leading-relaxed">
+              <p className="text-[#f1f5f9] text-xs sm:text-sm mt-2 leading-relaxed font-normal">
                 {language === 'ca'
                   ? 'El nou llançament destacat de RAFA 930 en 2026. Energia nocturna, retorn amb més força i la identitat pura del codi 930.'
                   : language === 'es'
@@ -928,29 +842,27 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
               </p>
             </div>
 
-            <div className="pt-5 mt-4 border-t border-[#22222e] flex gap-2">
+            <div className="pt-5 mt-4 border-t border-[#22222e] flex flex-col sm:flex-row gap-2">
               <a
                 href={OFFICIAL_SPOTIFY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="touch-target-44 flex-1 py-2.5 px-3 bg-[#1DB954] hover:bg-[#1ed760] text-black font-semibold rounded-lg flex items-center justify-center gap-1.5 text-xs transition-all shadow-[0_0_12px_rgba(29,185,84,0.25)]"
+                className="touch-target-44 flex-1 py-2.5 px-3 bg-[#1DB954] hover:bg-[#1ed760] text-white font-semibold rounded-lg flex items-center justify-center gap-1.5 text-xs transition-all shadow-[0_0_14px_rgba(29,185,84,0.3)]"
               >
-                <svg className="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24">
-                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.502 17.309c-.218.358-.684.471-1.042.253-2.855-1.745-6.449-2.14-10.684-1.173-.41.094-.82-.162-.914-.572-.094-.41.162-.82.572-.914 4.636-1.059 8.608-.616 11.815 1.364.358.218.471.684.253 1.042zm1.468-3.264c-.274.446-.86.588-1.306.314-3.269-2.009-8.252-2.592-12.119-1.417-.5.152-1.033-.133-1.185-.633-.152-.5.133-1.033.633-1.185 4.417-1.341 9.914-.689 13.663 1.615.446.274.588.86.314 1.306zm.126-3.399C15.18 8.36 8.71 8.146 4.969 9.282c-.602.183-1.242-.166-1.425-.768-.183-.602.166-1.242.768-1.425 4.316-1.31 11.458-1.063 15.98 1.621.541.321.718 1.022.397 1.563-.321.541-1.022.718-1.563.397z"/>
-                </svg>
+                <SpotifyLogo className="w-4 h-4 text-white shrink-0" />
                 <span>Spotify</span>
-                <ExternalLink className="w-3 h-3 text-black/70" />
+                <ExternalLink className="w-3.5 h-3.5 text-white/80" />
               </a>
 
               <a
                 href="https://youtu.be/RVuiWbT_mNk"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="touch-target-44 flex-1 py-2.5 px-3 gradient-lila-rosa-rojo text-white hover:opacity-95 rounded-lg flex items-center justify-center gap-1.5 text-xs font-semibold transition-all"
+                className="touch-target-44 flex-1 py-2.5 px-3 gradient-lila-rosa-rojo text-white hover:opacity-95 rounded-lg flex items-center justify-center gap-1.5 text-xs font-semibold transition-all shadow-md"
               >
-                <Play className="w-3.5 h-3.5 fill-current" />
+                <YouTubeLogo className="w-4 h-4 text-white shrink-0" />
                 <span>YouTube</span>
-                <ExternalLink className="w-3 h-3" />
+                <ExternalLink className="w-3.5 h-3.5 text-white/80" />
               </a>
             </div>
           </Card3D>
@@ -958,8 +870,8 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
           {/* Card 2: EP My World (Ya disponible en Spotify) */}
           <Card3D
             intensity={5}
-            glowColor="rgba(236, 72, 153, 0.22)"
-            className="bg-[#111118] border border-[#ec4899]/50 hover:border-[#00d4ff] rounded-xl p-5 group shadow-[0_0_20px_rgba(236,72,153,0.12)]"
+            glowColor="rgba(236, 72, 153, 0.3)"
+            className="bg-[#0e0e15]/95 backdrop-blur-md border border-[#ec4899]/60 hover:border-[#00d4ff] rounded-xl p-5 group shadow-[0_0_28px_rgba(236,72,153,0.2)]"
           >
             <div>
               <div className="relative aspect-square rounded-lg overflow-hidden bg-[#0a0a0f] mb-4">
@@ -977,25 +889,34 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                     ? 'YA EN SPOTIFY'
                     : 'OUT ON SPOTIFY'}
                 </span>
-                <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#050507]/85 backdrop-blur-md border border-[#1DB954]/60 text-[10px] font-mono text-[#1ed760] shadow-[0_0_10px_rgba(29,185,84,0.3)]">
+                <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#050507]/90 backdrop-blur-md border border-[#1DB954]/70 text-[10px] font-mono text-[#1ed760] font-semibold shadow-[0_0_12px_rgba(29,185,84,0.35)]">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#1DB954] animate-pulse" />
                   <span>Álbum</span>
                 </div>
               </div>
-              <div className="text-xs font-mono text-[#ec4899] mb-1 tabular-nums">
+              <div className="text-xs font-mono text-[#ec4899] font-semibold mb-1 tabular-nums tracking-wide">
                 {language === 'ca'
                   ? 'EP CONCEPTUAL · 2025 · 3 TEMES'
                   : language === 'es'
                   ? 'EP CONCEPTUAL · 2025 · 3 TEMAS'
                   : 'CONCEPTUAL EP · 2025 · 3 TRACKS'}
               </div>
-              <h3 className="font-['Cormorant_Garamond'] font-semibold text-2xl text-[#ffffff]">
+              <h3 className="font-['Cormorant_Garamond'] font-bold text-2xl sm:text-3xl text-[#ffffff] drop-shadow-sm">
                 EP My World
               </h3>
-              <ul className="text-xs text-[#a1a1b5] mt-2 space-y-1 font-mono tabular-nums">
-                <li>01. 1 Minuto y 10 Segundos</li>
-                <li>02. Lo Material No Lo Es Todo</li>
-                <li>03. Fuck Sistema</li>
+              <ul className="text-xs sm:text-sm text-[#ffffff] mt-3 space-y-1.5 font-mono tabular-nums">
+                <li className="flex items-center gap-2">
+                  <span className="text-[#ec4899] font-bold">01.</span>
+                  <span className="text-[#f8fafc] font-medium">1 Minuto y 10 Segundos</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-[#ec4899] font-bold">02.</span>
+                  <span className="text-[#f8fafc] font-medium">Lo Material No Lo Es Todo</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-[#ec4899] font-bold">03.</span>
+                  <span className="text-[#f8fafc] font-medium">Fuck Sistema</span>
+                </li>
               </ul>
             </div>
 
@@ -1004,22 +925,22 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                 href="https://open.spotify.com/album/25v5dLghLWzumiIXqLDD8A?si=yVkoZMeNSnGFTFE8P48Pug"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="touch-target-44 flex-1 py-2.5 px-3 bg-[#1DB954] hover:bg-[#1ed760] text-black font-semibold rounded-lg flex items-center justify-center gap-1.5 text-xs transition-all shadow-[0_0_12px_rgba(29,185,84,0.25)]"
+                className="touch-target-44 flex-1 py-2.5 px-3 bg-[#1DB954] hover:bg-[#1ed760] text-white font-semibold rounded-lg flex items-center justify-center gap-1.5 text-xs transition-all shadow-[0_0_14px_rgba(29,185,84,0.3)]"
               >
-                <Radio className="w-3.5 h-3.5 shrink-0" />
+                <SpotifyLogo className="w-4 h-4 text-white shrink-0" />
                 <span>Spotify</span>
-                <ExternalLink className="w-3 h-3 text-black/70" />
+                <ExternalLink className="w-3.5 h-3.5 text-white/80" />
               </a>
 
               <a
                 href="https://www.youtube.com/watch?v=lCwhG67eijs&list=PLs6c6tp_0W8Q_4mPsWLRQ8Zwt569Rpe5x"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="touch-target-44 flex-1 py-2.5 px-3 gradient-lila-rosa-rojo text-white hover:opacity-95 rounded-lg flex items-center justify-center gap-1.5 text-xs font-semibold transition-all"
+                className="touch-target-44 flex-1 py-2.5 px-3 gradient-lila-rosa-rojo text-white hover:opacity-95 rounded-lg flex items-center justify-center gap-1.5 text-xs font-semibold transition-all shadow-md"
               >
-                <Play className="w-3.5 h-3.5 fill-current" />
+                <YouTubeLogo className="w-4 h-4 text-white shrink-0" />
                 <span>YouTube</span>
-                <ExternalLink className="w-3 h-3" />
+                <ExternalLink className="w-3.5 h-3.5 text-white/80" />
               </a>
             </div>
           </Card3D>
@@ -1027,8 +948,8 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
           {/* Card 3: Nose si estaré mañana (Single Oficial 2026) */}
           <Card3D
             intensity={5}
-            glowColor="rgba(0, 212, 255, 0.18)"
-            className="bg-[#111118] border border-[#22222e] hover:border-[#00d4ff] rounded-xl p-5 group"
+            glowColor="rgba(0, 212, 255, 0.25)"
+            className="bg-[#0e0e15]/95 backdrop-blur-md border border-[#00d4ff]/40 hover:border-[#00d4ff] rounded-xl p-5 group shadow-[0_0_24px_rgba(0,212,255,0.15)]"
           >
             <div>
               <div className="relative aspect-square rounded-lg overflow-hidden bg-[#0a0a0f] mb-4">
@@ -1046,18 +967,22 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                     ? 'SENCILLO OFICIAL'
                     : 'OFFICIAL SINGLE'}
                 </span>
+                <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#050507]/90 backdrop-blur-md border border-[#1DB954]/70 text-[10px] font-mono text-[#1ed760] font-semibold shadow-[0_0_12px_rgba(29,185,84,0.35)]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1DB954] animate-pulse" />
+                  <span>Spotify</span>
+                </div>
               </div>
-              <div className="text-xs font-mono text-[#00d4ff] mb-1 tabular-nums">
+              <div className="text-xs font-mono text-[#00d4ff] font-semibold mb-1 tabular-nums tracking-wide">
                 {language === 'ca'
                   ? 'SENZILL 2026 · 1.2K+ REPS'
                   : language === 'es'
                   ? 'SENCILLO 2026 · 1.2K+ REPS'
                   : 'SINGLE 2026 · 1.2K+ PLAYS'}
               </div>
-              <h3 className="font-['Cormorant_Garamond'] font-semibold text-2xl text-[#ffffff]">
+              <h3 className="font-['Cormorant_Garamond'] font-bold text-2xl sm:text-3xl text-[#ffffff] drop-shadow-sm">
                 Nose si estaré mañana
               </h3>
-              <p className="text-[#a1a1b5] text-xs sm:text-sm mt-2 leading-relaxed">
+              <p className="text-[#f1f5f9] text-xs sm:text-sm mt-2 leading-relaxed font-normal">
                 {language === 'ca'
                   ? 'Un single carregat d’urgència vital, melodies introspectives i la veu pura de RAFA 930.'
                   : language === 'es'
@@ -1071,57 +996,47 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                 href={OFFICIAL_SPOTIFY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="touch-target-44 flex-1 py-2.5 px-3 bg-[#1DB954] hover:bg-[#1ed760] text-black font-semibold rounded-lg flex items-center justify-center gap-1.5 text-xs transition-all"
+                className="touch-target-44 flex-1 py-2.5 px-3 bg-[#1DB954] hover:bg-[#1ed760] text-white font-semibold rounded-lg flex items-center justify-center gap-1.5 text-xs transition-all shadow-[0_0_14px_rgba(29,185,84,0.3)]"
               >
-                <Radio className="w-3.5 h-3.5 shrink-0" />
+                <SpotifyLogo className="w-4 h-4 text-white shrink-0" />
                 <span>Spotify</span>
-                <ExternalLink className="w-3 h-3 text-black/70" />
+                <ExternalLink className="w-3.5 h-3.5 text-white/80" />
               </a>
 
               <a
                 href="https://www.youtube.com/watch?v=WaV1KeSN5_4"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="touch-target-44 flex-1 py-2.5 px-3 gradient-lila-rosa-rojo text-white hover:opacity-95 rounded-lg flex items-center justify-center gap-1.5 text-xs font-semibold transition-all"
+                className="touch-target-44 flex-1 py-2.5 px-3 gradient-lila-rosa-rojo text-white hover:opacity-95 rounded-lg flex items-center justify-center gap-1.5 text-xs font-semibold transition-all shadow-md"
               >
-                <Play className="w-3.5 h-3.5 fill-current" />
+                <YouTubeLogo className="w-4 h-4 text-white shrink-0" />
                 <span>YouTube</span>
-                <ExternalLink className="w-3 h-3" />
+                <ExternalLink className="w-3.5 h-3.5 text-white/80" />
               </a>
             </div>
           </Card3D>
         </div>
+        </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* CAPÍTULO IV · EQUIPO & COLABORADORES */}
-      {/* ========================================================================= */}
       <section
-        className="py-16 md:py-24 px-4 sm:px-6 md:px-10 border-b border-[#22222e] bg-[#0a0a0f]"
+        className="relative py-16 md:py-24 px-4 sm:px-6 md:px-10 bg-[#0a0a0f] overflow-hidden"
         id="colaboraciones"
       >
-        <div className="max-w-7xl mx-auto">
+        {/* Fondo fotográfico auténtico de Estudio y Equipo Creativo con presencia y contraste */}
+        <div className="absolute inset-0 pointer-events-none opacity-65 overflow-hidden select-none">
+          <img
+            src={ARTIST_IMAGES.studioCrewBg}
+            alt="Sesión en estudio del Equipo Creativo RAFA 930"
+            className="w-full h-full object-cover scale-105 filter contrast-125 brightness-95 saturate-125"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/60 to-[#0a0a0f]/80" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#0a0a0f_90%)]" />
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
-              <div className="flex items-center gap-2 text-xs font-mono text-[#a1a1b5] mb-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] shadow-[0_0_8px_#00d4ff]" />
-                <span className="text-[#a855f7] font-semibold">
-                  {language === 'ca'
-                    ? '04. DIRECTORI DE TALENT'
-                    : language === 'es'
-                    ? '04. DIRECTORIO DE TALENTO'
-                    : '04. TALENT DIRECTORY'}
-                </span>
-                <span aria-hidden="true" className="text-[#00d4ff]">·</span>
-                <span>
-                  {language === 'ca'
-                    ? '7 COL·LABORADORS CLAU'
-                    : language === 'es'
-                    ? '7 COLABORADORES CLAVE'
-                    : '7 KEY COLLABORATORS'}
-                </span>
-              </div>
-              <h2 className="font-['Cormorant_Garamond'] text-3xl sm:text-5xl font-semibold text-[#ffffff]">
+              <h2 className="font-['Cormorant_Garamond'] text-3xl sm:text-5xl font-semibold text-[#ffffff] drop-shadow-md">
                 {language === 'ca'
                   ? 'Equip Creatiu & Col·laboracions'
                   : language === 'es'
@@ -1139,8 +1054,8 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                 <Card3D
                   key={c.id}
                   intensity={4}
-                  glowColor="rgba(236, 72, 153, 0.16)"
-                  className="bg-[#111118] border border-[#22222e] hover:border-[#ec4899] rounded-xl overflow-hidden group"
+                  glowColor="rgba(236, 72, 153, 0.22)"
+                  className="bg-[#0e0e15]/95 backdrop-blur-md border border-[#303042] hover:border-[#ec4899] rounded-xl overflow-hidden group shadow-xl"
                 >
                   <div>
                     <div className="relative aspect-[4/4] w-full overflow-hidden bg-[#0a0a0f] border-b border-[#22222e]">
@@ -1151,16 +1066,16 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                         src={c.avatarUrl}
                         loading="lazy"
                       />
-                      <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#050507]/85 backdrop-blur-md border border-[#ec4899]/40 text-[11px] font-mono text-[#ec4899] font-semibold">
+                      <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#050507]/90 backdrop-blur-md border border-[#ec4899]/60 text-[11px] font-mono text-[#ec4899] font-bold shadow-md">
                         {roleText}
                       </div>
                     </div>
 
                     <div className="p-4">
-                      <h3 className="font-['Cormorant_Garamond'] font-semibold text-xl text-[#ffffff] leading-snug">
+                      <h3 className="font-['Cormorant_Garamond'] font-bold text-xl text-[#ffffff] leading-snug drop-shadow-sm">
                         {c.name}
                       </h3>
-                      <div className="text-xs font-mono text-[#a1a1b5] mt-0.5 truncate">
+                      <div className="text-xs font-mono text-[#cbd5e1] mt-1 truncate font-medium">
                         {c.handle}
                       </div>
                     </div>
@@ -1168,13 +1083,16 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
 
                   <div className="px-4 pb-4 pt-2 flex">
                     <a
-                      className="touch-target-44 w-full px-3 py-2 bg-[#0a0a0f] border border-[#22222e] hover:border-[#00d4ff] rounded-lg text-xs font-mono text-[#c084fc] hover:text-[#00d4ff] flex items-center justify-between transition-colors"
+                      className="touch-target-44 w-full px-3 py-2 bg-[#181824] hover:bg-[#202032] border border-[#38384f] hover:border-[#ec4899] rounded-lg text-xs font-mono text-[#e2e8f0] hover:text-[#ffffff] flex items-center justify-between transition-all shadow-sm group/ig"
                       href={c.instagramUrl}
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      <span className="truncate">Instagram · {c.handle}</span>
-                      <ExternalLink className="w-3.5 h-3.5 shrink-0 text-[#00d4ff]" />
+                      <div className="flex items-center gap-2 truncate">
+                        <InstagramLogo className="w-4 h-4 text-[#ec4899] group-hover/ig:scale-110 transition-transform shrink-0" colored={true} />
+                        <span className="truncate font-semibold text-[#f1f5f9] group-hover/ig:text-[#ec4899]">{c.handle}</span>
+                      </div>
+                      <ExternalLink className="w-3.5 h-3.5 shrink-0 text-[#ec4899]" />
                     </a>
                   </div>
                 </Card3D>
@@ -1188,136 +1106,129 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
       {/* CAPÍTULO V · CONTACTO PROFESIONAL */}
       {/* ========================================================================= */}
       <section
-        className="py-16 md:py-24 px-4 sm:px-6 md:px-10 max-w-7xl mx-auto"
+        className="relative py-16 md:py-24 px-4 sm:px-6 md:px-10 overflow-hidden"
         id="contacto"
       >
-        <div className="flex items-center gap-2 text-xs font-mono text-[#a1a1b5] mb-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] shadow-[0_0_8px_#00d4ff]" />
-          <span className="text-[#ec4899] font-semibold">
-            {language === 'ca'
-              ? '05. CONTACTE & CONTRACTACIÓ'
-              : language === 'es'
-              ? '05. CONTACTO & CONTRATACIÓN'
-              : '05. CONTACT & BOOKING'}
-          </span>
-          <span aria-hidden="true" className="text-[#00d4ff]">·</span>
-          <span>
-            {language === 'ca'
-              ? 'RESPOSTA EN MENYS DE 24H'
-              : language === 'es'
-              ? 'RESPUESTA EN MENOS DE 24H'
-              : 'RESPONSE WITHIN 24H'}
-          </span>
+        {/* Fondo fotográfico auténtico con presencia y contraste */}
+        <div className="absolute inset-0 pointer-events-none opacity-55 overflow-hidden select-none">
+          <img
+            src={ARTIST_IMAGES.laMinaHeroBg}
+            alt="La Mina 08930"
+            className="w-full h-full object-cover scale-105 filter contrast-125 brightness-90 saturate-90"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/70 to-[#0a0a0f]/90" />
+          <div className="absolute inset-0 bg-[#0a0a0f]/40 backdrop-blur-[2px]" />
         </div>
 
-        <h2 className="font-['Cormorant_Garamond'] text-3xl sm:text-5xl font-semibold text-[#ffffff] mb-2">
-          {language === 'ca'
-            ? 'Treballem junts?'
-            : language === 'es'
-            ? '¿Trabajamos juntos?'
-            : 'Shall we work together?'}
-        </h2>
-        <p className="text-[#a1a1b5] text-sm sm:text-base max-w-2xl mb-10">
-          {language === 'ca'
-            ? 'Per a contractació de concerts, sessions de fotografia editorial o desenvolupament de projectes digitals a mida.'
-            : language === 'es'
-            ? 'Para contratación de conciertos, sesiones de fotografía editorial o desarrollo de proyectos digitales a medida.'
-            : 'For concert bookings, editorial photography sessions, or custom digital development projects.'}
-        </p>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <h2 className="font-['Cormorant_Garamond'] text-3xl sm:text-5xl font-semibold text-[#ffffff] mb-2 drop-shadow-md">
+            {language === 'ca'
+              ? 'Treballem junts?'
+              : language === 'es'
+              ? '¿Trabajamos juntos?'
+              : 'Shall we work together?'}
+          </h2>
+          <p className="text-[#cbd5e1] text-sm sm:text-base max-w-2xl mb-10 font-normal">
+            {language === 'ca'
+              ? 'Per a contractació de concerts, sessions de fotografia editorial o desenvolupament de projectes digitals a mida.'
+              : language === 'es'
+              ? 'Para contratación de conciertos, sesiones de fotografía editorial o desarrollo de proyectos digitales a medida.'
+              : 'For concert bookings, editorial photography sessions, or custom digital development projects.'}
+          </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          <div className="lg:col-span-5 space-y-4">
-            <div className="p-6 bg-[#111118] border border-[#22222e] rounded-xl space-y-2">
-              <div className="text-xs font-mono text-[#a855f7]">
-                {language === 'ca'
-                  ? '01. MÚSICA & BOOKING'
-                  : language === 'es'
-                  ? '01. MÚSICA & BOOKING'
-                  : '01. MUSIC & BOOKING'}
-              </div>
-              <p className="text-xs text-[#a1a1b5]">
-                {language === 'ca'
-                  ? 'Correu directe de contractació i management:'
-                  : language === 'es'
-                  ? 'Correo directo de contratación y management:'
-                  : 'Direct booking and management email:'}
-              </p>
-              <a
-                className="text-sm font-medium text-[#ffffff] hover:text-[#ec4899] transition-colors block break-all"
-                href="mailto:rafa.930music@gmail.com?subject=Consulta%20Profesional%20-%20RAFA%20930"
-              >
-                rafa.930music@gmail.com
-              </a>
-            </div>
-
-            <div className="p-6 bg-[#111118] border border-[#22222e] rounded-xl space-y-2">
-              <div className="text-xs font-mono text-[#ec4899]">
-                {language === 'ca'
-                  ? '02. DIRECCIÓ FOTOGRÀFICA'
-                  : language === 'es'
-                  ? '02. DIRECCIÓN FOTOGRÁFICA'
-                  : '02. PHOTOGRAPHY DIRECTION'}
-              </div>
-              <p className="text-xs text-[#a1a1b5] leading-relaxed">
-                {language === 'ca'
-                  ? 'Retrats d’estudi, exteriors, moda urbana i portades discogràfiques amb estètica editorial.'
-                  : language === 'es'
-                  ? 'Retratos de estudio, exteriores, moda urbana y portadas discográficas con estética editorial.'
-                  : 'Studio portraits, outdoor shoots, urban fashion, and album covers with an editorial aesthetic.'}
-              </p>
-            </div>
-
-            <div className="p-6 bg-[#111118] border border-[#00d4ff]/35 rounded-xl space-y-3 shadow-[0_0_20px_rgba(0,212,255,0.08)]">
-              <div className="text-xs font-mono text-[#00d4ff] font-semibold">
-                {language === 'ca'
-                  ? '03. DESENVOLUPAMENT WEB & ESTUDI DIGITAL'
-                  : language === 'es'
-                  ? '03. DESARROLLO WEB & ESTUDIO DIGITAL'
-                  : '03. WEB DEVELOPMENT & DIGITAL STUDIO'}
-              </div>
-              <p className="text-xs text-[#a1a1b5] leading-relaxed">
-                {language === 'ca'
-                  ? 'Disseny i desenvolupament de pàgines web, portfolis artístics i dossiers interactius.'
-                  : language === 'es'
-                  ? 'Diseño y desarrollo de páginas web, portfolios artísticos y dossiers interactivos.'
-                  : 'Design and development of websites, artistic portfolios, and interactive presskits.'}
-              </p>
-              <a
-                className="touch-target-44 w-full py-2.5 bg-[#0a0a0f] border border-[#00d4ff]/45 hover:border-[#00d4ff] hover:bg-[#00d4ff]/10 text-[#00d4ff] rounded-lg text-xs font-mono flex items-center justify-center gap-1.5 transition-colors"
-                href="https://rafa930music-sudo.github.io/930-Digital/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div className="lg:col-span-5 space-y-4">
+              <div className="p-6 bg-[#0e0e15]/95 backdrop-blur-md border border-[#303042] rounded-xl space-y-2 shadow-xl">
+                <div className="text-xs font-mono text-[#c084fc] font-bold tracking-wide">
                   {language === 'ca'
-                    ? 'Visitar Estudi Digital'
+                    ? '01. MÚSICA & BOOKING'
                     : language === 'es'
-                    ? 'Visitar Estudio Digital'
-                    : 'Visit Digital Studio'}
-                </span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
+                    ? '01. MÚSICA & BOOKING'
+                    : '01. MUSIC & BOOKING'}
+                </div>
+                <p className="text-xs text-[#cbd5e1]">
+                  {language === 'ca'
+                    ? 'Correu directe de contractació i management:'
+                    : language === 'es'
+                    ? 'Correo directo de contratación y management:'
+                    : 'Direct booking and management email:'}
+                </p>
+                <a
+                  className="text-sm font-semibold text-[#ffffff] hover:text-[#ec4899] transition-colors block break-all"
+                  href="mailto:rafa.930music@gmail.com?subject=Consulta%20Profesional%20-%20RAFA%20930"
+                >
+                  rafa.930music@gmail.com
+                </a>
+              </div>
 
-          <div className="lg:col-span-7">
-            <div className="bg-[#111118] border border-[#22222e] p-6 sm:p-8 rounded-xl">
-              <div className="mb-6">
-                <h3 className="font-['Cormorant_Garamond'] text-2xl font-semibold text-[#ffffff] mb-1">
+              <div className="p-6 bg-[#0e0e15]/95 backdrop-blur-md border border-[#303042] rounded-xl space-y-2 shadow-xl">
+                <div className="text-xs font-mono text-[#ec4899] font-bold tracking-wide">
                   {language === 'ca'
-                    ? 'Sol·licitud d’Informació'
+                    ? '02. DIRECCIÓ FOTOGRÀFICA'
                     : language === 'es'
-                    ? 'Solicitud de Información'
-                    : 'Information Request'}
-                </h3>
-                <p className="text-[#a1a1b5] text-xs">
+                    ? '02. DIRECCIÓN FOTOGRÁFICA'
+                    : '02. PHOTOGRAPHY DIRECTION'}
+                </div>
+                <p className="text-xs text-[#cbd5e1] leading-relaxed">
                   {language === 'ca'
-                    ? 'Completa les dades de la teva proposta i rebràs resposta en menys de 24 hores.'
+                    ? 'Retrats d’estudi, exteriors, moda urbana i portades discogràfiques amb estètica editorial.'
                     : language === 'es'
-                    ? 'Completa los datos de tu propuesta y recibirás respuesta en menos de 24 horas.'
-                    : 'Complete your proposal details and receive a response within 24 hours.'}
+                    ? 'Retratos de estudio, exteriores, moda urbana y portadas discográficas con estética editorial.'
+                    : 'Studio portraits, outdoor shoots, urban fashion, and album covers with an editorial aesthetic.'}
                 </p>
               </div>
+
+              <div className="p-6 bg-[#0e0e15]/95 backdrop-blur-md border border-[#00d4ff]/50 rounded-xl space-y-3 shadow-[0_0_24px_rgba(0,212,255,0.14)]">
+                <div className="text-xs font-mono text-[#00d4ff] font-bold tracking-wide">
+                  {language === 'ca'
+                    ? '03. DESENVOLUPAMENT WEB & ESTUDI DIGITAL'
+                    : language === 'es'
+                    ? '03. DESARROLLO WEB & ESTUDIO DIGITAL'
+                    : '03. WEB DEVELOPMENT & DIGITAL STUDIO'}
+                </div>
+                <p className="text-xs text-[#cbd5e1] leading-relaxed">
+                  {language === 'ca'
+                    ? 'Disseny i desenvolupament de pàgines web, portfolis artístics i dossiers interactius.'
+                    : language === 'es'
+                    ? 'Diseño y desarrollo de páginas web, portfolios artísticos y dossiers interactivos.'
+                    : 'Design and development of websites, artistic portfolios, and interactive presskits.'}
+                </p>
+                <a
+                  className="touch-target-44 w-full py-2.5 bg-[#181824] hover:bg-[#202032] border border-[#00d4ff]/60 hover:border-[#00d4ff] text-[#00d4ff] hover:text-white rounded-lg text-xs font-mono font-semibold flex items-center justify-center gap-1.5 transition-colors shadow-sm"
+                  href="https://rafa930music-sudo.github.io/930-Digital/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>
+                    {language === 'ca'
+                      ? 'Visitar Estudi Digital'
+                      : language === 'es'
+                      ? 'Visitar Estudio Digital'
+                      : 'Visit Digital Studio'}
+                  </span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7">
+              <div className="bg-[#0e0e15]/95 backdrop-blur-md border border-[#303042] p-6 sm:p-8 rounded-xl shadow-2xl">
+                <div className="mb-6">
+                  <h3 className="font-['Cormorant_Garamond'] text-2xl font-bold text-[#ffffff] mb-1">
+                    {language === 'ca'
+                      ? 'Sol·licitud d’Informació'
+                      : language === 'es'
+                      ? 'Solicitud de Información'
+                      : 'Information Request'}
+                  </h3>
+                  <p className="text-[#cbd5e1] text-xs font-normal">
+                    {language === 'ca'
+                      ? 'Completa les dades de la teva proposta i rebràs resposta en menys de 24 hores.'
+                      : language === 'es'
+                      ? 'Completa los datos de tu propuesta y recibirás respuesta en menos de 24 horas.'
+                      : 'Complete your proposal details and receive a response within 24 hours.'}
+                  </p>
+                </div>
 
               {formSubmitted ? (
                 <div className="p-6 bg-[#0a0a0f] border border-[#ec4899] text-[#ffffff] rounded-xl space-y-2">
@@ -1394,7 +1305,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-mono text-[#a1a1b5] mb-1.5" htmlFor="nombre">
+                      <label className="block text-xs font-mono text-[#cbd5e1] font-semibold mb-1.5" htmlFor="nombre">
                         {language === 'ca'
                           ? 'Nom complet *'
                           : language === 'es'
@@ -1414,12 +1325,12 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                             ? 'Tu nombre o entidad'
                             : 'Your name or organization'
                         }
-                        className="touch-target-48 w-full px-4 bg-[#0a0a0f] border border-[#22222e] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#ec4899] text-sm"
+                        className="touch-target-48 w-full px-4 bg-[#08080d] border border-[#38384f] rounded-lg text-[#ffffff] placeholder:text-[#64748b] focus:outline-none focus:border-[#ec4899] focus:ring-1 focus:ring-[#ec4899] text-base sm:text-sm font-medium"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-mono text-[#a1a1b5] mb-1.5" htmlFor="email">
+                      <label className="block text-xs font-mono text-[#cbd5e1] font-semibold mb-1.5" htmlFor="email">
                         {language === 'ca'
                           ? 'Correu electrònic *'
                           : language === 'es'
@@ -1433,14 +1344,14 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="nombre@dominio.com"
-                        className="touch-target-48 w-full px-4 bg-[#0a0a0f] border border-[#22222e] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#ec4899] text-sm"
+                        className="touch-target-48 w-full px-4 bg-[#08080d] border border-[#38384f] rounded-lg text-[#ffffff] placeholder:text-[#64748b] focus:outline-none focus:border-[#ec4899] focus:ring-1 focus:ring-[#ec4899] text-base sm:text-sm font-medium"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-mono text-[#a1a1b5] mb-1.5" htmlFor="telefono">
+                      <label className="block text-xs font-mono text-[#cbd5e1] font-semibold mb-1.5" htmlFor="telefono">
                         {language === 'ca'
                           ? 'Telèfon / WhatsApp'
                           : language === 'es'
@@ -1453,12 +1364,12 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+34 600 000 000"
-                        className="touch-target-48 w-full px-4 bg-[#0a0a0f] border border-[#22222e] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#ec4899] text-sm"
+                        className="touch-target-48 w-full px-4 bg-[#08080d] border border-[#38384f] rounded-lg text-[#ffffff] placeholder:text-[#64748b] focus:outline-none focus:border-[#ec4899] focus:ring-1 focus:ring-[#ec4899] text-base sm:text-sm font-medium"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-mono text-[#a1a1b5] mb-1.5" htmlFor="tipo_consulta">
+                      <label className="block text-xs font-mono text-[#cbd5e1] font-semibold mb-1.5" htmlFor="tipo_consulta">
                         {language === 'ca'
                           ? 'Àrea de consulta *'
                           : language === 'es'
@@ -1469,7 +1380,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                         id="tipo_consulta"
                         value={formData.type}
                         onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                        className="touch-target-48 w-full px-4 bg-[#0a0a0f] border border-[#22222e] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#ec4899] text-sm"
+                        className="touch-target-48 w-full px-4 bg-[#08080d] border border-[#38384f] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#ec4899] focus:ring-1 focus:ring-[#ec4899] text-base sm:text-sm font-medium"
                       >
                         <option value="concierto">
                           {language === 'ca'
@@ -1511,7 +1422,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono text-[#a1a1b5] mb-1.5" htmlFor="mensaje">
+                    <label className="block text-xs font-mono text-[#cbd5e1] font-semibold mb-1.5" htmlFor="mensaje">
                       {language === 'ca'
                         ? 'Detalls del projecte'
                         : language === 'es'
@@ -1530,7 +1441,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                           ? 'Describe brevemente tu proyecto, fechas o necesidades...'
                           : 'Briefly describe your project, dates, or requirements...'
                       }
-                      className="w-full p-4 bg-[#0a0a0f] border border-[#22222e] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#ec4899] text-sm min-h-[100px]"
+                      className="w-full p-4 bg-[#08080d] border border-[#38384f] rounded-lg text-[#ffffff] placeholder:text-[#64748b] focus:outline-none focus:border-[#ec4899] focus:ring-1 focus:ring-[#ec4899] text-base sm:text-sm min-h-[100px] font-medium"
                     />
                   </div>
 
@@ -1541,16 +1452,16 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                       required
                       checked={formData.privacy}
                       onChange={(e) => setFormData({ ...formData, privacy: e.target.checked })}
-                      className="touch-target-44 w-5 h-5 rounded bg-[#0a0a0f] border-[#22222e] text-[#ec4899] cursor-pointer"
+                      className="touch-target-44 w-5 h-5 rounded bg-[#08080d] border-[#38384f] text-[#ec4899] cursor-pointer"
                     />
-                    <label htmlFor="privacidad" className="text-xs text-[#a1a1b5] cursor-pointer">
+                    <label htmlFor="privacidad" className="text-xs text-[#cbd5e1] cursor-pointer">
                       {language === 'ca' ? (
                         <>
                           He llegit i accepto la{' '}
                           <button
                             type="button"
                             onClick={() => onOpenLegalTab && onOpenLegalTab('privacitat')}
-                            className="text-[#ec4899] underline font-semibold"
+                            className="text-[#ec4899] hover:text-[#00d4ff] font-semibold transition-colors"
                           >
                             política de privacitat i tractament RGPD
                           </button>
@@ -1561,7 +1472,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                           <button
                             type="button"
                             onClick={() => onOpenLegalTab && onOpenLegalTab('privacitat')}
-                            className="text-[#ec4899] underline font-semibold"
+                            className="text-[#ec4899] hover:text-[#00d4ff] font-semibold transition-colors"
                           >
                             política de privacidad y tratamiento RGPD
                           </button>
@@ -1572,7 +1483,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                           <button
                             type="button"
                             onClick={() => onOpenLegalTab && onOpenLegalTab('privacitat')}
-                            className="text-[#ec4899] underline font-semibold"
+                            className="text-[#ec4899] hover:text-[#00d4ff] font-semibold transition-colors"
                           >
                             privacy policy and GDPR processing
                           </button>
@@ -1614,6 +1525,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
               )}
             </div>
           </div>
+        </div>
         </div>
       </section>
     </div>

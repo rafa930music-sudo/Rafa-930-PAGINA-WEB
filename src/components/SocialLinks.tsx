@@ -558,6 +558,7 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
               rel="noopener noreferrer"
               className="px-3.5 py-1.5 rounded-lg gradient-lila-rosa-rojo text-white text-xs font-semibold inline-flex items-center gap-1.5 hover:opacity-95 transition-opacity"
             >
+              <YouTubeLogo className="w-3.5 h-3.5 text-white shrink-0" />
               <span>Abrir en YouTube</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>

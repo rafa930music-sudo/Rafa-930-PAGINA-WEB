@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Language } from '../../types';
-import { SERVICE_PACKAGES } from '../../data/content';
+import { SERVICE_PACKAGES, ARTIST_IMAGES } from '../../data/content';
 import {
   sanitizeUserInput,
   isValidEmail,
@@ -364,45 +364,57 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
   };
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-10 sm:py-16 space-y-16 overflow-hidden">
+    <div className="relative w-full min-h-screen py-10 sm:py-16 overflow-hidden">
+      {/* Background image full width 100% */}
+      <div className="absolute inset-0 pointer-events-none opacity-20 overflow-hidden select-none z-0">
+        <img
+          src={ARTIST_IMAGES.studioCrewBg}
+          alt=""
+          className="w-full h-full object-cover object-center filter contrast-125 brightness-75 scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050507] via-[#050507]/85 to-[#050507]" />
+      </div>
+
       <SectionColorBubbles variant="electric" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 space-y-16">
 
       {/* Editorial Header */}
       <div className="border-b border-[#22222e] pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
           <div className="flex items-center gap-2 text-xs font-mono text-[#a1a1b5] mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff]" />
-            <span className="text-[#ec4899] font-semibold">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] shadow-[0_0_8px_#00d4ff]" />
+            <span className="text-[#ec4899] font-bold">
               {language === 'ca'
-                ? 'SERVEIS PROFESSIONALS · RAFA 930'
+                ? '930 ESTUDI & PRODUCCIÓ DIGITAL'
                 : language === 'es'
-                ? 'SERVICIOS PROFESIONALES · RAFA 930'
-                : 'PROFESSIONAL SERVICES · RAFA 930'}
+                ? '930 ESTUDIO & PRODUCCIÓN DIGITAL'
+                : '930 STUDIO & DIGITAL PRODUCTION'}
             </span>
             <span aria-hidden="true" className="text-[#00d4ff]">·</span>
             <span>
               {language === 'ca'
-                ? 'MÚSICA, FOTOGRAFIA & DESENVOLUPAMENT WEB'
+                ? 'MÚSICA, FOTOGRAFIA EDITORIAL & DESENVOLUPAMENT WEB'
                 : language === 'es'
-                ? 'MÚSICA, FOTOGRAFÍA & DESARROLLO WEB'
-                : 'MUSIC, PHOTOGRAPHY & WEB DEVELOPMENT'}
+                ? 'MÚSICA, FOTOGRAFÍA EDITORIAL & DESARROLLO WEB'
+                : 'MUSIC, EDITORIAL PHOTOGRAPHY & WEB DEV'}
             </span>
           </div>
 
           <h1 className="font-['Cormorant_Garamond'] text-4xl sm:text-6xl font-semibold text-[#ffffff]">
             {language === 'ca'
-              ? 'Solucions Creatives & Digitals'
+              ? 'Estudi & Serveis Creatius'
               : language === 'es'
-              ? 'Soluciones Creativas & Digitales'
-              : 'Creative & Digital Solutions'}
+              ? 'Estudio & Servicios Creativos'
+              : 'Studio & Creative Services'}
           </h1>
 
-          <p className="text-[#a1a1b5] text-base max-w-2xl mt-2 leading-relaxed">
+          <p className="text-[#e2e8f0] text-base max-w-2xl mt-2 leading-relaxed">
             {language === 'ca'
-              ? 'Producció artística i desenvolupament digital per a músics, marques i professionals. Selecciona una disciplina i sol·licita el teu pressupost a mida.'
+              ? 'Espai creatiu integral: composició musical urbana, sessions fotogràfiques en clarobscur d’alt contrast i plataformes web professionals amb 930 Digital. Demana pressupost personalitzat sense compromís.'
               : language === 'es'
-              ? 'Producción artística y desarrollo digital para músicos, marcas y profesionales. Selecciona una disciplina y solicita tu presupuesto a medida.'
-              : 'Artistic production and digital development for musicians, brands, and professionals. Select a discipline and request your custom quote.'}
+              ? 'Espacio creativo integral: composición musical urbana, sesiones fotográficas en claroscuro de alto contraste y plataformas web profesionales con 930 Digital. Solicita presupuesto personalizado sin compromiso.'
+              : 'Comprehensive creative space: urban music composition, high-contrast chiaroscuro photo sessions, and professional web platforms with 930 Digital. Request a tailored quote with no commitment.'}
           </p>
         </div>
 
@@ -657,7 +669,7 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
                           ? 'Tu nombre o marca'
                           : 'Your name or brand'
                       }
-                      className="w-full px-3 py-2 rounded-lg bg-[#0a0a0f] border border-[#22222e] text-xs text-white focus:outline-none focus:border-[#ec4899]"
+                      className="w-full px-3 py-2 rounded-lg bg-[#0a0a0f] border border-[#22222e] text-base sm:text-xs text-white focus:outline-none focus:border-[#ec4899]"
                     />
                   </div>
 
@@ -671,7 +683,7 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
                       value={clientEmail}
                       onChange={(e) => setClientEmail(e.target.value)}
                       placeholder="email@domain.com"
-                      className="w-full px-3 py-2 rounded-lg bg-[#0a0a0f] border border-[#22222e] text-xs text-white focus:outline-none focus:border-[#ec4899]"
+                      className="w-full px-3 py-2 rounded-lg bg-[#0a0a0f] border border-[#22222e] text-base sm:text-xs text-white focus:outline-none focus:border-[#ec4899]"
                     />
                   </div>
 
@@ -690,7 +702,7 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
                           ? 'Fecha orientativa, idea o comentarios'
                           : 'Target date, idea or comments'
                       }
-                      className="w-full px-3 py-2 rounded-lg bg-[#0a0a0f] border border-[#22222e] text-xs text-white focus:outline-none focus:border-[#ec4899]"
+                      className="w-full px-3 py-2 rounded-lg bg-[#0a0a0f] border border-[#22222e] text-base sm:text-xs text-white focus:outline-none focus:border-[#ec4899]"
                     />
                   </div>
 
@@ -698,7 +710,7 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
                     <button
                       type="submit"
                       disabled={quoteSending}
-                      className="flex-1 py-2.5 px-3 rounded-lg gradient-lila-rosa-rojo text-white font-semibold text-xs flex items-center justify-center gap-1.5 shadow-md"
+                      className="touch-target-44 flex-1 py-2.5 px-3 rounded-lg gradient-lila-rosa-rojo text-white font-semibold text-xs flex items-center justify-center gap-1.5 shadow-md"
                     >
                       {quoteSending ? (
                         <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -780,6 +792,7 @@ export const ServeisScreen: React.FC<ServeisScreenProps> = ({ language }) => {
           </div>
         </div>
       </section>
+      </div>
     </div>
   );
 };

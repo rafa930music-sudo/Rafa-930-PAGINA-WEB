@@ -19,6 +19,9 @@ import pasanLosDiasNew from '@/src/assets/images/pasan-los-dias-new.jpg';
 import unAmorProhibidoNew from '@/src/assets/images/un-amor-prohibido-new.png';
 import hagoDineroNew from '@/src/assets/images/hago-dinero-new.jpg';
 
+import metallicCyberBg from '@/src/assets/images/metallic_cyber_texture_1793815475887.jpg';
+import studioCrewBg from '@/src/assets/images/studio_crew_session_1793816322490.jpg';
+
 export const OFFICIAL_SPOTIFY_URL = 'https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng';
 export const OFFICIAL_YOUTUBE_URL = 'https://www.youtube.com/@rafa_930';
 export const OFFICIAL_INSTAGRAM_URL = 'https://www.instagram.com/rafa930_oficial';
@@ -39,6 +42,8 @@ export const OFFICIAL_LOGOS = {
 export const ARTIST_IMAGES = {
   heroPortrait: rafa930Cara,
   laMinaHeroBg: laMinaHeroBg,
+  metallicBg: metallicCyberBg,
+  studioCrewBg: studioCrewBg,
   libraryOrigin: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBIMi02-J8CtYH8J1lAHIZskWS59fYoM2-4hrCZ1VGGD2QGHblDY0pcd1OYoTa4C_EQs4yJ-VZWKkfPzaQnx6n_HihlkQT6f7T3tzNrn1dqwxELf2hFy9Fijm5M5IGxHQnNVs0DSLIZcw19Gy7v_Ow7EiVliX1AriJFYP2_PzZeiaR1sN4fXXXq1JrgKGq07iCrt1WBsGPT6QfmWbD6_sV6uhWhpTD9gKr-i2LZ61R1jrokXoPb9OZairijjRmxrs2l6g',
   deVuelta2026: deVueltaNew,
   single2026: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDGTYqFc3bFayNNyiHKhStt8PNvnFAtx3lLpQKAuqa3D7ySkL99KV7e0Rl-9rW_sH4gnGO55wKi4bmv6kh47F-D4YuSDcG0-7L521iycPf3d1VwY12NcDRaz6BvFU4outsxQSmkNb6lYyeQ080zJxYcQ0-QK4g3gPAPpKr0_PZYe3WLadjYPpUkjpNXSKPRWBEaGbBkropt8z4MbDK9CVjpDe1VXkOiRn5r2vpLNO0Oo1dsy3awaE5QN3Z4M74lLlEi0w',

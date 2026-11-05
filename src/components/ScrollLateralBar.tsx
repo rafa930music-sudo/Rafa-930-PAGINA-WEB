@@ -45,18 +45,18 @@ export const ScrollLateralBar: React.FC = () => {
       {/* Background guide track */}
       <div className="absolute inset-0 opacity-20 bg-gradient-to-b from-[#a855f7] via-[#00d4ff] to-[#ec4899]" />
 
-      {/* Progressive fill bar */}
+      {/* Progressive fill bar with animated neon glow */}
       <div
         className="w-full transition-[height] duration-75 ease-out relative"
         style={{
           height: `${scrollProgress}%`,
           background:
-            'linear-gradient(180deg, #a855f7 0%, #c084fc 22%, #ec4899 48%, #00d4ff 78%, #e11d48 100%)',
-          boxShadow: '0 0 8px rgba(0, 212, 255, 0.35)',
+            'linear-gradient(180deg, #a855f7 0%, #c084fc 22%, #ec4899 48%, #00d4ff 78%, #00f0ff 100%)',
+          boxShadow: '0 0 12px rgba(0, 240, 255, 0.6), 0 0 20px rgba(236, 72, 153, 0.4)',
         }}
       >
         {scrollProgress > 0 && (
-          <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-white/90 rounded-full" />
+          <div className="absolute bottom-0 left-0 right-0 h-2 bg-white rounded-full shadow-[0_0_12px_#ffffff,0_0_20px_#00d4ff] animate-pulse" />
         )}
       </div>
     </div>

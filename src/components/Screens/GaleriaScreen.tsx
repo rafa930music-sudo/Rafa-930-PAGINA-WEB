@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Language } from '../../types';
-import { GALLERY_PHOTOS } from '../../data/content';
+import { GALLERY_PHOTOS, ARTIST_IMAGES } from '../../data/content';
 import { Camera } from 'lucide-react';
+import { LazyImage } from '../LazyImage';
 
 interface GaleriaScreenProps {
   language: Language;
@@ -249,7 +250,18 @@ export const GaleriaScreen: React.FC<GaleriaScreenProps> = ({
       : GALLERY_PHOTOS.filter((p) => p.category === selectedCategory);
 
   return (
-    <div className="w-full px-4 sm:px-6 md:px-10 py-10 md:py-16 max-w-7xl mx-auto space-y-10">
+    <div className="relative w-full min-h-screen py-10 md:py-16 overflow-hidden">
+      {/* Background image full width 100% */}
+      <div className="absolute inset-0 pointer-events-none opacity-20 overflow-hidden select-none z-0">
+        <img
+          src={ARTIST_IMAGES.heroPortrait}
+          alt=""
+          className="w-full h-full object-cover object-top filter contrast-125 brightness-75 scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050507] via-[#050507]/85 to-[#050507]" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 space-y-10">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#22222e] pb-8">
         <div>
@@ -296,7 +308,7 @@ export const GaleriaScreen: React.FC<GaleriaScreenProps> = ({
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex flex-wrap items-center gap-1.5 p-1.5 bg-[#0a0a0f] border border-[#22222e] rounded-xl w-fit">
+      <div className="flex items-center gap-1.5 p-1.5 bg-[#0a0a0f] border border-[#22222e] rounded-xl max-w-full overflow-x-auto scrollbar-none w-fit">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -328,18 +340,10 @@ export const GaleriaScreen: React.FC<GaleriaScreenProps> = ({
               className="bg-[#0e0e15] border border-[#22222e] rounded-xl overflow-hidden transition-all duration-300 hover:border-[#38384a] select-none"
             >
               <div className="relative aspect-square bg-[#0a0a0f] overflow-hidden">
-                <img
+                <LazyImage
                   src={photo.imageUrl}
                   alt={title}
-                  referrerPolicy="no-referrer"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.03]"
-                  loading="lazy"
-                  decoding="async"
-                  onError={(e) => {
-                    // Resilient fallback container if image fails
-                    const target = e.currentTarget;
-                    target.style.display = 'none';
-                  }}
                 />
               </div>
 
@@ -360,6 +364,7 @@ export const GaleriaScreen: React.FC<GaleriaScreenProps> = ({
             </div>
           );
         })}
+      </div>
       </div>
     </div>
   );

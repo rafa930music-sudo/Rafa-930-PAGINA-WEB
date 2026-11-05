@@ -10,7 +10,8 @@ export type Screen =
   | 'serveis'
   | 'enllacos'
   | 'contacte'
-  | 'legal';
+  | 'legal'
+  | 'redes';
 
 export type ScreenId = Screen;
 export type ThemeMode = 'dark' | 'light';

@@ -148,6 +148,16 @@ export const Footer: React.FC<FooterProps> = ({
                   05. {language === 'ca' ? 'Booking & Contacte' : language === 'es' ? 'Booking & Contacto' : 'Booking & Contact'}
                 </button>
               </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => { onNavigate('redes'); scrollToTop(); }}
+                  className="hover:text-[#00d4ff] text-[#00d4ff] font-bold transition-colors py-0.5 flex items-center gap-1.5"
+                >
+                  <span>06. {language === 'ca' ? 'Redes Socials Oficials' : language === 'es' ? 'Redes Sociales Oficiales' : 'Official Social Networks'}</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#00d4ff]" />
+                </button>
+              </li>
             </ul>
           </div>
 

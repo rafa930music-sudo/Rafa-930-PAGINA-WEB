@@ -50,12 +50,12 @@ export const RafaBrandLogo: React.FC<RafaBrandLogoProps> = ({
           isTapped ? 'scale-110' : ''
         }`}
       >
-        {/* 'RAFA' with characteristic gradient fill (Lila, Rosa, Cyan) */}
+        {/* 'RAFA' in white by default, fills with characteristic gradient on hover/tap */}
         <span
-          className={`relative transition-all duration-300 drop-shadow-[0_2px_12px_rgba(0,212,255,0.4)] text-transparent bg-clip-text bg-gradient-to-r from-[#a855f7] via-[#ec4899] to-[#00d4ff] ${
+          className={`relative transition-all duration-300 ${
             isTapped
-              ? 'drop-shadow-[0_0_25px_rgba(0,212,255,1)] scale-105'
-              : 'group-hover:drop-shadow-[0_0_20px_rgba(236,72,153,0.9)]'
+              ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#a855f7] via-[#ec4899] to-[#00d4ff] drop-shadow-[0_0_25px_rgba(0,212,255,1)] scale-105'
+              : 'text-[#ffffff] group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#a855f7] group-hover:via-[#ec4899] group-hover:to-[#00d4ff] drop-shadow-[0_2px_12px_rgba(255,255,255,0.4)] group-hover:drop-shadow-[0_0_20px_rgba(236,72,153,0.9)]'
           }`}
         >
           RAFA

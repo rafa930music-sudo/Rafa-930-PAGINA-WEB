@@ -9,6 +9,7 @@ import { ScrollLateralBar } from './components/ScrollLateralBar';
 import { FloatingWidgets } from './components/FloatingWidgets';
 import { SplashScreen } from './components/SplashScreen';
 import { AmbientColorBubbles } from './components/AmbientColorBubbles';
+import { AmbientGlobalPlayer } from './components/AmbientGlobalPlayer';
 import { CookieConsentModal } from './components/CookieConsentModal';
 
 // Pantallas del diseño original
@@ -18,6 +19,7 @@ import { GaleriaScreen } from './components/Screens/GaleriaScreen';
 import { ServeisScreen } from './components/Screens/ServeisScreen';
 import { ContacteScreen } from './components/Screens/ContacteScreen';
 import { LegalScreen } from './components/Screens/LegalScreen';
+import { RedesScreen } from './components/Screens/RedesScreen';
 
 import { applyDynamicSeo } from './utils/seoAndSecurity';
 
@@ -78,6 +80,9 @@ export default function App() {
       {/* 3. Fondo atmosférico de estrellas y partículas orbitales */}
       <AmbientColorBubbles currentScreen={currentScreen} />
 
+      {/* 3b. Reproductor de sonido ambiental sutil en segundo plano para todo el sitio */}
+      <AmbientGlobalPlayer />
+
       {/* 4. Cabecera principal con barra de progreso, logotipo oficial y navegación completa */}
       <Header
         currentScreen={currentScreen}
@@ -126,6 +131,13 @@ export default function App() {
           <LegalScreen
             language={language}
             initialTab={legalTab}
+            onNavigate={handleSelectScreen}
+          />
+        )}
+
+        {currentScreen === 'redes' && (
+          <RedesScreen
+            language={language}
             onNavigate={handleSelectScreen}
           />
         )}
