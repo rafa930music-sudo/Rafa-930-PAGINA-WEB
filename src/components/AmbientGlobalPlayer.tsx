@@ -79,25 +79,42 @@ export const AmbientGlobalPlayer: React.FC = () => {
       }
     }
 
-    // Try 3: Default audio files (e.g. /assets/de-vuelta-ambient.wav)
+    // Try 3: Default audio files
     let playedDefaultFile = false;
     const baseUrl = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
-    for (const src of AMBIENT_AUDIO_CONFIG.candidatePaths) {
+    
+    // We try the default file first, then candidate paths
+    const pathsToTry = [
+        AMBIENT_AUDIO_CONFIG.defaultFilePath,
+        ...AMBIENT_AUDIO_CONFIG.candidatePaths
+    ];
+
+    for (const src of pathsToTry) {
       try {
-        const cleanPath = src.replace(/^\.\//, '').replace(/^\//, '');
-        const targetSrc = src.startsWith('http') ? src : `${baseUrl}/${cleanPath}`;
+        // Construct absolute URL: BASE_URL + path (ensuring no double slashes)
+        const cleanPath = src.replace(/^\/+/, '');
+        const targetSrc = `${baseUrl}/${cleanPath}`;
+        
+        console.log('AmbientAudio: Intentando cargar:', targetSrc);
         const audio = new Audio(targetSrc);
         audio.loop = true;
-        // Fix: Set volume immediately before play, ensuring it uses current prefs
         audio.volume = currentPrefs.isMuted ? 0 : currentPrefs.volume;
-        await audio.play();
+        
+        // Setup promise to detect success
+        await new Promise((resolve, reject) => {
+            audio.oncanplaythrough = resolve;
+            audio.onerror = reject;
+            audio.play().catch(reject);
+        });
+
         audioRef.current = audio;
         playedDefaultFile = true;
         setIsPlaying(true);
         setActiveTrackName(AMBIENT_AUDIO_CONFIG.title);
+        console.log('AmbientAudio: Reproducción iniciada:', targetSrc);
         break;
-      } catch {
-        // Continue searching candidates
+      } catch (e) {
+        console.warn(`AmbientAudio: Fallo al cargar ${src}:`, e);
       }
     }
 
