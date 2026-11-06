@@ -52,22 +52,16 @@ export interface AmbientAudioConfig {
 
 export const AMBIENT_AUDIO_CONFIG: AmbientAudioConfig = {
   title: 'De Vuelta - RAFA 930 (Ambiente)',
-  defaultFilePath: 'assets/de-vuelta-ambient.mp3',
+  defaultFilePath: 'assets/de-vuelta-ambient.wav',
   candidatePaths: [
+    'assets/de-vuelta-ambient.wav',
     'assets/de-vuelta-ambient.mp3',
-    './assets/de-vuelta-ambient.mp3',
+    'de-vuelta-ambient.wav',
     'de-vuelta-ambient.mp3',
-    './de-vuelta-ambient.mp3',
+    'assets/de-vuelta.wav',
     'assets/de-vuelta.mp3',
-    './assets/de-vuelta.mp3',
+    'assets/De-Vuelta.wav',
     'assets/De-Vuelta.mp3',
-    'assets/De Vuelta.mp3',
-    'assets/de_vuelta.mp3',
-    'assets/audio.mp3',
-    'assets/ambient.mp3',
-    'assets/tema.mp3',
-    '/de-vuelta.mp3',
-    '/de-vuelta-ambient.mp3',
   ],
   defaultVolume: 0.05, // Volumen muy bajo y sutil
   defaultEchoLevel: 0.42, // Eco con reverb de fondo

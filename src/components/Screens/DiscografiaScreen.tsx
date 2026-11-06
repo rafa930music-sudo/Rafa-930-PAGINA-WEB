@@ -380,80 +380,87 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
           const tI18n = TRACK_I18N[track.id];
 
           return (
-            <Card3D
+            <motion.div
               key={track.id}
-              intensity={8}
-              glowColor="rgba(236, 72, 153, 0.24)"
-              className="bg-[#111118]/90 backdrop-blur-sm border border-[#22222e] hover:border-[#a855f7] rounded-xl p-5 group shadow-[0_14px_34px_-10px_rgba(0,0,0,0.7)]"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5 }}
             >
-              <div>
-                <div className="relative aspect-square rounded-lg overflow-hidden bg-[#0a0a0f] mb-4">
-                  <img
-                    src={track.coverUrl}
-                    alt={track.title}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                    onError={(e) => {
-                      const target = e.currentTarget;
-                      if (!target.dataset.retried) {
-                        target.dataset.retried = '1';
-                        target.src = `./assets/${track.id}-cover.jpg`;
-                      }
-                    }}
-                  />
-                  <div className="absolute top-2.5 right-2.5 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#050507]/90 backdrop-blur-md border border-white/30 text-[10px] font-mono text-white font-semibold shadow-[0_0_12px_rgba(0,0,0,0.5)]">
-                    <SpotifyLogo className="w-3.5 h-3.5 text-white" />
-                    <span>Spotify</span>
+              <Card3D
+                intensity={8}
+                glowColor="rgba(236, 72, 153, 0.24)"
+                className="bg-[#111118]/90 backdrop-blur-sm border border-[#22222e] hover:border-[#a855f7] rounded-xl p-5 group shadow-[0_14px_34px_-10px_rgba(0,0,0,0.7)]"
+              >
+                <div>
+                  <div className="relative aspect-square rounded-lg overflow-hidden bg-[#0a0a0f] mb-4">
+                    <img
+                      src={track.coverUrl}
+                      alt={track.title}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        if (!target.dataset.retried) {
+                          target.dataset.retried = '1';
+                          target.src = `./assets/${track.id}-cover.jpg`;
+                        }
+                      }}
+                    />
+                    <div className="absolute top-2.5 right-2.5 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#050507]/90 backdrop-blur-md border border-white/30 text-[10px] font-mono text-white font-semibold shadow-[0_0_12px_rgba(0,0,0,0.5)]">
+                      <SpotifyLogo className="w-3.5 h-3.5 text-white" />
+                      <span>Spotify</span>
+                    </div>
                   </div>
+
+                  <div className="flex items-center justify-between gap-2 text-xs font-mono text-[#a1a1b5] mb-1 tabular-nums">
+                    <span className="text-[#a855f7]">
+                      {tI18n ? tI18n.categoryLabel[language] : track.categoryLabel}
+                    </span>
+                    <span>
+                      {track.year} · {track.duration}
+                    </span>
+                  </div>
+
+                  <h3 className="font-['Cormorant_Garamond'] font-semibold text-2xl text-[#ffffff] group-hover:text-[#ec4899] transition-colors">
+                    {track.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-[#a1a1b5] mt-2 leading-relaxed">
+                    {tI18n
+                      ? tI18n.description[language]
+                      : typeof track.description === 'string'
+                      ? track.description
+                      : track.description[language]}
+                  </p>
                 </div>
 
-                <div className="flex items-center justify-between gap-2 text-xs font-mono text-[#a1a1b5] mb-1 tabular-nums">
-                  <span className="text-[#a855f7]">
-                    {tI18n ? tI18n.categoryLabel[language] : track.categoryLabel}
-                  </span>
-                  <span>
-                    {track.year} · {track.duration}
-                  </span>
+                <div className="pt-4 border-t border-[#22222e] mt-4 flex flex-col sm:flex-row items-center gap-2">
+                  <a
+                    href={track.spotifyUrl || OFFICIAL_SPOTIFY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="touch-target-44 w-full sm:flex-1 py-2.5 px-3 rounded-lg bg-[#1DB954] hover:bg-[#1ed760] text-white font-bold flex items-center justify-center gap-1.5 text-xs transition-all shadow-[0_0_14px_rgba(29,185,84,0.25)]"
+                  >
+                    <SpotifyLogo className="w-4 h-4 text-white shrink-0" />
+                    <span>Spotify</span>
+                    <ExternalLink className="w-3.5 h-3.5 text-white/80" />
+                  </a>
+
+                  <a
+                    href={track.youtubeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="touch-target-44 w-full sm:flex-1 py-2.5 px-3 rounded-lg gradient-lila-rosa-rojo text-white hover:opacity-95 flex items-center justify-center gap-1.5 text-xs font-semibold transition-all"
+                  >
+                    <YouTubeLogo className="w-4 h-4 text-white shrink-0" />
+                    <span>YouTube</span>
+                    <ExternalLink className="w-3.5 h-3.5 text-white/80" />
+                  </a>
                 </div>
-
-                <h3 className="font-['Cormorant_Garamond'] font-semibold text-2xl text-[#ffffff] group-hover:text-[#ec4899] transition-colors">
-                  {track.title}
-                </h3>
-
-                <p className="text-xs sm:text-sm text-[#a1a1b5] mt-2 leading-relaxed">
-                  {tI18n
-                    ? tI18n.description[language]
-                    : typeof track.description === 'string'
-                    ? track.description
-                    : track.description[language]}
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-[#22222e] mt-4 flex flex-col sm:flex-row items-center gap-2">
-                <a
-                  href={track.spotifyUrl || OFFICIAL_SPOTIFY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="touch-target-44 w-full sm:flex-1 py-2.5 px-3 rounded-lg bg-[#1DB954] hover:bg-[#1ed760] text-white font-bold flex items-center justify-center gap-1.5 text-xs transition-all shadow-[0_0_14px_rgba(29,185,84,0.25)]"
-                >
-                  <SpotifyLogo className="w-4 h-4 text-white shrink-0" />
-                  <span>Spotify</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-white/80" />
-                </a>
-
-                <a
-                  href={track.youtubeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="touch-target-44 w-full sm:flex-1 py-2.5 px-3 rounded-lg gradient-lila-rosa-rojo text-white hover:opacity-95 flex items-center justify-center gap-1.5 text-xs font-semibold transition-all"
-                >
-                  <YouTubeLogo className="w-4 h-4 text-white shrink-0" />
-                  <span>YouTube</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-white/80" />
-                </a>
-              </div>
-            </Card3D>
+              </Card3D>
+            </motion.div>
           );
         })}
       </div>

@@ -81,22 +81,19 @@ export const AmbientGlobalPlayer: React.FC = () => {
 
     // Try 3: Default audio files
     let playedDefaultFile = false;
-    const baseUrl = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
     
-    // We try the default file first, then candidate paths
+    // We try the default file first, then candidate paths.
+    // Use root-relative paths (starting with /) so they resolve correctly
+    // from the domain root (rafa930.com/assets/...).
     const pathsToTry = [
         AMBIENT_AUDIO_CONFIG.defaultFilePath,
         ...AMBIENT_AUDIO_CONFIG.candidatePaths
-    ];
+    ].map(p => p.startsWith('/') ? p : `/${p}`);
 
     for (const src of pathsToTry) {
       try {
-        // Construct absolute URL: BASE_URL + path (ensuring no double slashes)
-        const cleanPath = src.replace(/^\/+/, '');
-        const targetSrc = `${baseUrl}/${cleanPath}`;
-        
-        console.log('AmbientAudio: Intentando cargar:', targetSrc);
-        const audio = new Audio(targetSrc);
+        console.log('AmbientAudio: Intentando cargar:', src);
+        const audio = new Audio(src);
         audio.loop = true;
         audio.volume = currentPrefs.isMuted ? 0 : currentPrefs.volume;
         
@@ -111,7 +108,7 @@ export const AmbientGlobalPlayer: React.FC = () => {
         playedDefaultFile = true;
         setIsPlaying(true);
         setActiveTrackName(AMBIENT_AUDIO_CONFIG.title);
-        console.log('AmbientAudio: Reproducción iniciada:', targetSrc);
+        console.log('AmbientAudio: Reproducción iniciada:', src);
         break;
       } catch (e) {
         console.warn(`AmbientAudio: Fallo al cargar ${src}:`, e);
