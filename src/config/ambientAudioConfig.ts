@@ -52,13 +52,13 @@ export interface AmbientAudioConfig {
 
 export const AMBIENT_AUDIO_CONFIG: AmbientAudioConfig = {
   title: 'De Vuelta - RAFA 930 (Ambiente)',
-  defaultFilePath: '/assets/de-vuelta-ambient.mp3',
+  defaultFilePath: '/Rafa-930-PAGINA-WEB/assets/de-vuelta-ambient.mp3',
   candidatePaths: [
-    '/assets/de-vuelta-ambient.mp3',
+    '/Rafa-930-PAGINA-WEB/assets/de-vuelta-ambient.mp3',
     './assets/de-vuelta-ambient.mp3',
     'assets/de-vuelta-ambient.mp3',
+    '/assets/de-vuelta-ambient.mp3',
     '/de-vuelta-ambient.mp3',
-    './de-vuelta-ambient.mp3',
     '/assets/de-vuelta-ambient.wav',
     './assets/de-vuelta-ambient.wav',
     '/assets/de-vuelta.mp3',
