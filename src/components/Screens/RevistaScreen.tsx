@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { ScreenId, Language, LegalDocId } from '../../types';
 import { ARTIST_IMAGES, COLLABORATORS, OFFICIAL_SPOTIFY_URL } from '../../data/content';
 import {
@@ -358,19 +359,35 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
 
         <div className="max-w-4xl w-full mx-auto flex flex-col items-center justify-center text-center relative z-10 space-y-6">
           {/* Centered Brand Title */}
-          <h1 className="font-['Bebas_Neue'] tracking-wider text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold text-[#ffffff] drop-shadow-[0_4px_30px_rgba(0,0,0,0.9)] text-center leading-none">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="font-['Bebas_Neue'] tracking-wider text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold text-[#ffffff] drop-shadow-[0_4px_30px_rgba(0,0,0,0.9)] text-center leading-none"
+          >
             RAFA <span className="text-gradient-930 drop-shadow-[0_0_40px_rgba(0,212,255,0.85)]">930</span>
-          </h1>
+          </motion.h1>
 
           {/* Centered Signature Quote (Horizontal, sin selección, sin subrayado, degradado neón animado) */}
           <div className="w-full flex items-center justify-center overflow-hidden px-2 my-2 select-none pointer-events-auto">
-            <p className="font-['Cormorant_Garamond'] italic text-lg sm:text-2xl md:text-3xl lg:text-4xl leading-normal font-bold text-center whitespace-normal md:whitespace-nowrap tracking-wide select-none selection:bg-transparent border-none outline-none no-underline animate-neon-gradient-text break-words max-w-full">
-              {language === 'ca'
-                ? '«De La Mina al món. Amb la veritat per davant.»'
-                : language === 'es'
-                ? '«De La Mina al mundo. Con la verdad por delante.»'
-                : '“From La Mina to the world. Leading with the truth.”'}
-            </p>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
+              className="font-['Cormorant_Garamond'] italic text-lg sm:text-2xl md:text-3xl lg:text-4xl leading-normal font-bold text-center whitespace-normal md:whitespace-nowrap tracking-wide select-none selection:bg-transparent border-none outline-none no-underline animate-neon-gradient-text break-words max-w-full"
+            >
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, ease: "easeInOut" }}
+              >
+                {language === 'ca'
+                  ? '«De La Mina al món. Amb la veritat per davant.»'
+                  : language === 'es'
+                  ? '«De La Mina al mundo. Con la verdad por delante.»'
+                  : '“From La Mina to the world. Leading with the truth.”'}
+              </motion.span>
+            </motion.p>
           </div>
 
           {/* Centered Actions — Fluid Stacking on Mobile, Side-by-Side on Tablet/Desktop */}
@@ -442,13 +459,19 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           <div className="lg:col-span-7 space-y-6">
-            <h2 className="font-['Cormorant_Garamond'] text-3xl sm:text-5xl font-semibold text-[#ffffff] leading-tight">
+            <motion.h2 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6 }}
+              className="font-['Cormorant_Garamond'] text-3xl sm:text-5xl font-semibold text-[#ffffff] leading-tight"
+            >
               {language === 'ca'
                 ? 'Una trajectòria construïda des de l’autenticitat i la cultura de barri'
                 : language === 'es'
                 ? 'Una trayectoria construida desde la autenticidad y la cultura de barrio'
                 : 'A trajectory built on authenticity and neighborhood culture'}
-            </h2>
+            </motion.h2>
 
             <blockquote className="py-3">
               <p className="font-['Cormorant_Garamond'] italic text-2xl sm:text-3xl text-[#00f0ff] leading-snug font-medium drop-shadow-[0_0_18px_rgba(0,240,255,0.7)] [text-shadow:0_0_10px_#00f0ff,0_0_25px_rgba(0,212,255,0.5)]">
@@ -460,7 +483,13 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
               </p>
             </blockquote>
 
-            <div className="space-y-4 text-[#f8fafc] text-sm sm:text-base leading-relaxed max-w-2xl font-normal drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="space-y-4 text-[#f8fafc] text-sm sm:text-base leading-relaxed max-w-2xl font-normal drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
+            >
               <p className="first-letter:text-5xl first-letter:font-['Cormorant_Garamond'] first-letter:font-bold first-letter:text-[#ec4899] first-letter:float-left first-letter:mr-3 first-letter:leading-none first-letter:drop-shadow-[0_0_15px_#ec4899]">
                 {language === 'ca'
                   ? 'RAFA 930 és un artista urbà emergent i multidisciplinari: raper, desenvolupador web, fotògraf i creador total des de l’entorn de La Mina i Mataró (08930). La seva música destil·la rap conscient i trap melódico de carrer, amb lletres profundes que parlen de superació personal, la duresa i la bellesa del barri, la lleialtat familiar, la nit i el contrast entre somnis i realitat. Impulsat per la curiositat i pel suport incondicional dels seus amics Ouxxox i Incrife, la seva obra uneix una lírica crua i honesta amb una estètica fotogràfica cinematogràfica en clarobscur.'
@@ -483,7 +512,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                   </>
                 )}
               </p>
-            </div>
+            </motion.div>
 
             {/* 3 Core Professional Pillars */}
             <div className="pt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">

@@ -169,11 +169,22 @@ export const AmbientGlobalPlayer: React.FC = () => {
       if (triggered) return;
       triggered = true;
       
-      // Ensure audio context is active immediately upon user interaction
+      // Ensure audio context is active immediately
       soundEngine.initCtx();
       
       const currentPrefs = getAudioPreferences();
       startPlayback(currentPrefs);
+      
+      // Also try to unlock audio by playing a silent dummy buffer if needed (browser specific)
+      if (soundEngine.getContext()) {
+          const osc = soundEngine.getContext()!.createOscillator();
+          const gain = soundEngine.getContext()!.createGain();
+          gain.gain.value = 0;
+          osc.connect(gain);
+          gain.connect(soundEngine.getContext()!.destination);
+          osc.start(0);
+          osc.stop(0.001);
+      }
 
       window.removeEventListener('pointerdown', handleFirstUserInteraction);
       window.removeEventListener('keydown', handleFirstUserInteraction);
@@ -181,11 +192,15 @@ export const AmbientGlobalPlayer: React.FC = () => {
     };
 
     window.addEventListener('pointerdown', handleFirstUserInteraction, { passive: true });
+    window.addEventListener('pointermove', handleFirstUserInteraction, { passive: true });
+    window.addEventListener('touchstart', handleFirstUserInteraction, { passive: true });
     window.addEventListener('keydown', handleFirstUserInteraction, { passive: true });
     window.addEventListener('scroll', handleFirstUserInteraction, { passive: true });
 
     return () => {
       window.removeEventListener('pointerdown', handleFirstUserInteraction);
+      window.removeEventListener('pointermove', handleFirstUserInteraction);
+      window.removeEventListener('touchstart', handleFirstUserInteraction);
       window.removeEventListener('keydown', handleFirstUserInteraction);
       window.removeEventListener('scroll', handleFirstUserInteraction);
       stopPlayback();
