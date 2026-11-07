@@ -14,7 +14,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ language = 'es', onC
   useEffect(() => {
     const timer = setTimeout(() => {
       handleDismiss();
-    }, 3200);
+    }, 3800);
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') {
@@ -31,6 +31,8 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ language = 'es', onC
 
   const handleDismiss = () => {
     if (isExiting) return;
+    // Notify audio player to unlock mobile audio context and start playback
+    window.dispatchEvent(new CustomEvent('rafa930:user-gesture-triggered'));
     setIsExiting(true);
     setTimeout(onComplete, 500);
   };
@@ -89,7 +91,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ language = 'es', onC
       {/* Central animated typography and branding — Disposición horizontal optimizada */}
       <div className="flex flex-col items-center justify-center z-10 w-full max-w-6xl px-4 gap-3 sm:gap-5 md:gap-6 text-center">
         {/* Wordmark RAFA 930 */}
-        <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-extrabold tracking-wider font-['Bebas_Neue'] whitespace-nowrap flex items-center justify-center drop-shadow-[0_8px_30px_rgba(0,0,0,0.95)]">
+        <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[9.5rem] font-extrabold tracking-wider font-['Bebas_Neue'] whitespace-nowrap flex items-center justify-center drop-shadow-[0_8px_30px_rgba(0,0,0,0.95)]">
           {text.split('').map((char, index) => {
             let charStyle: React.CSSProperties = {
               animationDelay: `${index * 0.12}s`,
@@ -152,8 +154,8 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ language = 'es', onC
         </p>
       </div>
 
-      {/* Indicador inferior de progreso discreto y limpio sin textos adicionales */}
-      <div className="absolute bottom-6 sm:bottom-10 flex flex-col items-center z-10 select-none">
+      {/* Indicador inferior de progreso discreto */}
+      <div className="absolute bottom-4 sm:bottom-8 flex flex-col items-center z-10 select-none">
         <div className="w-48 sm:w-64 md:w-80 h-1 bg-white/10 rounded-full overflow-hidden border border-white/20">
           <div className="h-full bg-gradient-to-r from-[#00d4ff] via-[#ec4899] to-[#00d4ff] animate-splash-bar rounded-full" />
         </div>

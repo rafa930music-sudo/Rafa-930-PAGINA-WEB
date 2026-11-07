@@ -13,7 +13,7 @@ export const SHEETS_CONFIG: SheetMeta[] = [
   {
     id: 'revista',
     number: '01',
-    total: '06',
+    total: '05',
     name: {
       ca: 'Revista & Portada',
       es: 'Revista & Portada',
@@ -33,7 +33,7 @@ export const SHEETS_CONFIG: SheetMeta[] = [
   {
     id: 'discografia',
     number: '02',
-    total: '06',
+    total: '05',
     name: {
       ca: 'Discografia & Màsters',
       es: 'Discografía & Másters',
@@ -53,7 +53,7 @@ export const SHEETS_CONFIG: SheetMeta[] = [
   {
     id: 'galeria',
     number: '03',
-    total: '06',
+    total: '05',
     name: {
       ca: 'Galeria & Arxiu',
       es: 'Galería & Archivo',
@@ -71,38 +71,18 @@ export const SHEETS_CONFIG: SheetMeta[] = [
     },
   },
   {
-    id: 'serveis',
-    number: '04',
-    total: '06',
-    name: {
-      ca: 'Serveis d’Estudi & Web',
-      es: 'Servicios de Estudio & Web',
-      en: 'Studio Services & Web',
-    },
-    subtitle: {
-      ca: 'Producció musical, fotografia professional i desenvolupament digital 930',
-      es: 'Producción musical, fotografía profesional y desarrollo digital 930',
-      en: 'Music production, professional photography and digital development 930',
-    },
-    categoryTag: {
-      ca: 'ESTUDI 930 & DIGITAL',
-      es: 'ESTUDIO 930 & DIGITAL',
-      en: 'STUDIO 930 & DIGITAL',
-    },
-  },
-  {
     id: 'contacte',
-    number: '05',
-    total: '06',
+    number: '04',
+    total: '05',
     name: {
       ca: 'Contractació & Contacte',
       es: 'Contratación & Contacto',
       en: 'Booking & Inquiries',
     },
     subtitle: {
-      ca: 'Concerts, featurings, serveis d’estudi i disponibilitat per a projectes',
-      es: 'Conciertos, featurings, servicios de estudio y disponibilidad para proyectos',
-      en: 'Concerts, featurings, studio services and project availability',
+      ca: 'Concerts, featurings, projectes a mida i disponibilitat directa',
+      es: 'Conciertos, featurings, proyectos a medida y disponibilidad directa',
+      en: 'Concerts, featurings, custom projects and direct availability',
     },
     categoryTag: {
       ca: 'CANAL DIRECTE 930',
@@ -112,8 +92,8 @@ export const SHEETS_CONFIG: SheetMeta[] = [
   },
   {
     id: 'legal',
-    number: '06',
-    total: '06',
+    number: '05',
+    total: '05',
     name: {
       ca: 'Marc Legal & Drets',
       es: 'Marco Legal & Derechos',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScreenId, Language, ThemeMode } from '../types';
 import { SHEETS_CONFIG } from '../data/translations';
-import { Newspaper, Music2, Camera, Briefcase, Send, ShieldCheck } from 'lucide-react';
+import { Newspaper, Music2, Camera, Send, ShieldCheck } from 'lucide-react';
 
 interface MobileBottomNavProps {
   currentScreen: ScreenId;
@@ -18,7 +18,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
 }) => {
   const getIcon = (id: ScreenId, active: boolean) => {
     const iconColor = active
-      ? 'text-[#7c3aed] scale-110'
+      ? 'text-[#00d4ff] scale-110'
       : theme === 'light'
       ? 'text-[#3f3f46]'
       : 'text-[#a1a1aa]';
@@ -31,8 +31,6 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
         return <Music2 className={className} />;
       case 'galeria':
         return <Camera className={className} />;
-      case 'serveis':
-        return <Briefcase className={className} />;
       case 'contacte':
         return <Send className={className} />;
       case 'legal':
@@ -51,37 +49,38 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
           : 'bg-[#0e0e11]/95 border-[#27272a] text-[#f4f4f5]'
       } pb-safe`}
     >
-      <div className="grid grid-cols-6 items-center px-1 py-1 max-w-lg mx-auto">
+      <div className="grid grid-cols-5 items-center px-1 py-1 max-w-lg mx-auto">
         {SHEETS_CONFIG.map((sheet) => {
           const isActive = sheet.id === currentScreen;
           return (
             <button
               key={sheet.id}
               onClick={() => {
+                window.dispatchEvent(new CustomEvent('rafa930:user-gesture-triggered'));
                 onNavigate(sheet.id);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               aria-current={isActive ? 'page' : undefined}
-              className={`touch-target-44 flex flex-col items-center justify-center py-1 px-1 rounded-lg transition-all relative ${
+              className={`touch-target-44 flex flex-col items-center justify-center py-1 px-1 rounded-lg transition-all relative text-center w-full ${
                 isActive
-                  ? 'text-[#7c3aed] font-bold'
+                  ? 'text-[#00d4ff] font-bold'
                   : theme === 'light'
                   ? 'text-[#27272a] hover:text-[#09090b]'
                   : 'text-[#a1a1aa] hover:text-white'
               }`}
             >
-              {/* Active Indicator Top Pill */}
+              {/* Active Indicator Top Pill - Centered Perfectly */}
               {isActive && (
-                <span className="absolute -top-1 w-6 h-1 rounded-full bg-[#7c3aed] shadow-[0_0_8px_#8b5cf6]" />
+                <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-6 h-1 rounded-full bg-[#00d4ff] shadow-[0_0_10px_#00d4ff]" />
               )}
 
-              <div className={`p-1.5 rounded-lg ${isActive ? 'bg-[#7c3aed]/15' : ''}`}>
+              <div className={`p-1.5 rounded-lg flex items-center justify-center ${isActive ? 'bg-[#00d4ff]/15' : ''}`}>
                 {getIcon(sheet.id, isActive)}
               </div>
 
               <span
-                className={`text-[9px] sm:text-[10px] font-mono tracking-tight uppercase truncate max-w-full mt-0.5 ${
-                  isActive ? 'text-[#7c3aed] font-bold' : ''
+                className={`text-[9px] sm:text-[10px] font-mono tracking-tight uppercase truncate max-w-full mt-0.5 text-center block ${
+                  isActive ? 'text-[#00d4ff] font-bold' : ''
                 }`}
               >
                 {sheet.name[language].split(' ')[0]}

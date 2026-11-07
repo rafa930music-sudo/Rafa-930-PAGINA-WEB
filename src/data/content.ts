@@ -3,7 +3,6 @@ import {
   Collaborator,
   GalleryPhoto,
   TimelineEvent,
-  ServicePackage,
   Show,
   PressKitItem,
   StreamingLink,
@@ -60,7 +59,6 @@ export const NAV_ITEMS: NavItem[] = [
   { id: 'home', label: 'Inicio', hash: '#home' },
   { id: 'discografia', label: 'Discografía', hash: '#discografia' },
   { id: 'galeria', label: 'Fotos', hash: '#galeria' },
-  { id: 'serveis', label: 'Servicios', hash: '#serveis' },
   { id: 'contacte', label: 'Contacto', hash: '#contacte' },
 ];
 
@@ -507,38 +505,5 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     badgeType: 'tertiary',
     description: 'El nou llançament estel·lar de RAFA 930 que lidera l’etapa actual amb força i identitat pròpia.',
     highlight: true,
-  },
-];
-
-export const SERVICE_PACKAGES: ServicePackage[] = [
-  {
-    id: 'pack-foto',
-    title: 'Fotografia Professional & Editorial',
-    category: 'fotografia',
-    basePrice: 120,
-    description: 'Retrats urbans, sessions per a artistes, moda i estètica cinematogràfica d’alt impacte.',
-    features: [
-      'Sessió fotogràfica de 1h30 a exteriors o estudi',
-      '20 fotografies editades i retocades en color grading',
-      'Format llest per a xarxes, premsa i cartelleria',
-      'Direcció d’art i assessorament d’estilisme',
-    ],
-    turnaround: '48 a 72 hores',
-    auraClass: 'custom-aura-amber',
-  },
-  {
-    id: 'pack-web',
-    title: 'Desenvolupament Web amb IA · 930 Digital',
-    category: 'web',
-    basePrice: 250,
-    description: 'Pàgines web, portfolios, presskits digitals i botigues amb disseny avantguardista i lliurament ràpid.',
-    features: [
-      'Web responsive d’alt rendiment (mòbil i escriptori)',
-      'Presskit / EPK interactiu amb música i dossier',
-      'Domini personalitzat, SEO i càrrega ultraràpida',
-      'Assessorament directe i suport 24/7',
-    ],
-    turnaround: '3 a 5 dies hàbils',
-    auraClass: 'custom-aura-cyan',
   },
 ];

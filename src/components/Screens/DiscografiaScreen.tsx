@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Track, Language } from '../../types';
 import { TRACKS, OFFICIAL_SPOTIFY_URL, ARTIST_IMAGES } from '../../data/content';
 import { Card3D } from '../Card3D';
@@ -275,24 +276,6 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
       {/* Editorial Header */}
       <div className="relative z-10 border-b border-[#22222e] pb-8 flex flex-col lg:flex-row lg:items-end justify-between gap-6">
         <div>
-          <div className="flex items-center gap-2 text-xs font-mono text-[#a1a1b5] mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff]" />
-            <span className="text-[#ec4899] font-semibold">
-              {language === 'ca'
-                ? 'CATÀLEG DISCOGRÀFIC OFICIAL · RAFA 930'
-                : language === 'es'
-                ? 'CATÁLOGO DISCOGRÁFICO OFICIAL · RAFA 930'
-                : 'OFFICIAL DISCOGRAPHY CATALOG · RAFA 930'}
-            </span>
-            <span aria-hidden="true" className="text-[#00d4ff]">·</span>
-            <span>
-              {language === 'ca'
-                ? 'OBRES PUBLICADES (2023–2026)'
-                : language === 'es'
-                ? 'OBRAS PUBLICADAS (2023–2026)'
-                : 'PUBLISHED WORKS (2023–2026)'}
-            </span>
-          </div>
           <h1 className="font-['Cormorant_Garamond'] text-4xl sm:text-6xl font-semibold text-[#ffffff]">
             {language === 'ca'
               ? 'Discografia Oficial'

@@ -6,7 +6,8 @@ import { LazyImage } from '../LazyImage';
 
 interface GaleriaScreenProps {
   language: Language;
-  onNavigateToServices: () => void;
+  onNavigateToBooking?: () => void;
+  onNavigateToServices?: () => void;
 }
 
 const PHOTO_I18N: Record<
@@ -230,6 +231,7 @@ const PHOTO_I18N: Record<
 
 export const GaleriaScreen: React.FC<GaleriaScreenProps> = ({
   language,
+  onNavigateToBooking,
   onNavigateToServices,
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<
@@ -249,6 +251,14 @@ export const GaleriaScreen: React.FC<GaleriaScreenProps> = ({
       ? GALLERY_PHOTOS
       : GALLERY_PHOTOS.filter((p) => p.category === selectedCategory);
 
+  const handleBookingClick = () => {
+    if (onNavigateToBooking) {
+      onNavigateToBooking();
+    } else if (onNavigateToServices) {
+      onNavigateToServices();
+    }
+  };
+
   return (
     <div className="relative w-full min-h-screen py-10 md:py-16 overflow-hidden">
       {/* Background image full width 100% */}
@@ -265,15 +275,7 @@ export const GaleriaScreen: React.FC<GaleriaScreenProps> = ({
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#22222e] pb-8">
         <div>
-          <span className="text-xs font-mono tracking-widest uppercase text-[#00d4ff] flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff]" />
-            {language === 'ca'
-              ? 'Arxiu Visual & Fotografia'
-              : language === 'es'
-              ? 'Archivo Visual & Fotografía'
-              : 'Visual Archive & Photography'}
-          </span>
-          <h1 className="font-['Cormorant_Garamond'] text-4xl sm:text-5xl md:text-6xl font-semibold text-[#ffffff] mt-3">
+          <h1 className="font-['Cormorant_Garamond'] text-4xl sm:text-5xl md:text-6xl font-semibold text-[#ffffff]">
             {language === 'ca'
               ? 'Direcció de Fotografia'
               : language === 'es'
@@ -292,7 +294,7 @@ export const GaleriaScreen: React.FC<GaleriaScreenProps> = ({
         <div className="flex flex-wrap items-center gap-3 shrink-0">
           <button
             type="button"
-            onClick={onNavigateToServices}
+            onClick={handleBookingClick}
             className="touch-target-48 inline-flex items-center gap-2 gradient-lila-rosa-rojo text-white text-xs font-semibold px-6 py-3.5 rounded-xl hover:opacity-95 transition-all shrink-0 whitespace-nowrap shadow-md cursor-pointer"
           >
             <Camera className="w-4 h-4" />

@@ -42,6 +42,8 @@ import {
   TidalLogo,
   WhatsAppLogo,
   InstagramLogo,
+  TikTokLogo,
+  SoundcloudLogo,
 } from '../PlatformLogos';
 
 interface ContacteScreenProps {
@@ -81,10 +83,10 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
     if (!cleanName || cleanName.length < 2) {
       setSecurityError(
         language === 'ca'
-          ? 'Si us plau, introdueix un nom vàlid.'
+          ? 'Si us plau, introdueix el teu nom i cognoms.'
           : language === 'es'
-          ? 'Por favor, introduce un nombre válido.'
-          : 'Please enter a valid name.'
+          ? 'Por favor, introduce tu nombre y apellidos completo.'
+          : 'Please enter your full name.'
       );
       return;
     }
@@ -100,13 +102,46 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
       return;
     }
 
-    if (!isValidPhone(cleanPhone)) {
+    if (!cleanPhone || !isValidPhone(cleanPhone)) {
       setSecurityError(
         language === 'ca'
-          ? 'Format de telèfon no vàlid.'
+          ? 'Si us plau, introdueix un número de telèfon o WhatsApp vàlid per al contacte.'
           : language === 'es'
-          ? 'Formato de teléfono no válido.'
-          : 'Invalid phone number format.'
+          ? 'Por favor, introduce un número de teléfono o WhatsApp válido para el contacto.'
+          : 'Please enter a valid phone or WhatsApp number for contact.'
+      );
+      return;
+    }
+
+    if (!formData.type) {
+      setSecurityError(
+        language === 'ca'
+          ? 'Si us plau, selecciona una àrea de treball.'
+          : language === 'es'
+          ? 'Por favor, selecciona un área de trabajo.'
+          : 'Please select an area of interest.'
+      );
+      return;
+    }
+
+    if (!cleanMessage || cleanMessage.length < 10) {
+      setSecurityError(
+        language === 'ca'
+          ? 'Si us plau, descriu la teva proposta o projecte (mínim 10 caràcters).'
+          : language === 'es'
+          ? 'Por favor, describe los detalles de tu propuesta o proyecto (mínimo 10 caracteres).'
+          : 'Please describe details of your proposal or project (at least 10 characters).'
+      );
+      return;
+    }
+
+    if (!formData.privacy) {
+      setSecurityError(
+        language === 'ca'
+          ? 'Has d’acceptar la política de privacitat per enviar la sol·licitud.'
+          : language === 'es'
+          ? 'Debes marcar la casilla para aceptar la política de privacidad antes de enviar.'
+          : 'You must check the box to accept the privacy policy before sending.'
       );
       return;
     }
@@ -179,24 +214,6 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 space-y-16">
       {/* Editorial Header */}
       <div className="border-b border-[#22222e] pb-8">
-        <div className="flex items-center gap-2 text-xs font-mono text-[#a1a1b5] mb-3">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] shadow-[0_0_8px_#00d4ff]" />
-          <span className="text-[#ec4899] font-bold">
-            {language === 'ca'
-              ? 'BOOKING OFICIAL & CONTRACTACIÓ · RAFA 930'
-              : language === 'es'
-              ? 'BOOKING OFICIAL & CONTRATACIÓN · RAFA 930'
-              : 'OFFICIAL BOOKING & MANAGEMENT · RAFA 930'}
-          </span>
-          <span aria-hidden="true" className="text-[#00d4ff]">·</span>
-          <span>
-            {language === 'ca'
-              ? 'RESPOSTA PRIORITÀRIA EN 24 HORES'
-              : language === 'es'
-              ? 'RESPUESTA PRIORITARIA EN 24 HORAS'
-              : 'PRIORITY RESPONSE WITHIN 24 HOURS'}
-          </span>
-        </div>
         <h1 className="font-['Cormorant_Garamond'] text-4xl sm:text-6xl font-semibold text-[#ffffff]">
           {language === 'ca'
             ? 'Booking & Contractació Directa'
@@ -206,10 +223,10 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
         </h1>
         <p className="text-[#e2e8f0] text-base max-w-2xl mt-2 leading-relaxed">
           {language === 'ca'
-            ? 'Canal directe per a contractacions de concerts, festivals, direcció visual de projectes, desenvolupament web a mida o consultes professionals. Contacta per formulari o directament per WhatsApp.'
+            ? 'Canal directe per a contractacions de concerts, festivals, featurings, direcció visual o projectes especials. Sense tarifes tancades ni res establert: explica la teva proposta i la valorem de forma totalment personalitzada.'
             : language === 'es'
-            ? 'Canal directo para contrataciones de conciertos, festivales, dirección visual de proyectos, desarrollo web a medida o consultas profesionales. Contacta por formulario o directamente por WhatsApp.'
-            : 'Direct channel for concert bookings, festival showcases, project visual direction, custom web development, or professional inquiries. Contact via form or directly via WhatsApp.'}
+            ? 'Canal directo para contrataciones de conciertos, festivales, featurings, dirección visual o proyectos especiales. Sin tarifas fijas ni nada establecido: cuéntame tu idea y la valoramos de forma totalmente personalizada.'
+            : 'Direct channel for concert bookings, festivals, featurings, visual direction, and special projects. No fixed rates or rigid packages: tell me your proposal and we evaluate it tailored to you.'}
         </p>
       </div>
 
@@ -254,10 +271,10 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
               href="https://wa.me/34671591814?text=Hola%20RAFA%20930,%20me%20interesa%20contactar%20contigo"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 bg-[#0a0a0f] border border-[#22222e] hover:border-[#a855f7] rounded-lg flex items-center gap-4 transition-colors block group"
+              className="p-4 bg-[#0a0a0f] border border-[#22222e] hover:border-[#25D366] rounded-lg flex items-center gap-4 transition-colors block group"
             >
-              <div className="w-10 h-10 rounded-lg bg-[#111118] border border-[#22222e] text-[#a855f7] flex items-center justify-center shrink-0">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.52-.075-.149-.67-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.005 0C5.37 0 .002 5.368.002 12.006c0 2.092.548 4.136 1.593 5.922L.002 24l6.337-1.666a11.895 11.895 0 005.666 1.445h.005c6.635 0 12.003-5.368 12.003-12.005 0-3.211-1.25-6.233-3.522-8.504"/></svg>
+              <div className="w-10 h-10 rounded-lg bg-[#111118] border border-[#22222e] flex items-center justify-center shrink-0">
+                <WhatsAppLogo className="w-5 h-5" colored={true} />
               </div>
               <div>
                 <span className="text-[11px] font-mono text-[#a1a1b5] block">
@@ -267,33 +284,20 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                     ? 'WhatsApp Directo'
                     : 'Direct WhatsApp'}
                 </span>
-                  <div className="text-sm font-semibold text-[#ffffff] group-hover:text-[#a855f7] block tabular-nums">
-                    +34 671 59 18 14
-                  </div>
+                <div className="text-sm font-semibold text-[#ffffff] group-hover:text-[#25D366] block tabular-nums">
+                  +34 671 59 18 14
                 </div>
-            </a>
-            
-            {/* Platforms block for ContacteScreen */}
-            <div className="p-4 bg-[#0a0a0f] border border-[#22222e] rounded-lg mt-4">
-              <h4 className="text-xs font-mono text-[#a1a1b5] mb-3">Todas mis plataformas digitales</h4>
-              <div className="flex gap-3 flex-wrap">
-                <a href={OFFICIAL_SPOTIFY_URL} target="_blank" rel="noopener noreferrer" title="Spotify" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#1DB954] text-[#1DB954] transition-colors"><SpotifyLogo className="w-5 h-5" /></a>
-                <a href={OFFICIAL_YOUTUBE_URL} target="_blank" rel="noopener noreferrer" title="YouTube" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF0000] text-[#FF0000] transition-colors"><YouTubeLogo className="w-5 h-5" /></a>
-                <a href="https://www.deezer.com/mx/artist/224265995" target="_blank" rel="noopener noreferrer" title="Deezer" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FFB700] text-[#FFB700] transition-colors"><DeezerLogo className="w-5 h-5" /></a>
-                <a href="https://music.apple.com/es/artist/rafa-930/1724193275" target="_blank" rel="noopener noreferrer" title="Apple Music" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FA5788] text-[#FA5788] transition-colors"><AppleMusicLogo className="w-5 h-5" /></a>
-                <a href="https://music.amazon.in/artists/B0CJM7BWF1/rafa-930" target="_blank" rel="noopener noreferrer" title="Amazon Music" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF9900] text-[#FF9900] transition-colors"><AmazonMusicLogo className="w-5 h-5" /></a>
-                <a href="https://tidal.com/artist/41128230" target="_blank" rel="noopener noreferrer" title="Tidal" className="p-2 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#00FFFF] text-[#00FFFF] transition-colors"><TidalLogo className="w-5 h-5" /></a>
               </div>
-            </div>
+            </a>
 
             <a
               href="https://instagram.com/rafa930_oficial"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 bg-[#0a0a0f] border border-[#22222e] hover:border-[#ec4899] rounded-lg flex items-center gap-4 transition-colors block group"
+              className="p-4 bg-[#0a0a0f] border border-[#22222e] hover:border-[#E1306C] rounded-lg flex items-center gap-4 transition-colors block group"
             >
-              <div className="w-10 h-10 rounded-lg bg-[#111118] border border-[#22222e] text-[#ec4899] flex items-center justify-center shrink-0">
-                <Instagram className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-lg bg-[#111118] border border-[#22222e] flex items-center justify-center shrink-0">
+                <InstagramLogo className="w-5 h-5" colored={true} />
               </div>
               <div>
                 <span className="text-[11px] font-mono text-[#a1a1b5] block">
@@ -313,10 +317,10 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
               href={OFFICIAL_YOUTUBE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 bg-[#0a0a0f] border border-[#00d4ff]/35 hover:border-[#00d4ff] rounded-lg flex items-center gap-4 transition-colors block group shadow-[0_0_16px_rgba(0,212,255,0.08)]"
+              className="p-4 bg-[#0a0a0f] border border-[#22222e] hover:border-[#FF0000] rounded-lg flex items-center gap-4 transition-colors block group"
             >
-              <div className="w-10 h-10 rounded-lg bg-[#111118] border border-[#00d4ff]/40 text-[#00d4ff] flex items-center justify-center shrink-0">
-                <Youtube className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-lg bg-[#111118] border border-[#22222e] flex items-center justify-center shrink-0">
+                <YouTubeLogo className="w-5 h-5" colored={true} />
               </div>
               <div>
                 <span className="text-[11px] font-mono text-[#a1a1b5] block">
@@ -326,7 +330,7 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                     ? 'Canal Musical Oficial'
                     : 'Official Music Channel'}
                 </span>
-                <span className="text-sm font-semibold text-[#ffffff] group-hover:text-[#00d4ff] block">
+                <span className="text-sm font-semibold text-[#ffffff] group-hover:text-[#FF0000] block">
                   YouTube (@rafa_930)
                 </span>
               </div>
@@ -336,10 +340,10 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
               href={OFFICIAL_SPOTIFY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 bg-[#0a0a0f] border border-[#a855f7]/40 hover:border-[#00d4ff] rounded-lg flex items-center gap-4 transition-colors block group"
+              className="p-4 bg-[#0a0a0f] border border-[#22222e] hover:border-[#1DB954] rounded-lg flex items-center gap-4 transition-colors block group"
             >
-              <div className="w-10 h-10 rounded-lg bg-[#111118] border border-[#00d4ff]/40 text-[#00d4ff] flex items-center justify-center shrink-0">
-                <Radio className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-lg bg-[#111118] border border-[#22222e] flex items-center justify-center shrink-0">
+                <SpotifyLogo className="w-5 h-5" colored={true} />
               </div>
               <div>
                 <span className="text-[11px] font-mono text-[#a1a1b5] block">
@@ -349,36 +353,34 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                     ? 'Perfil Oficial de Artista'
                     : 'Official Artist Profile'}
                 </span>
-                <span className="text-sm font-semibold text-[#ffffff] group-hover:text-[#00d4ff] block">
+                <span className="text-sm font-semibold text-[#ffffff] group-hover:text-[#1DB954] block">
                   Spotify (RAFA 930)
                 </span>
               </div>
             </a>
-          </Card3D>
 
-          <Card3D
-            intensity={4}
-            glowColor="rgba(0, 212, 255, 0.2)"
-            className="bg-[#0a0a0f]/90 backdrop-blur-md border border-[#22222e] rounded-xl p-6 space-y-2"
-          >
-            <div className="flex items-center gap-2 text-[#ec4899] font-mono text-xs">
-              <MapPin className="w-4 h-4" />
-              <span>
+            {/* Platforms block with real official brand logos */}
+            <div className="p-4 bg-[#0a0a0f] border border-[#22222e] rounded-lg mt-2">
+              <h4 className="text-xs font-mono text-[#a1a1b5] mb-3">
                 {language === 'ca'
-                  ? 'UBICACIÓ & DISPONIBILITAT'
+                  ? 'Totes les meves plataformes digitals'
                   : language === 'es'
-                  ? 'UBICACIÓN & DISPONIBILIDAD'
-                  : 'LOCATION & AVAILABILITY'}
-              </span>
+                  ? 'Todas mis plataformas digitales'
+                  : 'All my digital platforms'}
+              </h4>
+              <div className="flex gap-2.5 flex-wrap items-center">
+                <a href={OFFICIAL_SPOTIFY_URL} target="_blank" rel="noopener noreferrer" title="Spotify" className="p-2.5 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#1DB954] transition-colors"><SpotifyLogo className="w-5 h-5" colored={true} /></a>
+                <a href={OFFICIAL_YOUTUBE_URL} target="_blank" rel="noopener noreferrer" title="YouTube" className="p-2.5 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF0000] transition-colors"><YouTubeLogo className="w-5 h-5" colored={true} /></a>
+                <a href="https://instagram.com/rafa930_oficial" target="_blank" rel="noopener noreferrer" title="Instagram" className="p-2.5 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#E1306C] transition-colors"><InstagramLogo className="w-5 h-5" colored={true} /></a>
+                <a href="https://wa.me/34671591814" target="_blank" rel="noopener noreferrer" title="WhatsApp" className="p-2.5 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#25D366] transition-colors"><WhatsAppLogo className="w-5 h-5" colored={true} /></a>
+                <a href="https://www.deezer.com/mx/artist/224265995" target="_blank" rel="noopener noreferrer" title="Deezer" className="p-2.5 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#A238FF] transition-colors"><DeezerLogo className="w-5 h-5" colored={true} /></a>
+                <a href="https://music.apple.com/es/artist/rafa-930/1724193275" target="_blank" rel="noopener noreferrer" title="Apple Music" className="p-2.5 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FA243C] transition-colors"><AppleMusicLogo className="w-5 h-5" colored={true} /></a>
+                <a href="https://music.amazon.in/artists/B0CJM7BWF1/rafa-930" target="_blank" rel="noopener noreferrer" title="Amazon Music" className="p-2.5 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF9900] transition-colors"><AmazonMusicLogo className="w-5 h-5" colored={true} /></a>
+                <a href="https://tidal.com/artist/41128230" target="_blank" rel="noopener noreferrer" title="Tidal" className="p-2.5 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#00FFFF] transition-colors"><TidalLogo className="w-5 h-5" colored={true} /></a>
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" title="TikTok" className="p-2.5 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#00f2fe] transition-colors"><TikTokLogo className="w-5 h-5" colored={true} /></a>
+                <a href="https://soundcloud.com" target="_blank" rel="noopener noreferrer" title="SoundCloud" className="p-2.5 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF5500] transition-colors"><SoundcloudLogo className="w-5 h-5" colored={true} /></a>
+              </div>
             </div>
-            <p className="text-sm font-semibold text-[#ffffff]">Sant Adrià de Besòs · Barcelona</p>
-            <p className="text-xs text-[#a1a1b5] leading-relaxed">
-              {language === 'ca'
-                ? 'Disponibilitat per a desplaçaments a nivell nacional i internacional.'
-                : language === 'es'
-                ? 'Disponibilidad para desplazamientos a nivel nacional e internacional.'
-                : 'Available for national and international travel.'}
-            </p>
           </Card3D>
         </div>
 
@@ -399,10 +401,10 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
               </h2>
               <p className="text-xs text-[#a1a1b5] mt-1">
                 {language === 'ca'
-                  ? 'Especifica els detalls de la teva proposta i rebràs resposta tècnica i econòmica en menys de 24 hores.'
+                  ? 'Especifica els detalls de la teva proposta i rebràs resposta personalitzada en menys de 24 hores.'
                   : language === 'es'
-                  ? 'Especifica los detalles de tu propuesta y recibirás respuesta técnica y económica en menos de 24 horas.'
-                  : 'Specify your proposal details and receive a technical and financial response within 24 hours.'}
+                  ? 'Especifica los detalles de tu propuesta y recibirás respuesta personalizada en menos de 24 horas.'
+                  : 'Specify your proposal details and receive a customized response within 24 hours.'}
               </p>
             </div>
 
@@ -564,14 +566,15 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                   <div>
                     <label className="block text-xs font-mono text-[#a1a1b5] mb-1.5" htmlFor="c-telefono">
                       {language === 'ca'
-                        ? 'Telèfon / WhatsApp'
+                        ? 'Telèfon / WhatsApp *'
                         : language === 'es'
-                        ? 'Teléfono / WhatsApp'
-                        : 'Phone / WhatsApp'}
+                        ? 'Teléfono / WhatsApp *'
+                        : 'Phone / WhatsApp *'}
                     </label>
                     <input
                       id="c-telefono"
                       type="tel"
+                      required
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+34 600 000 000"
@@ -628,6 +631,13 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                           ? 'Prensa / Entrevista / Medios'
                           : 'Press / Interview / Media'}
                       </option>
+                      <option value="otro">
+                        {language === 'ca'
+                          ? 'Altra / Consulta Personalitzada'
+                          : language === 'es'
+                          ? 'Otro / Consulta Personalizada'
+                          : 'Other / Custom Inquiry'}
+                      </option>
                     </select>
                   </div>
                 </div>
@@ -657,27 +667,27 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                   />
                 </div>
 
-                <div className="flex items-start gap-3 pt-2">
+                <div className="flex items-center gap-2.5 pt-2">
                   <input
                     id="c-privacidad"
                     type="checkbox"
                     required
                     checked={formData.privacy}
                     onChange={(e) => setFormData({ ...formData, privacy: e.target.checked })}
-                    className="touch-target-44 w-5 h-5 rounded bg-[#0a0a0f] border-[#22222e] text-[#ec4899] cursor-pointer mt-0.5"
+                    className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded bg-[#0a0a0f] border border-[#333344] text-[#ec4899] focus:ring-1 focus:ring-[#ec4899] cursor-pointer shrink-0 accent-[#ec4899]"
                   />
-                  <label htmlFor="c-privacidad" className="text-xs text-[#a1a1b5] cursor-pointer leading-normal">
+                  <label htmlFor="c-privacidad" className="text-xs text-[#a1a1b5] cursor-pointer leading-tight select-none">
                     {language === 'ca' ? (
                       <>
                         Accepto la{' '}
                         <button
                           type="button"
                           onClick={() => onOpenLegalTab && onOpenLegalTab('privacitat')}
-                          className="text-[#ec4899] hover:text-[#00d4ff] font-semibold transition-colors"
+                          className="text-[#ec4899] hover:text-[#00d4ff] font-semibold transition-colors underline underline-offset-2"
                         >
                           política de privacitat & RGPD
                         </button>{' '}
-                        i el tractament confidencial de les meves dades per al contacte.
+                        i el tractament confidencial de les dades.
                       </>
                     ) : language === 'es' ? (
                       <>
@@ -685,11 +695,11 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                         <button
                           type="button"
                           onClick={() => onOpenLegalTab && onOpenLegalTab('privacitat')}
-                          className="text-[#ec4899] hover:text-[#00d4ff] font-semibold transition-colors"
+                          className="text-[#ec4899] hover:text-[#00d4ff] font-semibold transition-colors underline underline-offset-2"
                         >
                           política de privacidad & RGPD
                         </button>{' '}
-                        y el tratamiento confidencial de mis datos para el contacto.
+                        y el tratamiento confidencial de mis datos.
                       </>
                     ) : (
                       <>
@@ -697,11 +707,11 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                         <button
                           type="button"
                           onClick={() => onOpenLegalTab && onOpenLegalTab('privacitat')}
-                          className="text-[#ec4899] hover:text-[#00d4ff] font-semibold transition-colors"
+                          className="text-[#ec4899] hover:text-[#00d4ff] font-semibold transition-colors underline underline-offset-2"
                         >
                           privacy policy & GDPR
                         </button>{' '}
-                        and the confidential processing of my data for contact purposes.
+                        and confidential data processing.
                       </>
                     )}
                   </label>

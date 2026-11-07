@@ -9,7 +9,6 @@ import {
   Home,
   Disc3,
   Camera,
-  Briefcase,
   FileText,
   Mail,
   Share2,
@@ -105,12 +104,6 @@ export const Header: React.FC<HeaderProps> = ({
       Icon: Camera,
     },
     {
-      id: 'serveis',
-      label: { ca: 'Serveis', es: 'Servicios', en: 'Services' },
-      shortLabel: { ca: 'Estudi', es: 'Estudio', en: 'Studio' },
-      Icon: Briefcase,
-    },
-    {
       id: 'contacte',
       label: { ca: 'Booking & Contacte', es: 'Booking & Contacto', en: 'Booking & Contact' },
       shortLabel: { ca: 'Booking', es: 'Booking', en: 'Booking' },
@@ -195,8 +188,8 @@ export const Header: React.FC<HeaderProps> = ({
             size="md"
           />
 
-          {/* Zone 2: Clean Desktop Navigation Links */}
-          <nav aria-label="Main Navigation" className="hidden xl:flex items-center gap-6">
+          {/* Zone 2: Clean Desktop Navigation Links (Centered) */}
+          <nav aria-label="Main Navigation" className="hidden lg:flex items-center justify-center gap-6 sm:gap-8 mx-auto">
             {navItems.map((item) => {
               const isActive = currentScreen === item.id;
               return (
@@ -422,69 +415,6 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
       )}
-
-      {/* Permanent Fixed Mobile & Tablet Bottom Navigation Bar */}
-      <nav
-        aria-label={
-          language === 'ca'
-            ? 'Navegació inferior mòbil'
-            : language === 'es'
-            ? 'Navegación inferior móvil'
-            : 'Mobile bottom navigation'
-        }
-        className="xl:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#050507]/95 backdrop-blur-xl border-t border-[#00d4ff]/30 shadow-[0_-6px_28px_rgba(0,0,0,0.85)] pb-[env(safe-area-inset-bottom)]"
-      >
-        <div
-          aria-hidden="true"
-          className="h-[1.5px] w-full bg-gradient-to-r from-[#a855f7] via-[#00d4ff] to-[#ec4899] shadow-[0_0_10px_rgba(0,212,255,0.6)]"
-        />
-        <div className="grid grid-cols-5 items-center h-16 max-w-2xl mx-auto px-1">
-          {navItems.map((item) => {
-            const isActive = currentScreen === item.id;
-            const IconComponent = item.Icon;
-            return (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => handleNavClick(item.id)}
-                aria-current={isActive ? 'page' : undefined}
-                className={`relative flex flex-col items-center justify-center h-full gap-1 px-1 transition-all focus:outline-none ${
-                  isActive
-                    ? 'text-[#00d4ff]'
-                    : 'text-[#a1a1b5] hover:text-[#ffffff]'
-                }`}
-              >
-                {isActive && (
-                  <span
-                    aria-hidden="true"
-                    className="absolute top-1 w-6 h-0.5 rounded-full bg-[#00d4ff] shadow-[0_0_10px_#00d4ff]"
-                  />
-                )}
-                <div
-                  className={`flex items-center justify-center w-8 h-7 rounded-lg transition-all ${
-                    isActive
-                      ? 'bg-[#00d4ff]/15 border border-[#00d4ff]/40 shadow-[0_0_12px_rgba(0,212,255,0.25)]'
-                      : ''
-                  }`}
-                >
-                  <IconComponent
-                    className={`w-4 h-4 transition-transform ${
-                      isActive ? 'text-[#00d4ff] scale-110' : 'text-[#a1a1b5]'
-                    }`}
-                  />
-                </div>
-                <span
-                  className={`text-[10px] font-mono tracking-tight leading-none truncate max-w-full ${
-                    isActive ? 'text-[#ffffff] font-bold' : 'text-[#a1a1b5]'
-                  }`}
-                >
-                  {item.shortLabel[language]}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-      </nav>
     </>
   );
 };

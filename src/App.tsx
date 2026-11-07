@@ -11,12 +11,12 @@ import { SplashScreen } from './components/SplashScreen';
 import { AmbientColorBubbles } from './components/AmbientColorBubbles';
 import { AmbientGlobalPlayer } from './components/AmbientGlobalPlayer';
 import { CookieConsentModal } from './components/CookieConsentModal';
+import { NeonSectionTransition } from './components/NeonSectionTransition';
 
 // Pantallas del diseño original
 import { RevistaScreen } from './components/Screens/RevistaScreen';
 import { DiscografiaScreen } from './components/Screens/DiscografiaScreen';
 import { GaleriaScreen } from './components/Screens/GaleriaScreen';
-import { ServeisScreen } from './components/Screens/ServeisScreen';
 import { ContacteScreen } from './components/Screens/ContacteScreen';
 import { LegalScreen } from './components/Screens/LegalScreen';
 import { RedesScreen } from './components/Screens/RedesScreen';
@@ -36,8 +36,13 @@ export default function App() {
   }, [currentScreen, language]);
 
   const handleSelectScreen = (screen: ScreenId) => {
+    // Notify audio player of user interaction to guarantee sound on mobile
+    window.dispatchEvent(new CustomEvent('rafa930:user-gesture-triggered'));
+
     let target = screen;
-    if (
+    if (target === 'serveis') {
+      target = 'contacte';
+    } else if (
       target === 'home' ||
       (target as string) === 'conciertos' ||
       (target as string) === 'presskit' ||
@@ -83,6 +88,9 @@ export default function App() {
       {/* 3b. Reproductor de sonido ambiental sutil en segundo plano para todo el sitio */}
       <AmbientGlobalPlayer />
 
+      {/* 3c. Transición de cambio de sección con logotipo de neón oficial */}
+      <NeonSectionTransition currentScreen={currentScreen} language={language} />
+
       {/* 4. Cabecera principal con barra de progreso, logotipo oficial y navegación completa */}
       <Header
         currentScreen={currentScreen}
@@ -95,7 +103,7 @@ export default function App() {
       />
 
       {/* 5. Contenido principal con las pantallas del diseño original */}
-      <div className="relative z-10 pt-16 sm:pt-18 pb-20 lg:pb-0">
+      <div className="relative z-10 pt-16 sm:pt-18 pb-24 lg:pb-0">
         {(currentScreen === 'revista' || currentScreen === 'home') && (
           <RevistaScreen
             language={language}
@@ -112,12 +120,8 @@ export default function App() {
         {currentScreen === 'galeria' && (
           <GaleriaScreen
             language={language}
-            onNavigateToServices={() => handleSelectScreen('serveis')}
+            onNavigateToBooking={() => handleSelectScreen('contacte')}
           />
-        )}
-
-        {currentScreen === 'serveis' && (
-          <ServeisScreen language={language} />
         )}
 
         {currentScreen === 'contacte' && (

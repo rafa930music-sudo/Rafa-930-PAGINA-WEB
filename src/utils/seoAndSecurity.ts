@@ -189,27 +189,27 @@ const SCREEN_SEO: Record<ScreenId, Record<Language, SeoMetadata>> = {
   },
   serveis: {
     ca: {
-      title: 'Serveis Creatius, Tarifes & Pressupost · RAFA 930',
+      title: 'Booking & Contractació Directa · RAFA 930',
       description:
-        'Contracta producció musical, sessions de fotografia editorial o desenvolupament web a mida amb la calculadora de pressupost de RAFA 930.',
+        'Canal directe per a contractacions de concerts, col·laboracions i projectes a mida de RAFA 930.',
       keywords:
-        'Serveis musicals Barcelona, sessió fotogràfica preu, desenvolupament web artistes, 930 Digital Studio, pressupost online',
+        'Booking RAFA 930, contractació concerts, música urbana Barcelona',
       locale: 'ca_ES',
     },
     es: {
-      title: 'Servicios Creativos, Tarifas & Presupuesto · RAFA 930',
+      title: 'Booking & Contratación Directa · RAFA 930',
       description:
-        'Contrata producción musical, sesiones de fotografía editorial o desarrollo web a medida con la calculadora de presupuesto de RAFA 930.',
+        'Canal directo para contrataciones de conciertos, colaboraciones y proyectos a medida de RAFA 930.',
       keywords:
-        'Servicios musicales Barcelona, sesión fotográfica precio, desarrollo web artistas, 930 Digital Studio, presupuesto online',
+        'Booking RAFA 930, contratación conciertos, música urbana Barcelona',
       locale: 'es_ES',
     },
     en: {
-      title: 'Creative Services, Rates & Quote Calculator · RAFA 930',
+      title: 'Booking & Direct Management · RAFA 930',
       description:
-        'Book music production, editorial photography sessions, or custom web development using RAFA 930’s interactive quote calculator.',
+        'Direct channel for booking concerts, collaborations, and custom projects with RAFA 930.',
       keywords:
-        'Barcelona music production, editorial photoshoot rates, artist web development, 930 Digital Studio',
+        'Booking RAFA 930, hire urban artist Barcelona, concerts booking',
       locale: 'en_US',
     },
   },

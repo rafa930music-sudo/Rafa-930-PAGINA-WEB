@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import rafaGlobeLogo from '@/src/assets/images/rafa-globe-neon-logo.png';
 
 interface RafaBrandLogoProps {
   onClick?: () => void;
   className?: string;
   title?: string;
   size?: 'sm' | 'md' | 'lg';
+  showGlobe?: boolean;
 }
 
 export const RafaBrandLogo: React.FC<RafaBrandLogoProps> = ({
@@ -12,6 +14,7 @@ export const RafaBrandLogo: React.FC<RafaBrandLogoProps> = ({
   className = '',
   title = 'RAFA 930',
   size = 'md',
+  showGlobe = true,
 }) => {
   const [isTapped, setIsTapped] = useState(false);
 
@@ -28,6 +31,13 @@ export const RafaBrandLogo: React.FC<RafaBrandLogoProps> = ({
       ? 'text-3xl sm:text-4xl md:text-5xl'
       : 'text-2xl sm:text-3xl md:text-4xl';
 
+  const logoSizeClass =
+    size === 'sm'
+      ? 'w-6 h-6 sm:w-7 sm:h-7'
+      : size === 'lg'
+      ? 'w-10 h-10 sm:w-12 sm:h-12'
+      : 'w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9';
+
   return (
     <button
       type="button"
@@ -43,6 +53,25 @@ export const RafaBrandLogo: React.FC<RafaBrandLogoProps> = ({
             : 'group-hover:from-[#00d4ff]/35 group-hover:via-[#ec4899]/35 group-hover:to-[#a855f7]/35 group-hover:opacity-100 opacity-0'
         }`}
       />
+
+      {/* User Neon Globe Logo beside / in the corner of RAFA 930 */}
+      {showGlobe && (
+        <div className="relative flex items-center justify-center shrink-0 mr-1.5 sm:mr-2">
+          {/* Pulsing neon halo */}
+          <div
+            className={`absolute -inset-1 rounded-full bg-gradient-to-tr from-[#00d4ff]/50 via-[#ec4899]/40 to-[#a855f7]/50 blur-sm transition-all duration-300 pointer-events-none ${
+              isTapped ? 'scale-150 opacity-100' : 'group-hover:scale-125 opacity-70 animate-pulse'
+            }`}
+          />
+          <img
+            src={rafaGlobeLogo}
+            alt="Logo oficial RAFA 930"
+            className={`${logoSizeClass} object-contain relative z-10 transition-transform duration-500 transform group-hover:scale-110 group-hover:rotate-6 drop-shadow-[0_0_10px_rgba(0,212,255,0.95)] drop-shadow-[0_0_20px_rgba(236,72,153,0.7)] ${
+              isTapped ? 'scale-125 rotate-12' : ''
+            }`}
+          />
+        </div>
+      )}
 
       {/* Main Brand Typography container */}
       <span
