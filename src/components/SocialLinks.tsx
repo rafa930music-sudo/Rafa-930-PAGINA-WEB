@@ -30,8 +30,7 @@ export interface LinktreeItem {
   icon: React.FC<{ className?: string }>;
 }
 
-const PORTRAIT_URL =
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuBiB5ndFO8BKZk16GSPdBRO6I4fqt3tcLuOZolfcdsWzR3wA5wBTpmdzXs41uwoExtegnt12b6_BoB1uy-SPZXQC1ROa-81zxV7Y_gsXQHFKNRSiyZszuVbDNqndxbfMJKhwifawiB8O16QJVZjZlXabHQh90wezknMFuxvqiA-rm3pfAMv73L8OKBvkjDGaIk9eWL8XFDczqF4YdTAIbXwCQ8RFiDA96uV2Aq7RehzV6ExpB0NSAVDDuVdG3h0ZG4Z6Q';
+const PORTRAIT_URL = '/assets/logo-white.webp';
 
 export const DE_VUELTA_YOUTUBE_URL = 'https://youtu.be/RVuiWbT_mNk';
 export const DE_VUELTA_VIDEO_ID = 'RVuiWbT_mNk';

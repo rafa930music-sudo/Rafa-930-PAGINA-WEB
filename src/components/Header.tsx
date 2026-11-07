@@ -15,8 +15,6 @@ import {
   Check,
   Ticket,
   Radio,
-  Volume2,
-  VolumeX,
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -40,24 +38,8 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const [burgerOpen, setBurgerOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 
-  // Sync ambient audio status from player
-  useEffect(() => {
-    const handleAudioStatus = (e: Event) => {
-      const customEvent = e as CustomEvent<{ isPlaying: boolean }>;
-      if (customEvent.detail) {
-        setIsAudioPlaying(customEvent.detail.isPlaying);
-      }
-    };
-    window.addEventListener('rafa930:audio-status', handleAudioStatus);
-    return () => window.removeEventListener('rafa930:audio-status', handleAudioStatus);
-  }, []);
 
-  const handleToggleAudio = () => {
-    window.dispatchEvent(new CustomEvent('rafa930:user-gesture-triggered'));
-    window.dispatchEvent(new CustomEvent('rafa930:toggle-ambient-audio'));
-  };
 
   // Progressive scroll tracking with smooth real-time percentage
   useEffect(() => {

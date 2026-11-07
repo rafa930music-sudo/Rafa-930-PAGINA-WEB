@@ -383,17 +383,10 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
                       referrerPolicy="no-referrer"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
-                      onError={(e) => {
-                        const target = e.currentTarget;
-                        if (!target.dataset.retried) {
-                          target.dataset.retried = '1';
-                          target.src = `./assets/${track.id}-cover.jpg`;
-                        }
-                      }}
                     />
-                    <div className="absolute top-2.5 right-2.5 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#050507]/90 backdrop-blur-md border border-white/30 text-[10px] font-mono text-white font-semibold shadow-[0_0_12px_rgba(0,0,0,0.5)]">
-                      <SpotifyLogo className="w-3.5 h-3.5 text-white" />
-                      <span>Spotify</span>
+                    <div className="absolute top-2.5 right-2.5 flex items-center gap-1.5 text-[10px] font-mono text-white font-semibold drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+                      <SpotifyLogo className="w-3 h-3 text-white" />
+                      <span className="uppercase tracking-widest">Spotify</span>
                     </div>
                   </div>
 

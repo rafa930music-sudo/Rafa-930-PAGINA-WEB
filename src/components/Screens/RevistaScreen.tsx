@@ -711,15 +711,17 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
         className="relative py-16 md:py-24 px-4 sm:px-6 md:px-10 bg-[#0a0a0f] overflow-hidden"
       >
         {/* Fondo metálico industrial futurista con fuerte presencia visible */}
-        <div className="absolute inset-0 pointer-events-none opacity-65 overflow-hidden select-none">
-          <img
-            src={ARTIST_IMAGES.metallicBg}
-            alt=""
-            className="w-full h-full object-cover scale-105 filter contrast-125 brightness-110 saturate-125"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/50 to-[#0a0a0f]/80" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0a0a0f_90%)]" />
-        </div>
+        {ARTIST_IMAGES.metallicBg && (
+          <div className="absolute inset-0 pointer-events-none opacity-65 overflow-hidden select-none">
+            <img
+              src={ARTIST_IMAGES.metallicBg}
+              alt=""
+              className="w-full h-full object-cover scale-105 filter contrast-125 brightness-110 saturate-125"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/50 to-[#0a0a0f]/80" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0a0a0f_90%)]" />
+          </div>
+        )}
 
         <SectionColorBubbles variant="editorial" />
         <div className="max-w-7xl mx-auto relative z-10">
@@ -767,7 +769,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                     
                     {/* Badge */}
                     {item.badge && (
-                      <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#050507]/90 backdrop-blur-md border border-[#ec4899]/60 text-[10px] font-mono text-[#ec4899] font-bold uppercase tracking-wider shadow-md">
+                      <div className="absolute top-3 left-3 text-[10px] font-mono text-[#ec4899] font-bold uppercase tracking-widest drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                         {item.badge[language]}
                       </div>
                     )}
@@ -882,24 +884,17 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                   className="w-full h-full object-cover group-hover:scale-105 duration-500 transition-transform"
                   src={ARTIST_IMAGES.deVuelta2026}
                   loading="lazy"
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    if (!target.dataset.retried) {
-                      target.dataset.retried = '1';
-                      target.src = './assets/de-vuelta-original.jpg';
-                    }
-                  }}
                 />
-                <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#ec4899] text-white text-[10px] font-mono font-bold uppercase tracking-wider shadow-lg">
+                <span className="absolute top-3 left-3 text-white text-[10px] font-mono font-bold uppercase tracking-widest drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
                   {language === 'ca'
                     ? 'NOU DESTACAT 2026'
                     : language === 'es'
                     ? 'NUEVO DESTACADO 2026'
                     : 'NEW FEATURED 2026'}
                 </span>
-                <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#050507]/90 backdrop-blur-md border border-[#1DB954]/70 text-[10px] font-mono text-[#1ed760] font-semibold shadow-[0_0_12px_rgba(29,185,84,0.35)]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#1DB954] animate-pulse" />
-                  <span>Spotify</span>
+                <div className="absolute top-3 right-3 flex items-center gap-1.5 text-[10px] font-mono text-[#1ed760] font-semibold drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1DB954] animate-pulse shadow-[0_0_8px_#1DB954]" />
+                  <span className="uppercase tracking-widest">Spotify</span>
                 </div>
               </div>
               <div className="text-xs font-mono text-[#00d4ff] font-semibold mb-1 tabular-nums tracking-wide">
@@ -1103,15 +1098,17 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
         id="colaboraciones"
       >
         {/* Fondo fotográfico auténtico de Estudio y Equipo Creativo con presencia y contraste */}
-        <div className="absolute inset-0 pointer-events-none opacity-65 overflow-hidden select-none">
-          <img
-            src={ARTIST_IMAGES.studioCrewBg}
-            alt="Sesión en estudio del Equipo Creativo RAFA 930"
-            className="w-full h-full object-cover scale-105 filter contrast-125 brightness-95 saturate-125"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/60 to-[#0a0a0f]/80" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#0a0a0f_90%)]" />
-        </div>
+        {ARTIST_IMAGES.studioCrewBg && (
+          <div className="absolute inset-0 pointer-events-none opacity-65 overflow-hidden select-none">
+            <img
+              src={ARTIST_IMAGES.studioCrewBg}
+              alt="Sesión en estudio del Equipo Creativo RAFA 930"
+              className="w-full h-full object-cover scale-105 filter contrast-125 brightness-95 saturate-125"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/60 to-[#0a0a0f]/80" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#0a0a0f_90%)]" />
+          </div>
+        )}
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>

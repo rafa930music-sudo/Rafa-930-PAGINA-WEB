@@ -8,19 +8,8 @@ import {
   StreamingLink,
   NavItem,
 } from '../types';
-import rafa930Cara from '@/src/assets/images/rafa-930-cara.jpg';
-import logoWhite from '@/src/assets/images/logo-white.webp';
-import laMinaHeroBg from '@/src/assets/images/barrio-de-la-mina.png';
-import deVueltaNew from '@/src/assets/images/de-vuelta-new.jpg';
-import romeoYJulietaNew from '@/src/assets/images/romeo-y-julieta-new.jpg';
-import diferentesCaminosNew from '@/src/assets/images/diferentes-caminos-new.jpg';
-import pasanLosDiasNew from '@/src/assets/images/pasan-los-dias-new.jpg';
-import unAmorProhibidoNew from '@/src/assets/images/un-amor-prohibido-new.png';
-import hagoDineroNew from '@/src/assets/images/hago-dinero-new.jpg';
 
-import metallicCyberBg from '@/src/assets/images/metallic_cyber_texture_1793815475887.jpg';
-import studioCrewBg from '@/src/assets/images/studio_crew_session_1793816322490.jpg';
-
+// Real Artist Assets (Local / Original)
 export const OFFICIAL_SPOTIFY_URL = 'https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng';
 export const OFFICIAL_YOUTUBE_URL = 'https://www.youtube.com/@rafa_930';
 export const OFFICIAL_INSTAGRAM_URL = 'https://www.instagram.com/rafa930_oficial';
@@ -31,28 +20,35 @@ export const OFFICIAL_TIDAL_URL = 'https://tidal.com/artist/41128230';
 export const OFFICIAL_EMAIL = 'rafa.930music@gmail.com';
 export const OFFICIAL_WHATSAPP = '+34 671 59 18 14';
 
-export const OFFICIAL_LOGOS = {
-  header: logoWhite,
-  splash: logoWhite,
-  drawer: logoWhite,
-  footer: logoWhite,
+export const ARTIST_IMAGES = {
+  // Main identity (Using official logo as primary placeholder)
+  heroPortrait: '/assets/logo-white.webp',
+  laMinaHeroBg: '/assets/logo-white.webp', // Authentic neighborhood photo pending
+  libraryOrigin: '/assets/logo-white.webp',
+  
+  // Textures (Neutral, non-AI)
+  metallicBg: '', 
+  studioCrewBg: '',
+  
+  // Official Covers (Waiting for user provision)
+  deVuelta2026: '/assets/logo-white.webp',
+  single2026: '/assets/logo-white.webp',
+  epMyWorld: '/assets/logo-white.webp',
+  albumVidaEsBella: '/assets/logo-white.webp',
+  
+  romeoYJulietaCover: '/assets/logo-white.webp',
+  diferentesCaminosCover: '/assets/logo-white.webp',
+  pasanLosDiasCover: '/assets/logo-white.webp',
+  unAmorProhibidoCover: '/assets/logo-white.webp',
+  hagoDineroCover: '/assets/logo-white.webp',
+  poetaCover: '/assets/logo-white.webp',
 };
 
-export const ARTIST_IMAGES = {
-  heroPortrait: rafa930Cara,
-  laMinaHeroBg: laMinaHeroBg,
-  metallicBg: metallicCyberBg,
-  studioCrewBg: studioCrewBg,
-  libraryOrigin: laMinaHeroBg,
-  deVuelta2026: deVueltaNew,
-  single2026: deVueltaNew,
-  epMyWorld: pasanLosDiasNew,
-  albumVidaEsBella: romeoYJulietaNew,
-  romeoYJulietaCover: romeoYJulietaNew,
-  diferentesCaminosCover: diferentesCaminosNew,
-  pasanLosDiasCover: pasanLosDiasNew,
-  unAmorProhibidoCover: unAmorProhibidoNew,
-  hagoDineroCover: hagoDineroNew,
+export const OFFICIAL_LOGOS = {
+  header: '/assets/logo-white.webp',
+  splash: '/assets/logo-white.webp',
+  drawer: '/assets/logo-white.webp',
+  footer: '/assets/logo-white.webp',
 };
 
 export const NAV_ITEMS: NavItem[] = [
@@ -112,7 +108,7 @@ export const PRESS_KIT_ITEMS: PressKitItem[] = [
     id: 'press-dossier-2026',
     title: 'Dossier Artístico & Bio Oficial',
     description: 'Trayectoria, cronología 2023-2026, hitos de streaming y repercusión cultural desde 08930.',
-    fileUrl: '/assets/presskit-rafa930.txt',
+    fileUrl: '/press/RAFA930_PressKit_2026.pdf',
     fileFormat: 'PDF',
     fileSize: '3.4 MB',
     lastUpdated: 'Temporada 2026',
@@ -121,7 +117,7 @@ export const PRESS_KIT_ITEMS: PressKitItem[] = [
     id: 'press-rider-audio',
     title: 'Rider Técnico & Stage Plot',
     description: 'Requisitos de sonido, microfonía Shure inalámbrica UHF, monitoraje in-ear y set DJ balanceado.',
-    fileUrl: '/assets/presskit-rafa930.txt',
+    fileUrl: '/press/RAFA930_RiderTecnico_2026.pdf',
     fileFormat: 'PDF',
     fileSize: '1.2 MB',
     lastUpdated: 'Enero 2026',
@@ -130,16 +126,12 @@ export const PRESS_KIT_ITEMS: PressKitItem[] = [
     id: 'press-assets-4k',
     title: 'Pack Fotográfico 4K & Logotipos',
     description: 'Retratos editoriales por Incrife en alta resolución, portadas de singles e identidades visuales.',
-    fileUrl: '/assets/presskit-rafa930.txt',
+    fileUrl: '/press/RAFA930_FotosHiRes_2026.zip',
     fileFormat: 'ZIP',
     fileSize: '24.8 MB',
     lastUpdated: '2026 Master',
   },
 ];
-
-
-
-
 
 export const TRACKS: Track[] = [
   {
@@ -152,7 +144,7 @@ export const TRACKS: Track[] = [
     duration: '2:56',
     spotifyUrl: 'https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng',
     youtubeUrl: 'https://youtu.be/RVuiWbT_mNk',
-    description: 'El nou tema destacat de RAFA 930 en 2026. Energia nocturna, retorn amb més força i la identitat pura del 930.',
+    description: 'El nou tema destacat de RAFA 930 en 2026. Energía nocturna, retorn amb més força i la identitat pura del 930.',
     plays: '252+ reproduccions',
     credits: 'Lletra i Veu: Rafa 930',
   },
@@ -223,7 +215,7 @@ export const TRACKS: Track[] = [
     duration: '3:08',
     spotifyUrl: 'https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng',
     youtubeUrl: 'https://youtube.com/@rafa_930',
-    description: 'Reflexió profunda sobre la separació de rutes i la maduresa personal davant la vida.',
+    description: 'Reflexió profunda sobre la separació de rutes y la maduresa personal davant la vida.',
     plays: '268+ reproduccions',
     lyricsExcerpt: 'Ara prenem diferents camins sota el mateix cel,\nrecordant tot allò que vam escriure en paper...',
     credits: 'Lletra i Veu: Rafa 930',
@@ -276,7 +268,7 @@ export const COLLABORATORS: Collaborator[] = [
     name: 'Incrife',
     role: 'Fotògraf & Productor',
     roleColor: 'primary',
-    avatarUrl: studioCrewBg,
+    avatarUrl: '/assets/logo-white.webp',
     instagramUrl: 'https://www.instagram.com/incrife/',
     handle: '@incrife',
     bio: '',
@@ -286,7 +278,7 @@ export const COLLABORATORS: Collaborator[] = [
     name: 'Ouxxox',
     role: 'Productor',
     roleColor: 'secondary',
-    avatarUrl: studioCrewBg,
+    avatarUrl: '/assets/logo-white.webp',
     instagramUrl: 'https://www.instagram.com/_.ouxxox_fr33/',
     handle: '@_.ouxxox_fr33',
     bio: '',
@@ -296,7 +288,7 @@ export const COLLABORATORS: Collaborator[] = [
     name: 'Therassam',
     role: 'Artista',
     roleColor: 'tertiary',
-    avatarUrl: rafa930Cara,
+    avatarUrl: '/assets/logo-white.webp',
     instagramUrl: 'https://www.instagram.com/therassam/',
     handle: '@therassam',
     bio: '',
@@ -306,7 +298,7 @@ export const COLLABORATORS: Collaborator[] = [
     name: 'Kingsla',
     role: 'Artista',
     roleColor: 'tertiary',
-    avatarUrl: studioCrewBg,
+    avatarUrl: '/assets/logo-white.webp',
     instagramUrl: 'https://www.instagram.com/amine_grafi/',
     handle: '@amine_grafi',
     bio: '',
@@ -316,7 +308,7 @@ export const COLLABORATORS: Collaborator[] = [
     name: 'Salma',
     role: 'Model',
     roleColor: 'secondary',
-    avatarUrl: romeoYJulietaNew,
+    avatarUrl: '/assets/logo-white.webp',
     instagramUrl: 'https://www.instagram.com/ssalmaem/',
     handle: '@ssalmaem',
     bio: '',
@@ -326,7 +318,7 @@ export const COLLABORATORS: Collaborator[] = [
     name: 'Toliyug',
     role: 'Model',
     roleColor: 'secondary',
-    avatarUrl: diferentesCaminosNew,
+    avatarUrl: '/assets/logo-white.webp',
     instagramUrl: 'https://www.instagram.com/toliyug/',
     handle: '@toliyug',
     bio: '',
@@ -336,7 +328,7 @@ export const COLLABORATORS: Collaborator[] = [
     name: 'Quiriat Jearim Deras Menjivar',
     role: 'Model',
     roleColor: 'secondary',
-    avatarUrl: pasanLosDiasNew,
+    avatarUrl: '/assets/logo-white.webp',
     instagramUrl: 'https://www.instagram.com/derasmenjivar_13/',
     handle: '@derasmenjivar_13',
     bio: '',
@@ -349,7 +341,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     title: 'RAFA 930 · Clarobscur',
     category: 'retrat',
     categoryLabel: 'Arxiu Editorial',
-    imageUrl: ARTIST_IMAGES.heroPortrait,
+    imageUrl: '/assets/logo-white.webp',
     credits: 'Foto: Incrife (@incrife)',
     year: '2025',
     location: 'Barcelona',
@@ -360,7 +352,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     title: 'Barri de La Mina',
     category: 'mina',
     categoryLabel: 'Arxiu Històric',
-    imageUrl: ARTIST_IMAGES.libraryOrigin,
+    imageUrl: '/assets/logo-white.webp',
     credits: 'Arxiu 930',
     year: 'Orígens',
     location: 'Sant Adrià de Besòs',
@@ -371,7 +363,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     title: 'Salma',
     category: 'moda',
     categoryLabel: 'Model',
-    imageUrl: COLLABORATORS[4].avatarUrl,
+    imageUrl: '/assets/logo-white.webp',
     credits: '@ssalmaem',
     year: '2025',
     location: 'Barcelona',
@@ -382,7 +374,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     title: 'Toliyug',
     category: 'moda',
     categoryLabel: 'Model',
-    imageUrl: COLLABORATORS[5].avatarUrl,
+    imageUrl: '/assets/logo-white.webp',
     credits: '@toliyug',
     year: '2025',
     location: 'Barcelona',
@@ -393,7 +385,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     title: 'Quiriat Jearim Deras Menjivar',
     category: 'retrat',
     categoryLabel: 'Model',
-    imageUrl: COLLABORATORS[6].avatarUrl,
+    imageUrl: '/assets/logo-white.webp',
     credits: '@derasmenjivar_13',
     year: '2025',
     location: 'Barcelona',
@@ -404,7 +396,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     title: 'Therassam',
     category: 'urbana',
     categoryLabel: 'Artista',
-    imageUrl: COLLABORATORS[2].avatarUrl,
+    imageUrl: '/assets/logo-white.webp',
     credits: '@therassam',
     year: '2024',
     location: 'Sant Adrià de Besòs',
@@ -415,7 +407,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     title: 'Kingsla',
     category: 'urbana',
     categoryLabel: 'Artista',
-    imageUrl: COLLABORATORS[3].avatarUrl,
+    imageUrl: '/assets/logo-white.webp',
     credits: '@amine_grafi',
     year: '2024',
     location: 'Sant Adrià de Besòs',
@@ -426,7 +418,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     title: 'Ouxxox',
     category: 'urbana',
     categoryLabel: 'Productor',
-    imageUrl: COLLABORATORS[1].avatarUrl,
+    imageUrl: '/assets/logo-white.webp',
     credits: '@_.ouxxox_fr33',
     year: '2024',
     location: 'Barcelona',
@@ -437,7 +429,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     title: 'Incrife',
     category: 'retrat',
     categoryLabel: 'Fotògraf',
-    imageUrl: COLLABORATORS[0].avatarUrl,
+    imageUrl: '/assets/logo-white.webp',
     credits: '@incrife',
     year: '2024',
     location: 'Barcelona',
@@ -503,7 +495,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
     title: 'De Vuelta',
     badge: 'Nou Tema Destacat 2026',
     badgeType: 'tertiary',
-    description: 'El nou llançament estel·lar de RAFA 930 que lidera l’etapa actual amb força i identitat pròpia.',
+    description: 'El nou llançament estel·lar de RAFA 930 que lidera l’etapa actual amb fuerza i identitat pròpia.',
     highlight: true,
   },
 ];

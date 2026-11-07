@@ -18,6 +18,10 @@ export const AmbientGlobalPlayer: React.FC = () => {
 
   // Sync with preferences changes
   const applyAudioSettings = useCallback((currentPrefs: UserAudioPreferences) => {
+    soundEngine.setVolume(currentPrefs.volume);
+    soundEngine.setEchoLevel(currentPrefs.echoLevel);
+    soundEngine.setMuted(currentPrefs.isMuted);
+
     if (audioRef.current) {
       audioRef.current.volume = currentPrefs.isMuted ? 0 : currentPrefs.volume;
       audioRef.current.muted = currentPrefs.isMuted;
@@ -30,6 +34,8 @@ export const AmbientGlobalPlayer: React.FC = () => {
     isAttemptingPlayRef.current = true;
 
     try {
+      // 1. Resume / initialize Web Audio context
+      soundEngine.initCtx();
       applyAudioSettings(currentPrefs);
 
       // Try 1: User uploaded custom file from device
@@ -105,7 +111,17 @@ export const AmbientGlobalPlayer: React.FC = () => {
         }
       }
 
-      // If HTML audio attempt finished, state is updated via audioEl onPlay event
+      // Try 4: If HTML audio was blocked or failed, fallback to sound synthesizer
+      if (!playbackStartedRef.current) {
+        try {
+          soundEngine.playTrack('de-vuelta-echo');
+          setIsPlaying(true);
+          playbackStartedRef.current = true;
+          setActiveTrackName('De Vuelta - Sintetizador Ambiental');
+        } catch {
+          setIsPlaying(false);
+        }
+      }
     } finally {
       isAttemptingPlayRef.current = false;
     }
@@ -115,6 +131,7 @@ export const AmbientGlobalPlayer: React.FC = () => {
     if (audioRef.current) {
       audioRef.current.pause();
     }
+    soundEngine.stop();
     setIsPlaying(false);
     playbackStartedRef.current = false;
     isAttemptingPlayRef.current = false;
@@ -142,52 +159,45 @@ export const AmbientGlobalPlayer: React.FC = () => {
       startPlayback(updated);
     };
 
-    const handleToggleAudio = () => {
-      if (isPlaying) {
-        stopPlayback();
-      } else {
-        startPlayback(prefs);
-      }
-    };
-
     window.addEventListener('rafa930:audio-prefs-changed', handlePrefsChange);
     window.addEventListener('rafa930:custom-file-saved', handleFileUploaded);
     window.addEventListener('rafa930:custom-file-deleted', handleFileDeleted);
-    window.addEventListener('rafa930:toggle-ambient-audio', handleToggleAudio);
 
     return () => {
       window.removeEventListener('rafa930:audio-prefs-changed', handlePrefsChange);
       window.removeEventListener('rafa930:custom-file-saved', handleFileUploaded);
       window.removeEventListener('rafa930:custom-file-deleted', handleFileDeleted);
-      window.removeEventListener('rafa930:toggle-ambient-audio', handleToggleAudio);
     };
-  }, [isPlaying, prefs, applyAudioSettings, startPlayback, stopPlayback]);
+  }, [prefs, applyAudioSettings, startPlayback]);
 
   // Robust User Interaction handler for Mobile (iOS Safari & Android Chrome)
   useEffect(() => {
     const handleUserGesture = () => {
       if (playbackStartedRef.current || isAttemptingPlayRef.current) return;
 
+      // Force unmuted state for automatic start on interaction
+      const currentPrefs = getAudioPreferences();
+      if (currentPrefs.isMuted) {
+        currentPrefs.isMuted = false;
+        applyAudioSettings(currentPrefs);
+      }
+
       // Unmute and start Web Audio context
       soundEngine.initCtx();
 
       // Trigger playback synchronously within gesture frame
-      const currentPrefs = getAudioPreferences();
       startPlayback(currentPrefs);
     };
 
-    // Specific mobile and desktop gesture events on window (touch, swipe, scroll, click, tap)
+    // Specific mobile and desktop gesture events on window (prevent double firing)
     const events = [
-      'touchstart',
-      'touchmove',
-      'touchend',
       'click',
-      'pointerdown',
+      'touchend',
       'pointerup',
-      'scroll',
-      'wheel',
+      'mousedown',
       'keydown',
-      'rafa930:user-gesture-triggered',
+      'touchstart',
+      'rafa930:user-gesture-triggered'
     ];
 
     events.forEach((evt) => {
@@ -198,9 +208,8 @@ export const AmbientGlobalPlayer: React.FC = () => {
       events.forEach((evt) => {
         window.removeEventListener(evt, handleUserGesture);
       });
-      stopPlayback();
     };
-  }, [startPlayback, stopPlayback]);
+  }, [startPlayback, applyAudioSettings]);
 
   // Dispatch current active status to inform studio UI
   useEffect(() => {
