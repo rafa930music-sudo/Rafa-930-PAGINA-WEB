@@ -18,10 +18,6 @@ export const AmbientGlobalPlayer: React.FC = () => {
 
   // Sync with preferences changes
   const applyAudioSettings = useCallback((currentPrefs: UserAudioPreferences) => {
-    soundEngine.setVolume(currentPrefs.volume);
-    soundEngine.setEchoLevel(currentPrefs.echoLevel);
-    soundEngine.setMuted(currentPrefs.isMuted);
-
     if (audioRef.current) {
       audioRef.current.volume = currentPrefs.isMuted ? 0 : currentPrefs.volume;
       audioRef.current.muted = currentPrefs.isMuted;
@@ -34,8 +30,6 @@ export const AmbientGlobalPlayer: React.FC = () => {
     isAttemptingPlayRef.current = true;
 
     try {
-      // 1. Resume / initialize Web Audio context
-      soundEngine.initCtx();
       applyAudioSettings(currentPrefs);
 
       // Try 1: User uploaded custom file from device
@@ -111,17 +105,7 @@ export const AmbientGlobalPlayer: React.FC = () => {
         }
       }
 
-      // Try 4: If HTML audio was blocked or failed, fallback to sound synthesizer
-      if (!playbackStartedRef.current) {
-        try {
-          soundEngine.playTrack('de-vuelta-echo');
-          setIsPlaying(true);
-          playbackStartedRef.current = true;
-          setActiveTrackName('De Vuelta - Sintetizador Ambiental');
-        } catch {
-          setIsPlaying(false);
-        }
-      }
+      // If HTML audio attempt finished, state is updated via audioEl onPlay event
     } finally {
       isAttemptingPlayRef.current = false;
     }
@@ -131,7 +115,6 @@ export const AmbientGlobalPlayer: React.FC = () => {
     if (audioRef.current) {
       audioRef.current.pause();
     }
-    soundEngine.stop();
     setIsPlaying(false);
     playbackStartedRef.current = false;
     isAttemptingPlayRef.current = false;
@@ -193,8 +176,19 @@ export const AmbientGlobalPlayer: React.FC = () => {
       startPlayback(currentPrefs);
     };
 
-    // Specific mobile and desktop gesture events on window (prevent double firing)
-    const events = ['click', 'touchend', 'pointerup', 'keydown', 'rafa930:user-gesture-triggered'];
+    // Specific mobile and desktop gesture events on window (touch, swipe, scroll, click, tap)
+    const events = [
+      'touchstart',
+      'touchmove',
+      'touchend',
+      'click',
+      'pointerdown',
+      'pointerup',
+      'scroll',
+      'wheel',
+      'keydown',
+      'rafa930:user-gesture-triggered',
+    ];
 
     events.forEach((evt) => {
       window.addEventListener(evt, handleUserGesture, { passive: true });

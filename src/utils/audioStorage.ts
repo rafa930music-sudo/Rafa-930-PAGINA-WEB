@@ -32,7 +32,11 @@ export const getAudioPreferences = (): UserAudioPreferences => {
   try {
     const raw = localStorage.getItem(SETTINGS_KEY);
     if (raw) {
-      return JSON.parse(raw);
+      const parsed = JSON.parse(raw);
+      if (typeof parsed.volume === 'number' && parsed.volume < 0.20) {
+        parsed.volume = 0.35;
+      }
+      return parsed;
     }
   } catch {
     // LocalStorage fallback
@@ -42,7 +46,7 @@ export const getAudioPreferences = (): UserAudioPreferences => {
     sourceMode: 'default',
     customUrl: '',
     customTrackName: '',
-    volume: 0.05,
+    volume: 0.35,
     echoLevel: 0.42,
     isMuted: false,
   };

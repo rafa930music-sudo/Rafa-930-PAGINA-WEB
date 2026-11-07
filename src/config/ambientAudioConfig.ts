@@ -59,7 +59,7 @@ export const AMBIENT_AUDIO_CONFIG: AmbientAudioConfig = {
     'assets/de-vuelta.mp3',
     'de-vuelta.mp3',
   ],
-  defaultVolume: 0.05, // Volumen muy bajo y sutil
+  defaultVolume: 0.35, // Volumen óptimo y claramente audible
   defaultEchoLevel: 0.42, // Eco con reverb de fondo
   defaultMuted: false,
   fallbackSynthTrack: 'de-vuelta-echo',
