@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { soundEngine } from '../utils/soundSynthesizer';
+import { soundEngine } from '../utils/sound-synthesizer';
 import { AMBIENT_AUDIO_CONFIG } from '../config/ambientAudioConfig';
 import {
   getAudioPreferences,
