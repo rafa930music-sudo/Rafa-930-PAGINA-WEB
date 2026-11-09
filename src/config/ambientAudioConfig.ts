@@ -58,8 +58,8 @@ export const AMBIENT_AUDIO_CONFIG: AmbientAudioConfig = {
     'de-vuelta.mp3',
     'assets/de-vuelta-ambient.mp3',
   ],
-  defaultVolume: 0.40, // Increased volume for the real theme
-  defaultEchoLevel: 0.20, // Lower echo for the main track to maintain clarity
+  defaultVolume: 0.45,
+  defaultEchoLevel: 0.15,
   defaultMuted: false,
   fallbackSynthTrack: 'de-vuelta',
 };

@@ -111,17 +111,7 @@ export const AmbientGlobalPlayer: React.FC = () => {
         }
       }
 
-      // Try 4: If HTML audio was blocked or failed, fallback to sound synthesizer
-      if (!playbackStartedRef.current) {
-        try {
-          soundEngine.playTrack('de-vuelta-echo');
-          setIsPlaying(true);
-          playbackStartedRef.current = true;
-          setActiveTrackName('De Vuelta - Sintetizador Ambiental');
-        } catch {
-          setIsPlaying(false);
-        }
-      }
+      // Real audio playback initialized successfully via de-vuelta.mp3
     } finally {
       isAttemptingPlayRef.current = false;
     }

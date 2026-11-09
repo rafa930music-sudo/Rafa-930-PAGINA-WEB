@@ -181,9 +181,9 @@ const TRACK_I18N: Record<
   },
   'un-amor-prohibido': {
     categoryLabel: {
-      ca: 'HIT SINGLE · +1.2K REPS',
-      es: 'HIT SINGLE · +1.2K REPS',
-      en: 'HIT SINGLE · 1.2K+ PLAYS',
+      ca: 'HIT SINGLE OFICIAL',
+      es: 'HIT SINGLE OFICIAL',
+      en: 'OFFICIAL HIT SINGLE',
     },
     description: {
       ca: 'Un dels temes més corejats i escoltats de la trajectòria de RAFA 930 a YouTube.',

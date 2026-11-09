@@ -119,9 +119,9 @@ const TIMELINE_I18N: {
     year: '2024 · Hit Single',
     badge: { ca: 'HIT SINGLE', es: 'HIT SINGLE', en: 'HIT SINGLE' },
     title: {
-      ca: 'Hago Dinero (+500 reps)',
-      es: 'Hago Dinero (+500 reps)',
-      en: 'Hago Dinero (500+ plays)',
+      ca: 'Hago Dinero',
+      es: 'Hago Dinero',
+      en: 'Hago Dinero',
     },
     description: {
       ca: 'Creixement orgànic sostingut en plataformes d’streaming i YouTube amb so trap potent.',
@@ -1228,10 +1228,10 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
               </div>
               <div className="text-xs font-mono text-[#00d4ff] font-semibold mb-1 tabular-nums tracking-wide">
                 {language === 'ca'
-                  ? 'SENZILL 2026 · 1.2K+ REPS'
+                  ? 'SENZILL OFICIAL 2026'
                   : language === 'es'
-                  ? 'SENCILLO 2026 · 1.2K+ REPS'
-                  : 'SINGLE 2026 · 1.2K+ PLAYS'}
+                  ? 'SENCILLO OFICIAL 2026'
+                  : 'OFFICIAL SINGLE 2026'}
               </div>
               <h3 className="font-['Cormorant_Garamond'] font-bold text-2xl sm:text-3xl text-[#ffffff] drop-shadow-sm">
                 Nose si estaré mañana
