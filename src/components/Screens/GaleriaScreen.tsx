@@ -96,9 +96,9 @@ const PHOTO_I18N: Record<
       en: 'Ouxxox',
     },
     categoryLabel: {
-      ca: 'Productor & Beatmaker · @_.ouxxox_fr33',
-      es: 'Productor & Beatmaker · @_.ouxxox_fr33',
-      en: 'Producer & Beatmaker · @_.ouxxox_fr33',
+      ca: 'Productor & Beatmaker · @ouxxox.res0',
+      es: 'Productor & Beatmaker · @ouxxox.res0',
+      en: 'Producer & Beatmaker · @ouxxox.res0',
     },
     description: {
       ca: 'Beatmaker i productor musical de l’equip 930.',
@@ -106,9 +106,9 @@ const PHOTO_I18N: Record<
       en: 'Beatmaker and producer from the 930 squad.',
     },
     credits: {
-      ca: '@_.ouxxox_fr33',
-      es: '@_.ouxxox_fr33',
-      en: '@_.ouxxox_fr33',
+      ca: '@ouxxox.res0',
+      es: '@ouxxox.res0',
+      en: '@ouxxox.res0',
     },
     year: { ca: '2026', es: '2026', en: '2026' },
   },
