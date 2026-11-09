@@ -21,7 +21,6 @@ export const OFFICIAL_EMAIL = 'rafa.930music@gmail.com';
 export const OFFICIAL_WHATSAPP = '+34 671 59 18 14';
 
 import rafaCara from '../assets/images/rafa-930-cara.jpg';
-import rafaXemeneies from '../assets/images/rafa-xemeneies.jpg';
 import barrioLaMina from '../assets/images/barrio-de-la-mina.png';
 import deVueltaCover from '../assets/images/de-vuelta.jpg';
 import noseSiEstareCover from '../assets/images/nose-si-estare-manana.jpg';
@@ -48,13 +47,13 @@ import studioCrewSession from '../assets/images/studio_crew_session_179381632249
 export const ARTIST_IMAGES = {
   // Main identity
   heroPortrait: rafaCara,
-  heroPortraitNight: rafaXemeneies,
+  heroPortraitNight: rafaCara,
   laMinaHeroBg: barrioLaMina,
   libraryOrigin: barrioLaMina,
   
   // Textures
   metallicBg: metallicTexture, 
-  studioCrewBg: rafaXemeneies,
+  studioCrewBg: studioCrewSession,
   
   // Official Covers mapped distinctly
   deVuelta2026: deVueltaCover,
@@ -364,17 +363,6 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     year: '2025',
     location: 'Barcelona',
     description: 'Sessió editorial oficial en clarobscur per Incrife.',
-  },
-  {
-    id: 'g-xemeneies',
-    title: 'RAFA 930 · Tres Xemeneies',
-    category: 'retrat',
-    categoryLabel: '08930 Nocturn',
-    imageUrl: rafaXemeneies,
-    credits: 'Arxiu 930',
-    year: '2026',
-    location: 'Sant Adrià de Besòs',
-    description: 'Retrat nocturn al litoral del Besòs amb les Tres Xemeneies de fons.',
   },
   {
     id: 'g-library',

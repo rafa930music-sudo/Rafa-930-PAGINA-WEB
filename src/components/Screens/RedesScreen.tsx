@@ -108,11 +108,12 @@ export const RedesScreen: React.FC<RedesScreenProps> = ({ language, onNavigate }
   };
 
   const handleShare = async () => {
+    const shareText = '🎵 RAFA 930 — Rap consciente, trap melódico y producciones urbanas desde La Mina (08930, Barcelona). Escucha la discografía oficial y conecta en todas las plataformas.';
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'RAFA 930 · Redes Oficiales',
-          text: content.subtitle,
+          title: 'RAFA 930 · Sitio Web Oficial',
+          text: shareText,
           url: shareUrl,
         });
       } catch {}
