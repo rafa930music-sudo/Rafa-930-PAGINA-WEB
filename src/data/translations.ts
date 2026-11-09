@@ -1,0 +1,195 @@
+import { Language, ScreenId } from '../types';
+
+export interface SheetMeta {
+  id: ScreenId;
+  number: string;
+  total: string;
+  name: Record<Language, string>;
+  subtitle: Record<Language, string>;
+  categoryTag: Record<Language, string>;
+}
+
+export const SHEETS_CONFIG: SheetMeta[] = [
+  {
+    id: 'revista',
+    number: '01',
+    total: '05',
+    name: {
+      ca: 'Revista & Portada',
+      es: 'Revista & Portada',
+      en: 'Magazine & Cover',
+    },
+    subtitle: {
+      ca: 'Cultura urbana, música conscient i veu de La Mina al món',
+      es: 'Cultura urbana, música consciente y voz de La Mina al mundo',
+      en: 'Urban culture, conscious music and the voice of La Mina to the world',
+    },
+    categoryTag: {
+      ca: 'EDITORIAL & PORTADA',
+      es: 'EDITORIAL & PORTADA',
+      en: 'EDITORIAL & COVER',
+    },
+  },
+  {
+    id: 'discografia',
+    number: '02',
+    total: '05',
+    name: {
+      ca: 'Discografia & Màsters',
+      es: 'Discografía & Másters',
+      en: 'Discography & Masters',
+    },
+    subtitle: {
+      ca: 'Catàleg oficial i reproducció d’alta fidelitat a Spotify i YouTube',
+      es: 'Catálogo oficial y streaming de alta fidelidad en Spotify y YouTube',
+      en: 'Official catalog and high-fidelity streaming on Spotify and YouTube',
+    },
+    categoryTag: {
+      ca: 'AUDIO & PRODUCCIÓ',
+      es: 'AUDIO & PRODUCCIÓN',
+      en: 'AUDIO & PRODUCTION',
+    },
+  },
+  {
+    id: 'galeria',
+    number: '03',
+    total: '05',
+    name: {
+      ca: 'Galeria & Arxiu',
+      es: 'Galería & Archivo',
+      en: 'Gallery & Archive',
+    },
+    subtitle: {
+      ca: 'Retrats editorials en clarobscur i arxiu documental per Incrife',
+      es: 'Retratos editoriales en claroscuro y archivo documental por Incrife',
+      en: 'Chiaroscuro editorial portraits and documentary archive by Incrife',
+    },
+    categoryTag: {
+      ca: 'FOTOGRAFIA & ART',
+      es: 'FOTOGRAFÍA & ARTE',
+      en: 'PHOTOGRAPHY & ART',
+    },
+  },
+  {
+    id: 'contacte',
+    number: '04',
+    total: '05',
+    name: {
+      ca: 'Contractació & Contacte',
+      es: 'Contratación & Contacto',
+      en: 'Booking & Inquiries',
+    },
+    subtitle: {
+      ca: 'Concerts, featurings, projectes a mida i disponibilitat directa',
+      es: 'Conciertos, featurings, proyectos a medida y disponibilidad directa',
+      en: 'Concerts, featurings, custom projects and direct availability',
+    },
+    categoryTag: {
+      ca: 'CANAL DIRECTE 930',
+      es: 'CANAL DIRECTO 930',
+      en: 'DIRECT CHANNEL 930',
+    },
+  },
+  {
+    id: 'legal',
+    number: '05',
+    total: '05',
+    name: {
+      ca: 'Marc Legal & Drets',
+      es: 'Marco Legal & Derechos',
+      en: 'Legal Framework & Rights',
+    },
+    subtitle: {
+      ca: 'Avís legal, privacitat, cookies, propietat intel·lectual i crèdits oficials',
+      es: 'Aviso legal, privacidad, cookies, propiedad intelectual y créditos oficiales',
+      en: 'Legal notice, privacy, cookies, IP rights and official credits',
+    },
+    categoryTag: {
+      ca: 'TRANSPARÈNCIA & DRETS',
+      es: 'TRANSPARENCIA & DERECHOS',
+      en: 'TRANSPARENCY & RIGHTS',
+    },
+  },
+];
+
+export const UI_TRANSLATIONS = {
+  header: {
+    magazineTitle: {
+      ca: 'Revista de Barri',
+      es: 'Revista de Barrio',
+      en: 'Neighborhood Magazine',
+    },
+    location: {
+      ca: 'La Mina · Sant Adrià (08930)',
+      es: 'La Mina · Sant Adrià (08930)',
+      en: 'La Mina · Sant Adrià (08930)',
+    },
+    ctaWork: {
+      ca: 'Treballem Junts',
+      es: 'Trabajemos Juntos',
+      en: "Let's Work Together",
+    },
+    audioOn: {
+      ca: 'SO 930 ACTIU',
+      es: 'AUDIO 930 ON',
+      en: '930 AUDIO ON',
+    },
+    audioOff: {
+      ca: 'ÀUDIO',
+      es: 'AUDIO',
+      en: 'AUDIO',
+    },
+    intro: {
+      ca: 'INTRO',
+      es: 'INTRO',
+      en: 'INTRO',
+    },
+    lightMode: {
+      ca: 'CLAR',
+      es: 'CLARO',
+      en: 'LIGHT',
+    },
+    darkMode: {
+      ca: 'FOSC',
+      es: 'OSCURO',
+      en: 'DARK',
+    },
+    selectLang: {
+      ca: 'Selecciona Idioma',
+      es: 'Seleccionar Idioma',
+      en: 'Select Language',
+    },
+  },
+  sheetNav: {
+    folioLabel: {
+      ca: 'PANTALLA / HOJA',
+      es: 'PANTALLA / HOJA',
+      en: 'SCREEN / SHEET',
+    },
+    of: {
+      ca: 'DE',
+      es: 'DE',
+      en: 'OF',
+    },
+    prevSheet: {
+      ca: 'Full Anterior',
+      es: 'Hoja Anterior',
+      en: 'Previous Sheet',
+    },
+    nextSheet: {
+      ca: 'Següent Full',
+      es: 'Siguiente Hoja',
+      en: 'Next Sheet',
+    },
+    keyboardHint: {
+      ca: 'Usa les fletxes [←] i [→] per canviar de pantalla',
+      es: 'Usa las flechas [←] y [→] para cambiar de pantalla',
+      en: 'Use arrow keys [←] and [→] to turn pages',
+    },
+  },
+  languages: [
+    { code: 'ca' as Language, label: 'Català', short: 'CA', flag: 'CA' },
+    { code: 'es' as Language, label: 'Español', short: 'ES', flag: 'ES' },
+    { code: 'en' as Language, label: 'English', short: 'EN', flag: 'EN' },
+  ],
+};
