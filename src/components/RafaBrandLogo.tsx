@@ -47,10 +47,10 @@ export const RafaBrandLogo: React.FC<RafaBrandLogoProps> = ({
     >
       {/* Dynamic background neon aura on hover/click */}
       <div
-        className={`absolute -inset-1.5 rounded-xl bg-gradient-to-r from-[#00d4ff]/0 via-[#ec4899]/0 to-[#a855f7]/0 transition-all duration-500 blur-md pointer-events-none ${
+        className={`absolute -inset-1.5 rounded-xl bg-gradient-to-r from-[#a855f7]/0 via-[#ec4899]/0 to-[#c084fc]/0 transition-all duration-500 blur-md pointer-events-none ${
           isTapped
-            ? 'from-[#00d4ff]/50 via-[#ec4899]/50 to-[#a855f7]/50 opacity-100 scale-105'
-            : 'group-hover:from-[#00d4ff]/35 group-hover:via-[#ec4899]/35 group-hover:to-[#a855f7]/35 group-hover:opacity-100 opacity-0'
+            ? 'from-[#a855f7]/50 via-[#ec4899]/50 to-[#c084fc]/50 opacity-100 scale-105'
+            : 'group-hover:from-[#a855f7]/35 group-hover:via-[#ec4899]/35 group-hover:to-[#c084fc]/35 group-hover:opacity-100 opacity-0'
         }`}
       />
 
@@ -59,14 +59,14 @@ export const RafaBrandLogo: React.FC<RafaBrandLogoProps> = ({
         <div className="relative flex items-center justify-center shrink-0 mr-1.5 sm:mr-2">
           {/* Pulsing neon halo */}
           <div
-            className={`absolute -inset-1 rounded-full bg-gradient-to-tr from-[#00d4ff]/50 via-[#ec4899]/40 to-[#a855f7]/50 blur-sm transition-all duration-300 pointer-events-none ${
+            className={`absolute -inset-1 rounded-full bg-gradient-to-tr from-[#a855f7]/50 via-[#ec4899]/40 to-[#c084fc]/50 blur-sm transition-all duration-300 pointer-events-none ${
               isTapped ? 'scale-150 opacity-100' : 'group-hover:scale-125 opacity-70 animate-pulse'
             }`}
           />
           <img
             src={rafaGlobeLogo}
             alt="Logo oficial RAFA 930"
-            className={`${logoSizeClass} object-contain relative z-10 transition-transform duration-500 transform group-hover:scale-110 group-hover:rotate-6 drop-shadow-[0_0_10px_rgba(0,212,255,0.95)] drop-shadow-[0_0_20px_rgba(236,72,153,0.7)] ${
+            className={`${logoSizeClass} object-contain relative z-10 transition-transform duration-500 transform group-hover:scale-110 group-hover:rotate-6 drop-shadow-[0_0_10px_rgba(168,85,247,0.95)] drop-shadow-[0_0_20px_rgba(236,72,153,0.7)] ${
               isTapped ? 'scale-125 rotate-12' : ''
             }`}
           />
@@ -83,8 +83,8 @@ export const RafaBrandLogo: React.FC<RafaBrandLogoProps> = ({
         <span
           className={`relative transition-all duration-300 ${
             isTapped
-              ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#a855f7] via-[#ec4899] to-[#00d4ff] drop-shadow-[0_0_25px_rgba(0,212,255,1)] scale-105'
-              : 'text-[#ffffff] group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#a855f7] group-hover:via-[#ec4899] group-hover:to-[#00d4ff] drop-shadow-[0_2px_12px_rgba(255,255,255,0.4)] group-hover:drop-shadow-[0_0_20px_rgba(236,72,153,0.9)]'
+              ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#a855f7] via-[#ec4899] to-[#c084fc] drop-shadow-[0_0_25px_rgba(168,85,247,1)] scale-105'
+              : 'text-[#ffffff] group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#a855f7] group-hover:via-[#ec4899] group-hover:to-[#c084fc] drop-shadow-[0_2px_12px_rgba(255,255,255,0.4)] group-hover:drop-shadow-[0_0_20px_rgba(236,72,153,0.9)]'
           }`}
         >
           RAFA
@@ -98,7 +98,7 @@ export const RafaBrandLogo: React.FC<RafaBrandLogoProps> = ({
               : 'group-hover:scale-110'
           }`}
         >
-          <span className="text-gradient-930 drop-shadow-[0_0_16px_rgba(0,212,255,0.85)] group-hover:drop-shadow-[0_0_26px_rgba(236,72,153,1)]">
+          <span className="text-gradient-930 drop-shadow-[0_0_16px_rgba(168,85,247,0.85)] group-hover:drop-shadow-[0_0_26px_rgba(236,72,153,1)]">
             930
           </span>
         </span>

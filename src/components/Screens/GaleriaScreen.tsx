@@ -411,7 +411,7 @@ export const GaleriaScreen: React.FC<GaleriaScreenProps> = ({
                   <h3 className="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-[#ffffff] truncate leading-tight">
                     {title}
                   </h3>
-                  <span className="text-[10px] font-mono text-[#00d4ff] shrink-0">
+                  <span className="text-[10px] font-mono text-[#a855f7] shrink-0">
                     {year}
                   </span>
                 </div>

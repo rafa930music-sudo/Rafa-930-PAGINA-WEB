@@ -7,13 +7,13 @@
   --color-card: #100d20;
   --color-card-elevated: #18132e;
 
-  /* Neón Eléctrico Primario y Secundario */
-  --color-electric-blue: #00f0ff;
-  --color-electric-cyan: #00e5ff;
+  /* Neón Eléctrico Morado y Rosa */
+  --color-electric-blue: #a855f7;
+  --color-electric-cyan: #c084fc;
   --color-electric-pink: #ff007f;
   --color-electric-magenta: #ff1493;
   --color-electric-purple: #9d4edd;
-  
+
   /* Textos */
   --color-bright: #ffffff;
   --color-glow-text: #f0f4ff;
@@ -55,27 +55,27 @@
   ::-webkit-scrollbar-thumb {
     background: #222232;
     border-radius: 4px;
-    border: 1px solid rgba(0, 212, 255, 0.2);
+    border: 1px solid rgba(168, 85, 247, 0.3);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #a855f7 0%, #ec4899 50%, #00d4ff 100%);
+    background: linear-gradient(180deg, #a855f7 0%, #ec4899 50%, #c084fc 100%);
   }
 
   /* Selección de texto en rosa eléctrico sobre negro */
   ::selection {
-    background-color: #ff007f;
+    background-color: #a855f7;
     color: #ffffff;
   }
 
   *:focus-visible {
-    outline: 2px solid #00f0ff;
+    outline: 2px solid #a855f7;
     outline-offset: 3px;
   }
 }
 
 /* Efectos de Resplandor Neón de Alta Intensidad */
-.glow-blue {
-  box-shadow: 0 0 25px rgba(0, 240, 255, 0.35), inset 0 0 15px rgba(0, 240, 255, 0.15);
+.glow-blue, .glow-purple {
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.45), inset 0 0 15px rgba(168, 85, 247, 0.2);
 }
 
 .glow-pink {
@@ -83,11 +83,11 @@
 }
 
 .glow-dual {
-  box-shadow: -8px 0 30px rgba(0, 240, 255, 0.3), 8px 0 30px rgba(255, 0, 127, 0.35);
+  box-shadow: -8px 0 30px rgba(168, 85, 247, 0.35), 8px 0 30px rgba(255, 0, 127, 0.35);
 }
 
-.text-glow-blue {
-  text-shadow: 0 0 20px rgba(0, 240, 255, 0.6), 0 0 40px rgba(0, 240, 255, 0.3);
+.text-glow-blue, .text-glow-purple {
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.7), 0 0 40px rgba(168, 85, 247, 0.4);
 }
 
 .text-glow-pink {
@@ -108,7 +108,7 @@
 }
 
 .animate-neon-gradient-text {
-  background: linear-gradient(90deg, #a855f7, #ec4899, #00d4ff, #00f0ff, #a855f7);
+  background: linear-gradient(90deg, #a855f7, #ec4899, #c084fc, #9333ea, #a855f7);
   background-size: 300% 300%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -134,7 +134,7 @@
 
 /* Clases de Estilo del Diseño Original RAFA 930 */
 .text-gradient-930 {
-  background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #00d4ff 100%);
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #c084fc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

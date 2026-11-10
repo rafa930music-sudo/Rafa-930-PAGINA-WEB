@@ -36,8 +36,8 @@ export const RafaLogo: React.FC<RafaLogoProps> = ({
           style={{
             background:
               theme === 'light'
-                ? 'radial-gradient(circle, rgba(0,212,255,0.3) 0%, rgba(236,72,153,0.2) 60%, transparent 80%)'
-                : 'radial-gradient(circle, rgba(0,212,255,0.45) 0%, rgba(168,85,247,0.3) 50%, rgba(236,72,153,0.2) 75%, transparent 90%)',
+                ? 'radial-gradient(circle, rgba(168,85,247,0.3) 0%, rgba(236,72,153,0.2) 60%, transparent 80%)'
+                : 'radial-gradient(circle, rgba(168,85,247,0.45) 0%, rgba(192,132,252,0.3) 50%, rgba(236,72,153,0.2) 75%, transparent 90%)',
           }}
         />
       )}
@@ -48,7 +48,7 @@ export const RafaLogo: React.FC<RafaLogoProps> = ({
         alt={alt}
         width={96}
         height={96}
-        className={`relative z-10 object-contain aspect-square drop-shadow-[0_0_12px_rgba(0,212,255,0.35)] ${sizeClasses}`}
+        className={`relative z-10 object-contain aspect-square drop-shadow-[0_0_12px_rgba(168,85,247,0.35)] ${sizeClasses}`}
         loading="eager"
         decoding="async"
       />

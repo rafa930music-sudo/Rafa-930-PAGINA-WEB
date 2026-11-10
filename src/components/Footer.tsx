@@ -50,7 +50,7 @@ export const Footer: React.FC<FooterProps> = ({
     <footer className="w-full bg-[#050507] border-t border-[#22222e] text-white pb-16 xl:pb-0">
       <div
         aria-hidden="true"
-        className="h-[1px] w-full bg-gradient-to-r from-transparent via-[#00d4ff]/30 to-transparent"
+        className="h-[1px] w-full bg-gradient-to-r from-transparent via-[#a855f7]/30 to-transparent"
       />
       {/* Main Footer Area */}
       <div className="w-full px-4 sm:px-6 md:px-10 py-10 md:py-14 max-w-7xl mx-auto">
@@ -85,7 +85,7 @@ export const Footer: React.FC<FooterProps> = ({
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="touch-target-44 w-10 h-10 rounded-xl bg-[#0a0f1d] border border-white/10 flex items-center justify-center text-[#8c98b4] hover:text-[#00d4ff] hover:border-[#00d4ff] transition-colors"
+              className="touch-target-44 w-10 h-10 rounded-xl bg-[#0a0f1d] border border-white/10 flex items-center justify-center text-[#8c98b4] hover:text-[#a855f7] hover:border-[#a855f7] transition-colors"
             >
               <InstagramLogo className="w-5 h-5" />
             </a>
@@ -105,7 +105,7 @@ export const Footer: React.FC<FooterProps> = ({
               target="_blank"
               rel="noopener noreferrer"
               aria-label="930 Digital"
-              className="touch-target-44 w-10 h-10 rounded-xl bg-[#0a0f1d] border border-[#00d4ff]/30 flex items-center justify-center text-[#00d4ff] hover:text-white hover:border-[#00d4ff] transition-colors"
+              className="touch-target-44 w-10 h-10 rounded-xl bg-[#0a0f1d] border border-[#a855f7]/30 flex items-center justify-center text-[#a855f7] hover:text-white hover:border-[#a855f7] transition-colors"
             >
               <Terminal className="w-4 h-4" />
             </a>
@@ -119,32 +119,32 @@ export const Footer: React.FC<FooterProps> = ({
             </h4>
             <ul className="space-y-2 text-[#8c98b4]">
               <li>
-                <button type="button" onClick={() => { onNavigate('revista'); scrollToTop(); }} className="hover:text-[#00d4ff] transition-colors py-0.5">
+                <button type="button" onClick={() => { onNavigate('revista'); scrollToTop(); }} className="hover:text-[#a855f7] transition-colors py-0.5">
                   00. Portada & Manifiesto
                 </button>
               </li>
               <li>
-                <button type="button" onClick={() => handleSectionJump('discografia')} className="hover:text-[#00d4ff] transition-colors py-0.5">
+                <button type="button" onClick={() => handleSectionJump('discografia')} className="hover:text-[#a855f7] transition-colors py-0.5">
                   01. Discografía Oficial 2023–2026
                 </button>
               </li>
               <li>
-                <button type="button" onClick={() => handleSectionJump('videos')} className="hover:text-[#00d4ff] transition-colors py-0.5">
+                <button type="button" onClick={() => handleSectionJump('videos')} className="hover:text-[#a855f7] transition-colors py-0.5">
                   02. Vídeos & Videoclips
                 </button>
               </li>
               <li>
-                <button type="button" onClick={() => handleSectionJump('biografia')} className="hover:text-[#00d4ff] transition-colors py-0.5">
+                <button type="button" onClick={() => handleSectionJump('biografia')} className="hover:text-[#a855f7] transition-colors py-0.5">
                   03. Biografía Oficial
                 </button>
               </li>
               <li>
-                <button type="button" onClick={() => handleSectionJump('fotos')} className="hover:text-[#00d4ff] transition-colors py-0.5">
+                <button type="button" onClick={() => handleSectionJump('fotos')} className="hover:text-[#a855f7] transition-colors py-0.5">
                   04. Archivo Fotográfico
                 </button>
               </li>
               <li>
-                <button type="button" onClick={() => { onNavigate('contacte'); scrollToTop(); }} className="hover:text-[#00d4ff] transition-colors py-0.5">
+                <button type="button" onClick={() => { onNavigate('contacte'); scrollToTop(); }} className="hover:text-[#a855f7] transition-colors py-0.5">
                   05. {language === 'ca' ? 'Booking & Contacte' : language === 'es' ? 'Booking & Contacto' : 'Booking & Contact'}
                 </button>
               </li>
@@ -152,10 +152,10 @@ export const Footer: React.FC<FooterProps> = ({
                 <button
                   type="button"
                   onClick={() => { onNavigate('redes'); scrollToTop(); }}
-                  className="hover:text-[#00d4ff] text-[#00d4ff] font-bold transition-colors py-0.5 flex items-center gap-1.5"
+                  className="hover:text-[#a855f7] text-[#a855f7] font-bold transition-colors py-0.5 flex items-center gap-1.5"
                 >
                   <span>06. {language === 'ca' ? 'Redes Socials Oficials' : language === 'es' ? 'Redes Sociales Oficiales' : 'Official Social Networks'}</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#00d4ff]" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#a855f7]" />
                 </button>
               </li>
             </ul>
@@ -171,7 +171,7 @@ export const Footer: React.FC<FooterProps> = ({
                 <button
                   type="button"
                   onClick={() => onOpenLegalTab('aviso')}
-                  className="hover:text-[#00d4ff] transition-colors py-0.5 text-left"
+                  className="hover:text-[#a855f7] transition-colors py-0.5 text-left"
                 >
                   01. {language === 'ca' ? 'Avís Legal & LSSI-CE' : language === 'es' ? 'Aviso Legal & LSSI-CE' : 'Legal Notice & LSSI-CE'}
                 </button>
@@ -201,7 +201,7 @@ export const Footer: React.FC<FooterProps> = ({
                 <button
                   type="button"
                   onClick={() => onOpenLegalTab('credits')}
-                  className="hover:text-[#00d4ff] transition-colors py-0.5 text-left"
+                  className="hover:text-[#a855f7] transition-colors py-0.5 text-left"
                 >
                   04. {language === 'ca' ? 'Crèdits & Fitxa Tècnica' : language === 'es' ? 'Créditos & Ficha Técnica' : 'Credits & Tech Sheet'}
                 </button>
@@ -211,7 +211,7 @@ export const Footer: React.FC<FooterProps> = ({
 
           <div>
             <h4 className="font-semibold text-[#ffffff] mb-3 flex items-center gap-1.5">
-              <Zap className="w-3.5 h-3.5 text-[#00d4ff]" />
+              <Zap className="w-3.5 h-3.5 text-[#a855f7]" />
               <span>{language === 'ca' ? 'Plataformes Oficials' : language === 'es' ? 'Plataformas Oficiales' : 'Official Platforms'}</span>
             </h4>
             <ul className="space-y-2 text-[#a1a1b5]">
@@ -220,7 +220,7 @@ export const Footer: React.FC<FooterProps> = ({
                   href={OFFICIAL_SPOTIFY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#00d4ff] transition-colors block py-0.5"
+                  className="hover:text-[#a855f7] transition-colors block py-0.5"
                 >
                   Spotify Oficial (RAFA 930)
                 </a>
@@ -230,7 +230,7 @@ export const Footer: React.FC<FooterProps> = ({
                   href="https://youtube.com/@rafa_930"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#00d4ff] transition-colors block py-0.5"
+                  className="hover:text-[#a855f7] transition-colors block py-0.5"
                 >
                   YouTube Oficial (@rafa_930)
                 </a>
@@ -240,7 +240,7 @@ export const Footer: React.FC<FooterProps> = ({
                   href="https://instagram.com/rafa930_oficial"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#00d4ff] transition-colors block py-0.5"
+                  className="hover:text-[#a855f7] transition-colors block py-0.5"
                 >
                   Instagram (@rafa930_oficial)
                 </a>
@@ -250,7 +250,7 @@ export const Footer: React.FC<FooterProps> = ({
                   href="https://rafa930music-sudo.github.io/930-Digital/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#00d4ff] transition-colors block py-0.5"
+                  className="hover:text-[#a855f7] transition-colors block py-0.5"
                 >
                   930 Digital Studio
                 </a>

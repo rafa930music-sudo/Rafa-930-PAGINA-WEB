@@ -229,23 +229,23 @@ export const NeonSectionTransition: React.FC<NeonSectionTransitionProps> = ({
         @keyframes neonFloatingOrbital {
           0% {
             transform: translateY(0px) rotate(0deg) scale(1);
-            filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.9)) drop-shadow(0 0 45px rgba(236, 72, 153, 0.7));
+            filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.9)) drop-shadow(0 0 45px rgba(236, 72, 153, 0.7));
           }
           25% {
             transform: translateY(-16px) rotate(3deg) scale(1.06);
-            filter: drop-shadow(0 0 35px rgba(0, 212, 255, 1)) drop-shadow(0 0 65px rgba(168, 85, 247, 0.85));
+            filter: drop-shadow(0 0 35px rgba(192, 132, 252, 1)) drop-shadow(0 0 65px rgba(168, 85, 247, 0.85));
           }
           50% {
             transform: translateY(-8px) rotate(-3deg) scale(1.09);
-            filter: drop-shadow(0 0 40px rgba(236, 72, 153, 1)) drop-shadow(0 0 70px rgba(0, 212, 255, 0.9));
+            filter: drop-shadow(0 0 40px rgba(236, 72, 153, 1)) drop-shadow(0 0 70px rgba(168, 85, 247, 0.9));
           }
           75% {
             transform: translateY(12px) rotate(2deg) scale(1.04);
-            filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.95)) drop-shadow(0 0 55px rgba(236, 72, 153, 0.8));
+            filter: drop-shadow(0 0 30px rgba(192, 132, 252, 0.95)) drop-shadow(0 0 55px rgba(236, 72, 153, 0.8));
           }
           100% {
             transform: translateY(0px) rotate(0deg) scale(1);
-            filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.9)) drop-shadow(0 0 45px rgba(236, 72, 153, 0.7));
+            filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.9)) drop-shadow(0 0 45px rgba(236, 72, 153, 0.7));
           }
         }
         .animate-neon-float {
@@ -295,7 +295,7 @@ export const NeonSectionTransition: React.FC<NeonSectionTransitionProps> = ({
         </div>
 
         {/* Section Title with Grand Cyber Neon Typography */}
-        <h2 className="font-['Bebas_Neue'] text-4xl sm:text-6xl md:text-7xl text-white tracking-widest text-center leading-tight drop-shadow-[0_0_25px_rgba(255,255,255,0.95)] [text-shadow:0_0_15px_#00d4ff,0_0_35px_#ec4899,0_0_60px_rgba(168,85,247,0.7)] mb-3">
+        <h2 className="font-['Bebas_Neue'] text-4xl sm:text-6xl md:text-7xl text-white tracking-widest text-center leading-tight drop-shadow-[0_0_25px_rgba(255,255,255,0.95)] [text-shadow:0_0_15px_#a855f7,0_0_35px_#ec4899,0_0_60px_rgba(168,85,247,0.7)] mb-3">
           {meta.title[language]}
         </h2>
 
@@ -305,8 +305,8 @@ export const NeonSectionTransition: React.FC<NeonSectionTransitionProps> = ({
         </p>
 
         {/* Animated Progress Timer Line */}
-        <div className="w-56 sm:w-72 h-1 mx-auto bg-white/10 rounded-full overflow-hidden border border-white/20 relative shadow-[0_0_15px_rgba(0,212,255,0.3)]">
-          <div className="h-full bg-gradient-to-r from-[#00d4ff] via-[#ec4899] to-[#a855f7] animate-transition-progress rounded-full" />
+        <div className="w-56 sm:w-72 h-1 mx-auto bg-white/10 rounded-full overflow-hidden border border-white/20 relative shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+          <div className="h-full bg-gradient-to-r from-[#a855f7] via-[#ec4899] to-[#c084fc] animate-transition-progress rounded-full" />
         </div>
       </div>
     </div>

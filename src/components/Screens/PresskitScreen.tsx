@@ -179,11 +179,11 @@ Asset: ${assetTitle}
       <div className="border-b border-[#22222e] pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
           <div className="flex items-center gap-2 text-xs font-mono text-[#a1a1b5] mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] shadow-[0_0_8px_#00d4ff]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#a855f7] shadow-[0_0_8px_#a855f7]" />
             <span className="text-[#ec4899] font-semibold">
               ELECTRONIC PRESS KIT · RAFA 930
             </span>
-            <span aria-hidden="true" className="text-[#00d4ff]">·</span>
+            <span aria-hidden="true" className="text-[#a855f7]">·</span>
             <span>
               {language === 'ca'
                 ? 'PER A PROMOTORS, SALES & MITJANS'
@@ -343,10 +343,10 @@ Asset: ${assetTitle}
 
           <Card3D
             intensity={6}
-            glowColor="rgba(0, 212, 255, 0.24)"
-            className="bg-[#111118]/90 backdrop-blur-sm border border-[#00d4ff]/35 rounded-xl p-6 sm:p-8 space-y-4 shadow-[0_14px_34px_-10px_rgba(0,0,0,0.7),0_0_20px_rgba(0,212,255,0.08)]"
+            glowColor="rgba(168, 85, 247, 0.24)"
+            className="bg-[#111118]/90 backdrop-blur-sm border border-[#a855f7]/35 rounded-xl p-6 sm:p-8 space-y-4 shadow-[0_14px_34px_-10px_rgba(0,0,0,0.7),0_0_20px_rgba(168,85,247,0.12)]"
           >
-            <div className="flex items-center gap-2 text-[#00d4ff]">
+            <div className="flex items-center gap-2 text-[#a855f7]">
               <Sliders className="w-5 h-5" />
               <h3 className="font-['Cormorant_Garamond'] text-2xl font-semibold text-[#ffffff]">
                 {language === 'ca'
@@ -378,12 +378,12 @@ Asset: ${assetTitle}
                   ? '03. Línea DJ / Pistas: 2x Línea XLR balanceada + mesa DJ estándar'
                   : '03. DJ / Backing Line: 2x Balanced XLR lines + standard DJ mixer'}
               </li>
-              <li className="text-[#00d4ff]">
+              <li className="text-[#c084fc]">
                 {language === 'ca'
-                  ? '04. Il·luminació: Ambientació en tons lila, rosa, vermell, blau elèctric i contrallum blanc'
+                  ? '04. Il·luminació: Ambientació en tons lila, rosa, vermell, morat elèctric i contrallum blanc'
                   : language === 'es'
-                  ? '04. Iluminación: Ambientación en tonos lila, rosa, rojo, azul eléctrico y contraluz blanco'
-                  : '04. Lighting: Lilac, pink, crimson red, electric blue atmosphere with crisp white backlight'}
+                  ? '04. Iluminación: Ambientación en tonos lila, rosa, rojo, morado eléctrico y contraluz blanco'
+                  : '04. Lighting: Lilac, pink, crimson red, electric purple atmosphere with crisp white backlight'}
               </li>
             </ul>
           </Card3D>

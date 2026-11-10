@@ -178,10 +178,10 @@ export const LegalScreen: React.FC<LegalScreenProps> = ({
       </div>
 
       {/* Dedicated Legal Header */}
-      <div className="space-y-3 relative overflow-hidden p-4 sm:p-6 md:p-8 rounded-2xl bg-[#111118] border border-[#00d4ff]/30 shadow-[0_0_20px_rgba(0,212,255,0.06)]">
+      <div className="space-y-3 relative overflow-hidden p-4 sm:p-6 md:p-8 rounded-2xl bg-[#111118] border border-[#a855f7]/30 shadow-[0_0_20px_rgba(168,85,247,0.08)]">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-[11px] sm:text-xs font-mono text-[#a1a1b5]">
-            <span className="w-2 h-2 rounded-full bg-[#00d4ff] animate-pulse shrink-0" />
+            <span className="w-2 h-2 rounded-full bg-[#a855f7] animate-pulse shrink-0" />
             <span className="text-[#ec4899] font-bold tracking-wider">
               {language === 'ca'
                 ? 'CENTRE LEGAL OFICIAL & NORMATIVA UE'
@@ -189,12 +189,12 @@ export const LegalScreen: React.FC<LegalScreenProps> = ({
                 ? 'CENTRO LEGAL OFICIAL & NORMATIVA UE'
                 : 'OFFICIAL LEGAL CENTER & EU REGULATORY'}
             </span>
-            <span aria-hidden="true" className="text-[#00d4ff] hidden sm:inline">·</span>
+            <span aria-hidden="true" className="text-[#a855f7] hidden sm:inline">·</span>
             <span className="hidden sm:inline">LSSI-CE · RGPD UE 2016/679 · LOPDGDD 3/2018</span>
           </div>
 
-          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#00d4ff]/10 border border-[#00d4ff]/30 text-[#00d4ff] text-[10px] sm:text-[11px] font-mono">
-            <CheckCircle2 className="w-3.5 h-3.5 text-[#00d4ff] shrink-0" />
+          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#a855f7]/10 border border-[#a855f7]/30 text-[#a855f7] text-[10px] sm:text-[11px] font-mono">
+            <CheckCircle2 className="w-3.5 h-3.5 text-[#a855f7] shrink-0" />
             <span className="font-semibold uppercase tracking-tight">Verificado · 08930 BCN</span>
           </div>
         </div>
@@ -251,7 +251,7 @@ export const LegalScreen: React.FC<LegalScreenProps> = ({
                   <div
                     className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center shrink-0 ${
                       isActive
-                        ? 'bg-gradient-to-r from-[#a855f7] via-[#ec4899] to-[#00d4ff] text-white shadow-md'
+                        ? 'bg-gradient-to-r from-[#a855f7] via-[#ec4899] to-[#c084fc] text-white shadow-md'
                         : 'bg-[#111118] border border-[#22222e] text-[#a1a1b5]'
                     }`}
                   >
@@ -299,7 +299,7 @@ export const LegalScreen: React.FC<LegalScreenProps> = ({
               <div className="pt-2 border-t border-[#22222e]">
                 <a
                   href="mailto:rafa.930music@gmail.com"
-                  className="text-[#00d4ff] hover:underline flex items-center gap-1.5 font-semibold"
+                  className="text-[#a855f7] hover:underline flex items-center gap-1.5 font-semibold"
                 >
                   <Mail className="w-3.5 h-3.5" />
                   <span>rafa.930music@gmail.com</span>
@@ -331,9 +331,9 @@ export const LegalScreen: React.FC<LegalScreenProps> = ({
               </div>
               <a
                 href="mailto:rafa.930music@gmail.com?subject=Consulta%20Legal%20RGPD%20-%20RAFA%20930"
-                className="inline-flex items-center gap-1.5 text-[#00d4ff] hover:underline font-semibold"
+                className="inline-flex items-center gap-1.5 text-[#a855f7] hover:underline font-semibold"
               >
-                <Mail className="w-3.5 h-3.5 text-[#00d4ff] shrink-0" />
+                <Mail className="w-3.5 h-3.5 text-[#a855f7] shrink-0" />
                 <span>rafa.930music@gmail.com</span>
               </a>
             </div>

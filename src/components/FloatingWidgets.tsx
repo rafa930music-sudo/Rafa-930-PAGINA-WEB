@@ -46,7 +46,7 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({
           type="button"
           onClick={scrollToTop}
           aria-label={labels.top[language]}
-          className="w-11 h-11 rounded-full bg-[#111118]/90 backdrop-blur border border-[#00d4ff]/45 text-[#00d4ff] flex items-center justify-center shadow-[0_0_16px_rgba(0,212,255,0.2)] hover:border-[#00d4ff] hover:text-[#ffffff] transition-all duration-300 active:scale-95"
+          className="w-11 h-11 rounded-full bg-[#111118]/90 backdrop-blur border border-[#a855f7]/45 text-[#a855f7] flex items-center justify-center shadow-[0_0_16px_rgba(168,85,247,0.3)] hover:border-[#a855f7] hover:text-[#ffffff] transition-all duration-300 active:scale-95"
         >
           <ArrowUp className="w-5 h-5" />
         </button>

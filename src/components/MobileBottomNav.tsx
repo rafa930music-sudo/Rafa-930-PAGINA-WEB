@@ -18,7 +18,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
 }) => {
   const getIcon = (id: ScreenId, active: boolean) => {
     const iconColor = active
-      ? 'text-[#00d4ff] scale-110'
+      ? 'text-[#a855f7] scale-110'
       : theme === 'light'
       ? 'text-[#3f3f46]'
       : 'text-[#a1a1aa]';
@@ -63,7 +63,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
               aria-current={isActive ? 'page' : undefined}
               className={`touch-target-44 flex flex-col items-center justify-center py-1 px-1 rounded-lg transition-all relative text-center w-full ${
                 isActive
-                  ? 'text-[#00d4ff] font-bold'
+                  ? 'text-[#a855f7] font-bold'
                   : theme === 'light'
                   ? 'text-[#27272a] hover:text-[#09090b]'
                   : 'text-[#a1a1aa] hover:text-white'
@@ -71,16 +71,16 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
             >
               {/* Active Indicator Top Pill - Centered Perfectly */}
               {isActive && (
-                <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-6 h-1 rounded-full bg-[#00d4ff] shadow-[0_0_10px_#00d4ff]" />
+                <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-6 h-1 rounded-full bg-[#a855f7] shadow-[0_0_10px_#a855f7]" />
               )}
 
-              <div className={`p-1.5 rounded-lg flex items-center justify-center ${isActive ? 'bg-[#00d4ff]/15' : ''}`}>
+              <div className={`p-1.5 rounded-lg flex items-center justify-center ${isActive ? 'bg-[#a855f7]/15' : ''}`}>
                 {getIcon(sheet.id, isActive)}
               </div>
 
               <span
                 className={`text-[9px] sm:text-[10px] font-mono tracking-tight uppercase truncate max-w-full mt-0.5 text-center block ${
-                  isActive ? 'text-[#00d4ff] font-bold' : ''
+                  isActive ? 'text-[#a855f7] font-bold' : ''
                 }`}
               >
                 {sheet.name[language].split(' ')[0]}

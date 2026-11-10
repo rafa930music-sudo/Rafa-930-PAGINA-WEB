@@ -388,7 +388,7 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
         <div className="lg:col-span-7">
           <Card3D
             intensity={4}
-            glowColor="rgba(0, 212, 255, 0.22)"
+            glowColor="rgba(168, 85, 247, 0.22)"
             className="bg-[#111118]/90 backdrop-blur-md border border-[#22222e] rounded-xl p-6 sm:p-10 space-y-6"
           >
             <div>
@@ -683,7 +683,7 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                         <button
                           type="button"
                           onClick={() => onOpenLegalTab && onOpenLegalTab('privacitat')}
-                          className="text-[#ec4899] hover:text-[#00d4ff] font-semibold transition-colors underline underline-offset-2"
+                          className="text-[#ec4899] hover:text-[#a855f7] font-semibold transition-colors underline underline-offset-2"
                         >
                           política de privacitat & RGPD
                         </button>{' '}
@@ -695,7 +695,7 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                         <button
                           type="button"
                           onClick={() => onOpenLegalTab && onOpenLegalTab('privacitat')}
-                          className="text-[#ec4899] hover:text-[#00d4ff] font-semibold transition-colors underline underline-offset-2"
+                          className="text-[#ec4899] hover:text-[#a855f7] font-semibold transition-colors underline underline-offset-2"
                         >
                           política de privacidad & RGPD
                         </button>{' '}
@@ -707,7 +707,7 @@ export const ContacteScreen: React.FC<ContacteScreenProps> = ({ language, onOpen
                         <button
                           type="button"
                           onClick={() => onOpenLegalTab && onOpenLegalTab('privacitat')}
-                          className="text-[#ec4899] hover:text-[#00d4ff] font-semibold transition-colors underline underline-offset-2"
+                          className="text-[#ec4899] hover:text-[#a855f7] font-semibold transition-colors underline underline-offset-2"
                         >
                           privacy policy & GDPR
                         </button>{' '}

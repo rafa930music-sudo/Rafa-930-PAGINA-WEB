@@ -42,13 +42,12 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
   const [copied, setCopied] = useState(false);
   const [showQrModal, setShowQrModal] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [activeColor, setActiveColor] = useState<string | null>(null);
 
   const content = {
     ca: {
-      badge: 'ENLLAÇOS OFICIALS · BIO LINK',
       title: 'Plataformes & Música',
-      subtitle: 'Tots els canals oficials, llançaments recents i plataformes de streaming de RAFA 930.',
-      copyLink: 'Copiar Enllaç Bio',
+      copyLink: 'Copiar Enllaç',
       copiedText: 'Enllaç copiat!',
       qrCodeBtn: 'Codi QR',
       shareBtn: 'Compartir',
@@ -60,26 +59,24 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
       featuredTitle: 'De Vuelta',
       featuredSub: 'RAFA 930 · Producció Oficial (2026)',
       listenYouTube: 'Escoltar a YouTube',
-      spotifyProfile: 'Perfil Oficial a Spotify',
-      spotifySub: 'Catàleg complet de senzills, EPs i àlbum',
-      youtubeChannel: 'Canal Oficial de YouTube',
-      youtubeSub: 'Videoclips oficials, àudios i visualitzadors',
+      spotifyProfile: 'Spotify',
+      spotifySub: 'RAFA 930 · Perfil Verificat',
+      youtubeChannel: 'YouTube',
+      youtubeSub: '@rafa_930 · Canal Oficial',
       deezerProfile: 'Deezer Music',
-      deezerSub: 'Discografia completa en alta fidelitat',
+      deezerSub: 'RAFA 930 · Alta Fidelitat',
       appleProfile: 'Apple Music',
-      appleSub: 'Senzills i àlbums en so espacial',
+      appleSub: 'RAFA 930 · Audio Espacial',
       amazonProfile: 'Amazon Music',
-      amazonSub: 'Reproducció oficial a Amazon Music',
+      amazonSub: 'RAFA 930 · Streaming Oficial',
       tidalProfile: 'Tidal',
-      tidalSub: 'Master Sound & so d’alta definició',
+      tidalSub: 'RAFA 930 · Master Quality Audio',
       instagram: 'Instagram Oficial',
-      instagramSub: '@rafa930_oficial · Novetats i directes',
+      instagramSub: '@rafa930_oficial · Directes i novetats',
     },
     es: {
-      badge: 'ENLACES OFICIALES · BIO LINK',
       title: 'Plataformas & Música',
-      subtitle: 'Todos los canales oficiales, lanzamientos recientes y plataformas de streaming de RAFA 930.',
-      copyLink: 'Copiar Enlace Bio',
+      copyLink: 'Copiar Enlace',
       copiedText: '¡Enlace copiado!',
       qrCodeBtn: 'Código QR',
       shareBtn: 'Compartir',
@@ -91,26 +88,24 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
       featuredTitle: 'De Vuelta',
       featuredSub: 'RAFA 930 · Producción Oficial (2026)',
       listenYouTube: 'Escuchar en YouTube',
-      spotifyProfile: 'Perfil Oficial en Spotify',
-      spotifySub: 'Catálogo completo de temas, EPs y álbum',
-      youtubeChannel: 'Canal Oficial de YouTube',
-      youtubeSub: 'Videoclips oficiales, audios y visualizadores',
+      spotifyProfile: 'Spotify',
+      spotifySub: 'RAFA 930 · Perfil Verificado',
+      youtubeChannel: 'YouTube',
+      youtubeSub: '@rafa_930 · Canal Oficial',
       deezerProfile: 'Deezer Music',
-      deezerSub: 'Discografía completa en alta fidelidad',
+      deezerSub: 'RAFA 930 · Alta Fidelidad',
       appleProfile: 'Apple Music',
-      appleSub: 'Sencillos y álbumes en audio espacial',
+      appleSub: 'RAFA 930 · Audio Espacial',
       amazonProfile: 'Amazon Music',
-      amazonSub: 'Reproducción oficial en Amazon Music',
+      amazonSub: 'RAFA 930 · Streaming Oficial',
       tidalProfile: 'Tidal',
-      tidalSub: 'Master Sound & audio en alta definición',
+      tidalSub: 'RAFA 930 · Master Quality Audio',
       instagram: 'Instagram Oficial',
-      instagramSub: '@rafa930_oficial · Novedades y directos',
+      instagramSub: '@rafa930_oficial · Directos y novedades',
     },
     en: {
-      badge: 'OFFICIAL LINKS · BIO LINK',
       title: 'Platforms & Music',
-      subtitle: 'All official channels, recent single releases, and streaming platforms by RAFA 930.',
-      copyLink: 'Copy Bio Link',
+      copyLink: 'Copy Link',
       copiedText: 'Link copied!',
       qrCodeBtn: 'QR Code',
       shareBtn: 'Share',
@@ -122,20 +117,20 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
       featuredTitle: 'De Vuelta',
       featuredSub: 'RAFA 930 · Official Production (2026)',
       listenYouTube: 'Listen on YouTube',
-      spotifyProfile: 'Official Spotify Profile',
-      spotifySub: 'Complete single catalog, EPs and debut album',
-      youtubeChannel: 'Official YouTube Channel',
-      youtubeSub: 'Official music videos, audio & visualizers',
+      spotifyProfile: 'Spotify',
+      spotifySub: 'RAFA 930 · Verified Profile',
+      youtubeChannel: 'YouTube',
+      youtubeSub: '@rafa_930 · Official Channel',
       deezerProfile: 'Deezer Music',
-      deezerSub: 'Full discography catalog in high fidelity',
+      deezerSub: 'RAFA 930 · High Fidelity',
       appleProfile: 'Apple Music',
-      appleSub: 'Singles and albums in spatial audio',
+      appleSub: 'RAFA 930 · Spatial Audio',
       amazonProfile: 'Amazon Music',
-      amazonSub: 'Official streaming on Amazon Music',
+      amazonSub: 'RAFA 930 · Official Streaming',
       tidalProfile: 'Tidal',
-      tidalSub: 'Master Sound & high-res audio',
+      tidalSub: 'RAFA 930 · Master Quality Audio',
       instagram: 'Official Instagram',
-      instagramSub: '@rafa930_oficial · News and daily updates',
+      instagramSub: '@rafa930_oficial · News and updates',
     },
   }[language];
 
@@ -260,73 +255,62 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
   const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=320x320&data=${encodeURIComponent(shareUrl)}&color=00d4ff&bgcolor=0a0a0f`;
 
   return (
-    <div className="relative w-full max-w-2xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-10 overflow-hidden">
+    <div className="relative w-full max-w-md mx-auto px-4 py-8 sm:py-14 space-y-7 overflow-hidden flex flex-col items-center">
       {/* Same Ambient Bubbles as the rest of the web app */}
       <SectionColorBubbles variant="editorial" />
 
       {/* Profile Header & Typography coherent with the rest of the web */}
-      <div className="relative z-10 flex flex-col items-center text-center space-y-4">
+      <div className="relative z-10 flex flex-col items-center text-center space-y-3 w-full">
         {/* Avatar with subtle neon pulse */}
-        <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 bg-gradient-to-tr from-[#a855f7] via-[#00d4ff] to-[#ec4899] shadow-[0_0_32px_rgba(0,212,255,0.3)]">
+        <div
+          className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full p-[2.5px] transition-all duration-500 shadow-[0_0_30px_rgba(168,85,247,0.3)]"
+          style={{
+            background: activeColor
+              ? `linear-gradient(135deg, ${activeColor}, #ffffff)`
+              : 'linear-gradient(135deg, #a855f7, #c084fc, #ec4899)',
+            boxShadow: activeColor
+              ? `0 0 35px ${activeColor}80`
+              : '0 0 30px rgba(168,85,247,0.3)',
+          }}
+        >
           <img
             src={ARTIST_IMAGES.heroPortrait}
             alt="RAFA 930"
             className="w-full h-full object-cover object-center rounded-full bg-[#050507]"
-            onError={(e) => {
-              const target = e.currentTarget;
-              const fallbacks = [
-                './assets/rafa-930-cara.jpg',
-                './rafa-930-cara.jpg',
-                'https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/assets/rafa-930-cara.jpg',
-                'https://rafa930music-sudo.github.io/assets/rafa-930-cara.jpg',
-              ];
-              const currentIndex = Number(target.dataset.fallbackIndex || '0');
-              if (currentIndex < fallbacks.length) {
-                target.dataset.fallbackIndex = String(currentIndex + 1);
-                target.src = fallbacks[currentIndex];
-              }
-            }}
             loading="eager"
             decoding="async"
           />
           <div
-            className="absolute bottom-0 right-1 w-7 h-7 rounded-full bg-[#1DB954] text-black border-2 border-[#050507] flex items-center justify-center shadow-lg"
-            title="Artista Verificado"
+            className="absolute bottom-0 right-0 w-6.5 h-6.5 rounded-full bg-[#0095F6] text-white border-2 border-[#050507] flex items-center justify-center shadow-[0_0_14px_rgba(0,149,246,0.6)] text-xs font-black"
+            title="Verificado en Meta"
           >
-            <span className="text-xs font-black">✓</span>
+            ✓
           </div>
         </div>
 
         <div>
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#a1a1b5] mb-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff]" />
-            <span className="text-[#00d4ff] font-semibold">{content.badge}</span>
-            <span aria-hidden="true" className="text-[#a1a1b5]">·</span>
-            <span>08930 · LA MINA</span>
-          </div>
-
-          <h1 className="font-['Cormorant_Garamond'] text-4xl sm:text-6xl font-semibold text-[#ffffff] tracking-tight">
-            RAFA <span className="text-gradient-930">930</span>
+          <h1
+            className="font-['Bebas_Neue'] text-4xl sm:text-5xl font-extrabold tracking-wide transition-all duration-300"
+            style={{
+              color: activeColor || '#ffffff',
+              textShadow: activeColor
+                ? `0 0 24px ${activeColor}90`
+                : '0 0 16px rgba(168,85,247,0.3)',
+            }}
+          >
+            RAFA <span style={{ color: activeColor || '#a855f7' }}>930</span>
           </h1>
-
-          <p className="text-xs sm:text-sm font-mono text-[#a855f7] mt-1 uppercase tracking-wider">
-            Música Urbana · Fotografía Editorial · Desarrollo Web
-          </p>
-
-          <p className="text-[#a1a1b5] text-sm max-w-md mx-auto mt-2 leading-relaxed">
-            {content.subtitle}
-          </p>
         </div>
 
         {/* Action Bar (Copy Bio, QR Code, Share) */}
-        <div className="flex items-center justify-center gap-2.5 pt-2 flex-wrap">
+        <div className="flex items-center justify-center gap-2 pt-1 flex-wrap">
           <button
             type="button"
             onClick={handleCopyLink}
-            className={`touch-target-44 px-4 py-2 rounded-xl text-xs font-mono flex items-center gap-1.5 border transition-all cursor-pointer ${
+            className={`touch-target-44 px-3.5 py-1.5 rounded-xl text-xs font-mono flex items-center gap-1.5 border transition-all cursor-pointer ${
               copied
                 ? 'bg-emerald-500/20 border-emerald-400 text-emerald-300 shadow-[0_0_16px_rgba(16,185,129,0.3)]'
-                : 'bg-[#111118] border-[#22222e] text-[#a1a1b5] hover:text-white hover:border-[#00d4ff]'
+                : 'bg-[#111118] border-[#22222e] text-[#a1a1b5] hover:text-white hover:border-[#a855f7]'
             }`}
           >
             {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
@@ -336,7 +320,7 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
           <button
             type="button"
             onClick={() => setShowQrModal(true)}
-            className="touch-target-44 px-4 py-2 rounded-xl text-xs font-mono bg-[#111118] border border-[#22222e] text-[#a1a1b5] hover:text-white hover:border-[#a855f7] transition-all flex items-center gap-1.5 cursor-pointer"
+            className="touch-target-44 px-3.5 py-1.5 rounded-xl text-xs font-mono bg-[#111118] border border-[#22222e] text-[#a1a1b5] hover:text-white hover:border-[#a855f7] transition-all flex items-center gap-1.5 cursor-pointer"
           >
             <QrCode className="w-3.5 h-3.5 text-[#a855f7]" />
             <span>{content.qrCodeBtn}</span>
@@ -345,7 +329,7 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
           <button
             type="button"
             onClick={handleShare}
-            className="touch-target-44 px-4 py-2 rounded-xl text-xs font-mono bg-[#111118] border border-[#22222e] text-[#a1a1b5] hover:text-white hover:border-[#ec4899] transition-all flex items-center gap-1.5 cursor-pointer"
+            className="touch-target-44 px-3.5 py-1.5 rounded-xl text-xs font-mono bg-[#111118] border border-[#22222e] text-[#a1a1b5] hover:text-white hover:border-[#ec4899] transition-all flex items-center gap-1.5 cursor-pointer"
           >
             <Share2 className="w-3.5 h-3.5 text-[#ec4899]" />
             <span>{content.shareBtn}</span>
@@ -354,7 +338,7 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
       </div>
 
       {/* Featured Release Card: De Vuelta */}
-      <div className="relative z-10 rounded-2xl bg-[#111118]/85 backdrop-blur-md border border-[#00d4ff]/40 overflow-hidden shadow-[0_0_28px_rgba(0,212,255,0.12)]">
+      <div className="relative z-10 rounded-2xl bg-[#111118]/85 backdrop-blur-md border border-[#a855f7]/40 overflow-hidden shadow-[0_0_28px_rgba(168,85,247,0.15)]">
         {isVideoPlaying ? (
           <div className="aspect-video w-full bg-black">
             <iframe
@@ -388,7 +372,7 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
 
         <div className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-[#22222e]">
           <div>
-            <span className="text-[10px] font-mono text-[#00d4ff] uppercase tracking-wider block">
+            <span className="text-[10px] font-mono text-[#a855f7] uppercase tracking-wider block">
               {content.featuredBadge}
             </span>
             <h3 className="font-['Cormorant_Garamond'] text-2xl font-bold text-white">
@@ -411,49 +395,80 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
       </div>
 
       {/* Official Digital Platforms List */}
-      <div className="relative z-10 space-y-3">
+      <div className="relative z-10 space-y-2.5 w-full">
         <div className="flex items-center justify-between px-1">
           <span className="text-xs font-mono uppercase tracking-wider text-[#a1a1b5]">
-            {language === 'ca' ? 'Totes les plataformes' : language === 'es' ? 'Todas mis plataformas digitales' : 'All digital platforms'}
+            {language === 'ca' ? 'Tots els canals' : language === 'es' ? 'Todos mis canales' : 'All channels'}
           </span>
-          <span className="text-[11px] font-mono text-[#00d4ff]">7 Enlaces</span>
+          <span className="text-[11px] font-mono text-[#a855f7]">{links.length} Enlaces</span>
         </div>
 
-        <div className="grid grid-cols-1 gap-3">
-          {links.map((link) => (
-            <a
-              key={link.id}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`group flex items-center p-3.5 sm:p-4 rounded-xl bg-[#111118]/85 backdrop-blur-md border border-[#22222e] ${link.borderHover} transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.35)] cursor-pointer`}
-            >
-              <div
-                className="w-11 h-11 rounded-xl bg-[#0a0a0f] border border-[#22222e] flex items-center justify-center p-2.5 mr-3.5 shrink-0 group-hover:scale-105 transition-transform"
-                style={{ color: link.logoColor }}
+        <div className="w-full flex flex-col gap-2.5">
+          {links.map((link) => {
+            const isSelected = activeColor === link.logoColor;
+            return (
+              <a
+                key={link.id}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onMouseEnter={() => setActiveColor(link.logoColor)}
+                onMouseLeave={() => setActiveColor(null)}
+                onTouchStart={() => setActiveColor(link.logoColor)}
+                onTouchEnd={() => setActiveColor(null)}
+                className="group w-full h-14 px-3.5 sm:px-4 rounded-xl flex items-center justify-between bg-[#111118]/90 backdrop-blur-md border border-[#22222e] transition-all duration-200 active:scale-[0.98] shadow-md cursor-pointer"
+                style={{
+                  borderColor: isSelected ? link.logoColor : undefined,
+                  boxShadow: isSelected ? `0 0 22px ${link.logoColor}45` : undefined,
+                  backgroundColor: isSelected ? `${link.logoColor}12` : undefined,
+                }}
               >
-                <link.Logo className="w-6 h-6" />
-              </div>
+                <div className="flex items-center gap-3 min-w-0">
+                  <div
+                    className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 border transition-all duration-200 group-hover:scale-105"
+                    style={{
+                      backgroundColor: `${link.logoColor}20`,
+                      borderColor: `${link.logoColor}60`,
+                      color: link.logoColor,
+                    }}
+                  >
+                    <link.Logo className="w-5 h-5 text-white" />
+                  </div>
 
-              <div className="flex-1 min-w-0 text-left">
-                <div className="flex items-center gap-2 mb-0.5">
-                  <span className={`text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 rounded-full border ${link.badgeColor}`}>
+                  <div className="flex flex-col text-left min-w-0">
+                    <span
+                      className="font-bold text-sm text-white transition-colors truncate"
+                      style={{ color: isSelected ? link.logoColor : '#ffffff' }}
+                    >
+                      {link.title}
+                    </span>
+                    <span
+                      className="text-[11px] font-mono text-[#a1a1b5] truncate transition-colors"
+                      style={{ color: isSelected ? link.logoColor : '#a1a1b5' }}
+                    >
+                      {link.subtitle}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 shrink-0">
+                  <span
+                    className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-md border text-white/90 hidden sm:inline-block transition-colors"
+                    style={{
+                      backgroundColor: `${link.logoColor}20`,
+                      borderColor: `${link.logoColor}60`,
+                    }}
+                  >
                     {link.badge}
                   </span>
+                  <ArrowUpRight
+                    className="w-4 h-4 text-[#a1a1b5] transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    style={{ color: isSelected ? link.logoColor : '#a1a1b5' }}
+                  />
                 </div>
-                <h4 className="font-['Cormorant_Garamond'] text-xl sm:text-2xl font-bold text-white group-hover:text-[#00d4ff] transition-colors truncate">
-                  {link.title}
-                </h4>
-                <p className="text-xs text-[#a1a1b5] font-light truncate">
-                  {link.subtitle}
-                </p>
-              </div>
-
-              <div className="ml-3 shrink-0 text-[#a1a1b5] group-hover:text-[#00d4ff] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">
-                <ArrowUpRight className="w-5 h-5" />
-              </div>
-            </a>
-          ))}
+              </a>
+            );
+          })}
         </div>
       </div>
 
@@ -462,7 +477,7 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
         <button
           type="button"
           onClick={() => onSelectScreen('revista')}
-          className="text-xs font-mono text-[#a1a1b5] hover:text-[#00d4ff] underline decoration-[#00d4ff]/40 underline-offset-4 transition-colors cursor-pointer"
+          className="text-xs font-mono text-[#a1a1b5] hover:text-[#a855f7] underline decoration-[#a855f7]/40 underline-offset-4 transition-colors cursor-pointer"
         >
           ← {content.backToWeb}
         </button>
@@ -477,7 +492,7 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
           onClick={() => setShowQrModal(false)}
         >
           <div
-            className="relative max-w-sm w-full bg-[#0a0a0f] border border-[#00d4ff]/40 rounded-2xl p-6 sm:p-8 text-center space-y-4 shadow-[0_0_50px_rgba(0,212,255,0.25)]"
+            className="relative max-w-sm w-full bg-[#0a0a0f] border border-[#a855f7]/40 rounded-2xl p-6 sm:p-8 text-center space-y-4 shadow-[0_0_50px_rgba(168,85,247,0.25)]"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -489,9 +504,9 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
               <X className="w-4 h-4" />
             </button>
 
-            <div className="inline-block p-1 rounded-full bg-gradient-to-r from-[#00d4ff] to-[#ec4899] mb-1">
+            <div className="inline-block p-1 rounded-full bg-gradient-to-r from-[#a855f7] to-[#ec4899] mb-1">
               <div className="w-12 h-12 rounded-full bg-[#050507] flex items-center justify-center">
-                <QrCode className="w-6 h-6 text-[#00d4ff]" />
+                <QrCode className="w-6 h-6 text-[#a855f7]" />
               </div>
             </div>
 
@@ -512,7 +527,7 @@ export const EnllacosScreen: React.FC<EnllacosScreenProps> = ({ language, onSele
               />
             </div>
 
-            <div className="text-[11px] font-mono text-[#00d4ff] bg-[#111118] py-2 px-3 rounded-lg border border-[#22222e] break-all">
+            <div className="text-[11px] font-mono text-[#a855f7] bg-[#111118] py-2 px-3 rounded-lg border border-[#22222e] break-all">
               {shareUrl}
             </div>
 

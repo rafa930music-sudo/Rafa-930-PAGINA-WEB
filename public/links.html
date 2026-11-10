@@ -33,7 +33,7 @@
       --lila: #a855f7;
       --rosa: #ec4899;
       --rojo: #e11d48;
-      --cyan: #00d4ff;
+      --cyan: #a855f7;
       --text: #ffffff;
       --muted: #a1a1b5;
     }
@@ -80,7 +80,7 @@
       right: 0;
       height: 2px;
       background: linear-gradient(90deg, var(--lila), var(--cyan), var(--rosa));
-      box-shadow: 0 0 14px rgba(0, 212, 255, 0.75);
+      box-shadow: 0 0 14px rgba(168, 85, 247, 0.75);
       z-index: 120;
     }
 
@@ -165,7 +165,7 @@
       width: 20rem;
       height: 20rem;
       border-radius: 50%;
-      background: rgba(0, 212, 255, 0.14);
+      background: rgba(168, 85, 247, 0.14);
       filter: blur(120px);
       pointer-events: none;
     }
@@ -175,7 +175,7 @@
       inset: clamp(1rem, 3vw, 2rem);
       border: 1px solid #22222e;
       border-radius: 16px;
-      box-shadow: inset 0 0 40px rgba(0, 212, 255, 0.06);
+      box-shadow: inset 0 0 40px rgba(168, 85, 247, 0.06);
       pointer-events: none;
     }
 
@@ -207,8 +207,8 @@
       position: absolute;
       inset: 0;
       border-radius: 50%;
-      border: 1px solid rgba(0, 212, 255, 0.28);
-      box-shadow: 0 0 25px rgba(0, 212, 255, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.28);
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.15);
       animation: sigSpin 24s linear infinite;
     }
 
@@ -242,7 +242,7 @@
       height: 75%;
       position: relative;
       z-index: 2;
-      filter: drop-shadow(0 0 16px rgba(0, 212, 255, 0.4));
+      filter: drop-shadow(0 0 16px rgba(168, 85, 247, 0.4));
     }
 
     .sig-stroke-1 { stroke-dasharray: 380; stroke-dashoffset: 0; animation: sigDraw 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
@@ -265,7 +265,7 @@
       font-family: 'Alex Brush', 'Caveat', cursive;
       font-size: clamp(1.8rem, 6vw, 2.25rem);
       color: #ffffff;
-      filter: drop-shadow(0 0 14px rgba(0, 212, 255, 0.45));
+      filter: drop-shadow(0 0 14px rgba(168, 85, 247, 0.45));
     }
 
     .sig-badge {
@@ -273,7 +273,7 @@
       font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.28em;
-      color: rgba(0, 212, 255, 0.85);
+      color: rgba(168, 85, 247, 0.85);
       margin-top: 0.25rem;
     }
 
@@ -299,7 +299,7 @@
     }
     .a3 {
       bottom: -60px; left: 20%; width: 300px; height: 300px;
-      background: rgba(0, 212, 255, 0.16);
+      background: rgba(168, 85, 247, 0.16);
       animation: floatA 18s ease-in-out infinite reverse;
     }
 
@@ -342,7 +342,7 @@
       font-size: 0.68rem;
       color: var(--cyan);
       background: rgba(17, 17, 24, 0.8);
-      border: 1px solid rgba(0, 212, 255, 0.35);
+      border: 1px solid rgba(168, 85, 247, 0.35);
       padding: 0.35rem 0.7rem;
       border-radius: 999px;
       backdrop-filter: blur(10px);
@@ -384,7 +384,7 @@
       border-radius: 50%;
       padding: 2.5px;
       background: linear-gradient(135deg, var(--lila), var(--cyan), var(--rosa));
-      box-shadow: 0 0 30px rgba(0, 212, 255, 0.26);
+      box-shadow: 0 0 30px rgba(168, 85, 247, 0.26);
       margin-bottom: 0.75rem;
     }
 
@@ -405,15 +405,15 @@
       width: 22px;
       height: 22px;
       border-radius: 50%;
-      background: var(--cyan);
-      color: #050507;
+      background: #0095F6;
+      color: #ffffff;
       font-size: 11px;
       font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: center;
       border: 2px solid var(--bg);
-      box-shadow: 0 0 10px var(--cyan);
+      box-shadow: 0 0 12px rgba(0, 149, 246, 0.6);
     }
 
     .brand {
@@ -440,8 +440,8 @@
       margin-top: 1.15rem;
       border-radius: 16px;
       background: var(--card);
-      border: 1px solid rgba(0, 212, 255, 0.45);
-      box-shadow: 0 0 28px rgba(0, 212, 255, 0.16);
+      border: 1px solid rgba(168, 85, 247, 0.45);
+      box-shadow: 0 0 28px rgba(168, 85, 247, 0.16);
       overflow: hidden;
       backdrop-filter: blur(16px);
     }
@@ -581,7 +581,7 @@
     .btn:hover {
       border-color: var(--cyan);
       transform: translateY(-2px);
-      box-shadow: 0 8px 22px rgba(0, 212, 255, 0.16);
+      box-shadow: 0 8px 22px rgba(168, 85, 247, 0.16);
     }
 
     .btn:active {
@@ -711,7 +711,7 @@
     }
     ::-webkit-scrollbar-thumb:hover {
       background: var(--cyan);
-      box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
     }
     * {
       scrollbar-width: thin;
@@ -742,7 +742,7 @@
           <defs>
             <linearGradient id="sigGradHtml" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#c084fc" />
-              <stop offset="50%" stop-color="#00d4ff" />
+              <stop offset="50%" stop-color="#a855f7" />
               <stop offset="100%" stop-color="#f472b6" />
             </linearGradient>
             <filter id="sigGlowHtml" x="-20%" y="-20%" width="140%" height="140%">
@@ -775,7 +775,6 @@
   <!-- PÁGINA LINKTREE -->
   <main class="page">
     <div class="top-row">
-      <span class="code-pill">08930 · BCN</span>
       <button type="button" class="share-btn" id="shareBtn" aria-label="Compartir">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
       </button>
@@ -1043,11 +1042,11 @@
       ctx.ellipse(0, 0, maxDim * 0.6, maxDim * 0.3, 0, 0, Math.PI * 2);
       ctx.fill();
 
-      const cyanGrad = ctx.createRadialGradient(maxDim * 0.15, -maxDim * 0.08, 5, maxDim * 0.15, -maxDim * 0.08, maxDim * 0.4);
-      cyanGrad.addColorStop(0, 'rgba(0, 212, 255, 0.16)');
-      cyanGrad.addColorStop(0.55, 'rgba(168, 85, 247, 0.07)');
-      cyanGrad.addColorStop(1, 'rgba(5, 5, 7, 0)');
-      ctx.fillStyle = cyanGrad;
+      const purpleGrad = ctx.createRadialGradient(maxDim * 0.15, -maxDim * 0.08, 5, maxDim * 0.15, -maxDim * 0.08, maxDim * 0.4);
+      purpleGrad.addColorStop(0, 'rgba(168, 85, 247, 0.18)');
+      purpleGrad.addColorStop(0.55, 'rgba(236, 72, 153, 0.07)');
+      purpleGrad.addColorStop(1, 'rgba(5, 5, 7, 0)');
+      ctx.fillStyle = purpleGrad;
       ctx.beginPath();
       ctx.ellipse(maxDim * 0.15, -maxDim * 0.08, maxDim * 0.4, maxDim * 0.2, 0.25, 0, Math.PI * 2);
       ctx.fill();
@@ -1094,7 +1093,7 @@
           angle: Math.PI / 4 + (Math.random() - 0.5) * 0.35,
           life: 0,
           maxLife: 32 + Math.floor(Math.random() * 18),
-          color: Math.random() < 0.6 ? '#ffffff' : Math.random() < 0.5 ? '#00d4ff' : '#f472b6'
+          color: Math.random() < 0.6 ? '#ffffff' : Math.random() < 0.5 ? '#a855f7' : '#f472b6'
         });
         meteorCooldown = 160 + Math.floor(Math.random() * 180);
       }
@@ -1118,7 +1117,7 @@
 
         const lineGrad = ctx.createLinearGradient(tailX, tailY, meteor.x, meteor.y);
         lineGrad.addColorStop(0, 'rgba(255, 255, 255, 0)');
-        lineGrad.addColorStop(0.75, meteor.color === '#ffffff' ? 'rgba(0, 212, 255, 0.45)' : meteor.color);
+        lineGrad.addColorStop(0.75, meteor.color === '#ffffff' ? 'rgba(168, 85, 247, 0.45)' : meteor.color);
         lineGrad.addColorStop(1, '#ffffff');
 
         ctx.save();
@@ -1142,6 +1141,36 @@
       requestAnimationFrame(animate);
     }
     animate();
+
+    // Hover interaction for title and avatar in links.html
+    document.querySelectorAll('.links .btn').forEach(btn => {
+      const iconBox = btn.querySelector('.btn-icon-box');
+      const color = iconBox ? iconBox.style.color : '#a855f7';
+      const brand = document.querySelector('.brand');
+      const avatar = document.querySelector('.avatar');
+
+      btn.addEventListener('mouseenter', () => {
+        if (color && brand) {
+          brand.style.color = color;
+          brand.style.textShadow = `0 0 24px ${color}`;
+        }
+        if (color && avatar) {
+          avatar.style.borderColor = color;
+          avatar.style.boxShadow = `0 0 32px ${color}80`;
+        }
+      });
+
+      btn.addEventListener('mouseleave', () => {
+        if (brand) {
+          brand.style.color = '';
+          brand.style.textShadow = '';
+        }
+        if (avatar) {
+          avatar.style.borderColor = '';
+          avatar.style.boxShadow = '';
+        }
+      });
+    });
   </script>
 </body>
 </html>

@@ -100,7 +100,7 @@ export const CookieConsentModal: React.FC<CookieConsentModalProps> = ({
         }}
         aria-label="Configuración de Cookies"
         title="Configurar Cookies / RGPD"
-        className="fixed bottom-20 xl:bottom-6 left-3 sm:left-6 z-40 p-2.5 rounded-full bg-[#111118]/90 backdrop-blur border border-[#00d4ff]/40 text-[#00d4ff] hover:text-white hover:border-[#00d4ff] shadow-[0_0_15px_rgba(0,212,255,0.25)] hover:scale-110 transition-all cursor-pointer flex items-center justify-center group"
+        className="fixed bottom-20 xl:bottom-6 left-3 sm:left-6 z-40 p-2.5 rounded-full bg-[#111118]/90 backdrop-blur border border-[#a855f7]/40 text-[#a855f7] hover:text-white hover:border-[#a855f7] shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:scale-110 transition-all cursor-pointer flex items-center justify-center group"
       >
         <Cookie className="w-4 h-4 group-hover:rotate-12 transition-transform" />
       </button>
@@ -177,15 +177,15 @@ export const CookieConsentModal: React.FC<CookieConsentModalProps> = ({
 
   return (
     <div className="fixed bottom-20 xl:bottom-6 left-3 right-3 sm:left-6 sm:right-auto sm:max-w-xl z-[9999] pointer-events-auto transition-all animate-fade-in">
-      <div className="bg-[#0e0e15]/95 backdrop-blur-xl border border-[#00d4ff]/30 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.85)] p-4 sm:p-5 text-white space-y-3">
+      <div className="bg-[#0e0e15]/95 backdrop-blur-xl border border-[#a855f7]/30 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.85)] p-4 sm:p-5 text-white space-y-3">
         {/* Header Bar */}
         <div className="flex items-center justify-between gap-3 border-b border-[#22222e] pb-2.5">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-[#00d4ff]/15 border border-[#00d4ff]/30 text-[#00d4ff] flex items-center justify-center shrink-0">
+            <div className="w-7 h-7 rounded-lg bg-[#a855f7]/15 border border-[#a855f7]/30 text-[#a855f7] flex items-center justify-center shrink-0">
               <Cookie className="w-4 h-4" />
             </div>
             <div className="flex items-center gap-1.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#00d4ff]" />
+              <ShieldCheck className="w-3.5 h-3.5 text-[#a855f7]" />
               <h3 className="text-xs sm:text-sm font-bold font-['Plus_Jakarta_Sans'] text-white">
                 {i18n.title[language]}
               </h3>
@@ -212,7 +212,7 @@ export const CookieConsentModal: React.FC<CookieConsentModalProps> = ({
                 onClick={() => {
                   if (onOpenLegalTab) onOpenLegalTab('cookies');
                 }}
-                className="text-[#00d4ff] hover:underline font-mono text-[11px]"
+                className="text-[#a855f7] hover:underline font-mono text-[11px]"
               >
                 {i18n.readPolicy[language]}
               </button>
@@ -239,7 +239,7 @@ export const CookieConsentModal: React.FC<CookieConsentModalProps> = ({
               <button
                 type="button"
                 onClick={handleAcceptAll}
-                className="px-4 py-1.5 rounded-lg bg-gradient-to-r from-[#00d4ff] via-[#a855f7] to-[#ec4899] text-white font-bold font-mono text-xs shadow-md hover:opacity-95 transition-opacity flex items-center gap-1"
+                className="px-4 py-1.5 rounded-lg bg-gradient-to-r from-[#a855f7] via-[#c084fc] to-[#ec4899] text-white font-bold font-mono text-xs shadow-md hover:opacity-95 transition-opacity flex items-center gap-1"
               >
                 <Check className="w-3.5 h-3.5" />
                 <span>{i18n.acceptAll[language]}</span>
@@ -254,14 +254,14 @@ export const CookieConsentModal: React.FC<CookieConsentModalProps> = ({
               <div className="p-2.5 bg-[#161622] border border-[#22222e] rounded-lg flex items-center justify-between gap-2">
                 <div>
                   <div className="flex items-center gap-1.5 font-bold text-white text-[11px]">
-                    <Lock className="w-3 h-3 text-[#00d4ff]" />
+                    <Lock className="w-3 h-3 text-[#a855f7]" />
                     <span>{i18n.catEssentialTitle[language]}</span>
                   </div>
                   <p className="text-[10px] text-[#a1a1b5] font-sans">
                     {i18n.catEssentialDesc[language]}
                   </p>
                 </div>
-                <span className="text-[9px] font-bold text-[#00d4ff] bg-[#00d4ff]/15 px-2 py-0.5 rounded border border-[#00d4ff]/30 shrink-0">
+                <span className="text-[9px] font-bold text-[#a855f7] bg-[#a855f7]/15 px-2 py-0.5 rounded border border-[#a855f7]/30 shrink-0">
                   Activas
                 </span>
               </div>
@@ -304,7 +304,7 @@ export const CookieConsentModal: React.FC<CookieConsentModalProps> = ({
                     onChange={(e) => setPrefs({ ...prefs, analytics: e.target.checked })}
                     className="sr-only peer"
                   />
-                  <div className="w-9 h-5 bg-[#22222e] rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#00d4ff]"></div>
+                  <div className="w-9 h-5 bg-[#22222e] rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#a855f7]"></div>
                 </label>
               </div>
             </div>
@@ -321,7 +321,7 @@ export const CookieConsentModal: React.FC<CookieConsentModalProps> = ({
               <button
                 type="button"
                 onClick={handleSaveCustom}
-                className="px-4 py-1.5 rounded-lg bg-[#00d4ff] text-[#050507] font-bold text-xs shadow-md hover:opacity-95 transition-opacity"
+                className="px-4 py-1.5 rounded-lg bg-[#a855f7] text-white font-bold text-xs shadow-md hover:opacity-95 transition-opacity"
               >
                 {i18n.save[language]}
               </button>

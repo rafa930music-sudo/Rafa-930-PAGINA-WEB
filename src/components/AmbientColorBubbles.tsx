@@ -120,7 +120,7 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
       r: 1.5 + (idx % 4) * 1.5,
       vx: (idx % 2 === 0 ? 1 : -1) * (0.00018 + (idx % 5) * 0.00006),
       vy: -0.00025 - (idx % 4) * 0.00008,
-      color: idx % 3 === 0 ? '#00d4ff' : idx % 3 === 1 ? '#ec4899' : '#a855f7',
+      color: idx % 3 === 0 ? '#c084fc' : idx % 3 === 1 ? '#ec4899' : '#a855f7',
       phase: idx * 0.7,
     }));
 
@@ -193,10 +193,10 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
         ctx.ellipse(0, 0, Math.max(1, maxDim * 0.55), Math.max(1, maxDim * 0.28), 0, 0, Math.PI * 2);
         ctx.fill();
 
-        // Secondary Starlight Cyan Nebula Arm
+        // Secondary Starlight Purple Nebula Arm
         const cyanGrad = createSafeRadialGradient(maxDim * 0.14, -maxDim * 0.06, 5, maxDim * 0.14, -maxDim * 0.06, Math.max(1, maxDim * 0.38));
-        cyanGrad.addColorStop(0, isLight ? 'rgba(6, 182, 212, 0.28)' : 'rgba(0, 212, 255, 0.16)');
-        cyanGrad.addColorStop(0.55, isLight ? 'rgba(168, 85, 247, 0.20)' : 'rgba(168, 85, 247, 0.08)');
+        cyanGrad.addColorStop(0, isLight ? 'rgba(168, 85, 247, 0.28)' : 'rgba(168, 85, 247, 0.16)');
+        cyanGrad.addColorStop(0.55, isLight ? 'rgba(192, 132, 252, 0.20)' : 'rgba(192, 132, 252, 0.08)');
         cyanGrad.addColorStop(1, isLight ? 'rgba(247, 246, 252, 0)' : 'rgba(5, 5, 7, 0)');
         ctx.fillStyle = cyanGrad;
         ctx.beginPath();
@@ -281,7 +281,7 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
             angle,
             life: 0,
             maxLife: 32 + Math.floor(Math.random() * 20),
-            color: Math.random() < 0.6 ? '#ffffff' : Math.random() < 0.5 ? '#00d4ff' : '#f472b6',
+            color: Math.random() < 0.6 ? '#ffffff' : Math.random() < 0.5 ? '#c084fc' : '#f472b6',
           });
           meteorCooldown = 180 + Math.floor(Math.random() * 180); // Spawn every 3-6 seconds
         }
@@ -310,7 +310,7 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
             lineGrad.addColorStop(1, '#4f46e5');
           } else {
             lineGrad.addColorStop(0, 'rgba(255, 255, 255, 0)');
-            lineGrad.addColorStop(0.7, meteor.color === '#ffffff' ? 'rgba(0, 212, 255, 0.45)' : meteor.color);
+            lineGrad.addColorStop(0.7, meteor.color === '#ffffff' ? 'rgba(168, 85, 247, 0.45)' : meteor.color);
             lineGrad.addColorStop(1, '#ffffff');
           }
 
@@ -352,8 +352,8 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
           horizonY,
           Math.max(width, height) * 0.75
         );
-        grad.addColorStop(0, `rgba(0, 212, 255, ${0.22 * alphaMul})`);
-        grad.addColorStop(0.32, `rgba(168, 85, 247, ${0.16 * alphaMul})`);
+        grad.addColorStop(0, `rgba(168, 85, 247, ${0.22 * alphaMul})`);
+        grad.addColorStop(0.32, `rgba(192, 132, 252, ${0.16 * alphaMul})`);
         grad.addColorStop(0.65, `rgba(236, 72, 153, ${0.09 * alphaMul})`);
         grad.addColorStop(1, 'rgba(5, 5, 7, 0)');
         ctx.fillStyle = grad;
@@ -398,9 +398,9 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
           const strokeA = (0.04 + d * 0.36) * alphaMul;
           ctx.strokeStyle =
             r % 3 === 0
-              ? `rgba(0, 212, 255, ${strokeA})`
+              ? `rgba(168, 85, 247, ${strokeA})`
               : r % 3 === 1
-              ? `rgba(168, 85, 247, ${strokeA * 0.85})`
+              ? `rgba(192, 132, 252, ${strokeA * 0.85})`
               : `rgba(236, 72, 153, ${strokeA * 0.75})`;
           ctx.lineWidth = 0.7 + d * 1.5;
 
@@ -430,12 +430,12 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
           const beamAlpha = (0.06 + Math.sin(beamPhase * 1.2) * 0.035) * alphaMul;
 
           if (i % 2 === 0) {
-            beamGrad.addColorStop(0, `rgba(0, 212, 255, ${beamAlpha * 1.5})`);
-            beamGrad.addColorStop(0.45, `rgba(168, 85, 247, ${beamAlpha * 0.8})`);
+            beamGrad.addColorStop(0, `rgba(168, 85, 247, ${beamAlpha * 1.5})`);
+            beamGrad.addColorStop(0.45, `rgba(192, 132, 252, ${beamAlpha * 0.8})`);
             beamGrad.addColorStop(1, 'rgba(5, 5, 7, 0)');
           } else {
             beamGrad.addColorStop(0, `rgba(236, 72, 153, ${beamAlpha * 1.3})`);
-            beamGrad.addColorStop(0.5, `rgba(0, 212, 255, ${beamAlpha * 0.7})`);
+            beamGrad.addColorStop(0.5, `rgba(168, 85, 247, ${beamAlpha * 0.7})`);
             beamGrad.addColorStop(1, 'rgba(5, 5, 7, 0)');
           }
 
@@ -465,8 +465,8 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
           horizonY,
           Math.max(width, height) * 0.65
         );
-        grad.addColorStop(0, `rgba(0, 212, 255, ${0.16 * alphaMul})`);
-        grad.addColorStop(0.4, `rgba(168, 85, 247, ${0.11 * alphaMul})`);
+        grad.addColorStop(0, `rgba(168, 85, 247, ${0.16 * alphaMul})`);
+        grad.addColorStop(0.4, `rgba(192, 132, 252, ${0.11 * alphaMul})`);
         grad.addColorStop(1, 'rgba(5, 5, 7, 0)');
         ctx.fillStyle = grad;
         ctx.fillRect(0, 0, width, height);
@@ -475,7 +475,7 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
         for (let i = -lines; i <= lines; i++) {
           const xFactor = i / lines;
           const botX = vanishX + xFactor * width * 1.7;
-          ctx.strokeStyle = `rgba(0, 212, 255, ${0.14 * alphaMul})`;
+          ctx.strokeStyle = `rgba(168, 85, 247, ${0.14 * alphaMul})`;
           ctx.lineWidth = 0.9;
           ctx.beginPath();
           ctx.moveTo(vanishX, horizonY);
@@ -489,7 +489,7 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
           const depth = (r + gridSpeed) / rings;
           const y = horizonY + Math.pow(depth, 1.8) * (height - horizonY + 50);
           const spread = Math.pow(depth, 1.8) * width * 1.7;
-          ctx.strokeStyle = `rgba(0, 212, 255, ${(depth * 0.22) * alphaMul})`;
+          ctx.strokeStyle = `rgba(168, 85, 247, ${(depth * 0.22) * alphaMul})`;
           ctx.lineWidth = 0.6 + depth * 1.2;
           ctx.beginPath();
           ctx.moveTo(vanishX - spread, y);
@@ -513,7 +513,7 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
           const laserGrad = ctx.createLinearGradient(stageX, stageY, targetX, targetY);
           const laserA = (0.16 + Math.sin(t * 1.5 + i) * 0.08) * alphaMul;
           laserGrad.addColorStop(0, `rgba(236, 72, 153, ${laserA * 1.6})`);
-          laserGrad.addColorStop(0.6, `rgba(0, 212, 255, ${laserA * 0.9})`);
+          laserGrad.addColorStop(0.6, `rgba(168, 85, 247, ${laserA * 0.9})`);
           laserGrad.addColorStop(1, 'rgba(5, 5, 7, 0)');
 
           ctx.strokeStyle = laserGrad;
@@ -537,7 +537,7 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
           const rad = prog * Math.max(width, height) * 0.72;
           const alpha = Math.pow(1 - prog, 1.4) * 0.36 * alphaMul;
           ctx.strokeStyle =
-            i % 2 === 0 ? `rgba(0, 212, 255, ${alpha})` : `rgba(236, 72, 153, ${alpha})`;
+            i % 2 === 0 ? `rgba(168, 85, 247, ${alpha})` : `rgba(236, 72, 153, ${alpha})`;
           ctx.lineWidth = 1.6;
           ctx.beginPath();
           ctx.ellipse(
@@ -564,7 +564,7 @@ export const AmbientColorBubbles: React.FC<AmbientColorBubblesProps> = ({
           ctx.strokeStyle =
             i % 2 === 0
               ? `rgba(168, 85, 247, ${0.18 * alphaMul})`
-              : `rgba(0, 212, 255, ${0.16 * alphaMul})`;
+              : `rgba(192, 132, 252, ${0.16 * alphaMul})`;
           ctx.lineWidth = 1.2;
           ctx.beginPath();
           ctx.ellipse(
@@ -609,7 +609,7 @@ export const SectionColorBubbles: React.FC<{
   if (variant === 'music') {
     return (
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden z-0 select-none opacity-45">
-        <div className="absolute -bottom-10 left-0 right-0 h-44 bg-[radial-gradient(ellipse_at_50%_100%,rgba(0,212,255,0.16),rgba(236,72,153,0.1)_50%,transparent_80%)]" />
+        <div className="absolute -bottom-10 left-0 right-0 h-44 bg-[radial-gradient(ellipse_at_50%_100%,rgba(168,85,247,0.22),rgba(236,72,153,0.1)_50%,transparent_80%)]" />
       </div>
     );
   }
@@ -617,7 +617,7 @@ export const SectionColorBubbles: React.FC<{
   if (variant === 'rays') {
     return (
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden z-0 select-none opacity-55">
-        <div className="absolute -top-24 left-1/4 w-96 h-96 bg-[conic-gradient(from_140deg_at_50%_0%,rgba(0,212,255,0.16)_0deg,rgba(236,72,153,0.14)_60deg,transparent_120deg)] blur-2xl" />
+        <div className="absolute -top-24 left-1/4 w-96 h-96 bg-[conic-gradient(from_140deg_at_50%_0%,rgba(168,85,247,0.20)_0deg,rgba(236,72,153,0.14)_60deg,transparent_120deg)] blur-2xl" />
       </div>
     );
   }
@@ -625,7 +625,7 @@ export const SectionColorBubbles: React.FC<{
   if (variant === 'electric') {
     return (
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden z-0 select-none opacity-45">
-        <div className="absolute top-10 right-10 w-72 h-72 rounded-full bg-[#00d4ff]/10 blur-[100px]" />
+        <div className="absolute top-10 right-10 w-72 h-72 rounded-full bg-[#a855f7]/15 blur-[100px]" />
       </div>
     );
   }
@@ -633,7 +633,7 @@ export const SectionColorBubbles: React.FC<{
   // Pure Galactic Dust Shimmer (No toy balls)
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden z-0 select-none opacity-40">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(168,85,247,0.12),rgba(0,212,255,0.06)_40%,transparent_75%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(168,85,247,0.18),rgba(192,132,252,0.08)_40%,transparent_75%)]" />
     </div>
   );
 };

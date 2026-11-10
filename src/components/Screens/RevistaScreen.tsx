@@ -565,7 +565,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
           {/* Degradados oscuros y de atmósfera neón para máxima legibilidad */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#050507] via-[#050507]/85 to-[#050507]/50" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#050507] via-[#050507]/90 to-transparent sm:w-4/5" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#00d4ff]/12 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#a855f7]/15 via-transparent to-transparent" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-[#ec4899]/15 via-transparent to-transparent" />
         </div>
 
@@ -584,7 +584,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute top-12 right-1/4 w-96 h-96 rounded-full bg-[#00d4ff]/16 blur-[130px]"
+          className="pointer-events-none absolute top-12 right-1/4 w-96 h-96 rounded-full bg-[#a855f7]/16 blur-[130px]"
         />
 
         <div className="max-w-4xl w-full mx-auto flex flex-col items-center justify-center text-center relative z-10 space-y-6">
@@ -595,7 +595,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
             transition={{ duration: 0.8 }}
             className="font-['Bebas_Neue'] tracking-wider text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold text-[#ffffff] drop-shadow-[0_4px_30px_rgba(0,0,0,0.9)] text-center leading-none"
           >
-            RAFA <span className="text-gradient-930 drop-shadow-[0_0_40px_rgba(0,212,255,0.85)]">930</span>
+            RAFA <span className="text-gradient-930 drop-shadow-[0_0_40px_rgba(168,85,247,0.85)]">930</span>
           </motion.h1>
 
           {/* Centered Signature Quote (Horizontal, sin selección, sin subrayado, degradado neón animado) */}
@@ -625,7 +625,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
             <button
               type="button"
               onClick={() => onNavigate('discografia')}
-              className="touch-target-48 w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#a855f7] via-[#ec4899] to-[#00d4ff] text-white text-sm font-semibold px-7 py-3.5 rounded-xl shadow-[0_4px_22px_rgba(168,85,247,0.35)] hover:shadow-[0_6px_28px_rgba(236,72,153,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 whitespace-nowrap shrink-0 cursor-pointer"
+              className="touch-target-48 w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#a855f7] via-[#ec4899] to-[#c084fc] text-white text-sm font-semibold px-7 py-3.5 rounded-xl shadow-[0_4px_22px_rgba(168,85,247,0.35)] hover:shadow-[0_6px_28px_rgba(236,72,153,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 whitespace-nowrap shrink-0 cursor-pointer"
             >
               <Play className="w-4 h-4 fill-white text-white" />
               <span>
@@ -641,9 +641,9 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
             <button
               type="button"
               onClick={() => onNavigate('galeria')}
-              className="touch-target-44 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#111118]/90 hover:bg-[#181824] border border-[#22222e] hover:border-[#00d4ff]/60 text-xs font-semibold text-[#e2e2ec] hover:text-[#00d4ff] transition-all cursor-pointer shadow-sm group"
+              className="touch-target-44 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#111118]/90 hover:bg-[#181824] border border-[#22222e] hover:border-[#a855f7]/60 text-xs font-semibold text-[#e2e2ec] hover:text-[#c084fc] transition-all cursor-pointer shadow-sm group"
             >
-              <Camera className="w-4 h-4 text-[#00d4ff] group-hover:scale-110 transition-transform" />
+              <Camera className="w-4 h-4 text-[#a855f7] group-hover:scale-110 transition-transform" />
               <span>
                 {language === 'ca'
                   ? 'Arxiu Fotogràfic'
@@ -704,7 +704,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
             </motion.h2>
 
             <blockquote className="py-3">
-              <p className="font-['Cormorant_Garamond'] italic text-2xl sm:text-3xl text-[#00f0ff] leading-snug font-medium drop-shadow-[0_0_18px_rgba(0,240,255,0.7)] [text-shadow:0_0_10px_#00f0ff,0_0_25px_rgba(0,212,255,0.5)]">
+              <p className="font-['Cormorant_Garamond'] italic text-2xl sm:text-3xl text-[#c084fc] leading-snug font-medium drop-shadow-[0_0_18px_rgba(168,85,247,0.7)] [text-shadow:0_0_10px_#a855f7,0_0_25px_rgba(168,85,247,0.5)]">
                 {language === 'ca'
                   ? '“Amb la música podia expressar les meves emocions i els meus pensaments més profunds.”'
                   : language === 'es'
@@ -795,10 +795,10 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
               <Card3D
                 intensity={4}
                 onClick={() => onNavigate('contacte')}
-                glowColor="rgba(0, 212, 255, 0.28)"
-                className="p-5 bg-[#0e0e15]/95 backdrop-blur-md border border-[#00d4ff]/50 rounded-xl hover:border-[#00d4ff] cursor-pointer shadow-[0_0_24px_rgba(0,212,255,0.14)]"
+                glowColor="rgba(168, 85, 247, 0.28)"
+                className="p-5 bg-[#0e0e15]/95 backdrop-blur-md border border-[#a855f7]/50 rounded-xl hover:border-[#a855f7] cursor-pointer shadow-[0_0_24px_rgba(168,85,247,0.14)]"
               >
-                <Send className="w-5 h-5 text-[#00d4ff] mb-3" />
+                <Send className="w-5 h-5 text-[#a855f7] mb-3" />
                 <h3 className="font-bold text-[#ffffff] text-sm mb-1">
                   {language === 'ca'
                     ? 'Booking & Contractació'
@@ -821,8 +821,8 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
           <div className="lg:col-span-5 space-y-6 flex flex-col items-center">
             <Card3D
               intensity={5}
-              glowColor="rgba(0, 212, 255, 0.28)"
-              className="bg-[#111118] border border-[#00d4ff]/50 rounded-2xl p-3 shadow-[0_0_35px_rgba(0,212,255,0.25)] w-full max-w-md group"
+              glowColor="rgba(168, 85, 247, 0.28)"
+              className="bg-[#111118] border border-[#a855f7]/50 rounded-2xl p-3 shadow-[0_0_35px_rgba(168,85,247,0.25)] w-full max-w-md group"
             >
               <div className="relative aspect-square rounded-xl overflow-hidden bg-[#050507]">
                 <img
@@ -929,10 +929,10 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
               <Card3D
                 key={idx}
                 intensity={5}
-                glowColor={item.highlight ? 'rgba(0, 212, 255, 0.28)' : 'rgba(168, 85, 247, 0.2)'}
+                glowColor={item.highlight ? 'rgba(168, 85, 247, 0.35)' : 'rgba(168, 85, 247, 0.2)'}
                 className={`relative bg-[#111118]/95 backdrop-blur-md rounded-2xl overflow-hidden group transition-all duration-300 flex flex-col justify-between ${
                   item.highlight
-                    ? 'border border-[#00d4ff]/60 shadow-[0_0_30px_rgba(0,212,255,0.18)]'
+                    ? 'border border-[#a855f7]/60 shadow-[0_0_30px_rgba(168,85,247,0.2)]'
                     : 'border border-[#22222e] hover:border-[#a855f7]/70'
                 }`}
               >
@@ -954,7 +954,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                       </div>
                     )}
                     
-                    <div className="absolute bottom-2 right-3 text-[11px] font-mono text-[#00d4ff] font-semibold bg-[#050507]/80 px-2 py-0.5 rounded">
+                    <div className="absolute bottom-2 right-3 text-[11px] font-mono text-[#c084fc] font-semibold bg-[#050507]/80 px-2 py-0.5 rounded">
                       Cap. 0{idx + 1}
                     </div>
                   </div>
@@ -964,7 +964,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                     <div className="text-xs font-mono text-[#a855f7] font-semibold tracking-wider">
                       {item.year}
                     </div>
-                    <h3 className="font-['Cormorant_Garamond'] font-semibold text-xl text-[#ffffff] leading-snug group-hover:text-[#00d4ff] transition-colors">
+                    <h3 className="font-['Cormorant_Garamond'] font-semibold text-xl text-[#ffffff] leading-snug group-hover:text-[#c084fc] transition-colors">
                       {item.title[language]}
                     </h3>
                     <p className="text-[#cbd5e1] text-xs leading-relaxed line-clamp-3">
@@ -974,7 +974,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                 </div>
 
                 <div className="px-5 pb-5 pt-3 flex items-center justify-between text-[11px] font-mono text-[#a1a1b5]">
-                  <span className="text-[#00d4ff]">RAFA 930</span>
+                  <span className="text-[#a855f7]">RAFA 930</span>
                   <span className="text-[#a1a1b5]">
                     {language === 'ca'
                       ? 'Catàleg Oficial'
@@ -1053,8 +1053,8 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
           {/* Card 1: De Vuelta (Featured Release) */}
           <Card3D
             intensity={5}
-            glowColor="rgba(0, 212, 255, 0.3)"
-            className="bg-[#0e0e15]/95 backdrop-blur-md border border-[#00d4ff]/60 hover:border-[#ec4899] rounded-xl p-5 group shadow-[0_0_28px_rgba(0,212,255,0.2)]"
+            glowColor="rgba(168, 85, 247, 0.3)"
+            className="bg-[#0e0e15]/95 backdrop-blur-md border border-[#a855f7]/60 hover:border-[#ec4899] rounded-xl p-5 group shadow-[0_0_28px_rgba(168,85,247,0.2)]"
           >
             <div>
               <div className="relative aspect-square rounded-lg overflow-hidden bg-[#0a0a0f] mb-4">
@@ -1077,7 +1077,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                   <span className="uppercase tracking-widest">Spotify</span>
                 </div>
               </div>
-              <div className="text-xs font-mono text-[#00d4ff] font-semibold mb-1 tabular-nums tracking-wide">
+              <div className="text-xs font-mono text-[#c084fc] font-semibold mb-1 tabular-nums tracking-wide">
                 {language === 'ca'
                   ? 'TEMA DESTACAT · 2026'
                   : language === 'es'
@@ -1125,7 +1125,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
           <Card3D
             intensity={5}
             glowColor="rgba(236, 72, 153, 0.3)"
-            className="bg-[#0e0e15]/95 backdrop-blur-md border border-[#ec4899]/60 hover:border-[#00d4ff] rounded-xl p-5 group shadow-[0_0_28px_rgba(236,72,153,0.2)]"
+            className="bg-[#0e0e15]/95 backdrop-blur-md border border-[#ec4899]/60 hover:border-[#a855f7] rounded-xl p-5 group shadow-[0_0_28px_rgba(236,72,153,0.2)]"
           >
             <div>
               <div className="relative aspect-square rounded-lg overflow-hidden bg-[#0a0a0f] mb-4">
@@ -1202,8 +1202,8 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
           {/* Card 3: Nose si estaré mañana (Single Oficial 2026) */}
           <Card3D
             intensity={5}
-            glowColor="rgba(0, 212, 255, 0.25)"
-            className="bg-[#0e0e15]/95 backdrop-blur-md border border-[#00d4ff]/40 hover:border-[#00d4ff] rounded-xl p-5 group shadow-[0_0_24px_rgba(0,212,255,0.15)]"
+            glowColor="rgba(168, 85, 247, 0.25)"
+            className="bg-[#0e0e15]/95 backdrop-blur-md border border-[#a855f7]/40 hover:border-[#a855f7] rounded-xl p-5 group shadow-[0_0_24px_rgba(168,85,247,0.15)]"
           >
             <div>
               <div className="relative aspect-square rounded-lg overflow-hidden bg-[#0a0a0f] mb-4">
@@ -1214,7 +1214,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                   src={ARTIST_IMAGES.single2026}
                   loading="lazy"
                 />
-                <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#00d4ff] text-black text-[10px] font-mono font-bold uppercase tracking-wider shadow-lg">
+                <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#a855f7] text-white text-[10px] font-mono font-bold uppercase tracking-wider shadow-lg">
                   {language === 'ca'
                     ? 'SENZILL OFICIAL'
                     : language === 'es'
@@ -1226,7 +1226,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                   <span>Spotify</span>
                 </div>
               </div>
-              <div className="text-xs font-mono text-[#00d4ff] font-semibold mb-1 tabular-nums tracking-wide">
+              <div className="text-xs font-mono text-[#c084fc] font-semibold mb-1 tabular-nums tracking-wide">
                 {language === 'ca'
                   ? 'SENZILL OFICIAL 2026'
                   : language === 'es'
@@ -2097,7 +2097,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                           <button
                             type="button"
                             onClick={() => onOpenLegalTab && onOpenLegalTab('privacitat')}
-                            className="text-[#ec4899] hover:text-[#00d4ff] font-semibold transition-colors underline underline-offset-2"
+                            className="text-[#ec4899] hover:text-[#c084fc] font-semibold transition-colors underline underline-offset-2"
                           >
                             política de privacitat i tractament RGPD
                           </button>
@@ -2108,7 +2108,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                           <button
                             type="button"
                             onClick={() => onOpenLegalTab && onOpenLegalTab('privacitat')}
-                            className="text-[#ec4899] hover:text-[#00d4ff] font-semibold transition-colors underline underline-offset-2"
+                            className="text-[#ec4899] hover:text-[#c084fc] font-semibold transition-colors underline underline-offset-2"
                           >
                             política de privacidad y tratamiento RGPD
                           </button>
@@ -2119,7 +2119,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                           <button
                             type="button"
                             onClick={() => onOpenLegalTab && onOpenLegalTab('privacitat')}
-                            className="text-[#ec4899] hover:text-[#00d4ff] font-semibold transition-colors underline underline-offset-2"
+                            className="text-[#ec4899] hover:text-[#c084fc] font-semibold transition-colors underline underline-offset-2"
                           >
                             privacy policy and GDPR processing
                           </button>

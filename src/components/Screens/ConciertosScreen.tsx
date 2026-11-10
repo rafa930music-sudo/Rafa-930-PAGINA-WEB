@@ -274,9 +274,9 @@ export const ConciertosScreen: React.FC<ConciertosScreenProps> = ({
       {/* Header Editorial */}
       <div className="relative z-10 border-b border-[#22222e] pb-8">
         <div className="flex items-center gap-2 text-xs font-mono text-[#a1a1b5] mb-3">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] shadow-[0_0_8px_#00d4ff]" />
-          <span className="text-[#00d4ff] font-semibold">{t.badge}</span>
-          <span aria-hidden="true" className="text-[#00d4ff]">·</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-[#a855f7] shadow-[0_0_8px_#a855f7]" />
+          <span className="text-[#a855f7] font-semibold">{t.badge}</span>
+          <span aria-hidden="true" className="text-[#a855f7]">·</span>
           <span className="text-[#ec4899] font-bold">{t.statusTag}</span>
         </div>
 
@@ -291,13 +291,13 @@ export const ConciertosScreen: React.FC<ConciertosScreenProps> = ({
       {/* Tarjeta Principal: Estado "Próximamente" (Honesta y Transparente) */}
       <Card3D
         intensity={4}
-        glowColor="rgba(0, 212, 255, 0.22)"
-        className="relative z-10 p-6 sm:p-8 bg-[#111118] border border-[#00d4ff]/40 rounded-2xl shadow-[0_0_32px_rgba(0,212,255,0.12)]"
+        glowColor="rgba(168, 85, 247, 0.22)"
+        className="relative z-10 p-6 sm:p-8 bg-[#111118] border border-[#a855f7]/40 rounded-2xl shadow-[0_0_32px_rgba(168,85,247,0.12)]"
       >
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6 border-b border-[#22222e]">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00d4ff]/10 border border-[#00d4ff]/40 text-[#00d4ff] text-xs font-mono font-semibold">
-              <span className="w-2 h-2 rounded-full bg-[#00d4ff] animate-ping" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#a855f7]/10 border border-[#a855f7]/40 text-[#a855f7] text-xs font-mono font-semibold">
+              <span className="w-2 h-2 rounded-full bg-[#a855f7] animate-ping" />
               <span>{t.statusTag}</span>
             </div>
             <h2 className="font-['Cormorant_Garamond'] text-2xl sm:text-3xl font-bold text-white">
@@ -318,9 +318,9 @@ export const ConciertosScreen: React.FC<ConciertosScreenProps> = ({
             <button
               type="button"
               onClick={() => onNavigate('discografia')}
-              className="touch-target-48 px-4 py-3 rounded-xl bg-[#0a0a0f] border border-[#22222e] hover:border-[#00d4ff] text-xs font-mono text-[#ffffff] transition-colors flex items-center gap-2 whitespace-nowrap"
+              className="touch-target-48 px-4 py-3 rounded-xl bg-[#0a0a0f] border border-[#22222e] hover:border-[#a855f7] text-xs font-mono text-[#ffffff] transition-colors flex items-center gap-2 whitespace-nowrap"
             >
-              <Volume2 className="w-4 h-4 text-[#00d4ff]" />
+              <Volume2 className="w-4 h-4 text-[#a855f7]" />
               <span className="hidden sm:inline">{t.exploreDiscography}</span>
             </button>
           </div>
@@ -352,9 +352,9 @@ export const ConciertosScreen: React.FC<ConciertosScreenProps> = ({
         </p>
 
         {subscribed ? (
-          <div className="p-4 sm:p-5 rounded-xl bg-[#00d4ff]/10 border border-[#00d4ff]/40 text-white flex items-center gap-3">
-            <Check className="w-5 h-5 text-[#00d4ff] shrink-0" />
-            <p className="text-xs sm:text-sm font-mono text-[#00d4ff]">
+          <div className="p-4 sm:p-5 rounded-xl bg-[#a855f7]/10 border border-[#a855f7]/40 text-white flex items-center gap-3">
+            <Check className="w-5 h-5 text-[#a855f7] shrink-0" />
+            <p className="text-xs sm:text-sm font-mono text-[#a855f7]">
               {t.notifySuccess}
             </p>
           </div>
@@ -393,7 +393,7 @@ export const ConciertosScreen: React.FC<ConciertosScreenProps> = ({
                   value={cityInput}
                   onChange={(e) => setCityInput(e.target.value)}
                   placeholder={t.cityPlaceholder}
-                  className="touch-target-48 w-full px-4 bg-[#0a0a0f] border border-[#22222e] rounded-xl text-white text-sm focus:outline-none focus:border-[#00d4ff]"
+                  className="touch-target-48 w-full px-4 bg-[#0a0a0f] border border-[#22222e] rounded-xl text-white text-sm focus:outline-none focus:border-[#a855f7]"
                 />
               </div>
             </div>
@@ -430,14 +430,14 @@ export const ConciertosScreen: React.FC<ConciertosScreenProps> = ({
             <Card3D
               key={track.order}
               intensity={3}
-              glowColor={track.highlight ? 'rgba(0, 212, 255, 0.2)' : 'rgba(168, 85, 247, 0.15)'}
+              glowColor={track.highlight ? 'rgba(168, 85, 247, 0.2)' : 'rgba(168, 85, 247, 0.15)'}
               className={`p-5 bg-[#111118] border rounded-xl flex flex-col justify-between ${
-                track.highlight ? 'border-[#00d4ff]/40 shadow-[0_0_16px_rgba(0,212,255,0.08)]' : 'border-[#22222e]'
+                track.highlight ? 'border-[#a855f7]/40 shadow-[0_0_16px_rgba(168,85,247,0.12)]' : 'border-[#22222e]'
               }`}
             >
               <div>
                 <div className="flex items-center justify-between text-xs font-mono mb-2">
-                  <span className="text-[#00d4ff] font-bold">PISTA {track.order}</span>
+                  <span className="text-[#a855f7] font-bold">PISTA {track.order}</span>
                   <span className="text-[#ec4899] font-medium text-[11px]">{track.tag}</span>
                 </div>
                 <h3 className="font-['Cormorant_Garamond'] text-xl font-bold text-white">
@@ -470,11 +470,11 @@ export const ConciertosScreen: React.FC<ConciertosScreenProps> = ({
       {/* Rider Técnico & Contratación para Promotores */}
       <Card3D
         intensity={3}
-        glowColor="rgba(0, 212, 255, 0.2)"
+        glowColor="rgba(168, 85, 247, 0.2)"
         className="relative z-10 p-6 sm:p-8 bg-[#111118] border border-[#22222e] rounded-2xl"
       >
-        <div className="flex items-center gap-2 text-xs font-mono text-[#00d4ff] mb-2 font-semibold">
-          <ShieldCheck className="w-4 h-4 text-[#00d4ff]" />
+        <div className="flex items-center gap-2 text-xs font-mono text-[#a855f7] mb-2 font-semibold">
+          <ShieldCheck className="w-4 h-4 text-[#a855f7]" />
           <span>ESPECIFICACIONES PARA SALAS & EVENTOS</span>
         </div>
 
@@ -487,7 +487,7 @@ export const ConciertosScreen: React.FC<ConciertosScreenProps> = ({
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           <div className="p-4 rounded-xl bg-[#0a0a0f] border border-[#22222e]">
-            <h4 className="text-xs font-mono font-semibold text-[#00d4ff] uppercase mb-1">
+            <h4 className="text-xs font-mono font-semibold text-[#a855f7] uppercase mb-1">
               {t.formatLabel}
             </h4>
             <p className="text-xs text-[#a1a1b5] leading-relaxed">
@@ -516,10 +516,10 @@ export const ConciertosScreen: React.FC<ConciertosScreenProps> = ({
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4 border-t border-[#22222e]">
           <div className="text-xs font-mono text-[#a1a1b5] flex items-center gap-2">
-            <Mail className="w-4 h-4 text-[#00d4ff]" />
+            <Mail className="w-4 h-4 text-[#a855f7]" />
             <span>
               {t.contactOr}{' '}
-              <a href="mailto:rafa.930music@gmail.com" className="text-white hover:text-[#00d4ff] underline font-semibold">
+              <a href="mailto:rafa.930music@gmail.com" className="text-white hover:text-[#a855f7] underline font-semibold">
                 rafa.930music@gmail.com
               </a>
             </span>

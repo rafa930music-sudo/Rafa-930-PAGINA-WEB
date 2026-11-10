@@ -117,7 +117,7 @@ export const Spatial3DCanvas: React.FC<Spatial3DCanvasProps> = ({
     rimLight.position.set(0, 3, -5);
     scene.add(rimLight);
 
-    const electricLight = new THREE.PointLight(0x00d4ff, 2.4, 20);
+    const electricLight = new THREE.PointLight(0xa855f7, 2.4, 20);
     electricLight.position.set(-4, 4, 4);
     scene.add(electricLight);
 
@@ -137,13 +137,13 @@ export const Spatial3DCanvas: React.FC<Spatial3DCanvasProps> = ({
     });
 
     const crimsonMat = new THREE.MeshStandardMaterial({
-      color: 0x00d4ff,
+      color: 0xc084fc,
       metalness: 0.9,
       roughness: 0.15,
     });
 
     const wireMat = new THREE.MeshBasicMaterial({
-      color: 0x00d4ff,
+      color: 0xa855f7,
       wireframe: true,
       transparent: true,
       opacity: 0.38,
@@ -278,7 +278,7 @@ export const Spatial3DCanvas: React.FC<Spatial3DCanvasProps> = ({
         primaryMat.metalness = 0.86;
         primaryMat.roughness = 0.18;
       } else if (st.finish === 'rayo') {
-        primaryMat.color.setHex(0x00d4ff);
+        primaryMat.color.setHex(0xa855f7);
         primaryMat.metalness = 0.9;
         primaryMat.roughness = 0.14;
       } else if (st.finish === 'blanco') {
@@ -354,11 +354,11 @@ export const Spatial3DCanvas: React.FC<Spatial3DCanvasProps> = ({
 
   return (
     <div
-      className={`relative w-full rounded-xl overflow-hidden bg-[#07070c] border border-[#00d4ff]/35 shadow-[0_0_25px_rgba(0,212,255,0.12)] ${heightClass} ${className}`}
+      className={`relative w-full rounded-xl overflow-hidden bg-[#07070c] border border-[#a855f7]/35 shadow-[0_0_25px_rgba(168,85,247,0.15)] ${heightClass} ${className}`}
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(0,212,255,0.16),rgba(168,85,247,0.14)_45%,transparent_75%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(168,85,247,0.2),rgba(147,51,234,0.14)_45%,transparent_75%)]"
       />
 
       {webglReady ? (

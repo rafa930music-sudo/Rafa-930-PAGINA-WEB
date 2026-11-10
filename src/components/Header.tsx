@@ -140,7 +140,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#050507]/95 backdrop-blur-xl border-b border-[#00d4ff]/25 w-full transition-colors shadow-[0_4px_25px_rgba(0,212,255,0.08)]">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#050507]/95 backdrop-blur-xl border-b border-[#a855f7]/25 w-full transition-colors shadow-[0_4px_25px_rgba(168,85,247,0.12)]">
         {/* Barra de scroll progresiva superior con los colores corporativos de RAFA 930 */}
         <div
           role="progressbar"
@@ -157,7 +157,7 @@ export const Header: React.FC<HeaderProps> = ({
           className="h-[3px] sm:h-[3.5px] w-full bg-[#0a0a0f]/90 relative overflow-hidden"
         >
           {/* Fondo sutil de guía */}
-          <div className="absolute inset-0 opacity-15 bg-gradient-to-r from-[#a855f7] via-[#00d4ff] to-[#ec4899]" />
+          <div className="absolute inset-0 opacity-15 bg-gradient-to-r from-[#a855f7] via-[#c084fc] to-[#ec4899]" />
 
           {/* Barra de relleno progresivo dinámico */}
           <div
@@ -165,14 +165,14 @@ export const Header: React.FC<HeaderProps> = ({
             style={{
               width: `${scrollProgress}%`,
               background:
-                'linear-gradient(90deg, #a855f7 0%, #c084fc 22%, #ec4899 48%, #00d4ff 78%, #e11d48 100%)',
+                'linear-gradient(90deg, #a855f7 0%, #c084fc 22%, #ec4899 48%, #9333ea 78%, #e11d48 100%)',
               boxShadow:
-                '0 0 14px rgba(0, 212, 255, 0.9), 0 0 24px rgba(236, 72, 153, 0.7)',
+                '0 0 14px rgba(168, 85, 247, 0.9), 0 0 24px rgba(236, 72, 153, 0.7)',
             }}
           >
             {/* Destello de neón en la punta del progreso */}
             {scrollProgress > 0 && (
-              <div className="absolute right-0 top-0 bottom-0 w-3 bg-white blur-[1px] opacity-95 shadow-[0_0_10px_#ffffff,0_0_16px_#00d4ff]" />
+              <div className="absolute right-0 top-0 bottom-0 w-3 bg-white blur-[1px] opacity-95 shadow-[0_0_10px_#ffffff,0_0_16px_#a855f7]" />
             )}
           </div>
         </div>
@@ -202,11 +202,11 @@ export const Header: React.FC<HeaderProps> = ({
                   className={`text-sm font-medium transition-colors relative py-1 whitespace-nowrap shrink-0 flex items-center gap-1.5 no-underline ${
                     isActive
                       ? 'text-[#ffffff] font-semibold'
-                      : 'text-[#a1a1b5] hover:text-[#00d4ff]'
+                      : 'text-[#a1a1b5] hover:text-[#a855f7]'
                   }`}
                 >
                   {isActive && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] shadow-[0_0_8px_#00d4ff]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#a855f7] shadow-[0_0_8px_#a855f7]" />
                   )}
                   {item.label[language]}
                 </button>
@@ -264,14 +264,14 @@ export const Header: React.FC<HeaderProps> = ({
                   ? 'Abrir menú de navegación'
                   : 'Open navigation menu'
               }
-              className="touch-target-44 px-3 h-10 sm:h-11 flex items-center justify-center gap-2 rounded-lg border border-[#00d4ff]/40 bg-[#111118] hover:border-[#00d4ff] text-[#ffffff] shadow-[0_0_12px_rgba(0,212,255,0.15)] transition-all shrink-0"
+              className="touch-target-44 px-3 h-10 sm:h-11 flex items-center justify-center gap-2 rounded-lg border border-[#a855f7]/40 bg-[#111118] hover:border-[#a855f7] text-[#ffffff] shadow-[0_0_12px_rgba(168,85,247,0.2)] transition-all shrink-0"
             >
               {burgerOpen ? (
-                <X className="w-5 h-5 text-[#00d4ff]" />
+                <X className="w-5 h-5 text-[#a855f7]" />
               ) : (
-                <Menu className="w-5 h-5 text-[#00d4ff]" />
+                <Menu className="w-5 h-5 text-[#a855f7]" />
               )}
-              <span className="hidden sm:inline text-xs font-mono uppercase tracking-wider text-[#00d4ff]">
+              <span className="hidden sm:inline text-xs font-mono uppercase tracking-wider text-[#a855f7]">
                 {language === 'ca' ? 'Menú' : language === 'es' ? 'Menú' : 'Menu'}
               </span>
             </button>

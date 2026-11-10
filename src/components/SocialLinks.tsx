@@ -29,6 +29,7 @@ export interface LinktreeItem {
   sub?: string;
   url: string;
   highlight?: boolean;
+  color?: string;
   icon: React.FC<{ className?: string }>;
 }
 
@@ -44,6 +45,7 @@ export const RAFA_LINKTREE_ITEMS: LinktreeItem[] = [
     sub: 'RAFA 930',
     url: 'https://rafa930music-sudo.github.io/Rafa-930-PAGINA-WEB/',
     highlight: true,
+    color: '#a855f7',
     icon: Globe,
   },
   {
@@ -51,6 +53,7 @@ export const RAFA_LINKTREE_ITEMS: LinktreeItem[] = [
     label: 'Spotify',
     sub: 'RAFA 930',
     url: 'https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng',
+    color: '#1DB954',
     icon: SpotifyLogo,
   },
   {
@@ -58,6 +61,7 @@ export const RAFA_LINKTREE_ITEMS: LinktreeItem[] = [
     label: 'YouTube',
     sub: '@rafa_930',
     url: 'https://youtube.com/@rafa_930',
+    color: '#FF0000',
     icon: YouTubeLogo,
   },
   {
@@ -65,6 +69,7 @@ export const RAFA_LINKTREE_ITEMS: LinktreeItem[] = [
     label: 'Deezer',
     sub: 'RAFA 930',
     url: 'https://www.deezer.com/mx/artist/224265995',
+    color: '#FFB700',
     icon: DeezerLogo,
   },
   {
@@ -72,6 +77,7 @@ export const RAFA_LINKTREE_ITEMS: LinktreeItem[] = [
     label: 'Apple Music',
     sub: 'RAFA 930',
     url: 'https://music.apple.com/es/artist/rafa-930/1724193275',
+    color: '#FA5788',
     icon: AppleMusicLogo,
   },
   {
@@ -79,6 +85,7 @@ export const RAFA_LINKTREE_ITEMS: LinktreeItem[] = [
     label: 'Amazon Music',
     sub: 'RAFA 930',
     url: 'https://music.amazon.in/artists/B0CJM7BWF1/rafa-930',
+    color: '#FF9900',
     icon: AmazonMusicLogo,
   },
   {
@@ -86,6 +93,7 @@ export const RAFA_LINKTREE_ITEMS: LinktreeItem[] = [
     label: 'Tidal',
     sub: 'RAFA 930',
     url: 'https://tidal.com/artist/41128230',
+    color: '#00FFFF',
     icon: TidalLogo,
   },
   {
@@ -93,6 +101,7 @@ export const RAFA_LINKTREE_ITEMS: LinktreeItem[] = [
     label: 'Instagram',
     sub: '@rafa930_oficial',
     url: 'https://instagram.com/rafa930_oficial',
+    color: '#EC4899',
     icon: InstagramLogo,
   },
   {
@@ -100,6 +109,7 @@ export const RAFA_LINKTREE_ITEMS: LinktreeItem[] = [
     label: '930 Digital',
     sub: 'Estudio Web',
     url: 'https://rafa930music-sudo.github.io/930-Digital/',
+    color: '#a855f7',
     icon: Terminal,
   },
 ];
@@ -118,6 +128,7 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
   const [showSplash, setShowSplash] = useState(true);
   const [splashExiting, setSplashExiting] = useState(false);
   const [playVideoInline, setPlayVideoInline] = useState(false);
+  const [activeColor, setActiveColor] = useState<string | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -206,11 +217,11 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
       ctx.ellipse(0, 0, maxDim * 0.6, maxDim * 0.3, 0, 0, Math.PI * 2);
       ctx.fill();
 
-      const cyanGrad = ctx.createRadialGradient(maxDim * 0.15, -maxDim * 0.08, 5, maxDim * 0.15, -maxDim * 0.08, maxDim * 0.4);
-      cyanGrad.addColorStop(0, 'rgba(0, 212, 255, 0.16)');
-      cyanGrad.addColorStop(0.55, 'rgba(168, 85, 247, 0.07)');
-      cyanGrad.addColorStop(1, 'rgba(5, 5, 7, 0)');
-      ctx.fillStyle = cyanGrad;
+      const purpleGrad = ctx.createRadialGradient(maxDim * 0.15, -maxDim * 0.08, 5, maxDim * 0.15, -maxDim * 0.08, maxDim * 0.4);
+      purpleGrad.addColorStop(0, 'rgba(168, 85, 247, 0.20)');
+      purpleGrad.addColorStop(0.55, 'rgba(236, 72, 153, 0.08)');
+      purpleGrad.addColorStop(1, 'rgba(5, 5, 7, 0)');
+      ctx.fillStyle = purpleGrad;
       ctx.beginPath();
       ctx.ellipse(maxDim * 0.15, -maxDim * 0.08, maxDim * 0.4, maxDim * 0.2, 0.25, 0, Math.PI * 2);
       ctx.fill();
@@ -256,7 +267,7 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
           angle: Math.PI / 4 + (Math.random() - 0.5) * 0.35,
           life: 0,
           maxLife: 32 + Math.floor(Math.random() * 18),
-          color: Math.random() < 0.6 ? '#ffffff' : Math.random() < 0.5 ? '#00d4ff' : '#f472b6',
+          color: Math.random() < 0.6 ? '#ffffff' : Math.random() < 0.5 ? '#a855f7' : '#f472b6',
         });
         meteorCooldown = 160 + Math.floor(Math.random() * 180);
       }
@@ -280,7 +291,7 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
 
         const lineGrad = ctx.createLinearGradient(tailX, tailY, meteor.x, meteor.y);
         lineGrad.addColorStop(0, 'rgba(255, 255, 255, 0)');
-        lineGrad.addColorStop(0.75, meteor.color === '#ffffff' ? 'rgba(0, 212, 255, 0.45)' : meteor.color);
+        lineGrad.addColorStop(0.75, meteor.color === '#ffffff' ? 'rgba(168, 85, 247, 0.45)' : meteor.color);
         lineGrad.addColorStop(1, '#ffffff');
 
         ctx.save();
@@ -351,7 +362,7 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
       {/* Top Accent Line */}
       <div
         aria-hidden="true"
-        className="fixed top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-[#a855f7] via-[#00d4ff] to-[#ec4899] opacity-75 z-[110]"
+        className="fixed top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-[#a855f7] via-[#c084fc] to-[#ec4899] opacity-75 z-[110]"
       />
 
       {/* Fullscreen Splash Screen with Signature Emblem */}
@@ -367,26 +378,26 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
           <div className="pointer-events-none absolute -top-28 left-1/4 w-[26rem] h-[26rem] rounded-full bg-[#a855f7]/22 blur-[140px]" />
           <div className="pointer-events-none absolute top-1/2 right-1/4 w-[24rem] h-[24rem] rounded-full bg-[#ec4899]/20 blur-[140px]" />
           <div className="pointer-events-none absolute -bottom-28 left-1/3 w-[22rem] h-[22rem] rounded-full bg-[#e11d48]/18 blur-[130px]" />
-          <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[20rem] h-[20rem] rounded-full bg-[#00d4ff]/14 blur-[125px]" />
+          <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[20rem] h-[20rem] rounded-full bg-[#a855f7]/18 blur-[125px]" />
 
           <div className="relative z-10 w-full max-w-sm flex flex-col items-center justify-center">
             {/* Signature Emblem Frame */}
             <div className="relative w-64 h-64 flex items-center justify-center">
               <div
                 aria-hidden="true"
-                className="absolute inset-0 rounded-full border border-[#00d4ff]/25 shadow-[0_0_20px_rgba(0,212,255,0.1)] animate-[spin_24s_linear_infinite]"
+                className="absolute inset-0 rounded-full border border-[#a855f7]/25 shadow-[0_0_20px_rgba(168,85,247,0.15)] animate-[spin_24s_linear_infinite]"
               />
               <div
                 aria-hidden="true"
                 className="absolute inset-3 rounded-full border border-[#ec4899]/20"
               />
-              <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 bg-[#00d4ff]" />
+              <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 bg-[#a855f7]" />
               <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 bg-[#ec4899]" />
               <div className="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 rotate-45 bg-[#a855f7]" />
-              <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 rotate-45 bg-[#00d4ff]" />
+              <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 rotate-45 bg-[#c084fc]" />
 
               <svg
-                className="w-56 h-44 relative z-10 drop-shadow-[0_0_18px_rgba(0,212,255,0.4)]"
+                className="w-56 h-44 relative z-10 drop-shadow-[0_0_18px_rgba(168,85,247,0.4)]"
                 viewBox="0 0 320 220"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -394,7 +405,7 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
                 <defs>
                   <linearGradient id="sigGradLinks" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#c084fc" />
-                    <stop offset="50%" stopColor="#00d4ff" />
+                    <stop offset="50%" stopColor="#a855f7" />
                     <stop offset="100%" stopColor="#f472b6" />
                   </linearGradient>
                 </defs>
@@ -434,12 +445,12 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
 
             <div className="mt-3 text-center">
               <p
-                className="text-2xl text-white font-normal drop-shadow-[0_0_12px_rgba(0,212,255,0.45)]"
+                className="text-2xl text-white font-normal drop-shadow-[0_0_12px_rgba(168,85,247,0.45)]"
                 style={{ fontFamily: "'Alex Brush', 'Caveat', cursive" }}
               >
                 Rafa 930
               </p>
-              <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#00d4ff]/80">
+              <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#c084fc]/80">
                 Firma Oficial
               </p>
             </div>
@@ -459,7 +470,7 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none fixed -bottom-24 left-1/4 w-72 h-72 rounded-full bg-[#00d4ff]/12 blur-[120px] galaxy-breathe"
+        className="pointer-events-none fixed -bottom-24 left-1/4 w-72 h-72 rounded-full bg-[#a855f7]/12 blur-[120px] galaxy-breathe"
         style={{ animationDelay: '5s' }}
       />
 
@@ -469,10 +480,10 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
           type="button"
           onClick={handleShare}
           aria-label="Compartir"
-          className="w-10 h-10 rounded-xl bg-[#111118]/85 backdrop-blur-md border border-[#22222e] hover:border-[#00d4ff] flex items-center justify-center text-white transition-all cursor-pointer"
+          className="w-10 h-10 rounded-xl bg-[#111118]/85 backdrop-blur-md border border-[#22222e] hover:border-[#a855f7] flex items-center justify-center text-white transition-all cursor-pointer"
         >
           {copied ? (
-            <Check className="w-4 h-4 text-[#00d4ff]" />
+            <Check className="w-4 h-4 text-[#a855f7]" />
           ) : (
             <Share2 className="w-4 h-4 text-[#a1a1b5]" />
           )}
@@ -488,37 +499,49 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
             ✕
           </button>
         ) : (
-          <span className="px-2.5 py-1 rounded-full bg-[#111118]/80 border border-[#00d4ff]/35 text-[10px] font-mono text-[#00d4ff]">
-            08930 · BCN
-          </span>
+          <span className="w-10 h-10" />
         )}
       </div>
 
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-[410px] flex flex-col items-center my-auto py-4">
         {/* Avatar with animated neon ring */}
-        <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full p-[2.5px] bg-gradient-to-tr from-[#a855f7] via-[#00d4ff] to-[#ec4899] shadow-[0_0_32px_rgba(0,212,255,0.28)] mb-3.5">
+        <div
+          className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full p-[2.5px] transition-all duration-500 shadow-[0_0_32px_rgba(168,85,247,0.28)] mb-3.5"
+          style={{
+            background: activeColor
+              ? `linear-gradient(135deg, ${activeColor}, #ffffff)`
+              : 'linear-gradient(135deg, #a855f7, #c084fc, #ec4899)',
+            boxShadow: activeColor
+              ? `0 0 35px ${activeColor}80`
+              : '0 0 30px rgba(168,85,247,0.25)',
+          }}
+        >
           <img
             src={PORTRAIT_URL}
             alt="RAFA 930"
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover object-top rounded-full border-2 border-[#050507]"
           />
-          <span className="absolute bottom-0.5 right-0.5 w-6 h-6 rounded-full bg-[#00d4ff] text-[#050507] font-bold text-xs flex items-center justify-center border-2 border-[#050507] shadow-[0_0_10px_#00d4ff]">
+          <span className="absolute bottom-0.5 right-0.5 w-6 h-6 rounded-full bg-[#0095F6] text-white font-bold text-xs flex items-center justify-center border-2 border-[#050507] shadow-[0_0_12px_rgba(0,149,246,0.6)]">
             ✓
           </span>
         </div>
 
-        <h1 className="font-['Bebas_Neue'] text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-          RAFA <span className="text-gradient-930">930</span>
+        <h1
+          className="font-['Bebas_Neue'] text-4xl sm:text-5xl font-extrabold tracking-wide transition-all duration-300"
+          style={{
+            color: activeColor || '#ffffff',
+            textShadow: activeColor
+              ? `0 0 24px ${activeColor}90`
+              : '0 0 16px rgba(168,85,247,0.3)',
+          }}
+        >
+          RAFA <span style={{ color: activeColor || '#c084fc' }}>930</span>
         </h1>
 
-        <p className="text-xs font-mono text-[#a1a1b5] mt-1">
-          Música · Fotos · Web
-        </p>
-
         {/* Featured Video Card — DE VUELTA (https://youtu.be/RVuiWbT_mNk) */}
-        <div className="w-full mt-5 rounded-2xl bg-[#111118]/90 backdrop-blur-xl border border-[#00d4ff]/45 shadow-[0_0_28px_rgba(0,212,255,0.16)] overflow-hidden">
+        <div className="w-full mt-4 rounded-2xl bg-[#111118]/90 backdrop-blur-xl border border-[#a855f7]/45 shadow-[0_0_28px_rgba(168,85,247,0.16)] overflow-hidden">
           {playVideoInline ? (
             <div className="relative aspect-video w-full bg-black">
               <iframe
@@ -556,7 +579,7 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
           <div className="px-4 py-3 flex items-center justify-between gap-2 bg-[#111118]">
             <div className="text-left">
               <div className="text-sm font-bold text-white leading-tight">De Vuelta</div>
-              <div className="text-[11px] font-mono text-[#00d4ff]">RAFA 930 · 2026</div>
+              <div className="text-[11px] font-mono text-[#c084fc]">RAFA 930 · 2026</div>
             </div>
             <a
               href={DE_VUELTA_YOUTUBE_URL}
@@ -572,48 +595,59 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
         </div>
 
         {/* Short-Named Linktree Buttons */}
-        <div className="w-full flex flex-col gap-2.5 mt-4">
+        <div className="w-full flex flex-col gap-2.5 mt-3.5">
           {RAFA_LINKTREE_ITEMS.map((item) => {
             const IconComponent = item.icon;
+            const itemColor = item.color || '#a855f7';
+            const isSelected = activeColor === itemColor;
             return (
               <a
                 key={item.id}
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group w-full h-14 px-4 rounded-xl flex items-center justify-between transition-all duration-200 active:scale-[0.98] backdrop-blur-md ${
-                  item.highlight
-                    ? 'gradient-lila-rosa-rojo text-white shadow-[0_6px_22px_rgba(236,72,153,0.38)] hover:opacity-95'
-                    : 'bg-[#111118]/85 border border-[#22222e] hover:border-[#00d4ff] text-white shadow-[0_4px_16px_rgba(0,0,0,0.4)]'
-                }`}
+                onMouseEnter={() => setActiveColor(itemColor)}
+                onMouseLeave={() => setActiveColor(null)}
+                onTouchStart={() => setActiveColor(itemColor)}
+                onTouchEnd={() => setActiveColor(null)}
+                className="group w-full h-14 px-4 rounded-xl flex items-center justify-between transition-all duration-200 active:scale-[0.98] backdrop-blur-md bg-[#111118]/85 border border-[#22222e] text-white shadow-[0_4px_16px_rgba(0,0,0,0.4)] cursor-pointer"
+                style={{
+                  borderColor: isSelected ? itemColor : undefined,
+                  boxShadow: isSelected ? `0 0 22px ${itemColor}45` : undefined,
+                  backgroundColor: isSelected ? `${itemColor}15` : undefined,
+                }}
               >
                 <div className="flex items-center gap-3">
                   <div
-                    className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${
-                      item.highlight
-                        ? 'bg-black/25 text-white'
-                        : 'bg-[#050507] border border-[#22222e] text-[#00d4ff] group-hover:text-[#ec4899]'
-                    }`}
+                    className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-colors"
+                    style={{
+                      backgroundColor: `${itemColor}20`,
+                      borderColor: `${itemColor}60`,
+                      color: itemColor,
+                    }}
                   >
                     <IconComponent className="w-4 h-4" />
                   </div>
-                  <span className="font-semibold text-sm tracking-tight">{item.label}</span>
+                  <span
+                    className="font-bold text-sm tracking-tight transition-colors"
+                    style={{ color: isSelected ? itemColor : '#ffffff' }}
+                  >
+                    {item.label}
+                  </span>
                 </div>
 
                 <div className="flex items-center gap-2">
                   {item.sub && (
                     <span
-                      className={`text-[11px] font-mono ${
-                        item.highlight ? 'text-white/85' : 'text-[#a1a1b5]'
-                      }`}
+                      className="text-[11px] font-mono transition-colors"
+                      style={{ color: isSelected ? itemColor : '#a1a1b5' }}
                     >
                       {item.sub}
                     </span>
                   )}
                   <ArrowUpRight
-                    className={`w-4 h-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${
-                      item.highlight ? 'text-white' : 'text-[#a1a1b5] group-hover:text-[#00d4ff]'
-                    }`}
+                    className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    style={{ color: isSelected ? itemColor : '#a1a1b5' }}
                   />
                 </div>
               </a>
@@ -638,7 +672,7 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
             <a
               href="./links.html"
               download="RAFA-930-Links.html"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#111118] border border-[#00d4ff]/40 hover:border-[#00d4ff] text-[11px] font-mono text-[#00d4ff] transition-colors"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#111118] border border-[#a855f7]/40 hover:border-[#a855f7] text-[11px] font-mono text-[#c084fc] transition-colors"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Descargar HTML</span>

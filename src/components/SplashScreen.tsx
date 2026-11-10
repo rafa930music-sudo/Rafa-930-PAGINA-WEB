@@ -100,16 +100,16 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ language = 'es', onC
             if (char === '9') {
               charStyle = {
                 ...charStyle,
-                background: 'linear-gradient(90deg, #00d4ff 0%, #818cf8 100%)',
+                background: 'linear-gradient(90deg, #a855f7 0%, #c084fc 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
-                filter: 'drop-shadow(0 0 25px rgba(0, 212, 255, 0.65))',
+                filter: 'drop-shadow(0 0 25px rgba(168, 85, 247, 0.75))',
               };
             } else if (char === '3') {
               charStyle = {
                 ...charStyle,
-                background: 'linear-gradient(90deg, #818cf8 0%, #c084fc 40%, #ec4899 100%)',
+                background: 'linear-gradient(90deg, #c084fc 0%, #e879f9 40%, #ec4899 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
@@ -145,7 +145,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ language = 'es', onC
         </h1>
 
         {/* Lema identitario oficial — Blanco neón brillante */}
-        <p className="font-['Cormorant_Garamond'] italic text-lg sm:text-2xl md:text-3xl lg:text-4xl text-center text-[#ffffff] font-bold tracking-wide whitespace-normal md:whitespace-nowrap drop-shadow-[0_0_20px_rgba(255,255,255,0.95)] [text-shadow:0_0_12px_#ffffff,0_0_25px_rgba(0,212,255,0.8),0_0_40px_rgba(236,72,153,0.6)] max-w-5xl">
+        <p className="font-['Cormorant_Garamond'] italic text-lg sm:text-2xl md:text-3xl lg:text-4xl text-center text-[#ffffff] font-bold tracking-wide whitespace-normal md:whitespace-nowrap drop-shadow-[0_0_20px_rgba(255,255,255,0.95)] [text-shadow:0_0_12px_#ffffff,0_0_25px_rgba(168,85,247,0.8),0_0_40px_rgba(236,72,153,0.6)] max-w-5xl">
           {language === 'ca'
             ? '«De La Mina al món. Amb la veritat per davant.»'
             : language === 'es'
@@ -157,7 +157,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ language = 'es', onC
       {/* Indicador inferior de progreso discreto */}
       <div className="absolute bottom-4 sm:bottom-8 flex flex-col items-center z-10 select-none">
         <div className="w-48 sm:w-64 md:w-80 h-1 bg-white/10 rounded-full overflow-hidden border border-white/20">
-          <div className="h-full bg-gradient-to-r from-[#00d4ff] via-[#ec4899] to-[#00d4ff] animate-splash-bar rounded-full" />
+          <div className="h-full bg-gradient-to-r from-[#a855f7] via-[#ec4899] to-[#c084fc] animate-splash-bar rounded-full" />
         </div>
       </div>
     </div>
