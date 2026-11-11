@@ -352,11 +352,9 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
     privacy: false,
   });
 
-  // Estado interactivo de colaboradores y equipo creativo
+  // Categoría de colaboradores y equipo creativo
   const [colabCategory, setColabCategory] = useState<'all' | 'prod' | 'vocal' | 'model'>('all');
-  const [selectedColabId, setSelectedColabId] = useState<string | null>(null);
-  const [uploadSuccessId, setUploadSuccessId] = useState<string | null>(null);
-  const [customAvatars, setCustomAvatars] = useState<Record<string, string>>(() => {
+  const [customAvatars] = useState<Record<string, string>>(() => {
     try {
       const stored: Record<string, string> = {};
       COLLABORATORS.forEach((c) => {
@@ -368,64 +366,6 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
       return {};
     }
   });
-
-  const handleColabImageUpload = (id: string, e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    if (!file.type.startsWith('image/')) return;
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const rawData = event.target?.result as string;
-      if (!rawData) return;
-
-      const img = new Image();
-      img.onload = () => {
-        const maxDim = 1000;
-        let width = img.width;
-        let height = img.height;
-        if (width > maxDim || height > maxDim) {
-          if (width > height) {
-            height = Math.round((height * maxDim) / width);
-            width = maxDim;
-          } else {
-            width = Math.round((width * maxDim) / height);
-            height = maxDim;
-          }
-        }
-
-        const canvas = document.createElement('canvas');
-        canvas.width = width;
-        canvas.height = height;
-        const ctx = canvas.getContext('2d');
-        if (ctx) {
-          ctx.drawImage(img, 0, 0, width, height);
-          const compressed = canvas.toDataURL('image/jpeg', 0.88);
-          try {
-            localStorage.setItem(`rafa930_colab_${id}`, compressed);
-          } catch (err) {
-            console.warn('Failed to save avatar to localStorage:', err);
-          }
-          setCustomAvatars((prev) => ({ ...prev, [id]: compressed }));
-          setUploadSuccessId(id);
-          setTimeout(() => setUploadSuccessId(null), 3500);
-        }
-      };
-      img.src = rawData;
-    };
-    reader.readAsDataURL(file);
-  };
-
-  const handleResetColabImage = (id: string, e: React.MouseEvent) => {
-    e.stopPropagation();
-    try {
-      localStorage.removeItem(`rafa930_colab_${id}`);
-    } catch {}
-    setCustomAvatars((prev) => {
-      const next = { ...prev };
-      delete next[id];
-      return next;
-    });
-  };
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -1370,28 +1310,6 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
             </div>
           </div>
 
-          {/* Banner de confirmación de subida */}
-          {uploadSuccessId && (
-            <div className="mb-6 px-4 py-2.5 rounded-xl bg-[#10b981]/15 border border-[#10b981]/40 text-[#10b981] font-mono text-xs flex items-center justify-between shadow-lg animate-fade-in">
-              <div className="flex items-center gap-2">
-                <Check className="w-4 h-4 shrink-0" />
-                <span>
-                  {language === 'ca'
-                    ? 'Foto actualitzada correctament per al col·laborador i desada al teu navegador.'
-                    : language === 'es'
-                    ? 'Foto actualizada correctamente para el colaborador y guardada en tu navegador.'
-                    : 'Collaborator photo updated successfully and saved in your browser.'}
-                </span>
-              </div>
-              <button
-                type="button"
-                onClick={() => setUploadSuccessId(null)}
-                className="text-white/60 hover:text-white p-1"
-              >
-                <X className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          )}
 
           {/* Cuadrícula de colaboradores */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -1412,11 +1330,8 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                   className="bg-[#0e0e15]/95 backdrop-blur-md border border-[#2d2d42] hover:border-[#ec4899] rounded-xl overflow-hidden group shadow-2xl flex flex-col justify-between transition-all"
                 >
                   <div>
-                    {/* Contenedor de Imagen con overlay interactivo */}
-                    <div
-                      className="relative aspect-square w-full overflow-hidden bg-[#07070b] border-b border-[#222232] cursor-pointer"
-                      onClick={() => setSelectedColabId(c.id)}
-                    >
+                    {/* Contenedor de Imagen estática limpia (sin visor ni modal) */}
+                    <div className="relative aspect-square w-full overflow-hidden bg-[#07070b] border-b border-[#222232]">
                       <img
                         alt={`${c.name} — ${roleText}`}
                         referrerPolicy="no-referrer"
@@ -1435,55 +1350,9 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                       <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#050507]/90 backdrop-blur-md border border-[#ec4899]/70 text-[11px] font-mono text-[#ec4899] font-bold shadow-lg">
                         {roleText}
                       </div>
-
-                      {/* Acciones de foto rápida (Subir propia / Restablecer) */}
-                      <div className="absolute top-3 right-3 flex items-center gap-1.5 z-20">
-                        {hasCustom && (
-                          <button
-                            type="button"
-                            onClick={(e) => handleResetColabImage(c.id, e)}
-                            title={
-                              language === 'ca'
-                                ? 'Restablir foto original d’arxiu'
-                                : language === 'es'
-                                ? 'Restablecer foto original de archivo'
-                                : 'Reset to original archive photo'
-                            }
-                            className="p-1.5 rounded-lg bg-black/80 hover:bg-[#ef4444] text-white/80 hover:text-white transition-all backdrop-blur-md border border-white/20 shadow-md"
-                          >
-                            <RotateCcw className="w-3.5 h-3.5" />
-                          </button>
-                        )}
-                        <label
-                          onClick={(e) => e.stopPropagation()}
-                          title={
-                            language === 'ca'
-                              ? 'Pujar / Canviar foto des del teu dispositiu'
-                              : language === 'es'
-                              ? 'Subir / Cambiar foto desde tu dispositivo'
-                              : 'Upload custom photo'
-                          }
-                          className="cursor-pointer p-1.5 rounded-lg bg-black/80 hover:bg-[#ec4899] text-white/80 hover:text-white transition-all backdrop-blur-md border border-white/20 shadow-md flex items-center gap-1"
-                        >
-                          <Camera className="w-3.5 h-3.5" />
-                          <input
-                            type="file"
-                            accept="image/*"
-                            className="hidden"
-                            onChange={(e) => handleColabImageUpload(c.id, e)}
-                          />
-                        </label>
-                      </div>
-
-                      {/* Badge si es personalizada */}
-                      {hasCustom && (
-                        <div className="absolute bottom-3 left-3 px-2 py-0.5 rounded bg-[#10b981]/80 backdrop-blur-sm text-[10px] font-mono text-white font-bold">
-                          {language === 'ca' ? 'Foto pròpia' : language === 'es' ? 'Foto propia' : 'Custom'}
-                        </div>
-                      )}
                     </div>
 
-                    {/* Información del colaborador */}
+                    {/* Información del colaborador: lectura directa y clara */}
                     <div className="p-4">
                       <div className="flex items-baseline justify-between gap-2">
                         <h3 className="font-['Cormorant_Garamond'] font-bold text-xl text-[#ffffff] leading-snug drop-shadow-sm group-hover:text-[#ec4899] transition-colors">
@@ -1496,24 +1365,15 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                         <span>{c.handle.replace('@', '')}</span>
                       </div>
 
-                      {/* Biografía breve */}
-                      <p className="text-xs text-[#94a3b8] mt-2.5 line-clamp-3 leading-relaxed">
+                      {/* Biografía completa legible directamente sin ventanas emergentes */}
+                      <p className="text-xs text-[#94a3b8] mt-2.5 leading-relaxed font-sans">
                         {meta?.extendedBio[language] || c.bio}
                       </p>
                     </div>
                   </div>
 
-                  {/* Botones inferiores: Ver ficha + Instagram */}
-                  <div className="px-4 pb-4 pt-1 flex flex-col gap-2">
-                    <button
-                      type="button"
-                      onClick={() => setSelectedColabId(c.id)}
-                      className="w-full py-1.5 px-3 rounded-lg bg-[#141420] hover:bg-[#202032] border border-[#2b2b40] hover:border-[#ec4899]/60 text-xs font-mono text-[#cbd5e1] hover:text-white transition-all flex items-center justify-center gap-1.5"
-                    >
-                      <span>{language === 'ca' ? 'Veure Fitxa & Foto' : language === 'es' ? 'Ver Ficha & Foto' : 'View Profile'}</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#ec4899]" />
-                    </button>
-
+                  {/* Enlace directo a Instagram (sin ficha ni visor de imagen) */}
+                  <div className="px-4 pb-4 pt-1">
                     <a
                       className="touch-target-44 w-full px-3 py-2 bg-[#181824] hover:bg-[#242436] border border-[#38384f] hover:border-[#ec4899] rounded-lg text-xs font-mono text-[#e2e8f0] hover:text-[#ffffff] flex items-center justify-between transition-all shadow-sm group/ig"
                       href={c.instagramUrl}
@@ -1532,123 +1392,6 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
             })}
           </div>
         </div>
-
-        {/* Modal de Detalle de Colaborador */}
-        {selectedColabId && (() => {
-          const colab = COLLABORATORS.find((c) => c.id === selectedColabId);
-          if (!colab) return null;
-          const meta = COLLABORATORS_EXTENDED_INFO[colab.id];
-          const roleText = COLLABORATORS_ROLE_I18N[colab.id]?.[language] || colab.role;
-          const currentImg = customAvatars[colab.id] || colab.avatarUrl;
-          const hasCustom = Boolean(customAvatars[colab.id]);
-
-          return (
-            <div
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fade-in"
-              onClick={() => setSelectedColabId(null)}
-            >
-              <div
-                className="relative max-w-2xl w-full bg-[#0e0e15] border border-[#3a3a52] rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh] overflow-y-auto"
-                onClick={(e) => e.stopPropagation()}
-              >
-                {/* Botón cerrar */}
-                <button
-                  type="button"
-                  onClick={() => setSelectedColabId(null)}
-                  className="absolute top-4 right-4 z-30 p-2 rounded-full bg-black/70 hover:bg-[#ec4899] text-white/80 hover:text-white transition-all backdrop-blur-md border border-white/20"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-
-                {/* Foto en grande */}
-                <div className="md:w-1/2 relative bg-black aspect-square md:aspect-auto min-h-[300px]">
-                  <img
-                    src={currentImg}
-                    alt={`${colab.name} — ${roleText}`}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e0e15] via-transparent to-transparent md:hidden" />
-                  
-                  {/* Botón para cambiar foto en modal */}
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2">
-                    <label className="cursor-pointer flex-1 py-2 px-3 rounded-lg bg-black/80 hover:bg-[#ec4899] text-white text-xs font-mono font-medium transition-all backdrop-blur-md border border-white/20 shadow-lg flex items-center justify-center gap-2">
-                      <Camera className="w-3.5 h-3.5" />
-                      <span>{language === 'ca' ? 'Pujar Foto' : language === 'es' ? 'Subir Foto' : 'Upload Photo'}</span>
-                      <input
-                        type="file"
-                        accept="image/*"
-                        className="hidden"
-                        onChange={(e) => handleColabImageUpload(colab.id, e)}
-                      />
-                    </label>
-                    {hasCustom && (
-                      <button
-                        type="button"
-                        onClick={(e) => handleResetColabImage(colab.id, e)}
-                        className="p-2 rounded-lg bg-black/80 hover:bg-[#ef4444] text-white transition-all backdrop-blur-md border border-white/20"
-                        title={language === 'ca' ? 'Restablir original' : language === 'es' ? 'Restablecer original' : 'Reset original'}
-                      >
-                        <RotateCcw className="w-4 h-4" />
-                      </button>
-                    )}
-                  </div>
-                </div>
-
-                {/* Contenido modal */}
-                <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-between">
-                  <div>
-                    <div className="inline-block px-2.5 py-1 rounded-md bg-[#ec4899]/15 border border-[#ec4899]/50 text-xs font-mono text-[#ec4899] font-bold mb-3">
-                      {roleText}
-                    </div>
-
-                    <h3 className="font-['Cormorant_Garamond'] text-3xl font-bold text-white leading-tight">
-                      {colab.name}
-                    </h3>
-
-                    <div className="text-sm font-mono text-[#cbd5e1] mt-1 font-semibold flex items-center gap-1.5">
-                      <span className="text-[#ec4899]">@</span>
-                      <span>{colab.handle.replace('@', '')}</span>
-                    </div>
-
-                    <p className="text-xs sm:text-sm text-[#94a3b8] mt-4 leading-relaxed font-sans">
-                      {meta?.extendedBio[language] || colab.bio}
-                    </p>
-
-                    {meta?.projects[language] && (
-                      <div className="mt-5 pt-4 border-t border-[#252538]">
-                        <h4 className="text-xs uppercase font-mono tracking-wider text-[#94a3b8] font-bold mb-2">
-                          {language === 'ca' ? 'Col·laboracions destacades amb 930:' : language === 'es' ? 'Colaboraciones destacadas con 930:' : 'Featured Works with 930:'}
-                        </h4>
-                        <ul className="space-y-1.5 text-xs font-mono text-[#e2e8f0]">
-                          {meta.projects[language].map((proj, idx) => (
-                            <li key={idx} className="flex items-center gap-2">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#ec4899] shrink-0" />
-                              <span>{proj}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Acciones */}
-                  <div className="mt-6 pt-4 border-t border-[#252538] flex flex-col gap-2">
-                    <a
-                      href={colab.instagramUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full py-2.5 px-4 rounded-xl bg-[#ec4899] hover:bg-[#db2777] text-white font-mono text-xs font-bold transition-all shadow-lg shadow-[#ec4899]/30 flex items-center justify-center gap-2"
-                    >
-                      <InstagramLogo className="w-4 h-4 text-white" />
-                      <span>{language === 'ca' ? 'Veure Perfil a Instagram' : language === 'es' ? 'Ver Perfil en Instagram' : 'View on Instagram'}</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          );
-        })()}
       </section>
 
       {/* ========================================================================= */}

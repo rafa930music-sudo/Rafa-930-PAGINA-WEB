@@ -346,8 +346,8 @@ export const COLLABORATORS: Collaborator[] = [
     role: 'Model',
     roleColor: 'secondary',
     avatarUrl: colabDerasmenjivar,
-    instagramUrl: 'https://www.instagram.com/derasmenjivar_13/',
-    handle: '@derasmenjivar_13',
+    instagramUrl: 'https://www.instagram.com/quiriatmenjivar',
+    handle: '@quiriatmenjivar',
     bio: 'Model en visuals, rodatges i fotografies oficials de singles de RAFA 930.',
   },
 ];
