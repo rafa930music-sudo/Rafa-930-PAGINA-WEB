@@ -132,6 +132,26 @@
   animation: neon-pulse 4s ease-in-out infinite;
 }
 
+/* Animación de Blanco y Negro a Color para Fotografías de Colaboradores */
+@keyframes photoBwToColor {
+  0% {
+    filter: grayscale(100%) contrast(125%) brightness(95%);
+  }
+  35% {
+    filter: grayscale(100%) contrast(120%) brightness(98%);
+  }
+  70% {
+    filter: grayscale(35%) contrast(110%) brightness(100%);
+  }
+  100% {
+    filter: grayscale(0%) contrast(105%) brightness(100%);
+  }
+}
+
+.animate-bw-to-color {
+  animation: photoBwToColor 3.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
 /* Clases de Estilo del Diseño Original RAFA 930 */
 .text-gradient-930 {
   background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #c084fc 100%);

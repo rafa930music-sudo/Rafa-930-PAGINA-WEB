@@ -211,9 +211,9 @@ const PHOTO_I18N: Record<
       en: 'Quiriat Jearim Deras Menjivar',
     },
     categoryLabel: {
-      ca: 'Model de Portada · @derasmenjivar_13',
-      es: 'Modelo de Portada · @derasmenjivar_13',
-      en: 'Cover Model · @derasmenjivar_13',
+      ca: 'Model de Portada · @quiriatmenjivar',
+      es: 'Modelo de Portada · @quiriatmenjivar',
+      en: 'Cover Model · @quiriatmenjivar',
     },
     description: {
       ca: 'Model en visuals, rodatges i fotografies oficials de singles de RAFA 930.',
@@ -221,9 +221,32 @@ const PHOTO_I18N: Record<
       en: 'Model in official music videos and photography for RAFA 930.',
     },
     credits: {
-      ca: '@derasmenjivar_13',
-      es: '@derasmenjivar_13',
-      en: '@derasmenjivar_13',
+      ca: '@quiriatmenjivar',
+      es: '@quiriatmenjivar',
+      en: '@quiriatmenjivar',
+    },
+    year: { ca: '2026', es: '2026', en: '2026' },
+  },
+  'g-colab-elnobir': {
+    title: {
+      ca: 'Elnobir · Artista & Fotografia',
+      es: 'Elnobir · Artista & Fotografía',
+      en: 'Elnobir · Artist & Photography',
+    },
+    categoryLabel: {
+      ca: 'Artista & Fotògraf · @elnobir',
+      es: 'Artista & Fotógrafo · @elnobir',
+      en: 'Artist & Photographer · @elnobir',
+    },
+    description: {
+      ca: 'Sessió fotogràfica i col·laboració creativa d’estil urbà amb Elnobir com a artista i fotògraf.',
+      es: 'Sesión fotográfica y colaboración creativa de estilo urbano con Elnobir como artista y fotógrafo.',
+      en: 'Photoshoot and urban creative collaboration with Elnobir as artist and photographer.',
+    },
+    credits: {
+      ca: 'Foto & Art: RAFA 930 & @elnobir',
+      es: 'Foto & Arte: RAFA 930 & @elnobir',
+      en: 'Photo & Art: RAFA 930 & @elnobir',
     },
     year: { ca: '2026', es: '2026', en: '2026' },
   },
@@ -318,14 +341,17 @@ export const GaleriaScreen: React.FC<GaleriaScreenProps> = ({
 
   return (
     <div className="relative w-full min-h-screen py-10 md:py-16 overflow-hidden">
-      {/* Background image full width 100% */}
-      <div className="absolute inset-0 pointer-events-none opacity-20 overflow-hidden select-none z-0">
+      {/* Background image full width 100% con iluminación de galería */}
+      <div className="absolute inset-0 pointer-events-none opacity-25 overflow-hidden select-none z-0">
         <img
           src={ARTIST_IMAGES.heroPortrait}
           alt=""
           className="w-full h-full object-cover object-top filter contrast-125 brightness-75 scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#050507] via-[#050507]/85 to-[#050507]" />
+        {/* Focos de luz cenital fotográfica */}
+        <div className="absolute top-0 left-1/3 w-[700px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.16),transparent_70%)] blur-3xl" />
+        <div className="absolute top-1/2 right-10 w-[600px] h-[450px] bg-[radial-gradient(ellipse_at_center,rgba(236,72,153,0.12),transparent_70%)] blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 space-y-10">
@@ -402,6 +428,7 @@ export const GaleriaScreen: React.FC<GaleriaScreenProps> = ({
                 <LazyImage
                   src={photo.imageUrl}
                   alt={title}
+                  style={{ objectPosition: photo.imagePosition || 'center center' }}
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.03]"
                 />
               </div>

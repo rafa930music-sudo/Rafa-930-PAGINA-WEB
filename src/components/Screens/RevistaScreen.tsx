@@ -231,6 +231,11 @@ const COLLABORATORS_ROLE_I18N: Record<string, Record<Language, string>> = {
     es: 'Modelo de Portada & Singles',
     en: 'Cover Model & Single Visuals',
   },
+  elnobir: {
+    ca: 'Artista & Fotògraf',
+    es: 'Artista & Fotógrafo',
+    en: 'Artist & Photographer',
+  },
 };
 
 interface ColabExtendedMeta {
@@ -331,6 +336,19 @@ const COLLABORATORS_EXTENDED_INFO: Record<string, ColabExtendedMeta> = {
       en: 'Model in official RAFA 930 cover visuals and photography, featured in Sant Adrià coastal sessions.',
     },
   },
+  elnobir: {
+    category: 'prod',
+    projects: {
+      ca: ['Fotografia editorial i urbana', 'Projectes visuals compartits', 'Col·laboració artística 930'],
+      es: ['Fotografía editorial y urbana', 'Proyectos visuales compartidos', 'Colaboración artística 930'],
+      en: ['Urban & editorial photography', 'Shared visual projects', '930 artistic collaboration'],
+    },
+    extendedBio: {
+      ca: 'Artista i fotògraf col·laborador amb RAFA 930. Desenvolupa projectes visuals, fotografia editorial i creació artística urbana contemporània.',
+      es: 'Artista y fotógrafo colaborador con RAFA 930. Desarrolla proyectos visuales, fotografía editorial y creación artística urbana contemporánea.',
+      en: 'Artist and photographer collaborating with RAFA 930. Develops visual projects, editorial photography, and contemporary urban artistic creation.',
+    },
+  },
 };
 
 export const RevistaScreen: React.FC<RevistaScreenProps> = ({
@@ -354,6 +372,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
 
   // Categoría de colaboradores y equipo creativo
   const [colabCategory, setColabCategory] = useState<'all' | 'prod' | 'vocal' | 'model'>('all');
+  const [animBwKey, setAnimBwKey] = useState(0);
   const [customAvatars] = useState<Record<string, string>>(() => {
     try {
       const stored: Record<string, string> = {};
@@ -1261,7 +1280,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
               </p>
             </div>
 
-            {/* Selector de categorías */}
+            {/* Selector de categorías y control de animación */}
             <div className="flex flex-wrap items-center gap-2">
               <button
                 type="button"
@@ -1272,7 +1291,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                     : 'bg-[#151522] text-[#94a3b8] hover:text-white border border-[#26263a] hover:border-[#383854]'
                 }`}
               >
-                {language === 'ca' ? 'Tots (7)' : language === 'es' ? 'Todos (7)' : 'All (7)'}
+                {language === 'ca' ? 'Tots (8)' : language === 'es' ? 'Todos (8)' : 'All (8)'}
               </button>
               <button
                 type="button"
@@ -1283,7 +1302,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                     : 'bg-[#151522] text-[#94a3b8] hover:text-white border border-[#26263a] hover:border-[#383854]'
                 }`}
               >
-                {language === 'ca' ? 'Producció & Beats (2)' : language === 'es' ? 'Producción & Beats (2)' : 'Production (2)'}
+                {language === 'ca' ? 'Producció & Foto (3)' : language === 'es' ? 'Producción & Foto (3)' : 'Production & Photo (3)'}
               </button>
               <button
                 type="button"
@@ -1305,7 +1324,18 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                     : 'bg-[#151522] text-[#94a3b8] hover:text-white border border-[#26263a] hover:border-[#383854]'
                 }`}
               >
-                {language === 'ca' ? 'Models & Imatge (3)' : language === 'es' ? 'Modelos & Imagen (3)' : 'Models (3)'}
+                {language === 'ca' ? 'Models & Imatge (3)' : language === 'es' ? 'Modelos & Imagen (3)' : 'Models & Visuals (3)'}
+              </button>
+
+              {/* Botón de reproducción de la animación B&W a Color */}
+              <button
+                type="button"
+                onClick={() => setAnimBwKey((k) => k + 1)}
+                className="px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium transition-all bg-[#a855f7]/15 hover:bg-[#a855f7]/30 text-[#e9d5ff] hover:text-white border border-[#a855f7]/40 hover:border-[#a855f7] flex items-center gap-1.5 shadow-md shadow-[#a855f7]/10 active:scale-95"
+                title={language === 'ca' ? 'Reprodueix l’animació de blanc i negre a color' : language === 'es' ? 'Reproducir animación de blanco y negro a color' : 'Replay black & white to color animation'}
+              >
+                <Sparkles className="w-3.5 h-3.5 text-[#ec4899] animate-pulse" />
+                <span>{language === 'ca' ? 'Animació B&W ➔ Color' : language === 'es' ? 'Animación B/N ➔ Color' : 'Animation B&W ➔ Color'}</span>
               </button>
             </div>
           </div>
@@ -1316,7 +1346,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
             {COLLABORATORS.filter((c) => {
               if (colabCategory === 'all') return true;
               return COLLABORATORS_EXTENDED_INFO[c.id]?.category === colabCategory;
-            }).map((c) => {
+            }).map((c, idx) => {
               const meta = COLLABORATORS_EXTENDED_INFO[c.id];
               const roleText = COLLABORATORS_ROLE_I18N[c.id]?.[language] || c.role;
               const currentImg = customAvatars[c.id] || c.avatarUrl;
@@ -1330,12 +1360,17 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                   className="bg-[#0e0e15]/95 backdrop-blur-md border border-[#2d2d42] hover:border-[#ec4899] rounded-xl overflow-hidden group shadow-2xl flex flex-col justify-between transition-all"
                 >
                   <div>
-                    {/* Contenedor de Imagen estática limpia (sin visor ni modal) */}
+                    {/* Contenedor de Imagen con animación de Blanco y Negro a Color */}
                     <div className="relative aspect-square w-full overflow-hidden bg-[#07070b] border-b border-[#222232]">
                       <img
+                        key={`${c.id}-${animBwKey}`}
                         alt={`${c.name} — ${roleText}`}
                         referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 filter contrast-105"
+                        style={{
+                          objectPosition: c.avatarPosition || 'center center',
+                          animationDelay: `${idx * 160}ms`,
+                        }}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 animate-bw-to-color group-hover:filter-none"
                         src={currentImg}
                         loading="lazy"
                         onError={(e) => {
@@ -1349,6 +1384,12 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                       {/* Rol Tag */}
                       <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#050507]/90 backdrop-blur-md border border-[#ec4899]/70 text-[11px] font-mono text-[#ec4899] font-bold shadow-lg">
                         {roleText}
+                      </div>
+
+                      {/* Badge animado de fotografía: B&W ➔ COLOR */}
+                      <div className="absolute bottom-3 right-3 px-2 py-0.5 rounded-full bg-black/80 backdrop-blur-md border border-[#a855f7]/50 text-[9px] font-mono text-[#e9d5ff] flex items-center gap-1 shadow-md pointer-events-none">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#ec4899] animate-pulse" />
+                        <span>B&W ➔ COLOR</span>
                       </div>
                     </div>
 
@@ -1574,7 +1615,7 @@ export const RevistaScreen: React.FC<RevistaScreenProps> = ({
                     <a href="https://music.apple.com/es/artist/rafa-930/1724193275" target="_blank" rel="noopener noreferrer" title="Apple Music" className="p-2.5 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FA243C] transition-colors"><AppleMusicLogo className="w-5 h-5" colored={true} /></a>
                     <a href="https://music.amazon.in/artists/B0CJM7BWF1/rafa-930" target="_blank" rel="noopener noreferrer" title="Amazon Music" className="p-2.5 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF9900] transition-colors"><AmazonMusicLogo className="w-5 h-5" colored={true} /></a>
                     <a href="https://tidal.com/artist/41128230" target="_blank" rel="noopener noreferrer" title="Tidal" className="p-2.5 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#00FFFF] transition-colors"><TidalLogo className="w-5 h-5" colored={true} /></a>
-                    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" title="TikTok" className="p-2.5 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#00f2fe] transition-colors"><TikTokLogo className="w-5 h-5" colored={true} /></a>
+                    <a href="https://www.tiktok.com/@rafa930_oficial" target="_blank" rel="noopener noreferrer" title="TikTok" className="p-2.5 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#25F4EE] hover:shadow-[0_0_12px_rgba(37,244,238,0.3)] transition-all"><TikTokLogo className="w-5 h-5" colored={true} /></a>
                     <a href="https://soundcloud.com" target="_blank" rel="noopener noreferrer" title="SoundCloud" className="p-2.5 rounded-lg bg-[#111118] border border-[#22222e] hover:border-[#FF5500] transition-colors"><SoundcloudLogo className="w-5 h-5" colored={true} /></a>
                   </div>
                 </div>

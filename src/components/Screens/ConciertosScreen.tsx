@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Language, ScreenId } from '../../types';
 import { Card3D } from '../Card3D';
 import { SectionColorBubbles } from '../AmbientColorBubbles';
+import { ARTIST_IMAGES } from '../../data/content';
 import { sanitizeUserInput, isValidEmail, checkSubmissionRateLimit } from '../../utils/seoAndSecurity';
 import {
   Calendar,
@@ -268,11 +269,25 @@ export const ConciertosScreen: React.FC<ConciertosScreenProps> = ({
   ];
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-10 sm:py-16 space-y-12 overflow-hidden">
+    <div className="relative w-full min-h-screen py-10 sm:py-16 overflow-hidden">
+      {/* Background image full width 100% con atmósfera de directo */}
+      <div className="absolute inset-0 pointer-events-none opacity-25 overflow-hidden select-none z-0">
+        <img
+          src={ARTIST_IMAGES.heroPortraitNight}
+          alt="RAFA 930 Directe"
+          className="w-full h-full object-cover object-center filter contrast-125 brightness-75 scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050507] via-[#050507]/85 to-[#050507]" />
+        {/* Iluminación de escenario neón */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.22),transparent_70%)] blur-2xl" />
+        <div className="absolute top-1/3 right-10 w-96 h-96 bg-[radial-gradient(circle_at_center,rgba(236,72,153,0.18),transparent_70%)] blur-2xl" />
+      </div>
+
       <SectionColorBubbles variant="music" />
 
-      {/* Header Editorial */}
-      <div className="relative z-10 border-b border-[#22222e] pb-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 space-y-12">
+        {/* Header Editorial */}
+        <div className="relative z-10 border-b border-[#22222e] pb-8">
         <div className="flex items-center gap-2 text-xs font-mono text-[#a1a1b5] mb-3">
           <span className="w-1.5 h-1.5 rounded-full bg-[#a855f7] shadow-[0_0_8px_#a855f7]" />
           <span className="text-[#a855f7] font-semibold">{t.badge}</span>
@@ -557,6 +572,7 @@ export const ConciertosScreen: React.FC<ConciertosScreenProps> = ({
             </div>
           ))}
         </div>
+      </div>
       </div>
     </div>
   );

@@ -151,7 +151,7 @@ export const RedesScreen: React.FC<RedesScreenProps> = ({ language, onNavigate }
       handle: '@rafa930_oficial · Contenido Exclusivo',
       url: 'https://www.tiktok.com/@rafa930_oficial',
       Logo: TikTokLogo,
-      color: '#a855f7',
+      color: '#25F4EE',
       badge: 'Vídeos',
     },
     {

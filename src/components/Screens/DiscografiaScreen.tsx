@@ -259,14 +259,17 @@ export const DiscografiaScreen: React.FC<DiscografiaScreenProps> = ({
 
   return (
     <div className="relative w-full min-h-screen py-10 sm:py-16 overflow-hidden">
-      {/* Background image full width 100% */}
-      <div className="absolute inset-0 pointer-events-none opacity-20 overflow-hidden select-none z-0">
+      {/* Background image full width 100% con ambientación musical */}
+      <div className="absolute inset-0 pointer-events-none opacity-25 overflow-hidden select-none z-0">
         <img
           src={ARTIST_IMAGES.epMyWorld}
           alt=""
           className="w-full h-full object-cover object-center filter contrast-125 brightness-75 scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#050507] via-[#050507]/80 to-[#050507]" />
+        {/* Halos de luz de vinilo y estudio */}
+        <div className="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.18),transparent_65%)] blur-3xl" />
+        <div className="absolute top-1/2 -right-20 w-[650px] h-[650px] bg-[radial-gradient(circle_at_center,rgba(236,72,153,0.14),transparent_65%)] blur-3xl" />
       </div>
 
       <SectionColorBubbles variant="music" />

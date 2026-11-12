@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Language } from '../../types';
 import { Download, Sliders, Printer, Check } from 'lucide-react';
 import { Card3D } from '../Card3D';
+import { ARTIST_IMAGES } from '../../data/content';
+import { SectionColorBubbles } from '../AmbientColorBubbles';
 
 interface PresskitScreenProps {
   language: Language;
@@ -174,9 +176,25 @@ Asset: ${assetTitle}
       : 'Full RAFA 930 Presskit';
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-10 sm:py-16 space-y-16">
-      {/* Editorial Header */}
-      <div className="border-b border-[#22222e] pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+    <div className="relative w-full min-h-screen py-10 sm:py-16 overflow-hidden">
+      {/* Background image full width 100% Dossier Oficial */}
+      <div className="absolute inset-0 pointer-events-none opacity-20 overflow-hidden select-none z-0">
+        <img
+          src={ARTIST_IMAGES.studioCrewBg}
+          alt="RAFA 930 Presskit Studio"
+          className="w-full h-full object-cover object-center filter contrast-125 brightness-75 scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050507] via-[#050507]/85 to-[#050507]" />
+        {/* Iluminación ejecutiva neón */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.18),transparent_70%)] blur-2xl" />
+        <div className="absolute bottom-1/3 left-10 w-96 h-96 bg-[radial-gradient(circle_at_center,rgba(236,72,153,0.14),transparent_70%)] blur-2xl" />
+      </div>
+
+      <SectionColorBubbles variant="editorial" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 space-y-16">
+        {/* Editorial Header */}
+        <div className="border-b border-[#22222e] pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
           <div className="flex items-center gap-2 text-xs font-mono text-[#a1a1b5] mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#a855f7] shadow-[0_0_8px_#a855f7]" />
@@ -488,6 +506,7 @@ Asset: ${assetTitle}
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

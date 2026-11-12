@@ -42,6 +42,7 @@ import colabKingsla from '../assets/images/colab-amine.webp';
 import colabSalma from '../assets/images/colab-salma.webp';
 import colabToliyug from '../assets/images/colab-toliyug.webp';
 import colabDerasmenjivar from '../assets/images/colab-derasmenjivar.webp';
+import colabElnobir from '../assets/images/colab-elnobir.jpg';
 import studioCrewSession from '../assets/images/studio_crew_session_1793816322490.jpg';
 
 export const ARTIST_IMAGES = {
@@ -350,6 +351,17 @@ export const COLLABORATORS: Collaborator[] = [
     handle: '@quiriatmenjivar',
     bio: 'Model en visuals, rodatges i fotografies oficials de singles de RAFA 930.',
   },
+  {
+    id: 'elnobir',
+    name: 'Elnobir',
+    role: 'Artista & Fotògraf',
+    roleColor: 'secondary',
+    avatarUrl: colabElnobir,
+    avatarPosition: 'center 20%',
+    instagramUrl: 'https://www.instagram.com/elnobir/',
+    handle: '@elnobir',
+    bio: 'Artista visual i fotògraf col·laborador en sessions editorials i projectes artístics amb RAFA 930.',
+  },
 ];
 
 export const GALLERY_PHOTOS: GalleryPhoto[] = [
@@ -536,10 +548,22 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     category: 'moda',
     categoryLabel: 'Visuals 930',
     imageUrl: colabDerasmenjivar,
-    credits: '@derasmenjivar_13',
+    credits: '@quiriatmenjivar',
     year: '2026',
     location: 'Barcelona',
     description: 'Retrat càlid de Quiriat Jearim Deras Menjivar en sessió de capvespre.',
+  },
+  {
+    id: 'g-colab-elnobir',
+    title: 'Elnobir · Artista & Fotografia',
+    category: 'urbana',
+    categoryLabel: 'Artista & Fotògraf · @elnobir',
+    imageUrl: colabElnobir,
+    imagePosition: 'center 20%',
+    credits: 'Foto & Art: RAFA 930 & @elnobir',
+    year: '2026',
+    location: 'Barcelona',
+    description: 'Sessió fotogràfica i col·laboració creativa d’estil urbà amb Elnobir, artista i fotògraf.',
   },
 ];
 

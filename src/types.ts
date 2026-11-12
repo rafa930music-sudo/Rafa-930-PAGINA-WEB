@@ -78,6 +78,7 @@ export interface Collaborator {
   role: string;
   roleColor: 'primary' | 'secondary' | 'tertiary';
   avatarUrl: string;
+  avatarPosition?: string;
   instagramUrl: string;
   handle: string;
   bio: string;
@@ -89,6 +90,7 @@ export interface GalleryPhoto {
   category: 'retrat' | 'moda' | 'urbana' | 'mina';
   categoryLabel: string;
   imageUrl: string;
+  imagePosition?: string;
   credits: string;
   year: string;
   location: string;

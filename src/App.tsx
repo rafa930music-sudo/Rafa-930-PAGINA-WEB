@@ -82,6 +82,20 @@ export default function App() {
       {/* 2. Barra de scroll lateral progresiva corporativa */}
       <ScrollLateralBar />
 
+      {/* 2b. Fondo Atmosférico Global: Iluminación Neón, Malla Ciber-Urbana & Viñeta */}
+      <div aria-hidden="true" className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
+        {/* Halo de luz superior violeta */}
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[550px] bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.14),rgba(192,132,252,0.05)_45%,transparent_75%)] blur-3xl" />
+        {/* Halo inferior derecho rosa neón */}
+        <div className="absolute -bottom-40 -right-20 w-[850px] h-[550px] bg-[radial-gradient(ellipse_at_center,rgba(236,72,153,0.10),rgba(168,85,247,0.04)_50%,transparent_70%)] blur-3xl" />
+        {/* Halo lateral izquierdo violeta eléctrico */}
+        <div className="absolute top-1/3 -left-32 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.08),transparent_65%)] blur-2xl" />
+        {/* Micro-textura de cuadrícula urbana sutil */}
+        <div className="absolute inset-0 opacity-[0.035] bg-[linear-gradient(to_right,#a855f7_1px,transparent_1px),linear-gradient(to_bottom,#a855f7_1px,transparent_1px)] bg-[size:4.5rem_4.5rem]" />
+        {/* Viñeta perimetral cinematográfica */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(5,5,7,0.85)_100%)]" />
+      </div>
+
       {/* 3. Fondo atmosférico de estrellas y partículas orbitales */}
       <AmbientColorBubbles currentScreen={currentScreen} />
 

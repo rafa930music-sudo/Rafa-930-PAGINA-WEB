@@ -116,8 +116,15 @@ export const LegalScreen: React.FC<LegalScreenProps> = ({
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-8 sm:py-14 space-y-10">
-      {/* Top Breadcrumb & Return Action */}
+    <div className="relative w-full min-h-screen py-8 sm:py-14 overflow-hidden">
+      {/* Luz ambiental institucional */}
+      <div aria-hidden="true" className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none">
+        <div className="absolute top-0 left-1/3 w-[600px] h-[350px] bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.12),transparent_70%)] blur-2xl" />
+        <div className="absolute bottom-1/4 right-10 w-[500px] h-[350px] bg-[radial-gradient(ellipse_at_center,rgba(236,72,153,0.08),transparent_70%)] blur-2xl" />
+      </div>
+
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 space-y-10">
+        {/* Top Breadcrumb & Return Action */}
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#22222e] pb-6">
         <button
           type="button"
@@ -339,6 +346,7 @@ export const LegalScreen: React.FC<LegalScreenProps> = ({
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
