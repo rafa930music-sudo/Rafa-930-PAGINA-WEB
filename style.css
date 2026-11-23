@@ -1140,11 +1140,12 @@ main,
   z-index: 0;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  min-height: 100dvh;
-  padding: clamp(4.75rem, 8.5vw, 7rem) 0 clamp(6rem, 11vh, 8.5rem);
+  min-height: 100svh;
+  padding: clamp(2.75rem, 5vh, 4rem) 0 clamp(12.5rem, 23vh, 15.5rem);
   background: transparent;
 }
 
@@ -1181,6 +1182,11 @@ main,
 .hero-section > .container {
   position: relative;
   z-index: 4;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-grid {
@@ -4274,8 +4280,8 @@ body.is-hero-ready .social-strip {
 @media (max-width: 600px) {
   .hero-section {
     min-height: 100vh;
-    min-height: 100dvh;
-    padding: clamp(3.75rem, 8vw, 5rem) 0 clamp(5.5rem, 12vh, 7.5rem);
+    min-height: 100svh;
+    padding: clamp(2.25rem, 4.5vh, 3.25rem) 0 clamp(10rem, 20vh, 12.5rem);
   }
 
   .bio-editorial-card {
