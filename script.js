@@ -1321,7 +1321,7 @@ function initSplashScreen() {
 
   const canvas = $('#splash-dust-canvas');
   const ctx = canvas ? canvas.getContext('2d') : null;
-  const logoStage = $('.splash-logo-stage', splash);
+  const logoStage = splash.querySelector('.splash-logo-stage');
 
   let width = window.innerWidth;
   let height = window.innerHeight;
