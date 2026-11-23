@@ -1,558 +1,1118 @@
-<!doctype html>
-<html lang="es" class="dark scroll-smooth">
+<!DOCTYPE html>
+<html lang="es" class="is-splash-active">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-
-    <!-- Security & Privacy Policy Meta Headers -->
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' https://lh3.googleusercontent.com https://i.ytimg.com https://cdn.simpleicons.org https://api.qrserver.com https://upload.wikimedia.org data: blob:; media-src 'self' blob: data:; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://open.spotify.com; connect-src 'self' https://formspree.io https://fonts.googleapis.com https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io mailto: https://wa.me; upgrade-insecure-requests;" />
-    <meta name="google-site-verification" content="_nTolgNBs7AdHh_VP2REJOS25KCRwLEHEVJmR9ZiHb0" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#05070f" />
 
-    <!-- Local SEO Geo Metadata (La Mina · Sant Adrià de Besòs · Barcelona 08930) -->
-    <meta name="geo.region" content="ES-CT" />
-    <meta name="geo.placename" content="Sant Adrià de Besòs, Barcelona" />
-    <meta name="geo.position" content="41.4161;2.2163" />
-    <meta name="ICBM" content="41.4161, 2.2163" />
-
-    <!-- Primary SEO Title & Description (Synced with metadata.json) -->
-    <title>RAFA 930 · Música Urbana Oficial</title>
-    <meta name="application-name" content="RAFA 930" />
-    <meta name="apple-mobile-web-app-title" content="RAFA 930" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="format-detection" content="telephone=yes, email=yes, address=yes" />
-    <meta name="rating" content="general" />
-    <meta name="distribution" content="global" />
-    <meta name="revisit-after" content="3 days" />
-    <meta name="description" content="Sitio web oficial de RAFA 930 (Rafael Moreno Román): rap consciente y trap melódico desde La Mina (08930, Barcelona). Singles, Spotify, conciertos 2026 y booking." />
-    <meta name="keywords" content="RAFA 930, música urbana Barcelona, rap consciente, trap melódico, fotografía editorial, desarrollo web, 930 Digital, La Mina Sant Adrià, artista música urbana, retrato editorial" />
+    <!-- SEO Técnico Principal -->
+    <title>RAFA 930 | Web Oficial — Música Urbana, Desarrollo Web &amp; Fotografía</title>
+    <meta
+      name="description"
+      content="Web oficial de RAFA 930 (Rafael Moreno Román). Descubre su música urbana como De Vuelta, proyectos de desarrollo web y fotografía profesional."
+    />
     <meta name="author" content="RAFA 930 (Rafael Moreno Román)" />
-    <meta name="creator" content="RAFA 930 (Rafael Moreno Román)" />
-    <meta name="publisher" content="RAFA 930 · 930 Records & 930 Digital Studio" />
-    <meta name="copyright" content="© 2026 RAFA 930 (Rafael Moreno Román). Todos los derechos reservados." />
-
-    <!-- Dublin Core Archival & Library SEO Metadata -->
-    <meta name="DC.title" content="RAFA 930 | Música Urbana, Rap Consciente & 930 Digital" />
-    <meta name="DC.creator" content="Rafael Moreno Román (RAFA 930)" />
-    <meta name="DC.subject" content="Música Urbana, Rap Consciente, Fotografía Editorial, Desarrollo Web, La Mina, Sant Adrià de Besòs, Barcelona 08930" />
-    <meta name="DC.description" content="Sitio web oficial de RAFA 930 (Rafael Moreno Román). Rap consciente, trap melódico y producciones urbanas desde La Mina (Barcelona, 08930). Escucha la discografía completa, explora el archivo fotográfico editorial y conecta en todas las plataformas." />
-    <meta name="DC.publisher" content="930 Records & 930 Digital Studio" />
-    <meta name="DC.language" content="es" />
-    <meta name="DC.coverage" content="Sant Adrià de Besòs, Barcelona, España (08930)" />
-
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://rafa930.com/" />
-    <link rel="alternate" hreflang="es" href="https://rafa930.com/?lang=es" />
-    <link rel="alternate" hreflang="es-ES" href="https://rafa930.com/?lang=es" />
-    <link rel="alternate" hreflang="ca" href="https://rafa930.com/?lang=ca" />
-    <link rel="alternate" hreflang="ca-ES" href="https://rafa930.com/?lang=ca" />
-    <link rel="alternate" hreflang="en" href="https://rafa930.com/?lang=en" />
-    <link rel="alternate" hreflang="x-default" href="https://rafa930.com/" />
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://rafa930.com/sitemap.xml" />
-    <link rel="me" href="https://instagram.com/rafa930_oficial" />
-    <link rel="me" href="https://youtube.com/@rafa_930" />
-    <link rel="me" href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" />
-
-    <meta name="theme-color" content="#050507" id="meta-theme-color" />
-    <meta name="msapplication-TileColor" content="#050507" />
-    <meta name="msapplication-TileImage" content="https://rafa930.com/assets/rafa-930-cara.jpg" />
-    <meta name="thumbnail" content="https://rafa930.com/assets/rafa-930-cara.jpg" />
+    <link rel="icon" type="image/jpeg" href="./favicon.jpg" />
+    <link rel="apple-touch-icon" href="./favicon.jpg" />
     <link rel="manifest" href="./manifest.json" />
-    <link rel="icon" type="image/jpeg" sizes="any" href="./assets/rafa-930-cara.jpg" />
-    <link rel="shortcut icon" type="image/jpeg" href="./assets/rafa-930-cara.jpg" />
-    <link rel="apple-touch-icon" href="./assets/rafa-930-cara.jpg" />
-    <link rel="image_src" href="https://rafa930.com/assets/rafa-930-cara.jpg" />
-    <link rel="preload" as="image" href="./assets/rafa-930-cara.jpg" fetchpriority="high" />
-    <link rel="preload" as="image" href="./assets/rafa-930-cara.jpg" />
 
-    <!-- Open Graph / Facebook / WhatsApp / LinkedIn / Discord / Telegram -->
+    <!-- Open Graph / Tarjetas Sociales -->
     <meta property="og:type" content="website" />
-    <meta property="profile:first_name" content="Rafael" />
-    <meta property="profile:last_name" content="Moreno Román" />
-    <meta property="profile:username" content="RAFA 930" />
+    <meta property="og:locale" content="es_ES" />
     <meta property="og:url" content="https://rafa930.com/" />
     <meta property="og:site_name" content="RAFA 930" />
-    <meta property="og:title" content="RAFA 930 · Música Urbana Oficial" />
-    <meta property="og:description" content="Sitio web oficial de RAFA 930 (Rafael Moreno Román): rap consciente y trap melódico desde La Mina (08930, Barcelona). Singles, Spotify, conciertos 2026 y booking." />
-    <meta property="og:image" content="https://rafa930.com/assets/rafa-930-cara.jpg" />
-    <meta property="og:image:secure_url" content="https://rafa930.com/assets/rafa-930-cara.jpg" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:alt" content="RAFA 930 (Rafael Moreno Román) — Retrato Oficial" />
-    <meta property="og:image:width" content="1024" />
-    <meta property="og:image:height" content="1024" />
-    <meta property="og:locale" content="es_ES" />
-    <meta property="og:locale:alternate" content="ca_ES" />
-    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:title" content="RAFA 930 | Web Oficial — Música Urbana, Desarrollo Web &amp; Fotografía" />
+    <meta
+      property="og:description"
+      content="Web oficial de RAFA 930 (Rafael Moreno Román). Descubre su música urbana como De Vuelta, proyectos de desarrollo web y fotografía profesional."
+    />
+    <meta property="og:image" content="https://rafa930.com/mi-foto.jpg" />
+    <meta property="og:image:alt" content="Retrato oficial de RAFA 930 (Rafael Moreno Román)" />
 
     <!-- Twitter / X Cards -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@rafa930_oficial" />
-    <meta name="twitter:creator" content="@rafa930_oficial" />
-    <meta name="twitter:title" content="RAFA 930 · Música Urbana Oficial" />
-    <meta name="twitter:description" content="Sitio web oficial de RAFA 930 (Rafael Moreno Román): rap consciente y trap melódico desde La Mina (08930, Barcelona). Singles, Spotify, conciertos 2026 y booking." />
-    <meta name="twitter:image" content="https://rafa930.com/assets/rafa-930-cara.jpg" />
-    <meta name="twitter:image:alt" content="RAFA 930 (Rafael Moreno Román) — Retrato Oficial" />
+    <meta name="twitter:title" content="RAFA 930 | Web Oficial — Música Urbana, Desarrollo Web &amp; Fotografía" />
+    <meta
+      name="twitter:description"
+      content="Web oficial de RAFA 930 (Rafael Moreno Román). Descubre su música urbana como De Vuelta, proyectos de desarrollo web y fotografía profesional."
+    />
+    <meta name="twitter:image" content="https://rafa930.com/mi-foto.jpg" />
 
+    <!-- Schema.org Datos Estructurados (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": ["Person", "MusicGroup"],
+        "name": "RAFA 930",
+        "alternateName": "Rafael Moreno Román",
+        "url": "https://rafa930.com",
+        "image": "https://rafa930.com/mi-foto.jpg",
+        "jobTitle": "Artista de Música Urbana, Desarrollador Web y Fotógrafo",
+        "sameAs": [
+          "https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng",
+          "https://www.youtube.com/@RAFA_930",
+          "https://www.instagram.com/rafa930_oficial"
+        ],
+        "subjectOf": {
+          "@type": "VideoObject",
+          "name": "De Vuelta — RAFA 930 (Videoclip Oficial)",
+          "description": "Videoclip oficial de De Vuelta por RAFA 930 (Rafael Moreno Román).",
+          "thumbnailUrl": "https://img.youtube.com/vi/nOVpU_fKwkc/maxresdefault.jpg",
+          "contentUrl": "https://youtu.be/nOVpU_fKwkc",
+          "embedUrl": "https://www.youtube.com/embed/nOVpU_fKwkc",
+          "uploadDate": "2026-01-01"
+        }
+      }
+    </script>
+
+    <!-- Precarga prioritaria de imágenes clave durante el Splash Screen -->
+    <link rel="preload" as="image" href="logo-splash.png" fetchpriority="high" />
+    <link rel="preload" as="image" href="logo.png" />
+    <link rel="preload" as="image" href="mi-foto.jpg" />
+    <link rel="preload" as="image" href="https://img.youtube.com/vi/nOVpU_fKwkc/maxresdefault.jpg" referrerpolicy="no-referrer" />
+    <link rel="preload" as="image" href="https://img.youtube.com/vi/WaV1KeSN5_4/maxresdefault.jpg" referrerpolicy="no-referrer" />
+    <link rel="preload" as="image" href="https://img.youtube.com/vi/hlDWuv44yrc/maxresdefault.jpg" referrerpolicy="no-referrer" />
+    <link rel="preload" as="image" href="https://img.youtube.com/vi/9FYW3Fm87bE/maxresdefault.jpg" referrerpolicy="no-referrer" />
+    <link rel="preload" as="image" href="./assets/colab-incrife.webp" />
+    <link rel="preload" as="image" href="./assets/colab-ouxxox.webp" />
+    <link rel="preload" as="image" href="./assets/colab-elnobir.jpg" />
+    <link rel="preload" as="image" href="./assets/colab-therassam.webp" />
+    <link rel="preload" as="image" href="./assets/colab-amine.webp" />
+    <link rel="preload" as="image" href="./assets/colab-salma.webp" />
+    <link rel="preload" as="image" href="./assets/colab-toliyug.webp" />
+    <link rel="preload" as="image" href="./assets/colab-derasmenjivar.webp" />
+
+    <!-- Tipografía condensada web y sans-serif limpia -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Caveat:wght@600;700&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,600;1,400;1,600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Oswald:wght@700&display=swap"
+      rel="stylesheet"
+    />
 
-    <!-- Complete Google Knowledge Graph & Schema.org Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "ProfilePage",
-          "@id": "https://rafa930.com/#profilepage",
-          "url": "https://rafa930.com/",
-          "name": "RAFA 930 | Música, Fotografía & Web",
-          "dateCreated": "2023-03-24T00:00:00+01:00",
-          "dateModified": "2026-10-10T17:00:00+02:00",
-          "inLanguage": ["es", "ca", "en"],
-          "mainEntity": {
-            "@id": "https://rafa930.com/#artist"
-          },
-          "primaryImageOfPage": {
-            "@type": "ImageObject",
-            "@id": "https://rafa930.com/#primaryimage",
-            "url": "https://rafa930.com/assets/rafa-930-cara.jpg",
-            "contentUrl": "https://rafa930.com/assets/rafa-930-cara.jpg",
-            "width": 1024,
-            "height": 1024,
-            "caption": "RAFA 930 — Foto Oficial"
-          },
-          "thumbnailUrl": "https://rafa930.com/assets/rafa-930-cara.jpg"
-        },
-        {
-          "@type": "Person",
-          "@id": "https://rafa930.com/#artist",
-          "name": "RAFA 930",
-          "givenName": "Rafael",
-          "familyName": "Moreno Román",
-          "alternateName": ["Rafael Moreno Román", "Rafa 930", "930 Digital", "930 Records"],
-          "description": "Artista independiente de música urbana, compositor de rap consciente y trap melódico, director de fotografía editorial en claroscuro y desarrollador web full-stack nacido en Mataró y forjado en el barrio de La Mina (Sant Adrià de Besòs, 08930, Barcelona).",
-          "jobTitle": "Artista de Música Urbana, Fotógrafo Editorial y Desarrollador Web",
-          "url": "https://rafa930.com/",
-          "email": "mailto:rafa.930music@gmail.com",
-          "telephone": "+34671591814",
-          "birthPlace": {
-            "@type": "Place",
-            "name": "Mataró, Barcelona, España"
-          },
-          "nationality": {
-            "@type": "Country",
-            "name": "España"
-          },
-          "homeLocation": {
-            "@type": "Place",
-            "name": "Barrio de La Mina, Sant Adrià de Besòs, Barcelona (08930)"
-          },
-          "knowsLanguage": ["es", "ca", "en"],
-          "knowsAbout": [
-            "Música Urbana",
-            "Rap Consciente",
-            "Trap Melódico",
-            "Composición Musical",
-            "Fotografía Editorial en Claroscuro",
-            "Retrato en Blanco y Negro",
-            "Moda Urbana Streetwear",
-            "Desarrollo Web Full-Stack",
-            "Diseño UX/UI Editorial",
-            "Presskits Digitales (EPK)"
-          ],
-          "image": {
-            "@type": "ImageObject",
-            "@id": "https://rafa930.com/#primaryimage",
-            "url": "https://rafa930.com/assets/rafa-930-cara.jpg",
-            "contentUrl": "https://rafa930.com/assets/rafa-930-cara.jpg",
-            "width": 1024,
-            "height": 1024,
-            "caption": "Retrato oficial de RAFA 930"
-          },
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Barrio de La Mina",
-            "addressLocality": "Sant Adrià de Besòs",
-            "postalCode": "08930",
-            "addressRegion": "Barcelona",
-            "addressCountry": "ES"
-          },
-          "sameAs": [
-            "https://rafa930.com/",
-            "https://rafa930.com/links.html",
-            "https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng",
-            "https://instagram.com/rafa930_oficial",
-            "https://youtube.com/@rafa_930",
-            "https://youtu.be/RVuiWbT_mNk",
-            "https://www.youtube.com/watch?v=RVuiWbT_mNk",
-            "https://www.youtube.com/watch?v=WaV1KeSN5_4",
-            "https://www.youtube.com/watch?v=lCwhG67eijs",
-            "https://rafa930music-sudo.github.io/930-Digital/"
-          ]
-        },
-        {
-          "@type": "MusicGroup",
-          "@id": "https://rafa930.com/#musicgroup",
-          "name": "RAFA 930",
-          "alternateName": "Rafael Moreno Román",
-          "url": "https://rafa930.com/",
-          "image": "https://rafa930.com/assets/rafa-930-cara.jpg",
-          "description": "Proyecto musical oficial de RAFA 930 desde el código postal 08930 (La Mina, Sant Adrià de Besòs, Barcelona). Crónica urbana, lealtad de barrio, superación personal y estética cinematográfica.",
-          "genre": ["Urban", "Conscious Rap", "Melodic Trap", "Hip Hop Español"],
-          "foundingLocation": {
-            "@type": "Place",
-            "name": "La Mina, Sant Adrià de Besòs, Barcelona, España"
-          },
-          "foundingDate": "2023-03-24",
-          "founder": {
-            "@id": "https://rafa930.com/#artist"
-          },
-          "sameAs": [
-            "https://rafa930.com/",
-            "https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng",
-            "https://youtube.com/@rafa_930",
-            "https://instagram.com/rafa930_oficial"
-          ],
-          "album": [
-            {
-              "@type": "MusicAlbum",
-              "@id": "https://rafa930.com/#album-ep-my-world",
-              "name": "EP My World",
-              "albumProductionType": "https://schema.org/StudioAlbum",
-              "albumReleaseType": "https://schema.org/EPRelease",
-              "datePublished": "2025-06-01",
-              "byArtist": { "@id": "https://rafa930.com/#musicgroup" },
-              "url": "https://www.youtube.com/watch?v=lCwhG67eijs"
-            },
-            {
-              "@type": "MusicAlbum",
-              "@id": "https://rafa930.com/#album-la-vida-es-bella",
-              "name": "La Vida Es Bella",
-              "albumProductionType": "https://schema.org/StudioAlbum",
-              "albumReleaseType": "https://schema.org/AlbumRelease",
-              "datePublished": "2026",
-              "byArtist": { "@id": "https://rafa930.com/#musicgroup" }
-            }
-          ],
-          "track": [
-            {
-              "@type": "MusicRecording",
-              "@id": "https://rafa930.com/#track-de-vuelta",
-              "name": "De Vuelta",
-              "datePublished": "2026-10-08",
-              "duration": "PT2M56S",
-              "inLanguage": "es",
-              "image": "https://rafa930.com/assets/rafa-930-cara.jpg",
-              "byArtist": { "@id": "https://rafa930.com/#musicgroup" },
-              "url": "https://www.youtube.com/watch?v=RVuiWbT_mNk",
-              "recordingOf": {
-                "@type": "MusicComposition",
-                "name": "De Vuelta",
-                "composer": { "@id": "https://rafa930.com/#artist" },
-                "lyricist": { "@id": "https://rafa930.com/#artist" },
-                "lyrics": {
-                  "@type": "CreativeWork",
-                  "text": "Estoy de vuelta en la calle donde todo empezó, bajo las luces de neón nadie me hará callar. Cada paso que doy lleva el sello del 930, vuelvo con más verdad y el alma bien despierta."
-                }
-              }
-            },
-            {
-              "@type": "MusicRecording",
-              "@id": "https://rafa930.com/#track-nose-si-estare-manana",
-              "name": "Nose si estaré mañana",
-              "datePublished": "2026-01-15",
-              "duration": "PT2M48S",
-              "inLanguage": "es",
-              "isrcCode": "ES-930-26-00001",
-              "byArtist": { "@id": "https://rafa930.com/#musicgroup" },
-              "url": "https://www.youtube.com/watch?v=WaV1KeSN5_4",
-              "recordingOf": {
-                "@type": "MusicComposition",
-                "name": "Nose si estaré mañana",
-                "composer": { "@id": "https://rafa930.com/#artist" },
-                "lyricist": { "@id": "https://rafa930.com/#artist" },
-                "lyrics": {
-                  "@type": "CreativeWork",
-                  "text": "Miro al cielo y no sé si estaré mañana, pero hoy te juro que canto con el alma. Salgo a la calle con la fe en la mirada, desde La Mina con la voz afilada."
-                }
-              }
-            },
-            {
-              "@type": "MusicRecording",
-              "@id": "https://rafa930.com/#track-ep-my-world",
-              "name": "EP My World (1 Minuto y 10 Segundos · Lo Material No Lo Es Todo · Fuck Sistema)",
-              "datePublished": "2025-06-01",
-              "duration": "PT6M35S",
-              "inLanguage": "es",
-              "byArtist": { "@id": "https://rafa930.com/#musicgroup" },
-              "inAlbum": { "@id": "https://rafa930.com/#album-ep-my-world" },
-              "url": "https://www.youtube.com/watch?v=lCwhG67eijs"
-            },
-            {
-              "@type": "MusicRecording",
-              "@id": "https://rafa930.com/#track-la-vida-es-bella",
-              "name": "La Vida Es Bella",
-              "datePublished": "2026",
-              "duration": "PT3M20S",
-              "inLanguage": "es",
-              "byArtist": { "@id": "https://rafa930.com/#musicgroup" },
-              "inAlbum": { "@id": "https://rafa930.com/#album-la-vida-es-bella" }
-            },
-            {
-              "@type": "MusicRecording",
-              "@id": "https://rafa930.com/#track-tu-aroma",
-              "name": "Tú Aroma (Adelanto La Vida Es Bella)",
-              "datePublished": "2026",
-              "duration": "PT2M55S",
-              "inLanguage": "es",
-              "byArtist": { "@id": "https://rafa930.com/#musicgroup" },
-              "inAlbum": { "@id": "https://rafa930.com/#album-la-vida-es-bella" }
-            },
-            {
-              "@type": "MusicRecording",
-              "@id": "https://rafa930.com/#track-un-amor-prohibido",
-              "name": "Un Amor Prohibido",
-              "datePublished": "2024",
-              "duration": "PT3M12S",
-              "inLanguage": "es",
-              "byArtist": { "@id": "https://rafa930.com/#musicgroup" }
-            },
-            {
-              "@type": "MusicRecording",
-              "@id": "https://rafa930.com/#track-hago-dinero",
-              "name": "Hago Dinero",
-              "datePublished": "2024",
-              "duration": "PT2M34S",
-              "inLanguage": "es",
-              "byArtist": { "@id": "https://rafa930.com/#musicgroup" }
-            },
-            {
-              "@type": "MusicRecording",
-              "@id": "https://rafa930.com/#track-vive-suena-en-tu-mundo",
-              "name": "Vive, sueña en tu mundo",
-              "datePublished": "2023-03-24",
-              "duration": "PT3M05S",
-              "inLanguage": "es",
-              "byArtist": { "@id": "https://rafa930.com/#musicgroup" }
-            }
-          ]
-        },
-        {
-          "@type": "VideoObject",
-          "@id": "https://rafa930.com/#video-de-vuelta",
-          "name": "RAFA 930 - De Vuelta (Tema Oficial 2026)",
-          "description": "De Vuelta por RAFA 930 (Rafael Moreno Román). Nuevo lanzamiento oficial 2026 desde La Mina, Sant Adrià de Besòs (Barcelona, 08930).",
-          "thumbnailUrl": [
-            "https://rafa930.com/assets/rafa-930-cara.jpg",
-            "https://i.ytimg.com/vi/RVuiWbT_mNk/hqdefault.jpg"
-          ],
-          "uploadDate": "2026-10-08T00:00:00+02:00",
-          "duration": "PT2M56S",
-          "contentUrl": "https://www.youtube.com/watch?v=RVuiWbT_mNk",
-          "embedUrl": "https://www.youtube.com/embed/RVuiWbT_mNk",
-          "author": { "@id": "https://rafa930.com/#artist" }
-        },
-        {
-          "@type": "VideoObject",
-          "@id": "https://rafa930.com/#video-nose-si-estare-manana",
-          "name": "RAFA 930 - Nose si estaré mañana (Videoclip Oficial)",
-          "description": "Videoclip oficial de Nose si estaré mañana por RAFA 930 (Rafael Moreno Román), grabado en Barcelona. Música urbana y rap consciente desde el 930.",
-          "thumbnailUrl": ["https://i.ytimg.com/vi/WaV1KeSN5_4/maxresdefault.jpg"],
-          "uploadDate": "2026-01-15T00:00:00+01:00",
-          "duration": "PT2M48S",
-          "contentUrl": "https://www.youtube.com/watch?v=WaV1KeSN5_4",
-          "embedUrl": "https://www.youtube.com/embed/WaV1KeSN5_4",
-          "author": { "@id": "https://rafa930.com/#artist" }
-        },
-        {
-          "@type": "VideoObject",
-          "@id": "https://rafa930.com/#video-ep-my-world",
-          "name": "RAFA 930 - EP My World (Full Visual Experience)",
-          "description": "Obra conceptual de 6 minutos y 35 segundos de RAFA 930 (Rafael Moreno Román). Crónica urbana desde La Mina, Sant Adrià de Besòs (Barcelona).",
-          "thumbnailUrl": ["https://i.ytimg.com/vi/lCwhG67eijs/maxresdefault.jpg"],
-          "uploadDate": "2025-06-01T00:00:00+01:00",
-          "duration": "PT6M35S",
-          "contentUrl": "https://www.youtube.com/watch?v=lCwhG67eijs",
-          "embedUrl": "https://www.youtube.com/embed/lCwhG67eijs",
-          "author": { "@id": "https://rafa930.com/#artist" }
-        },
-        {
-          "@type": "ImageGallery",
-          "@id": "https://rafa930.com/#imagegallery",
-          "name": "Archivo Fotográfico Editorial & Retrato de Autor · RAFA 930",
-          "description": "Galería oficial de fotografía editorial en claroscuro, moda urbana streetwear y archivo documental de La Mina (Barcelona) por RAFA 930 e Incrife.",
-          "url": "https://rafa930.com/#galeria",
-          "author": { "@id": "https://rafa930.com/#artist" },
-          "primaryImageOfPage": { "@id": "https://rafa930.com/#primaryimage" }
-        },
-        {
-          "@type": "ProfessionalService",
-          "@id": "https://rafa930.com/#services",
-          "name": "RAFA 930 · 930 Digital Studio & Creative Services",
-          "image": "https://rafa930.com/assets/rafa-930-cara.jpg",
-          "description": "Estudio creativo multidisciplinar en Barcelona dirigido por Rafael Moreno Román (RAFA 930): producción musical urbana, composición, fotografía editorial en claroscuro y desarrollo web a medida.",
-          "url": "https://rafa930.com/#serveis",
-          "telephone": "+34671591814",
-          "email": "rafa.930music@gmail.com",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Barrio de La Mina",
-            "addressLocality": "Sant Adrià de Besòs",
-            "postalCode": "08930",
-            "addressRegion": "Barcelona",
-            "addressCountry": "ES"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 41.4161,
-            "longitude": 2.2163
-          },
-          "areaServed": [
-            "Barcelona",
-            "Sant Adrià de Besòs",
-            "Badalona",
-            "Mataró",
-            "L'Hospitalet de Llobregat",
-            "España"
-          ],
-          "priceRange": "120€ - 650€",
-          "provider": {
-            "@id": "https://rafa930.com/#artist"
-          },
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Catálogo de Servicios Creativos y Digitales 930",
-            "itemListElement": [
-              {
-                "@type": "Offer",
-                "name": "Producción Musical, Composición de Letras & Colaboraciones (Feats)",
-                "description": "Grabación vocal, composición a medida, mezcla, mastering y colaboraciones oficiales con RAFA 930.",
-                "price": "150",
-                "priceCurrency": "EUR"
-              },
-              {
-                "@type": "Offer",
-                "name": "Sesión Fotográfica Editorial, Retrato en Claroscuro & Moda Urbana",
-                "description": "Dirección de arte y fotografía profesional en estudio o localización urbana en Barcelona junto a Incrife.",
-                "price": "120",
-                "priceCurrency": "EUR"
-              },
-              {
-                "@type": "Offer",
-                "name": "Desarrollo Web a Medida, Diseño UX/UI & Portfolios para Artistas (930 Digital)",
-                "description": "Creación de páginas web interactivas, aplicaciones React, presskits digitales (EPK) y tiendas online.",
-                "price": "250",
-                "priceCurrency": "EUR"
-              }
-            ]
-          }
-        },
-        {
-          "@type": "WebApplication",
-          "@id": "https://rafa930.com/#webapp",
-          "name": "RAFA 930 | Música, Fotografía & Web",
-          "url": "https://rafa930.com/",
-          "applicationCategory": "MultimediaApplication",
-          "operatingSystem": "All",
-          "inLanguage": ["es", "ca", "en"],
-          "author": { "@id": "https://rafa930.com/#artist" },
-          "offers": {
-            "@type": "AggregateOffer",
-            "lowPrice": "120",
-            "highPrice": "650",
-            "priceCurrency": "EUR"
-          }
-        },
-        {
-          "@type": "FAQPage",
-          "@id": "https://rafa930.com/#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "¿Quién es RAFA 930 (Rafael Moreno Román)?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "RAFA 930 (nombre real Rafael Moreno Román) es un artista independiente de música urbana, compositor, fotógrafo editorial y desarrollador web nacido en Mataró y forjado en el barrio de La Mina, en Sant Adrià de Besòs (código postal 08930, Barcelona). Su obra une rap consciente, trap melódico, fotografía de retrato en blanco y negro y desarrollo digital a través de 930 Digital Studio."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "¿Cuál es la última canción de RAFA 930 en 2026?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "El último lanzamiento destacado de RAFA 930 en 2026 es 'De Vuelta' (disponible en YouTube en https://youtu.be/RVuiWbT_mNk), junto con el sencillo 'Nose si estaré mañana' y el adelanto 'Tú Aroma' de su álbum debut 'La Vida Es Bella'."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "¿Cuáles son las canciones y discos publicados por RAFA 930?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "El catálogo oficial de RAFA 930 incluye 'De Vuelta' (2026), 'Nose si estaré mañana' (2026), el álbum 'La Vida Es Bella' y su adelanto 'Tú Aroma' (2026), la trilogía 'EP My World' (2025: '1 Minuto y 10 Segundos', 'Lo Material No Lo Es Todo', 'Fuck Sistema'), sus éxitos de 2024 ('Un Amor Prohibido', 'Hago Dinero', 'Siento', 'Cambié', 'Algo Imposible', 'No Love', 'Te Quiero', 'Mi Destino', 'Pensándote', 'Una Mirada', 'Bonnie & Clyde', 'Mirada de hada', 'Presidente VS Ciudadanos', 'Pasan los días', 'Diferentes Caminos') y su debut 'Vive, sueña en tu mundo' (24 de marzo de 2023)."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "¿Dónde escuchar a RAFA 930 en Spotify, YouTube e Instagram?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Puedes seguir y escuchar a RAFA 930 en su perfil oficial de Spotify (https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng), en su canal oficial de YouTube (@rafa_930), en Instagram (@rafa930_oficial) y en su página web oficial (https://rafa930.com/)."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "¿Qué servicios ofrece RAFA 930 y cómo solicitar un presupuesto?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "En Barcelona y Sant Adrià de Besòs, RAFA 930 ofrece tres disciplinas profesionales: 1) Producción Musical, Letras y Feats, 2) Sesiones de Fotografía Editorial y Moda Urbana, y 3) Desarrollo Web a medida para Creadores y Marcas. Puedes solicitar tu presupuesto personalizado sin compromiso a través de la web o por contacto directo."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "¿Cómo contactar con RAFA 930 para conciertos, booking o proyectos?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Puedes contactar directamente con RAFA 930 a través del correo oficial rafa.930music@gmail.com, por WhatsApp directo en el +34 671 59 18 14, o mediante el formulario oficial de contratación y presupuesto en su web."
-              }
-            }
-          ]
-        },
-        {
-          "@type": "BreadcrumbList",
-          "@id": "https://rafa930.com/#breadcrumbs",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Portada Editorial & Biografía", "item": "https://rafa930.com/#revista" },
-            { "@type": "ListItem", "position": 2, "name": "Discografía & Letras Oficiales", "item": "https://rafa930.com/#discografia" },
-            { "@type": "ListItem", "position": 3, "name": "Archivo Fotográfico Editorial", "item": "https://rafa930.com/#galeria" },
-            { "@type": "ListItem", "position": 4, "name": "Servicios Creativos & Tarifas", "item": "https://rafa930.com/#serveis" },
-            { "@type": "ListItem", "position": 5, "name": "Presskit Oficial (EPK) & Rider Técnico", "item": "https://rafa930.com/#presskit" },
-            { "@type": "ListItem", "position": 6, "name": "Contacto Directo & Booking", "item": "https://rafa930.com/#contacte" },
-            { "@type": "ListItem", "position": 7, "name": "Aviso Legal, Privacidad RGPD & Créditos", "item": "https://rafa930.com/#legal" }
-          ]
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://rafa930.com/#website",
-          "url": "https://rafa930.com/",
-          "name": "RAFA 930 | Música, Fotografía & Web",
-          "alternateName": ["RAFA 930", "Rafael Moreno Román", "Web Oficial RAFA 930"],
-          "publisher": {
-            "@id": "https://rafa930.com/#artist"
-          },
-          "inLanguage": ["es", "ca", "en"]
-        }
-      ]
-    }
-    </script>
+    <!-- Hoja de estilos CSS3 pura -->
+    <link rel="stylesheet" href="./style.css" />
   </head>
-  <body class="bg-[#050507] text-[#ffffff] antialiased selection:bg-[#ec4899] selection:text-white transition-colors duration-300">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body class="is-splash-active">
+    <!-- Filtro SVG Invisible para Textura Desgastada y Degradado de Iconos -->
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" aria-hidden="true">
+      <defs>
+        <linearGradient id="urban-brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#2563eb" />
+          <stop offset="100%" stop-color="#7c3aed" />
+        </linearGradient>
+      </defs>
+      <filter id="grunge-text" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.22" numOctaves="3" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="textured" />
+      </filter>
+    </svg>
+    <!-- Fondo Atmosférico Nocturno Global Fijo (Negro Granulado + Lluvia + Rayos Azules) -->
+    <div class="global-storm-base" aria-hidden="true"></div>
+    <canvas id="global-storm-canvas" aria-hidden="true"></canvas>
+    <div class="global-grain-layer" aria-hidden="true"></div>
+
+    <!-- Splash Screen Independiente (Explosión de Polvo y Partículas · 4.0s) -->
+    <div id="splash-screen" class="splash-screen" role="presentation" aria-label="Bienvenida RAFA 930">
+      <div class="splash-backdrop" aria-hidden="true"></div>
+      <div class="splash-energy-core" aria-hidden="true"></div>
+      <div class="splash-logo-wrap">
+        <div class="splash-logo-stage">
+          <img
+            src="logo-splash.png"
+            alt="RAFA 930"
+            class="splash-logo"
+            width="877"
+            height="285"
+            fetchpriority="high"
+            decoding="sync"
+          />
+        </div>
+      </div>
+      <canvas id="splash-dust-canvas" class="splash-dust-canvas" aria-hidden="true"></canvas>
+    </div>
+
+    <a class="skip-link" href="#contenido-principal" data-i18n="skipLink">Saltar al contenido</a>
+
+    <!-- Top Plasma Line & Editorial Announcement Marquee -->
+    <div class="top-accent-line" aria-hidden="true"></div>
+    <div class="marquee-bar" role="region" aria-label="Novedades oficiales">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span data-i18n="marquee1">DE VUELTA · VIDEOCLIP OFICIAL 2026</span>
+          <span class="marquee-sep" aria-hidden="true">•</span>
+          <span data-i18n="marquee2">MÚSICA · DESARROLLO WEB & APPS · FOTOGRAFÍA</span>
+          <span class="marquee-sep" aria-hidden="true">•</span>
+          <span>RAFA930.COM · SITIO WEB OFICIAL</span>
+          <span class="marquee-sep" aria-hidden="true">•</span>
+          <span data-i18n="marquee3">BOOKING & PROYECTOS 2026 ABIERTOS</span>
+          <span class="marquee-sep" aria-hidden="true">•</span>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <span data-i18n="marquee1">DE VUELTA · VIDEOCLIP OFICIAL 2026</span>
+          <span class="marquee-sep" aria-hidden="true">•</span>
+          <span data-i18n="marquee2">MÚSICA · DESARROLLO WEB & APPS · FOTOGRAFÍA</span>
+          <span class="marquee-sep" aria-hidden="true">•</span>
+          <span>RAFA930.COM · SITIO WEB OFICIAL</span>
+          <span class="marquee-sep" aria-hidden="true">•</span>
+          <span data-i18n="marquee3">BOOKING & PROYECTOS 2026 ABIERTOS</span>
+          <span class="marquee-sep" aria-hidden="true">•</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sticky Light Editorial Header -->
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a href="#inicio" class="brand" aria-label="RAFA 930 — Inicio">
+          <img src="logo.png" alt="Logotipo oficial de RAFA 930" class="brand-logo-img unified-logo-img" width="42" height="42" fetchpriority="high" />
+        </a>
+
+        <nav id="primary-nav" class="primary-nav" aria-label="Navegación principal">
+          <ul class="nav-list">
+            <li><a href="#inicio" class="nav-link urban-nav-typo is-active" data-i18n="navHome">Inicio</a></li>
+            <li><a href="#biografia" class="nav-link urban-nav-typo" data-i18n="navBio">Biografía</a></li>
+            <li><a href="#especialidades" class="nav-link urban-nav-typo" data-i18n="navSpecialties">Especialidades</a></li>
+            <li><a href="#discografia" class="nav-link urban-nav-typo" data-i18n="navDiscography">Música</a></li>
+            <li><a href="#galeria" class="nav-link urban-nav-typo" data-i18n="navGallery">Galería</a></li>
+            <li><a href="#contacto" class="nav-link urban-nav-typo" data-i18n="navContact">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="lang-switch" role="group" aria-label="Selector de idioma">
+            <button type="button" class="lang-btn urban-nav-typo is-active" data-lang="es" aria-pressed="true">ES</button>
+            <button type="button" class="lang-btn urban-nav-typo" data-lang="ca" aria-pressed="false">CA</button>
+            <button type="button" class="lang-btn urban-nav-typo" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+
+          <button
+            type="button"
+            id="menu-toggle"
+            class="menu-toggle"
+            aria-expanded="false"
+            aria-controls="primary-nav"
+            aria-label="Abrir menú de navegación"
+          >
+            <svg class="urban-svg-icon menu-icon-bars" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                class="urban-svg-fill"
+                fill-rule="evenodd"
+                d="M3.9 4.5h16.2a1.4 1.4 0 0 1 0 3H3.9a1.4 1.4 0 0 1 0-3Zm2.1 1.5a.35 .35 0 1 0 .7 0a.35 .35 0 1 0 -.7 0Zm10.6 0a.32 .32 0 1 0 .64 0a.32 .32 0 1 0 -.64 0ZM3.9 10.5h16.2a1.4 1.4 0 0 1 0 3H3.9a1.4 1.4 0 0 1 0-3Zm7.4 1.5a.36 .36 0 1 0 .72 0a.36 .36 0 1 0 -.72 0Zm5.9 0a.3 .3 0 1 0 .6 0a.3 .3 0 1 0 -.6 0ZM3.9 16.5h16.2a1.4 1.4 0 0 1 0 3H3.9a1.4 1.4 0 0 1 0-3Zm3.3 1.5a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Zm9.6 0a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Z"
+              />
+            </svg>
+            <svg class="urban-svg-icon menu-icon-close" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                class="urban-svg-fill"
+                fill-rule="evenodd"
+                d="M5.6 3.4L12 9.8l6.4-6.4 2.2 2.2L14.2 12l6.4 6.4-2.2 2.2L12 14.2l-6.4 6.4-2.2-2.2L9.8 12 3.4 5.6 5.6 3.4Zm1 3.4a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Zm10.2 0a.32 .32 0 1 0 .64 0a.32 .32 0 1 0 -.64 0Zm-5.1 5.2a.36 .36 0 1 0 .72 0a.36 .36 0 1 0 -.72 0Zm-4.9 5.1a.32 .32 0 1 0 .64 0a.32 .32 0 1 0 -.64 0Zm9.7 0a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="header-scroll-progress" aria-hidden="true">
+        <span class="header-scroll-progress-fill" id="header-scroll-progress-fill"></span>
+      </div>
+    </header>
+
+    <main id="contenido-principal">
+      <!-- 1. HERO / PORTADA EDITORIAL CLAROSCURO -->
+      <section id="inicio" class="section hero-section">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-content">
+              <h1 class="hero-title">
+                <span class="title-gradient">RAFA 930</span>
+              </h1>
+              <p class="hero-subtitle" data-i18n="heroSubtitle">
+                Música urbana, desarrollo web &amp; apps y dirección visual desde Barcelona.
+              </p>
+
+              <!-- Primary Dominant CTA + Secondary Actions -->
+              <div class="hero-cta">
+                <a
+                  href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-spotify"
+                  data-i18n="heroCtaPrimary"
+                >
+                  Escuchar en Spotify
+                </a>
+                <a href="#contacto" class="btn btn-secondary" data-i18n="heroCtaSecondary">
+                  Contratación y Booking
+                </a>
+              </div>
+
+              <!-- Quick Official Social Row with Official Platform Colors -->
+              <div class="social-strip" aria-label="Redes y plataformas oficiales">
+                <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" target="_blank" rel="noopener noreferrer" class="social-chip social-chip-spotify" aria-label="Spotify">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.502 17.309c-.218.358-.684.471-1.042.253-2.855-1.745-6.449-2.14-10.684-1.173-.41.094-.82-.162-.914-.572-.094-.41.162-.82.572-.914 4.636-1.059 8.608-.616 11.815 1.364.358.218.471.684.253 1.042zm1.468-3.264c-.274.446-.86.588-1.306.314-3.269-2.009-8.252-2.592-12.119-1.417-.5.152-1.033-.133-1.185-.633-.152-.5.133-1.033.633-1.185 4.417-1.341 9.914-.689 13.663 1.615.446.274.588.86.314 1.306zm.126-3.399C15.18 8.36 8.71 8.146 4.969 9.282c-.602.183-1.242-.166-1.425-.768-.183-.602.166-1.242.768-1.425 4.316-1.31 11.458-1.063 15.98 1.621.541.321.718 1.022.397 1.563-.321.541-1.022.718-1.563.397z"/></svg>
+                  <span>Spotify</span>
+                </a>
+                <a href="https://www.youtube.com/@rafa_930" target="_blank" rel="noopener noreferrer" class="social-chip social-chip-youtube" aria-label="YouTube">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.377.505 9.377.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>YouTube</span>
+                </a>
+                <a href="https://www.instagram.com/rafa930_oficial" target="_blank" rel="noopener noreferrer" class="social-chip social-chip-instagram" aria-label="Instagram">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  <span>Instagram</span>
+                </a>
+                <a href="https://www.tiktok.com/@rafa930_oficial" target="_blank" rel="noopener noreferrer" class="social-chip social-chip-tiktok" aria-label="TikTok">
+                  <svg class="tiktok-logo" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                    <path class="tk-cyan" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.81a8.23 8.23 0 0 0 4.76 1.51V6.87a4.82 4.82 0 0 1-1-.18z" transform="translate(-0.8 -0.6)"/>
+                    <path class="tk-pink" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.81a8.23 8.23 0 0 0 4.76 1.51V6.87a4.82 4.82 0 0 1-1-.18z" transform="translate(0.8 0.6)"/>
+                    <path class="tk-white" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.81a8.23 8.23 0 0 0 4.76 1.51V6.87a4.82 4.82 0 0 1-1-.18z"/>
+                  </svg>
+                  <span>TikTok</span>
+                </a>
+                <a href="https://music.apple.com/es/artist/rafa-930/1724193275" target="_blank" rel="noopener noreferrer" class="social-chip social-chip-apple" aria-label="Apple Music">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm3.7 12.2a2 2 0 1 1-1.3-1.9V8.4l-4.4 1.1v5.8a2 2 0 1 1-1.3-1.9V8l5.7-1.4a.6.6 0 0 1 .7.6z"/></svg>
+                  <span>Apple Music</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. BIOGRAFÍA OFICIAL -->
+      <section id="biografia" class="section section-light">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow" data-i18n="bioEyebrow">Identidad, Historia & Orígenes</p>
+              <h2 class="section-title" data-i18n="bioTitle">Biografía Oficial</h2>
+            </div>
+          </div>
+
+          <div class="bio-editorial-card">
+            <div class="bio-drops" aria-hidden="true">
+              <span class="bio-drop bio-drop-1"></span>
+              <span class="bio-drop bio-drop-2"></span>
+            </div>
+            <div class="bio-layout">
+              <div class="bio-narrative">
+                <p class="story-lead" data-i18n="bioLead">
+                  Rafael Moreno Román, conocido como <strong class="bio-keyword">RAFA 930</strong>, es un artista y compositor nacido en <strong class="bio-keyword">Mataró</strong> y criado en el barrio de <strong class="bio-keyword">La Mina</strong> (Sant Adrià de Besòs, 08930, Barcelona), que transforma experiencias reales en <strong class="bio-keyword">música urbana</strong> directa y honesta.
+                </p>
+                <p class="story-body" data-i18n="bioBody1">
+                  Con temas como «<strong class="bio-keyword">De Vuelta</strong>», une emoción y verdad bajo su proyecto artístico independiente <strong class="bio-keyword">RAFA 930</strong>, completando su identidad creativa como <strong class="bio-keyword">desarrollador de aplicaciones y webs</strong> y <strong class="bio-keyword">fotógrafo y director visual</strong>.
+                </p>
+              </div>
+
+              <div class="story-visuals">
+                <figure class="story-card">
+                  <img src="mi-foto.jpg" alt="Retrato personal de RAFA 930 (Rafael Moreno Román)" width="1080" height="1440" loading="eager" decoding="async" />
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. PERFIL MULTIDISCIPLINAR (MÚSICA + DEV + FOTOGRAFÍA) -->
+      <section id="especialidades" class="section section-dark">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow" data-i18n="specEyebrow">Perfil Multidisciplinar</p>
+              <h2 class="section-title" data-i18n="specTitle">Música, Desarrollo & Dirección Visual</h2>
+            </div>
+          </div>
+
+          <div class="specialties-grid">
+            <article class="specialty-card">
+              <div class="specialty-icon" aria-hidden="true">
+                <svg class="urban-svg-icon" width="24" height="24" viewBox="0 0 24 24">
+                  <path
+                    class="urban-svg-fill"
+                    fill-rule="evenodd"
+                    d="M20.8 2.8c0-.85-.75-1.5-1.6-1.35L8.2 3.4c-.75.13-1.3.78-1.3 1.54v9.66a3.9 3.9 0 1 0 2.7 3.7V9.1l8.5-1.5v5a3.9 3.9 0 1 0 2.7 3.7V2.8ZM8 6.4a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Zm6.8-1a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0ZM7.9 12.4a.3 .3 0 1 0 .6 0a.3 .3 0 1 0 -.6 0ZM5.1 18.4a.38 .38 0 1 0 .76 0a.38 .38 0 1 0 -.76 0Zm14-7.4a.3 .3 0 1 0 .6 0a.3 .3 0 1 0 -.6 0Zm-2.6 5.4a.38 .38 0 1 0 .76 0a.38 .38 0 1 0 -.76 0Z"
+                  />
+                </svg>
+              </div>
+              <h3 class="specialty-title" data-i18n="spec1Title">Artista Musical & Compositor</h3>
+              <p class="specialty-desc" data-i18n="spec1Desc">
+                Música urbana, trap romántico y producción independiente con identidad propia desde el estudio hasta el escenario.
+              </p>
+              <span class="specialty-meta" data-i18n="spec1Meta">Música urbana · Trap romántico · Directos</span>
+            </article>
+
+            <article class="specialty-card">
+              <div class="specialty-icon" aria-hidden="true">
+                <svg class="urban-svg-icon" width="24" height="24" viewBox="0 0 24 24">
+                  <path
+                    class="urban-svg-fill"
+                    fill-rule="evenodd"
+                    d="M7.6 5.6L1.8 12l5.8 6.4 2.4-2.2L6.2 12 10 7.8 7.6 5.6Zm8.8 0L14 7.8 17.8 12 14 16.2l2.4 2.2L22.2 12l-5.8-6.4Zm-2.5-1.5l-5.5 15.8 2.8 1 5.5-15.8-2.8-1ZM4.6 12a.36 .36 0 1 0 .72 0a.36 .36 0 1 0 -.72 0Zm14.1 0a.36 .36 0 1 0 .72 0a.36 .36 0 1 0 -.72 0Zm-6.9 0a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Zm-1.4 4.2a.3 .3 0 1 0 .6 0a.3 .3 0 1 0 -.6 0Zm2.7-8.4a.3 .3 0 1 0 .6 0a.3 .3 0 1 0 -.6 0Z"
+                  />
+                </svg>
+              </div>
+              <h3 class="specialty-title" data-i18n="spec2Title">Desarrollador de Apps y Webs</h3>
+              <p class="specialty-desc" data-i18n="spec2Desc">
+                Creación de experiencias digitales, desarrollo frontend/backend y aplicaciones modernas centradas en velocidad y diseño.
+              </p>
+              <span class="specialty-meta" data-i18n="spec2Meta">Frontend · Backend · Aplicaciones web</span>
+            </article>
+
+            <article class="specialty-card">
+              <div class="specialty-icon" aria-hidden="true">
+                <svg class="urban-svg-icon" width="24" height="24" viewBox="0 0 24 24">
+                  <path
+                    class="urban-svg-fill"
+                    fill-rule="evenodd"
+                    d="M8.6 3.6L6.9 6H4A2.8 2.8 0 0 0 1.2 8.8v9.8A2.8 2.8 0 0 0 4 21.4h16a2.8 2.8 0 0 0 2.8-2.8V8.8A2.8 2.8 0 0 0 20 6h-2.9l-1.7-2.4H8.6ZM12 8.8a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4Zm0 2.3a2.4 2.4 0 1 1 0 4.8 2.4 2.4 0 0 1 0-4.8Zm5.6-2.1a1.05 1.05 0 1 0 2.1 0 1.05 1.05 0 1 0-2.1 0ZM11.7 5.1a.32 .32 0 1 0 .64 0a.32 .32 0 1 0 -.64 0ZM4.1 10.1a.32 .32 0 1 0 .64 0a.32 .32 0 1 0 -.64 0Zm.7 7.6a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Zm13.8.2a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Z"
+                  />
+                </svg>
+              </div>
+              <h3 class="specialty-title" data-i18n="spec3Title">Fotógrafo & Dirección Visual</h3>
+              <p class="specialty-desc" data-i18n="spec3Desc">
+                Fotografía artística, retratos editoriales, estética en claroscuro y edición visual profesional para artistas y marcas.
+              </p>
+              <span class="specialty-meta" data-i18n="spec3Meta">Retrato · Claroscuro · Edición visual</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. DISCOGRAFÍA OFICIAL · CUADRÍCULA 2x2 DE VÍDEOS & SPOTIFY OFICIAL -->
+      <section id="discografia" class="section section-light">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow" data-i18n="discEyebrow">Catálogo Seleccionado</p>
+              <h2 class="section-title" data-i18n="discTitle">Discografía Oficial</h2>
+            </div>
+          </div>
+
+          <div class="music-video-grid">
+            <!-- 1. De Vuelta (Videoclip Oficial) -->
+            <article class="video-feature-card">
+              <div
+                class="video-stage"
+                id="de-vuelta-video-stage"
+                data-video-id="nOVpU_fKwkc"
+                data-track-title="De Vuelta — RAFA 930"
+                role="button"
+                tabindex="0"
+                aria-label="Cargar y reproducir videoclip oficial de De Vuelta en YouTube"
+              >
+                <img
+                  src="https://img.youtube.com/vi/nOVpU_fKwkc/maxresdefault.jpg"
+                  alt="Miniatura oficial del videoclip De Vuelta de RAFA 930"
+                  width="1280"
+                  height="720"
+                  loading="eager"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                  onerror="this.onerror=null;this.src='./assets/de-vuelta.jpg';"
+                />
+                <div class="video-overlay">
+                  <span class="play-ring" aria-hidden="true">
+                    <svg class="urban-svg-icon play-urban-svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path
+                        class="urban-svg-fill"
+                        fill-rule="evenodd"
+                        d="M7.4 4.2c-.9-.55-2 .1-2 1.15v13.3c0 1.05 1.1 1.7 2 1.15l11.8-6.65c.9-.5.9-1.8 0-2.3L7.4 4.2Zm.7 4.7a.36 .36 0 1 0 .72 0a.36 .36 0 1 0 -.72 0Zm.2 5.9a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Zm4.5-2.8a.36 .36 0 1 0 .72 0a.36 .36 0 1 0 -.72 0Z"
+                      />
+                    </svg>
+                  </span>
+                  <span class="video-privacy-note" data-i18n="videoPrivacyNote">
+                    Haz clic para reproducir (modo privacidad YouTube)
+                  </span>
+                </div>
+              </div>
+              <div class="video-meta-bar">
+                <div>
+                  <h3 class="video-title">De Vuelta</h3>
+                  <p class="video-sub" data-i18n="track1Sub">Videoclip Oficial</p>
+                </div>
+                <a href="https://youtu.be/nOVpU_fKwkc" target="_blank" rel="noopener noreferrer" class="btn btn-youtube btn-sm">
+                  <span>YouTube</span>
+                  <svg class="urban-svg-icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      class="urban-svg-fill"
+                      fill-rule="evenodd"
+                      d="M6.8 4.2h13v13h-3.6v-6.8l-9.3 9.3-2.6-2.6 9.3-9.3H6.8V4.2Zm8.8 1.9a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Zm-4.9 6.7a.32 .32 0 1 0 .64 0a.32 .32 0 1 0 -.64 0Z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- 2. No Sé Si Estaré Mañana (Audio Oficial) -->
+            <article class="video-feature-card">
+              <div
+                class="video-stage"
+                data-video-id="https://youtu.be/WaV1KeSN5_4?si=SjU4ay7kEXHeITXL"
+                data-track-title="No Sé Si Estaré Mañana — RAFA 930"
+                role="button"
+                tabindex="0"
+                aria-label="Cargar y reproducir audio oficial de No Sé Si Estaré Mañana en YouTube"
+              >
+                <img
+                  src="https://img.youtube.com/vi/WaV1KeSN5_4/maxresdefault.jpg"
+                  alt="Portada oficial de No Sé Si Estaré Mañana de RAFA 930"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                  onerror="this.onerror=null;this.src='./assets/nose-si-estare-manana.jpg';"
+                />
+                <div class="video-overlay">
+                  <span class="play-ring" aria-hidden="true">
+                    <svg class="urban-svg-icon play-urban-svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path
+                        class="urban-svg-fill"
+                        fill-rule="evenodd"
+                        d="M7.4 4.2c-.9-.55-2 .1-2 1.15v13.3c0 1.05 1.1 1.7 2 1.15l11.8-6.65c.9-.5.9-1.8 0-2.3L7.4 4.2Zm.7 4.7a.36 .36 0 1 0 .72 0a.36 .36 0 1 0 -.72 0Zm.2 5.9a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Zm4.5-2.8a.36 .36 0 1 0 .72 0a.36 .36 0 1 0 -.72 0Z"
+                      />
+                    </svg>
+                  </span>
+                  <span class="video-privacy-note" data-i18n="videoPrivacyNote">
+                    Haz clic para reproducir (modo privacidad YouTube)
+                  </span>
+                </div>
+              </div>
+              <div class="video-meta-bar">
+                <div>
+                  <h3 class="video-title">No Sé Si Estaré Mañana</h3>
+                  <p class="video-sub" data-i18n="track2Sub">Audio Oficial</p>
+                </div>
+                <a href="https://www.youtube.com/@RAFA_930" target="_blank" rel="noopener noreferrer" class="btn btn-youtube btn-sm">
+                  <span>YouTube</span>
+                  <svg class="urban-svg-icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      class="urban-svg-fill"
+                      fill-rule="evenodd"
+                      d="M6.8 4.2h13v13h-3.6v-6.8l-9.3 9.3-2.6-2.6 9.3-9.3H6.8V4.2Zm8.8 1.9a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Zm-4.9 6.7a.32 .32 0 1 0 .64 0a.32 .32 0 1 0 -.64 0Z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- 3. Tu Aroma (La Vida Es Bella) -->
+            <article class="video-feature-card">
+              <div
+                class="video-stage"
+                data-video-id="https://youtu.be/hlDWuv44yrc?si=P3EbVvH36E3mKnCG"
+                data-track-title="Tu Aroma — RAFA 930"
+                role="button"
+                tabindex="0"
+                aria-label="Cargar y reproducir Tu Aroma (La Vida Es Bella) de RAFA 930 en YouTube"
+              >
+                <img
+                  src="https://img.youtube.com/vi/hlDWuv44yrc/maxresdefault.jpg"
+                  alt="Portada oficial de Tu Aroma (La Vida Es Bella) de RAFA 930"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                  onerror="this.onerror=null;this.src='https://img.youtube.com/vi/hlDWuv44yrc/hqdefault.jpg';"
+                />
+                <div class="video-overlay">
+                  <span class="play-ring" aria-hidden="true">
+                    <svg class="urban-svg-icon play-urban-svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path
+                        class="urban-svg-fill"
+                        fill-rule="evenodd"
+                        d="M7.4 4.2c-.9-.55-2 .1-2 1.15v13.3c0 1.05 1.1 1.7 2 1.15l11.8-6.65c.9-.5.9-1.8 0-2.3L7.4 4.2Zm.7 4.7a.36 .36 0 1 0 .72 0a.36 .36 0 1 0 -.72 0Zm.2 5.9a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Zm4.5-2.8a.36 .36 0 1 0 .72 0a.36 .36 0 1 0 -.72 0Z"
+                      />
+                    </svg>
+                  </span>
+                  <span class="video-privacy-note" data-i18n="videoPrivacyNote">
+                    Haz clic para reproducir (modo privacidad YouTube)
+                  </span>
+                </div>
+              </div>
+              <div class="video-meta-bar">
+                <div>
+                  <h3 class="video-title">Tu Aroma</h3>
+                  <p class="video-sub" data-i18n="track3Sub">La Vida Es Bella</p>
+                </div>
+                <a href="https://www.youtube.com/@RAFA_930" target="_blank" rel="noopener noreferrer" class="btn btn-youtube btn-sm">
+                  <span>YouTube</span>
+                  <svg class="urban-svg-icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      class="urban-svg-fill"
+                      fill-rule="evenodd"
+                      d="M6.8 4.2h13v13h-3.6v-6.8l-9.3 9.3-2.6-2.6 9.3-9.3H6.8V4.2Zm8.8 1.9a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Zm-4.9 6.7a.32 .32 0 1 0 .64 0a.32 .32 0 1 0 -.64 0Z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- 4. Romeo y Julieta (Audio Oficial) -->
+            <article class="video-feature-card">
+              <div
+                class="video-stage"
+                data-video-id="https://youtu.be/9FYW3Fm87bE?si=_V-5k0aZrHpWvYuE"
+                data-track-title="Romeo y Julieta — RAFA 930"
+                role="button"
+                tabindex="0"
+                aria-label="Cargar y reproducir audio oficial de Romeo y Julieta en YouTube"
+              >
+                <img
+                  src="https://img.youtube.com/vi/9FYW3Fm87bE/maxresdefault.jpg"
+                  alt="Portada oficial de Romeo y Julieta de RAFA 930"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                  onerror="this.onerror=null;this.src='./assets/romeo-y-julieta.jpg';"
+                />
+                <div class="video-overlay">
+                  <span class="play-ring" aria-hidden="true">
+                    <svg class="urban-svg-icon play-urban-svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path
+                        class="urban-svg-fill"
+                        fill-rule="evenodd"
+                        d="M7.4 4.2c-.9-.55-2 .1-2 1.15v13.3c0 1.05 1.1 1.7 2 1.15l11.8-6.65c.9-.5.9-1.8 0-2.3L7.4 4.2Zm.7 4.7a.36 .36 0 1 0 .72 0a.36 .36 0 1 0 -.72 0Zm.2 5.9a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Zm4.5-2.8a.36 .36 0 1 0 .72 0a.36 .36 0 1 0 -.72 0Z"
+                      />
+                    </svg>
+                  </span>
+                  <span class="video-privacy-note" data-i18n="videoPrivacyNote">
+                    Haz clic para reproducir (modo privacidad YouTube)
+                  </span>
+                </div>
+              </div>
+              <div class="video-meta-bar">
+                <div>
+                  <h3 class="video-title">Romeo y Julieta</h3>
+                  <p class="video-sub" data-i18n="track4Sub">Audio Oficial</p>
+                </div>
+                <a href="https://www.youtube.com/@RAFA_930" target="_blank" rel="noopener noreferrer" class="btn btn-youtube btn-sm">
+                  <span>YouTube</span>
+                  <svg class="urban-svg-icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      class="urban-svg-fill"
+                      fill-rule="evenodd"
+                      d="M6.8 4.2h13v13h-3.6v-6.8l-9.3 9.3-2.6-2.6 9.3-9.3H6.8V4.2Zm8.8 1.9a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Zm-4.9 6.7a.32 .32 0 1 0 .64 0a.32 .32 0 1 0 -.64 0Z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Interactive Official Spotify Player Card -->
+          <div id="spotify-player-card" class="spotify-player-card">
+            <div class="spotify-card-bar">
+              <div class="spotify-card-brand">
+                <span class="spotify-card-icon" aria-hidden="true">
+                  <svg class="urban-svg-icon" width="22" height="22" viewBox="0 0 24 24">
+                    <path
+                      class="urban-svg-fill"
+                      d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.502 17.309c-.218.358-.684.471-1.042.253-2.855-1.745-6.449-2.14-10.684-1.173-.41.094-.82-.162-.914-.572-.094-.41.162-.82.572-.914 4.636-1.059 8.608-.616 11.815 1.364.358.218.471.684.253 1.042zm1.468-3.264c-.274.446-.86.588-1.306.314-3.269-2.009-8.252-2.592-12.119-1.417-.5.152-1.033-.133-1.185-.633-.152-.5.133-1.033.633-1.185 4.417-1.341 9.914-.689 13.663 1.615.446.274.588.86.314 1.306zm.126-3.399C15.18 8.36 8.71 8.146 4.969 9.282c-.602.183-1.242-.166-1.425-.768-.183-.602.166-1.242.768-1.425 4.316-1.31 11.458-1.063 15.98 1.621.541.321.718 1.022.397 1.563-.321.541-1.022.718-1.563.397z"
+                    />
+                  </svg>
+                </span>
+                <p class="spotify-card-label" data-i18n="spotifyCardMeta">RAFA 930 · Reproductor oficial</p>
+              </div>
+
+              <div class="spotify-card-controls">
+                <button
+                  type="button"
+                  id="spotify-open-btn"
+                  class="btn btn-spotify spotify-open-btn"
+                  aria-expanded="false"
+                  aria-controls="spotify-embed-panel"
+                  data-i18n="spotifyCardBtn"
+                >
+                  🎧 Escuchar los temas en Spotify
+                </button>
+                <button
+                  type="button"
+                  id="spotify-close-btn"
+                  class="btn btn-ghost spotify-close-btn"
+                  hidden
+                  data-i18n="spotifyCardClose"
+                >
+                  Cerrar reproductor ✕
+                </button>
+              </div>
+            </div>
+
+            <div id="spotify-embed-panel" class="spotify-embed-panel" aria-hidden="true">
+              <div id="spotify-embed-inner" class="spotify-embed-inner"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. GALERÍA DE COLABORADORES -->
+      <section id="galeria" class="section section-dark">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow" data-i18n="galEyebrow">Colaboraciones y Créditos</p>
+              <h2 class="section-title" data-i18n="galTitle">Galería de Colaboradores</h2>
+            </div>
+
+            <div class="filter-group" role="tablist" aria-label="Filtrar galería de colaboradores">
+              <button type="button" class="filter-btn is-active" data-gal-filter="all" role="tab" aria-selected="true" data-i18n="galAll">Todos (8)</button>
+              <button type="button" class="filter-btn" data-gal-filter="prod" role="tab" aria-selected="false" data-i18n="galProd">Producción y Foto</button>
+              <button type="button" class="filter-btn" data-gal-filter="vocal" role="tab" aria-selected="false" data-i18n="galVocal">Artistas</button>
+              <button type="button" class="filter-btn" data-gal-filter="model" role="tab" aria-selected="false" data-i18n="galModel">Modelos</button>
+            </div>
+          </div>
+
+          <div id="gallery-grid" class="gallery-grid"></div>
+        </div>
+      </section>
+
+      <!-- 6. BOOKING & CONTACTO FUNCIONAL -->
+      <section id="contacto" class="section section-light">
+        <div class="container contact-layout">
+          <div class="contact-info">
+            <p class="eyebrow" data-i18n="contactEyebrow">Booking & Management</p>
+            <h2 class="section-title" data-i18n="contactTitle">Contacto Directo</h2>
+            <p class="contact-lead" data-i18n="contactLead">
+              Para contratación de conciertos, festivales, colaboraciones musicales o proyectos creativos. Respuesta directa en menos de 24 horas.
+            </p>
+
+            <dl class="contact-details">
+              <div class="detail-row">
+                <dt data-i18n="contactEmailLabel">Correo oficial</dt>
+                <dd class="detail-email-dd">
+                  <a href="mailto:rafa.930music@gmail.com">rafa.930music@gmail.com</a>
+                  <button
+                    type="button"
+                    id="copy-email-btn"
+                    class="copy-email-btn"
+                    aria-label="Copiar correo oficial rafa.930music@gmail.com"
+                    title="Copiar correo"
+                  >
+                    <svg class="urban-svg-icon copy-icon-default" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        class="urban-svg-fill"
+                        fill-rule="evenodd"
+                        d="M9.5 7.2h9.8A2.2 2.2 0 0 1 21.5 9.4v10.4a2.2 2.2 0 0 1-2.2 2.2H9.5a2.2 2.2 0 0 1-2.2-2.2V9.4a2.2 2.2 0 0 1 2.2-2.2Zm-5-4.7h9.8a2.2 2.2 0 0 1 2.2 2.2v1.1H9.5A3.6 3.6 0 0 0 5.9 9.4v7.9H4.5a2.2 2.2 0 0 1-2.2-2.2V4.7a2.2 2.2 0 0 1 2.2-2.2Zm6.4 9.7v1.8h7v-1.8h-7Zm0 4.2v1.8h5.2v-1.8h-5.2ZM4 5.5a.32 .32 0 1 0 .64 0a.32 .32 0 1 0 -.64 0Zm14.2 4.6a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Zm.1 9.5a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Zm-8.5.3a.32 .32 0 1 0 .64 0a.32 .32 0 1 0 -.64 0Z"
+                      />
+                    </svg>
+                    <svg class="urban-svg-icon copy-icon-done" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        class="urban-svg-fill"
+                        fill-rule="evenodd"
+                        d="M9.5 19.2L3.2 12.9l2.7-2.7 3.6 3.6 8.6-8.6 2.7 2.7-11.3 11.3Zm-3.6-6.2a.32 .32 0 1 0 .64 0a.32 .32 0 1 0 -.64 0Zm3.4 3.4a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Zm7.7-7.7a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Z"
+                      />
+                    </svg>
+                  </button>
+                  <span id="copy-email-status" class="copy-email-status" role="status" aria-live="polite"></span>
+                </dd>
+              </div>
+              <div class="detail-row">
+                <dt>WhatsApp</dt>
+                <dd>
+                  <a href="https://wa.me/34671591814" target="_blank" rel="noopener noreferrer">+34 671 59 18 14</a>
+                </dd>
+              </div>
+              <div class="detail-row">
+                <dt data-i18n="contactLocationLabel">Ubicación</dt>
+                <dd>La Mina · Sant Adrià de Besòs (08930, Barcelona)</dd>
+              </div>
+              <div class="detail-row">
+                <dt data-i18n="contactResponseLabel">Disponibilidad</dt>
+                <dd data-i18n="contactResponseVal">Directos · Estudio · Prensa (&lt; 24h)</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Functional Contact Form with Vanilla JS Validation -->
+          <div class="contact-form-wrap">
+            <form id="contact-form" class="contact-form" novalidate>
+              <!-- Anti-bot honeypot field -->
+              <div class="honeypot-field" aria-hidden="true">
+                <label for="website_url">Website URL</label>
+                <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="contact-name" data-i18n="lblName">Nombre completo *</label>
+                  <input
+                    type="text"
+                    id="contact-name"
+                    name="name"
+                    required
+                    minlength="2"
+                    maxlength="100"
+                    autocomplete="name"
+                    placeholder="Tu nombre o entidad"
+                    data-i18n-placeholder="phName"
+                  />
+                  <span class="field-error" id="err-name" aria-live="polite"></span>
+                </div>
+
+                <div class="form-field">
+                  <label for="contact-email" data-i18n="lblEmail">Correo electrónico *</label>
+                  <input
+                    type="email"
+                    id="contact-email"
+                    name="email"
+                    required
+                    maxlength="120"
+                    autocomplete="email"
+                    placeholder="nombre@dominio.com"
+                    data-i18n-placeholder="phEmail"
+                  />
+                  <span class="field-error" id="err-email" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="contact-phone" data-i18n="lblPhone">Teléfono / WhatsApp *</label>
+                  <input
+                    type="tel"
+                    id="contact-phone"
+                    name="phone"
+                    required
+                    maxlength="25"
+                    autocomplete="tel"
+                    placeholder="+34 600 000 000"
+                  />
+                  <span class="field-error" id="err-phone" aria-live="polite"></span>
+                </div>
+
+                <div class="form-field">
+                  <label for="contact-type" data-i18n="lblType">Tipo de consulta</label>
+                  <select id="contact-type" name="type">
+                    <option value="concierto" data-i18n="optShow">Concierto / Festival</option>
+                    <option value="featuring" data-i18n="optFeat">Colaboración / Estudio</option>
+                    <option value="visual" data-i18n="optVisual">Fotografía / Web</option>
+                    <option value="prensa" data-i18n="optPress">Prensa / Entrevista</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="contact-message" data-i18n="lblMessage">Detalles del proyecto *</label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  rows="5"
+                  required
+                  minlength="15"
+                  maxlength="1000"
+                  placeholder="Cuéntame fechas estimadas, ciudad o idea..."
+                  data-i18n-placeholder="phMessage"
+                ></textarea>
+                <span class="field-error" id="err-message" aria-live="polite"></span>
+              </div>
+
+              <div class="form-checkbox">
+                <input type="checkbox" id="contact-privacy" name="privacy" required />
+                <label for="contact-privacy" id="lbl-privacy-wrap">
+                  <span data-i18n="lblPrivacyPre">He leído y acepto la</span>
+                  <a href="./legal.html#privacidad" class="inline-legal-link" data-i18n="lblPrivacyLink">Política de Privacidad</a>
+                  <span data-i18n="lblPrivacyPost">y el tratamiento de mis datos para gestionar esta consulta. *</span>
+                </label>
+              </div>
+              <span class="field-error" id="err-privacy" aria-live="polite"></span>
+
+
+              <div class="form-submit-row">
+                <button type="submit" id="submit-btn" class="btn btn-primary" data-i18n="btnSubmit">
+                  Enviar solicitud
+                </button>
+              </div>
+
+              <!-- Primera Capa Informativa RGPD / LOPDGDD -->
+              <div class="form-rgpd-layer" aria-label="Información básica sobre protección de datos">
+                <p>
+                  <strong data-i18n="rgpdLayerRespLbl">Responsable:</strong>
+                  <span data-i18n="rgpdLayerRespVal">Rafael Moreno Román (RAFA 930) · Mataró / Sant Adrià de Besòs (08930), provincia de Barcelona, España · https://rafa930.com · rafa.930music@gmail.com</span>
+                </p>
+                <p>
+                  <strong data-i18n="rgpdLayerFinLbl">Finalidad y Legitimación:</strong>
+                  <span data-i18n="rgpdLayerFinVal">Responder tu consulta o solicitud de booking basada en tu consentimiento expreso (art. 6.1.a RGPD). No se ceden datos a terceros.</span>
+                </p>
+                <p>
+                  <strong data-i18n="rgpdLayerDerLbl">Derechos:</strong>
+                  <span data-i18n="rgpdLayerDerVal">Acceso, rectificación, supresión y oposición escribiendo a rafa.930music@gmail.com.</span>
+                  <a href="./legal.html#privacidad" class="inline-legal-link" data-i18n="rgpdLayerMore">Más información</a>
+                </p>
+              </div>
+
+              <div id="form-feedback" class="form-feedback" role="status" aria-live="polite" hidden></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Structured 4-Column Corporate Footer (Dual Chiaroscuro Contrast) -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-upper">
+        <div class="container">
+          <div class="footer-grid">
+            <!-- Column 1: Brand & Multidisciplinary Identity -->
+            <div class="footer-col footer-col-brand">
+              <a href="#inicio" class="footer-brand-row" aria-label="RAFA 930 — Inicio">
+                <img src="logo.png" alt="Logotipo oficial de RAFA 930" class="footer-logo-img unified-logo-img" width="36" height="36" loading="eager" decoding="async" />
+              </a>
+              <p class="footer-brand-desc" data-i18n="footerBrandDesc">
+                Música urbana, desarrollo de aplicaciones y webs modernas, y fotografía artística con dirección visual en claroscuro desde Barcelona.
+              </p>
+            </div>
+
+            <!-- Column 2: Sections Navigation -->
+            <div class="footer-col">
+              <h3 class="footer-heading" data-i18n="footerNavTitle">Secciones</h3>
+              <ul class="footer-nav-list">
+                <li><a href="#inicio" class="footer-nav-link" data-i18n="navHome">Inicio</a></li>
+                <li><a href="#biografia" class="footer-nav-link" data-i18n="navBio">Biografía</a></li>
+                <li><a href="#especialidades" class="footer-nav-link" data-i18n="navSpecialties">Especialidades</a></li>
+                <li><a href="#discografia" class="footer-nav-link" data-i18n="navDiscography">Música</a></li>
+                <li><a href="#galeria" class="footer-nav-link" data-i18n="navGallery">Galería</a></li>
+                <li><a href="#contacto" class="footer-nav-link" data-i18n="navContact">Contacto</a></li>
+              </ul>
+            </div>
+
+            <!-- Column 3: Official Streaming & Social Platforms -->
+            <div class="footer-col">
+              <h3 class="footer-heading" data-i18n="footerPlatformsTitle">Plataformas</h3>
+              <ul class="footer-platforms-list" aria-label="Plataformas oficiales">
+                <li>
+                  <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" target="_blank" rel="noopener noreferrer" class="footer-platform-pill is-spotify">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.502 17.309c-.218.358-.684.471-1.042.253-2.855-1.745-6.449-2.14-10.684-1.173-.41.094-.82-.162-.914-.572-.094-.41.162-.82.572-.914 4.636-1.059 8.608-.616 11.815 1.364.358.218.471.684.253 1.042zm1.468-3.264c-.274.446-.86.588-1.306.314-3.269-2.009-8.252-2.592-12.119-1.417-.5.152-1.033-.133-1.185-.633-.152-.5.133-1.033.633-1.185 4.417-1.341 9.914-.689 13.663 1.615.446.274.588.86.314 1.306zm.126-3.399C15.18 8.36 8.71 8.146 4.969 9.282c-.602.183-1.242-.166-1.425-.768-.183-.602.166-1.242.768-1.425 4.316-1.31 11.458-1.063 15.98 1.621.541.321.718 1.022.397 1.563-.321.541-1.022.718-1.563.397z"/></svg>
+                    <span>Spotify</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/@rafa_930" target="_blank" rel="noopener noreferrer" class="footer-platform-pill is-youtube">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.377.505 9.377.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    <span>YouTube</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/rafa930_oficial" target="_blank" rel="noopener noreferrer" class="footer-platform-pill is-instagram">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    <span>Instagram</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.tiktok.com/@rafa930_oficial" target="_blank" rel="noopener noreferrer" class="footer-platform-pill is-tiktok footer-tiktok-link">
+                    <svg class="tiktok-logo" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                      <path class="tk-cyan" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.81a8.23 8.23 0 0 0 4.76 1.51V6.87a4.82 4.82 0 0 1-1-.18z" transform="translate(-0.8 -0.6)"/>
+                      <path class="tk-pink" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.81a8.23 8.23 0 0 0 4.76 1.51V6.87a4.82 4.82 0 0 1-1-.18z" transform="translate(0.8 0.6)"/>
+                      <path class="tk-white" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.81a8.23 8.23 0 0 0 4.76 1.51V6.87a4.82 4.82 0 0 1-1-.18z"/>
+                    </svg>
+                    <span>TikTok</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://music.apple.com/es/artist/rafa-930/1724193275" target="_blank" rel="noopener noreferrer" class="footer-platform-pill is-apple">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm3.7 12.2a2 2 0 1 1-1.3-1.9V8.4l-4.4 1.1v5.8a2 2 0 1 1-1.3-1.9V8l5.7-1.4a.6.6 0 0 1 .7.6z"/></svg>
+                    <span>Apple Music</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 4: Legal & RGPD / Cookies -->
+            <div class="footer-col">
+              <h3 class="footer-heading" data-i18n="footerLegalTitle">Legal</h3>
+              <ul class="footer-legal-list">
+                <li><a href="./legal.html#aviso-legal" class="footer-legal-btn" data-i18n="footerNotice">Aviso Legal</a></li>
+                <li><a href="./legal.html#privacidad" class="footer-legal-btn" data-i18n="footerPrivacy">Política de Privacidad</a></li>
+                <li><a href="./legal.html#cookies" class="footer-legal-btn" data-i18n="footerCookies">Política de Cookies</a></li>
+                <li><button type="button" id="open-cookie-prefs-btn" class="footer-legal-btn footer-cookie-trigger" data-i18n="footerCookiePrefs">Configurar Cookies</button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div class="container footer-bottom">
+          <p class="footer-copy" data-i18n="footerCopyright">
+            © 2026 RAFA 930 · Rafael Moreno Román · rafa930.com. Todos los derechos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating GDPR / LSSI-CE Cookie Consent Banner (Executive Balanced Buttons) -->
+    <aside id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Preferencias de cookies" hidden>
+      <div class="cookie-banner-content">
+        <p class="cookie-banner-title" data-i18n="cookieBannerTitle">Uso de cookies</p>
+        <p class="cookie-banner-text" data-i18n="cookieBannerText">
+          Utilizamos almacenamiento técnico necesario para el funcionamiento básico y, si nos das permiso, el reproductor de YouTube con privacidad mejorada.
+        </p>
+        <a href="./legal.html#cookies" class="cookie-policy-inline-link" data-i18n="cookieReadPolicy">
+          Ver Política de Cookies
+        </a>
+      </div>
+      <div class="cookie-banner-actions">
+        <button type="button" id="cookie-accept-btn" class="btn btn-secondary btn-sm cookie-equal-btn" data-i18n="cookieAccept">
+          Aceptar todas
+        </button>
+        <button type="button" id="cookie-reject-btn" class="btn btn-secondary btn-sm cookie-equal-btn" data-i18n="cookieReject">
+          Rechazar
+        </button>
+        <button type="button" id="cookie-prefs-btn" class="btn btn-secondary btn-sm cookie-equal-btn" data-i18n="cookieConfigure">
+          Configurar
+        </button>
+      </div>
+    </aside>
+
+    <!-- Discreet Floating Cookie Trigger (Bottom-Left) -->
+    <button
+      type="button"
+      id="floating-cookie-btn"
+      class="floating-cookie-btn"
+      aria-label="Configurar cookies"
+      title="Configurar cookies"
+    >
+      <svg class="cookie-urban-svg" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+        <defs>
+          <linearGradient id="cookie-brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#2563eb" />
+            <stop offset="100%" stop-color="#7c3aed" />
+          </linearGradient>
+          <mask id="cookie-urban-mask">
+            <path
+              fill="#ffffff"
+              d="M12 2.5A3.6 3.6 0 0 0 16 7.6A3.8 3.8 0 0 0 21.5 11.6A9.5 9.5 0 1 1 12 2.5Z"
+            />
+            <circle cx="8" cy="7.6" r="1.45" fill="#000000" />
+            <circle cx="6.4" cy="13.2" r="1.25" fill="#000000" />
+            <circle cx="11.6" cy="11.8" r="1.55" fill="#000000" />
+            <circle cx="9.8" cy="17.1" r="1.35" fill="#000000" />
+            <circle cx="16.2" cy="15.4" r="1.4" fill="#000000" />
+            <g fill="#000000" opacity="0.65">
+              <circle cx="10.8" cy="5.6" r="0.32" />
+              <circle cx="5.2" cy="10.2" r="0.28" />
+              <circle cx="13.9" cy="9.2" r="0.34" />
+              <circle cx="8.4" cy="11.1" r="0.26" />
+              <circle cx="14.6" cy="12.6" r="0.3" />
+              <circle cx="6.8" cy="16.1" r="0.3" />
+              <circle cx="13.2" cy="16.4" r="0.32" />
+              <circle cx="18.6" cy="13.7" r="0.28" />
+              <circle cx="12.8" cy="19.1" r="0.28" />
+              <circle cx="15.4" cy="18.2" r="0.25" />
+            </g>
+          </mask>
+        </defs>
+        <rect class="cookie-urban-path" x="0" y="0" width="24" height="24" mask="url(#cookie-urban-mask)" />
+      </svg>
+    </button>
+
+    <!-- Discreet Floating Action Buttons (Quick Access + Scroll To Top) -->
+    <div id="floating-actions" class="floating-actions" aria-label="Accesos rápidos flotantes">
+      <div id="fab-menu" class="fab-menu" role="menu" aria-label="Enlaces rápidos" hidden>
+        <a href="https://open.spotify.com/artist/2YyY3BFuxnqeYXlupNRcng" target="_blank" rel="noopener noreferrer" class="fab-menu-item is-spotify" role="menuitem">Spotify</a>
+        <a href="https://www.youtube.com/@rafa_930" target="_blank" rel="noopener noreferrer" class="fab-menu-item is-youtube" role="menuitem">YouTube</a>
+        <a href="https://www.instagram.com/rafa930_oficial" target="_blank" rel="noopener noreferrer" class="fab-menu-item is-instagram" role="menuitem">Instagram</a>
+        <a href="https://wa.me/34671591814" target="_blank" rel="noopener noreferrer" class="fab-menu-item is-whatsapp" role="menuitem">WhatsApp</a>
+        <a href="#contacto" class="fab-menu-item is-contact" role="menuitem" data-i18n="fabContact">Contacto</a>
+      </div>
+
+      <button
+        type="button"
+        id="fab-scroll-top"
+        class="fab-btn fab-btn-top"
+        aria-label="Volver arriba"
+        title="Volver arriba"
+      >
+        <svg class="urban-svg-icon fab-top-svg" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            class="urban-svg-fill"
+            fill-rule="evenodd"
+            d="M12 3.4L3.5 11.9l2.7 2.7 3.9-3.9v9.9h3.8v-9.9l3.9 3.9 2.7-2.7L12 3.4Zm-.3 4.3a.36 .36 0 1 0 .72 0a.36 .36 0 1 0 -.72 0ZM6.9 10.9a.32 .32 0 1 0 .64 0a.32 .32 0 1 0 -.64 0Zm9.7 0a.32 .32 0 1 0 .64 0a.32 .32 0 1 0 -.64 0Zm-4.9 5.5a.36 .36 0 1 0 .72 0a.36 .36 0 1 0 -.72 0Z"
+          />
+        </svg>
+      </button>
+
+      <button
+        type="button"
+        id="fab-quick-toggle"
+        class="fab-btn fab-btn-brand"
+        aria-expanded="false"
+        aria-controls="fab-menu"
+        aria-label="Abrir accesos rápidos de música y contacto"
+        title="Música y Contacto"
+      >
+        <svg class="urban-svg-icon fab-music-svg" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            class="urban-svg-fill"
+            fill-rule="evenodd"
+            d="M20.8 2.8c0-.85-.75-1.5-1.6-1.35L8.2 3.4c-.75.13-1.3.78-1.3 1.54v9.66a3.9 3.9 0 1 0 2.7 3.7V9.1l8.5-1.5v5a3.9 3.9 0 1 0 2.7 3.7V2.8ZM8 6.4a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Zm6.8-1a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0ZM7.9 12.4a.3 .3 0 1 0 .6 0a.3 .3 0 1 0 -.6 0ZM5.1 18.4a.38 .38 0 1 0 .76 0a.38 .38 0 1 0 -.76 0Zm14-7.4a.3 .3 0 1 0 .6 0a.3 .3 0 1 0 -.6 0Zm-2.6 5.4a.38 .38 0 1 0 .76 0a.38 .38 0 1 0 -.76 0Z"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Accessible Cookie Preferences Modal -->
+    <dialog id="cookie-prefs-dialog" class="modal-dialog" aria-labelledby="cookie-prefs-title">
+      <div class="modal-card cookie-prefs-card">
+        <button type="button" id="cookie-prefs-close" class="modal-close" aria-label="Cerrar configuración de cookies">
+          <svg class="urban-svg-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              class="urban-svg-fill"
+              fill-rule="evenodd"
+              d="M5.6 3.4L12 9.8l6.4-6.4 2.2 2.2L14.2 12l6.4 6.4-2.2 2.2L12 14.2l-6.4 6.4-2.2-2.2L9.8 12 3.4 5.6 5.6 3.4Zm1 3.4a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Zm10.2 0a.32 .32 0 1 0 .64 0a.32 .32 0 1 0 -.64 0Zm-5.1 5.2a.36 .36 0 1 0 .72 0a.36 .36 0 1 0 -.72 0Zm-4.9 5.1a.32 .32 0 1 0 .64 0a.32 .32 0 1 0 -.64 0Zm9.7 0a.34 .34 0 1 0 .68 0a.34 .34 0 1 0 -.68 0Z"
+            />
+          </svg>
+        </button>
+        <span class="eyebrow" data-i18n="cookiePrefsEyebrow">RGPD · LSSI-CE</span>
+        <h2 id="cookie-prefs-title" data-i18n="cookiePrefsTitle">Configuración de Cookies</h2>
+        <p class="legal-intro" data-i18n="cookiePrefsIntro">
+          Elige qué categorías autorizas en rafa930.com. Solo empleamos almacenamiento técnico esencial y reproducción externa de YouTube bajo privacidad mejorada.
+        </p>
+
+        <div class="cookie-options-list">
+          <div class="cookie-option-row">
+            <div class="cookie-option-info">
+              <strong data-i18n="cookieCatTechTitle">1. Técnicas necesarias</strong>
+              <p data-i18n="cookieCatTechDesc">
+                Almacena tu elección de cookies e idioma técnico para garantizar el funcionamiento básico.
+              </p>
+            </div>
+            <label class="switch-control is-locked">
+              <input type="checkbox" checked disabled aria-label="Cookies técnicas siempre activas" />
+              <span class="switch-badge" data-i18n="cookieAlwaysOn">Siempre activas</span>
+            </label>
+          </div>
+
+          <div class="cookie-option-row">
+            <div class="cookie-option-info">
+              <strong data-i18n="cookieCatMediaTitle">2. Reproductor YouTube (privacidad mejorada)</strong>
+              <p data-i18n="cookieCatMediaDesc">
+                Carga los videoclips mediante youtube-nocookie.com al hacer clic para reproducirlos.
+              </p>
+            </div>
+            <label class="switch-control">
+              <input type="checkbox" id="pref-media-toggle" />
+              <span class="switch-slider" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="cookie-prefs-actions">
+          <button type="button" id="prefs-reject-btn" class="btn btn-secondary btn-sm cookie-equal-btn" data-i18n="cookieReject">Rechazar</button>
+          <button type="button" id="prefs-save-btn" class="btn btn-secondary btn-sm cookie-equal-btn" data-i18n="cookieSavePrefs">Guardar</button>
+          <button type="button" id="prefs-accept-all-btn" class="btn btn-secondary btn-sm cookie-equal-btn" data-i18n="cookieAccept">Aceptar todas</button>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Invisible Background Audio Track -->
+    <audio id="bg-music" src="De Vuelta.mp3" preload="auto" loop hidden aria-hidden="true"></audio>
+
+    <!-- Pure ES6+ Vanilla JavaScript -->
+    <script type="module" src="./script.js"></script>
   </body>
 </html>
